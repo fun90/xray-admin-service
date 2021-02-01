@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+
+	<groupId>com.jhl</groupId>
+	<artifactId>xray-admin-service</artifactId>
+	<version>3.1.8-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<modelVersion>4.0.0</modelVersion>
+	<scm>
+		<url>https://github.com/master-coder-ll/v2ray-web-manager</url>
+		<connection>
+			scm:git:git://github.com/master-coder-ll/v2ray-web-manager.git
+		</connection>
+		<developerConnection>
+			scm:git:ssh://git@kxsw/master-coder-ll/v2ray-web-manager
+		</developerConnection>
+		<tag>1.1</tag>
+	</scm>
+	<developers>
+		<developer>
+			<name>master-coder-ll</name>
+			<email/>
+		</developer>
+	</developers>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+	<modules>
+		<module>xray-jdk</module>
+		<module>xray-common</module>
+		<module>xray-api</module>
+	</modules>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
+				<configuration>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<tagNameFormat>v@{project.version}</tagNameFormat>
+					<generateReleasePoms>false</generateReleasePoms>
+					<arguments>-DskipTests</arguments>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.2</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
