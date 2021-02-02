@@ -36,14 +36,14 @@ public class InternalConstant {
 			String lastVersion = StringUtils.removeStartIgnoreCase(tagName, "v");
 			String body = forObject.getString("body").replaceAll("#", "");
 			log.info("===========================================");
-			log.info("欢迎使用 xray-admin-service，当前版本v" + version);
+			log.info("欢迎使用 xray-admin-service");
 			int r = Utils.compareVersion(version, lastVersion);
 			if (r == 0) {
-				log.info("欢迎使用 xray-admin-service，当前运行的是最新版本: v{}", lastVersion);
+				log.info("当前运行的是最新版本: v{}", lastVersion);
 			} else if (r == -1) {
-				log.info("欢迎使用 xray-admin-service，当前版本: v{}，可更新至最新版本：v{}", version, lastVersion);
+				log.info("当前版本: v{}，可更新至最新版本：v{}", version, lastVersion);
 			} else {
-				log.info("欢迎使用 xray-admin-service，当前版本: v{}", version);
+				log.info("当前版本: v{}", version);
 			}
 			log.info("===========================================");
 		}).start();

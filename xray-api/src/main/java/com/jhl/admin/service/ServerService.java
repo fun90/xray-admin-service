@@ -1,6 +1,7 @@
 package com.jhl.admin.service;
 
 import com.jhl.admin.constant.enumObject.StatusEnum;
+import com.jhl.admin.model.Account;
 import com.jhl.admin.model.Server;
 import com.jhl.admin.repository.ServerRepository;
 import com.jhl.admin.util.Validator;
@@ -8,13 +9,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
 
 @Service
 public class ServerService {
 
 	@Autowired
 	ServerRepository serverRepository;
+
+	public List<Server> distinctServers(Account account) {
+		List<Server> allServers = this.listByLevel(account.getLevel());
+		Map<String, Server> serverMap = new HashMap<>();
+		allServers.forEach(o -> {
+			serverMap.putIfAbsent(o.getV2rayIp() + ":" + o.getV2rayManagerPort(), o);
+		});
+		return new ArrayList<>(serverMap.values());
+	}
 
 
 	public List<Server> listByLevel(Short level) {

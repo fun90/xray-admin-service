@@ -5,7 +5,8 @@ import com.google.common.collect.Lists;
 import com.jhl.admin.entity.V2rayAccount;
 import com.jhl.admin.model.Account;
 import com.jhl.admin.model.Server;
-import com.ljh.common.model.ProxyAccount;
+import com.jhl.admin.model.ProxyAccount;
+import com.jhl.admin.model.User;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -60,27 +61,12 @@ public class V2RayProxyEvent implements ProxyEvent {
 	}
 
 	public ProxyAccount buildProxyAccount() {
-		ProxyAccount proxyAccount = new ProxyAccount();
-		//V2rayAccount v2rayAccount = JSON.parseObject(account.getContent(), V2rayAccount.class);
-		String id
-				= account.getUuid() == null ?
-				v2rayAccountService.buildV2rayAccount(Lists.newArrayList(server), account).get(0).getId()
-				: account.getUuid();
-		proxyAccount.setAccountId(account.getId());
-		proxyAccount.setAccountNo(account.getAccountNo());
-		proxyAccount.setAlterId(account.getMaxConnection());
-		proxyAccount.setDownTrafficLimit(account.getSpeed());
-		proxyAccount.setEmail(email);
-		proxyAccount.setId(id);
-		proxyAccount.setInBoundTag(server.getInboundTag());
-		proxyAccount.setMaxConnection(account.getMaxConnection());
-		proxyAccount.setUpTrafficLimit(account.getSpeed());
-		proxyAccount.setV2rayHost(server.getV2rayIp());
-		proxyAccount.setV2rayPort(server.getV2rayPort());
-		proxyAccount.setV2rayManagerPort(server.getV2rayManagerPort());
-		proxyAccount.setHost(server.getClientDomain());
-		proxyAccount.setProxyIp(server.getProxyIp());
-		return proxyAccount;
+//		String uuid = account.getUuid();
+//		if (uuid == null) {
+//			uuid = v2rayAccountService.buildV2rayAccount(Lists.newArrayList(server), account).get(0).getId();
+//			account.setUuid(uuid);
+//		}
+		return ProxyAccount.build(account, User.builder().email(email).build(), server);
 	}
 
 	public List<String> buildProxyServerUrl() {

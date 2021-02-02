@@ -128,13 +128,7 @@ public class ProxyEventService {
 		Integer userId = account.getUserId();
 		User user = userRepository.findById(userId).orElse(null);
 		Assert.notNull(user, "user is null");
-
-		List<Server> allServers = serverService.listByLevel(account.getLevel());
-		Map<String, Server> serverMap = new HashMap<>();
-		allServers.forEach(o -> {
-			serverMap.putIfAbsent(o.getV2rayIp() + ":" + o.getV2rayManagerPort(), o);
-		});
-		Collection<Server> servers = serverMap.values();
+		List<Server> servers = serverService.distinctServers(account);
 		List<V2RayProxyEvent> v2RayProxyEvents = new ArrayList<>(servers.size());
 		for (Server server : servers)
 			v2RayProxyEvents.add(new V2RayProxyEvent(xrayService, server, account, user.getEmail(), opName, v2rayAccountService));

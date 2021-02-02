@@ -1,7 +1,7 @@
 package com.test.test;
 
 import com.jhl.admin.service.v2ray.XrayService;
-import com.ljh.common.model.ProxyAccount;
+import com.jhl.admin.model.ProxyAccount;
 
 public class XrayServiceTest {
 //	static String API_ADDRESS = "64.64.235.96";

@@ -1,5 +1,6 @@
-package com.ljh.common.model;
+package com.jhl.admin.model;
 
+import com.google.common.collect.Lists;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -58,5 +59,22 @@ public class ProxyAccount implements Serializable {
 	 */
 	private String proxyIp;
 
-
+	public static ProxyAccount build(Account account, User user, Server server) {
+		ProxyAccount proxyAccount = new ProxyAccount();
+		proxyAccount.setAccountId(account.getId());
+		proxyAccount.setAccountNo(account.getAccountNo());
+		proxyAccount.setAlterId(account.getMaxConnection());
+		proxyAccount.setDownTrafficLimit(account.getSpeed());
+		proxyAccount.setEmail(user.getEmail());
+		proxyAccount.setId(account.getUuid());
+		proxyAccount.setInBoundTag(server.getInboundTag());
+		proxyAccount.setMaxConnection(account.getMaxConnection());
+		proxyAccount.setUpTrafficLimit(account.getSpeed());
+		proxyAccount.setV2rayHost(server.getV2rayIp());
+		proxyAccount.setV2rayPort(server.getV2rayPort());
+		proxyAccount.setV2rayManagerPort(server.getV2rayManagerPort());
+		proxyAccount.setHost(server.getClientDomain());
+		proxyAccount.setProxyIp(server.getProxyIp());
+		return proxyAccount;
+	}
 }
