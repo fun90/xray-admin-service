@@ -45,6 +45,7 @@ public class ProxyEventService {
 	public void reloadProxyAccounts() {
 		List<Account> allAccount = accountRepository.findAll(Example.of(Account.builder().status(1).build()));
 		allAccount.forEach(account -> {
+			addProxyEvent(buildV2RayProxyEvent(account, ProxyEvent.RM_EVENT));
 			addProxyEvent(buildV2RayProxyEvent(account, ProxyEvent.ADD_EVENT));
 		});
 	}
