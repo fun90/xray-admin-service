@@ -16,7 +16,10 @@ import com.xray.common.protocol.User;
 import com.xray.common.serial.TypedMessage;
 import io.grpc.StatusRuntimeException;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Slf4j
 @Service
@@ -25,26 +28,40 @@ public class XrayService {
 	private final String uplinkFormat = "user>>>%s>>>traffic>>>uplink";
 	private final String downlinkFormat = "user>>>%s>>>traffic>>>downlink";
 
-	public void rmProxyAccount(String host, Integer port, ProxyAccount proxyAccount) {
-		try {
-			XrayApiClient client = XrayApiClient.getInstance(host, port);
-			TypedMessage rmOp = TypedMessage.newBuilder().setType(RemoveUserOperation.getDescriptor().getFullName())
-					.setValue(RemoveUserOperation.newBuilder().setEmail(proxyAccount.getEmail()).build().toByteString()).build();
-			AlterInboundRequest req = AlterInboundRequest.newBuilder().setTag(proxyAccount.getInBoundTag()).setOperation(rmOp).build();
-			client.getHandlerServiceBlockingStub().alterInbound(req);
-			log.info("rmProxyAccount success:{}", proxyAccount.getEmail());
-		} catch (Exception e) {
-			if (e.getLocalizedMessage().contains("not found")) {
-				log.info("rmProxyAccount already removed:{}", proxyAccount.getEmail());
-				return;
+	public void rmProxyAccount(ProxyAccount proxyAccount) {
+		List<Server> servers = proxyAccount.getServers();
+		servers.forEach(server -> {
+			try {
+					XrayApiClient client = XrayApiClient.getInstance(server.getV2rayIp(), server.getV2rayManagerPort());
+					TypedMessage rmOp = TypedMessage.newBuilder().setType(RemoveUserOperation.getDescriptor().getFullName())
+							.setValue(RemoveUserOperation.newBuilder().setEmail(proxyAccount.getEmail()).build().toByteString()).build();
+					AlterInboundRequest req = AlterInboundRequest.newBuilder().setTag(server.getInboundTag()).setOperation(rmOp).build();
+					client.getHandlerServiceBlockingStub().alterInbound(req);
+					log.info("rmProxyAccount success:{}, protocol:{}", proxyAccount.getEmail(), server.getProtocol());
+			} catch (Exception e) {
+				if (StringUtils.contains(e.getLocalizedMessage(), "not found")) {
+					log.info("rmProxyAccount already removed:{}, protocol:{}", proxyAccount.getEmail(), server.getProtocol());
+					return;
+				}
+				log.error("rmProxyAccount error:{},{}", e.getLocalizedMessage(), new Gson().toJson(proxyAccount), e);
 			}
-			log.error("rmProxyAccount error:{},{}", e.getLocalizedMessage(), new Gson().toJson(proxyAccount), e);
+		});
+	}
+
+	public void addProxyAccount(ProxyAccount proxyAccount) {
+		List<Server> servers = proxyAccount.getServers();
+		for (Server server : servers) {
+			if ("VLESS".equalsIgnoreCase(server.getProtocol())) {
+				addVLESSAccount(proxyAccount, server);
+			} else {
+				addVMESSAccount(proxyAccount, server);
+			}
 		}
 	}
 
-	public void addProxyAccount(String host, Integer port, ProxyAccount proxyAccount) {
+	private void addVMESSAccount(ProxyAccount proxyAccount, Server server) {
 		try {
-			XrayApiClient client = XrayApiClient.getInstance(host, port);
+			XrayApiClient client = XrayApiClient.getInstance(server.getV2rayIp(), server.getV2rayManagerPort());
 			com.xray.proxy.vmess.Account account = com.xray.proxy.vmess.Account.newBuilder().setAlterId(proxyAccount.getAlterId()).setId(proxyAccount.getId())
 					.setSecuritySettings(SecurityConfig.newBuilder().setType(SecurityType.AUTO).build()).build();
 
@@ -58,11 +75,38 @@ public class XrayService {
 			TypedMessage typedMessage = TypedMessage.newBuilder().setType(AddUserOperation.getDescriptor().getFullName())
 					.setValue(addUserOperation.toByteString()).build();
 
-			client.getHandlerServiceBlockingStub().alterInbound(AlterInboundRequest.newBuilder().setTag(proxyAccount.getInBoundTag()).setOperation(typedMessage).build());
-			log.info("addProxyAccount success:{}", proxyAccount.getEmail());
+			client.getHandlerServiceBlockingStub().alterInbound(AlterInboundRequest.newBuilder().setTag(server.getInboundTag()).setOperation(typedMessage).build());
+			log.info("addVMESSAccount success:{}", proxyAccount.getEmail());
 		} catch (Exception e) {
-			if (e.getLocalizedMessage().contains("already exists")) {
-				log.info("addProxyAccount already exists:{}", proxyAccount.getEmail());
+			if (StringUtils.contains(e.getLocalizedMessage(), "already exists")) {
+				log.info("addVMESSAccount already exists:{}", proxyAccount.getEmail());
+				return;
+			}
+			log.error("addVMESSAccount error:{},{}", e.getLocalizedMessage(), new Gson().toJson(proxyAccount), e);
+		}
+	}
+
+	private void addVLESSAccount(ProxyAccount proxyAccount, Server server) {
+		try {
+			XrayApiClient client = XrayApiClient.getInstance(server.getV2rayIp(), server.getV2rayManagerPort());
+			com.xray.proxy.vless.Account account = com.xray.proxy.vless.Account.newBuilder().setId(proxyAccount.getId())
+					.setEncryption("none").setFlow("xtls-rprx-direct").build();
+
+			TypedMessage AccountTypedMsg = TypedMessage.newBuilder().
+					setType(com.xray.proxy.vless.Account.getDescriptor().getFullName()
+					).setValue(account.toByteString()).build();
+
+			User user = User.newBuilder().setEmail(proxyAccount.getEmail()).setLevel(proxyAccount.getLevel()).setAccount(AccountTypedMsg).build();
+			AddUserOperation addUserOperation = AddUserOperation.newBuilder().setUser(user).build();
+
+			TypedMessage typedMessage = TypedMessage.newBuilder().setType(AddUserOperation.getDescriptor().getFullName())
+					.setValue(addUserOperation.toByteString()).build();
+
+			client.getHandlerServiceBlockingStub().alterInbound(AlterInboundRequest.newBuilder().setTag(server.getInboundTag()).setOperation(typedMessage).build());
+			log.info("addVLESSAccount success:{}", proxyAccount.getEmail());
+		} catch (Exception e) {
+			if (StringUtils.contains(e.getLocalizedMessage(), "already exists")) {
+				log.info("addVLESSAccount already exists:{}", proxyAccount.getEmail());
 				return;
 			}
 			log.error("addProxyAccount error:{},{}", e.getLocalizedMessage(), new Gson().toJson(proxyAccount), e);

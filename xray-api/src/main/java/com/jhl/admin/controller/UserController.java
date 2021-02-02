@@ -9,12 +9,14 @@ import com.jhl.admin.cache.UserCache;
 import com.jhl.admin.constant.enumObject.WebsiteConfigEnum;
 import com.jhl.admin.model.Account;
 import com.jhl.admin.model.InvitationCode;
+import com.jhl.admin.model.Server;
 import com.jhl.admin.model.User;
 import com.jhl.admin.repository.AccountRepository;
 import com.jhl.admin.repository.InvitationCodeRepository;
 import com.jhl.admin.repository.UserRepository;
 import com.jhl.admin.service.EmailService;
 import com.jhl.admin.service.ServerConfigService;
+import com.jhl.admin.service.ServerService;
 import com.jhl.admin.service.UserService;
 import com.jhl.admin.service.v2ray.ProxyEvent;
 import com.jhl.admin.service.v2ray.ProxyEventService;
@@ -58,6 +60,8 @@ public class UserController {
 	InvitationCodeRepository invitationCodeRepository;
 	@Autowired
 	ProxyEventService proxyEventService;
+	@Autowired
+	ServerService serverService;
 
 	@PostMapping("/login")
 	public Result login(@RequestBody UserVO user, HttpServletRequest request, HttpServletResponse response) {
@@ -270,8 +274,7 @@ public class UserController {
 
 
 		userRepository.deleteById(id);
-		if (accounts != null)
-			accountRepository.deleteAll(accounts);
+		accountRepository.deleteAll(accounts);
 
 		return Result.doSuccess();
 	}

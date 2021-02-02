@@ -14,7 +14,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Server extends BaseEntity implements Serializable {
+public class Server extends BaseEntity implements Serializable, Cloneable {
 
 
 	private String serverName;
@@ -54,6 +54,9 @@ public class Server extends BaseEntity implements Serializable {
 	//ws路径
 	private String wsPath = "/ws/%s/";
 
-
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
 }
 

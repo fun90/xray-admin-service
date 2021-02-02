@@ -53,7 +53,7 @@ public class AppCron {
 	SimpleDateFormat sdf = new SimpleDateFormat(KVConstant.YYYYMMddHHmmss);
 	private long G = 1024 * 1024 * 1024L;
 
-	@Scheduled(cron = "0 0/1 * * * ?")
+	@Scheduled(cron = "0 0/10 * * * ?")
 	public void stat() {
 		Date today = new Date();
 		log.info("======= 统计流量任务开始 =======");

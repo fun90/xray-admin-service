@@ -50,7 +50,8 @@ public class AccountService {
 	UserService userService;
 	@Autowired
 	SubscriptionService subscriptionService;
-
+	@Autowired
+	ServerService serverService;
 
 	@Autowired
 	private ProxyConstant proxyConstant;

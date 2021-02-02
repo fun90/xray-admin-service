@@ -21,7 +21,7 @@ public class ServerService {
 		List<Server> allServers = this.listByLevel(account.getLevel());
 		Map<String, Server> serverMap = new HashMap<>();
 		allServers.forEach(o -> {
-			serverMap.putIfAbsent(o.getV2rayIp() + ":" + o.getV2rayManagerPort(), o);
+			serverMap.putIfAbsent(o.getV2rayIp() + ":" + o.getV2rayManagerPort() + ":" + o.getInboundTag(), o);
 		});
 		return new ArrayList<>(serverMap.values());
 	}

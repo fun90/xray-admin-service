@@ -15,7 +15,9 @@ import org.springframework.util.Assert;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.PostConstruct;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
@@ -43,7 +45,6 @@ public class ProxyEventService {
 	public void reloadProxyAccounts() {
 		List<Account> allAccount = accountRepository.findAll(Example.of(Account.builder().status(1).build()));
 		allAccount.forEach(account -> {
-			addProxyEvent(buildV2RayProxyEvent(account, ProxyEvent.RM_EVENT));
 			addProxyEvent(buildV2RayProxyEvent(account, ProxyEvent.ADD_EVENT));
 		});
 	}
@@ -60,10 +61,6 @@ public class ProxyEventService {
 			}
 		}
 
-	}
-
-	public void addProxyEvent(ProxyEvent proxyEvent) {
-		addProxyEvent(Arrays.asList(proxyEvent));
 	}
 
 	@PostConstruct
@@ -117,21 +114,8 @@ public class ProxyEventService {
 
 	public List<V2RayProxyEvent> buildV2RayProxyEvent(Account account, String opName) {
 		Assert.notNull(account, "account is null");
-		Integer serverId = account.getServerId();
-		if (serverId == null) {
-			Account builder = Account.builder().build();
-			builder.setId(account.getId());
-			account = accountRepository.findOne(Example.of(builder)).orElse(null);
-		}
-
-		Assert.notNull(account, "account is null");
-		Integer userId = account.getUserId();
-		User user = userRepository.findById(userId).orElse(null);
-		Assert.notNull(user, "user is null");
-		List<Server> servers = serverService.distinctServers(account);
-		List<V2RayProxyEvent> v2RayProxyEvents = new ArrayList<>(servers.size());
-		for (Server server : servers)
-			v2RayProxyEvents.add(new V2RayProxyEvent(xrayService, server, account, user.getEmail(), opName, v2rayAccountService));
+		List<V2RayProxyEvent> v2RayProxyEvents = new ArrayList<>();
+		v2RayProxyEvents.add(new V2RayProxyEvent(opName, account, xrayService, serverService, userRepository));
 		return v2RayProxyEvents;
 	}
 
