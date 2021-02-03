@@ -79,11 +79,8 @@ public class AppCron {
 			//流量超过,增加RM事件
 			if ((account.getBandwidth() * G) < used) {
 				log.warn("账号流量已经超强限制：accountId = {}, email = {}", account.getId(), user.getEmail());
-				//不可用状态
 				List<V2RayProxyEvent> v2RayProxyEvents = getProxyEvents(account);
 				proxyEventService.addProxyEvent(v2RayProxyEvents);
-				account.setStatus(0);
-				accountRepository.save(account);
 			}
 		});
 	}
