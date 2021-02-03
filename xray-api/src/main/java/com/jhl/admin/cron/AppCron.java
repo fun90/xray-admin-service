@@ -6,10 +6,7 @@ import com.jhl.admin.constant.enumObject.EmailEventEnum;
 import com.jhl.admin.model.*;
 import com.jhl.admin.repository.AccountRepository;
 import com.jhl.admin.repository.StatRepository;
-import com.jhl.admin.service.EmailService;
-import com.jhl.admin.service.ServerService;
-import com.jhl.admin.service.StatService;
-import com.jhl.admin.service.UserService;
+import com.jhl.admin.service.*;
 import com.jhl.admin.service.v2ray.ProxyEvent;
 import com.jhl.admin.service.v2ray.ProxyEventService;
 import com.jhl.admin.service.v2ray.V2RayProxyEvent;
@@ -31,6 +28,8 @@ public class AppCron {
 
 	@Autowired
 	AccountRepository accountRepository;
+	@Autowired
+	AccountService accountService;
 
 
 	@Autowired
@@ -113,13 +112,21 @@ public class AppCron {
 		accountList.forEach(account -> {
 
 			Date toDate = account.getToDate();
-			Integer userId = account.getUserId();
-			if (userId == null) return;
-			if (!toDate.after(now)) return;
+			if (!toDate.after(now)) {
+				if (account.getStatus() == 1) {
+					// 过期禁用账号
+					account.setStatus(0);
+					accountService.updateAccount(account);
+				}
+				return;
+			}
+
 			if (toDate.getTime() - now.getTime() <= KVConstant.MS_OF_DAY * 3L) {
+
+				Integer userId = account.getUserId();
+				if (userId == null) return;
 				User user = userService.get(userId);
 				if (user == null) return;
-
 
 				String email = user.getEmail();
 
@@ -133,11 +140,10 @@ public class AppCron {
 								.email(email)
 								.unlockDate(toDate)
 								.build());
-
-
 			}
-
 		});
 
 	}
+
+
 }
