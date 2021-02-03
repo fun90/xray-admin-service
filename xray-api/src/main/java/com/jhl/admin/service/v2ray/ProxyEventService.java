@@ -2,8 +2,6 @@ package com.jhl.admin.service.v2ray;
 
 import com.alibaba.fastjson.JSON;
 import com.jhl.admin.model.Account;
-import com.jhl.admin.model.Server;
-import com.jhl.admin.model.User;
 import com.jhl.admin.repository.AccountRepository;
 import com.jhl.admin.repository.UserRepository;
 import com.jhl.admin.service.ServerService;
@@ -16,7 +14,6 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;

@@ -1,8 +1,8 @@
 package com.test.test;
 
+import com.jhl.admin.model.ProxyAccount;
 import com.jhl.admin.model.Server;
 import com.jhl.admin.service.v2ray.XrayService;
-import com.jhl.admin.model.ProxyAccount;
 
 import java.util.ArrayList;
 import java.util.List;

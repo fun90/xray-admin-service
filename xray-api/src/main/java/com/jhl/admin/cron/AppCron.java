@@ -14,7 +14,6 @@ import com.jhl.admin.service.v2ray.ProxyEvent;
 import com.jhl.admin.service.v2ray.ProxyEventService;
 import com.jhl.admin.service.v2ray.V2RayProxyEvent;
 import com.jhl.admin.service.v2ray.XrayService;
-import com.ljh.common.model.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -73,7 +72,8 @@ public class AppCron {
 			long used =  stat.getFlow();
 			User user = userService.get(account.getUserId());
 			for (Server server : servers) {
-				used += xrayService.getDownLinkTraffic(server.getV2rayIp(), server.getV2rayManagerPort(), user.getEmail());
+				used += xrayService.getDownlinkTraffic(server.getV2rayIp(), server.getV2rayManagerPort(), user.getEmail());
+				used += xrayService.getUplinkTraffic(server.getV2rayIp(), server.getV2rayManagerPort(), user.getEmail());
 			}
 			stat.setFlow(used);
 			statRepository.save(stat);
@@ -116,7 +116,7 @@ public class AppCron {
 			Integer userId = account.getUserId();
 			if (userId == null) return;
 			if (!toDate.after(now)) return;
-			if (toDate.getTime() - now.getTime() <= KVConstant.MS_OF_DAY * 3) {
+			if (toDate.getTime() - now.getTime() <= KVConstant.MS_OF_DAY * 3L) {
 				User user = userService.get(userId);
 				if (user == null) return;
 

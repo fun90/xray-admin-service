@@ -9,7 +9,6 @@ import com.jhl.admin.cache.UserCache;
 import com.jhl.admin.constant.enumObject.WebsiteConfigEnum;
 import com.jhl.admin.model.Account;
 import com.jhl.admin.model.InvitationCode;
-import com.jhl.admin.model.Server;
 import com.jhl.admin.model.User;
 import com.jhl.admin.repository.AccountRepository;
 import com.jhl.admin.repository.InvitationCodeRepository;

@@ -2,7 +2,6 @@ package com.jhl.admin.service.v2ray;
 
 
 import com.google.gson.Gson;
-import com.jhl.admin.model.Account;
 import com.jhl.admin.model.ProxyAccount;
 import com.jhl.admin.model.Server;
 import com.xray.app.proxyman.command.AddUserOperation;
@@ -113,7 +112,7 @@ public class XrayService {
 		}
 	}
 
-	public long getDownLinkTraffic(String host, Integer port, String email) {
+	public long getDownlinkTraffic(String host, Integer port, String email) {
 		return getTraffic(host, port, email, downlinkFormat);
 	}
 
@@ -133,7 +132,7 @@ public class XrayService {
 			XrayApiClient client = XrayApiClient.getInstance(host, port);
 			GetStatsResponse res = client.getStatsServiceBlockingStub().getStats(req);
 			long t = res.getStat().getValue();
-			log.info("获取用户流量: USER " + email + " TRAFFIC " + t);
+			log.info("获取用户流量: USER {}, TRAFFIC {}, format {}", email, t, format);
 			return t;
 		} catch (StatusRuntimeException e) {
 			if (!e.getMessage().contains(q + " not found"))

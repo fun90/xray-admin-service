@@ -1,11 +1,10 @@
 package com.jhl.admin.service.v2ray;
 
 
-import com.google.common.collect.Lists;
 import com.jhl.admin.entity.V2rayAccount;
 import com.jhl.admin.model.Account;
-import com.jhl.admin.model.Server;
 import com.jhl.admin.model.ProxyAccount;
+import com.jhl.admin.model.Server;
 import com.jhl.admin.model.User;
 import com.jhl.admin.repository.UserRepository;
 import com.jhl.admin.service.ServerService;
@@ -51,10 +50,10 @@ public class V2RayProxyEvent implements ProxyEvent {
 		try {
 			if (proxyAccount == null) return;
 			List<Server> serverList = proxyAccount.getServers();
-			addVLESSServer(serverList);
+			proxyAccount.setServers(reBuildServers(serverList));
 			xrayService.rmProxyAccount(proxyAccount);
 		} catch (Exception e) {
-			log.error("rmAccount error :{}", e.getLocalizedMessage());
+			log.error("rmAccount error :{}", e.getLocalizedMessage(), e);
 		}
 	}
 
@@ -63,21 +62,25 @@ public class V2RayProxyEvent implements ProxyEvent {
 		try {
 			if (proxyAccount == null) return;
 			List<Server> serverList = proxyAccount.getServers();
-			addVLESSServer(serverList);
+			proxyAccount.setServers(reBuildServers(serverList));
 			xrayService.addProxyAccount(proxyAccount);
 		} catch (Exception e) {
-			log.error("addAccount error :{}", e.getLocalizedMessage());
+			log.error("addAccount error :{}", e.getLocalizedMessage(), e);
 		}
 	}
 
 	// 临时方案
-	private void addVLESSServer(List<Server> serverList) throws CloneNotSupportedException {
+	private List<Server> reBuildServers(List<Server> serverList) throws CloneNotSupportedException {
+		List<Server> servers = new ArrayList<>();
 		for (Server server : serverList) {
 			Server vlessServer = (Server) server.clone();
 			vlessServer.setProtocol("VLESS");
 			vlessServer.setInboundTag("vless_tcp_xtls");
-			serverList.add(vlessServer);
+			servers.add(vlessServer);
+
+			servers.add(server);
 		}
+		return servers;
 	}
 
 	public ProxyAccount buildProxyAccount() {
@@ -86,13 +89,14 @@ public class V2RayProxyEvent implements ProxyEvent {
 //			uuid = v2rayAccountService.buildV2rayAccount(Lists.newArrayList(server), account).get(0).getId();
 //			account.setUuid(uuid);
 //		}
-		List<Server> servers = serverService.distinctServers(account);
 		User user = account.getUser();
 		if (user == null) {
 			Integer userId = account.getUserId();
 			user = userRepository.findById(userId).orElse(null);
 			Assert.notNull(user, "user is null");
 		}
+		List<Server> servers = serverService.distinctServers(account);
+		Assert.notNull(servers, "servers is null");
 		return ProxyAccount.build(account, user, servers);
 	}
 

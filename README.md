@@ -1,6 +1,8 @@
 # xray-admin-service
 xray后台管理服务，由[v2ray-web-manager](https://github.com/master-coder-ll/v2ray-web-manager)改造而来
 
+[前端项目：xray-admin](https://github.com/fun90/xray-admin)
+
 To-Do List
 -   [x] 开发Xray Java API：增加/删除用户、查询流量统计
 -   [x] 支持VMESS账号（后端）
