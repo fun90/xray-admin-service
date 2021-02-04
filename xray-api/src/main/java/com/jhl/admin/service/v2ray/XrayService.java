@@ -42,7 +42,7 @@ public class XrayService {
 					log.info("rmProxyAccount already removed:{}, protocol:{}", proxyAccount.getEmail(), server.getProtocol());
 					return;
 				}
-				log.error("rmProxyAccount error:{},{}", e.getLocalizedMessage(), new Gson().toJson(proxyAccount), e);
+				log.error("rmProxyAccount error:{},{},{}", server.getProtocol(), e.getLocalizedMessage(), new Gson().toJson(proxyAccount), e);
 			}
 		});
 	}
@@ -83,7 +83,7 @@ public class XrayService {
 				log.info("addVMESSAccount already exists:{}", proxyAccount.getEmail());
 				return;
 			}
-			log.error("addVMESSAccount error:{},{}", e.getLocalizedMessage(), new Gson().toJson(proxyAccount), e);
+			log.error("addVMESSAccount error:{},{},{}", server.getProtocol(), e.getLocalizedMessage(), new Gson().toJson(proxyAccount), e);
 		}
 	}
 
@@ -110,7 +110,7 @@ public class XrayService {
 				log.info("addVLESSAccount already exists:{}", proxyAccount.getEmail());
 				return;
 			}
-			log.error("addProxyAccount error:{},{}", e.getLocalizedMessage(), new Gson().toJson(proxyAccount), e);
+			log.error("addProxyAccount error:{},{},{}", server.getProtocol(), e.getLocalizedMessage(), new Gson().toJson(proxyAccount), e);
 		}
 	}
 
@@ -121,7 +121,7 @@ public class XrayService {
 					.setFlow("xtls-rprx-direct").build();
 
 			TypedMessage AccountTypedMsg = TypedMessage.newBuilder().
-					setType(com.xray.proxy.vless.Account.getDescriptor().getFullName()
+					setType(com.xray.proxy.trojan.Account.getDescriptor().getFullName()
 					).setValue(account.toByteString()).build();
 
 			User user = User.newBuilder().setEmail(proxyAccount.getEmail()).setLevel(proxyAccount.getLevel()).setAccount(AccountTypedMsg).build();
@@ -137,7 +137,7 @@ public class XrayService {
 				log.info("addTrojanAccount already exists:{}", proxyAccount.getEmail());
 				return;
 			}
-			log.error("addTrojanAccount error:{},{}", e.getLocalizedMessage(), new Gson().toJson(proxyAccount), e);
+			log.error("addTrojanAccount error:{},{},{}", server.getProtocol(), e.getLocalizedMessage(), new Gson().toJson(proxyAccount), e);
 		}
 	}
 
