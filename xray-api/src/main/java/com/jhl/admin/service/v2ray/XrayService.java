@@ -50,8 +50,10 @@ public class XrayService {
 	public void addProxyAccount(ProxyAccount proxyAccount) {
 		List<Server> servers = proxyAccount.getServers();
 		for (Server server : servers) {
-			if ("VLESS".equalsIgnoreCase(server.getProtocol())) {
+			if ("vless".equalsIgnoreCase(server.getProtocol())) {
 				addVLESSAccount(proxyAccount, server);
+			} else if ("trojan".equalsIgnoreCase(server.getProtocol())) {
+				addTrojanAccount(proxyAccount, server);
 			} else {
 				addVMESSAccount(proxyAccount, server);
 			}
@@ -109,6 +111,33 @@ public class XrayService {
 				return;
 			}
 			log.error("addProxyAccount error:{},{}", e.getLocalizedMessage(), new Gson().toJson(proxyAccount), e);
+		}
+	}
+
+	private void addTrojanAccount(ProxyAccount proxyAccount, Server server) {
+		try {
+			XrayApiClient client = XrayApiClient.getInstance(server.getV2rayIp(), server.getV2rayManagerPort());
+			com.xray.proxy.trojan.Account account = com.xray.proxy.trojan.Account.newBuilder().setPassword(proxyAccount.getId())
+					.setFlow("xtls-rprx-direct").build();
+
+			TypedMessage AccountTypedMsg = TypedMessage.newBuilder().
+					setType(com.xray.proxy.vless.Account.getDescriptor().getFullName()
+					).setValue(account.toByteString()).build();
+
+			User user = User.newBuilder().setEmail(proxyAccount.getEmail()).setLevel(proxyAccount.getLevel()).setAccount(AccountTypedMsg).build();
+			AddUserOperation addUserOperation = AddUserOperation.newBuilder().setUser(user).build();
+
+			TypedMessage typedMessage = TypedMessage.newBuilder().setType(AddUserOperation.getDescriptor().getFullName())
+					.setValue(addUserOperation.toByteString()).build();
+
+			client.getHandlerServiceBlockingStub().alterInbound(AlterInboundRequest.newBuilder().setTag(server.getInboundTag()).setOperation(typedMessage).build());
+			log.info("addTrojanAccount success:{}", proxyAccount.getEmail());
+		} catch (Exception e) {
+			if (StringUtils.contains(e.getLocalizedMessage(), "already exists")) {
+				log.info("addTrojanAccount already exists:{}", proxyAccount.getEmail());
+				return;
+			}
+			log.error("addTrojanAccount error:{},{}", e.getLocalizedMessage(), new Gson().toJson(proxyAccount), e);
 		}
 	}
 

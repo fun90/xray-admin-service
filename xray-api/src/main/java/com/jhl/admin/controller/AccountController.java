@@ -35,6 +35,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Slf4j
 @Controller
@@ -89,10 +90,10 @@ public class AccountController {
 	@PutMapping("/account")
 	public Result updateAccount(@RequestBody AccountVO account) {
 		if (account == null || account.getId() == null) throw new NullPointerException("不能为空");
+		account.setSubscriptionUrl(null);
 		accountService.updateAccount(account.toModel(Account.class));
 		return Result.doSuccess();
 	}
-
 
 	/**
 	 * 根据服务器获取一个V2rayAccount
@@ -192,7 +193,14 @@ public class AccountController {
 			total = accounts == null ? 0l : accounts.size();
 		}
 		List<AccountVO> accountVOList = BaseEntity.toVOList(accounts, AccountVO.class);
+		ServerConfig subConverter = serverConfigService.getServerConfig(WebsiteConfigEnum.SUB_CONVERTER_ADDRESS.getKey());
+		ServerConfig serverConfig = serverConfigService.getServerConfig(WebsiteConfigEnum.SUBSCRIPTION_ADDRESS_PREFIX.getKey());
 		accountVOList.forEach(account -> {
+			account.setSubconverterUrl(subConverter.getValue());
+			String subscriptionUrl = account.getSubscriptionUrl();
+			if (StringUtils.isNoneBlank(subscriptionUrl)) {
+				account.setSubscriptionUrl(serverConfig.getValue() + subscriptionUrl);
+			}
 			accountService.fillAccount(date, account);
 		});
 		return Result.buildPageObject(total, accountVOList);
@@ -212,6 +220,27 @@ public class AccountController {
 		Integer accountId = accountService.getAccount(user.getId()).getId();
 		accountService.generatorSubscriptionUrl(accountId, type);
 		return Result.doSuccess();
+	}
+
+	/**
+	 * 生成订阅url
+	 *
+	 * @param type 0通用 ,1以上备用
+	 * @return
+	 */
+	@PreAuth("admin")
+	@ResponseBody
+	@GetMapping("/account/generatorSubscriptionUrl/{id}")
+	public Result generatorSubscriptionUrlByAdmin(Integer type, @PathVariable Integer id) {
+		ServerConfig subConverter = serverConfigService.getServerConfig(WebsiteConfigEnum.SUB_CONVERTER_ADDRESS.getKey());
+		return Result.buildSuccess(subConverter.getValue() + accountService.generatorSubscriptionUrl(id, type), null);
+	}
+
+	@PreAuth("vip")
+	@ResponseBody
+	@GetMapping("/account/getUUID")
+	public Result getUUID() {
+		return Result.buildSuccess(UUID.randomUUID().toString(), null);
 	}
 
     /*@Deprecated

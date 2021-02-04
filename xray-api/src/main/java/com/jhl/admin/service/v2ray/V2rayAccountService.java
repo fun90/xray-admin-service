@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class V2rayAccountService {
@@ -43,17 +44,27 @@ public class V2rayAccountService {
 		System.out.println(encode);
 	}
 
-	public String buildB64V2rayAccount(List<Server> servers, Account account, Integer type) {
+	public String buildXrayServerUrl(List<Server> servers, Account account, Integer type) {
 		StringBuilder sb = new StringBuilder();
 		if (type == 0) {
-			if (account.getLevel() == 3) {
-				customConstant.getMyExternalServers().forEach(server -> sb.append(server).append("\n"));
+			List<Server> trojanList = servers.stream().filter(o -> "trojan".equalsIgnoreCase(o.getProtocol())).collect(Collectors.toList());
+			for (Server server : trojanList) {
+				sb.append("trojan://").append(account.getUuid()).append("@")
+						.append(server.getClientDomain()).append(":").append(server.getClientPort()).append("#").append(server.getServerName())
+						.append("\n");
 			}
-			customConstant.getExternalServers().forEach(server -> sb.append(server).append("\n"));
-			for (V2rayAccount v2rayAccount : buildV2rayAccount(servers, account)) {
+
+			List<Server> vmessList = servers.stream().filter(o -> o.getProtocol() == null || "vmess".equalsIgnoreCase(o.getProtocol())).collect(Collectors.toList());
+			for (V2rayAccount v2rayAccount : buildV2rayAccount(vmessList, account)) {
 				String encode = Base64.getEncoder().encodeToString(JSON.toJSONString(v2rayAccount).getBytes(StandardCharsets.UTF_8));
 				sb.append("vmess://").append(encode).append("\n");
 			}
+
+			if (account.getLevel() == 3) {
+				customConstant.getMyExternalServers().forEach(server -> sb.append(server).append("\n"));
+			}
+
+			customConstant.getExternalServers().forEach(server -> sb.append(server).append("\n"));
 		} else {
 			//vui.fun90.com = vmess, vui.fun90.com, 443, chacha20-ietf-poly1305, "52ef5369-5a90-464a-aff7-2bde1fc02640", group=provider, over-tls=true, tls-host=vui.fun90.com,
 			// certificate=0, obfs=ws, obfs-path="/ws/wangjiehan:009a1ba91a10cb02b4703dd0185037fc/",
@@ -74,7 +85,7 @@ public class V2rayAccountService {
 		return sb.toString();
 	}
 
-	public String buildB64V2rayAccount(List<Server> servers, Account account) {
+	public String buildXrayServerUrl(List<Server> servers, Account account) {
 		StringBuilder sb = new StringBuilder();
 		for (V2rayAccount v2rayAccount : buildV2rayAccount(servers, account)) {
 			String encode = Base64.getEncoder().encodeToString(JSON.toJSONString(v2rayAccount).getBytes(StandardCharsets.UTF_8));
@@ -87,13 +98,13 @@ public class V2rayAccountService {
 	public List<V2rayAccount> buildV2rayAccount(List<Server> servers, Account account) {
 
 		String uuid = account.getUuid();
-		if (account.getUuid() == null) {
-			//兼容旧版
-			V2rayAccount oldV2ray = JSON.parseObject(account.getContent(), V2rayAccount.class);
-			uuid = oldV2ray == null ? UUID.randomUUID().toString() : oldV2ray.getId();
-			account.setUuid(uuid);
-			accountRepository.save(account);
-		}
+//		if (account.getUuid() == null) {
+//			//兼容旧版
+//			V2rayAccount oldV2ray = JSON.parseObject(account.getContent(), V2rayAccount.class);
+//			uuid = oldV2ray == null ? UUID.randomUUID().toString() : oldV2ray.getId();
+//			account.setUuid(uuid);
+//			accountRepository.save(account);
+//		}
 		List<V2rayAccount> result = new ArrayList<>(servers.size());
 		for (Server s : servers) {
 			V2rayAccount v2rayAccount = new V2rayAccount();

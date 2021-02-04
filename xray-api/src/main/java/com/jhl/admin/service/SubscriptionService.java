@@ -42,7 +42,7 @@ public class SubscriptionService {
 
 		List<Server> servers = serverService.listByLevel(level);
 
-		String b64V2rayAccount = v2rayAccountService.buildB64V2rayAccount(servers, account, type);
+		String b64V2rayAccount = v2rayAccountService.buildXrayServerUrl(servers, account, type);
 		//需要再进行一次base64
 		return Base64.getEncoder().encodeToString(b64V2rayAccount.getBytes(StandardCharsets.UTF_8));
 	}
@@ -59,7 +59,7 @@ public class SubscriptionService {
 
 		List<Server> servers = serverService.listByLevel(level);
 
-		String b64V2rayAccount = v2rayAccountService.buildB64V2rayAccount(servers, account);
+		String b64V2rayAccount = v2rayAccountService.buildXrayServerUrl(servers, account);
 		//需要再进行一次base64
 		return Base64.getEncoder().encodeToString(b64V2rayAccount.getBytes(StandardCharsets.UTF_8));
 	}

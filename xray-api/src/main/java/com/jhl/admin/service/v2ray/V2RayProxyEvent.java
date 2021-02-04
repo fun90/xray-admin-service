@@ -49,8 +49,6 @@ public class V2RayProxyEvent implements ProxyEvent {
 		ProxyAccount proxyAccount = buildProxyAccount();
 		try {
 			if (proxyAccount == null) return;
-			List<Server> serverList = proxyAccount.getServers();
-			proxyAccount.setServers(reBuildServers(serverList));
 			xrayService.rmProxyAccount(proxyAccount);
 		} catch (Exception e) {
 			log.error("rmAccount error :{}", e.getLocalizedMessage(), e);
@@ -61,26 +59,10 @@ public class V2RayProxyEvent implements ProxyEvent {
 		ProxyAccount proxyAccount = buildProxyAccount();
 		try {
 			if (proxyAccount == null) return;
-			List<Server> serverList = proxyAccount.getServers();
-			proxyAccount.setServers(reBuildServers(serverList));
 			xrayService.addProxyAccount(proxyAccount);
 		} catch (Exception e) {
 			log.error("addAccount error :{}", e.getLocalizedMessage(), e);
 		}
-	}
-
-	// 临时方案
-	private List<Server> reBuildServers(List<Server> serverList) throws CloneNotSupportedException {
-		List<Server> servers = new ArrayList<>();
-		for (Server server : serverList) {
-			Server vlessServer = (Server) server.clone();
-			vlessServer.setProtocol("VLESS");
-			vlessServer.setInboundTag("vless_tcp_xtls");
-			servers.add(vlessServer);
-
-			servers.add(server);
-		}
-		return servers;
 	}
 
 	public ProxyAccount buildProxyAccount() {

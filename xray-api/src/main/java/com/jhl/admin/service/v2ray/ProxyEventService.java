@@ -55,7 +55,6 @@ public class ProxyEventService {
 			} catch (InterruptedException e) {
 				log.error("addProxyEvent error", e);
 				Thread.currentThread().interrupt();
-
 			}
 		}
 

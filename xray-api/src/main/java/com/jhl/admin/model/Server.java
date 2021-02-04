@@ -53,6 +53,8 @@ public class Server extends BaseEntity implements Serializable, Cloneable {
 
 	//ws路径
 	private String wsPath = "/ws/%s/";
+	//传输方式：ws、tcp、kcp
+	private String network = "ws";
 
 	@Override
 	public Object clone() throws CloneNotSupportedException {

@@ -87,6 +87,9 @@ public class AccountService {
 			account.setToDate(Utils.getDateBy(fromDate, KVConstant.DAY, Calendar.DAY_OF_YEAR));
 		account.setStatus(1);
 		if (account.getLevel() == null) account.setLevel((short) 0);
+
+		account.setUuid(UUID.randomUUID().toString());
+
 		account = accountRepository.save(account);
 
 		proxyEventService.addProxyEvent(proxyEventService.buildV2RayProxyEvent(account, ProxyEvent.ADD_EVENT));
@@ -104,10 +107,10 @@ public class AccountService {
 		accountRepository.save(account);
 		Account account1 = accountRepository.findById(account.getId()).orElse(null);
 		//判断是否需要生成新的stat
-		statService.createOrGetStat(accountRepository.getOne(account.getId()));
+		statService.createOrGetStat(account1);
 		//删除事件
 		proxyEventService.addProxyEvent(proxyEventService.buildV2RayProxyEvent(account1, ProxyEvent.RM_EVENT));
-		if (account.getStatus() == 1) {
+		if (account1.getStatus() == 1) {
 			proxyEventService.addProxyEvent(proxyEventService.buildV2RayProxyEvent(account1, ProxyEvent.UPDATE_EVENT));
 		}
 	}
@@ -208,7 +211,7 @@ public class AccountService {
 	 * @param accountId
 	 */
 
-	public void generatorSubscriptionUrl(Integer accountId, Integer type) {
+	public String generatorSubscriptionUrl(Integer accountId, Integer type) {
 		Subscription subscription = subscriptionService.findByAccountId(accountId);
 		if (subscription == null) {
 			subscription = Subscription.builder().accountId(accountId).code(subscriptionService.generatorCode()).build();
@@ -226,6 +229,7 @@ public class AccountService {
 		String url = String.format(proxyConstant.getSubscriptionTemplate(), subscription.getCode(), 0, timeStamp, token);
 		account.setSubscriptionUrl(url);
 		accountRepository.save(account);
+		return url;
 	}
 /*
     public List<Account> listAllAccount(List<User> users) {

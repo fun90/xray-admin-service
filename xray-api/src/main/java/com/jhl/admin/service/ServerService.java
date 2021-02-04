@@ -42,26 +42,19 @@ public class ServerService {
 	 * @param server
 	 */
 	public void save(Server server) {
-		List<Server> all = serverRepository.findAll(Example.of(Server.builder().clientDomain(server.getClientDomain()).build()));
-		if (all.size() > 0) {
-			throw new IllegalArgumentException("访问域名已经存在/the domain name already exists");
+		if (findSameServers(server).size() > 0) {
+			throw new IllegalArgumentException("服务重复了");
 		}
 		serverRepository.save(server);
 
 	}
 
-	/**
-	 * 根据域名查找服务器
-	 *
-	 * @param domain
-	 * @return
-	 */
-	public Server findByDomain(String domain, short level) {
-		List<Server> all = serverRepository.findByLevelLessThanEqualAndStatusAndClientDomainOrderByLevelDesc(level, StatusEnum.SUCCESS.code(), domain);
-		if (all.size() != 1)
-			throw new IllegalArgumentException("1.存在多个相同域名，请删除重复的。2.查找返回为空 ;参数: domain" + domain + ",level:" + level);
-		Server server = all.get(0);
-		return server;
+	public List<Server> findSameServers(Server server) {
+		return serverRepository.findAll(Example.of(Server.builder()
+				.clientDomain(server.getClientDomain()).clientPort(server.getClientPort())
+				.inboundTag(server.getInboundTag()).protocol(server.getProtocol())
+				.build())
+		);
 	}
 
 	public Server findByIdAndStatus(Integer id, Integer status) {
@@ -75,16 +68,11 @@ public class ServerService {
 	}
 
 	public void update(Server server) {
-		Server checkServer = null;
-		try {
-			checkServer = findByDomain(server.getClientDomain(), (short) 9);
-		} catch (Exception e) {
-
-		}
+		Server checkServer = findSameServers(server).stream().findFirst().orElse(null);
 		if (checkServer == null || checkServer.getId().equals(server.getId())) {
 			serverRepository.save(server);
 		} else {
-			throw new IllegalArgumentException("已经存在相同的域名");
+			throw new IllegalArgumentException("服务重复了");
 		}
 	}
 }
