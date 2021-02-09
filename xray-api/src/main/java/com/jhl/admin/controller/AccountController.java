@@ -232,8 +232,8 @@ public class AccountController {
 	@ResponseBody
 	@GetMapping("/account/generatorSubscriptionUrl/{id}")
 	public Result generatorSubscriptionUrlByAdmin(Integer type, @PathVariable Integer id) {
-		ServerConfig subConverter = serverConfigService.getServerConfig(WebsiteConfigEnum.SUB_CONVERTER_ADDRESS.getKey());
-		return Result.buildSuccess(subConverter.getValue() + accountService.generatorSubscriptionUrl(id, type), null);
+		ServerConfig serverConfig = serverConfigService.getServerConfig(WebsiteConfigEnum.SUBSCRIPTION_ADDRESS_PREFIX.getKey());
+		return Result.buildSuccess(serverConfig.getValue() + accountService.generatorSubscriptionUrl(id, type), null);
 	}
 
 	@PreAuth("vip")
