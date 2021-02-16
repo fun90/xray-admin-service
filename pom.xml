@@ -5,22 +5,16 @@
 
 	<groupId>com.jhl</groupId>
 	<artifactId>xray-admin-service</artifactId>
-	<version>3.1.8-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>pom</packaging>
 	<modelVersion>4.0.0</modelVersion>
 	<scm>
-		<url>https://github.com/master-coder-ll/v2ray-web-manager</url>
-		<connection>
-			scm:git:git://github.com/master-coder-ll/v2ray-web-manager.git
-		</connection>
-		<developerConnection>
-			scm:git:ssh://git@kxsw/master-coder-ll/v2ray-web-manager
-		</developerConnection>
-		<tag>1.1</tag>
+		<url>https://github.com/fun90/xray-admin-service</url>
+		<tag>1.0.0</tag>
 	</scm>
 	<developers>
 		<developer>
-			<name>master-coder-ll</name>
+			<name>fun90</name>
 			<email/>
 		</developer>
 	</developers>

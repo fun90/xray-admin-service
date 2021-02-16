@@ -25,10 +25,12 @@ public class WebConfig implements WebMvcConfigurer {
 	AuthInterceptor authInterceptor;
 	@Autowired
 	ProxyConstant proxyConstant;
+	@Autowired
+	FastJsonHttpMessageConverter fastJsonHttpMessageConverter;
 
 	@Override
 	public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
-		converters.add(0, fastJsonHttpMessageConverter());
+		converters.add(0, fastJsonHttpMessageConverter);
 
 	}
 
@@ -43,7 +45,7 @@ public class WebConfig implements WebMvcConfigurer {
 	@Bean
 	public RestTemplate restTemplate() {
 		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.getMessageConverters().add(fastJsonHttpMessageConverter());
+		restTemplate.getMessageConverters().add(fastJsonHttpMessageConverter);
 		restTemplate.getInterceptors().add((request, body, execution) -> {
 			HttpHeaders headers = request.getHeaders();
 			headers.add("Authorization", DigestUtils.md5Hex(proxyConstant.getAuthPassword()));

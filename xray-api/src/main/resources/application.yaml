@@ -25,23 +25,26 @@ email:
 
 
 logging:
-  file: ./logs/admin.log
-  file.max-history: 7
   level:
     root: info
+  file:
+    name: ./logs/admin.log
+  logback:
+    rollingpolicy:
+      max-history: 7
 
 server:
   port: 9091
   #  content-path: /api
   tomcat:
-    max-threads: 5
-    min-threads: 2
+    threads:
+      max: 1
 spring:
   datasource:
     driver-class-name: org.sqlite.JDBC
     hikari:
-      maximum-pool-size: 5
-      minimum-idle: 2
+      maximum-pool-size: 3
+      minimum-idle: 1
     password: ''
     url: jdbc:sqlite:./admin.db
     username: ''
@@ -56,7 +59,7 @@ spring:
         dialect: com.jhl.admin.util.SQLiteDialect
         enable_lazy_load_no_trans: true
         format_sql: ''
-        show_sql: true
+        show_sql: false
 
 #custom:
 #  myExternalServers:
