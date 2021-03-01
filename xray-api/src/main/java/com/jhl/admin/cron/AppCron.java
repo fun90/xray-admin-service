@@ -105,7 +105,7 @@ public class AppCron {
 	public void checkInvalidAccount() {
 		log.info("账号过期提醒任务。。开始，{}", new Date());
 		Date now = new Date();
-		List<Account> accountList = accountRepository.findByToDateAfter(now);
+		List<Account> accountList = accountRepository.findAll(Example.of(Account.builder().status(1).build()));
 		accountList.forEach(account -> {
 
 			Date toDate = account.getToDate();

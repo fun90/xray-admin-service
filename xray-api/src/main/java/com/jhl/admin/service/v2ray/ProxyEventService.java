@@ -7,13 +7,13 @@ import com.jhl.admin.repository.UserRepository;
 import com.jhl.admin.service.ServerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
@@ -40,7 +40,7 @@ public class ProxyEventService {
 	private LinkedBlockingQueue<ProxyEvent> queue = new LinkedBlockingQueue<>();
 
 	public void reloadProxyAccounts() {
-		List<Account> allAccount = accountRepository.findAll(Example.of(Account.builder().status(1).build()));
+		List<Account> allAccount = accountRepository.findByStatusAndToDateAfter(1, new Date());
 		allAccount.forEach(account -> {
 			addProxyEvent(buildV2RayProxyEvent(account, ProxyEvent.RM_EVENT));
 			addProxyEvent(buildV2RayProxyEvent(account, ProxyEvent.ADD_EVENT));
