@@ -11,6 +11,7 @@ import com.jhl.admin.service.v2ray.ProxyEvent;
 import com.jhl.admin.service.v2ray.ProxyEventService;
 import com.jhl.admin.service.v2ray.V2RayProxyEvent;
 import com.jhl.admin.service.v2ray.XrayService;
+import com.jhl.admin.util.Utils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -21,6 +22,7 @@ import org.springframework.stereotype.Component;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Component
@@ -68,16 +70,20 @@ public class AppCron {
 				}
 			}
 			List<Server> servers = serverService.distinctServers(account);
-			long used =  stat.getFlow();
+			// 同一IP与管理端口为同一服务器
+			servers = servers.stream().filter(Utils.distinctByKey((o) -> o.getV2rayIp() + o.getV2rayManagerPort())).collect(Collectors.toList());
 			User user = userService.get(account.getUserId());
+			long addition = 0;
 			for (Server server : servers) {
-				used += xrayService.getDownlinkTraffic(server.getV2rayIp(), server.getV2rayManagerPort(), user.getEmail());
-				used += xrayService.getUplinkTraffic(server.getV2rayIp(), server.getV2rayManagerPort(), user.getEmail());
+				addition += xrayService.getDownlinkTraffic(server.getV2rayIp(), server.getV2rayManagerPort(), user.getEmail());
+				addition += xrayService.getUplinkTraffic(server.getV2rayIp(), server.getV2rayManagerPort(), user.getEmail());
 			}
-			stat.setFlow(used);
-			statRepository.save(stat);
+			if (addition != 0) {
+				stat.setFlow(stat.getFlow() + addition);
+				statRepository.save(stat);
+			}
 			//流量超过,增加RM事件
-			if ((account.getBandwidth() * G) < used) {
+			if ((account.getBandwidth() * G) < stat.getFlow()) {
 				log.warn("账号流量已经超强限制：accountId = {}, email = {}", account.getId(), user.getEmail());
 				List<V2RayProxyEvent> v2RayProxyEvents = getProxyEvents(account);
 				proxyEventService.addProxyEvent(v2RayProxyEvents);
