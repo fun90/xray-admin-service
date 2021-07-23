@@ -19,6 +19,8 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -51,7 +53,9 @@ public class AppCron {
 	@Autowired
 	ServerService serverService;
 	SimpleDateFormat sdf = new SimpleDateFormat(KVConstant.YYYYMMddHHmmss);
-	private long G = 1024 * 1024 * 1024L;
+	private long M = 1024 * 1024L;
+	private long G = 1024 * M;
+	private BigDecimal mDecimal = BigDecimal.valueOf(M);
 
 	@Scheduled(cron = "0 0/10 * * * ?")
 	public void stat() {
@@ -75,8 +79,13 @@ public class AppCron {
 			User user = userService.get(account.getUserId());
 			long addition = 0;
 			for (Server server : servers) {
-				addition += xrayService.getDownlinkTraffic(server.getV2rayIp(), server.getV2rayManagerPort(), user.getEmail());
-				addition += xrayService.getUplinkTraffic(server.getV2rayIp(), server.getV2rayManagerPort(), user.getEmail());
+				long downTraffic = xrayService.getDownlinkTraffic(server.getV2rayIp(), server.getV2rayManagerPort(), user.getEmail());
+				addition += downTraffic;
+				long upTraffic = xrayService.getUplinkTraffic(server.getV2rayIp(), server.getV2rayManagerPort(), user.getEmail());
+				addition += upTraffic;
+				String d = BigDecimal.valueOf(downTraffic).divide(mDecimal, 3, RoundingMode.HALF_UP).toPlainString();
+				String u = BigDecimal.valueOf(upTraffic).divide(mDecimal, 3, RoundingMode.HALF_UP).toPlainString();
+				log.info("账号：{}，服务器：{}，上传流量：{}，下载流量：{}", user.getEmail(), server.getV2rayIp(), u, d);
 			}
 			if (addition != 0) {
 				stat.setFlow(stat.getFlow() + addition);
