@@ -83,9 +83,11 @@ public class AppCron {
 				addition += downTraffic;
 				long upTraffic = xrayService.getUplinkTraffic(server.getV2rayIp(), server.getV2rayManagerPort(), user.getEmail());
 				addition += upTraffic;
-				String d = BigDecimal.valueOf(downTraffic).divide(mDecimal, 3, RoundingMode.HALF_UP).toPlainString();
-				String u = BigDecimal.valueOf(upTraffic).divide(mDecimal, 3, RoundingMode.HALF_UP).toPlainString();
-				log.info("账号：{}，服务器：{}，上传流量：{}，下载流量：{}", user.getEmail(), server.getV2rayIp(), u, d);
+				if (downTraffic == 0 && upTraffic == 0) {
+					String d = BigDecimal.valueOf(downTraffic).divide(mDecimal, 3, RoundingMode.HALF_UP).toPlainString();
+					String u = BigDecimal.valueOf(upTraffic).divide(mDecimal, 3, RoundingMode.HALF_UP).toPlainString();
+					log.info("账号：{}，服务器：{}，上传流量：{}，下载流量：{}", user.getEmail(), server.getV2rayIp(), u, d);
+				}
 			}
 			if (addition != 0) {
 				stat.setFlow(stat.getFlow() + addition);
