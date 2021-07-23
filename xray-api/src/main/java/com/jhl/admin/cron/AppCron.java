@@ -108,10 +108,6 @@ public class AppCron {
 		return proxyEventService.buildV2RayProxyEvent(account, ProxyEvent.RM_EVENT);
 	}
 
-	public static void main(String[] args) {
-		System.out.println(BigDecimal.valueOf(1).divide(BigDecimal.valueOf(100), 3, RoundingMode.HALF_UP).toPlainString());
-	}
-
 //	@Async
 //	@Scheduled(cron = "0 0 1 * * ?")
 //	public void createStatTimer() {
