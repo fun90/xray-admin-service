@@ -57,7 +57,7 @@ public class AppCron {
 	private long G = 1024 * M;
 	private BigDecimal mDecimal = BigDecimal.valueOf(M);
 
-	@Scheduled(cron = "0 0/10 * * * ?")
+	@Scheduled(cron = "0 0/5 * * * ?")
 	public void stat() {
 		Date today = new Date();
 		log.info("======= 统计流量任务开始 =======");
@@ -83,10 +83,12 @@ public class AppCron {
 				addition += downTraffic;
 				long upTraffic = xrayService.getUplinkTraffic(server.getV2rayIp(), server.getV2rayManagerPort(), user.getEmail());
 				addition += upTraffic;
-				if (downTraffic == 0 && upTraffic == 0) {
+				if (downTraffic != 0 || upTraffic != 0) {
 					String d = BigDecimal.valueOf(downTraffic).divide(mDecimal, 3, RoundingMode.HALF_UP).toPlainString();
 					String u = BigDecimal.valueOf(upTraffic).divide(mDecimal, 3, RoundingMode.HALF_UP).toPlainString();
-					log.info("账号：{}，服务器：{}，上传流量：{}，下载流量：{}", user.getEmail(), server.getV2rayIp(), u, d);
+					if (!d.equals("0.000") || !u.equals("0.000")) {
+						log.info("账号：{}，服务器：{}，上传流量：{}，下载流量：{}", user.getEmail(), server.getV2rayIp(), u, d);
+					}
 				}
 			}
 			if (addition != 0) {
@@ -104,6 +106,10 @@ public class AppCron {
 
 	private List<V2RayProxyEvent> getProxyEvents(Account account) {
 		return proxyEventService.buildV2RayProxyEvent(account, ProxyEvent.RM_EVENT);
+	}
+
+	public static void main(String[] args) {
+		System.out.println(BigDecimal.valueOf(1).divide(BigDecimal.valueOf(100), 3, RoundingMode.HALF_UP).toPlainString());
 	}
 
 //	@Async
