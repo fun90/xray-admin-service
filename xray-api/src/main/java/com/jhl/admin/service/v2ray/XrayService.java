@@ -161,7 +161,7 @@ public class XrayService {
 			XrayApiClient client = XrayApiClient.getInstance(host, port);
 			GetStatsResponse res = client.getStatsServiceBlockingStub().getStats(req);
 			long t = res.getStat().getValue();
-			log.info("获取用户流量: USER {}, TRAFFIC {}", q, t);
+//			log.info("获取用户流量: USER {}, TRAFFIC {}", q, t);
 			return t;
 		} catch (StatusRuntimeException e) {
 			if (!e.getMessage().contains(q + " not found"))
