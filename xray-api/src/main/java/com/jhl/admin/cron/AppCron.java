@@ -87,7 +87,7 @@ public class AppCron {
 					String d = BigDecimal.valueOf(downTraffic).divide(mDecimal, 3, RoundingMode.HALF_UP).toPlainString();
 					String u = BigDecimal.valueOf(upTraffic).divide(mDecimal, 3, RoundingMode.HALF_UP).toPlainString();
 					if (!d.equals("0.000") || !u.equals("0.000")) {
-						log.info("账号：{}，服务器：{}，上传流量：{}，下载流量：{}", user.getEmail(), server.getV2rayIp(), u, d);
+						log.info("{}, {}, up：{}M, down: {}M", user.getEmail(), server.getV2rayIp(), u, d);
 					}
 				}
 			}
