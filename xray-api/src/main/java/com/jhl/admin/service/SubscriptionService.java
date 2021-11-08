@@ -1,11 +1,12 @@
 package com.jhl.admin.service;
 
+import com.jhl.admin.constant.ClientConstant;
 import com.jhl.admin.model.Account;
 import com.jhl.admin.model.Server;
 import com.jhl.admin.model.Subscription;
 import com.jhl.admin.repository.AccountRepository;
 import com.jhl.admin.repository.SubscriptionRepository;
-import com.jhl.admin.service.v2ray.V2rayAccountService;
+import com.jhl.admin.service.v2ray.XrayAccountService;
 import com.jhl.admin.util.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -15,6 +16,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class SubscriptionService {
@@ -28,7 +30,9 @@ public class SubscriptionService {
 	@Autowired
 	ServerService serverService;
 	@Autowired
-	V2rayAccountService v2rayAccountService;
+	XrayAccountService xrayAccountService;
+	@Autowired
+	ClientConstant clientConstant;
 
 	/**
 	 * 同一个code 订阅
@@ -36,32 +40,25 @@ public class SubscriptionService {
 	 * @param code
 	 * @return base64后的数据
 	 */
-	public String subscribe(String code, Integer type) {
+	public String subscribe(String code, String target) {
 		Account account = findAccountByCode(code);
 		Short level = account.getLevel();
 
 		List<Server> servers = serverService.listByLevel(level);
+		// 过滤服务器节点只保留协议被客户端支持的节点
+		servers = servers.stream().filter(o -> clientConstant.getSupportProtocols().get(target).contains(o.getProtocol())).collect(Collectors.toList());
 
-		String b64V2rayAccount = v2rayAccountService.buildXrayServerUrl(servers, account, type);
+		String b64V2rayAccount = xrayAccountService.buildXrayServerUrl(servers, account);
 		//需要再进行一次base64
 		return Base64.getEncoder().encodeToString(b64V2rayAccount.getBytes(StandardCharsets.UTF_8));
 	}
 
-	/**
-	 * 同一个code 订阅
-	 *
-	 * @param code
-	 * @return base64后的数据
-	 */
-	public String subscribe(String code) {
-		Account account = findAccountByCode(code);
+
+	public List<Server> findServers(Account account, String target) {
 		Short level = account.getLevel();
-
 		List<Server> servers = serverService.listByLevel(level);
-
-		String b64V2rayAccount = v2rayAccountService.buildXrayServerUrl(servers, account);
-		//需要再进行一次base64
-		return Base64.getEncoder().encodeToString(b64V2rayAccount.getBytes(StandardCharsets.UTF_8));
+		List<String> protocols = clientConstant.getSupportProtocols().get(target);
+		return servers.stream().filter(o -> protocols.contains(o.getProtocol())).collect(Collectors.toList());
 	}
 
 

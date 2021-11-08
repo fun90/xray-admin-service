@@ -9,7 +9,7 @@ import com.jhl.admin.repository.StatRepository;
 import com.jhl.admin.service.*;
 import com.jhl.admin.service.v2ray.ProxyEvent;
 import com.jhl.admin.service.v2ray.ProxyEventService;
-import com.jhl.admin.service.v2ray.V2RayProxyEvent;
+import com.jhl.admin.service.v2ray.XrayProxyEvent;
 import com.jhl.admin.service.v2ray.XrayService;
 import com.jhl.admin.util.Utils;
 import lombok.extern.slf4j.Slf4j;
@@ -98,13 +98,13 @@ public class AppCron {
 			//流量超过,增加RM事件
 			if ((account.getBandwidth() * G) < stat.getFlow()) {
 				log.warn("账号流量已经超强限制：accountId = {}, email = {}", account.getId(), user.getEmail());
-				List<V2RayProxyEvent> v2RayProxyEvents = getProxyEvents(account);
-				proxyEventService.addProxyEvent(v2RayProxyEvents);
+				List<XrayProxyEvent> xrayProxyEvents = getProxyEvents(account);
+				proxyEventService.addProxyEvent(xrayProxyEvents);
 			}
 		});
 	}
 
-	private List<V2RayProxyEvent> getProxyEvents(Account account) {
+	private List<XrayProxyEvent> getProxyEvents(Account account) {
 		return proxyEventService.buildV2RayProxyEvent(account, ProxyEvent.RM_EVENT);
 	}
 

@@ -18,7 +18,7 @@ import java.util.List;
 
 @Slf4j
 @AllArgsConstructor
-public class V2RayProxyEvent implements ProxyEvent {
+public class XrayProxyEvent implements ProxyEvent {
 //	private Server server;
 	//	private String email;
 	private String event;

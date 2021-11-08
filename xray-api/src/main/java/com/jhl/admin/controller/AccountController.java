@@ -5,6 +5,7 @@ import com.jhl.admin.Interceptor.PreAuth;
 import com.jhl.admin.VO.AccountVO;
 import com.jhl.admin.VO.UserVO;
 import com.jhl.admin.cache.UserCache;
+import com.jhl.admin.constant.ClientConstant;
 import com.jhl.admin.constant.KVConstant;
 import com.jhl.admin.constant.enumObject.StatusEnum;
 import com.jhl.admin.constant.enumObject.WebsiteConfigEnum;
@@ -20,7 +21,7 @@ import com.jhl.admin.service.ServerConfigService;
 import com.jhl.admin.service.ServerService;
 import com.jhl.admin.service.SubscriptionService;
 import com.jhl.admin.service.v2ray.ProxyEventService;
-import com.jhl.admin.service.v2ray.V2rayAccountService;
+import com.jhl.admin.service.v2ray.XrayAccountService;
 import com.jhl.admin.util.Validator;
 import com.ljh.common.model.Result;
 import lombok.extern.slf4j.Slf4j;
@@ -49,7 +50,7 @@ public class AccountController {
 	@Autowired
 	ServerService serverService;
 	@Autowired
-	V2rayAccountService v2rayAccountService;
+    XrayAccountService xrayAccountService;
 	@Autowired
 	ServerRepository serverRepository;
 	@Autowired
@@ -113,7 +114,7 @@ public class AccountController {
 		Server server = serverService.findByIdAndStatus(serverId, StatusEnum.SUCCESS.code());
 		if (server == null) return Result.builder().code(500).message("服务器不存在").build();
 
-		List<V2rayAccount> v2rayAccounts = v2rayAccountService.buildV2rayAccount(Lists.newArrayList(server), account);
+		List<V2rayAccount> v2rayAccounts = xrayAccountService.buildV2rayAccount(Lists.newArrayList(server), account);
 		return Result.buildSuccess(v2rayAccounts.get(0), null);
 	}
 
@@ -209,31 +210,31 @@ public class AccountController {
 	/**
 	 * 生成订阅url
 	 *
-	 * @param type 0通用 ,1以上备用
+	 * @param target 类型
 	 * @return
 	 */
 	@PreAuth("vip")
 	@ResponseBody
 	@GetMapping("/account/generatorSubscriptionUrl")
-	public Result generatorSubscriptionUrl(@CookieValue(KVConstant.COOKIE_NAME) String auth, Integer type) {
+	public Result generatorSubscriptionUrl(@CookieValue(KVConstant.COOKIE_NAME) String auth, String target, Integer type) {
 		UserVO user = userCache.getCache(auth);
 		Integer accountId = accountService.getAccount(user.getId()).getId();
-		accountService.generatorSubscriptionUrl(accountId, type);
+		target = StringUtils.defaultString(target, ClientConstant.DEFAULT);
+		accountService.generatorSubscriptionUrl(accountId, target, type);
 		return Result.doSuccess();
 	}
 
 	/**
 	 * 生成订阅url
 	 *
-	 * @param type 0通用 ,1以上备用
-	 * @return
 	 */
 	@PreAuth("admin")
 	@ResponseBody
 	@GetMapping("/account/generatorSubscriptionUrl/{id}")
-	public Result generatorSubscriptionUrlByAdmin(Integer type, @PathVariable Integer id) {
+	public Result generatorSubscriptionUrlByAdmin(String target, Integer type, @PathVariable Integer id) {
 		ServerConfig serverConfig = serverConfigService.getServerConfig(WebsiteConfigEnum.SUBSCRIPTION_ADDRESS_PREFIX.getKey());
-		return Result.buildSuccess(serverConfig.getValue() + accountService.generatorSubscriptionUrl(id, type), null);
+		target = StringUtils.defaultString(target, ClientConstant.DEFAULT);
+		return Result.buildSuccess(serverConfig.getValue() + accountService.generatorSubscriptionUrl(id, target, type), null);
 	}
 
 	@PreAuth("vip")

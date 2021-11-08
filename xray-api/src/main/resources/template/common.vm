@@ -1,0 +1,10 @@
+#macro( serverNames $serverList, $append)
+    #foreach( $s in $serverList )
+        #if( $foreach.count != $serverList.size() )$s.serverName,#else$s.serverName#end
+    #end
+    #if(!!$append)
+        $append
+    #else
+
+    #end
+#end

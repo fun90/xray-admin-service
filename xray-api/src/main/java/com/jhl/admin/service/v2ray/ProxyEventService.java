@@ -33,7 +33,7 @@ public class ProxyEventService {
 	@Autowired
 	RestTemplate restTemplate;
 	@Autowired
-	V2rayAccountService v2rayAccountService;
+	XrayAccountService xrayAccountService;
 	@Autowired
 	XrayService xrayService;
 
@@ -109,11 +109,11 @@ public class ProxyEventService {
 
     }*/
 
-	public List<V2RayProxyEvent> buildV2RayProxyEvent(Account account, String opName) {
+	public List<XrayProxyEvent> buildV2RayProxyEvent(Account account, String opName) {
 		Assert.notNull(account, "account is null");
-		List<V2RayProxyEvent> v2RayProxyEvents = new ArrayList<>();
-		v2RayProxyEvents.add(new V2RayProxyEvent(opName, account, xrayService, serverService, userRepository));
-		return v2RayProxyEvents;
+		List<XrayProxyEvent> xrayProxyEvents = new ArrayList<>();
+		xrayProxyEvents.add(new XrayProxyEvent(opName, account, xrayService, serverService, userRepository));
+		return xrayProxyEvents;
 	}
 
 }

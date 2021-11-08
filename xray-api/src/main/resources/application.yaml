@@ -1,10 +1,12 @@
 admin:
+  #第一次启动时候的账号和密码
   email: admin@admin.com
   password: 123456
 
 proxy:
-  authPassword: ''
-  subscriptionTemplate: /subscribe/%s?type=%s&timestamp=%s&token=%s
+  #与porxy交互的密码，也是各种token的私钥
+  authPassword: 'xxxxx'
+  subscriptionTemplate: /subscribe/%s?target=%s&type=%s&timestamp=%s&token=%s
 
 email:
   #stmp地址
@@ -22,7 +24,25 @@ email:
   vCodeTemplate: '你的验证码为: %s,请在10分钟内使用'
   overdueDate: 你的账号即将于：%s 过期，请留意续费。
 
-
+client:
+  support-protocols:
+    clash:
+      - trojan
+      - vmess
+    quanx:
+      - trojan
+      - vmess
+    surge:
+      - trojan
+      - vmess
+    loon:
+      - trojan
+      - vmess
+      - vless
+    shadowrocket:
+      - trojan
+      - vmess
+      - vless
 
 logging:
   level:
@@ -38,14 +58,15 @@ server:
   #  content-path: /api
   tomcat:
     threads:
-      max: 1
+      max: 3
 spring:
   datasource:
     driver-class-name: org.sqlite.JDBC
     hikari:
-      maximum-pool-size: 3
-      minimum-idle: 1
+      maximum-pool-size: 5
+      minimum-idle: 2
     password: ''
+    type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:sqlite:./admin.db
     username: ''
   jackson:

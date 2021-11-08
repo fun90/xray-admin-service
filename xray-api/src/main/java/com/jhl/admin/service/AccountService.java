@@ -14,7 +14,7 @@ import com.jhl.admin.repository.ServerRepository;
 import com.jhl.admin.repository.StatRepository;
 import com.jhl.admin.service.v2ray.ProxyEvent;
 import com.jhl.admin.service.v2ray.ProxyEventService;
-import com.jhl.admin.service.v2ray.V2rayAccountService;
+import com.jhl.admin.service.v2ray.XrayAccountService;
 import com.jhl.admin.util.Utils;
 import com.jhl.admin.util.Validator;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -45,7 +45,7 @@ public class AccountService {
 	@Autowired
 	StatService statService;
 	@Autowired
-	V2rayAccountService v2rayAccountService;
+	XrayAccountService xrayAccountService;
 	@Autowired
 	UserService userService;
 	@Autowired
@@ -137,7 +137,7 @@ public class AccountService {
         v2rayAccount.setTls(newServer.getSupportTLS() ? "tls" : "");
         v2rayAccount.setHost("");
         v2rayAccount.setPs(newServer.getDesc());*/
-		List<V2rayAccount> v2rayAccounts = v2rayAccountService.buildV2rayAccount(Lists.newArrayList(newServer), dbAccount);
+		List<V2rayAccount> v2rayAccounts = xrayAccountService.buildV2rayAccount(Lists.newArrayList(newServer), dbAccount);
 		if (v2rayAccounts.size() != 1) throw new RuntimeException("数据不对");
 		account.setContent(JSON.toJSONString(v2rayAccounts.get(0)));
 		accountRepository.save(account);
@@ -202,16 +202,16 @@ public class AccountService {
 	}
 
 	/**
-	 * https://xxx/subscribe/{code}?type=?&timestamp=?&token=?
+	 * https://xxx/subscribe/{code}?target=?&timestamp=?&token=?
 	 * <p>
 	 * code code
-	 * type 订阅类型0通用,1....预留
+	 * target 订阅类型
 	 * token  md5(code+timestamp+api.auth)
 	 *
 	 * @param accountId
 	 */
 
-	public String generatorSubscriptionUrl(Integer accountId, Integer type) {
+	public String generatorSubscriptionUrl(Integer accountId, String target, Integer type) {
 		Subscription subscription = subscriptionService.findByAccountId(accountId);
 		if (subscription == null) {
 			subscription = Subscription.builder().accountId(accountId).code(subscriptionService.generatorCode()).build();
@@ -226,7 +226,7 @@ public class AccountService {
 		long timeStamp = System.currentTimeMillis();
 
 		String token = DigestUtils.md5Hex(subscription.getCode() + timeStamp + proxyConstant.getAuthPassword());
-		String url = String.format(proxyConstant.getSubscriptionTemplate(), subscription.getCode(), 0, timeStamp, token);
+		String url = String.format(proxyConstant.getSubscriptionTemplate(), subscription.getCode(), target, type, timeStamp, token);
 		account.setSubscriptionUrl(url);
 		accountRepository.save(account);
 		return url;
