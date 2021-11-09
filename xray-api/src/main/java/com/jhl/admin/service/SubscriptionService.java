@@ -47,7 +47,30 @@ public class SubscriptionService {
 		List<Server> servers = serverService.listByLevel(level);
 		// 过滤服务器节点只保留协议被客户端支持的节点
 		servers = servers.stream().filter(o -> clientConstant.getSupportProtocols().get(target).contains(o.getProtocol())).collect(Collectors.toList());
-
+		
+		if ("quanx".equals(target)) {
+			StringBuilder sb = new StringBuilder();
+			servers.forEach(s -> {
+				sb.append(s.getProtocol()).append("=").append(s.getClientDomain()).append(":").append(s.getClientPort()).append(", ")
+						.append("password=").append(account.getUuid())
+						.append(", fast-open=false")
+						.append(", udp-relay=true")
+						.append(", tls13=false");
+				if ("trojan".equals(s.getProtocol())) {
+					sb.append(", tls-host=").append(s.getClientDomain())
+							.append(", over-tls=true")
+							.append(", tls-verification=false");
+				} else if ("vmess".equals(s.getProtocol())) {
+					sb.append(", method=chacha20-ietf-poly1305")
+							.append(", obfs-host=").append(s.getClientDomain())
+							.append(", obfs-uri=").append(s.getWsPath())
+							.append(", obfs=wss");
+				}
+				sb.append(", tag=").append(s.getServerName()).append(System.lineSeparator());
+			});
+			return sb.toString();
+		}
+		
 		String b64V2rayAccount = xrayAccountService.buildXrayServerUrl(servers, account);
 		//需要再进行一次base64
 		return Base64.getEncoder().encodeToString(b64V2rayAccount.getBytes(StandardCharsets.UTF_8));

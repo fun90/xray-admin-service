@@ -4,6 +4,10 @@ import com.google.common.collect.Interner;
 import com.google.common.collect.Interners;
 import com.jhl.admin.constant.KVConstant;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.security.SecureRandom;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,6 +17,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 public final class Utils {
 	private final static Interner<Object> STRING_WEAK_POLL = Interners.newWeakInterner();
@@ -101,6 +106,29 @@ public final class Utils {
 	public static <T> Predicate<T> distinctByKey(Function<? super T, Object> keyExtractor) {
 		Map<Object, Boolean> seen = new ConcurrentHashMap<>();
 		return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
+	}
+
+	public static String writeString(String dir, String... pathFileName) {
+		return writeString(dir, line -> line + System.lineSeparator(), pathFileName);
+	}
+
+	public static String writeString(String dir, Function<String, String> function, String... pathFileName) {
+		Path path = Paths.get(dir, pathFileName);
+		if (!Files.exists(path)) {
+			throw new RuntimeException("文件不存在");
+		}
+		try (Stream<String> stream = Files.lines(path)) {
+			StringBuilder stringBuilder = new StringBuilder();
+			stream.forEach(line -> {
+				if (function != null) {
+					line = function.apply(line);
+				}
+				stringBuilder.append(line);
+			});
+			return stringBuilder.toString();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	public static void main(String[] args) {

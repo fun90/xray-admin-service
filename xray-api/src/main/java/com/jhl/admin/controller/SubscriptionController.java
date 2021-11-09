@@ -5,6 +5,7 @@ import com.jhl.admin.constant.ProxyConstant;
 import com.jhl.admin.model.Account;
 import com.jhl.admin.model.Server;
 import com.jhl.admin.service.SubscriptionService;
+import com.jhl.admin.util.Utils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -14,15 +15,14 @@ import org.apache.velocity.app.Velocity;
 import org.apache.velocity.app.VelocityEngine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.system.ApplicationHome;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.StringWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -49,9 +49,9 @@ public class SubscriptionController {
 	 * @param token md5(code+timestamp+api.auth)
 	 * @return
 	 */
-
-	@RequestMapping(value = "/subscribe/{code}")
-	public void subscribe(@PathVariable String code, String target, Integer type, Long timestamp, String token, HttpServletResponse response) throws IOException {
+	@ResponseBody
+	@RequestMapping(value = "/subscribe/{code}", produces="text/plain;charset=UTF-8")
+	public String subscribe(@PathVariable String code, String target, Integer type, Long timestamp, String token) {
 
 		if (code == null || type == null || timestamp == null || token == null) throw new NullPointerException("参数错误");
 
@@ -70,39 +70,61 @@ public class SubscriptionController {
 			result = getConfigContent(code, target);
 		}
 
-		byte[] bytes = result.getBytes();
-		response.setHeader("Content-Length", bytes.length + "");
-		response.setHeader("Content-Type", MediaType.TEXT_PLAIN_VALUE);
-		response.setCharacterEncoding("UTF-8");
-//		response.setHeader("Content-Type", MediaType.APPLICATION_OCTET_STREAM_VALUE);
-		response.getOutputStream().write(bytes);
-		response.flushBuffer();
+		return result;
+	}
+
+	/**
+	 *
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/subscribe/rules/{fileName}", produces="text/plain;charset=UTF-8")
+	public String rules(@PathVariable String fileName, String target, String group) {
+		String templatePath = getTemplatePath();
+
+		if (StringUtils.equalsAny(target, "loon", "surge")) {
+			return Utils.writeString(templatePath, "rules", fileName);
+		}
+
+		return "不支持的target";
 	}
 
 	private String getConfigContent(String code, String target) {
-		Account account = subscriptionService.findAccountByCode(code);
+		String subscribeUrl = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();
+		String requestUrl = ServletUriComponentsBuilder.fromCurrentRequest().replacePath(null).replaceQuery(null).build().toUriString();
+		String rulesRoot = requestUrl + "/subscribe/rules";
+
 		Map<String, Object> params = new HashMap<>();
+		// 配置订阅地址
+		params.put("subscribeUrl", subscribeUrl);
+		// 本地规则根地址
+		params.put("rulesRoot", rulesRoot);
+
+		Account account = subscriptionService.findAccountByCode(code);
 		params.put("account", account);
+		// 代理节点订阅地址
+		params.put("proxiesUrl", requestUrl + account.getSubscriptionUrl());
 		List<Server> servers = subscriptionService.findServers(account, target);
 		params.put("servers", servers);
 		return templateMerge(target, params);
 	}
 
+	private VelocityEngine ve;
 	private String templateMerge(String target, Map<String, Object> params) {
-		//模板文件路径
-		String templatePath = getTemplatePath();
 		String fileName = target + ".vm";
-		if (!Files.exists(Paths.get(templatePath, fileName))) {
-			throw new RuntimeException(target + "的模板文件不存在");
+		if (ve == null) {
+			//模板文件路径
+			String templatePath = getTemplatePath();
+			if (!Files.exists(Paths.get(templatePath, fileName))) {
+				throw new RuntimeException(target + "的模板文件不存在");
+			}
+			ve = new VelocityEngine();
+			ve.setProperty(Velocity.FILE_RESOURCE_LOADER_PATH, templatePath);
+			ve.init();
 		}
-
-		VelocityEngine ve = new VelocityEngine();
-		ve.setProperty(Velocity.FILE_RESOURCE_LOADER_PATH, templatePath);
-		ve.init();
 		Template template = ve.getTemplate(fileName, "UTF-8");
 		VelocityContext data = new VelocityContext();
 		params.forEach(data::put);
-
 		try {
 			StringWriter stringWriter = new StringWriter();
 			template.merge(data, stringWriter);

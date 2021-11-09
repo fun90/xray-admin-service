@@ -1,4 +1,5 @@
 #parse("common.vm")
+#set($target="surge")
 #!MANAGED-CONFIG ${subscribeUrl} interval=3600 strict=false
 
 [General]
@@ -37,6 +38,11 @@ $s.serverName = $s.protocol, $s.clientDomain, $s.clientPort, password=$account.u
 🐟 漏网之鱼 = select,🎯 全球直连,🔰 节点选择,♻️ 自动选择,#serverNames($servers, "")
 
 [Rule]
+RULE-SET,$rulesRoot/LocalAreaNetwork.list?target=$target,🎯 全球直连,update-interval=86400
+RULE-SET,$rulesRoot/MyDirect.list?target=$target,🎯 全球直连,update-interval=86400
+RULE-SET,$rulesRoot/MSServices.list?target=$target,Ⓜ️ 微软服务,update-interval=86400
+RULE-SET,$rulesRoot/MyProxy.list?target=$target,🔰 节点选择,update-interval=86400
+RULE-SET,$rulesRoot/PayPal.list?target=$target,💰 PayPal,update-interval=86400
 RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list,🎯 全球直连,update-interval=86400
 RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list,⛔️ 广告拦截,update-interval=86400
 RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list,🚫 运营劫持,update-interval=86400

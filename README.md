@@ -6,7 +6,7 @@ xray后台管理服务，由[v2ray-web-manager](https://github.com/master-coder-
 To-Do List
 - [✔] 开发Xray Java API：增加/删除用户、查询流量统计
 - [✔] 支持VMESS账号（后端）
-- [ ] 支持VLESS账号（前后端）
+- [] 支持VLESS账号（前后端）
 - [✔] 流量统计查询
 - [✔] 定时清理流量超标账号
 - [✔] 定时清理过期账号

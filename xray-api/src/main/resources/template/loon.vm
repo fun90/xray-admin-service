@@ -1,0 +1,68 @@
+#set($target="loon")
+[General]
+allow-udp-proxy=false
+allow-wifi-access=false
+bypass-tun=10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.18.0.0/15,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,255.255.255.255/32
+dns-server=system,119.29.29.29,223.5.5.5
+host=127.0.0.1
+skip-proxy=192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,localhost,*.local,e.crashlynatics.com
+
+[Proxy]
+
+[Remote Proxy]
+remoteProxies = $proxiesUrl
+
+[Proxy Group]
+🔰 节点选择 = select,♻️ 自动选择,🎯 全球直连,remoteProxies
+♻️ 自动选择 = url-test,remoteProxies,url=http://www.gstatic.com/generate_224,interval=300
+💰 PayPal = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,remoteProxies
+🎥 NETFLIX = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,remoteProxies
+🌌 YouTube = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,remoteProxies
+⛔️ 广告拦截 = select,🎯 全球直连,🛑 全球拦截,🔰 节点选择
+🚫 运营劫持 = select,🎯 全球直连,🛑 全球拦截,🔰 节点选择
+🌍 国外媒体 = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,remoteProxies
+🌏 港台媒体 = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,remoteProxies
+🌏 国内媒体 = select,🎯 全球直连,🔰 节点选择
+Ⓜ️ 微软服务 = select,🎯 全球直连,🔰 节点选择,remoteProxies
+📲 电报信息 = select,🔰 节点选择,🎯 全球直连,remoteProxies
+🍎 苹果服务 = select,🔰 节点选择,🎯 全球直连,♻️ 自动选择,remoteProxies
+🎯 全球直连 = select,DIRECT
+🛑 全球拦截 = select,DIRECT,REJECT
+🐟 漏网之鱼 = select,🎯 全球直连,🔰 节点选择,♻️ 自动选择,remoteProxies
+
+[Rule]
+GEOIP,CN,🎯 全球直连
+FINAL,🐟 漏网之鱼
+
+[Remote Rule]
+$rulesRoot/LocalAreaNetwork.list?target=$target,🎯 全球直连
+$rulesRoot/MyDirect.list?target=$target,🎯 全球直连
+$rulesRoot/MSServices.list?target=$target,Ⓜ️ 微软服务
+$rulesRoot/MyProxy.list?target=$target,🔰 节点选择
+$rulesRoot/PayPal.list?target=$target,💰 PayPal
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list,🎯 全球直连
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list,⛔️ 广告拦截
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list,🚫 运营劫持
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list,🎥 NETFLIX
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list,🌌 YouTube
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list,🌍 国外媒体
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list,🌏 港台媒体
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list,📲 电报信息
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list,🔰 节点选择
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list,🍎 苹果服务
+https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list,🎯 全球直连
+
+[URL Rewrite]
+enable=true
+^https?:\/\/(www.)?(g|google)\.cn https://www.google.com 302
+
+[Remote Rewrite]
+##https://raw.githubusercontent.com/Loon0x00/LoonExampleConfig/master/Rewrite/AutoRewrite_Example.list,auto
+
+[Script]
+enable=false
+
+[MITM]
+enable=false
+skip-server-cert-verify=false
+
