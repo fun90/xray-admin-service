@@ -10,25 +10,25 @@ skip-proxy=192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,localhost,*.local,e.crashlyna
 [Proxy]
 
 [Remote Proxy]
-remoteProxies = $proxiesUrl
+RemoteProxies = $proxiesUrl
 
 [Proxy Group]
-🔰 节点选择 = select,♻️ 自动选择,🎯 全球直连,remoteProxies
-♻️ 自动选择 = url-test,remoteProxies,url=http://www.gstatic.com/generate_224,interval=300
-💰 PayPal = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,remoteProxies
-🎥 NETFLIX = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,remoteProxies
-🌌 YouTube = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,remoteProxies
+🔰 节点选择 = select,♻️ 自动选择,🎯 全球直连,RemoteProxies
+♻️ 自动选择 = url-test,RemoteProxies,url=http://www.gstatic.com/generate_224,interval=300
+💰 PayPal = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,RemoteProxies
+🎥 NETFLIX = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,RemoteProxies
+🌌 YouTube = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,RemoteProxies
 ⛔️ 广告拦截 = select,🎯 全球直连,🛑 全球拦截,🔰 节点选择
 🚫 运营劫持 = select,🎯 全球直连,🛑 全球拦截,🔰 节点选择
-🌍 国外媒体 = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,remoteProxies
-🌏 港台媒体 = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,remoteProxies
+🌍 国外媒体 = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,RemoteProxies
+🌏 港台媒体 = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,RemoteProxies
 🌏 国内媒体 = select,🎯 全球直连,🔰 节点选择
-Ⓜ️ 微软服务 = select,🎯 全球直连,🔰 节点选择,remoteProxies
-📲 电报信息 = select,🔰 节点选择,🎯 全球直连,remoteProxies
-🍎 苹果服务 = select,🔰 节点选择,🎯 全球直连,♻️ 自动选择,remoteProxies
+Ⓜ️ 微软服务 = select,🎯 全球直连,🔰 节点选择,RemoteProxies
+📲 电报信息 = select,🔰 节点选择,🎯 全球直连,RemoteProxies
+🍎 苹果服务 = select,🔰 节点选择,🎯 全球直连,♻️ 自动选择,RemoteProxies
 🎯 全球直连 = select,DIRECT
 🛑 全球拦截 = select,DIRECT,REJECT
-🐟 漏网之鱼 = select,🎯 全球直连,🔰 节点选择,♻️ 自动选择,remoteProxies
+🐟 漏网之鱼 = select,🎯 全球直连,🔰 节点选择,♻️ 自动选择,RemoteProxies
 
 [Rule]
 GEOIP,CN,🎯 全球直连

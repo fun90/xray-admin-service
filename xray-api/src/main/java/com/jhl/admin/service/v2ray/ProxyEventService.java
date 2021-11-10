@@ -42,7 +42,7 @@ public class ProxyEventService {
 	public void reloadProxyAccounts() {
 		List<Account> allAccount = accountRepository.findByStatusAndToDateAfter(1, new Date());
 		allAccount.forEach(account -> {
-			addProxyEvent(buildV2RayProxyEvent(account, ProxyEvent.RM_EVENT));
+//			addProxyEvent(buildV2RayProxyEvent(account, ProxyEvent.RM_EVENT));
 			addProxyEvent(buildV2RayProxyEvent(account, ProxyEvent.ADD_EVENT));
 		});
 	}

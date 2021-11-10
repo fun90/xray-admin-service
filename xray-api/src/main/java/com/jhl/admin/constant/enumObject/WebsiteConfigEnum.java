@@ -8,7 +8,7 @@ public enum WebsiteConfigEnum {
 
 	IS_NEED_INVITE_CODE("需要邀请码才能注册吗？", "IS_NEED_INVITE_CODE", "false", "config"),
 	VIP_CAN_INVITE("用户能邀请其他人注册吗？", "VIP_CAN_INVITE", "false", "config"),
-	SUBSCRIPTION_ADDRESS_PREFIX("订阅地址访问前缀", "SUBSCRIPTION_ADDRESS_PREFIX", "http://127.0.0.1/api", "config"),
+	SUBSCRIPTION_ADDRESS_PREFIX("订阅地址访问前缀", "SUBSCRIPTION_ADDRESS_PREFIX", "http://127.0.0.1:9091/api", "config"),
 	SUB_CONVERTER_ADDRESS("订阅转换地址", "SUB_CONVERTER_ADDRESS", "0", "config");
 
 	private String name;

@@ -103,15 +103,16 @@ public class AccountService {
 		Validator.isNotNull(account.getId());
 		account.setContent(null);
 		account.setServerId(null);
-
+		Account oldAccount = accountRepository.findById(account.getId()).orElse(null);
 		accountRepository.save(account);
-		Account account1 = accountRepository.findById(account.getId()).orElse(null);
+		Account newAccount = accountRepository.findById(account.getId()).orElse(null);
+
 		//判断是否需要生成新的stat
-		statService.createOrGetStat(account1);
+		statService.createOrGetStat(newAccount);
 		//删除事件
-		proxyEventService.addProxyEvent(proxyEventService.buildV2RayProxyEvent(account1, ProxyEvent.RM_EVENT));
-		if (account1.getStatus() == 1) {
-			proxyEventService.addProxyEvent(proxyEventService.buildV2RayProxyEvent(account1, ProxyEvent.UPDATE_EVENT));
+		proxyEventService.addProxyEvent(proxyEventService.buildV2RayProxyEvent(oldAccount, ProxyEvent.RM_EVENT));
+		if (newAccount.getStatus() == 1) {
+			proxyEventService.addProxyEvent(proxyEventService.buildV2RayProxyEvent(newAccount, ProxyEvent.UPDATE_EVENT));
 		}
 	}
 

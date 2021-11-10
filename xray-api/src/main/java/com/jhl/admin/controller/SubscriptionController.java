@@ -2,8 +2,11 @@ package com.jhl.admin.controller;
 
 import com.jhl.admin.constant.ClientConstant;
 import com.jhl.admin.constant.ProxyConstant;
+import com.jhl.admin.constant.enumObject.WebsiteConfigEnum;
 import com.jhl.admin.model.Account;
 import com.jhl.admin.model.Server;
+import com.jhl.admin.model.ServerConfig;
+import com.jhl.admin.service.ServerConfigService;
 import com.jhl.admin.service.SubscriptionService;
 import com.jhl.admin.util.Utils;
 import lombok.extern.slf4j.Slf4j;
@@ -21,8 +24,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.web.util.UriComponents;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.StringWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -30,12 +35,15 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 @Slf4j
 @Controller
 public class SubscriptionController {
 	@Autowired
 	private SubscriptionService subscriptionService;
+	@Autowired
+	private ServerConfigService serverConfigService;
 	@Autowired
 	private ProxyConstant proxyConstant;
 
@@ -90,20 +98,25 @@ public class SubscriptionController {
 	}
 
 	private String getConfigContent(String code, String target) {
-		String subscribeUrl = ServletUriComponentsBuilder.fromCurrentRequest().build().toUriString();
-		String requestUrl = ServletUriComponentsBuilder.fromCurrentRequest().replacePath(null).replaceQuery(null).build().toUriString();
-		String rulesRoot = requestUrl + "/subscribe/rules";
-
 		Map<String, Object> params = new HashMap<>();
-		// 配置订阅地址
-		params.put("subscribeUrl", subscribeUrl);
-		// 本地规则根地址
-		params.put("rulesRoot", rulesRoot);
-
 		Account account = subscriptionService.findAccountByCode(code);
 		params.put("account", account);
+		String defaultUrl = account.getSubscriptionUrl();
+		UriComponents configUri = ServletUriComponentsBuilder.fromUriString(defaultUrl)
+				.replaceQueryParam("target", target)
+				.replaceQueryParam("type", 1)
+				.build();
+		String addressPrefix = serverConfigService.getServerConfig(WebsiteConfigEnum.SUBSCRIPTION_ADDRESS_PREFIX.getKey()).getValue();
+		// 配置订阅地址
+		params.put("subscribeUrl", addressPrefix + configUri.toUriString());
+		// 本地规则根地址
+		params.put("rulesRoot", addressPrefix + "/subscribe/rules");
 		// 代理节点订阅地址
-		params.put("proxiesUrl", requestUrl + account.getSubscriptionUrl());
+		UriComponents proxiesUri = ServletUriComponentsBuilder.fromUriString(defaultUrl)
+				.replaceQueryParam("target", target)
+				.replaceQueryParam("type", 0)
+				.build();
+		params.put("proxiesUrl", addressPrefix + proxiesUri.toUriString());
 		List<Server> servers = subscriptionService.findServers(account, target);
 		params.put("servers", servers);
 		return templateMerge(target, params);

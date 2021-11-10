@@ -11,6 +11,8 @@ import com.ljh.common.utils.V2RayPathEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -48,9 +50,14 @@ public class XrayAccountService {
 		StringBuilder sb = new StringBuilder();
 		List<Server> trojanList = servers.stream().filter(o -> "trojan".equalsIgnoreCase(o.getProtocol())).collect(Collectors.toList());
 		for (Server server : trojanList) {
-			sb.append("trojan://").append(account.getUuid()).append("@")
-					.append(server.getClientDomain()).append(":").append(server.getClientPort()).append("#").append(server.getServerName())
-					.append("\n");
+			try {
+				sb.append("trojan://").append(account.getUuid()).append("@")
+						.append(server.getClientDomain()).append(":").append(server.getClientPort())
+						.append("#").append(URLEncoder.encode(server.getServerName(), "UTF-8"))
+						.append("\n");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
 		}
 
 		List<Server> vmessList = servers.stream().filter(o -> o.getProtocol() == null || "vmess".equalsIgnoreCase(o.getProtocol())).collect(Collectors.toList());
