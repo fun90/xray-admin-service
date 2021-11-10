@@ -31,6 +31,6 @@ public class ClientConstant {
 		this.quanxRuleTypes.put("IP-CIDR6", "IP6-CIDR");
 
 		this.excludeRuleTypes = new HashMap<>();
-		this.excludeRuleTypes.put("quanx", Stream.of("AND").collect(Collectors.toList()));
+		this.excludeRuleTypes.put("quanx", Stream.of("AND", "URL-REGEX").collect(Collectors.toList()));
 	}
 }

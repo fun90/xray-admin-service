@@ -43,6 +43,11 @@ client:
       - trojan
       - vmess
       - vless
+  quanx-rule-types: {"IP-CIDR6": "IP6-CIDR"}
+  exclude-rule-types:
+    quanx:
+      - AND
+      - URL-REGEX
 
 logging:
   level:
