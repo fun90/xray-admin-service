@@ -23,7 +23,7 @@ public class QuanxRuleParser implements Function<String, String> {
         if (arr.length < 2) {
             return line + System.lineSeparator();
         }
-        arr[1] = rulesTypes.getOrDefault(arr[1], arr[1]);
+        arr[0] = rulesTypes.getOrDefault(arr[0], arr[0]);
         String[] newArr = Arrays.copyOf(arr, arr.length + 1);
         if (newArr[newArr.length - 2].equals(noResolve)) {
             newArr[newArr.length - 2] = group;
