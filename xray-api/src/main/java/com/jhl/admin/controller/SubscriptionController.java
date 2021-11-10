@@ -5,11 +5,13 @@ import com.jhl.admin.constant.ProxyConstant;
 import com.jhl.admin.constant.enumObject.WebsiteConfigEnum;
 import com.jhl.admin.model.Account;
 import com.jhl.admin.model.Server;
-import com.jhl.admin.model.ServerConfig;
 import com.jhl.admin.service.ServerConfigService;
 import com.jhl.admin.service.SubscriptionService;
+import com.jhl.admin.util.QuanxRuleParser;
+import com.jhl.admin.util.SubscribeHelper;
 import com.jhl.admin.util.Utils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.Template;
@@ -23,19 +25,16 @@ import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import org.springframework.web.util.UriComponents;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.StringWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 @Slf4j
 @Controller
@@ -46,6 +45,8 @@ public class SubscriptionController {
 	private ServerConfigService serverConfigService;
 	@Autowired
 	private ProxyConstant proxyConstant;
+	@Autowired
+	private ClientConstant clientConstant;
 
 	private final String[] targets = { "clash", "quanx", "surge", "loon", "shadowrocket" };
 
@@ -92,6 +93,14 @@ public class SubscriptionController {
 
 		if (StringUtils.equalsAny(target, "loon", "surge")) {
 			return Utils.writeString(templatePath, "rules", fileName);
+		} else if (StringUtils.equalsAny(target, "quanx")) {
+			fileName = new String(Base64.decodeBase64(fileName));
+			group = new String(Base64.decodeBase64(group));
+			if (StringUtils.startsWithAny(fileName, "https://", "http://")) {
+				return Utils.call(fileName, new QuanxRuleParser(clientConstant.getQuanxRuleTypes(), group));
+			} else {
+				return Utils.writeString(templatePath, new QuanxRuleParser(clientConstant.getQuanxRuleTypes(), group), "rules", fileName);
+			}
 		}
 
 		return "不支持的target";
@@ -101,24 +110,13 @@ public class SubscriptionController {
 		Map<String, Object> params = new HashMap<>();
 		Account account = subscriptionService.findAccountByCode(code);
 		params.put("account", account);
-		String defaultUrl = account.getSubscriptionUrl();
-		UriComponents configUri = ServletUriComponentsBuilder.fromUriString(defaultUrl)
-				.replaceQueryParam("target", target)
-				.replaceQueryParam("type", 1)
-				.build();
-		String addressPrefix = serverConfigService.getServerConfig(WebsiteConfigEnum.SUBSCRIPTION_ADDRESS_PREFIX.getKey()).getValue();
-		// 配置订阅地址
-		params.put("subscribeUrl", addressPrefix + configUri.toUriString());
-		// 本地规则根地址
-		params.put("rulesRoot", addressPrefix + "/subscribe/rules");
-		// 代理节点订阅地址
-		UriComponents proxiesUri = ServletUriComponentsBuilder.fromUriString(defaultUrl)
-				.replaceQueryParam("target", target)
-				.replaceQueryParam("type", 0)
-				.build();
-		params.put("proxiesUrl", addressPrefix + proxiesUri.toUriString());
+
 		List<Server> servers = subscriptionService.findServers(account, target);
 		params.put("servers", servers);
+
+		String rootUrl = serverConfigService.getServerConfig(WebsiteConfigEnum.SUBSCRIPTION_ADDRESS_PREFIX.getKey()).getValue();
+		String subscriptionUrl = account.getSubscriptionUrl();
+		params.put("M", new SubscribeHelper(target, rootUrl, subscriptionUrl));
 		return templateMerge(target, params);
 	}
 

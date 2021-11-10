@@ -3,17 +3,23 @@ package com.jhl.admin.util;
 import com.google.common.collect.Interner;
 import com.google.common.collect.Interners;
 import com.jhl.admin.constant.KVConstant;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.Reader;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.SecureRandom;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -131,8 +137,55 @@ public final class Utils {
 		}
 	}
 
+//	private static final OkHttpClient httpsClient =  new OkHttpClient.Builder()
+//			.connectionSpecs(Arrays.asList(ConnectionSpec.MODERN_TLS, ConnectionSpec.COMPATIBLE_TLS))
+//			.build();
+
+	private static final OkHttpClient httpClient = new OkHttpClient();
+
+	public static String call(String url, Function<String, String> function) {
+		Request request = new Request.Builder()
+				.url(url)
+				.build();
+
+//		OkHttpClient client = StringUtils.startsWith(url, "https://") ? httpsClient : httpClient;
+		try (Response response = httpClient.newCall(request).execute()) {
+//			return Objects.requireNonNull(response.body()).string();
+			Reader reader = Objects.requireNonNull(response.body()).charStream();
+			BufferedReader bfReader = new BufferedReader(reader);
+			StringBuilder stringBuilder = new StringBuilder();
+			bfReader.lines().forEach(line -> {
+				line = function.apply(line);
+				stringBuilder.append(line);
+			});
+			return stringBuilder.toString();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public static String urlEncode(String str) {
+		try {
+			return URLEncoder.encode(str, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public static String urlDecode(String str) {
+		try {
+			return URLDecoder.decode(str, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
 	public static void main(String[] args) {
-		System.out.println(formatDate(new Date(), null));
+		System.out.println(Utils.call("https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/direct-list.txt", line -> {
+			String[] arr = line.split(",");
+			String[] newArr = Arrays.copyOf(arr, arr.length + 1);
+			return String.join(",", newArr) + System.lineSeparator();
+		}));
 	}
 
 

@@ -8,12 +8,12 @@ import com.jhl.admin.repository.AccountRepository;
 import com.jhl.admin.repository.SubscriptionRepository;
 import com.jhl.admin.service.v2ray.XrayAccountService;
 import com.jhl.admin.util.Utils;
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -73,7 +73,7 @@ public class SubscriptionService {
 		
 		String b64V2rayAccount = xrayAccountService.buildXrayServerUrl(servers, account);
 		//需要再进行一次base64
-		return Base64.getEncoder().encodeToString(b64V2rayAccount.getBytes(StandardCharsets.UTF_8));
+		return Base64.encodeBase64String(b64V2rayAccount.getBytes(StandardCharsets.UTF_8));
 	}
 
 

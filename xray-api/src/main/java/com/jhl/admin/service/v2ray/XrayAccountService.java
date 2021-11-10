@@ -8,6 +8,7 @@ import com.jhl.admin.model.Account;
 import com.jhl.admin.model.Server;
 import com.jhl.admin.repository.AccountRepository;
 import com.ljh.common.utils.V2RayPathEncoder;
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +16,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -41,7 +40,7 @@ public class XrayAccountService {
 		v2rayAccount.setHost("world.fun90.com");
 //                v2rayAccount.setPath();
 		v2rayAccount.setTls("tls");
-		String encode = Base64.getEncoder().encodeToString(JSON.toJSONString(v2rayAccount).getBytes(StandardCharsets.UTF_8));
+		String encode = Base64.encodeBase64String(JSON.toJSONString(v2rayAccount).getBytes(StandardCharsets.UTF_8));
 		System.out.println(JSON.toJSONString(v2rayAccount));
 		System.out.println(encode);
 	}
@@ -62,7 +61,7 @@ public class XrayAccountService {
 
 		List<Server> vmessList = servers.stream().filter(o -> o.getProtocol() == null || "vmess".equalsIgnoreCase(o.getProtocol())).collect(Collectors.toList());
 		for (V2rayAccount v2rayAccount : buildV2rayAccount(vmessList, account)) {
-			String encode = Base64.getEncoder().encodeToString(JSON.toJSONString(v2rayAccount).getBytes(StandardCharsets.UTF_8));
+			String encode = Base64.encodeBase64String(JSON.toJSONString(v2rayAccount).getBytes(StandardCharsets.UTF_8));
 			sb.append("vmess://").append(encode).append("\n");
 		}
 

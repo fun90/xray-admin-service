@@ -1,4 +1,3 @@
-#set($target="loon")
 [General]
 allow-udp-proxy=false
 allow-wifi-access=false
@@ -10,7 +9,7 @@ skip-proxy=192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,localhost,*.local,e.crashlyna
 [Proxy]
 
 [Remote Proxy]
-RemoteProxies = $proxiesUrl
+RemoteProxies = $M.proxiesUrl()
 
 [Proxy Group]
 🔰 节点选择 = select,♻️ 自动选择,🎯 全球直连,RemoteProxies
@@ -35,11 +34,11 @@ GEOIP,CN,🎯 全球直连
 FINAL,🐟 漏网之鱼
 
 [Remote Rule]
-$rulesRoot/LocalAreaNetwork.list?target=$target,🎯 全球直连
-$rulesRoot/MyDirect.list?target=$target,🎯 全球直连
-$rulesRoot/MSServices.list?target=$target,Ⓜ️ 微软服务
-$rulesRoot/MyProxy.list?target=$target,🔰 节点选择
-$rulesRoot/PayPal.list?target=$target,💰 PayPal
+$M.parseRule("LocalAreaNetwork.list"),🎯 全球直连
+$M.parseRule("MyDirect.list"),🎯 全球直连
+$M.parseRule("MSServices.list"),Ⓜ️ 微软服务
+$M.parseRule("MyProxy.list"),🔰 节点选择
+$M.parseRule("PayPal.list"),💰 PayPal
 https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list,🎯 全球直连
 https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list,⛔️ 广告拦截
 https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list,🚫 运营劫持

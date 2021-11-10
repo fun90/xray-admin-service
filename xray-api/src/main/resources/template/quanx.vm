@@ -1,0 +1,67 @@
+[general]
+excluded_routes=192.168.0.0/16, 172.16.0.0/12, 100.64.0.0/10, 10.0.0.0/8
+geo_location_checker=http://ip-api.com/json/?lang=zh-CN, https://github.com/KOP-XIAO/QuantumultX/raw/master/Scripts/IP_API.js
+network_check_url=http://www.baidu.com/
+server_check_url=http://www.gstatic.com/generate_204
+
+[dns]
+server=119.29.29.29
+server=223.5.5.5
+server=1.0.0.1
+server=8.8.8.8
+
+[policy]
+static=🔰 节点选择, ♻️ 自动选择, 🎯 全球直连, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Proxy.png
+available=♻️ 自动选择, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Auto.png
+static=💰 PayPal, 🔰 节点选择, ♻️ 自动选择, 🎯 全球直连, $M.serverNames($servers)
+static=🎥 NETFLIX, 🔰 节点选择, ♻️ 自动选择, 🎯 全球直连, $M.serverNames($servers)
+static=🌌 YouTube, 🔰 节点选择, ♻️ 自动选择, 🎯 全球直连, $M.serverNames($servers)
+static=⛔️ 广告拦截, 🎯 全球直连, 🛑 全球拦截, 🔰 节点选择
+static=🚫 运营劫持, 🎯 全球直连, 🛑 全球拦截, 🔰 节点选择
+static=🌍 国外媒体, 🔰 节点选择, ♻️ 自动选择, 🎯 全球直连, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/GlobalMedia.png
+static=🌏 港台媒体, 🔰 节点选择, ♻️ 自动选择, 🎯 全球直连, $M.serverNames($servers)
+static=🌏 国内媒体, 🎯 全球直连, 🔰 节点选择, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/DomesticMedia.png
+static=Ⓜ️ 微软服务, 🎯 全球直连, 🔰 节点选择, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Microsoft.png
+static=📲 电报信息, 🔰 节点选择, 🎯 全球直连, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Telegram.png
+static=🍎 苹果服务, 🔰 节点选择, 🎯 全球直连, ♻️ 自动选择, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Apple.png
+static=🎯 全球直连, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Direct.png
+static=🛑 全球拦截, DIRECT, REJECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Advertising.png
+static=🐟 漏网之鱼, 🎯 全球直连, 🔰 节点选择, ♻️ 自动选择, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Final.png
+
+[server_remote]
+$M.proxiesUrl(), tag=RemoteServer
+
+[filter_remote]
+$M.parseRule("LocalAreaNetwork.list", "🎯 全球直连"), enabled=true
+$M.parseRule("MyDirect.list", "🎯 全球直连"), enabled=true
+$M.parseRule("MSServices.list", "Ⓜ️ 微软服务"), enabled=true
+$M.parseRule("MyProxy.list", "🔰 节点选择"), enabled=true
+$M.parseRule("PayPal.list", "💰 PayPal"), enabled=true
+$M.parseRule("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list", "🎯 全球直连"), enabled=true
+$M.parseRule("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list", "⛔️ 广告拦截"), enabled=true
+$M.parseRule("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list", "🚫 运营劫持"), enabled=true
+$M.parseRule("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list", "🎥 NETFLIX"), enabled=true
+$M.parseRule("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list", "🌌 YouTube"), enabled=true
+$M.parseRule("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list", "🌍 国外媒体"), enabled=true
+$M.parseRule("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list", "🌏 港台媒体"), enabled=true
+$M.parseRule("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list", "📲 电报信息"), enabled=true
+$M.parseRule("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list", "🔰 节点选择"), enabled=true
+$M.parseRule("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list", "🍎 苹果服务"), enabled=true
+$M.parseRule("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list", "🎯 全球直连"), enabled=true
+
+[rewrite_remote]
+
+[server_local]
+
+
+[filter_local]
+GEOIP,CN,🎯 全球直连
+FINAL,🐟 漏网之鱼
+
+[rewrite_local]
+^https?:\/\/(www.)?(g|google)\.cn url 302 https://www.google.com
+
+[mitm]
+passphrase = 0889302A
+p12 = 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
+

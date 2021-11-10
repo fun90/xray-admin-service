@@ -14,6 +14,7 @@ import java.util.stream.Stream;
 public class ClientConstant {
 	public static final String DEFAULT = "shadowrocket";
 	private Map<String, List<String>> supportProtocols;
+	private Map<String, String> quanxRuleTypes;
 
 	public ClientConstant() {
 		this.supportProtocols = new HashMap<>();
@@ -22,5 +23,8 @@ public class ClientConstant {
 		this.supportProtocols.put("surge", Stream.of("trojan", "vmess").collect(Collectors.toList()));
 		this.supportProtocols.put("loon", Stream.of("trojan", "vmess", "vless").collect(Collectors.toList()));
 		this.supportProtocols.put("shadowrocket", Stream.of("trojan", "vmess", "vless").collect(Collectors.toList()));
+
+		this.quanxRuleTypes = new HashMap<>();
+		this.quanxRuleTypes.put("IP-CIDR6", "IP6-CIDR");
 	}
 }
