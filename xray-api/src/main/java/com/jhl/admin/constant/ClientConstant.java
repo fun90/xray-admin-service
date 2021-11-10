@@ -4,7 +4,9 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -15,6 +17,7 @@ public class ClientConstant {
 	public static final String DEFAULT = "shadowrocket";
 	private Map<String, List<String>> supportProtocols;
 	private Map<String, String> quanxRuleTypes;
+	private Map<String, List<String>> excludeRuleTypes;
 
 	public ClientConstant() {
 		this.supportProtocols = new HashMap<>();
@@ -26,5 +29,8 @@ public class ClientConstant {
 
 		this.quanxRuleTypes = new HashMap<>();
 		this.quanxRuleTypes.put("IP-CIDR6", "IP6-CIDR");
+
+		this.excludeRuleTypes = new HashMap<>();
+		this.excludeRuleTypes.put("quanx", Stream.of("AND").collect(Collectors.toList()));
 	}
 }

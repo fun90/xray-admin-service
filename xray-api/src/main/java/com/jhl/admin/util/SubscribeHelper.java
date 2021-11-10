@@ -2,7 +2,6 @@ package com.jhl.admin.util;
 
 import com.jhl.admin.model.Server;
 import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.codec.net.URLCodec;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponents;

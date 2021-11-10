@@ -31,7 +31,6 @@ import java.io.StringWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -97,9 +96,9 @@ public class SubscriptionController {
 			fileName = new String(Base64.decodeBase64(fileName));
 			group = new String(Base64.decodeBase64(group));
 			if (StringUtils.startsWithAny(fileName, "https://", "http://")) {
-				return Utils.call(fileName, new QuanxRuleParser(clientConstant.getQuanxRuleTypes(), group));
+				return Utils.call(fileName, new QuanxRuleParser(clientConstant, group));
 			} else {
-				return Utils.writeString(templatePath, new QuanxRuleParser(clientConstant.getQuanxRuleTypes(), group), "rules", fileName);
+				return Utils.writeString(templatePath, new QuanxRuleParser(clientConstant, group), "rules", fileName);
 			}
 		}
 

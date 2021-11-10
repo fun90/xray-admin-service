@@ -1,19 +1,17 @@
 package com.jhl.admin.util;
 
-import org.apache.commons.lang3.StringUtils;
+import com.jhl.admin.constant.ClientConstant;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 import java.util.function.Function;
 
 public class QuanxRuleParser implements Function<String, String> {
-    private final Map<String, String> rulesTypes;
-    private final String noResolve = "no-resolve";
+    private final ClientConstant clientConstant;
     private final String group;
 
-    public QuanxRuleParser(Map<String, String> rulesTypes, String group) {
-        this.rulesTypes = rulesTypes;
+    public QuanxRuleParser(ClientConstant clientConstant, String group) {
+        this.clientConstant = clientConstant;
         this.group = group;
     }
 
@@ -23,8 +21,13 @@ public class QuanxRuleParser implements Function<String, String> {
         if (arr.length < 2) {
             return line + System.lineSeparator();
         }
-        arr[0] = rulesTypes.getOrDefault(arr[0], arr[0]);
+        List<String> excludeTypes = clientConstant.getExcludeRuleTypes().get("quanx");
+        if (excludeTypes.contains(arr[0])) {
+            return "#" + line + System.lineSeparator();
+        }
+        arr[0] = clientConstant.getQuanxRuleTypes().getOrDefault(arr[0], arr[0]);
         String[] newArr = Arrays.copyOf(arr, arr.length + 1);
+        String noResolve = "no-resolve";
         if (newArr[newArr.length - 2].equals(noResolve)) {
             newArr[newArr.length - 2] = group;
             newArr[newArr.length - 1] = noResolve;
