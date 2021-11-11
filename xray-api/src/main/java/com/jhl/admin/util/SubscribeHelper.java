@@ -63,7 +63,7 @@ public class SubscribeHelper {
                     .path("/subscribe/rules")
                     .pathSegment(target)
                     .pathSegment(Utils.urlEncode(base64Url))
-                    .queryParam("group", Utils.urlEncode(base64Group))
+                    .pathSegment(Utils.urlEncode(base64Group))
                     .build();
             return components.toUriString() + ", tag=" + group;
         }

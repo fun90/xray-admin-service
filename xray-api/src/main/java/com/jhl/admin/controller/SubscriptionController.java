@@ -86,8 +86,8 @@ public class SubscriptionController {
 	 * @return
 	 */
 	@ResponseBody
-	@RequestMapping(value = "/subscribe/rules/{target}/{fileName}", produces="text/plain;charset=UTF-8")
-	public String rules(@PathVariable String target, @PathVariable String fileName, String group) {
+	@RequestMapping(value = {"/subscribe/rules/{target}/{fileName}", "/subscribe/rules/{target}/{fileName}/{group}"}, produces="text/plain;charset=UTF-8")
+	public String rules(@PathVariable String target, @PathVariable String fileName,  @PathVariable String group) {
 		String templatePath = getTemplatePath();
 
 		if (StringUtils.equalsAny(target, "loon", "surge")) {
