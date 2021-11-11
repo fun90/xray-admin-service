@@ -32,22 +32,22 @@ static=🐟 漏网之鱼, 🎯 全球直连, 🔰 节点选择, ♻️ 自动选
 $M.proxiesUrl(), tag=RemoteServer
 
 [filter_remote]
-$M.parseRule("LocalAreaNetwork.list", "🎯 全球直连"), enabled=true
-$M.parseRule("MyDirect.list", "🎯 全球直连"), enabled=true
-$M.parseRule("MSServices.list", "Ⓜ️ 微软服务"), enabled=true
-$M.parseRule("MyProxy.list", "🔰 节点选择"), enabled=true
-$M.parseRule("PayPal.list", "💰 PayPal"), enabled=true
-$M.parseRule("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list", "🎯 全球直连"), enabled=true
-$M.parseRule("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list", "⛔️ 广告拦截"), enabled=true
-$M.parseRule("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list", "🚫 运营劫持"), enabled=true
-$M.parseRule("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list", "🎥 NETFLIX"), enabled=true
-$M.parseRule("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list", "🌌 YouTube"), enabled=true
-$M.parseRule("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list", "🌍 国外媒体"), enabled=true
-$M.parseRule("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list", "🌏 港台媒体"), enabled=true
-$M.parseRule("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list", "📲 电报信息"), enabled=true
-$M.parseRule("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list", "🔰 节点选择"), enabled=true
-$M.parseRule("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list", "🍎 苹果服务"), enabled=true
-$M.parseRule("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list", "🎯 全球直连"), enabled=true
+$M.ruleUrl("LocalAreaNetwork.list", "🎯 全球直连"), enabled=true
+$M.ruleUrl("MyDirect.list", "🎯 全球直连"), enabled=true
+$M.ruleUrl("MSServices.list", "Ⓜ️ 微软服务"), enabled=true
+$M.ruleUrl("MyProxy.list", "🔰 节点选择"), enabled=true
+$M.ruleUrl("PayPal.list", "💰 PayPal"), enabled=true
+$M.ruleUrl("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list", "🎯 全球直连"), enabled=true
+$M.ruleUrl("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list", "⛔️ 广告拦截"), enabled=true
+$M.ruleUrl("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list", "🚫 运营劫持"), enabled=true
+$M.ruleUrl("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list", "🎥 NETFLIX"), enabled=true
+$M.ruleUrl("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list", "🌌 YouTube"), enabled=true
+$M.ruleUrl("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list", "🌍 国外媒体"), enabled=true
+$M.ruleUrl("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list", "🌏 港台媒体"), enabled=true
+$M.ruleUrl("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list", "📲 电报信息"), enabled=true
+$M.ruleUrl("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list", "🔰 节点选择"), enabled=true
+$M.ruleUrl("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list", "🍎 苹果服务"), enabled=true
+$M.ruleUrl("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list", "🎯 全球直连"), enabled=true
 
 [rewrite_remote]
 

@@ -44,25 +44,28 @@ public class SubscribeHelper {
         return "";
     }
 
-    public String parseRule(String ruleUrl) {
-        return parseRule(ruleUrl, "");
+    public String ruleUrl(String ruleUrl) {
+        return ruleUrl(ruleUrl, "");
     }
 
-    public String parseRule(String ruleUrl, String group) {
+    public String ruleUrl(String ruleUrl, String group) {
         if (StringUtils.equalsAny(target, "surge", "loon")) {
             if (StringUtils.startsWithAny(ruleUrl, "https://", "http://")) {
                 return ruleUrl;
             } else {
-                return rootUrl + "/subscribe/rules/" + ruleUrl + "?target=" + target;
+                UriComponents components = ServletUriComponentsBuilder.fromUriString(rootUrl).path("/subscribe/rules").pathSegment(ruleUrl).build();
+                return components.toUriString();
             }
         } else if ("quanx".equals(target)) {
             String base64Url = Base64.encodeBase64String(ruleUrl.getBytes(StandardCharsets.UTF_8));
             String base64Group = Base64.encodeBase64String(group.getBytes(StandardCharsets.UTF_8));
-            if (StringUtils.startsWithAny(ruleUrl, "https://", "http://")) {
-                return rootUrl + "/subscribe/rules/" + Utils.urlEncode(base64Url) + "?target=" + target + "&group=" + Utils.urlEncode(base64Group) + ", tag=" + group;
-            } else {
-                return rootUrl + "/subscribe/rules/" + Utils.urlEncode(base64Url) + "?target=" + target + "&group=" + Utils.urlEncode(base64Group) + ", tag=" + group;
-            }
+            UriComponents components = ServletUriComponentsBuilder.fromUriString(rootUrl)
+                    .path("/subscribe/rules")
+                    .pathSegment(target)
+                    .pathSegment(Utils.urlEncode(base64Url))
+                    .queryParam("group", Utils.urlEncode(base64Group))
+                    .build();
+            return components.toUriString() + ", tag=" + group;
         }
         return "";
     }
