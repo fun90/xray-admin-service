@@ -5,6 +5,7 @@ import com.google.common.collect.Lists;
 import com.jhl.admin.VO.AccountVO;
 import com.jhl.admin.VO.StatVO;
 import com.jhl.admin.VO.UserVO;
+import com.jhl.admin.constant.ClientConstant;
 import com.jhl.admin.constant.KVConstant;
 import com.jhl.admin.constant.ProxyConstant;
 import com.jhl.admin.entity.V2rayAccount;
@@ -18,6 +19,7 @@ import com.jhl.admin.service.v2ray.XrayAccountService;
 import com.jhl.admin.util.Utils;
 import com.jhl.admin.util.Validator;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
@@ -227,6 +229,8 @@ public class AccountService {
 		long timeStamp = System.currentTimeMillis();
 
 		String token = DigestUtils.md5Hex(subscription.getCode() + timeStamp + proxyConstant.getAuthPassword());
+		type = type == null ? 0 : type;
+		target = StringUtils.defaultString(target, ClientConstant.DEFAULT);
 		String url = String.format(proxyConstant.getSubscriptionTemplate(), subscription.getCode(), target, type, timeStamp, token);
 		account.setSubscriptionUrl(url);
 		accountRepository.save(account);
