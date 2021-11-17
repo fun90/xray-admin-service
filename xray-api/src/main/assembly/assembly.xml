@@ -33,6 +33,10 @@
             </includes>
             <outputDirectory>/</outputDirectory>
         </fileSet>
+        <fileSet>
+            <directory>src/main/assembly/bin</directory>
+            <outputDirectory>/</outputDirectory>
+        </fileSet>
 <!--        <fileSet>-->
 <!--            <directory>src/main/db</directory>-->
 <!--            <outputDirectory>/db</outputDirectory>-->
