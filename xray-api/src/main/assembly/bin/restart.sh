@@ -13,4 +13,4 @@ fi
 
 echo xray-api is starting
 
-nohup java -server -jar ./xray-api.jar --spring.config.location=./application.yaml > /dev/null 2>&1 &
+nohup java -jar ./xray-api.jar --spring.config.location=./application.yaml > /dev/null 2>&1 &
