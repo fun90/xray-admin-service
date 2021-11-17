@@ -49,8 +49,8 @@ public class SubscriptionService {
 		servers = servers.stream().filter(o -> clientConstant.getSupportProtocols().get(target).contains(o.getProtocol())).collect(Collectors.toList());
 		
 		if ("quanx".equals(target)) {
-			String trojanTemplate = "trojan = %s:%s, password=%s, tls-host=s%, over-tls=true, tls-verification=false, fast-open=false, udp-relay=true, tls13=false, tag=s%";
-			String vmessTemplate = "vmess = %s:%s, password=%s, obfs-host=s%, obfs-uri=s%, obfs=wss, method=chacha20-ietf-poly1305, fast-open=false, udp-relay=true, tls13=false, tag=s%";
+			String trojanTemplate = "trojan = %s:%s, password=%s, tls-host=%s, over-tls=true, tls-verification=false, fast-open=false, udp-relay=true, tls13=false, tag=%s";
+			String vmessTemplate = "vmess = %s:%s, password=%s, obfs-host=%s, obfs-uri=%s, obfs=wss, method=chacha20-ietf-poly1305, fast-open=false, udp-relay=true, tls13=false, tag=%s";
 			StringBuilder sb = new StringBuilder();
 			servers.forEach(s -> {
 				if ("trojan".equals(s.getProtocol())) {
