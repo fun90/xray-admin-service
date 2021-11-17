@@ -33,9 +33,10 @@ $M.proxiesUrl(), tag=RemoteServer
 
 [filter_remote]
 $M.rules("LocalAreaNetwork.list", "🎯 全球直连"), enabled=true
+$M.rules("MyProxy.list", "🛑 全球拦截"), enabled=true
 $M.rules("MyDirect.list", "🎯 全球直连"), enabled=true
-$M.rules("MSServices.list", "Ⓜ️ 微软服务"), enabled=true
 $M.rules("MyProxy.list", "🔰 节点选择"), enabled=true
+$M.rules("MSServices.list", "Ⓜ️ 微软服务"), enabled=true
 $M.rules("PayPal.list", "💰 PayPal"), enabled=true
 $M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list", "🎯 全球直连"), enabled=true
 $M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list", "⛔️ 广告拦截"), enabled=true

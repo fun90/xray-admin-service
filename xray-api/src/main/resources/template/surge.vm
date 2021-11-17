@@ -35,9 +35,10 @@ $M.proxies($servers)
 
 [Rule]
 RULE-SET,$M.rules("LocalAreaNetwork.list"),🎯 全球直连,update-interval=86400
+RULE-SET,$M.rules("MyReject.list"),🛑 全球拦截,update-interval=86400
 RULE-SET,$M.rules("MyDirect.list"),🎯 全球直连,update-interval=86400
-RULE-SET,$M.rules("MSServices.list"),Ⓜ️ 微软服务,update-interval=86400
 RULE-SET,$M.rules("MyProxy.list"),🔰 节点选择,update-interval=86400
+RULE-SET,$M.rules("MSServices.list"),Ⓜ️ 微软服务,update-interval=86400
 RULE-SET,$M.rules("PayPal.list"),💰 PayPal,update-interval=86400
 RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list,🎯 全球直连,update-interval=86400
 RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list,⛔️ 广告拦截,update-interval=86400

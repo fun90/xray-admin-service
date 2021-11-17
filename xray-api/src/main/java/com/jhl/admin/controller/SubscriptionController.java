@@ -87,8 +87,8 @@ public class SubscriptionController {
 		if (StringUtils.equalsAny(target, "loon", "surge")) {
 			return Utils.writeString(TemplateUtil.getTemplatePath(), "rules", fileName);
 		} else if (StringUtils.equalsAny(target, "quanx")) {
-			fileName = new String(Base64.decodeBase64(fileName));
-			group = new String(Base64.decodeBase64(group));
+			fileName = new String(Base64.decodeBase64(Base64.decodeBase64(fileName)));
+			group = new String(Base64.decodeBase64(Base64.decodeBase64(group)));
 			if (StringUtils.startsWithAny(fileName, "https://", "http://")) {
 				return Utils.call(fileName, new QuanxRuleParser(clientConstant, group));
 			} else {
