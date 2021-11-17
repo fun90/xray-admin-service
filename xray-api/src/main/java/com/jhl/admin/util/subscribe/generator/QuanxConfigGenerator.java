@@ -29,7 +29,7 @@ public class QuanxConfigGenerator implements IConfigGenerator {
         String base64Group = Base64.encodeBase64String(group.getBytes(StandardCharsets.UTF_8));
         UriComponents components = ServletUriComponentsBuilder.fromUriString(rootUrl)
                 .path("/subscribe/rules/quanx")
-                .pathSegment(Utils.urlEncode(Base64.encodeBase64String(Utils.urlEncode(base64Url).getBytes(StandardCharsets.UTF_8))))
+                .pathSegment(Utils.urlEncode(Base64.encodeBase64String(base64Url.getBytes(StandardCharsets.UTF_8))))
                 .pathSegment(Utils.urlEncode(Base64.encodeBase64String(base64Group.getBytes(StandardCharsets.UTF_8))))
                 .build();
         return components.toUriString() + ", tag=" + group;
