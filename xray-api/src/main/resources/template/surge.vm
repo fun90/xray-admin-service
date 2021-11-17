@@ -13,9 +13,7 @@ dns-server = 119.29.29.29,223.5.5.5
 
 [Proxy]
 DIRECT = direct
-#foreach( $s in $servers )
-$s.serverName = $s.protocol, $s.clientDomain, $s.clientPort, password=$account.uuid, sni=$s.clientDomain, skip-cert-verify=1, tfo=false, udp-relay=true
-#end
+$M.proxies($servers)
 🎯 全球直连 = direct
 
 [Proxy Group]
@@ -36,11 +34,11 @@ $s.serverName = $s.protocol, $s.clientDomain, $s.clientPort, password=$account.u
 🐟 漏网之鱼 = select,🎯 全球直连,🔰 节点选择,♻️ 自动选择,$M.serverNames($servers)
 
 [Rule]
-RULE-SET,$M.ruleUrl("LocalAreaNetwork.list"),🎯 全球直连,update-interval=86400
-RULE-SET,$M.ruleUrl("MyDirect.list"),🎯 全球直连,update-interval=86400
-RULE-SET,$M.ruleUrl("MSServices.list"),Ⓜ️ 微软服务,update-interval=86400
-RULE-SET,$M.ruleUrl("MyProxy.list"),🔰 节点选择,update-interval=86400
-RULE-SET,$M.ruleUrl("PayPal.list"),💰 PayPal,update-interval=86400
+RULE-SET,$M.rules("LocalAreaNetwork.list"),🎯 全球直连,update-interval=86400
+RULE-SET,$M.rules("MyDirect.list"),🎯 全球直连,update-interval=86400
+RULE-SET,$M.rules("MSServices.list"),Ⓜ️ 微软服务,update-interval=86400
+RULE-SET,$M.rules("MyProxy.list"),🔰 节点选择,update-interval=86400
+RULE-SET,$M.rules("PayPal.list"),💰 PayPal,update-interval=86400
 RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list,🎯 全球直连,update-interval=86400
 RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list,⛔️ 广告拦截,update-interval=86400
 RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list,🚫 运营劫持,update-interval=86400

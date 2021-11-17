@@ -34,11 +34,11 @@ GEOIP,CN,🎯 全球直连
 FINAL,🐟 漏网之鱼
 
 [Remote Rule]
-$M.ruleUrl("LocalAreaNetwork.list"),🎯 全球直连
-$M.ruleUrl("MyDirect.list"),🎯 全球直连
-$M.ruleUrl("MSServices.list"),Ⓜ️ 微软服务
-$M.ruleUrl("MyProxy.list"),🔰 节点选择
-$M.ruleUrl("PayPal.list"),💰 PayPal
+$M.rules("LocalAreaNetwork.list"),🎯 全球直连
+$M.rules("MyDirect.list"),🎯 全球直连
+$M.rules("MSServices.list"),Ⓜ️ 微软服务
+$M.rules("MyProxy.list"),🔰 节点选择
+$M.rules("PayPal.list"),💰 PayPal
 https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list,🎯 全球直连
 https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list,⛔️ 广告拦截
 https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list,🚫 运营劫持

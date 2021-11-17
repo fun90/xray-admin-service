@@ -7,9 +7,10 @@ import com.jhl.admin.model.Account;
 import com.jhl.admin.model.Server;
 import com.jhl.admin.service.ServerConfigService;
 import com.jhl.admin.service.SubscriptionService;
-import com.jhl.admin.util.QuanxRuleParser;
-import com.jhl.admin.util.SubscribeHelper;
+import com.jhl.admin.util.subscribe.QuanxRuleParser;
+import com.jhl.admin.util.subscribe.SubscribeHelper;
 import com.jhl.admin.util.Utils;
+import com.jhl.admin.util.subscribe.TemplateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -19,17 +20,13 @@ import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
 import org.apache.velocity.app.VelocityEngine;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.system.ApplicationHome;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.io.FileNotFoundException;
 import java.io.StringWriter;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
@@ -82,24 +79,23 @@ public class SubscriptionController {
 	}
 
 	/**
-	 *
-	 * @return
+	 * 规则解析
 	 */
 	@ResponseBody
 	@RequestMapping(value = {"/subscribe/rules/{target}/{fileName}", "/subscribe/rules/{target}/{fileName}/{group}"}, produces="text/plain;charset=UTF-8")
 	public String rules(@PathVariable String target, @PathVariable String fileName,  @PathVariable String group) {
-		String templatePath = getTemplatePath();
-
 		if (StringUtils.equalsAny(target, "loon", "surge")) {
-			return Utils.writeString(templatePath, "rules", fileName);
+			return Utils.writeString(TemplateUtil.getTemplatePath(), "rules", fileName);
 		} else if (StringUtils.equalsAny(target, "quanx")) {
 			fileName = new String(Base64.decodeBase64(fileName));
 			group = new String(Base64.decodeBase64(group));
 			if (StringUtils.startsWithAny(fileName, "https://", "http://")) {
 				return Utils.call(fileName, new QuanxRuleParser(clientConstant, group));
 			} else {
-				return Utils.writeString(templatePath, new QuanxRuleParser(clientConstant, group), "rules", fileName);
+				return Utils.writeString(TemplateUtil.getTemplatePath(), new QuanxRuleParser(clientConstant, group), "rules", fileName);
 			}
+		} else if (StringUtils.equalsAny(target, "shadowrocket")) {
+
 		}
 
 		return "不支持的target";
@@ -115,7 +111,7 @@ public class SubscriptionController {
 
 		String rootUrl = serverConfigService.getServerConfig(WebsiteConfigEnum.SUBSCRIPTION_ADDRESS_PREFIX.getKey()).getValue();
 		String subscriptionUrl = account.getSubscriptionUrl();
-		params.put("M", new SubscribeHelper(target, rootUrl, subscriptionUrl));
+		params.put("M", new SubscribeHelper(target, rootUrl, subscriptionUrl, account));
 		return templateMerge(target, params);
 	}
 
@@ -124,7 +120,7 @@ public class SubscriptionController {
 		String fileName = target + ".vm";
 		if (ve == null) {
 			//模板文件路径
-			String templatePath = getTemplatePath();
+			String templatePath = TemplateUtil.getTemplatePath();
 			if (!Files.exists(Paths.get(templatePath, fileName))) {
 				throw new RuntimeException(target + "的模板文件不存在");
 			}
@@ -140,18 +136,6 @@ public class SubscriptionController {
 			template.merge(data, stringWriter);
 			return stringWriter.toString();
 		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-	}
-
-	public String getTemplatePath() {
-		Path path = Paths.get(new ApplicationHome(getClass()).getSource().getParent(), "template");
-		if (Files.exists(path)) {
-			return path.toAbsolutePath().toString();
-		}
-		try {
-			return ResourceUtils.getURL("classpath:template").getPath();
-		} catch (FileNotFoundException e) {
 			throw new RuntimeException(e);
 		}
 	}

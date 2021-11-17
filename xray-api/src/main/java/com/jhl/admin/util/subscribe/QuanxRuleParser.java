@@ -1,6 +1,7 @@
-package com.jhl.admin.util;
+package com.jhl.admin.util.subscribe;
 
 import com.jhl.admin.constant.ClientConstant;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,6 +18,7 @@ public class QuanxRuleParser implements Function<String, String> {
 
     @Override
     public String apply(String line) {
+        line = cleanLine(line);
         String[] arr = line.split(",");
         if (arr.length < 2) {
             return line + System.lineSeparator();
@@ -35,5 +37,9 @@ public class QuanxRuleParser implements Function<String, String> {
             newArr[newArr.length - 1] = group;
         }
         return String.join(",", newArr) + System.lineSeparator();
+    }
+
+    public String cleanLine(String line) {
+        return line.replaceAll("\\s//.*", "");
     }
 }

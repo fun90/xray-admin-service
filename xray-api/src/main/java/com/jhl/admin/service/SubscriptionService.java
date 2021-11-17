@@ -49,24 +49,17 @@ public class SubscriptionService {
 		servers = servers.stream().filter(o -> clientConstant.getSupportProtocols().get(target).contains(o.getProtocol())).collect(Collectors.toList());
 		
 		if ("quanx".equals(target)) {
+			String trojanTemplate = "trojan = %s:%s, password=%s, tls-host=s%, over-tls=true, tls-verification=false, fast-open=false, udp-relay=true, tls13=false, tag=s%";
+			String vmessTemplate = "vmess = %s:%s, password=%s, obfs-host=s%, obfs-uri=s%, obfs=wss, method=chacha20-ietf-poly1305, fast-open=false, udp-relay=true, tls13=false, tag=s%";
 			StringBuilder sb = new StringBuilder();
 			servers.forEach(s -> {
-				sb.append(s.getProtocol()).append("=").append(s.getClientDomain()).append(":").append(s.getClientPort()).append(", ")
-						.append("password=").append(account.getUuid())
-						.append(", fast-open=false")
-						.append(", udp-relay=true")
-						.append(", tls13=false");
 				if ("trojan".equals(s.getProtocol())) {
-					sb.append(", tls-host=").append(s.getClientDomain())
-							.append(", over-tls=true")
-							.append(", tls-verification=false");
+					sb.append(String.format(trojanTemplate, s.getClientDomain(), s.getClientPort(), account.getUuid(), s.getClientDomain(), s.getServerName()))
+							.append(System.lineSeparator());
 				} else if ("vmess".equals(s.getProtocol())) {
-					sb.append(", method=chacha20-ietf-poly1305")
-							.append(", obfs-host=").append(s.getClientDomain())
-							.append(", obfs-uri=").append(s.getWsPath())
-							.append(", obfs=wss");
+					sb.append(String.format(vmessTemplate, s.getClientDomain(), s.getClientPort(), account.getUuid(), s.getClientDomain(), s.getWsPath(), s.getServerName()))
+							.append(System.lineSeparator());
 				}
-				sb.append(", tag=").append(s.getServerName()).append(System.lineSeparator());
 			});
 			return sb.toString();
 		}
