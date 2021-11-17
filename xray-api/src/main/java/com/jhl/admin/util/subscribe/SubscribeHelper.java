@@ -2,8 +2,7 @@ package com.jhl.admin.util.subscribe;
 
 import com.jhl.admin.model.Account;
 import com.jhl.admin.model.Server;
-import com.jhl.admin.util.subscribe.ConfigGeneratorFactory;
-import com.jhl.admin.util.subscribe.IConfigGenerator;
+import com.jhl.admin.util.subscribe.generator.IConfigGenerator;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponents;
 

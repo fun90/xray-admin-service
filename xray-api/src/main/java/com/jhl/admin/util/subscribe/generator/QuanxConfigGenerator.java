@@ -1,10 +1,9 @@
-package com.jhl.admin.util.subscribe;
+package com.jhl.admin.util.subscribe.generator;
 
 import com.jhl.admin.model.Account;
 import com.jhl.admin.model.Server;
 import com.jhl.admin.util.Utils;
 import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponents;
 
@@ -29,8 +28,7 @@ public class QuanxConfigGenerator implements IConfigGenerator {
         String base64Url = Base64.encodeBase64String(ruleUrl.getBytes(StandardCharsets.UTF_8));
         String base64Group = Base64.encodeBase64String(group.getBytes(StandardCharsets.UTF_8));
         UriComponents components = ServletUriComponentsBuilder.fromUriString(rootUrl)
-                .path("/subscribe/rules")
-                .pathSegment("quanx")
+                .path("/subscribe/rules/quanx")
                 .pathSegment(Utils.urlEncode(base64Url))
                 .pathSegment(Utils.urlEncode(base64Group))
                 .build();

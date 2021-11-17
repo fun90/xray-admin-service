@@ -1,8 +1,9 @@
-package com.jhl.admin.util.subscribe;
+package com.jhl.admin.util.subscribe.generator;
 
 import com.jhl.admin.model.Account;
 import com.jhl.admin.model.Server;
 import com.jhl.admin.util.Utils;
+import com.jhl.admin.util.subscribe.TemplateUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;

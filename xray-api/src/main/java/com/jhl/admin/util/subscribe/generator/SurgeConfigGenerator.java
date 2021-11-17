@@ -1,4 +1,4 @@
-package com.jhl.admin.util.subscribe;
+package com.jhl.admin.util.subscribe.generator;
 
 import com.jhl.admin.model.Account;
 import com.jhl.admin.model.Server;
@@ -38,7 +38,7 @@ public class SurgeConfigGenerator implements IConfigGenerator {
         if (StringUtils.startsWithAny(ruleUrl, "https://", "http://")) {
             return ruleUrl;
         } else {
-            UriComponents components = ServletUriComponentsBuilder.fromUriString(rootUrl).path("/subscribe/rules").pathSegment(ruleUrl).build();
+            UriComponents components = ServletUriComponentsBuilder.fromUriString(rootUrl).path("/subscribe/rules/surge").pathSegment(ruleUrl).build();
             return components.toUriString();
         }
     }

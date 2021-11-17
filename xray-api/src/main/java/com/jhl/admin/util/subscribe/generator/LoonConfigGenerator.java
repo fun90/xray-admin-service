@@ -1,4 +1,4 @@
-package com.jhl.admin.util.subscribe;
+package com.jhl.admin.util.subscribe.generator;
 
 import com.jhl.admin.model.Account;
 import com.jhl.admin.model.Server;
@@ -7,7 +7,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponents;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class LoonConfigGenerator implements IConfigGenerator {
 
@@ -26,7 +25,7 @@ public class LoonConfigGenerator implements IConfigGenerator {
         if (StringUtils.startsWithAny(ruleUrl, "https://", "http://")) {
             return ruleUrl;
         } else {
-            UriComponents components = ServletUriComponentsBuilder.fromUriString(rootUrl).path("/subscribe/rules").pathSegment(ruleUrl).build();
+            UriComponents components = ServletUriComponentsBuilder.fromUriString(rootUrl).path("/subscribe/rules/loon").pathSegment(ruleUrl).build();
             return components.toUriString();
         }
     }

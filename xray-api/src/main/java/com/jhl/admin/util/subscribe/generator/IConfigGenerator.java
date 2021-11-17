@@ -1,4 +1,4 @@
-package com.jhl.admin.util.subscribe;
+package com.jhl.admin.util.subscribe.generator;
 
 import com.jhl.admin.model.Account;
 import com.jhl.admin.model.Server;

@@ -1,5 +1,7 @@
 package com.jhl.admin.util.subscribe;
 
+import com.jhl.admin.util.subscribe.generator.*;
+
 public class ConfigGeneratorFactory {
     public static IConfigGenerator build(String target) {
         if ("surge".equals(target)) {
