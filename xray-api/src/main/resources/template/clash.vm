@@ -125,7 +125,6 @@ $M.serverNames($servers)
 $M.serverNames($servers)
 
 rules:
-  - GEOIP,CN,🎯 全球直连
 $M.rules("LocalAreaNetwork.list", "🎯 全球直连")
 $M.rules("MyReject.list", "🛑 全球拦截")
 $M.rules("MyDirect.list", "🎯 全球直连")
@@ -143,4 +142,5 @@ $M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/R
 $M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list", "🔰 节点选择")
 $M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list", "🍎 苹果服务")
 $M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list", "🎯 全球直连")
+  - GEOIP,CN,🎯 全球直连
   - MATCH,🐟 漏网之鱼
