@@ -20,6 +20,10 @@
             </includes>
             <outputDirectory>/</outputDirectory>
         </fileSet>
+        <fileSet>
+            <directory>target/lib</directory>
+            <outputDirectory>/lib</outputDirectory>
+        </fileSet>
 
         <!-- 从源目录拷贝文件去压缩 -->
         <fileSet>
@@ -35,7 +39,7 @@
         </fileSet>
         <fileSet>
             <directory>src/main/assembly/bin</directory>
-            <outputDirectory>/</outputDirectory>
+            <outputDirectory>/bin</outputDirectory>
         </fileSet>
 <!--        <fileSet>-->
 <!--            <directory>src/main/db</directory>-->

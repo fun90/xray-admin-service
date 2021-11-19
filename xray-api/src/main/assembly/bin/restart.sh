@@ -1,6 +1,4 @@
 #!/bin/bash
-work_path=$(dirname $0)
-cd ${work_path}
 
 PID=$(ps -ef | grep xray-api | grep -v grep | awk '{ print $2 }')
 if [ -z "$PID" ]
@@ -13,4 +11,7 @@ fi
 
 echo xray-api is starting
 
-nohup java -jar ./xray-api.jar --spring.config.location=./application.yaml > /dev/null 2>&1 &
+work_path=$(dirname $0)
+cd ${work_path}
+cd ..
+nohup java -jar ./xray-api.jar > /dev/null 2>&1 &
