@@ -61,15 +61,7 @@ public class ShadowrocketConfigGenerator implements IConfigGenerator {
             if (excludeTypes.contains(arr[0])) {
                 return "#" + line + System.lineSeparator();
             }
-            String[] newArr = Arrays.copyOf(arr, arr.length + 1);
-            String noResolve = "no-resolve";
-            if (newArr[newArr.length - 2].equals(noResolve)) {
-                newArr[newArr.length - 2] = group;
-                newArr[newArr.length - 1] = noResolve;
-            } else {
-                newArr[newArr.length - 1] = group;
-            }
-            return "  - " + String.join(",", newArr) + System.lineSeparator();
+            return line + "," + group + System.lineSeparator();
         };
     }
 
