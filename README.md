@@ -19,5 +19,7 @@ To-Do List
 
 ## 运行
 前提：请确保安装好了JDK并已设置好环境变量
+
 注意：将YOUR_PATH改为自己的实际路径
+
 /YOUR_PATH/xray-api/bin/start.sh
