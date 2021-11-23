@@ -24,41 +24,6 @@ email:
   vCodeTemplate: '你的验证码为: %s,请在10分钟内使用'
   overdueDate: 你的账号即将于：%s 过期，请留意续费。
 
-client:
-  support-protocols:
-    clash:
-      - trojan
-      - vmess
-    quanx:
-      - trojan
-      - vmess
-    surge:
-      - trojan
-      - vmess
-    loon:
-      - trojan
-      - vmess
-      - vless
-    shadowrocket:
-      - trojan
-      - vmess
-      - vless
-  quanx-rule-types: {"IP-CIDR6": "IP6-CIDR"}
-  exclude-rule-types:
-    clash:
-      - USER-AGENT
-      - AND
-      - URL-REGEX
-    quanx:
-      - USER-AGENT
-      - AND
-      - URL-REGEX
-    shadowrocket:
-      - USER-AGENT
-      - AND
-      - URL-REGEX
-      - IP-CIDR6
-
 logging:
   level:
     root: info
@@ -104,3 +69,38 @@ spring:
 #    - 'vmess://eyJhZGQiOiJmcmVlZG9tLmpvaG5zdG9uLndhbmciLCJhaWQiOiI2NCIsImhvc3QiOiJmcmV'
 #  externalServers:
 #    - 'vmess://eyJhZGQiOiJmcmVlZG9tLmpvaG5zdG9uLndhbmciLCJhaWQiOiI2NCIsImhvc3QiOiJmcmV'
+
+client:
+  support-protocols:
+    clash:
+      - trojan
+      - vmess
+    quanx:
+      - trojan
+      - vmess
+    surge:
+      - trojan
+      - vmess
+    loon:
+      - trojan
+      - vmess
+      - vless
+    shadowrocket:
+      - trojan
+      - vmess
+      - vless
+  quanx-rule-types: {"IP-CIDR6": "IP6-CIDR"}
+  exclude-rule-types:
+    clash:
+      - USER-AGENT
+      - AND
+      - URL-REGEX
+    quanx:
+      - USER-AGENT
+      - AND
+      - URL-REGEX
+    shadowrocket:
+      - USER-AGENT
+      - AND
+      - URL-REGEX
+      - IP-CIDR6
