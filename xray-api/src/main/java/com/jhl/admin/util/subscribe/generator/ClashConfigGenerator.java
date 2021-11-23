@@ -1,10 +1,13 @@
 package com.jhl.admin.util.subscribe.generator;
 
+import com.jhl.admin.constant.ClientConstant;
 import com.jhl.admin.model.Account;
 import com.jhl.admin.model.Server;
 import com.jhl.admin.util.Utils;
 import com.jhl.admin.util.subscribe.TemplateUtil;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,7 +15,15 @@ import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+@Component
 public class ClashConfigGenerator implements IConfigGenerator {
+    @Autowired
+    private ClientConstant clientConstant;
+
+    @Override
+    public String getTarget() {
+        return "clash";
+    }
 
     @Override
     public String getProxies(List<Server> servers, Account account) {
@@ -57,7 +68,8 @@ public class ClashConfigGenerator implements IConfigGenerator {
             if (arr.length < 2) {
                 return "  " + line + System.lineSeparator();
             }
-            if (StringUtils.equalsAny(arr[0], "USER-AGENT", "AND", "URL-REGEX")) {
+            List<String> excludeTypes = clientConstant.getExcludeRuleTypes().get(this.getTarget());
+            if (excludeTypes.contains(arr[0])) {
                 return "  #" + line + System.lineSeparator();
             }
             String[] newArr = Arrays.copyOf(arr, arr.length + 1);

@@ -4,6 +4,7 @@ import com.jhl.admin.model.Account;
 import com.jhl.admin.model.Server;
 import com.jhl.admin.util.Utils;
 import org.apache.commons.codec.binary.Base64;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponents;
 
@@ -11,7 +12,13 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Component
 public class QuanxConfigGenerator implements IConfigGenerator {
+
+    @Override
+    public String getTarget() {
+        return "quanx";
+    }
 
     @Override
     public String getProxies(List<Server> servers, Account account) {

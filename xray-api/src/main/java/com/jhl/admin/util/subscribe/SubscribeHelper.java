@@ -15,21 +15,21 @@ public class SubscribeHelper {
     private final Account account;
     private final IConfigGenerator generator;
 
-    public SubscribeHelper(String target, String rootUrl, String subscriptionUrl, Account account) {
+    public SubscribeHelper(IConfigGenerator generator, String rootUrl, String subscriptionUrl, Account account) {
         this.rootUrl = rootUrl;
         UriComponents configUri = ServletUriComponentsBuilder.fromUriString(subscriptionUrl)
-                .replaceQueryParam("target", target)
+                .replaceQueryParam("target", generator.getTarget())
                 .replaceQueryParam("type", 1)
                 .build();
         // 配置订阅地址
         this.configUrl = rootUrl + configUri.toUriString();
         // 代理节点订阅地址
         UriComponents proxiesUri = ServletUriComponentsBuilder.fromUriString(subscriptionUrl)
-                .replaceQueryParam("target", target)
+                .replaceQueryParam("target", generator.getTarget())
                 .replaceQueryParam("type", 0)
                 .build();
         this.proxiesUrl = rootUrl + proxiesUri.toUriString();
-        this.generator = ConfigGeneratorFactory.build(target);
+        this.generator = generator;
         this.account = account;
     }
 

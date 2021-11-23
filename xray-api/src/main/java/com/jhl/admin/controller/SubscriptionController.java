@@ -7,10 +7,12 @@ import com.jhl.admin.model.Account;
 import com.jhl.admin.model.Server;
 import com.jhl.admin.service.ServerConfigService;
 import com.jhl.admin.service.SubscriptionService;
+import com.jhl.admin.util.subscribe.ConfigGeneratorFactory;
 import com.jhl.admin.util.subscribe.QuanxRuleParser;
 import com.jhl.admin.util.subscribe.SubscribeHelper;
 import com.jhl.admin.util.Utils;
 import com.jhl.admin.util.subscribe.TemplateUtil;
+import com.jhl.admin.util.subscribe.generator.IConfigGenerator;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -43,6 +45,8 @@ public class SubscriptionController {
 	private ProxyConstant proxyConstant;
 	@Autowired
 	private ClientConstant clientConstant;
+	@Autowired
+	private ConfigGeneratorFactory configGeneratorFactory;
 
 	private final String[] targets = { "clash", "quanx", "surge", "loon", "shadowrocket" };
 
@@ -112,7 +116,8 @@ public class SubscriptionController {
 
 		String rootUrl = serverConfigService.getServerConfig(WebsiteConfigEnum.SUBSCRIPTION_ADDRESS_PREFIX.getKey()).getValue();
 		String subscriptionUrl = account.getSubscriptionUrl();
-		params.put("M", new SubscribeHelper(target, rootUrl, subscriptionUrl, account));
+		IConfigGenerator generator = configGeneratorFactory.get(target);
+		params.put("M", new SubscribeHelper(generator, rootUrl, subscriptionUrl, account));
 		return templateMerge(target, params);
 	}
 

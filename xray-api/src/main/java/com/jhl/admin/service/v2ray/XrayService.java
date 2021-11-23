@@ -42,7 +42,7 @@ public class XrayService {
 					log.info("rmProxyAccount already removed:{}, protocol:{}", proxyAccount.getEmail(), server.getProtocol());
 					return;
 				}
-				log.error("rmProxyAccount error:{},{},{}", server.getProtocol(), e.getLocalizedMessage(), new Gson().toJson(proxyAccount), e);
+				logError("rmProxyAccount error, protocol: " + server.getProtocol() + ", account: " + proxyAccount.getEmail(), server.getV2rayIp(), server.getV2rayManagerPort(), e);
 			}
 		});
 	}
@@ -83,7 +83,7 @@ public class XrayService {
 				log.info("addVMESSAccount already exists:{}", proxyAccount.getEmail());
 				return;
 			}
-			log.error("addVMESSAccount error:{},{},{}", server.getProtocol(), e.getLocalizedMessage(), new Gson().toJson(proxyAccount), e);
+			logError("addVMESSAccount error, protocol: " + server.getProtocol() + ", account: " + proxyAccount.getEmail(), server.getV2rayIp(), server.getV2rayManagerPort(), e);
 		}
 	}
 
@@ -110,7 +110,7 @@ public class XrayService {
 				log.info("addVLESSAccount already exists:{}", proxyAccount.getEmail());
 				return;
 			}
-			log.error("addProxyAccount error:{},{},{}", server.getProtocol(), e.getLocalizedMessage(), new Gson().toJson(proxyAccount), e);
+			logError("addProxyAccount error, protocol: " + server.getProtocol() + ", account: " + proxyAccount.getEmail(), server.getV2rayIp(), server.getV2rayManagerPort(), e);
 		}
 	}
 
@@ -137,7 +137,7 @@ public class XrayService {
 				log.info("addTrojanAccount already exists:{}", proxyAccount.getEmail());
 				return;
 			}
-			log.error("addTrojanAccount error:{},{},{}", server.getProtocol(), e.getLocalizedMessage(), new Gson().toJson(proxyAccount), e);
+			logError("addTrojanAccount error, protocol: " + server.getProtocol() + ", account: " + proxyAccount.getEmail(), server.getV2rayIp(), server.getV2rayManagerPort(), e);
 		}
 	}
 
@@ -165,8 +165,16 @@ public class XrayService {
 			return t;
 		} catch (StatusRuntimeException e) {
 			if (!e.getMessage().contains(q + " not found"))
-				log.error("获取用户流量失败", e);
+				logError("获取用户流量失败", host, port, e);
 			return 0;
+		}
+	}
+
+	private void logError(String msg, String host, Integer port, Exception e) {
+		if (e.getMessage().equals("UNAVAILABLE: io exception")) {
+			log.error(msg + ", {}:{}, 错误信息: {}", host, port, e.getMessage());
+		} else {
+			log.error(msg + ", {}:{}, 错误信息: {}", host, port, e.getMessage(), e);
 		}
 	}
 }

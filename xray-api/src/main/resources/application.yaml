@@ -45,10 +45,16 @@ client:
       - vless
   quanx-rule-types: {"IP-CIDR6": "IP6-CIDR"}
   exclude-rule-types:
+    clash:
+      - USER-AGENT
+      - AND
+      - URL-REGEX
     quanx:
+      - USER-AGENT
       - AND
       - URL-REGEX
     shadowrocket:
+      - USER-AGENT
       - AND
       - URL-REGEX
       - IP-CIDR6

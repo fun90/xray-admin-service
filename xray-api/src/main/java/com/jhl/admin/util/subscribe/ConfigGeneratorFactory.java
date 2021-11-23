@@ -1,21 +1,37 @@
 package com.jhl.admin.util.subscribe;
 
 import com.jhl.admin.util.subscribe.generator.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@Component
 public class ConfigGeneratorFactory {
-    public static IConfigGenerator build(String target) {
-        if ("surge".equals(target)) {
-            return new SurgeConfigGenerator();
-        } else if ("quanx".equals(target)) {
-            return new QuanxConfigGenerator();
-        } else if ("loon".equals(target)) {
-            return new LoonConfigGenerator();
-        } else if ("clash".equals(target)) {
-            return new ClashConfigGenerator();
-        } else if ("shadowrocket".equals(target)) {
-            return new ShadowrocketConfigGenerator();
+    private final Map<String, IConfigGenerator> generatorMap = new HashMap<>();
+    private final Logger logger = LoggerFactory.getLogger(ConfigGeneratorFactory.class);
+
+    @Autowired
+    public ConfigGeneratorFactory(List<IConfigGenerator> generators) {
+        generators.forEach(o -> {
+            if (generatorMap.containsKey(o.getTarget())) {
+                throw new RuntimeException("重复的target：" + o.getTarget());
+            }
+            generatorMap.put(o.getTarget(), o);
+            logger.info("加载配置生成器：{}", o.getClass().getName());
+        });
+    }
+
+    public IConfigGenerator get(String target) {
+        IConfigGenerator generator = generatorMap.get(target);
+        if (generator != null) {
+           return generator;
         } else {
-            throw new RuntimeException("未知的target");
+            throw new RuntimeException("不支持的target");
         }
     }
 }

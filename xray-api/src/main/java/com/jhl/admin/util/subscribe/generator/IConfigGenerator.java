@@ -6,6 +6,8 @@ import com.jhl.admin.model.Server;
 import java.util.List;
 
 public interface IConfigGenerator {
+    String getTarget();
+
     String getProxies(List<Server> servers, Account account);
 
     String getServerNames(List<Server> servers, String append);
