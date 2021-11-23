@@ -12,12 +12,12 @@ To-Do List
 - [✔] 定时清理过期账号
 - [✔] 订阅地址：按客户端返回节点
 - [✔] 热部署账号
-- [...] 配置转换（Surge、Clash、Quantumult X、Shadowrocket、Loon）
+- [✔] 配置转换（Surge、Clash、Quantumult X、Shadowrocket、Loon）
 
 ## 下载
 [Release](https://github.com/fun90/xray-admin-service/releases)
 
 ## 运行
+前提：请确保安装好了JDK并已设置好环境变量
 注意：将YOUR_PATH改为自己的实际路径
-
-java -jar /YOUR_PATH/xray-api-1.0.0.jar --spring.config.location=/YOUR_PATH/application.yaml
+/YOUR_PATH/xray-api/bin/start.sh
