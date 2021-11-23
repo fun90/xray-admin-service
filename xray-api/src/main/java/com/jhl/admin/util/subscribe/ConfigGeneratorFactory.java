@@ -12,6 +12,8 @@ public class ConfigGeneratorFactory {
             return new LoonConfigGenerator();
         } else if ("clash".equals(target)) {
             return new ClashConfigGenerator();
+        } else if ("shadowrocket".equals(target)) {
+            return new ShadowrocketConfigGenerator();
         } else {
             throw new RuntimeException("未知的target");
         }

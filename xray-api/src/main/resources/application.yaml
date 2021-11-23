@@ -48,6 +48,10 @@ client:
     quanx:
       - AND
       - URL-REGEX
+    shadowrocket:
+      - AND
+      - URL-REGEX
+      - IP-CIDR6
 
 logging:
   level:

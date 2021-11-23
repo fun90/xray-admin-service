@@ -45,7 +45,7 @@ public class AdminInitService {
 	@PostConstruct
 	public void init() {
 		initServer();
-		proxyEventService.reloadProxyAccounts();
+		proxyEventService.addProxyAccounts();
 	}
 
 	public void initServer() {

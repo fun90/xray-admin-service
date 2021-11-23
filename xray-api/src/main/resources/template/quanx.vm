@@ -16,8 +16,8 @@ available=♻️ 自动选择, $M.serverNames($servers), img-url=https://raw.git
 static=💰 PayPal, 🔰 节点选择, ♻️ 自动选择, 🎯 全球直连, $M.serverNames($servers)
 static=🎥 NETFLIX, 🔰 节点选择, ♻️ 自动选择, 🎯 全球直连, $M.serverNames($servers)
 static=🌌 YouTube, 🔰 节点选择, ♻️ 自动选择, 🎯 全球直连, $M.serverNames($servers)
-static=⛔️ 广告拦截, 🎯 全球直连, 🛑 全球拦截, 🔰 节点选择
-static=🚫 运营劫持, 🎯 全球直连, 🛑 全球拦截, 🔰 节点选择
+##static=⛔️ 广告拦截, 🎯 全球直连, 🛑 全球拦截, 🔰 节点选择
+##static=🚫 运营劫持, 🎯 全球直连, 🛑 全球拦截, 🔰 节点选择
 static=🌍 国外媒体, 🔰 节点选择, ♻️ 自动选择, 🎯 全球直连, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/GlobalMedia.png
 static=🌏 港台媒体, 🔰 节点选择, ♻️ 自动选择, 🎯 全球直连, $M.serverNames($servers)
 static=🌏 国内媒体, 🎯 全球直连, 🔰 节点选择, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/DomesticMedia.png
@@ -39,8 +39,8 @@ $M.rules("MyProxy.list", "🔰 节点选择"), enabled=true
 $M.rules("MSServices.list", "Ⓜ️ 微软服务"), enabled=true
 $M.rules("PayPal.list", "💰 PayPal"), enabled=true
 $M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list", "🎯 全球直连"), enabled=true
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list", "⛔️ 广告拦截"), enabled=true
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list", "🚫 运营劫持"), enabled=true
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list", "⛔️ 广告拦截"), enabled=true
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list", "🚫 运营劫持"), enabled=true
 $M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list", "🎥 NETFLIX"), enabled=true
 $M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list", "🌌 YouTube"), enabled=true
 $M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list", "🌍 国外媒体"), enabled=true

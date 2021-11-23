@@ -46,20 +46,20 @@ $M.serverNames($servers)
       - ♻️ 自动选择
       - 🎯 全球直连
 $M.serverNames($servers)
-
-  - name: ⛔️ 广告拦截
-    type: select
-    proxies:
-      - 🎯 全球直连
-      - 🛑 全球拦截
-      - 🔰 节点选择
-
-  - name: 🚫 运营劫持
-    type: select
-    proxies:
-      - 🎯 全球直连
-      - 🛑 全球拦截
-      - 🔰 节点选择
+##
+##  - name: ⛔️ 广告拦截
+##    type: select
+##    proxies:
+##      - 🎯 全球直连
+##      - 🛑 全球拦截
+##      - 🔰 节点选择
+##
+##  - name: 🚫 运营劫持
+##    type: select
+##    proxies:
+##      - 🎯 全球直连
+##      - 🛑 全球拦截
+##      - 🔰 节点选择
 
   - name: 🌍 国外媒体
     type: select
@@ -132,8 +132,8 @@ $M.rules("MyProxy.list", "🔰 节点选择")
 $M.rules("MSServices.list", "Ⓜ️ 微软服务")
 $M.rules("PayPal.list", "💰 PayPal")
 $M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list", "🎯 全球直连")
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list", "⛔️ 广告拦截")
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list", "🚫 运营劫持")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list", "⛔️ 广告拦截")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list", "🚫 运营劫持")
 $M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list", "🎥 NETFLIX")
 $M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list", "🌌 YouTube")
 $M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list", "🌍 国外媒体")

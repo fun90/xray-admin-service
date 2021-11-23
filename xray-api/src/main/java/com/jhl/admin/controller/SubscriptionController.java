@@ -58,7 +58,7 @@ public class SubscriptionController {
 	@RequestMapping(value = "/subscribe/{code}", produces="text/plain;charset=UTF-8")
 	public String subscribe(@PathVariable String code, String target, Integer type, Long timestamp, String token) {
 
-		if (code == null || type == null || timestamp == null || token == null) throw new NullPointerException("参数错误");
+		if (code == null || type == null || timestamp == null || token == null) throw new IllegalArgumentException("参数错误");
 
 		StringBuilder stringBuilder = new StringBuilder();
 		StringBuilder tokenSrc = stringBuilder.append(code).append(timestamp).append(proxyConstant.getAuthPassword());
@@ -67,6 +67,9 @@ public class SubscriptionController {
 		String result;
 		if (type == 0) {
 			target = StringUtils.defaultString(target, ClientConstant.DEFAULT);
+			if (!StringUtils.equalsAny(target, targets)) {
+				throw new IllegalArgumentException("target错误");
+			}
 			result = subscriptionService.subscribe(code, target);
 		} else {
 			if (!StringUtils.equalsAny(target, targets)) {
@@ -94,8 +97,6 @@ public class SubscriptionController {
 			} else {
 				return Utils.writeString(TemplateUtil.getTemplatePath(), new QuanxRuleParser(clientConstant, group), "rules", fileName);
 			}
-		} else if (StringUtils.equalsAny(target, "shadowrocket")) {
-
 		}
 
 		return "不支持的target";
