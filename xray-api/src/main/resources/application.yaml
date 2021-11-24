@@ -100,7 +100,6 @@ client:
       - AND
       - URL-REGEX
     shadowrocket:
-      - USER-AGENT
       - AND
       - URL-REGEX
       - IP-CIDR6

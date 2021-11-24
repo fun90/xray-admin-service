@@ -1,0 +1,40 @@
+# Best Shadowrocket Rules ($M.configUrl())
+# by fun90
+# build time: 2021-11-23 03:00:15
+
+[General]
+bypass-system = true
+skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, e.crashlytics.com, captive.apple.com
+bypass-tun = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.18.0.0/15,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,255.255.255.255/32
+dns-server = system, 114.114.114.114, 112.124.47.27, 8.8.8.8, 8.8.4.4
+
+[Rule]
+$M.rules("LocalAreaNetwork.list", "direct")
+$M.rules("MyReject.list", "Reject")
+$M.rules("MyDirect.list", "direct")
+$M.rules("MyProxy.list", "Proxy")
+$M.rules("MSServices.list", "Proxy")
+$M.rules("PayPal.list", "Proxy")
+$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list", "direct")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list", "Reject")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list", "Reject")
+$M.rules("https://raw.githubusercontent.com/Semporia/TikTok-Unlock/master/Shadowrocket/TikTok.list", "Proxy")
+$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list", "Proxy")
+$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list", "Proxy")
+$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list", "Proxy")
+$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list", "Proxy")
+$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list", "Proxy")
+$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list", "Proxy")
+$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list", "Proxy")
+$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list", "direct")
+FINAL,Proxy
+
+[URL Rewrite]
+^http://(www.)?google.cn https://www.google.com 302
+(?<=_region=)CN(?=&) US 307
+(?<=&mcc_mnc=)4 2 307
+^(https?:\/\/(tnc|dm)[\w-]+\.\w+\.com\/.+)(\?)(.+) $1$3 302
+(^https?:\/\/*\.\w{4}okv.com\/.+&.+)(\d{2}\.3\.\d)(.+) $118.0$3 302
+
+[MITM]
+hostname = *.tiktokv.com,*.byteoversea.com,*.tik-tokapi.com

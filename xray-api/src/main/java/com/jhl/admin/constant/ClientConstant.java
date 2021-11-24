@@ -33,6 +33,6 @@ public class ClientConstant {
 		this.excludeRuleTypes = new HashMap<>();
 		this.excludeRuleTypes.put("quanx", Stream.of("USER-AGENT", "AND", "URL-REGEX").collect(Collectors.toList()));
 		this.excludeRuleTypes.put("clash", Stream.of("USER-AGENT", "AND", "URL-REGEX").collect(Collectors.toList()));
-		this.excludeRuleTypes.put("shadowrocket", Stream.of("USER-AGENT", "AND", "URL-REGEX", "IP-CIDR6").collect(Collectors.toList()));
+		this.excludeRuleTypes.put("shadowrocket", Stream.of("AND", "URL-REGEX", "IP-CIDR6").collect(Collectors.toList()));
 	}
 }
