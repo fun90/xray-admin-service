@@ -30,6 +30,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.io.StringWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -135,11 +137,12 @@ public class SubscriptionController {
 			ve.init();
 		}
 		Template template = ve.getTemplate(fileName, "UTF-8");
-		VelocityContext data = new VelocityContext();
-		params.forEach(data::put);
+		VelocityContext velocityContext = new VelocityContext();
+		velocityContext.put("currentDateTime", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+		params.forEach(velocityContext::put);
 		try {
 			StringWriter stringWriter = new StringWriter();
-			template.merge(data, stringWriter);
+			template.merge(velocityContext, stringWriter);
 			return stringWriter.toString();
 		} catch (Exception e) {
 			throw new RuntimeException(e);

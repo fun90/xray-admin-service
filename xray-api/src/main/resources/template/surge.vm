@@ -40,6 +40,7 @@ RULE-SET,$M.rules("MyDirect.list"),🎯 全球直连,update-interval=86400
 RULE-SET,$M.rules("MyProxy.list"),🔰 节点选择,update-interval=86400
 RULE-SET,$M.rules("MSServices.list"),Ⓜ️ 微软服务,update-interval=86400
 RULE-SET,$M.rules("PayPal.list"),💰 PayPal,update-interval=86400
+RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list,🍎 苹果服务,update-interval=86400
 RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list,🎯 全球直连,update-interval=86400
 ##RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list,⛔️ 广告拦截,update-interval=86400
 ##RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list,🚫 运营劫持,update-interval=86400
@@ -49,7 +50,6 @@ RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ru
 RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list,🌏 港台媒体,update-interval=86400
 RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list,📲 电报信息,update-interval=86400
 RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list,🔰 节点选择,update-interval=86400
-RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list,🍎 苹果服务,update-interval=86400
 RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list,🎯 全球直连,update-interval=86400
 GEOIP,CN,🎯 全球直连
 FINAL,🐟 漏网之鱼

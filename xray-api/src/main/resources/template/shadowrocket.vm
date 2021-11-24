@@ -1,6 +1,6 @@
 # Best Shadowrocket Rules ($M.configUrl())
 # by fun90
-# build time: 2021-11-23 03:00:15
+# build time: $currentDateTime
 
 [General]
 bypass-system = true
@@ -9,26 +9,26 @@ bypass-tun = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,1
 dns-server = system, 114.114.114.114, 112.124.47.27, 8.8.8.8, 8.8.4.4
 
 [Rule]
-$M.rules("LocalAreaNetwork.list", "direct")
-$M.rules("MyReject.list", "Reject")
-$M.rules("MyDirect.list", "direct")
-$M.rules("MyProxy.list", "Proxy")
-$M.rules("MSServices.list", "Proxy")
-$M.rules("PayPal.list", "Proxy")
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list", "direct")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list", "Reject")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list", "Reject")
-$M.rules("https://raw.githubusercontent.com/Semporia/TikTok-Unlock/master/Shadowrocket/TikTok.list", "Proxy")
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list", "Proxy")
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list", "Proxy")
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list", "Proxy")
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list", "Proxy")
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list", "Proxy")
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list", "Proxy")
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list", "Proxy")
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list", "direct")
-GEOIP,CN,direct
-FINAL,Proxy
+$M.rules("LocalAreaNetwork.list", "DIRECT")
+$M.rules("MyReject.list", "REJECT")
+$M.rules("MyDirect.list", "DIRECT")
+$M.rules("MyProxy.list", "PROXY")
+$M.rules("MSServices.list", "PROXY")
+$M.rules("PayPal.list", "PROXY")
+$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list", "PROXY")
+$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list", "DIRECT")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list", "REJECT")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list", "REJECT")
+$M.rules("https://raw.githubusercontent.com/Semporia/TikTok-Unlock/master/Shadowrocket/TikTok.list", "PROXY")
+$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list", "PROXY")
+$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list", "PROXY")
+$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list", "PROXY")
+$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list", "PROXY")
+$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list", "PROXY")
+$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list", "PROXY")
+$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list", "DIRECT")
+GEOIP,CN,DIRECT
+FINAL,PROXY
 
 [URL Rewrite]
 ^http://(www.)?google.cn https://www.google.com 302
@@ -39,3 +39,6 @@ FINAL,Proxy
 
 [MITM]
 hostname = *.tiktokv.com,*.byteoversea.com,*.tik-tokapi.com
+ca-passphrase = Shadowrocket
+enable = false
+ca-p12 = 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
