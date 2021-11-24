@@ -15,7 +15,7 @@ RemoteProxies = $M.proxiesUrl()
 🔰 节点选择 = select,♻️ 自动选择,🎯 全球直连,RemoteProxies
 ♻️ 自动选择 = url-test,RemoteProxies,url=http://www.gstatic.com/generate_224,interval=300
 💰 PayPal = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,RemoteProxies
-TikTok = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,RemoteProxies
+##TikTok = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,RemoteProxies
 🎥 NETFLIX = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,RemoteProxies
 🌌 YouTube = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,RemoteProxies
 ##⛔️ 广告拦截 = select,🎯 全球直连,🛑 全球拦截,🔰 节点选择
@@ -44,7 +44,7 @@ $M.rules("PayPal.list"),💰 PayPal
 https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list,🎯 全球直连
 ##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list,⛔️ 广告拦截
 ##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list,🚫 运营劫持
-https://raw.githubusercontent.com/Semporia/Loon/master/Rule/TikTok.list, tag=TikTok, policy=TikTok, update-interval=86400, enabled=true
+##https://raw.githubusercontent.com/Semporia/Loon/master/Rule/TikTok.list, tag=TikTok, policy=TikTok, update-interval=86400, enabled=true
 https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list,🎥 NETFLIX
 https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list,🌌 YouTube
 https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list,🌍 国外媒体

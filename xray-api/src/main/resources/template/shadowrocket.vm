@@ -27,6 +27,7 @@ $M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/R
 $M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list", "Proxy")
 $M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list", "Proxy")
 $M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list", "direct")
+GEOIP,CN,direct
 FINAL,Proxy
 
 [URL Rewrite]
