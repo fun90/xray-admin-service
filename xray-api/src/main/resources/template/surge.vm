@@ -6,7 +6,7 @@ bypass-system = true
 skip-proxy = 127.0.0.1,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,100.64.0.0/10,localhost,*.local,e.crashlytics.com,captive.apple.com,::ffff:0:0:0:0/1,::ffff:128:0:0:0/1
 #DNS设置或根据自己网络情况进行相应设置
 bypass-tun = 192.168.0.0/16,10.0.0.0/8,172.16.0.0/12
-dns-server = 119.29.29.29,223.5.5.5
+dns-server = 114.114.114.114, 112.124.47.27, 8.8.8.8, 8.8.4.4
 
 [Script]
 
@@ -14,43 +14,45 @@ dns-server = 119.29.29.29,223.5.5.5
 [Proxy]
 DIRECT = direct
 $M.proxies($servers)
-🎯 全球直连 = direct
+🎯 直连 = direct
 
 [Proxy Group]
-🔰 节点选择 = select,♻️ 自动选择,🎯 全球直连,$M.serverNames($servers)
+🔰 代理 = select,♻️ 自动选择,🎯 直连,$M.serverNames($servers)
 ♻️ 自动选择 = url-test,$M.serverNames(",url=http://www.gstatic.com/generate_204,interval=300,timeout=5")
-💰 PayPal = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,$M.serverNames($servers)
-🎥 NETFLIX = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,$M.serverNames($servers)
-🌌 YouTube = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,$M.serverNames($servers)
-##⛔️ 广告拦截 = select,🎯 全球直连,🛑 全球拦截,🔰 节点选择
-##🚫 运营劫持 = select,🎯 全球直连,🛑 全球拦截,🔰 节点选择
-🌍 国外媒体 = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,$M.serverNames($servers)
-🌏 港台媒体 = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,$M.serverNames($servers)
-🌏 国内媒体 = select,🎯 全球直连,🔰 节点选择
-Ⓜ️ 微软服务 = select,🎯 全球直连,🔰 节点选择,$M.serverNames($servers)
-📲 电报信息 = select,🔰 节点选择,🎯 全球直连,$M.serverNames($servers)
-🍎 苹果服务 = select,🔰 节点选择,🎯 全球直连,♻️ 自动选择,$M.serverNames($servers)
-🛑 全球拦截 = select,DIRECT,REJECT
-🐟 漏网之鱼 = select,🎯 全球直连,🔰 节点选择,♻️ 自动选择,$M.serverNames($servers)
+💰 PayPal = select,🎯 直连,🔰 代理,♻️ 自动选择,$M.serverNames($servers)
+##🎥 NETFLIX = select,🔰 代理,♻️ 自动选择,🎯 直连,$M.serverNames($servers)
+##🌌 YouTube = select,🔰 代理,♻️ 自动选择,🎯 直连,$M.serverNames($servers)
+####⛔️ 广告拦截 = select,🎯 直连,🛑 拦截,🔰 代理
+####🚫 运营劫持 = select,🎯 直连,🛑 拦截,🔰 代理
+##🌍 国外媒体 = select,🔰 代理,♻️ 自动选择,🎯 直连,$M.serverNames($servers)
+##🌏 港台媒体 = select,🔰 代理,♻️ 自动选择,🎯 直连,$M.serverNames($servers)
+##🌏 国内媒体 = select,🎯 直连,🔰 代理
+Ⓜ️ 微软 = select,🎯 直连,🔰 代理,♻️ 自动选择,$M.serverNames($servers)
+##📲 电报信息 = select,🔰 代理,🎯 直连,$M.serverNames($servers)
+🍎 苹果 = select,🎯 直连,🔰 代理,♻️ 自动选择,$M.serverNames($servers)
+🛑 拦截 = select,DIRECT,REJECT
+🐟 其他 = select,🔰 代理,🎯 直连,♻️ 自动选择,$M.serverNames($servers)
 
 [Rule]
-RULE-SET,$M.rules("LocalAreaNetwork.list"),🎯 全球直连,update-interval=86400
-RULE-SET,$M.rules("MyReject.list"),🛑 全球拦截,update-interval=86400
-RULE-SET,$M.rules("MyDirect.list"),🎯 全球直连,update-interval=86400
-RULE-SET,$M.rules("MyProxy.list"),🔰 节点选择,update-interval=86400
-RULE-SET,$M.rules("MSServices.list"),Ⓜ️ 微软服务,update-interval=86400
+RULE-SET,$M.rules("LocalAreaNetwork.list"),🎯 直连,update-interval=86400
+RULE-SET,$M.rules("MyReject.list"),🛑 拦截,update-interval=86400
+RULE-SET,$M.rules("MyDirect.list"),🎯 直连,update-interval=86400
+RULE-SET,$M.rules("MyProxy.list"),🔰 代理,update-interval=86400
 RULE-SET,$M.rules("PayPal.list"),💰 PayPal,update-interval=86400
-RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list,🍎 苹果服务,update-interval=86400
-RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list,🎯 全球直连,update-interval=86400
-##RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list,⛔️ 广告拦截,update-interval=86400
-##RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list,🚫 运营劫持,update-interval=86400
-RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list,🎥 NETFLIX,update-interval=86400
-RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list,🌌 YouTube,update-interval=86400
-RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list,🌍 国外媒体,update-interval=86400
-RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list,🌏 港台媒体,update-interval=86400
-RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list,📲 电报信息,update-interval=86400
-RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list,🔰 节点选择,update-interval=86400
-RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list,🎯 全球直连,update-interval=86400
-GEOIP,CN,🎯 全球直连
-FINAL,🐟 漏网之鱼
+RULE-SET,$M.rules("Microsoft.list"),Ⓜ️ 微软,update-interval=86400
+RULE-SET,$M.rules("Apple.list"),🍎 苹果,update-interval=86400
+RULE-SET,$M.rules("Direct.list"),Ⓜ️ 微软,update-interval=86400
+##RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list,🍎 苹果,update-interval=86400
+##RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list,🎯 直连,update-interval=86400
+####RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list,⛔️ 广告拦截,update-interval=86400
+####RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list,🚫 运营劫持,update-interval=86400
+##RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list,🎥 NETFLIX,update-interval=86400
+##RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list,🌌 YouTube,update-interval=86400
+##RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list,🌍 国外媒体,update-interval=86400
+##RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list,🌏 港台媒体,update-interval=86400
+##RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list,📲 电报信息,update-interval=86400
+##RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list,🔰 代理,update-interval=86400
+##RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list,🎯 直连,update-interval=86400
+GEOIP,CN,🎯 直连
+FINAL,🐟 其他
 

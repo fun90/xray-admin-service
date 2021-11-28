@@ -1,4 +1,3 @@
-DOMAIN-SUFFIX,ssh.fun90.com
 DOMAIN-SUFFIX,silkworldsport.com
 DOMAIN-SUFFIX,vultr.com
 DOMAIN-SUFFIX,google.com
@@ -11,4 +10,19 @@ DOMAIN-SUFFIX,sentry.io
 DOMAIN-SUFFIX,bluestacks.com
 DOMAIN-SUFFIX,v2ex.com
 DOMAIN-SUFFIX,msecnd.net
-
+# TikTok
+DOMAIN,p16-tiktokcdn-com.akamaized.net
+DOMAIN-SUFFIX,byteoversea.com
+DOMAIN-SUFFIX,ibytedtos.com
+DOMAIN-SUFFIX,ibyteimg.com
+DOMAIN-SUFFIX,ipstatp.com
+DOMAIN-SUFFIX,muscdn.com
+DOMAIN-SUFFIX,musical.ly
+DOMAIN-SUFFIX,sgpstatp.com
+DOMAIN-SUFFIX,snssdk.com
+DOMAIN-SUFFIX,tik-tokapi.com
+DOMAIN-SUFFIX,tiktok.com
+DOMAIN-SUFFIX,tiktokcdn.com
+DOMAIN-SUFFIX,tiktokv.com
+DOMAIN-KEYWORD,-tiktokcdn-com
+USER-AGENT,TikTok*

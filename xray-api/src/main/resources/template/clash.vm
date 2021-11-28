@@ -9,11 +9,11 @@ proxies:
 $M.proxies($servers)
 
 proxy-groups:
-  - name: 🔰 节点选择
+  - name: 🔰 代理
     type: select
     proxies:
       - ♻️ 自动选择
-      - 🎯 全球直连
+      - 🎯 直连
 $M.serverNames($servers)
 
   - name: ♻️ 自动选择
@@ -26,121 +26,123 @@ $M.serverNames($servers)
   - name: 💰 PayPal
     type: select
     proxies:
-      - 🔰 节点选择
+      - 🎯 直连
+      - 🔰 代理
       - ♻️ 自动选择
-      - 🎯 全球直连
 $M.serverNames($servers)
 
-  - name: 🎥 NETFLIX
-    type: select
-    proxies:
-      - 🔰 节点选择
-      - ♻️ 自动选择
-      - 🎯 全球直连
-$M.serverNames($servers)
-
-  - name: 🌌 YouTube
-    type: select
-    proxies:
-      - 🔰 节点选择
-      - ♻️ 自动选择
-      - 🎯 全球直连
-$M.serverNames($servers)
+##  - name: 🎥 NETFLIX
+##    type: select
+##    proxies:
+##      - 🔰 代理
+##      - ♻️ 自动选择
+##      - 🎯 直连
+##$M.serverNames($servers)
+##
+##  - name: 🌌 YouTube
+##    type: select
+##    proxies:
+##      - 🔰 代理
+##      - ♻️ 自动选择
+##      - 🎯 直连
+##$M.serverNames($servers)
 ##
 ##  - name: ⛔️ 广告拦截
 ##    type: select
 ##    proxies:
-##      - 🎯 全球直连
-##      - 🛑 全球拦截
-##      - 🔰 节点选择
+##      - 🎯 直连
+##      - 🛑 拦截
+##      - 🔰 代理
 ##
 ##  - name: 🚫 运营劫持
 ##    type: select
 ##    proxies:
-##      - 🎯 全球直连
-##      - 🛑 全球拦截
-##      - 🔰 节点选择
+##      - 🎯 直连
+##      - 🛑 拦截
+##      - 🔰 代理
+##
+##  - name: 🌍 国外媒体
+##    type: select
+##    proxies:
+##      - 🔰 代理
+##      - ♻️ 自动选择
+##      - 🎯 直连
+##$M.serverNames($servers)
+##
+##  - name: 🌏 港台媒体
+##    type: select
+##    proxies:
+##      - 🔰 代理
+##      - ♻️ 自动选择
+##      - 🎯 直连
+##$M.serverNames($servers)
+##
+##  - name: 🌏 国内媒体
+##    type: select
+##    proxies:
+##      - 🎯 直连
+##      - 🔰 代理
 
-  - name: 🌍 国外媒体
+  - name: Ⓜ️ 微软
     type: select
     proxies:
-      - 🔰 节点选择
-      - ♻️ 自动选择
-      - 🎯 全球直连
-$M.serverNames($servers)
-
-  - name: 🌏 港台媒体
-    type: select
-    proxies:
-      - 🔰 节点选择
-      - ♻️ 自动选择
-      - 🎯 全球直连
-$M.serverNames($servers)
-
-  - name: 🌏 国内媒体
-    type: select
-    proxies:
-      - 🎯 全球直连
-      - 🔰 节点选择
-
-  - name: Ⓜ️ 微软服务
-    type: select
-    proxies:
-      - 🎯 全球直连
-      - 🔰 节点选择
-$M.serverNames($servers)
-
-  - name: 📲 电报信息
-    type: select
-    proxies:
-      - 🔰 节点选择
-      - 🎯 全球直连
-$M.serverNames($servers)
-
-  - name: 🍎 苹果服务
-    type: select
-    proxies:
-      - 🔰 节点选择
-      - 🎯 全球直连
+      - 🎯 直连
+      - 🔰 代理
       - ♻️ 自动选择
 $M.serverNames($servers)
 
-  - name: 🎯 全球直连
+##  - name: 📲 电报信息
+##    type: select
+##    proxies:
+##      - 🔰 代理
+##      - 🎯 直连
+##$M.serverNames($servers)
+
+  - name: 🍎 苹果
+    type: select
+    proxies:
+      - 🎯 直连
+      - 🔰 代理
+      - ♻️ 自动选择
+$M.serverNames($servers)
+
+  - name: 🎯 直连
     type: select
     proxies:
       - DIRECT
 
-  - name: 🛑 全球拦截
+  - name: 🛑 拦截
     type: select
     proxies:
-      - DIRECT
       - REJECT
+      - DIRECT
 
-  - name: 🐟 漏网之鱼
+  - name: 🐟 其他
     type: select
     proxies:
-      - 🎯 全球直连
-      - 🔰 节点选择
+      - 🔰 代理
+      - 🎯 直连
       - ♻️ 自动选择
 $M.serverNames($servers)
 
 rules:
-$M.rules("LocalAreaNetwork.list", "🎯 全球直连")
-$M.rules("MyReject.list", "🛑 全球拦截")
-$M.rules("MyDirect.list", "🎯 全球直连")
-$M.rules("MyProxy.list", "🔰 节点选择")
-$M.rules("MSServices.list", "Ⓜ️ 微软服务")
+$M.rules("MyReject.list", "🛑 拦截")
+$M.rules("MyDirect.list", "🎯 直连")
+$M.rules("MyProxy.list", "🔰 代理")
 $M.rules("PayPal.list", "💰 PayPal")
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list", "🎯 全球直连")
+$M.rules("Microsoft.list", "Ⓜ️ 微软")
+$M.rules("Apple.list", "🍎 苹果")
+$M.rules("Direct.list", "🎯 直连")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list", "🍎 苹果")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list", "🎯 直连")
 ##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list", "⛔️ 广告拦截")
 ##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list", "🚫 运营劫持")
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list", "🎥 NETFLIX")
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list", "🌌 YouTube")
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list", "🌍 国外媒体")
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list", "🌏 港台媒体")
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list", "📲 电报信息")
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list", "🔰 节点选择")
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list", "🍎 苹果服务")
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list", "🎯 全球直连")
-  - GEOIP,CN,🎯 全球直连
-  - MATCH,🐟 漏网之鱼
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list", "🎥 NETFLIX")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list", "🌌 YouTube")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list", "🌍 国外媒体")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list", "🌏 港台媒体")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list", "📲 电报信息")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list", "🔰 代理")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list", "🎯 直连")
+  - GEOIP,CN,🎯 直连
+  - MATCH,🐟 其他

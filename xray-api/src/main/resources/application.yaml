@@ -103,3 +103,7 @@ client:
       - AND
       - URL-REGEX
       - IP-CIDR6
+
+site-source:
+  direct: https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/direct-list.txt
+  proxy: https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/proxy-list.txt

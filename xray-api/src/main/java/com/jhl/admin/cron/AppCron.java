@@ -34,8 +34,6 @@ public class AppCron {
 	AccountRepository accountRepository;
 	@Autowired
 	AccountService accountService;
-
-
 	@Autowired
 	StatService statService;
 	@Autowired
@@ -57,7 +55,7 @@ public class AppCron {
 	private long G = 1024 * M;
 	private BigDecimal mDecimal = BigDecimal.valueOf(M);
 
-	@Scheduled(cron = "0 0/5 * * * ?")
+	@Scheduled(cron = "0 0/10 * * * ?")
 	public void stat() {
 		Date today = new Date();
 		log.info("======= 统计流量任务开始 =======");

@@ -2,7 +2,7 @@
 allow-udp-proxy=false
 allow-wifi-access=false
 bypass-tun=10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.18.0.0/15,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,255.255.255.255/32
-dns-server=system,119.29.29.29,223.5.5.5
+dns-server=system, 114.114.114.114, 112.124.47.27, 8.8.8.8, 8.8.4.4
 host=127.0.0.1
 skip-proxy=192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,localhost,*.local,e.crashlynatics.com
 
@@ -12,47 +12,48 @@ skip-proxy=192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,localhost,*.local,e.crashlyna
 RemoteProxies = $M.proxiesUrl()
 
 [Proxy Group]
-🔰 节点选择 = select,♻️ 自动选择,🎯 全球直连,RemoteProxies
+🔰 代理 = select,♻️ 自动选择,🎯 直连,RemoteProxies
 ♻️ 自动选择 = url-test,RemoteProxies,url=http://www.gstatic.com/generate_224,interval=300
-💰 PayPal = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,RemoteProxies
-##TikTok = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,RemoteProxies
-🎥 NETFLIX = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,RemoteProxies
-🌌 YouTube = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,RemoteProxies
-##⛔️ 广告拦截 = select,🎯 全球直连,🛑 全球拦截,🔰 节点选择
-##🚫 运营劫持 = select,🎯 全球直连,🛑 全球拦截,🔰 节点选择
-🌍 国外媒体 = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,RemoteProxies
-🌏 港台媒体 = select,🔰 节点选择,♻️ 自动选择,🎯 全球直连,RemoteProxies
-🌏 国内媒体 = select,🎯 全球直连,🔰 节点选择
-Ⓜ️ 微软服务 = select,🎯 全球直连,🔰 节点选择,RemoteProxies
-📲 电报信息 = select,🔰 节点选择,🎯 全球直连,RemoteProxies
-🍎 苹果服务 = select,🔰 节点选择,🎯 全球直连,♻️ 自动选择,RemoteProxies
-🎯 全球直连 = select,DIRECT
-🛑 全球拦截 = select,DIRECT,REJECT
-🐟 漏网之鱼 = select,🎯 全球直连,🔰 节点选择,♻️ 自动选择,RemoteProxies
-
-[Rule]
-GEOIP,CN,🎯 全球直连
-FINAL,🐟 漏网之鱼
+💰 PayPal = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
+Ⓜ️ 微软 = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
+🍎 苹果 = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
+####TikTok = select,🔰 代理,♻️ 自动选择,🎯 直连,RemoteProxies
+##🎥 NETFLIX = select,🔰 代理,♻️ 自动选择,🎯 直连,RemoteProxies
+##🌌 YouTube = select,🔰 代理,♻️ 自动选择,🎯 直连,RemoteProxies
+####⛔️ 广告拦截 = select,🎯 直连,🛑 拦截,🔰 代理
+####🚫 运营劫持 = select,🎯 直连,🛑 拦截,🔰 代理
+##🌍 国外媒体 = select,🔰 代理,♻️ 自动选择,🎯 直连,RemoteProxies
+##🌏 港台媒体 = select,🔰 代理,♻️ 自动选择,🎯 直连,RemoteProxies
+##🌏 国内媒体 = select,🎯 直连,🔰 代理
+##📲 电报信息 = select,🔰 代理,🎯 直连,RemoteProxies
+🎯 直连 = select,DIRECT
+🛑 拦截 = select,REJECT,DIRECT
+🐟 其他 = select,🔰 代理,🎯 直连,♻️ 自动选择,RemoteProxies
 
 [Remote Rule]
-$M.rules("LocalAreaNetwork.list"), tag=🎯 全球直连, policy=🎯 全球直连, update-interval=86400, enabled=true
-$M.rules("MyReject.list"), tag=🛑 全球拦截, policy=🛑 全球拦截, update-interval=86400, enabled=true
-$M.rules("MyDirect.list"), tag=🎯 全球直连, policy=🎯 全球直连, update-interval=86400, enabled=true
-$M.rules("MyProxy.list"), tag=🔰 节点选择, policy=🔰 节点选择, update-interval=86400, enabled=true
-$M.rules("MSServices.list"), tag=Ⓜ️ 微软服务, policy=Ⓜ️ 微软服务, update-interval=86400, enabled=true
+$M.rules("MyReject.list"), tag=🛑 拦截, policy=🛑 拦截, update-interval=86400, enabled=true
+$M.rules("MyDirect.list"), tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
+$M.rules("MyProxy.list"), tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
 $M.rules("PayPal.list"), tag=💰 PayPal, policy=💰 PayPal, update-interval=86400, enabled=true
-https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list, tag=🍎 苹果服务, policy=🍎 苹果服务, update-interval=86400, enabled=true
-https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list, tag=🎯 全球直连, policy=🎯 全球直连, update-interval=86400, enabled=true
+$M.rules("Microsoft.list"), tag=Ⓜ️ 微软, policy=Ⓜ️ 微软, update-interval=86400, enabled=true
+$M.rules("Apple.list"), tag=🍎 苹果, policy=🍎 苹果, update-interval=86400, enabled=true
+$M.rules("Direct.list"), tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
+##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list, tag=🍎 苹果, policy=🍎 苹果, update-interval=86400, enabled=true
+##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list, tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
 ##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list, tag=⛔️ 广告拦截, policy=⛔️ 广告拦截, update-interval=86400, enabled=true
 ##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list, tag=🚫 运营劫持, policy=🚫 运营劫持, update-interval=86400, enabled=true
 ##https://raw.githubusercontent.com/Semporia/Loon/master/Rule/TikTok.list, tag=TikTok, policy=TikTok, update-interval=86400, enabled=true
-https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list, tag=🎥 NETFLIX, policy=🎥 NETFLIX, update-interval=86400, enabled=true
-https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list, tag=🌌 YouTube, policy=🌌 YouTube, update-interval=86400, enabled=true
-https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list, tag=🌍 国外媒体, policy=🌍 国外媒体, update-interval=86400, enabled=true
-https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list, tag=🌏 港台媒体, policy=🌏 港台媒体, update-interval=86400, enabled=true
-https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list, tag=📲 电报信息, policy=📲 电报信息, update-interval=86400, enabled=true
-https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list, tag=🔰 节点选择, policy=🔰 节点选择, update-interval=86400, enabled=true
-https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list, tag=🎯 全球直连, policy=🎯 全球直连, update-interval=86400, enabled=true
+##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list, tag=🎥 NETFLIX, policy=🎥 NETFLIX, update-interval=86400, enabled=true
+##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list, tag=🌌 YouTube, policy=🌌 YouTube, update-interval=86400, enabled=true
+##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list, tag=🌍 国外媒体, policy=🌍 国外媒体, update-interval=86400, enabled=true
+##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list, tag=🌏 港台媒体, policy=🌏 港台媒体, update-interval=86400, enabled=true
+##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list, tag=📲 电报信息, policy=📲 电报信息, update-interval=86400, enabled=true
+##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list, tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
+##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list, tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
+
+[Rule]
+GEOIP,CN,🎯 直连
+FINAL,🐟 其他
 
 [URL Rewrite]
 enable=true
@@ -65,7 +66,7 @@ enable=true
 enable = false
 
 [Plugin]
-https://raw.githubusercontent.com/Semporia/TikTok-Unlock/master/Loon/TikTokUS.plugin, policy=🔰 节点选择, tag=TikTok, enabled=true
+https://raw.githubusercontent.com/Semporia/TikTok-Unlock/master/Loon/TikTokUS.plugin, policy=🔰 代理, tag=TikTok, enabled=true
 
 [MITM]
 ca-p12 = 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

@@ -1,5 +1,6 @@
-package com.jhl.admin.service.init;
+package com.jhl.admin.init;
 
+import com.jhl.admin.cron.RulesCron;
 import com.jhl.admin.model.Account;
 import com.jhl.admin.model.ServerConfig;
 import com.jhl.admin.model.User;
@@ -33,6 +34,8 @@ public class AdminInitService {
 	StatService statService;
 	@Autowired
 	ProxyEventService proxyEventService;
+	@Autowired
+	RulesCron rulesCron;
 	@Value("${admin.email}")
 	String email;
 	@Value("${admin.password}")
@@ -45,6 +48,9 @@ public class AdminInitService {
 	@PostConstruct
 	public void init() {
 		initServer();
+
+		rulesCron.execute();
+
 		proxyEventService.addProxyAccounts();
 	}
 

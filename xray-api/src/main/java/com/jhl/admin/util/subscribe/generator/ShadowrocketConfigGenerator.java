@@ -66,6 +66,7 @@ public class ShadowrocketConfigGenerator implements IConfigGenerator {
     }
 
     public String cleanLine(String line) {
+        // 替换掉行尾掉注释，如：" // Google"
         return line.replaceAll("\\s//.*", "");
     }
 }

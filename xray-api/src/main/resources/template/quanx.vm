@@ -11,61 +11,65 @@ server=1.0.0.1
 server=8.8.8.8
 
 [policy]
-static=🔰 节点选择, ♻️ 自动选择, 🎯 全球直连, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Proxy.png
+static=🔰 代理, ♻️ 自动选择, 🎯 直连, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Proxy.png
 available=♻️ 自动选择, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Auto.png
-static=💰 PayPal, 🔰 节点选择, ♻️ 自动选择, 🎯 全球直连, $M.serverNames($servers)
-static=TikTok, 🔰 节点选择, ♻️ 自动选择, 🎯 全球直连, $M.serverNames($servers)
-static=🎥 NETFLIX, 🔰 节点选择, ♻️ 自动选择, 🎯 全球直连, $M.serverNames($servers)
-static=🌌 YouTube, 🔰 节点选择, ♻️ 自动选择, 🎯 全球直连, $M.serverNames($servers)
-##static=⛔️ 广告拦截, 🎯 全球直连, 🛑 全球拦截, 🔰 节点选择
-##static=🚫 运营劫持, 🎯 全球直连, 🛑 全球拦截, 🔰 节点选择
-static=🌍 国外媒体, 🔰 节点选择, ♻️ 自动选择, 🎯 全球直连, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/GlobalMedia.png
-static=🌏 港台媒体, 🔰 节点选择, ♻️ 自动选择, 🎯 全球直连, $M.serverNames($servers)
-static=🌏 国内媒体, 🎯 全球直连, 🔰 节点选择, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/DomesticMedia.png
-static=Ⓜ️ 微软服务, 🎯 全球直连, 🔰 节点选择, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Microsoft.png
-static=📲 电报信息, 🔰 节点选择, 🎯 全球直连, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Telegram.png
-static=🍎 苹果服务, 🔰 节点选择, 🎯 全球直连, ♻️ 自动选择, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Apple.png
-static=🎯 全球直连, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Direct.png
-static=🛑 全球拦截, DIRECT, REJECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Advertising.png
-static=🐟 漏网之鱼, 🎯 全球直连, 🔰 节点选择, ♻️ 自动选择, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Final.png
+static=💰 PayPal, 🎯 直连, 🔰 代理, ♻️ 自动选择, $M.serverNames($servers)
+static=Ⓜ️ 微软, 🎯 直连, 🔰 代理, ♻️ 自动选择, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Microsoft.png
+static=🍎 苹果, 🎯 直连, 🔰 代理, ♻️ 自动选择, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Apple.png
+##static=TikTok, 🔰 代理, ♻️ 自动选择, 🎯 直连, $M.serverNames($servers)
+##static=🎥 NETFLIX, 🔰 代理, ♻️ 自动选择, 🎯 直连, $M.serverNames($servers)
+##static=🌌 YouTube, 🔰 代理, ♻️ 自动选择, 🎯 直连, $M.serverNames($servers)
+##static=⛔️ 广告拦截, 🎯 直连, 🛑 拦截, 🔰 代理
+##static=🚫 运营劫持, 🎯 直连, 🛑 拦截, 🔰 代理
+##static=🌍 国外媒体, 🔰 代理, ♻️ 自动选择, 🎯 直连, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/GlobalMedia.png
+##static=🌏 港台媒体, 🔰 代理, ♻️ 自动选择, 🎯 直连, $M.serverNames($servers)
+##static=🌏 国内媒体, 🎯 直连, 🔰 代理, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/DomesticMedia.png
+##static=📲 电报信息, 🔰 代理, 🎯 直连, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Telegram.png
+static=🎯 直连, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Direct.png
+static=🛑 拦截, REJECT, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Advertising.png
+static=🐟 其他, 🔰 代理, 🎯 直连, ♻️ 自动选择, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Final.png
 
 [server_remote]
 $M.proxiesUrl(), tag=RemoteServer
 
 [filter_remote]
-$M.rules("LocalAreaNetwork.list", "🎯 全球直连"), enabled=true
-$M.rules("MyProxy.list", "🛑 全球拦截"), enabled=true
-$M.rules("MyDirect.list", "🎯 全球直连"), enabled=true
-$M.rules("MyProxy.list", "🔰 节点选择"), enabled=true
-$M.rules("MSServices.list", "Ⓜ️ 微软服务"), enabled=true
-$M.rules("PayPal.list", "💰 PayPal"), enabled=true
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list", "🍎 苹果服务"), enabled=true
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list", "🎯 全球直连"), enabled=true
+$M.rules("MyProxy.list", "🛑 拦截"), update-interval=86400, enabled=true
+$M.rules("MyDirect.list", "🎯 直连"), update-interval=86400, enabled=true
+$M.rules("MyProxy.list", "🔰 代理"), update-interval=86400, enabled=true
+$M.rules("PayPal.list", "💰 PayPal"), update-interval=86400, enabled=true
+$M.rules("Microsoft.list", "Ⓜ️ 微软"), update-interval=86400, enabled=true
+$M.rules("Apple.list", "🍎 苹果"), update-interval=86400, enabled=true
+$M.rules("Direct.list", "🎯 直连"), update-interval=86400, enabled=true
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list", "🍎 苹果"), enabled=true
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list", "🎯 直连"), enabled=true
 ##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list", "⛔️ 广告拦截"), enabled=true
 ##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list", "🚫 运营劫持"), enabled=true
-https://raw.githubusercontent.com/Semporia/Quantumult-X/master/Filter/TikTok.list, tag=TikTok, force-policy=TikTok, update-interval=86400, opt-parser=false, enabled=true
+##https://raw.githubusercontent.com/Semporia/Quantumult-X/master/Filter/TikTok.list, tag=TikTok, force-policy=TikTok, update-interval=86400, opt-parser=false, enabled=true
 ##$M.rules("https://raw.githubusercontent.com/Semporia/Quantumult-X/master/Filter/TikTok.list", "TikTok"), force-policy=TikTok, update-interval=86400, opt-parser=false, enabled=true
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list", "🎥 NETFLIX"), enabled=true
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list", "🌌 YouTube"), enabled=true
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list", "🌍 国外媒体"), enabled=true
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list", "🌏 港台媒体"), enabled=true
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list", "📲 电报信息"), enabled=true
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list", "🔰 节点选择"), enabled=true
-$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list", "🎯 全球直连"), enabled=true
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list", "🎥 NETFLIX"), enabled=true
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list", "🌌 YouTube"), enabled=true
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list", "🌍 国外媒体"), enabled=true
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list", "🌏 港台媒体"), enabled=true
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list", "📲 电报信息"), enabled=true
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list", "🔰 代理"), enabled=true
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list", "🎯 直连"), enabled=true
 
 [rewrite_remote]
-https://raw.githubusercontent.com/Semporia/TikTok-Unlock/master/Quantumult%20X/TikTok-US.conf, tag=TikTok, update-interval=86400, opt-parser=false, enabled=true
+##https://raw.githubusercontent.com/Semporia/TikTok-Unlock/master/Quantumult%20X/TikTok-US.conf, tag=TikTok, update-interval=86400, opt-parser=false, enabled=true
 
 [server_local]
 
 
 [filter_local]
-GEOIP,CN,🎯 全球直连
-FINAL,🐟 漏网之鱼
+GEOIP,CN,🎯 直连
+FINAL,🐟 其他
 
 [rewrite_local]
 ^https?:\/\/(www.)?(g|google)\.cn url 302 https://www.google.com
 (?<=_region=)CN(?=&) url 307 US
+(?<=&mcc_mnc=)4 url 307 2
+^(https?:\/\/(tnc|dm)[\w-]+\.\w+\.com\/.+)(\?)(.+) url 302  $1$3
+(?<=\d\/\?\w{7}_\w{4}=)1[6-9]..(?=.?.?&) url 307 17
 
 [mitm]
 passphrase = AA3BD70C

@@ -55,7 +55,7 @@ public class ClashConfigGenerator implements IConfigGenerator {
         }
     }
 
-    public Function<String, String> rulesParser(String group) {
+    private Function<String, String> rulesParser(String group) {
         return line -> {
             if (StringUtils.isBlank(line)) {
                 return System.lineSeparator();
@@ -85,6 +85,7 @@ public class ClashConfigGenerator implements IConfigGenerator {
     }
 
     public String cleanLine(String line) {
+        // 替换掉行尾掉注释，如：" // Google"
         return line.replaceAll("\\s//.*", "");
     }
 }
