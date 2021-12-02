@@ -120,8 +120,8 @@ $M.serverNames($servers)
   - name: 🐟 其他
     type: select
     proxies:
-      - 🔰 代理
       - 🎯 直连
+      - 🔰 代理
       - ♻️ 自动选择
 $M.serverNames($servers)
 
@@ -133,6 +133,7 @@ $M.rules("PayPal.list", "💰 PayPal")
 $M.rules("Microsoft.list", "Ⓜ️ 微软")
 $M.rules("Apple.list", "🍎 苹果")
 $M.rules("Direct.list", "🎯 直连")
+$M.rules("Proxy.list", "🔰 代理")
 ##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list", "🍎 苹果")
 ##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list", "🎯 直连")
 ##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list", "⛔️ 广告拦截")

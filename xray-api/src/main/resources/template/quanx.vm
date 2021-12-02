@@ -27,7 +27,7 @@ static=🍎 苹果, 🎯 直连, 🔰 代理, ♻️ 自动选择, $M.serverName
 ##static=📲 电报信息, 🔰 代理, 🎯 直连, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Telegram.png
 static=🎯 直连, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Direct.png
 static=🛑 拦截, REJECT, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Advertising.png
-static=🐟 其他, 🔰 代理, 🎯 直连, ♻️ 自动选择, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Final.png
+static=🐟 其他, 🎯 直连, 🔰 代理, ♻️ 自动选择, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Final.png
 
 [server_remote]
 $M.proxiesUrl(), tag=RemoteServer
@@ -40,6 +40,7 @@ $M.rules("PayPal.list", "💰 PayPal"), update-interval=86400, enabled=true
 $M.rules("Microsoft.list", "Ⓜ️ 微软"), update-interval=86400, enabled=true
 $M.rules("Apple.list", "🍎 苹果"), update-interval=86400, enabled=true
 $M.rules("Direct.list", "🎯 直连"), update-interval=86400, enabled=true
+$M.rules("Proxy.list", "🔰 代理"), update-interval=86400, enabled=true
 ##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list", "🍎 苹果"), enabled=true
 ##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list", "🎯 直连"), enabled=true
 ##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list", "⛔️ 广告拦截"), enabled=true

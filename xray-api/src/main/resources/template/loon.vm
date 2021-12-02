@@ -28,7 +28,7 @@ RemoteProxies = $M.proxiesUrl()
 ##📲 电报信息 = select,🔰 代理,🎯 直连,RemoteProxies
 🎯 直连 = select,DIRECT
 🛑 拦截 = select,REJECT,DIRECT
-🐟 其他 = select,🔰 代理,🎯 直连,♻️ 自动选择,RemoteProxies
+🐟 其他 = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
 
 [Remote Rule]
 $M.rules("MyReject.list"), tag=🛑 拦截, policy=🛑 拦截, update-interval=86400, enabled=true
@@ -38,6 +38,7 @@ $M.rules("PayPal.list"), tag=💰 PayPal, policy=💰 PayPal, update-interval=86
 $M.rules("Microsoft.list"), tag=Ⓜ️ 微软, policy=Ⓜ️ 微软, update-interval=86400, enabled=true
 $M.rules("Apple.list"), tag=🍎 苹果, policy=🍎 苹果, update-interval=86400, enabled=true
 $M.rules("Direct.list"), tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
+$M.rules("Proxy.list"), tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
 ##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list, tag=🍎 苹果, policy=🍎 苹果, update-interval=86400, enabled=true
 ##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list, tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
 ##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list, tag=⛔️ 广告拦截, policy=⛔️ 广告拦截, update-interval=86400, enabled=true
