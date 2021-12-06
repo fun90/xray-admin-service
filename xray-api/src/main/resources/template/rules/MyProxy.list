@@ -48,9 +48,9 @@ IP-CIDR6,2001:67c:4e8::/48,no-resolve
 IP-CIDR6,2001:b28:f23c::/48,no-resolve
 IP-CIDR6,2a0a:f280::/32,no-resolve
 #Google
-DOMAIN,google-analytics.com
-DOMAIN,googleadservices.com
-DOMAIN,googleanalytics.com
-DOMAIN,googlesyndication.com
-DOMAIN,googletagmanager.com
-DOMAIN,googletagservices.com
+DOMAIN-SUFFIX,google-analytics.com
+DOMAIN-SUFFIX,googleadservices.com
+DOMAIN-SUFFIX,googleanalytics.com
+DOMAIN-SUFFIX,googlesyndication.com
+DOMAIN-SUFFIX,googletagmanager.com
+DOMAIN-SUFFIX,googletagservices.com

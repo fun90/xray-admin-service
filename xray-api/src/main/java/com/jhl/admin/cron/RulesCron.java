@@ -41,7 +41,7 @@ public class RulesCron {
                 return "DOMAIN-SUFFIX," + line + System.lineSeparator();
             }
             if ("full".equals(arr[0])) {
-                return "DOMAIN," + arr[1] + System.lineSeparator();
+                return "DOMAIN-SUFFIX," + arr[1] + System.lineSeparator();
             } else {
                 return "#" + line + System.lineSeparator();
             }

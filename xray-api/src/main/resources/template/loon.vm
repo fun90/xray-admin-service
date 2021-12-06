@@ -37,8 +37,8 @@ $M.rules("MyProxy.list"), tag=🔰 代理, policy=🔰 代理, update-interval=8
 $M.rules("PayPal.list"), tag=💰 PayPal, policy=💰 PayPal, update-interval=86400, enabled=true
 $M.rules("Microsoft.list"), tag=Ⓜ️ 微软, policy=Ⓜ️ 微软, update-interval=86400, enabled=true
 $M.rules("Apple.list"), tag=🍎 苹果, policy=🍎 苹果, update-interval=86400, enabled=true
-$M.rules("Direct.list"), tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
 $M.rules("Proxy.list"), tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
+$M.rules("Direct.list"), tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
 ##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list, tag=🍎 苹果, policy=🍎 苹果, update-interval=86400, enabled=true
 ##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list, tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
 ##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list, tag=⛔️ 广告拦截, policy=⛔️ 广告拦截, update-interval=86400, enabled=true
