@@ -28,7 +28,7 @@ RemoteProxies = $M.proxiesUrl()
 ##📲 电报信息 = select,🔰 代理,🎯 直连,RemoteProxies
 🎯 直连 = select,DIRECT
 🛑 拦截 = select,REJECT,DIRECT
-🐟 其他 = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
+🐟 其他 = select,🔰 代理,🎯 直连,♻️ 自动选择,RemoteProxies
 
 [Remote Rule]
 $M.rules("MyReject.list"), tag=🛑 拦截, policy=🛑 拦截, update-interval=86400, enabled=true

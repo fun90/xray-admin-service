@@ -31,7 +31,7 @@ $M.proxies($servers)
 ##📲 电报信息 = select,🔰 代理,🎯 直连,$M.serverNames($servers)
 🍎 苹果 = select,🎯 直连,🔰 代理,♻️ 自动选择,$M.serverNames($servers)
 🛑 拦截 = select,DIRECT,REJECT
-🐟 其他 = select,🎯 直连,🔰 代理,♻️ 自动选择,$M.serverNames($servers)
+🐟 其他 = select,🔰 代理,🎯 直连,♻️ 自动选择,$M.serverNames($servers)
 
 [Rule]
 RULE-SET,$M.rules("LocalAreaNetwork.list"),🎯 直连,update-interval=86400

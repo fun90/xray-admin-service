@@ -120,8 +120,8 @@ $M.serverNames($servers)
   - name: 🐟 其他
     type: select
     proxies:
-      - 🎯 直连
       - 🔰 代理
+      - 🎯 直连
       - ♻️ 自动选择
 $M.serverNames($servers)
 
