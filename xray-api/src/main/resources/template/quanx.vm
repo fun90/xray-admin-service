@@ -33,7 +33,7 @@ static=🐟 其他,🔰 代理,  🎯 直连, ♻️ 自动选择, $M.serverName
 $M.proxiesUrl(), tag=RemoteServer
 
 [filter_remote]
-$M.rules("MyProxy.list", "🛑 拦截"), update-interval=86400, enabled=true
+$M.rules("MyReject.list", "🛑 拦截"), update-interval=86400, enabled=true
 $M.rules("MyDirect.list", "🎯 直连"), update-interval=86400, enabled=true
 $M.rules("MyProxy.list", "🔰 代理"), update-interval=86400, enabled=true
 $M.rules("PayPal.list", "💰 PayPal"), update-interval=86400, enabled=true
