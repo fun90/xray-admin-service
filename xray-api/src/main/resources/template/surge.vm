@@ -18,7 +18,7 @@ $M.proxies($servers)
 
 [Proxy Group]
 🔰 代理 = select,♻️ 自动选择,🎯 直连,$M.serverNames($servers)
-♻️ 自动选择 = url-test,$M.serverNames(",url=http://www.gstatic.com/generate_204,interval=300,timeout=5")
+♻️ 自动选择 = url-test,$M.serverNames($servers),url=http://www.gstatic.com/generate_204,interval=300,timeout=5
 💰 PayPal = select,🎯 直连,🔰 代理,♻️ 自动选择,$M.serverNames($servers)
 ##🎥 NETFLIX = select,🔰 代理,♻️ 自动选择,🎯 直连,$M.serverNames($servers)
 ##🌌 YouTube = select,🔰 代理,♻️ 自动选择,🎯 直连,$M.serverNames($servers)
@@ -34,7 +34,7 @@ $M.proxies($servers)
 🐟 其他 = select,🔰 代理,🎯 直连,♻️ 自动选择,$M.serverNames($servers)
 
 [Rule]
-RULE-SET,$M.rules("LocalAreaNetwork.list"),🎯 直连,update-interval=86400
+PROCESS-NAME,Eagle*,🛑 拦截
 RULE-SET,$M.rules("MyReject.list"),🛑 拦截,update-interval=86400
 RULE-SET,$M.rules("MyDirect.list"),🎯 直连,update-interval=86400
 RULE-SET,$M.rules("MyProxy.list"),🔰 代理,update-interval=86400
