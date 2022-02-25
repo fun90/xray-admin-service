@@ -52,7 +52,7 @@ public class XrayAccountService {
 			try {
 				sb.append("trojan://").append(account.getUuid()).append("@")
 						.append(server.getClientDomain()).append(":").append(server.getClientPort())
-						.append("?xtls=1")
+						.append("?allowInsecure=1&xtls=1")
 						.append("#").append(URLEncoder.encode(server.getServerName(), "UTF-8"))
 						.append("\n");
 			} catch (UnsupportedEncodingException e) {

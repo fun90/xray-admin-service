@@ -72,7 +72,7 @@ public class AccountService {
 		Validator.isNotNull(account.getUserId());
 		Date date = new Date();
 		if (account.getBandwidth() == null) {
-			account.setBandwidth(2);
+			account.setBandwidth(200);
 		}
 
 		account.setAccountNo(Utils.getCharAndNum(7));
