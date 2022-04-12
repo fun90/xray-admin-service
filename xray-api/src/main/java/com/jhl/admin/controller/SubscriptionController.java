@@ -32,6 +32,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -114,6 +115,7 @@ public class SubscriptionController {
 		params.put("account", account);
 
 		List<Server> servers = subscriptionService.findServers(account, target);
+		Collections.shuffle(servers);
 		params.put("servers", servers);
 
 		String rootUrl = serverConfigService.getServerConfig(WebsiteConfigEnum.SUBSCRIPTION_ADDRESS_PREFIX.getKey()).getValue();

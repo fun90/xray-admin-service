@@ -14,6 +14,7 @@ import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -47,6 +48,7 @@ public class SubscriptionService {
 		List<Server> servers = serverService.listByLevel(level);
 		// 过滤服务器节点只保留协议被客户端支持的节点
 		servers = servers.stream().filter(o -> clientConstant.getSupportProtocols().get(target).contains(o.getProtocol())).collect(Collectors.toList());
+		Collections.shuffle(servers);
 		
 		if ("quanx".equals(target)) {
 			String trojanTemplate = "trojan = %s:%s, password=%s, tls-host=%s, over-tls=true, tls-verification=false, fast-open=false, udp-relay=true, tls13=false, tag=%s";
