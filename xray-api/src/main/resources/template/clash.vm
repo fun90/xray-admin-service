@@ -91,6 +91,13 @@ $M.serverNames($servers)
       - ♻️ 自动选择
 $M.serverNames($servers)
 
+  - name: Google
+    type: select
+    proxies:
+      - 🔰 代理
+      - ♻️ 自动选择
+$M.serverNames($servers)
+
 ##  - name: 📲 电报信息
 ##    type: select
 ##    proxies:
@@ -128,6 +135,7 @@ $M.serverNames($servers)
 rules:
 $M.rules("MyReject.list", "🛑 拦截")
 $M.rules("MyDirect.list", "🎯 直连")
+$M.rules("Google.list", "Google")
 $M.rules("MyProxy.list", "🔰 代理")
 $M.rules("PayPal.list", "💰 PayPal")
 $M.rules("Microsoft.list", "Ⓜ️ 微软")
