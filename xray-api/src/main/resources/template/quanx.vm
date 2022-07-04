@@ -13,6 +13,7 @@ server=8.8.8.8
 [policy]
 static=🔰 代理, ♻️ 自动选择, 🎯 直连, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Proxy.png
 available=♻️ 自动选择, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Auto.png
+static=🐶 谷歌, 🔰 代理, ♻️ 自动选择, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Microsoft.png
 static=💰 PayPal, 🎯 直连, 🔰 代理, ♻️ 自动选择, $M.serverNames($servers)
 static=Ⓜ️ 微软, 🎯 直连, 🔰 代理, ♻️ 自动选择, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Microsoft.png
 static=🍎 苹果, 🎯 直连, 🔰 代理, ♻️ 自动选择, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Apple.png
@@ -35,6 +36,7 @@ $M.proxiesUrl(), tag=RemoteServer
 [filter_remote]
 $M.rules("MyReject.list", "🛑 拦截"), update-interval=86400, enabled=true
 $M.rules("MyDirect.list", "🎯 直连"), update-interval=86400, enabled=true
+$M.rules("Google.list", "🐶 谷歌"), update-interval=86400, enabled=true
 $M.rules("MyProxy.list", "🔰 代理"), update-interval=86400, enabled=true
 $M.rules("PayPal.list", "💰 PayPal"), update-interval=86400, enabled=true
 $M.rules("Microsoft.list", "Ⓜ️ 微软"), update-interval=86400, enabled=true

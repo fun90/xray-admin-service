@@ -28,6 +28,7 @@ $M.proxies($servers)
 ##🌏 港台媒体 = select,🔰 代理,♻️ 自动选择,🎯 直连,$M.serverNames($servers)
 ##🌏 国内媒体 = select,🎯 直连,🔰 代理
 Ⓜ️ 微软 = select,🎯 直连,🔰 代理,♻️ 自动选择,$M.serverNames($servers)
+🐶 谷歌 = select,🔰 代理,♻️ 自动选择,$M.serverNames($servers)
 ##📲 电报信息 = select,🔰 代理,🎯 直连,$M.serverNames($servers)
 🍎 苹果 = select,🎯 直连,🔰 代理,♻️ 自动选择,$M.serverNames($servers)
 🛑 拦截 = select,DIRECT,REJECT

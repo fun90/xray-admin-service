@@ -14,6 +14,7 @@ RemoteProxies = $M.proxiesUrl()
 [Proxy Group]
 🔰 代理 = select,♻️ 自动选择,🎯 直连,RemoteProxies
 ♻️ 自动选择 = url-test,RemoteProxies,url=http://www.gstatic.com/generate_224,interval=300
+🐶 谷歌 = select,🔰 代理,♻️ 自动选择,RemoteProxies
 💰 PayPal = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
 Ⓜ️ 微软 = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
 🍎 苹果 = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
@@ -33,6 +34,7 @@ RemoteProxies = $M.proxiesUrl()
 [Remote Rule]
 $M.rules("MyReject.list"), tag=🛑 拦截, policy=🛑 拦截, update-interval=86400, enabled=true
 $M.rules("MyDirect.list"), tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
+$M.rules("Google.list"), tag=🐶 谷歌, policy=🐶 谷歌, update-interval=86400, enabled=true
 $M.rules("MyProxy.list"), tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
 $M.rules("PayPal.list"), tag=💰 PayPal, policy=💰 PayPal, update-interval=86400, enabled=true
 $M.rules("Microsoft.list"), tag=Ⓜ️ 微软, policy=Ⓜ️ 微软, update-interval=86400, enabled=true
