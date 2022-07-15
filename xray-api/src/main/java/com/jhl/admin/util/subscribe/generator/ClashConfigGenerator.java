@@ -27,9 +27,9 @@ public class ClashConfigGenerator implements IConfigGenerator {
 
     @Override
     public String getProxies(List<Server> servers, Account account) {
-        String trojanTemplate = "   - {name: %s, server: %s, port: %s, type: trojan, password: %s, sni: %s, skip-cert-verify: true, udp: true}";
-        String vmessTemplate = "   - {name: %s, server: %s, port: %s, type: vmess, uuid: %s, alterId: %s, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: %s, ws-headers: {Host: %s}, udp: true}";
-        String socketTemplate = "   - {name: %s, server: %s, port: %s, type: socks5, skip-cert-verify: true, udp: true}";
+        String trojanTemplate = "   - {name: %s, server: %s, port: %s, type: trojan, password: %s, sni: %s, skip-cert-verify: true, udp: false}";
+        String vmessTemplate = "   - {name: %s, server: %s, port: %s, type: vmess, uuid: %s, alterId: %s, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-opts: {path: %s, headers: {Host: %s}}, udp: false}";
+        String socketTemplate = "   - {name: %s, server: %s, port: %s, type: socks5, skip-cert-verify: true, udp: false}";
         return servers.stream().map(o -> {
             if ("trojan".equals(o.getProtocol())) {
                 return String.format(trojanTemplate, o.getServerName(), o.getClientDomain(), o.getClientPort(), account.getUuid(), o.getClientDomain());
