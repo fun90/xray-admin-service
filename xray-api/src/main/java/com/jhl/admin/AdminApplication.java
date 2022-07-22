@@ -19,30 +19,10 @@ import java.util.TimeZone;
 @EnableAsync
 public class AdminApplication {
 
-
 	public static void main(String[] args) {
-
 		TimeZone.setDefault(TimeZone.getTimeZone("Asia/Shanghai"));
 		SpringApplication.run(AdminApplication.class, args);
 	}
-
-
-
-
-
-
-
-
-/* @Override
-    public void run(ApplicationArguments args) throws Exception {
-      *//*  User newUser = User.builder().email("1@qq.com").nickName("test1").role("admin").password("1234").build();
-        userRepository.save(newUser);*//*
-
-         User u = userRepository.findById(4).get();
-        System.out.println(u);
-        System.out.println("run");
-    }*/
-
 
 }
 
