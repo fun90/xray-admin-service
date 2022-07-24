@@ -1,0 +1,234 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  default-nameserver:
+    - 114.114.114.114
+  nameserver:
+    - tls://223.5.5.5:853
+    - 114.114.114.114
+    - 119.29.29.29
+    - 180.76.76.76
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - '*.lan'
+    - '*.localdomain'
+    - '*.example'
+    - '*.invalid'
+    - '*.localhost'
+    - '*.test'
+    - '*.local'
+    - '*.home.arpa'
+    - router.asus.com
+    - localhost.sec.qq.com
+    - localhost.ptlogin2.qq.com
+    - '+.msftconnecttest.com'
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - 114.114.114.114
+    - 180.76.76.76
+    - 119.29.29.29
+    - 223.5.5.5
+    - 8.8.8.8
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+
+proxies:
+$M.proxies($servers)
+
+proxy-groups:
+  - name: 🔰 代理
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - 🎯 直连
+$M.serverNames($servers)
+
+  - name: ♻️ 自动选择
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    proxies:
+$M.serverNames($servers)
+
+  - name: 🐶 谷歌
+    type: select
+    proxies:
+      - 🔰 代理
+      - ♻️ 自动选择
+$M.serverNames($servers)
+
+  - name: 💰 PayPal
+    type: select
+    proxies:
+      - 🎯 直连
+      - 🔰 代理
+      - ♻️ 自动选择
+$M.serverNames($servers)
+
+  - name: Ⓜ️ 微软
+    type: select
+    proxies:
+      - 🎯 直连
+      - 🔰 代理
+      - ♻️ 自动选择
+$M.serverNames($servers)
+
+  - name: 🍎 苹果
+    type: select
+    proxies:
+      - 🎯 直连
+      - 🔰 代理
+      - ♻️ 自动选择
+$M.serverNames($servers)
+
+  - name: 🎯 直连
+    type: select
+    proxies:
+      - DIRECT
+
+  - name: 🛑 拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+
+  - name: 🐟 其他
+    type: select
+    proxies:
+      - 🔰 代理
+      - 🎯 直连
+      - ♻️ 自动选择
+$M.serverNames($servers)
+
+rules:
+$M.rules("MyReject.list", "🛑 拦截")
+$M.rules("MyDirect.list", "🎯 直连")
+$M.rules("PayPal.list", "💰 PayPal")
+$M.rules("Microsoft.list", "Ⓜ️ 微软")
+  - RULE-SET,applications,🎯 直连
+  - DOMAIN,clash.razord.top,🎯 直连
+  - DOMAIN,yacd.haishan.me,🎯 直连
+  - RULE-SET,private,🎯 直连
+  - RULE-SET,reject,🛑 拦截
+  - RULE-SET,icloud,🍎 苹果
+  - RULE-SET,apple,🍎 苹果
+  - RULE-SET,google,🐶 谷歌
+  - RULE-SET,proxy,🔰 代理
+  - RULE-SET,direct,🎯 直连
+  - RULE-SET,lancidr,🎯 直连
+  - RULE-SET,cncidr,🎯 直连
+  - RULE-SET,telegramcidr,🔰 代理
+  - GEOIP,LAN,🎯 直连
+  - GEOIP,CN,🎯 直连
+  - MATCH,🐟 其他
+rule-providers:
+  reject:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt"
+    path: ./ruleset/reject.yaml
+    interval: 86400
+
+  icloud:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/icloud.txt"
+    path: ./ruleset/icloud.yaml
+    interval: 86400
+
+  apple:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/apple.txt"
+    path: ./ruleset/apple.yaml
+    interval: 86400
+
+  google:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/google.txt"
+    path: ./ruleset/google.yaml
+    interval: 86400
+
+  proxy:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt"
+    path: ./ruleset/proxy.yaml
+    interval: 86400
+
+  direct:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt"
+    path: ./ruleset/direct.yaml
+    interval: 86400
+
+  private:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/private.txt"
+    path: ./ruleset/private.yaml
+    interval: 86400
+
+  gfw:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/gfw.txt"
+    path: ./ruleset/gfw.yaml
+    interval: 86400
+
+  greatfire:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/greatfire.txt"
+    path: ./ruleset/greatfire.yaml
+    interval: 86400
+
+  tld-not-cn:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/tld-not-cn.txt"
+    path: ./ruleset/tld-not-cn.yaml
+    interval: 86400
+
+  telegramcidr:
+    type: http
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/telegramcidr.txt"
+    path: ./ruleset/telegramcidr.yaml
+    interval: 86400
+
+  cncidr:
+    type: http
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/cncidr.txt"
+    path: ./ruleset/cncidr.yaml
+    interval: 86400
+
+  lancidr:
+    type: http
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/lancidr.txt"
+    path: ./ruleset/lancidr.yaml
+    interval: 86400
+
+  applications:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/applications.txt"
+    path: ./ruleset/applications.yaml
+    interval: 86400

@@ -48,7 +48,6 @@ public class SubscriptionService {
 		List<Server> servers = serverService.listByLevel(level);
 		// 过滤服务器节点只保留协议被客户端支持的节点
 		servers = servers.stream().filter(o -> clientConstant.getSupportProtocols().get(target).contains(o.getProtocol())).collect(Collectors.toList());
-		Collections.shuffle(servers);
 		
 		if ("quanx".equals(target)) {
 			String trojanTemplate = "trojan = %s:%s, password=%s, tls-host=%s, over-tls=true, tls-verification=false, fast-open=false, udp-relay=true, tls13=false, tag=%s";
@@ -66,7 +65,7 @@ public class SubscriptionService {
 			return sb.toString();
 		}
 		
-		String b64V2rayAccount = xrayAccountService.buildXrayServerUrl(servers, account);
+		String b64V2rayAccount = xrayAccountService. buildXrayServerUrl(servers, account);
 		//需要再进行一次base64
 		return Base64.encodeBase64String(b64V2rayAccount.getBytes(StandardCharsets.UTF_8));
 	}

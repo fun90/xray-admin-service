@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class ServerService {
@@ -33,6 +30,7 @@ public class ServerService {
 	public List<Server> listByLevel(Short level) {
 		Validator.isNotNull(level);
 		List<Server> all = serverRepository.findByLevelLessThanEqualAndStatusOrderByLevelDesc(level, StatusEnum.SUCCESS.code());
+		Collections.shuffle(all);
 		return all;
 	}
 

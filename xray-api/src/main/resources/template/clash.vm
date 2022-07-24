@@ -5,6 +5,30 @@ mode: Rule
 log-level: info
 external-controller: :9090
 
+rules:
+$M.rules("MyReject.list", "🛑 拦截")
+$M.rules("MyDirect.list", "🎯 直连")
+$M.rules("Google.list", "🐶 谷歌")
+$M.rules("MyProxy.list", "🔰 代理")
+$M.rules("PayPal.list", "💰 PayPal")
+$M.rules("Microsoft.list", "Ⓜ️ 微软")
+$M.rules("Apple.list", "🍎 苹果")
+##$M.rules("Proxy.list", "🔰 代理")
+$M.rules("Direct.list", "🎯 直连")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list", "🍎 苹果")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list", "🎯 直连")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list", "⛔️ 广告拦截")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list", "🚫 运营劫持")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list", "🎥 NETFLIX")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list", "🌌 YouTube")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list", "🌍 国外媒体")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list", "🌏 港台媒体")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list", "📲 电报信息")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list", "🔰 代理")
+##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list", "🎯 直连")
+  - GEOIP,CN,🎯 直连
+  - MATCH,🐟 其他
+
 proxies:
 $M.proxies($servers)
 
@@ -131,27 +155,3 @@ $M.serverNames($servers)
       - 🎯 直连
       - ♻️ 自动选择
 $M.serverNames($servers)
-
-rules:
-$M.rules("MyReject.list", "🛑 拦截")
-$M.rules("MyDirect.list", "🎯 直连")
-$M.rules("Google.list", "🐶 谷歌")
-$M.rules("MyProxy.list", "🔰 代理")
-$M.rules("PayPal.list", "💰 PayPal")
-$M.rules("Microsoft.list", "Ⓜ️ 微软")
-$M.rules("Apple.list", "🍎 苹果")
-$M.rules("Proxy.list", "🔰 代理")
-$M.rules("Direct.list", "🎯 直连")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list", "🍎 苹果")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list", "🎯 直连")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list", "⛔️ 广告拦截")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list", "🚫 运营劫持")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list", "🎥 NETFLIX")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list", "🌌 YouTube")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list", "🌍 国外媒体")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list", "🌏 港台媒体")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list", "📲 电报信息")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list", "🔰 代理")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list", "🎯 直连")
-  - GEOIP,CN,🎯 直连
-  - MATCH,🐟 其他

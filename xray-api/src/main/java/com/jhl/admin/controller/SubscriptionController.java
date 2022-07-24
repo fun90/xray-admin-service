@@ -51,7 +51,7 @@ public class SubscriptionController {
 	@Autowired
 	private ConfigGeneratorFactory configGeneratorFactory;
 
-	private final String[] targets = { "clash", "quanx", "surge", "loon", "shadowrocket" };
+	private final String[] targets = { "clash", "clash2", "quanx", "surge", "loon", "shadowrocket" };
 
 	/**
 	 * 防暴力，防中间人篡改
@@ -115,7 +115,6 @@ public class SubscriptionController {
 		params.put("account", account);
 
 		List<Server> servers = subscriptionService.findServers(account, target);
-		Collections.shuffle(servers);
 		params.put("servers", servers);
 
 		String rootUrl = serverConfigService.getServerConfig(WebsiteConfigEnum.SUBSCRIPTION_ADDRESS_PREFIX.getKey()).getValue();

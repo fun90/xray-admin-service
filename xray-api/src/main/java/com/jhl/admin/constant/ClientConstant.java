@@ -22,6 +22,7 @@ public class ClientConstant {
 	public ClientConstant() {
 		this.supportProtocols = new HashMap<>();
 		this.supportProtocols.put("clash", Stream.of("trojan", "vmess").collect(Collectors.toList()));
+		this.supportProtocols.put("clash2", Stream.of("trojan", "vmess").collect(Collectors.toList()));
 		this.supportProtocols.put("quanx", Stream.of("trojan", "vmess").collect(Collectors.toList()));
 		this.supportProtocols.put("surge", Stream.of("trojan", "vmess").collect(Collectors.toList()));
 		this.supportProtocols.put("loon", Stream.of("trojan", "vmess", "vless").collect(Collectors.toList()));
@@ -33,6 +34,7 @@ public class ClientConstant {
 		this.excludeRuleTypes = new HashMap<>();
 		this.excludeRuleTypes.put("quanx", Stream.of("USER-AGENT", "AND", "URL-REGEX").collect(Collectors.toList()));
 		this.excludeRuleTypes.put("clash", Stream.of("USER-AGENT", "AND", "URL-REGEX").collect(Collectors.toList()));
+		this.excludeRuleTypes.put("clash2", Stream.of("USER-AGENT", "AND", "URL-REGEX").collect(Collectors.toList()));
 		this.excludeRuleTypes.put("shadowrocket", Stream.of("AND", "URL-REGEX", "IP-CIDR6").collect(Collectors.toList()));
 	}
 }
