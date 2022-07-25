@@ -138,97 +138,97 @@ rule-providers:
   reject:
     type: http
     behavior: domain
-    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt"
+    url: "https://vui.fun90.com/resources/clash-rules/reject.txt"
     path: ./ruleset/reject.yaml
     interval: 86400
 
   icloud:
     type: http
     behavior: domain
-    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/icloud.txt"
+    url: "https://vui.fun90.com/resources/clash-rules/icloud.txt"
     path: ./ruleset/icloud.yaml
     interval: 86400
 
   apple:
     type: http
     behavior: domain
-    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/apple.txt"
+    url: "https://vui.fun90.com/resources/clash-rules/apple.txt"
     path: ./ruleset/apple.yaml
     interval: 86400
 
   google:
     type: http
     behavior: domain
-    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/google.txt"
+    url: "https://vui.fun90.com/resources/clash-rules/google.txt"
     path: ./ruleset/google.yaml
     interval: 86400
 
   proxy:
     type: http
     behavior: domain
-    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt"
+    url: "https://vui.fun90.com/resources/clash-rules/proxy.txt"
     path: ./ruleset/proxy.yaml
     interval: 86400
 
   direct:
     type: http
     behavior: domain
-    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt"
+    url: "https://vui.fun90.com/resources/clash-rules/direct.txt"
     path: ./ruleset/direct.yaml
     interval: 86400
 
   private:
     type: http
     behavior: domain
-    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/private.txt"
+    url: "https://vui.fun90.com/resources/clash-rules/private.txt"
     path: ./ruleset/private.yaml
     interval: 86400
 
   gfw:
     type: http
     behavior: domain
-    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/gfw.txt"
+    url: "https://vui.fun90.com/resources/clash-rules/gfw.txt"
     path: ./ruleset/gfw.yaml
     interval: 86400
 
   greatfire:
     type: http
     behavior: domain
-    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/greatfire.txt"
+    url: "https://vui.fun90.com/resources/clash-rules/greatfire.txt"
     path: ./ruleset/greatfire.yaml
     interval: 86400
 
   tld-not-cn:
     type: http
     behavior: domain
-    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/tld-not-cn.txt"
+    url: "https://vui.fun90.com/resources/clash-rules/tld-not-cn.txt"
     path: ./ruleset/tld-not-cn.yaml
     interval: 86400
 
   telegramcidr:
     type: http
     behavior: ipcidr
-    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/telegramcidr.txt"
+    url: "https://vui.fun90.com/resources/clash-rules/telegramcidr.txt"
     path: ./ruleset/telegramcidr.yaml
     interval: 86400
 
   cncidr:
     type: http
     behavior: ipcidr
-    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/cncidr.txt"
+    url: "https://vui.fun90.com/resources/clash-rules/cncidr.txt"
     path: ./ruleset/cncidr.yaml
     interval: 86400
 
   lancidr:
     type: http
     behavior: ipcidr
-    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/lancidr.txt"
+    url: "https://vui.fun90.com/resources/clash-rules/lancidr.txt"
     path: ./ruleset/lancidr.yaml
     interval: 86400
 
   applications:
     type: http
     behavior: classical
-    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/applications.txt"
+    url: "https://vui.fun90.com/resources/clash-rules/applications.txt"
     path: ./ruleset/applications.yaml
     interval: 86400

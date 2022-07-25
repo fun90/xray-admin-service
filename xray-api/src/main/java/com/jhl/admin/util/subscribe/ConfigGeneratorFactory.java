@@ -1,6 +1,6 @@
 package com.jhl.admin.util.subscribe;
 
-import com.jhl.admin.util.subscribe.generator.*;
+import com.jhl.admin.util.subscribe.generator.IConfigGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +33,9 @@ public class ConfigGeneratorFactory {
         } else {
             throw new RuntimeException("不支持的target");
         }
+    }
+
+    public boolean contains(String target) {
+        return generatorMap.containsKey(target);
     }
 }

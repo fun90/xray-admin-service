@@ -51,13 +51,11 @@ public class SubscriptionController {
 	@Autowired
 	private ConfigGeneratorFactory configGeneratorFactory;
 
-	private final String[] targets = { "clash", "clash2", "quanx", "surge", "loon", "shadowrocket" };
-
 	/**
 	 * 防暴力，防中间人篡改
 	 *
 	 * @param code  code
-	 * @param target 客户端类型 {@link #targets}
+	 * @param target 客户端类型: "clash", "clash2", "quanx", "surge", "loon", "shadowrocket"
 	 * @param token md5(code+timestamp+api.auth)
 	 * @return
 	 */
@@ -67,25 +65,20 @@ public class SubscriptionController {
 
 		if (code == null || type == null || timestamp == null || token == null) throw new IllegalArgumentException("参数错误");
 
+		target = StringUtils.defaultString(target, ClientConstant.DEFAULT);
+		if (!configGeneratorFactory.contains(target)) {
+			throw new IllegalArgumentException("target错误");
+		}
+
 		StringBuilder stringBuilder = new StringBuilder();
 		StringBuilder tokenSrc = stringBuilder.append(code).append(timestamp).append(proxyConstant.getAuthPassword());
 		if (!DigestUtils.md5Hex(tokenSrc.toString()).equals(token)) throw new RuntimeException("认证失败");
 
-		String result;
 		if (type == 0) {
-			target = StringUtils.defaultString(target, ClientConstant.DEFAULT);
-			if (!StringUtils.equalsAny(target, targets)) {
-				throw new IllegalArgumentException("target错误");
-			}
-			result = subscriptionService.subscribe(code, target);
+			return subscriptionService.subscribe(code, target);
 		} else {
-			if (!StringUtils.equalsAny(target, targets)) {
-				throw new IllegalArgumentException("target错误");
-			}
-			result = getConfigContent(code, target);
+			return getConfigContent(code, target);
 		}
-
-		return result;
 	}
 
 	/**
