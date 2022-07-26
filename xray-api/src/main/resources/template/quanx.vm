@@ -13,10 +13,11 @@ server=8.8.8.8
 [policy]
 static=🔰 代理, ♻️ 自动选择, 🎯 直连, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Proxy.png
 available=♻️ 自动选择, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Auto.png
-static=🐶 谷歌, 🔰 代理, ♻️ 自动选择, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Microsoft.png
-static=💰 PayPal, 🎯 直连, 🔰 代理, ♻️ 自动选择, $M.serverNames($servers)
+static=🐶 谷歌, 🔰 代理, ♻️ 自动选择, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Google.png
+static=💰 PayPal, 🎯 直连, 🔰 代理, ♻️ 自动选择, $M.serverNames($servers) img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/PayPal.png
 static=Ⓜ️ 微软, 🎯 直连, 🔰 代理, ♻️ 自动选择, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Microsoft.png
 static=🍎 苹果, 🎯 直连, 🔰 代理, ♻️ 自动选择, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Apple.png
+static=☁️ iCloud, 🎯 直连, 🔰 代理, ♻️ 自动选择, $M.serverNames($servers), img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/iCloud.png
 ##static=TikTok, 🔰 代理, ♻️ 自动选择, 🎯 直连, $M.serverNames($servers)
 ##static=🎥 NETFLIX, 🔰 代理, ♻️ 自动选择, 🎯 直连, $M.serverNames($servers)
 ##static=🌌 YouTube, 🔰 代理, ♻️ 自动选择, 🎯 直连, $M.serverNames($servers)
@@ -41,8 +42,11 @@ $M.rules("MyProxy.list", "🔰 代理"), update-interval=86400, enabled=true
 $M.rules("PayPal.list", "💰 PayPal"), update-interval=86400, enabled=true
 $M.rules("Microsoft.list", "Ⓜ️ 微软"), update-interval=86400, enabled=true
 $M.rules("Apple.list", "🍎 苹果"), update-interval=86400, enabled=true
+$M.rules("iCloud.list", "☁️ iCloud"), update-interval=86400, enabled=true
 ##$M.rules("Proxy.list", "🔰 代理"), update-interval=86400, enabled=true
+$M.rules("Private.list", "🎯 直连"), update-interval=86400, enabled=true
 $M.rules("Direct.list", "🎯 直连"), update-interval=86400, enabled=true
+$M.rules("CnCidr.list", "🎯 直连"), update-interval=86400, enabled=true
 ##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list", "🍎 苹果"), enabled=true
 ##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list", "🎯 直连"), enabled=true
 ##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list", "⛔️ 广告拦截"), enabled=true

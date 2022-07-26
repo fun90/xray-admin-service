@@ -94,6 +94,14 @@ $M.serverNames($servers)
       - ♻️ 自动选择
 $M.serverNames($servers)
 
+  - name: ☁️ iCloud
+    type: select
+    proxies:
+      - 🎯 直连
+      - 🔰 代理
+      - ♻️ 自动选择
+$M.serverNames($servers)
+
   - name: 🎯 直连
     type: select
     proxies:
@@ -114,121 +122,47 @@ $M.serverNames($servers)
 $M.serverNames($servers)
 
 rules:
-$M.rules("MyReject.list", "🛑 拦截")
-$M.rules("MyDirect.list", "🎯 直连")
-$M.rules("PayPal.list", "💰 PayPal")
-$M.rules("Microsoft.list", "Ⓜ️ 微软")
-  - RULE-SET,applications,🎯 直连
-  - DOMAIN,clash.razord.top,🎯 直连
-  - DOMAIN,yacd.haishan.me,🎯 直连
-  - RULE-SET,private,🎯 直连
-  - RULE-SET,reject,🛑 拦截
-  - RULE-SET,icloud,🍎 苹果
-  - RULE-SET,apple,🍎 苹果
-  - RULE-SET,google,🐶 谷歌
-  - RULE-SET,proxy,🔰 代理
-  - RULE-SET,direct,🎯 直连
-  - RULE-SET,lancidr,🎯 直连
-  - RULE-SET,cncidr,🎯 直连
-  - RULE-SET,telegramcidr,🔰 代理
+  - RULE-SET,MyReject,🛑 拦截
+  - RULE-SET,MyDirect,🎯 直连
+  - RULE-SET,PayPal,💰 PayPal
+  - RULE-SET,Microsoft,Ⓜ️ 微软
+  - RULE-SET,iCloud,☁️ iCloud
+  - RULE-SET,Apple,🍎 苹果
+  - RULE-SET,Google,🐶 谷歌
+  - RULE-SET,Applications,🎯 直连
+  - RULE-SET,Private,🎯 直连
+  - RULE-SET,Reject,🛑 拦截
+  - RULE-SET,Direct,🎯 直连
+  - RULE-SET,LanCidr,🎯 直连
+  - RULE-SET,CnCidr,🎯 直连
+  - RULE-SET,TelegramCidr,🔰 代理
   - GEOIP,LAN,🎯 直连
   - GEOIP,CN,🎯 直连
   - MATCH,🐟 其他
+
+#set($rulesNameList = [
+  "MyReject",
+  "MyDirect",
+  "PayPal",
+  "Microsoft",
+  "iCloud",
+  "Apple",
+  "Google",
+  "Applications",
+  "Private",
+  "Reject",
+  "Direct",
+  "LanCidr",
+  "CnCidr",
+  "TelegramCidr"
+])
 rule-providers:
-  reject:
-    type: http
-    behavior: domain
-    url: "https://vui.fun90.com/resources/clash-rules/reject.txt"
-    path: ./ruleset/reject.yaml
-    interval: 86400
-
-  icloud:
-    type: http
-    behavior: domain
-    url: "https://vui.fun90.com/resources/clash-rules/icloud.txt"
-    path: ./ruleset/icloud.yaml
-    interval: 86400
-
-  apple:
-    type: http
-    behavior: domain
-    url: "https://vui.fun90.com/resources/clash-rules/apple.txt"
-    path: ./ruleset/apple.yaml
-    interval: 86400
-
-  google:
-    type: http
-    behavior: domain
-    url: "https://vui.fun90.com/resources/clash-rules/google.txt"
-    path: ./ruleset/google.yaml
-    interval: 86400
-
-  proxy:
-    type: http
-    behavior: domain
-    url: "https://vui.fun90.com/resources/clash-rules/proxy.txt"
-    path: ./ruleset/proxy.yaml
-    interval: 86400
-
-  direct:
-    type: http
-    behavior: domain
-    url: "https://vui.fun90.com/resources/clash-rules/direct.txt"
-    path: ./ruleset/direct.yaml
-    interval: 86400
-
-  private:
-    type: http
-    behavior: domain
-    url: "https://vui.fun90.com/resources/clash-rules/private.txt"
-    path: ./ruleset/private.yaml
-    interval: 86400
-
-  gfw:
-    type: http
-    behavior: domain
-    url: "https://vui.fun90.com/resources/clash-rules/gfw.txt"
-    path: ./ruleset/gfw.yaml
-    interval: 86400
-
-  greatfire:
-    type: http
-    behavior: domain
-    url: "https://vui.fun90.com/resources/clash-rules/greatfire.txt"
-    path: ./ruleset/greatfire.yaml
-    interval: 86400
-
-  tld-not-cn:
-    type: http
-    behavior: domain
-    url: "https://vui.fun90.com/resources/clash-rules/tld-not-cn.txt"
-    path: ./ruleset/tld-not-cn.yaml
-    interval: 86400
-
-  telegramcidr:
-    type: http
-    behavior: ipcidr
-    url: "https://vui.fun90.com/resources/clash-rules/telegramcidr.txt"
-    path: ./ruleset/telegramcidr.yaml
-    interval: 86400
-
-  cncidr:
-    type: http
-    behavior: ipcidr
-    url: "https://vui.fun90.com/resources/clash-rules/cncidr.txt"
-    path: ./ruleset/cncidr.yaml
-    interval: 86400
-
-  lancidr:
-    type: http
-    behavior: ipcidr
-    url: "https://vui.fun90.com/resources/clash-rules/lancidr.txt"
-    path: ./ruleset/lancidr.yaml
-    interval: 86400
-
-  applications:
+#foreach( $rulesName in $rulesNameList)
+  $rulesName:
     type: http
     behavior: classical
-    url: "https://vui.fun90.com/resources/clash-rules/applications.txt"
-    path: ./ruleset/applications.yaml
+    url: "$M.rules("${rulesName}.list")"
+    path: ./ruleset/${rulesName}.yaml
     interval: 86400
+
+#end

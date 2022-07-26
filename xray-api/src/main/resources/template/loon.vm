@@ -18,6 +18,7 @@ RemoteProxies = $M.proxiesUrl()
 💰 PayPal = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
 Ⓜ️ 微软 = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
 🍎 苹果 = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
+☁️ iCloud = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
 ####TikTok = select,🔰 代理,♻️ 自动选择,🎯 直连,RemoteProxies
 ##🎥 NETFLIX = select,🔰 代理,♻️ 自动选择,🎯 直连,RemoteProxies
 ##🌌 YouTube = select,🔰 代理,♻️ 自动选择,🎯 直连,RemoteProxies
@@ -39,8 +40,11 @@ $M.rules("MyProxy.list"), tag=🔰 代理, policy=🔰 代理, update-interval=8
 $M.rules("PayPal.list"), tag=💰 PayPal, policy=💰 PayPal, update-interval=86400, enabled=true
 $M.rules("Microsoft.list"), tag=Ⓜ️ 微软, policy=Ⓜ️ 微软, update-interval=86400, enabled=true
 $M.rules("Apple.list"), tag=🍎 苹果, policy=🍎 苹果, update-interval=86400, enabled=true
+$M.rules("iCloud.list"), tag=☁️ iCloud, policy=☁️ iCloud, update-interval=86400, enabled=true
 ##$M.rules("Proxy.list"), tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
+$M.rules("Private.list"), tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
 $M.rules("Direct.list"), tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
+$M.rules("CnCidr.list"), tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
 ##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list, tag=🍎 苹果, policy=🍎 苹果, update-interval=86400, enabled=true
 ##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list, tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
 ##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list, tag=⛔️ 广告拦截, policy=⛔️ 广告拦截, update-interval=86400, enabled=true

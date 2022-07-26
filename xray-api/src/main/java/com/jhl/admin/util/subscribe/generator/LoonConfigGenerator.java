@@ -1,5 +1,6 @@
 package com.jhl.admin.util.subscribe.generator;
 
+import com.jhl.admin.constant.ClientConstant;
 import com.jhl.admin.model.Account;
 import com.jhl.admin.model.Server;
 import org.apache.commons.lang3.StringUtils;
@@ -14,7 +15,7 @@ public class LoonConfigGenerator implements IConfigGenerator {
 
     @Override
     public String getTarget() {
-        return "loon";
+        return ClientConstant.Loon;
     }
 
     @Override

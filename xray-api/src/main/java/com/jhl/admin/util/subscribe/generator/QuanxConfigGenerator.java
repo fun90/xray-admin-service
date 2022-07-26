@@ -1,5 +1,6 @@
 package com.jhl.admin.util.subscribe.generator;
 
+import com.jhl.admin.constant.ClientConstant;
 import com.jhl.admin.model.Account;
 import com.jhl.admin.model.Server;
 import com.jhl.admin.util.Utils;
@@ -17,7 +18,7 @@ public class QuanxConfigGenerator implements IConfigGenerator {
 
     @Override
     public String getTarget() {
-        return "quanx";
+        return ClientConstant.QuanX;
     }
 
     @Override

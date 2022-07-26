@@ -8,13 +8,11 @@ import com.jhl.admin.model.Server;
 import com.jhl.admin.service.ServerConfigService;
 import com.jhl.admin.service.SubscriptionService;
 import com.jhl.admin.util.subscribe.ConfigGeneratorFactory;
-import com.jhl.admin.util.subscribe.QuanxRuleParser;
+import com.jhl.admin.util.subscribe.RulesParserFactory;
 import com.jhl.admin.util.subscribe.SubscribeHelper;
-import com.jhl.admin.util.Utils;
 import com.jhl.admin.util.subscribe.TemplateUtil;
 import com.jhl.admin.util.subscribe.generator.IConfigGenerator;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.Template;
@@ -32,7 +30,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,6 +47,8 @@ public class SubscriptionController {
 	private ClientConstant clientConstant;
 	@Autowired
 	private ConfigGeneratorFactory configGeneratorFactory;
+	@Autowired
+	private RulesParserFactory rulesParserFactory;
 
 	/**
 	 * 防暴力，防中间人篡改
@@ -87,19 +86,10 @@ public class SubscriptionController {
 	@ResponseBody
 	@RequestMapping(value = {"/subscribe/rules/{target}/{fileName}", "/subscribe/rules/{target}/{fileName}/{group}"}, produces="text/plain;charset=UTF-8")
 	public String rules(@PathVariable String target, @PathVariable String fileName,  @PathVariable(required = false) String group) {
-		if (StringUtils.equalsAny(target, "loon", "surge")) {
-			return Utils.writeString(TemplateUtil.getTemplatePath(), "rules", fileName);
-		} else if (StringUtils.equalsAny(target, "quanx")) {
-			fileName = new String(Base64.decodeBase64(Base64.decodeBase64(fileName)));
-			group = new String(Base64.decodeBase64(Base64.decodeBase64(group)));
-			if (StringUtils.startsWithAny(fileName, "https://", "http://")) {
-				return Utils.call(fileName, new QuanxRuleParser(clientConstant, group));
-			} else {
-				return Utils.writeString(TemplateUtil.getTemplatePath(), new QuanxRuleParser(clientConstant, group), "rules", fileName);
-			}
+		if (!rulesParserFactory.contains(target)) {
+			throw new IllegalArgumentException("target错误");
 		}
-
-		return "不支持的target";
+		return rulesParserFactory.get(target).content(fileName, group);
 	}
 
 	private String getConfigContent(String code, String target) {

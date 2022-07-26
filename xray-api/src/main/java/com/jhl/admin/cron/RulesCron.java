@@ -1,6 +1,6 @@
 package com.jhl.admin.cron;
 
-import com.jhl.admin.constant.SiteSourceConstant;
+import com.jhl.admin.constant.RulesSourceConstant;
 import com.jhl.admin.util.Utils;
 import com.jhl.admin.util.subscribe.TemplateUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -15,42 +15,37 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.Map;
 
 @Slf4j
 @Component
 public class RulesCron {
     @Autowired
-    private SiteSourceConstant siteSourceConstant;
+    private RulesSourceConstant rulesSourceConstant;
 
     @Scheduled(cron = "0 15 8 * * ?")
     public void execute() {
         log.info("===========================================");
         log.info("开始生成规则列表任务");
-        generate(siteSourceConstant.getDirect(), "Direct");
-        generate(siteSourceConstant.getProxy(), "Proxy");
+        Map<String, String> map = rulesSourceConstant.getUrlMap();
+        map.forEach((fileName, url) -> {
+            generate(url, "rules", fileName);
+        });
     }
 
-    private void generate(String site, String name) {
+    private void generate(String site, String directory, String name) {
         log.info("正在读取从{}读取网址列表", site);
         String content = Utils.call(site, line -> {
             if (StringUtils.isBlank(line)) {
-                return System.lineSeparator();
+                return "";
             }
-            String[] arr = line.split(":");
-            if (arr.length < 2) {
-                return "DOMAIN-SUFFIX," + line + System.lineSeparator();
-            }
-            if ("full".equals(arr[0])) {
-                return "DOMAIN-SUFFIX," + arr[1] + System.lineSeparator();
-            } else {
-                return "#" + line + System.lineSeparator();
-            }
+            return line + System.lineSeparator();
         });
-        Path tmpPath = Paths.get(TemplateUtil.getTemplatePath(), "rules", name + ".tmp.list");
+        Path tmpPath = Paths.get(TemplateUtil.getTemplatePath(), directory, name + ".tmp.list");
         try {
             log.info("正在将规则列表写入临时文件：{}", tmpPath);
             Files.write(tmpPath, content.getBytes(StandardCharsets.UTF_8));
-            Path targetPath = Paths.get(TemplateUtil.getTemplatePath(), "rules", name + ".list");
+            Path targetPath = Paths.get(TemplateUtil.getTemplatePath(), directory, name + ".list");
             log.info("正在将临时文件移动至{}", targetPath);
             Files.move(tmpPath, targetPath, StandardCopyOption.REPLACE_EXISTING);
             log.info("生成规则列表文件成功");

@@ -14,10 +14,15 @@ import java.util.stream.Stream;
 @Data
 @ConfigurationProperties(prefix = "client")
 public class ClientConstant {
+	public static final String Clash = "clash";
+	public static final String Clash2 = "clash2";
+	public static final String QuanX = "quanx";
+	public static final String Surge = "surge";
+	public static final String Loon = "loon";
+	public static final String Shadowrocket = "shadowrocket";
 	public static final String DEFAULT = "shadowrocket";
+
 	private Map<String, List<String>> supportProtocols;
-	private Map<String, String> quanxRuleTypes;
-	private Map<String, List<String>> excludeRuleTypes;
 
 	public ClientConstant() {
 		this.supportProtocols = new HashMap<>();
@@ -27,14 +32,5 @@ public class ClientConstant {
 		this.supportProtocols.put("surge", Stream.of("trojan", "vmess").collect(Collectors.toList()));
 		this.supportProtocols.put("loon", Stream.of("trojan", "vmess", "vless").collect(Collectors.toList()));
 		this.supportProtocols.put("shadowrocket", Stream.of("trojan", "vmess", "vless").collect(Collectors.toList()));
-
-		this.quanxRuleTypes = new HashMap<>();
-		this.quanxRuleTypes.put("IP-CIDR6", "IP6-CIDR");
-
-		this.excludeRuleTypes = new HashMap<>();
-		this.excludeRuleTypes.put("quanx", Stream.of("USER-AGENT", "AND", "URL-REGEX").collect(Collectors.toList()));
-		this.excludeRuleTypes.put("clash", Stream.of("USER-AGENT", "AND", "URL-REGEX").collect(Collectors.toList()));
-		this.excludeRuleTypes.put("clash2", Stream.of("USER-AGENT", "AND", "URL-REGEX").collect(Collectors.toList()));
-		this.excludeRuleTypes.put("shadowrocket", Stream.of("AND", "URL-REGEX", "IP-CIDR6").collect(Collectors.toList()));
 	}
 }

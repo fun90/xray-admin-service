@@ -13,8 +13,11 @@ $M.rules("MyProxy.list", "🔰 代理")
 $M.rules("PayPal.list", "💰 PayPal")
 $M.rules("Microsoft.list", "Ⓜ️ 微软")
 $M.rules("Apple.list", "🍎 苹果")
+$M.rules("iCloud.list", "☁️ iCloud")
 ##$M.rules("Proxy.list", "🔰 代理")
+$M.rules("Private.list", "🎯 直连")
 $M.rules("Direct.list", "🎯 直连")
+$M.rules("CnCidr.list", "🎯 直连")
 ##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list", "🍎 苹果")
 ##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list", "🎯 直连")
 ##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list", "⛔️ 广告拦截")
@@ -130,6 +133,14 @@ $M.serverNames($servers)
 ##$M.serverNames($servers)
 
   - name: 🍎 苹果
+    type: select
+    proxies:
+      - 🎯 直连
+      - 🔰 代理
+      - ♻️ 自动选择
+$M.serverNames($servers)
+
+  - name: ☁️ iCloud
     type: select
     proxies:
       - 🎯 直连
