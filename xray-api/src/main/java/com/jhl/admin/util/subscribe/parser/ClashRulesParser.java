@@ -30,7 +30,12 @@ public class ClashRulesParser implements IRulesParser {
             if (StringUtils.startsWithAny(line, excludeTypes)) {
                 return "  #" + line + System.lineSeparator();
             }
-            return "  - " + line + "," + group + System.lineSeparator();
+            String target = this.getTarget();
+            if (ClientConstant.Clash.equals(target)) {
+                return "  - " + line + "," + group + System.lineSeparator();
+            } else {
+                return "  - " + line + System.lineSeparator();
+            }
         };
 
         if (StringUtils.startsWithAny(fileName, "https://", "http://")) {
