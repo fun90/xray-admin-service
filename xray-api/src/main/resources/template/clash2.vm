@@ -36,14 +36,7 @@ tun:
   auto-route: true
   auto-detect-interface: true
   dns-hijack:
-    - 114.114.114.114
-    - 180.76.76.76
-    - 119.29.29.29
-    - 223.5.5.5
-    - 8.8.8.8
-    - 8.8.4.4
-    - 1.1.1.1
-    - 1.0.0.1
+    - 198.18.0.2:53 # 请勿更改
 
 proxies:
 $M.proxies($servers)
@@ -131,7 +124,6 @@ rules:
   - RULE-SET,Google,🐶 谷歌
   - RULE-SET,Applications,🎯 直连
   - RULE-SET,Private,🎯 直连
-  - RULE-SET,Reject,🛑 拦截
   - RULE-SET,Direct,🎯 直连
   - RULE-SET,LanCidr,🎯 直连
   - RULE-SET,CnCidr,🎯 直连
@@ -150,7 +142,6 @@ rules:
   "Google",
   "Applications",
   "Private",
-  "Reject",
   "Direct",
   "LanCidr",
   "CnCidr",
