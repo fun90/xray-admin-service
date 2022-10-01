@@ -91,6 +91,7 @@ rules:
   - RULE-SET,Google,🐶 谷歌
   - RULE-SET,Applications,🎯 直连
   - RULE-SET,Private,🎯 直连
+##  - RULE-SET,Reject,🛑 拦截
   - RULE-SET,Direct,🎯 直连
   - RULE-SET,LanCidr,🎯 直连
   - RULE-SET,CnCidr,🎯 直连
