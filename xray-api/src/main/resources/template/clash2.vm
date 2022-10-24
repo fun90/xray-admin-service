@@ -83,6 +83,7 @@ $M.serverNames($servers)
 
 rules:
   - RULE-SET,MyReject,🛑 拦截
+  - RULE-SET,MyProxy,🔰 代理
   - RULE-SET,MyDirect,🎯 直连
   - RULE-SET,PayPal,💰 PayPal
   - RULE-SET,Microsoft,Ⓜ️ 微软
@@ -102,6 +103,7 @@ rules:
 
 #set($rulesNameList = [
   "MyReject",
+  "MyProxy",
   "MyDirect",
   "PayPal",
   "Microsoft",
