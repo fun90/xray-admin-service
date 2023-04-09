@@ -7,7 +7,6 @@ import com.jhl.admin.entity.V2rayAccount;
 import com.jhl.admin.model.Account;
 import com.jhl.admin.model.Server;
 import com.jhl.admin.repository.AccountRepository;
-import com.jhl.admin.util.subscribe.ConfigGeneratorFactory;
 import com.ljh.common.utils.V2RayPathEncoder;
 import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
@@ -20,7 +19,6 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class XrayAccountService {

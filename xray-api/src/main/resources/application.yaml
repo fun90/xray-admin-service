@@ -71,24 +71,14 @@ spring:
 #    - 'vmess://eyJhZGQiOiJmcmVlZG9tLmpvaG5zdG9uLndhbmciLCJhaWQiOiI2NCIsImhvc3QiOiJmcmV'
 
 client:
-  support-protocols:
-    clash:
-      - trojan
-      - vmess
-    quanx:
-      - trojan
-      - vmess
-    surge:
-      - trojan
-      - vmess
-    loon:
-      - trojan
-      - vmess
-      - vless
-    shadowrocket:
-      - trojan
-      - vmess
-      - vless
+  supported:
+    - clash
+    - clash2
+    - clash3
+    - quanx
+    - surge
+    - loon
+    - shadowrocket
 
 rules-source:
   url-map: {

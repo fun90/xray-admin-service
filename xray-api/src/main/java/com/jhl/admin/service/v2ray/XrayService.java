@@ -1,7 +1,6 @@
 package com.jhl.admin.service.v2ray;
 
 
-import com.google.gson.Gson;
 import com.jhl.admin.model.ProxyAccount;
 import com.jhl.admin.model.Server;
 import com.xray.app.proxyman.command.AddUserOperation;
@@ -117,8 +116,7 @@ public class XrayService {
 	private void addTrojanAccount(ProxyAccount proxyAccount, Server server) {
 		try {
 			XrayApiClient client = XrayApiClient.getInstance(server.getV2rayIp(), server.getV2rayManagerPort());
-			com.xray.proxy.trojan.Account account = com.xray.proxy.trojan.Account.newBuilder().setPassword(proxyAccount.getId())
-					.setFlow("xtls-rprx-direct").build();
+			com.xray.proxy.trojan.Account account = com.xray.proxy.trojan.Account.newBuilder().setPassword(proxyAccount.getId()).build();
 
 			TypedMessage AccountTypedMsg = TypedMessage.newBuilder().
 					setType(com.xray.proxy.trojan.Account.getDescriptor().getFullName()

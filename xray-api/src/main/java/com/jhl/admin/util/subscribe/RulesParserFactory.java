@@ -27,12 +27,7 @@ public class RulesParserFactory {
     }
 
     public IRulesParser get(String target) {
-        IRulesParser parser = parserMap.get(target);
-        if (parser != null) {
-           return parser;
-        } else {
-            throw new RuntimeException("不支持的target");
-        }
+       return parserMap.get(target);
     }
 
     public boolean contains(String target) {

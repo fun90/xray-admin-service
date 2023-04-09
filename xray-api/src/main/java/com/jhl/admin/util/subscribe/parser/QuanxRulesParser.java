@@ -3,7 +3,6 @@ package com.jhl.admin.util.subscribe.parser;
 import com.jhl.admin.constant.ClientConstant;
 import com.jhl.admin.util.Utils;
 import com.jhl.admin.util.subscribe.TemplateUtil;
-import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
@@ -20,10 +19,6 @@ public class QuanxRulesParser implements IRulesParser {
 
     @Override
     public String content(String fileName, String group) {
-        fileName = new String(Base64.decodeBase64(Base64.decodeBase64(fileName)));
-        group = new String(Base64.decodeBase64(Base64.decodeBase64(group)));
-        String finalGroup = group;
-
         Function<String, String> function = line -> {
             if (StringUtils.isBlank(line)) {
                 return "";

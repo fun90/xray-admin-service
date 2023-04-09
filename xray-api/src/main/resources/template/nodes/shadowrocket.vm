@@ -1,0 +1,31 @@
+#set($nodesStr = "")
+#foreach($server in $servers)
+    #set($remark = $URLEncoder.encode($server.serverName, "UTF-8"))
+    #if($server.protocol == "vmess")
+##        #set($node = "auto:$account.uuid@$server.clientDomain:$server.clientPort?remarks=$remark&path=$server.wsPath&obfs=websocket&tls=1&alterId=$account.maxConnection")
+        #set($node = {"add":"$server.clientDomain","aid":"$account.maxConnection","id":"$account.uuid","net":"ws","path":"$server.wsPath","port":"$server.clientPort","ps":"$server.serverName","tls":"tls","type":"none","v":"2"})
+        #set($encodeNode = "vmess://" + $Base64.encodeBase64String($JSON.toJSONString($node).getBytes("UTF-8")))
+        #if($nodesStr == "")
+            #set($nodesStr = $encodeNode)
+        #else
+            #set($nodesStr = $nodesStr  + $lineSeparator + $encodeNode)
+        #end
+    #elseif($server.protocol == "vless")
+        #set($node = "auto:$account.uuid@$server.clientDomain:$server.clientPort")
+        #set($encodeNode = "vless://" + $Base64.encodeBase64String($node.getBytes("UTF-8")) + "?remarks=$remark&obfs=none&tls=1&tfo=1&over-tls=1")
+        #if($nodesStr == "")
+            #set($nodesStr = $encodeNode)
+        #else
+            #set($nodesStr = $nodesStr  + $lineSeparator + $encodeNode)
+        #end
+    #elseif($server.protocol == "trojan")
+        #set($node = "trojan://$account.uuid@$server.clientDomain:$server.clientPort#$remark")
+        #if($nodesStr == "")
+            #set($nodesStr = $node)
+        #else
+            #set($nodesStr = $nodesStr  + $lineSeparator     + $node)
+        #end
+    #else
+    #end
+#end
+$Base64.encodeBase64String($nodesStr.getBytes("UTF-8"))

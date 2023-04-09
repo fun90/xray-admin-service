@@ -6,34 +6,41 @@ log-level: info
 external-controller: :9090
 
 rules:
-$M.rules("MyReject.list", "🛑 拦截")
-$M.rules("MyDirect.list", "🎯 直连")
-$M.rules("Google.list", "🐶 谷歌")
-$M.rules("MyProxy.list", "🔰 代理")
-$M.rules("PayPal.list", "💰 PayPal")
-$M.rules("Microsoft.list", "Ⓜ️ 微软")
-$M.rules("Apple.list", "🍎 苹果")
-$M.rules("iCloud.list", "☁️ iCloud")
-##$M.rules("Proxy.list", "🔰 代理")
-$M.rules("Private.list", "🎯 直连")
-$M.rules("Direct.list", "🎯 直连")
-$M.rules("CnCidr.list", "🎯 直连")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list", "🍎 苹果")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list", "🎯 直连")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list", "⛔️ 广告拦截")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list", "🚫 运营劫持")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list", "🎥 NETFLIX")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list", "🌌 YouTube")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list", "🌍 国外媒体")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list", "🌏 港台媒体")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list", "📲 电报信息")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list", "🔰 代理")
-##$M.rules("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list", "🎯 直连")
+$rulesParser.content("MyReject.list", "🛑 拦截")
+$rulesParser.content("MyDirect.list", "🎯 直连")
+$rulesParser.content("Google.list", "🐶 谷歌")
+$rulesParser.content("MyProxy.list", "🔰 代理")
+$rulesParser.content("PayPal.list", "💰 PayPal")
+$rulesParser.content("Microsoft.list", "Ⓜ️ 微软")
+$rulesParser.content("Apple.list", "🍎 苹果")
+$rulesParser.content("iCloud.list", "☁️ iCloud")
+##$rulesParser.content("Proxy.list", "🔰 代理")
+$rulesParser.content("Private.list", "🎯 直连")
+$rulesParser.content("Direct.list", "🎯 直连")
+$rulesParser.content("CnCidr.list", "🎯 直连")
+##$rulesParser.content("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list", "🍎 苹果")
+##$rulesParser.content("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list", "🎯 直连")
+##$rulesParser.content("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list", "⛔️ 广告拦截")
+##$rulesParser.content("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list", "🚫 运营劫持")
+##$rulesParser.content("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list", "🎥 NETFLIX")
+##$rulesParser.content("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list", "🌌 YouTube")
+##$rulesParser.content("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list", "🌍 国外媒体")
+##$rulesParser.content("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list", "🌏 港台媒体")
+##$rulesParser.content("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list", "📲 电报信息")
+##$rulesParser.content("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list", "🔰 代理")
+##$rulesParser.content("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list", "🎯 直连")
   - GEOIP,CN,🎯 直连
   - MATCH,🐟 其他
 
 proxies:
-$M.proxies($servers)
+#foreach($server in $servers)
+  #if($server.protocol == "vmess")
+  - {name: $server.serverName, server: $server.clientDomain, port: $server.clientPort, type: vmess, uuid: $account.uuid, alterId: $account.maxConnection, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-opts: {path: $server.wsPath, headers: {Host: $server.clientDomain}}, udp: false}
+  #elseif($server.protocol == "trojan")
+  - {name: $server.serverName, server: $server.clientDomain, port: $server.clientPort, type: trojan, password: $account.uuid, sni: $server.clientDomain, skip-cert-verify: true, udp: false}
+  #else
+  #end
+#end
 
 proxy-groups:
   - name: 🔰 代理
@@ -41,21 +48,33 @@ proxy-groups:
     proxies:
       - ♻️ 自动选择
       - 🎯 直连
-$M.serverNames($servers)
+    #foreach($server in $servers)
+      #if($server.protocol == "vmess" || $server.protocol == "trojan")
+      - $server.serverName
+      #end
+    #end
 
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-$M.serverNames($servers)
+    #foreach($server in $servers)
+      #if($server.protocol == "vmess" || $server.protocol == "trojan")
+      - $server.serverName
+      #end
+    #end
 
   - name: 🐶 谷歌
     type: select
     proxies:
       - 🔰 代理
       - ♻️ 自动选择
-$M.serverNames($servers)
+    #foreach($server in $servers)
+      #if($server.protocol == "vmess" || $server.protocol == "trojan")
+      - $server.serverName
+      #end
+    #end
 
   - name: 💰 PayPal
     type: select
@@ -63,7 +82,11 @@ $M.serverNames($servers)
       - 🎯 直连
       - 🔰 代理
       - ♻️ 自动选择
-$M.serverNames($servers)
+    #foreach($server in $servers)
+      #if($server.protocol == "vmess" || $server.protocol == "trojan")
+      - $server.serverName
+      #end
+    #end
 
 ##  - name: 🎥 NETFLIX
 ##    type: select
@@ -71,7 +94,11 @@ $M.serverNames($servers)
 ##      - 🔰 代理
 ##      - ♻️ 自动选择
 ##      - 🎯 直连
-##$M.serverNames($servers)
+##    #foreach($server in $servers)
+##      #if($server.protocol == "vmess" || $server.protocol == "trojan")
+##      - $server.serverName
+##      #end
+##    #end
 ##
 ##  - name: 🌌 YouTube
 ##    type: select
@@ -79,7 +106,11 @@ $M.serverNames($servers)
 ##      - 🔰 代理
 ##      - ♻️ 自动选择
 ##      - 🎯 直连
-##$M.serverNames($servers)
+##    #foreach($server in $servers)
+##      #if($server.protocol == "vmess" || $server.protocol == "trojan")
+##      - $server.serverName
+##      #end
+##    #end
 ##
 ##  - name: ⛔️ 广告拦截
 ##    type: select
@@ -101,7 +132,11 @@ $M.serverNames($servers)
 ##      - 🔰 代理
 ##      - ♻️ 自动选择
 ##      - 🎯 直连
-##$M.serverNames($servers)
+##    #foreach($server in $servers)
+##      #if($server.protocol == "vmess" || $server.protocol == "trojan")
+##      - $server.serverName
+##      #end
+##    #end
 ##
 ##  - name: 🌏 港台媒体
 ##    type: select
@@ -109,7 +144,11 @@ $M.serverNames($servers)
 ##      - 🔰 代理
 ##      - ♻️ 自动选择
 ##      - 🎯 直连
-##$M.serverNames($servers)
+##    #foreach($server in $servers)
+##      #if($server.protocol == "vmess" || $server.protocol == "trojan")
+##      - $server.serverName
+##      #end
+##    #end
 ##
 ##  - name: 🌏 国内媒体
 ##    type: select
@@ -123,14 +162,22 @@ $M.serverNames($servers)
       - 🎯 直连
       - 🔰 代理
       - ♻️ 自动选择
-$M.serverNames($servers)
+    #foreach($server in $servers)
+      #if($server.protocol == "vmess" || $server.protocol == "trojan")
+      - $server.serverName
+      #end
+    #end
 
 ##  - name: 📲 电报信息
 ##    type: select
 ##    proxies:
 ##      - 🔰 代理
 ##      - 🎯 直连
-##$M.serverNames($servers)
+##    #foreach($server in $servers)
+##      #if($server.protocol == "vmess" || $server.protocol == "trojan")
+##      - $server.serverName
+##      #end
+##    #end
 
   - name: 🍎 苹果
     type: select
@@ -138,7 +185,11 @@ $M.serverNames($servers)
       - 🎯 直连
       - 🔰 代理
       - ♻️ 自动选择
-$M.serverNames($servers)
+    #foreach($server in $servers)
+      #if($server.protocol == "vmess" || $server.protocol == "trojan")
+      - $server.serverName
+      #end
+    #end
 
   - name: ☁️ iCloud
     type: select
@@ -146,7 +197,11 @@ $M.serverNames($servers)
       - 🎯 直连
       - 🔰 代理
       - ♻️ 自动选择
-$M.serverNames($servers)
+    #foreach($server in $servers)
+      #if($server.protocol == "vmess" || $server.protocol == "trojan")
+      - $server.serverName
+      #end
+    #end
 
   - name: 🎯 直连
     type: select
@@ -165,4 +220,8 @@ $M.serverNames($servers)
       - 🔰 代理
       - 🎯 直连
       - ♻️ 自动选择
-$M.serverNames($servers)
+    #foreach($server in $servers)
+      #if($server.protocol == "vmess" || $server.protocol == "trojan")
+      - $server.serverName
+      #end
+    #end

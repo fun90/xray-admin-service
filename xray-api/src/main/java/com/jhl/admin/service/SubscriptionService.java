@@ -2,22 +2,16 @@ package com.jhl.admin.service;
 
 import com.jhl.admin.constant.ClientConstant;
 import com.jhl.admin.model.Account;
-import com.jhl.admin.model.Server;
 import com.jhl.admin.model.Subscription;
 import com.jhl.admin.repository.AccountRepository;
 import com.jhl.admin.repository.SubscriptionRepository;
 import com.jhl.admin.service.v2ray.XrayAccountService;
 import com.jhl.admin.util.Utils;
-import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
-import java.nio.charset.StandardCharsets;
-import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class SubscriptionService {
@@ -34,50 +28,6 @@ public class SubscriptionService {
 	XrayAccountService xrayAccountService;
 	@Autowired
 	ClientConstant clientConstant;
-
-	/**
-	 * 同一个code 订阅
-	 *
-	 * @param code
-	 * @return base64后的数据
-	 */
-	public String subscribe(String code, String target) {
-		Account account = findAccountByCode(code);
-		Short level = account.getLevel();
-
-		List<Server> servers = serverService.listByLevel(level);
-		// 过滤服务器节点只保留协议被客户端支持的节点
-		servers = servers.stream().filter(o -> clientConstant.getSupportProtocols().get(target).contains(o.getProtocol())).collect(Collectors.toList());
-		
-		if ("quanx".equals(target)) {
-			String trojanTemplate = "trojan = %s:%s, password=%s, tls-host=%s, over-tls=true, tls-verification=false, fast-open=false, udp-relay=true, tls13=false, tag=%s";
-			String vmessTemplate = "vmess = %s:%s, password=%s, obfs-host=%s, obfs-uri=%s, obfs=wss, method=chacha20-ietf-poly1305, fast-open=false, udp-relay=true, tls13=false, tag=%s";
-			StringBuilder sb = new StringBuilder();
-			servers.forEach(s -> {
-				if ("trojan".equals(s.getProtocol())) {
-					sb.append(String.format(trojanTemplate, s.getClientDomain(), s.getClientPort(), account.getUuid(), s.getClientDomain(), s.getServerName()))
-							.append(System.lineSeparator());
-				} else if ("vmess".equals(s.getProtocol())) {
-					sb.append(String.format(vmessTemplate, s.getClientDomain(), s.getClientPort(), account.getUuid(), s.getClientDomain(), s.getWsPath(), s.getServerName()))
-							.append(System.lineSeparator());
-				}
-			});
-			return sb.toString();
-		}
-		
-		String b64V2rayAccount = xrayAccountService. buildXrayServerUrl(servers, account);
-		//需要再进行一次base64
-		return Base64.encodeBase64String(b64V2rayAccount.getBytes(StandardCharsets.UTF_8));
-	}
-
-
-	public List<Server> findServers(Account account, String target) {
-		Short level = account.getLevel();
-		List<Server> servers = serverService.listByLevel(level);
-		List<String> protocols = clientConstant.getSupportProtocols().get(target);
-		return servers.stream().filter(o -> protocols.contains(o.getProtocol())).collect(Collectors.toList());
-	}
-
 
 	/**
 	 * 通过一个订阅code寻找账号
