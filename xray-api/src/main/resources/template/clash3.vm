@@ -29,11 +29,11 @@ dns:
 proxies:
 #foreach($server in $servers)
   #if($server.protocol == "vmess")
-  - {name: $server.serverName, server: $server.clientDomain, port: $server.clientPort, type: vmess, uuid: $account.uuid, alterId: $account.maxConnection, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-opts: {path: $server.wsPath, headers: {Host: $server.clientDomain}}, udp: false, client-fingerprint: chrome}
+  - {name: $server.serverName, server: $server.clientDomain, port: $server.clientPort, type: vmess, uuid: $account.uuid, alterId: $account.maxConnection, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: $server.wsPath, headers: {Host: $server.clientDomain}}, udp: false, client-fingerprint: chrome}
   #elseif($server.protocol == "trojan")
-  - {name: $server.serverName, server: $server.clientDomain, port: $server.clientPort, type: trojan, password: $account.uuid, sni: $server.clientDomain, skip-cert-verify: true, udp: false, client-fingerprint: chrome}
+  - {name: $server.serverName, server: $server.clientDomain, port: $server.clientPort, type: trojan, password: $account.uuid, sni: $server.clientDomain, skip-cert-verify: false, udp: false, client-fingerprint: chrome}
   #elseif($server.protocol == "vless")
-  - {name: $server.serverName, server: $server.clientDomain, port: $server.clientPort, type: vless, uuid: $account.uuid, tls: true, skip-cert-verify: true, network: tcp, udp: false, client-fingerprint: chrome}
+  - {name: $server.serverName, server: $server.clientDomain, port: $server.clientPort, type: vless, uuid: $account.uuid, tls: true, skip-cert-verify: false, network: tcp, udp: false, client-fingerprint: chrome}
   #end
 #end
 

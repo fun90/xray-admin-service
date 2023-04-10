@@ -35,9 +35,9 @@ $rulesParser.content("CnCidr.list", "🎯 直连")
 proxies:
 #foreach($server in $servers)
   #if($server.protocol == "vmess")
-  - {name: $server.serverName, server: $server.clientDomain, port: $server.clientPort, type: vmess, uuid: $account.uuid, alterId: $account.maxConnection, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-opts: {path: $server.wsPath, headers: {Host: $server.clientDomain}}, udp: false}
+  - {name: $server.serverName, server: $server.clientDomain, port: $server.clientPort, type: vmess, uuid: $account.uuid, alterId: $account.maxConnection, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: $server.wsPath, headers: {Host: $server.clientDomain}}, udp: false}
   #elseif($server.protocol == "trojan")
-  - {name: $server.serverName, server: $server.clientDomain, port: $server.clientPort, type: trojan, password: $account.uuid, sni: $server.clientDomain, skip-cert-verify: true, udp: false}
+  - {name: $server.serverName, server: $server.clientDomain, port: $server.clientPort, type: trojan, password: $account.uuid, sni: $server.clientDomain, skip-cert-verify: false, udp: false}
   #else
   #end
 #end

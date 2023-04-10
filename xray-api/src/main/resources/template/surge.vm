@@ -15,9 +15,9 @@ dns-server = 114.114.114.114, 112.124.47.27, 8.8.8.8, 8.8.4.4
 DIRECT = direct
 #foreach($server in $servers)
     #if($server.protocol == "vmess")
-$server.serverName = vmess, $server.clientDomain, $server.clientPort, username= $account.uuid, ws-path=$server.wsPath, sni=ajp3.alibaapay.com, ws-headers=Host:$server.clientDomain, ws=true, tls=true, tls13=false, skip-cert-verify=1, tfo=false, udp-relay=true
+$server.serverName = vmess, $server.clientDomain, $server.clientPort, username= $account.uuid, ws-path=$server.wsPath, sni=$server.clientDomai, ws-headers=Host:$server.clientDomain, ws=true, tls=true, tls13=false, skip-cert-verify=0, tfo=true, udp-relay=true
     #elseif($server.protocol == "trojan")
-$server.serverName = trojan, $server.clientDomain, $server.clientPort, password=$account.uuid, sni=$server.clientDomain, skip-cert-verify=1, tfo=false, udp-relay=true
+$server.serverName = trojan, $server.clientDomain, $server.clientPort, password=$account.uuid, sni=$server.clientDomain, skip-cert-verify=0, tfo=false, udp-relay=true
     #else
     #end
 #end

@@ -3,7 +3,7 @@
     #set($remark = $URLEncoder.encode($server.serverName, "UTF-8"))
     #if($server.protocol == "vmess")
 ##        #set($node = "auto:$account.uuid@$server.clientDomain:$server.clientPort?remarks=$remark&path=$server.wsPath&obfs=websocket&tls=1&alterId=$account.maxConnection")
-        #set($node = {"add":"$server.clientDomain","aid":"$account.maxConnection","id":"$account.uuid","net":"ws","path":"$server.wsPath","port":"$server.clientPort","ps":"$server.serverName","tls":"tls","type":"none","v":"2"})
+        #set($node = {"host":"$server.clientDomain","add":"$server.clientDomain","aid":"$account.maxConnection","id":"$account.uuid","net":"ws","path":"$server.wsPath","port":"$server.clientPort","ps":"$server.serverName","tls":"tls","type":"none","v":"2"})
         #set($encodeNode = "vmess://" + $Base64.encodeBase64String($JSON.toJSONString($node).getBytes("UTF-8")))
         #if($nodesStr == "")
             #set($nodesStr = $encodeNode)
