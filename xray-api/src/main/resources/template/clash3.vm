@@ -56,14 +56,14 @@ proxy-groups:
       - $server.serverName
     #end
 
-  - name: 🐶 谷歌
-    type: select
-    proxies:
-      - 🔰 代理
-      - ♻️ 自动选择
-    #foreach($server in $servers)
-      - $server.serverName
-    #end
+##  - name: 🐶 谷歌
+##    type: select
+##    proxies:
+##      - 🔰 代理
+##      - ♻️ 自动选择
+##    #foreach($server in $servers)
+##      - $server.serverName
+##    #end
 
   - name: 💰 PayPal
     type: select
@@ -134,8 +134,9 @@ rules:
   - RULE-SET,Microsoft,Ⓜ️ 微软
   - RULE-SET,iCloud,☁️ iCloud
   - RULE-SET,Apple,🍎 苹果
-  - RULE-SET,Google,🐶 谷歌
   - RULE-SET,Applications,🎯 直连
+##  - RULE-SET,Proxy,🔰 代理
+  - RULE-SET,Gfw,🔰 代理
   - RULE-SET,Private,🎯 直连
 ##  - RULE-SET,Reject,🛑 拦截
   - RULE-SET,Direct,🎯 直连
@@ -156,6 +157,7 @@ rules:
   "Apple",
   "Google",
   "Applications",
+  "Gfw",
   "Private",
   "Direct",
   "LanCidr",

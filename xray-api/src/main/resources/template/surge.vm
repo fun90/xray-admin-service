@@ -45,13 +45,14 @@ $server.serverName = trojan, $server.clientDomain, $server.clientPort, password=
 [Rule]
 PROCESS-NAME,Eagle*,🛑 拦截
 RULE-SET,$rootUrl/subscribe/rules/surge/MyReject.list,🛑 拦截,update-interval=86400
-RULE-SET,$rootUrl/subscribe/rules/surge/MyDirect.list,🎯 直连,update-interval=86400
 RULE-SET,$rootUrl/subscribe/rules/surge/MyProxy.list,🔰 代理,update-interval=86400
+RULE-SET,$rootUrl/subscribe/rules/surge/MyDirect.list,🎯 直连,update-interval=86400
 RULE-SET,$rootUrl/subscribe/rules/surge/PayPal.list,💰 PayPal,update-interval=86400
 RULE-SET,$rootUrl/subscribe/rules/surge/Microsoft.list,Ⓜ️ 微软,update-interval=86400
 RULE-SET,$rootUrl/subscribe/rules/surge/Apple.list,🍎 苹果,update-interval=86400
 RULE-SET,$rootUrl/subscribe/rules/surge/iCloud.list,☁️ iCloud,update-interval=86400
 ##RULE-SET,$rootUrl/subscribe/rules/surge/Proxy.list,🔰 代理,update-interval=86400
+RULE-SET,$rootUrl/subscribe/rules/surge/Gfw.list,🔰 代理,update-interval=86400
 RULE-SET,$rootUrl/subscribe/rules/surge/Private.list,🎯 直连,update-interval=86400
 RULE-SET,$rootUrl/subscribe/rules/surge/Direct.list,🎯 直连,update-interval=86400
 RULE-SET,$rootUrl/subscribe/rules/surge/CnCidr.list,🎯 直连,update-interval=86400

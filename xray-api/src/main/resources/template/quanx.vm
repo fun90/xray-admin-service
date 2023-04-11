@@ -13,8 +13,8 @@ server=8.8.8.8
 [policy]
 static=🔰 代理, ♻️ 自动选择, 🎯 直连, #foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Proxy.png
 available=♻️ 自动选择, #foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Auto.png
-static=🐶 谷歌, 🔰 代理, ♻️ 自动选择, #foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Google.png
 static=💰 PayPal, 🎯 直连, 🔰 代理, ♻️ 自动选择, #foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/PayPal.png
+##static=🐶 谷歌, 🔰 代理, ♻️ 自动选择, #foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Google.png
 static=Ⓜ️ 微软, 🎯 直连, 🔰 代理, ♻️ 自动选择, #foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Microsoft.png
 static=🍎 苹果, 🎯 直连, 🔰 代理, ♻️ 自动选择, #foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Apple.png
 static=☁️ iCloud, 🎯 直连, 🔰 代理, ♻️ 自动选择, #foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/iCloud.png
@@ -37,13 +37,14 @@ $proxiesUrl, tag=RemoteServer
 [filter_remote]
 $rootUrl/subscribe/rules/quanx/MyReject.list, tag=🛑 拦截, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/MyDirect.list, tag=🎯 直连, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/quanx/Google.list, tag=🐶 谷歌, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/MyProxy.list, tag=🔰 代理, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/PayPal.list, tag=💰 PayPal, update-interval=86400, enabled=true
+##$rootUrl/subscribe/rules/quanx/Google.list, tag=🐶 谷歌, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/Microsoft.list, tag=Ⓜ️ 微软, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/Apple.list, tag=🍎 苹果, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/iCloud.list, tag=☁️ iCloud, update-interval=86400, enabled=true
 ##$rootUrl/subscribe/rules/quanx/Proxy.list, tag=🔰 代理, update-interval=86400, enabled=true
+##$rootUrl/subscribe/rules/quanx/Gfw.list, tag=🔰 代理, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/Private.list, tag=🎯 直连, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/Direct.list, tag=🎯 直连, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/CnCidr.list, tag=🎯 直连, update-interval=86400, enabled=true

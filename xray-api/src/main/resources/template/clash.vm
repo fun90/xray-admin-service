@@ -8,13 +8,14 @@ external-controller: :9090
 rules:
 $rulesParser.content("MyReject.list", "🛑 拦截")
 $rulesParser.content("MyDirect.list", "🎯 直连")
-$rulesParser.content("Google.list", "🐶 谷歌")
 $rulesParser.content("MyProxy.list", "🔰 代理")
+##$rulesParser.content("Google.list", "🐶 谷歌")
 $rulesParser.content("PayPal.list", "💰 PayPal")
 $rulesParser.content("Microsoft.list", "Ⓜ️ 微软")
 $rulesParser.content("Apple.list", "🍎 苹果")
 $rulesParser.content("iCloud.list", "☁️ iCloud")
 ##$rulesParser.content("Proxy.list", "🔰 代理")
+$rulesParser.content("Gfw.list", "🔰 代理")
 $rulesParser.content("Private.list", "🎯 直连")
 $rulesParser.content("Direct.list", "🎯 直连")
 $rulesParser.content("CnCidr.list", "🎯 直连")
@@ -65,16 +66,16 @@ proxy-groups:
       #end
     #end
 
-  - name: 🐶 谷歌
-    type: select
-    proxies:
-      - 🔰 代理
-      - ♻️ 自动选择
-    #foreach($server in $servers)
-      #if($server.protocol == "vmess" || $server.protocol == "trojan")
-      - $server.serverName
-      #end
-    #end
+##  - name: 🐶 谷歌
+##    type: select
+##    proxies:
+##      - 🔰 代理
+##      - ♻️ 自动选择
+##    #foreach($server in $servers)
+##      #if($server.protocol == "vmess" || $server.protocol == "trojan")
+##      - $server.serverName
+##      #end
+##    #end
 
   - name: 💰 PayPal
     type: select
