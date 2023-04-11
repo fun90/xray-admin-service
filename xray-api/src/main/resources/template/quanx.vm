@@ -7,8 +7,8 @@ server_check_url=http://www.gstatic.com/generate_204
 [dns]
 server=119.29.29.29
 server=223.5.5.5
-server=1.0.0.1
-server=8.8.8.8
+##server=1.0.0.1
+##server=8.8.8.8
 
 [policy]
 static=🔰 代理, ♻️ 自动选择, 🎯 直连, #foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Proxy.png

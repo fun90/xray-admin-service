@@ -5,6 +5,27 @@ mode: Rule
 log-level: info
 external-controller: :9090
 
+dns:
+  enable: true
+  listen: 127.0.0.1:5311
+  ipv6: false
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  #当dns解析出现问题时，打开如下配置
+  #  fallback:
+  #    - 自己的DNS
+  #  fallback-filter:
+  #    geoip: false
+  #    geoip-code: CN
+  #    ipcidr:
+  #      -192.168.0.1/16
+  #    domain:
+  #      - 需要走自己的DNS的域名，如：'*.test.com'
+
 rules:
 $rulesParser.content("MyReject.list", "🛑 拦截")
 $rulesParser.content("MyDirect.list", "🎯 直连")
