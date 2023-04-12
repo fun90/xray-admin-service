@@ -10,31 +10,20 @@ dns-server = system, 114.114.114.114, 223.5.5.5, 119.29.29.29
 
 [Rule]
 $rulesParser.content("MyReject.list", "REJECT")
-$rulesParser.content("MyDirect.list", "DIRECT")
 $rulesParser.content("MyProxy.list", "PROXY")
+$rulesParser.content("MyDirect.list", "DIRECT")
 $rulesParser.content("PayPal.list", "PROXY")
 $rulesParser.content("Microsoft.list", "PROXY")
-$rulesParser.content("Apple.list", "DIRECT")
-##$rulesParser.content("Proxy.list", "PROXY")
-$rulesParser.content("Gfw.list", "PROXY")
 $rulesParser.content("Private.list", "DIRECT")
-$rulesParser.content("Direct.list", "DIRECT")
-$rulesParser.content("CnCidr.list", "DIRECT")
-##$rulesParser.content("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list", "PROXY")
-##$rulesParser.content("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list", "DIRECT")
-####$rulesParser.content("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list", "REJECT")
-####$rulesParser.content("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list", "REJECT")
-##$rulesParser.content("https://raw.githubusercontent.com/Semporia/TikTok-Unlock/master/Shadowrocket/TikTok.list", "PROXY")
-##$rulesParser.content("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list", "PROXY")
-##$rulesParser.content("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list", "PROXY")
-##$rulesParser.content("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list", "PROXY")
-##$rulesParser.content("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list", "PROXY")
-##$rulesParser.content("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list", "PROXY")
-##$rulesParser.content("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list", "PROXY")
-##$rulesParser.content("https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list", "DIRECT")
-DOMAIN-SUFFIX,ampproject.org,PROXY # Google AMP issue#237
-GEOIP,CN,DIRECT
-FINAL,PROXY
+##$rulesParser.content("Reject.list", "REJECT")
+##$rulesParser.content("AdvertisingLite.list", "REJECT")
+##$rulesParser.content("AdvertisingLiteDomain.list", "REJECT")
+$rulesParser.content("BanProgramAD.list", "REJECT")
+$rulesParser.content("Tld-not-cn.list", "PROXY")
+$rulesParser.content("Gfw.list", "PROXY")
+$rulesParser.content("Greatfire.list", "PROXY")
+$rulesParser.content("TelegramCidr.list", "PROXY")
+FINAL,DIRECT
 
 [URL Rewrite]
 ^http://(www.)?google.cn https://www.google.com 302

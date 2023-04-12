@@ -28,7 +28,8 @@ public class ClashRulesParser implements IRulesParser {
             }
             line = cleanLine(line);
             if (StringUtils.startsWithAny(line, excludeTypes)) {
-                return "  #" + line + System.lineSeparator();
+//                return "  #" + line + System.lineSeparator();
+                return "";
             }
             String target = this.getTarget();
             if (ClientConstant.Clash.equals(target)) {

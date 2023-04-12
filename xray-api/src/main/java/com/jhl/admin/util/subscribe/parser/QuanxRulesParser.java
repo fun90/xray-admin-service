@@ -25,7 +25,8 @@ public class QuanxRulesParser implements IRulesParser {
             }
             line = cleanLine(line);
             if (StringUtils.startsWithAny(line, excludeTypes)) {
-                return "  #" + line + System.lineSeparator();
+//                return "  #" + line + System.lineSeparator();
+                return "";
             }
             line = StringUtils.replace(line, "IP-CIDR6", "IP6-CIDR");
             return line + System.lineSeparator();

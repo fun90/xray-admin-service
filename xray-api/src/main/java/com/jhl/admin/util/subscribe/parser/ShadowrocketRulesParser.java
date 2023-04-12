@@ -28,7 +28,8 @@ public class ShadowrocketRulesParser implements IRulesParser {
             }
             line = cleanLine(line);
             if (StringUtils.startsWithAny(line, excludeTypes)) {
-                return "  #" + line + System.lineSeparator();
+//                return "  #" + line + System.lineSeparator();
+                return "";
             }
             return line + "," + group + System.lineSeparator();
         };

@@ -14,20 +14,12 @@ RemoteProxies = $proxiesUrl
 [Proxy Group]
 🔰 代理 = select,♻️ 自动选择,🎯 直连,RemoteProxies
 ♻️ 自动选择 = url-test,RemoteProxies,url=http://www.gstatic.com/generate_224,interval=300
-##🐶 谷歌 = select,🔰 代理,♻️ 自动选择,RemoteProxies
 💰 PayPal = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
+🐶 谷歌 = select,🔰 代理,♻️ 自动选择,RemoteProxies
+🎬 YouTube = select,🔰 代理,♻️ 自动选择,RemoteProxies
 Ⓜ️ 微软 = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
 🍎 苹果 = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
 ☁️ iCloud = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
-####TikTok = select,🔰 代理,♻️ 自动选择,🎯 直连,RemoteProxies
-##🎥 NETFLIX = select,🔰 代理,♻️ 自动选择,🎯 直连,RemoteProxies
-##🌌 YouTube = select,🔰 代理,♻️ 自动选择,🎯 直连,RemoteProxies
-####⛔️ 广告拦截 = select,🎯 直连,🛑 拦截,🔰 代理
-####🚫 运营劫持 = select,🎯 直连,🛑 拦截,🔰 代理
-##🌍 国外媒体 = select,🔰 代理,♻️ 自动选择,🎯 直连,RemoteProxies
-##🌏 港台媒体 = select,🔰 代理,♻️ 自动选择,🎯 直连,RemoteProxies
-##🌏 国内媒体 = select,🎯 直连,🔰 代理
-##📲 电报信息 = select,🔰 代理,🎯 直连,RemoteProxies
 🎯 直连 = select,DIRECT
 🛑 拦截 = select,REJECT,DIRECT
 🐟 其他 = select,🔰 代理,🎯 直连,♻️ 自动选择,RemoteProxies
@@ -36,31 +28,24 @@ RemoteProxies = $proxiesUrl
 $rootUrl/subscribe/rules/loon/MyReject.list, tag=🛑 拦截, policy=🛑 拦截, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/loon/MyProxy.list, tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/loon/MyDirect.list, tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
-##$rootUrl/subscribe/rules/loon/Google.list, tag=🐶 谷歌, policy=🐶 谷歌, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/loon/PayPal.list, tag=💰 PayPal, policy=💰 PayPal, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/YouTube.list, tag=🎬 YouTube, policy=🎬 YouTube, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/Google.list, tag=🐶 谷歌, policy=🐶 谷歌, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/loon/Microsoft.list, tag=Ⓜ️ 微软, policy=Ⓜ️ 微软, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/loon/Apple.list, tag=🍎 苹果, policy=🍎 苹果, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/loon/iCloud.list, tag=☁️ iCloud, policy=☁️ iCloud, update-interval=86400, enabled=true
-##$rootUrl/subscribe/rules/loon/Proxy.list, tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/loon/Gfw.list, tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/Apple.list, tag=🍎 苹果, policy=🍎 苹果, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/loon/Private.list, tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/loon/Direct.list, tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/loon/CnCidr.list, tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
-##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list, tag=🍎 苹果, policy=🍎 苹果, update-interval=86400, enabled=true
-##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list, tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
-##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list, tag=⛔️ 广告拦截, policy=⛔️ 广告拦截, update-interval=86400, enabled=true
-##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list, tag=🚫 运营劫持, policy=🚫 运营劫持, update-interval=86400, enabled=true
-##https://raw.githubusercontent.com/Semporia/Loon/master/Rule/TikTok.list, tag=TikTok, policy=TikTok, update-interval=86400, enabled=true
-##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list, tag=🎥 NETFLIX, policy=🎥 NETFLIX, update-interval=86400, enabled=true
-##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list, tag=🌌 YouTube, policy=🌌 YouTube, update-interval=86400, enabled=true
-##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list, tag=🌍 国外媒体, policy=🌍 国外媒体, update-interval=86400, enabled=true
-##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list, tag=🌏 港台媒体, policy=🌏 港台媒体, update-interval=86400, enabled=true
-##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list, tag=📲 电报信息, policy=📲 电报信息, update-interval=86400, enabled=true
-##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list, tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
-##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list, tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
+##$rootUrl/subscribe/rules/loon/Reject.list, tag=🛑 拦截, policy=🛑 拦截, update-interval=86400, enabled=true
+##$rootUrl/subscribe/rules/loon/AdvertisingLite.list, tag=🛑 拦截, policy=🛑 拦截, update-interval=86400, enabled=true
+##$rootUrl/subscribe/rules/loon/AdvertisingLiteDomain.list, tag=🛑 拦截, policy=🛑 拦截, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/BanProgramAD.list, tag=🛑 拦截, policy=🛑 拦截, update-interval=86400, enabled=true
+##$rootUrl/subscribe/rules/loon/Proxy.list, tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/Tld-not-cn.list, tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/Gfw.list, tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/Greatfire.list, tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/TelegramCidr.list, tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
 
 [Rule]
-GEOIP,CN,🎯 直连
 FINAL,🐟 其他
 
 [URL Rewrite]

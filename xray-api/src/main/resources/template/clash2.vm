@@ -59,21 +59,32 @@ proxy-groups:
       #end
     #end
 
-##  - name: 🐶 谷歌
-##    type: select
-##    proxies:
-##      - 🔰 代理
-##      - ♻️ 自动选择
-##    #foreach($server in $servers)
-##      #if($server.protocol == "vmess" || $server.protocol == "trojan")
-##      - $server.serverName
-##      #end
-##    #end
-
   - name: 💰 PayPal
     type: select
     proxies:
       - 🎯 直连
+      - 🔰 代理
+      - ♻️ 自动选择
+    #foreach($server in $servers)
+      #if($server.protocol == "vmess" || $server.protocol == "trojan")
+      - $server.serverName
+      #end
+    #end
+
+  - name: 🐶 谷歌
+    type: select
+    proxies:
+      - 🔰 代理
+      - ♻️ 自动选择
+    #foreach($server in $servers)
+      #if($server.protocol == "vmess" || $server.protocol == "trojan")
+      - $server.serverName
+      #end
+    #end
+
+  - name: 🎬 YouTube
+    type: select
+    proxies:
       - 🔰 代理
       - ♻️ 自动选择
     #foreach($server in $servers)
@@ -94,7 +105,7 @@ proxy-groups:
       #end
     #end
 
-  - name: 🍎 苹果
+  - name: ☁️ iCloud
     type: select
     proxies:
       - 🎯 直连
@@ -106,7 +117,7 @@ proxy-groups:
       #end
     #end
 
-  - name: ☁️ iCloud
+  - name: 🍎 苹果
     type: select
     proxies:
       - 🎯 直连
@@ -132,8 +143,8 @@ proxy-groups:
   - name: 🐟 其他
     type: select
     proxies:
-      - 🔰 代理
       - 🎯 直连
+      - 🔰 代理
       - ♻️ 自动选择
     #foreach($server in $servers)
       #if($server.protocol == "vmess" || $server.protocol == "trojan")
@@ -142,25 +153,27 @@ proxy-groups:
     #end
 
 rules:
+  - RULE-SET,Applications,🎯 直连
   - RULE-SET,MyReject,🛑 拦截
   - RULE-SET,MyProxy,🔰 代理
   - RULE-SET,MyDirect,🎯 直连
   - RULE-SET,PayPal,💰 PayPal
+  - RULE-SET,YouTube,🎬 YouTube
+  - RULE-SET,Google,🐶 谷歌
   - RULE-SET,Microsoft,Ⓜ️ 微软
   - RULE-SET,iCloud,☁️ iCloud
   - RULE-SET,Apple,🍎 苹果
-##  - RULE-SET,Google,🐶 谷歌
-  - RULE-SET,Applications,🎯 直连
-##  - RULE-SET,Proxy,🔰 代理
-  - RULE-SET,Gfw,🔰 代理
+  - DOMAIN,clash.razord.top,🎯 直连
+  - DOMAIN,yacd.haishan.me,🎯 直连
   - RULE-SET,Private,🎯 直连
 ##  - RULE-SET,Reject,🛑 拦截
-  - RULE-SET,Direct,🎯 直连
-  - RULE-SET,LanCidr,🎯 直连
-  - RULE-SET,CnCidr,🎯 直连
+##  - RULE-SET,AdvertisingLite,🛑 拦截
+##  - RULE-SET,AdvertisingLiteDomain,🛑 拦截
+  - RULE-SET,BanProgramAD,🛑 拦截
+  - RULE-SET,Tld-not-cn,🔰 代理
+  - RULE-SET,Gfw,🔰 代理
+  - RULE-SET,Greatfire,🔰 代理
   - RULE-SET,TelegramCidr,🔰 代理
-  - GEOIP,LAN,🎯 直连
-  - GEOIP,CN,🎯 直连
   - MATCH,🐟 其他
 
 #set($rulesNameList = [
@@ -168,19 +181,34 @@ rules:
   "MyProxy",
   "MyDirect",
   "PayPal",
+  "Google",
+  "YouTube",
   "Microsoft",
   "iCloud",
   "Apple",
-  "Google",
   "Applications",
-  "Gfw",
   "Private",
-  "Direct",
-  "LanCidr",
-  "CnCidr",
+  "BanProgramAD",
+  "Tld-not-cn",
+  "Gfw",
+  "Greatfire",
   "TelegramCidr"
 ])
 rule-providers:
+##  AdvertisingLite:
+##    type: http
+##    behavior: classical
+##    url: "$rootUrl/subscribe/rules/clash2/AdvertisingLite.list"
+##    path: ./ruleset/AdvertisingLite.yaml
+##    interval: 86400
+##
+##  AdvertisingLiteDomain:
+##    type: http
+##    behavior: domain
+##    url: "$rootUrl/subscribe/rules/clash2/AdvertisingLiteDomain.list"
+##    path: ./ruleset/AdvertisingLiteDomain.yaml
+##    interval: 86400
+##
 #foreach( $rulesName in $rulesNameList)
   $rulesName:
     type: http
