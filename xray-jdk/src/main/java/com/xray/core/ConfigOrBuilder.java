@@ -162,6 +162,9 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.transport.Config transport = 5 [deprecated = true];</code>
+   * @deprecated xray.core.Config.transport is deprecated.
+   *     See core/config.proto;l=31
+   * @return Whether the transport field is set.
    */
   @java.lang.Deprecated boolean hasTransport();
   /**
@@ -172,8 +175,11 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.transport.Config transport = 5 [deprecated = true];</code>
+   * @deprecated xray.core.Config.transport is deprecated.
+   *     See core/config.proto;l=31
+   * @return The transport.
    */
-  @java.lang.Deprecated com.xray.transport.Config getTransport();
+  @java.lang.Deprecated com.xray.transport.global.Config getTransport();
   /**
    * <pre>
    * Transport settings.
@@ -183,7 +189,7 @@ public interface ConfigOrBuilder extends
    *
    * <code>.xray.transport.Config transport = 5 [deprecated = true];</code>
    */
-  @java.lang.Deprecated com.xray.transport.ConfigOrBuilder getTransportOrBuilder();
+  @java.lang.Deprecated com.xray.transport.global.ConfigOrBuilder getTransportOrBuilder();
 
   /**
    * <pre>

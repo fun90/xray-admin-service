@@ -83,18 +83,10 @@ public final class ConfigOuterClass {
       "ternet/headers/http\252\002$Xray.Transport.Int" +
       "ernet.Headers.Httpb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
+        });
     internal_static_xray_transport_internet_headers_http_Header_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_xray_transport_internet_headers_http_Header_fieldAccessorTable = new

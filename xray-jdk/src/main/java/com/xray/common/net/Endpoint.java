@@ -10,7 +10,7 @@ package com.xray.common.net;
  *
  * Protobuf type {@code xray.common.net.Endpoint}
  */
-public  final class Endpoint extends
+public final class Endpoint extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.common.net.Endpoint)
     EndpointOrBuilder {
@@ -24,71 +24,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new Endpoint();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Endpoint(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            network_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.xray.common.net.IPOrDomain.Builder subBuilder = null;
-            if (address_ != null) {
-              subBuilder = address_.toBuilder();
-            }
-            address_ = input.readMessage(com.xray.common.net.IPOrDomain.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(address_);
-              address_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-
-            port_ = input.readUInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -104,19 +49,20 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NETWORK_FIELD_NUMBER = 1;
-  private int network_;
+  private int network_ = 0;
   /**
    * <code>.xray.common.net.Network network = 1;</code>
+   * @return The enum numeric value on the wire for network.
    */
-  public int getNetworkValue() {
+  @java.lang.Override public int getNetworkValue() {
     return network_;
   }
   /**
    * <code>.xray.common.net.Network network = 1;</code>
+   * @return The network.
    */
-  public com.xray.common.net.Network getNetwork() {
-    @SuppressWarnings("deprecation")
-    com.xray.common.net.Network result = com.xray.common.net.Network.valueOf(network_);
+  @java.lang.Override public com.xray.common.net.Network getNetwork() {
+    com.xray.common.net.Network result = com.xray.common.net.Network.forNumber(network_);
     return result == null ? com.xray.common.net.Network.UNRECOGNIZED : result;
   }
 
@@ -124,28 +70,35 @@ private static final long serialVersionUID = 0L;
   private com.xray.common.net.IPOrDomain address_;
   /**
    * <code>.xray.common.net.IPOrDomain address = 2;</code>
+   * @return Whether the address field is set.
    */
+  @java.lang.Override
   public boolean hasAddress() {
     return address_ != null;
   }
   /**
    * <code>.xray.common.net.IPOrDomain address = 2;</code>
+   * @return The address.
    */
+  @java.lang.Override
   public com.xray.common.net.IPOrDomain getAddress() {
     return address_ == null ? com.xray.common.net.IPOrDomain.getDefaultInstance() : address_;
   }
   /**
    * <code>.xray.common.net.IPOrDomain address = 2;</code>
    */
+  @java.lang.Override
   public com.xray.common.net.IPOrDomainOrBuilder getAddressOrBuilder() {
-    return getAddress();
+    return address_ == null ? com.xray.common.net.IPOrDomain.getDefaultInstance() : address_;
   }
 
   public static final int PORT_FIELD_NUMBER = 3;
-  private int port_;
+  private int port_ = 0;
   /**
    * <code>uint32 port = 3;</code>
+   * @return The port.
    */
+  @java.lang.Override
   public int getPort() {
     return port_;
   }
@@ -173,7 +126,7 @@ private static final long serialVersionUID = 0L;
     if (port_ != 0) {
       output.writeUInt32(3, port_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -194,7 +147,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(3, port_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -217,7 +170,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getPort()
         != other.getPort()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -236,7 +189,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + PORT_FIELD_NUMBER;
     hash = (53 * hash) + getPort();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -357,32 +310,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.common.net.Endpoint.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       network_ = 0;
-
-      if (addressBuilder_ == null) {
-        address_ = null;
-      } else {
-        address_ = null;
+      address_ = null;
+      if (addressBuilder_ != null) {
+        addressBuilder_.dispose();
         addressBuilder_ = null;
       }
       port_ = 0;
-
       return this;
     }
 
@@ -409,15 +355,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.common.net.Endpoint buildPartial() {
       com.xray.common.net.Endpoint result = new com.xray.common.net.Endpoint(this);
-      result.network_ = network_;
-      if (addressBuilder_ == null) {
-        result.address_ = address_;
-      } else {
-        result.address_ = addressBuilder_.build();
-      }
-      result.port_ = port_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.common.net.Endpoint result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.network_ = network_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.address_ = addressBuilder_ == null
+            ? address_
+            : addressBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.port_ = port_;
+      }
     }
 
     @java.lang.Override
@@ -473,7 +428,7 @@ private static final long serialVersionUID = 0L;
       if (other.getPort() != 0) {
         setPort(other.getPort());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -488,60 +443,99 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.common.net.Endpoint parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              network_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getAddressFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              port_ = input.readUInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.common.net.Endpoint) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int network_ = 0;
     /**
      * <code>.xray.common.net.Network network = 1;</code>
+     * @return The enum numeric value on the wire for network.
      */
-    public int getNetworkValue() {
+    @java.lang.Override public int getNetworkValue() {
       return network_;
     }
     /**
      * <code>.xray.common.net.Network network = 1;</code>
+     * @param value The enum numeric value on the wire for network to set.
+     * @return This builder for chaining.
      */
     public Builder setNetworkValue(int value) {
       network_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <code>.xray.common.net.Network network = 1;</code>
+     * @return The network.
      */
+    @java.lang.Override
     public com.xray.common.net.Network getNetwork() {
-      @SuppressWarnings("deprecation")
-      com.xray.common.net.Network result = com.xray.common.net.Network.valueOf(network_);
+      com.xray.common.net.Network result = com.xray.common.net.Network.forNumber(network_);
       return result == null ? com.xray.common.net.Network.UNRECOGNIZED : result;
     }
     /**
      * <code>.xray.common.net.Network network = 1;</code>
+     * @param value The network to set.
+     * @return This builder for chaining.
      */
     public Builder setNetwork(com.xray.common.net.Network value) {
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       network_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <code>.xray.common.net.Network network = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearNetwork() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       network_ = 0;
       onChanged();
       return this;
@@ -552,12 +546,14 @@ private static final long serialVersionUID = 0L;
         com.xray.common.net.IPOrDomain, com.xray.common.net.IPOrDomain.Builder, com.xray.common.net.IPOrDomainOrBuilder> addressBuilder_;
     /**
      * <code>.xray.common.net.IPOrDomain address = 2;</code>
+     * @return Whether the address field is set.
      */
     public boolean hasAddress() {
-      return addressBuilder_ != null || address_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>.xray.common.net.IPOrDomain address = 2;</code>
+     * @return The address.
      */
     public com.xray.common.net.IPOrDomain getAddress() {
       if (addressBuilder_ == null) {
@@ -575,11 +571,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         address_ = value;
-        onChanged();
       } else {
         addressBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -589,11 +585,11 @@ private static final long serialVersionUID = 0L;
         com.xray.common.net.IPOrDomain.Builder builderForValue) {
       if (addressBuilder_ == null) {
         address_ = builderForValue.build();
-        onChanged();
       } else {
         addressBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -601,38 +597,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAddress(com.xray.common.net.IPOrDomain value) {
       if (addressBuilder_ == null) {
-        if (address_ != null) {
-          address_ =
-            com.xray.common.net.IPOrDomain.newBuilder(address_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          address_ != null &&
+          address_ != com.xray.common.net.IPOrDomain.getDefaultInstance()) {
+          getAddressBuilder().mergeFrom(value);
         } else {
           address_ = value;
         }
-        onChanged();
       } else {
         addressBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.common.net.IPOrDomain address = 2;</code>
      */
     public Builder clearAddress() {
-      if (addressBuilder_ == null) {
-        address_ = null;
-        onChanged();
-      } else {
-        address_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      address_ = null;
+      if (addressBuilder_ != null) {
+        addressBuilder_.dispose();
         addressBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.common.net.IPOrDomain address = 2;</code>
      */
     public com.xray.common.net.IPOrDomain.Builder getAddressBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAddressFieldBuilder().getBuilder();
     }
@@ -667,24 +663,30 @@ private static final long serialVersionUID = 0L;
     private int port_ ;
     /**
      * <code>uint32 port = 3;</code>
+     * @return The port.
      */
+    @java.lang.Override
     public int getPort() {
       return port_;
     }
     /**
      * <code>uint32 port = 3;</code>
+     * @param value The port to set.
+     * @return This builder for chaining.
      */
     public Builder setPort(int value) {
       
       port_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <code>uint32 port = 3;</code>
+     * @return This builder for chaining.
      */
     public Builder clearPort() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       port_ = 0;
       onChanged();
       return this;
@@ -722,7 +724,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Endpoint(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

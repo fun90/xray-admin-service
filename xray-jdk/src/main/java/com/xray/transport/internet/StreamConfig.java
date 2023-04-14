@@ -6,7 +6,7 @@ package com.xray.transport.internet;
 /**
  * Protobuf type {@code xray.transport.internet.StreamConfig}
  */
-public  final class StreamConfig extends
+public final class StreamConfig extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.transport.internet.StreamConfig)
     StreamConfigOrBuilder {
@@ -24,102 +24,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new StreamConfig();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private StreamConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            protocol_ = rawValue;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              transportSettings_ = new java.util.ArrayList<com.xray.transport.internet.TransportConfig>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            transportSettings_.add(
-                input.readMessage(com.xray.transport.internet.TransportConfig.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            securityType_ = s;
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              securitySettings_ = new java.util.ArrayList<com.xray.common.serial.TypedMessage>();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            securitySettings_.add(
-                input.readMessage(com.xray.common.serial.TypedMessage.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            protocolName_ = s;
-            break;
-          }
-          case 50: {
-            com.xray.transport.internet.SocketConfig.Builder subBuilder = null;
-            if (socketSettings_ != null) {
-              subBuilder = socketSettings_.toBuilder();
-            }
-            socketSettings_ = input.readMessage(com.xray.transport.internet.SocketConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(socketSettings_);
-              socketSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        transportSettings_ = java.util.Collections.unmodifiableList(transportSettings_);
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        securitySettings_ = java.util.Collections.unmodifiableList(securitySettings_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -134,17 +48,19 @@ private static final long serialVersionUID = 0L;
             com.xray.transport.internet.StreamConfig.class, com.xray.transport.internet.StreamConfig.Builder.class);
   }
 
-  private int bitField0_;
   public static final int PROTOCOL_FIELD_NUMBER = 1;
-  private int protocol_;
+  private int protocol_ = 0;
   /**
    * <pre>
    * Effective network. Deprecated. Use the string form below.
    * </pre>
    *
    * <code>.xray.transport.internet.TransportProtocol protocol = 1 [deprecated = true];</code>
+   * @deprecated xray.transport.internet.StreamConfig.protocol is deprecated.
+   *     See transport/internet/config.proto;l=40
+   * @return The enum numeric value on the wire for protocol.
    */
-  @java.lang.Deprecated public int getProtocolValue() {
+  @java.lang.Override @java.lang.Deprecated public int getProtocolValue() {
     return protocol_;
   }
   /**
@@ -153,22 +69,27 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.transport.internet.TransportProtocol protocol = 1 [deprecated = true];</code>
+   * @deprecated xray.transport.internet.StreamConfig.protocol is deprecated.
+   *     See transport/internet/config.proto;l=40
+   * @return The protocol.
    */
-  @java.lang.Deprecated public com.xray.transport.internet.TransportProtocol getProtocol() {
-    @SuppressWarnings("deprecation")
-    com.xray.transport.internet.TransportProtocol result = com.xray.transport.internet.TransportProtocol.valueOf(protocol_);
+  @java.lang.Override @java.lang.Deprecated public com.xray.transport.internet.TransportProtocol getProtocol() {
+    com.xray.transport.internet.TransportProtocol result = com.xray.transport.internet.TransportProtocol.forNumber(protocol_);
     return result == null ? com.xray.transport.internet.TransportProtocol.UNRECOGNIZED : result;
   }
 
   public static final int PROTOCOL_NAME_FIELD_NUMBER = 5;
-  private volatile java.lang.Object protocolName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object protocolName_ = "";
   /**
    * <pre>
    * Effective network.
    * </pre>
    *
    * <code>string protocol_name = 5;</code>
+   * @return The protocolName.
    */
+  @java.lang.Override
   public java.lang.String getProtocolName() {
     java.lang.Object ref = protocolName_;
     if (ref instanceof java.lang.String) {
@@ -187,7 +108,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string protocol_name = 5;</code>
+   * @return The bytes for protocolName.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getProtocolNameBytes() {
     java.lang.Object ref = protocolName_;
@@ -203,16 +126,19 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRANSPORT_SETTINGS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.xray.transport.internet.TransportConfig> transportSettings_;
   /**
    * <code>repeated .xray.transport.internet.TransportConfig transport_settings = 2;</code>
    */
+  @java.lang.Override
   public java.util.List<com.xray.transport.internet.TransportConfig> getTransportSettingsList() {
     return transportSettings_;
   }
   /**
    * <code>repeated .xray.transport.internet.TransportConfig transport_settings = 2;</code>
    */
+  @java.lang.Override
   public java.util.List<? extends com.xray.transport.internet.TransportConfigOrBuilder> 
       getTransportSettingsOrBuilderList() {
     return transportSettings_;
@@ -220,32 +146,38 @@ private static final long serialVersionUID = 0L;
   /**
    * <code>repeated .xray.transport.internet.TransportConfig transport_settings = 2;</code>
    */
+  @java.lang.Override
   public int getTransportSettingsCount() {
     return transportSettings_.size();
   }
   /**
    * <code>repeated .xray.transport.internet.TransportConfig transport_settings = 2;</code>
    */
+  @java.lang.Override
   public com.xray.transport.internet.TransportConfig getTransportSettings(int index) {
     return transportSettings_.get(index);
   }
   /**
    * <code>repeated .xray.transport.internet.TransportConfig transport_settings = 2;</code>
    */
+  @java.lang.Override
   public com.xray.transport.internet.TransportConfigOrBuilder getTransportSettingsOrBuilder(
       int index) {
     return transportSettings_.get(index);
   }
 
   public static final int SECURITY_TYPE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object securityType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object securityType_ = "";
   /**
    * <pre>
    * Type of security. Must be a message name of the settings proto.
    * </pre>
    *
    * <code>string security_type = 3;</code>
+   * @return The securityType.
    */
+  @java.lang.Override
   public java.lang.String getSecurityType() {
     java.lang.Object ref = securityType_;
     if (ref instanceof java.lang.String) {
@@ -264,7 +196,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string security_type = 3;</code>
+   * @return The bytes for securityType.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getSecurityTypeBytes() {
     java.lang.Object ref = securityType_;
@@ -280,6 +214,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SECURITY_SETTINGS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.xray.common.serial.TypedMessage> securitySettings_;
   /**
    * <pre>
@@ -288,6 +223,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.serial.TypedMessage security_settings = 4;</code>
    */
+  @java.lang.Override
   public java.util.List<com.xray.common.serial.TypedMessage> getSecuritySettingsList() {
     return securitySettings_;
   }
@@ -298,6 +234,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.serial.TypedMessage security_settings = 4;</code>
    */
+  @java.lang.Override
   public java.util.List<? extends com.xray.common.serial.TypedMessageOrBuilder> 
       getSecuritySettingsOrBuilderList() {
     return securitySettings_;
@@ -309,6 +246,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.serial.TypedMessage security_settings = 4;</code>
    */
+  @java.lang.Override
   public int getSecuritySettingsCount() {
     return securitySettings_.size();
   }
@@ -319,6 +257,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.serial.TypedMessage security_settings = 4;</code>
    */
+  @java.lang.Override
   public com.xray.common.serial.TypedMessage getSecuritySettings(int index) {
     return securitySettings_.get(index);
   }
@@ -329,6 +268,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.serial.TypedMessage security_settings = 4;</code>
    */
+  @java.lang.Override
   public com.xray.common.serial.TypedMessageOrBuilder getSecuritySettingsOrBuilder(
       int index) {
     return securitySettings_.get(index);
@@ -338,21 +278,26 @@ private static final long serialVersionUID = 0L;
   private com.xray.transport.internet.SocketConfig socketSettings_;
   /**
    * <code>.xray.transport.internet.SocketConfig socket_settings = 6;</code>
+   * @return Whether the socketSettings field is set.
    */
+  @java.lang.Override
   public boolean hasSocketSettings() {
     return socketSettings_ != null;
   }
   /**
    * <code>.xray.transport.internet.SocketConfig socket_settings = 6;</code>
+   * @return The socketSettings.
    */
+  @java.lang.Override
   public com.xray.transport.internet.SocketConfig getSocketSettings() {
     return socketSettings_ == null ? com.xray.transport.internet.SocketConfig.getDefaultInstance() : socketSettings_;
   }
   /**
    * <code>.xray.transport.internet.SocketConfig socket_settings = 6;</code>
    */
+  @java.lang.Override
   public com.xray.transport.internet.SocketConfigOrBuilder getSocketSettingsOrBuilder() {
-    return getSocketSettings();
+    return socketSettings_ == null ? com.xray.transport.internet.SocketConfig.getDefaultInstance() : socketSettings_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -375,19 +320,19 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < transportSettings_.size(); i++) {
       output.writeMessage(2, transportSettings_.get(i));
     }
-    if (!getSecurityTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(securityType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, securityType_);
     }
     for (int i = 0; i < securitySettings_.size(); i++) {
       output.writeMessage(4, securitySettings_.get(i));
     }
-    if (!getProtocolNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(protocolName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, protocolName_);
     }
     if (socketSettings_ != null) {
       output.writeMessage(6, getSocketSettings());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -404,21 +349,21 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, transportSettings_.get(i));
     }
-    if (!getSecurityTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(securityType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, securityType_);
     }
     for (int i = 0; i < securitySettings_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, securitySettings_.get(i));
     }
-    if (!getProtocolNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(protocolName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, protocolName_);
     }
     if (socketSettings_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getSocketSettings());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -447,7 +392,7 @@ private static final long serialVersionUID = 0L;
       if (!getSocketSettings()
           .equals(other.getSocketSettings())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -476,7 +421,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SOCKET_SETTINGS_FIELD_NUMBER;
       hash = (53 * hash) + getSocketSettings().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -593,46 +538,38 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.transport.internet.StreamConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getTransportSettingsFieldBuilder();
-        getSecuritySettingsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       protocol_ = 0;
-
       protocolName_ = "";
-
       if (transportSettingsBuilder_ == null) {
         transportSettings_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        transportSettings_ = null;
         transportSettingsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       securityType_ = "";
-
       if (securitySettingsBuilder_ == null) {
         securitySettings_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
       } else {
+        securitySettings_ = null;
         securitySettingsBuilder_.clear();
       }
-      if (socketSettingsBuilder_ == null) {
-        socketSettings_ = null;
-      } else {
-        socketSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      socketSettings_ = null;
+      if (socketSettingsBuilder_ != null) {
+        socketSettingsBuilder_.dispose();
         socketSettingsBuilder_ = null;
       }
       return this;
@@ -661,10 +598,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.transport.internet.StreamConfig buildPartial() {
       com.xray.transport.internet.StreamConfig result = new com.xray.transport.internet.StreamConfig(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.protocol_ = protocol_;
-      result.protocolName_ = protocolName_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.xray.transport.internet.StreamConfig result) {
       if (transportSettingsBuilder_ == null) {
         if (((bitField0_ & 0x00000004) != 0)) {
           transportSettings_ = java.util.Collections.unmodifiableList(transportSettings_);
@@ -674,7 +614,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.transportSettings_ = transportSettingsBuilder_.build();
       }
-      result.securityType_ = securityType_;
       if (securitySettingsBuilder_ == null) {
         if (((bitField0_ & 0x00000010) != 0)) {
           securitySettings_ = java.util.Collections.unmodifiableList(securitySettings_);
@@ -684,14 +623,24 @@ private static final long serialVersionUID = 0L;
       } else {
         result.securitySettings_ = securitySettingsBuilder_.build();
       }
-      if (socketSettingsBuilder_ == null) {
-        result.socketSettings_ = socketSettings_;
-      } else {
-        result.socketSettings_ = socketSettingsBuilder_.build();
+    }
+
+    private void buildPartial0(com.xray.transport.internet.StreamConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.protocol_ = protocol_;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.protocolName_ = protocolName_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.securityType_ = securityType_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.socketSettings_ = socketSettingsBuilder_ == null
+            ? socketSettings_
+            : socketSettingsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -743,6 +692,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getProtocolName().isEmpty()) {
         protocolName_ = other.protocolName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (transportSettingsBuilder_ == null) {
@@ -773,6 +723,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSecurityType().isEmpty()) {
         securityType_ = other.securityType_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (securitySettingsBuilder_ == null) {
@@ -804,7 +755,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasSocketSettings()) {
         mergeSocketSettings(other.getSocketSettings());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -819,17 +770,78 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.transport.internet.StreamConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              protocol_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              com.xray.transport.internet.TransportConfig m =
+                  input.readMessage(
+                      com.xray.transport.internet.TransportConfig.parser(),
+                      extensionRegistry);
+              if (transportSettingsBuilder_ == null) {
+                ensureTransportSettingsIsMutable();
+                transportSettings_.add(m);
+              } else {
+                transportSettingsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              securityType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 34: {
+              com.xray.common.serial.TypedMessage m =
+                  input.readMessage(
+                      com.xray.common.serial.TypedMessage.parser(),
+                      extensionRegistry);
+              if (securitySettingsBuilder_ == null) {
+                ensureSecuritySettingsIsMutable();
+                securitySettings_.add(m);
+              } else {
+                securitySettingsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              protocolName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getSocketSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.transport.internet.StreamConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -841,8 +853,11 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.transport.internet.TransportProtocol protocol = 1 [deprecated = true];</code>
+     * @deprecated xray.transport.internet.StreamConfig.protocol is deprecated.
+     *     See transport/internet/config.proto;l=40
+     * @return The enum numeric value on the wire for protocol.
      */
-    @java.lang.Deprecated public int getProtocolValue() {
+    @java.lang.Override @java.lang.Deprecated public int getProtocolValue() {
       return protocol_;
     }
     /**
@@ -851,9 +866,14 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.transport.internet.TransportProtocol protocol = 1 [deprecated = true];</code>
+     * @deprecated xray.transport.internet.StreamConfig.protocol is deprecated.
+     *     See transport/internet/config.proto;l=40
+     * @param value The enum numeric value on the wire for protocol to set.
+     * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setProtocolValue(int value) {
       protocol_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -863,10 +883,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.transport.internet.TransportProtocol protocol = 1 [deprecated = true];</code>
+     * @deprecated xray.transport.internet.StreamConfig.protocol is deprecated.
+     *     See transport/internet/config.proto;l=40
+     * @return The protocol.
      */
+    @java.lang.Override
     @java.lang.Deprecated public com.xray.transport.internet.TransportProtocol getProtocol() {
-      @SuppressWarnings("deprecation")
-      com.xray.transport.internet.TransportProtocol result = com.xray.transport.internet.TransportProtocol.valueOf(protocol_);
+      com.xray.transport.internet.TransportProtocol result = com.xray.transport.internet.TransportProtocol.forNumber(protocol_);
       return result == null ? com.xray.transport.internet.TransportProtocol.UNRECOGNIZED : result;
     }
     /**
@@ -875,12 +898,16 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.transport.internet.TransportProtocol protocol = 1 [deprecated = true];</code>
+     * @deprecated xray.transport.internet.StreamConfig.protocol is deprecated.
+     *     See transport/internet/config.proto;l=40
+     * @param value The protocol to set.
+     * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setProtocol(com.xray.transport.internet.TransportProtocol value) {
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       protocol_ = value.getNumber();
       onChanged();
       return this;
@@ -891,9 +918,12 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.transport.internet.TransportProtocol protocol = 1 [deprecated = true];</code>
+     * @deprecated xray.transport.internet.StreamConfig.protocol is deprecated.
+     *     See transport/internet/config.proto;l=40
+     * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearProtocol() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       protocol_ = 0;
       onChanged();
       return this;
@@ -906,6 +936,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string protocol_name = 5;</code>
+     * @return The protocolName.
      */
     public java.lang.String getProtocolName() {
       java.lang.Object ref = protocolName_;
@@ -925,6 +956,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string protocol_name = 5;</code>
+     * @return The bytes for protocolName.
      */
     public com.google.protobuf.ByteString
         getProtocolNameBytes() {
@@ -945,14 +977,14 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string protocol_name = 5;</code>
+     * @param value The protocolName to set.
+     * @return This builder for chaining.
      */
     public Builder setProtocolName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       protocolName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -962,10 +994,11 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string protocol_name = 5;</code>
+     * @return This builder for chaining.
      */
     public Builder clearProtocolName() {
-      
       protocolName_ = getDefaultInstance().getProtocolName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -975,15 +1008,15 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string protocol_name = 5;</code>
+     * @param value The bytes for protocolName to set.
+     * @return This builder for chaining.
      */
     public Builder setProtocolNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       protocolName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1235,6 +1268,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string security_type = 3;</code>
+     * @return The securityType.
      */
     public java.lang.String getSecurityType() {
       java.lang.Object ref = securityType_;
@@ -1254,6 +1288,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string security_type = 3;</code>
+     * @return The bytes for securityType.
      */
     public com.google.protobuf.ByteString
         getSecurityTypeBytes() {
@@ -1274,14 +1309,14 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string security_type = 3;</code>
+     * @param value The securityType to set.
+     * @return This builder for chaining.
      */
     public Builder setSecurityType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       securityType_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1291,10 +1326,11 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string security_type = 3;</code>
+     * @return This builder for chaining.
      */
     public Builder clearSecurityType() {
-      
       securityType_ = getDefaultInstance().getSecurityType();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1304,15 +1340,15 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string security_type = 3;</code>
+     * @param value The bytes for securityType to set.
+     * @return This builder for chaining.
      */
     public Builder setSecurityTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       securityType_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1634,12 +1670,14 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.SocketConfig, com.xray.transport.internet.SocketConfig.Builder, com.xray.transport.internet.SocketConfigOrBuilder> socketSettingsBuilder_;
     /**
      * <code>.xray.transport.internet.SocketConfig socket_settings = 6;</code>
+     * @return Whether the socketSettings field is set.
      */
     public boolean hasSocketSettings() {
-      return socketSettingsBuilder_ != null || socketSettings_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <code>.xray.transport.internet.SocketConfig socket_settings = 6;</code>
+     * @return The socketSettings.
      */
     public com.xray.transport.internet.SocketConfig getSocketSettings() {
       if (socketSettingsBuilder_ == null) {
@@ -1657,11 +1695,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         socketSettings_ = value;
-        onChanged();
       } else {
         socketSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1671,11 +1709,11 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.SocketConfig.Builder builderForValue) {
       if (socketSettingsBuilder_ == null) {
         socketSettings_ = builderForValue.build();
-        onChanged();
       } else {
         socketSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1683,38 +1721,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSocketSettings(com.xray.transport.internet.SocketConfig value) {
       if (socketSettingsBuilder_ == null) {
-        if (socketSettings_ != null) {
-          socketSettings_ =
-            com.xray.transport.internet.SocketConfig.newBuilder(socketSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          socketSettings_ != null &&
+          socketSettings_ != com.xray.transport.internet.SocketConfig.getDefaultInstance()) {
+          getSocketSettingsBuilder().mergeFrom(value);
         } else {
           socketSettings_ = value;
         }
-        onChanged();
       } else {
         socketSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.SocketConfig socket_settings = 6;</code>
      */
     public Builder clearSocketSettings() {
-      if (socketSettingsBuilder_ == null) {
-        socketSettings_ = null;
-        onChanged();
-      } else {
-        socketSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      socketSettings_ = null;
+      if (socketSettingsBuilder_ != null) {
+        socketSettingsBuilder_.dispose();
         socketSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.SocketConfig socket_settings = 6;</code>
      */
     public com.xray.transport.internet.SocketConfig.Builder getSocketSettingsBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getSocketSettingsFieldBuilder().getBuilder();
     }
@@ -1778,7 +1816,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StreamConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

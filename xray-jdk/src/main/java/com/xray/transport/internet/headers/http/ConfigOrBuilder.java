@@ -14,6 +14,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.transport.internet.headers.http.RequestConfig request = 1;</code>
+   * @return Whether the request field is set.
    */
   boolean hasRequest();
   /**
@@ -23,6 +24,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.transport.internet.headers.http.RequestConfig request = 1;</code>
+   * @return The request.
    */
   com.xray.transport.internet.headers.http.RequestConfig getRequest();
   /**
@@ -42,6 +44,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.transport.internet.headers.http.ResponseConfig response = 2;</code>
+   * @return Whether the response field is set.
    */
   boolean hasResponse();
   /**
@@ -51,6 +54,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.transport.internet.headers.http.ResponseConfig response = 2;</code>
+   * @return The response.
    */
   com.xray.transport.internet.headers.http.ResponseConfig getResponse();
   /**

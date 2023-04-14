@@ -6,7 +6,7 @@ package com.xray.app.proxyman;
 /**
  * Protobuf type {@code xray.app.proxyman.AllocationStrategy}
  */
-public  final class AllocationStrategy extends
+public final class AllocationStrategy extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.app.proxyman.AllocationStrategy)
     AllocationStrategyOrBuilder {
@@ -20,79 +20,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new AllocationStrategy();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private AllocationStrategy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency.Builder subBuilder = null;
-            if (concurrency_ != null) {
-              subBuilder = concurrency_.toBuilder();
-            }
-            concurrency_ = input.readMessage(com.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(concurrency_);
-              concurrency_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh.Builder subBuilder = null;
-            if (refresh_ != null) {
-              subBuilder = refresh_.toBuilder();
-            }
-            refresh_ = input.readMessage(com.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(refresh_);
-              refresh_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -174,6 +111,8 @@ private static final long serialVersionUID = 0L;
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -181,6 +120,10 @@ private static final long serialVersionUID = 0L;
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static Type forNumber(int value) {
       switch (value) {
         case 0: return Always;
@@ -204,6 +147,10 @@ private static final long serialVersionUID = 0L;
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -244,13 +191,14 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <code>uint32 value = 1;</code>
+     * @return The value.
      */
     int getValue();
   }
   /**
    * Protobuf type {@code xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency}
    */
-  public  static final class AllocationStrategyConcurrency extends
+  public static final class AllocationStrategyConcurrency extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency)
       AllocationStrategyConcurrencyOrBuilder {
@@ -263,52 +211,16 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AllocationStrategyConcurrency();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private AllocationStrategyConcurrency(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              value_ = input.readUInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -324,10 +236,12 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int VALUE_FIELD_NUMBER = 1;
-    private int value_;
+    private int value_ = 0;
     /**
      * <code>uint32 value = 1;</code>
+     * @return The value.
      */
+    @java.lang.Override
     public int getValue() {
       return value_;
     }
@@ -349,7 +263,7 @@ private static final long serialVersionUID = 0L;
       if (value_ != 0) {
         output.writeUInt32(1, value_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -362,7 +276,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(1, value_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -379,7 +293,7 @@ private static final long serialVersionUID = 0L;
 
       if (getValue()
           != other.getValue()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -392,7 +306,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + VALUE_FIELD_NUMBER;
       hash = (53 * hash) + getValue();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -509,24 +423,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         value_ = 0;
-
         return this;
       }
 
@@ -553,9 +462,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency buildPartial() {
         com.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency result = new com.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency(this);
-        result.value_ = value_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.value_ = value_;
+        }
       }
 
       @java.lang.Override
@@ -605,7 +521,7 @@ private static final long serialVersionUID = 0L;
         if (other.getValue() != 0) {
           setValue(other.getValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -620,41 +536,66 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                value_ = input.readUInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int value_ ;
       /**
        * <code>uint32 value = 1;</code>
+       * @return The value.
        */
+      @java.lang.Override
       public int getValue() {
         return value_;
       }
       /**
        * <code>uint32 value = 1;</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
        */
       public Builder setValue(int value) {
         
         value_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <code>uint32 value = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearValue() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         value_ = 0;
         onChanged();
         return this;
@@ -692,7 +633,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AllocationStrategyConcurrency(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -718,13 +670,14 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <code>uint32 value = 1;</code>
+     * @return The value.
      */
     int getValue();
   }
   /**
    * Protobuf type {@code xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh}
    */
-  public  static final class AllocationStrategyRefresh extends
+  public static final class AllocationStrategyRefresh extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh)
       AllocationStrategyRefreshOrBuilder {
@@ -737,52 +690,16 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AllocationStrategyRefresh();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private AllocationStrategyRefresh(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              value_ = input.readUInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -798,10 +715,12 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int VALUE_FIELD_NUMBER = 1;
-    private int value_;
+    private int value_ = 0;
     /**
      * <code>uint32 value = 1;</code>
+     * @return The value.
      */
+    @java.lang.Override
     public int getValue() {
       return value_;
     }
@@ -823,7 +742,7 @@ private static final long serialVersionUID = 0L;
       if (value_ != 0) {
         output.writeUInt32(1, value_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -836,7 +755,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(1, value_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -853,7 +772,7 @@ private static final long serialVersionUID = 0L;
 
       if (getValue()
           != other.getValue()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -866,7 +785,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + VALUE_FIELD_NUMBER;
       hash = (53 * hash) + getValue();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -983,24 +902,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         value_ = 0;
-
         return this;
       }
 
@@ -1027,9 +941,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh buildPartial() {
         com.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh result = new com.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh(this);
-        result.value_ = value_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.value_ = value_;
+        }
       }
 
       @java.lang.Override
@@ -1079,7 +1000,7 @@ private static final long serialVersionUID = 0L;
         if (other.getValue() != 0) {
           setValue(other.getValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1094,41 +1015,66 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                value_ = input.readUInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int value_ ;
       /**
        * <code>uint32 value = 1;</code>
+       * @return The value.
        */
+      @java.lang.Override
       public int getValue() {
         return value_;
       }
       /**
        * <code>uint32 value = 1;</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
        */
       public Builder setValue(int value) {
         
         value_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <code>uint32 value = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearValue() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         value_ = 0;
         onChanged();
         return this;
@@ -1166,7 +1112,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AllocationStrategyRefresh(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1187,19 +1144,20 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 1;
-  private int type_;
+  private int type_ = 0;
   /**
    * <code>.xray.app.proxyman.AllocationStrategy.Type type = 1;</code>
+   * @return The enum numeric value on the wire for type.
    */
-  public int getTypeValue() {
+  @java.lang.Override public int getTypeValue() {
     return type_;
   }
   /**
    * <code>.xray.app.proxyman.AllocationStrategy.Type type = 1;</code>
+   * @return The type.
    */
-  public com.xray.app.proxyman.AllocationStrategy.Type getType() {
-    @SuppressWarnings("deprecation")
-    com.xray.app.proxyman.AllocationStrategy.Type result = com.xray.app.proxyman.AllocationStrategy.Type.valueOf(type_);
+  @java.lang.Override public com.xray.app.proxyman.AllocationStrategy.Type getType() {
+    com.xray.app.proxyman.AllocationStrategy.Type result = com.xray.app.proxyman.AllocationStrategy.Type.forNumber(type_);
     return result == null ? com.xray.app.proxyman.AllocationStrategy.Type.UNRECOGNIZED : result;
   }
 
@@ -1212,7 +1170,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency concurrency = 2;</code>
+   * @return Whether the concurrency field is set.
    */
+  @java.lang.Override
   public boolean hasConcurrency() {
     return concurrency_ != null;
   }
@@ -1223,7 +1183,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency concurrency = 2;</code>
+   * @return The concurrency.
    */
+  @java.lang.Override
   public com.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency getConcurrency() {
     return concurrency_ == null ? com.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency.getDefaultInstance() : concurrency_;
   }
@@ -1235,8 +1197,9 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency concurrency = 2;</code>
    */
+  @java.lang.Override
   public com.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrencyOrBuilder getConcurrencyOrBuilder() {
-    return getConcurrency();
+    return concurrency_ == null ? com.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency.getDefaultInstance() : concurrency_;
   }
 
   public static final int REFRESH_FIELD_NUMBER = 3;
@@ -1248,7 +1211,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh refresh = 3;</code>
+   * @return Whether the refresh field is set.
    */
+  @java.lang.Override
   public boolean hasRefresh() {
     return refresh_ != null;
   }
@@ -1259,7 +1224,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh refresh = 3;</code>
+   * @return The refresh.
    */
+  @java.lang.Override
   public com.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh getRefresh() {
     return refresh_ == null ? com.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh.getDefaultInstance() : refresh_;
   }
@@ -1271,8 +1238,9 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh refresh = 3;</code>
    */
+  @java.lang.Override
   public com.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefreshOrBuilder getRefreshOrBuilder() {
-    return getRefresh();
+    return refresh_ == null ? com.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh.getDefaultInstance() : refresh_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1298,7 +1266,7 @@ private static final long serialVersionUID = 0L;
     if (refresh_ != null) {
       output.writeMessage(3, getRefresh());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1319,7 +1287,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getRefresh());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1345,7 +1313,7 @@ private static final long serialVersionUID = 0L;
       if (!getRefresh()
           .equals(other.getRefresh())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1366,7 +1334,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + REFRESH_FIELD_NUMBER;
       hash = (53 * hash) + getRefresh().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1483,34 +1451,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.app.proxyman.AllocationStrategy.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       type_ = 0;
-
-      if (concurrencyBuilder_ == null) {
-        concurrency_ = null;
-      } else {
-        concurrency_ = null;
+      concurrency_ = null;
+      if (concurrencyBuilder_ != null) {
+        concurrencyBuilder_.dispose();
         concurrencyBuilder_ = null;
       }
-      if (refreshBuilder_ == null) {
-        refresh_ = null;
-      } else {
-        refresh_ = null;
+      refresh_ = null;
+      if (refreshBuilder_ != null) {
+        refreshBuilder_.dispose();
         refreshBuilder_ = null;
       }
       return this;
@@ -1539,19 +1500,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.app.proxyman.AllocationStrategy buildPartial() {
       com.xray.app.proxyman.AllocationStrategy result = new com.xray.app.proxyman.AllocationStrategy(this);
-      result.type_ = type_;
-      if (concurrencyBuilder_ == null) {
-        result.concurrency_ = concurrency_;
-      } else {
-        result.concurrency_ = concurrencyBuilder_.build();
-      }
-      if (refreshBuilder_ == null) {
-        result.refresh_ = refresh_;
-      } else {
-        result.refresh_ = refreshBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.app.proxyman.AllocationStrategy result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.concurrency_ = concurrencyBuilder_ == null
+            ? concurrency_
+            : concurrencyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.refresh_ = refreshBuilder_ == null
+            ? refresh_
+            : refreshBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1607,7 +1575,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasRefresh()) {
         mergeRefresh(other.getRefresh());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1622,60 +1590,101 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.app.proxyman.AllocationStrategy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              type_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getConcurrencyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getRefreshFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.app.proxyman.AllocationStrategy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int type_ = 0;
     /**
      * <code>.xray.app.proxyman.AllocationStrategy.Type type = 1;</code>
+     * @return The enum numeric value on the wire for type.
      */
-    public int getTypeValue() {
+    @java.lang.Override public int getTypeValue() {
       return type_;
     }
     /**
      * <code>.xray.app.proxyman.AllocationStrategy.Type type = 1;</code>
+     * @param value The enum numeric value on the wire for type to set.
+     * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
       type_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <code>.xray.app.proxyman.AllocationStrategy.Type type = 1;</code>
+     * @return The type.
      */
+    @java.lang.Override
     public com.xray.app.proxyman.AllocationStrategy.Type getType() {
-      @SuppressWarnings("deprecation")
-      com.xray.app.proxyman.AllocationStrategy.Type result = com.xray.app.proxyman.AllocationStrategy.Type.valueOf(type_);
+      com.xray.app.proxyman.AllocationStrategy.Type result = com.xray.app.proxyman.AllocationStrategy.Type.forNumber(type_);
       return result == null ? com.xray.app.proxyman.AllocationStrategy.Type.UNRECOGNIZED : result;
     }
     /**
      * <code>.xray.app.proxyman.AllocationStrategy.Type type = 1;</code>
+     * @param value The type to set.
+     * @return This builder for chaining.
      */
     public Builder setType(com.xray.app.proxyman.AllocationStrategy.Type value) {
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       type_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <code>.xray.app.proxyman.AllocationStrategy.Type type = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       type_ = 0;
       onChanged();
       return this;
@@ -1691,9 +1700,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency concurrency = 2;</code>
+     * @return Whether the concurrency field is set.
      */
     public boolean hasConcurrency() {
-      return concurrencyBuilder_ != null || concurrency_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1702,6 +1712,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency concurrency = 2;</code>
+     * @return The concurrency.
      */
     public com.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency getConcurrency() {
       if (concurrencyBuilder_ == null) {
@@ -1724,11 +1735,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         concurrency_ = value;
-        onChanged();
       } else {
         concurrencyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1743,11 +1754,11 @@ private static final long serialVersionUID = 0L;
         com.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency.Builder builderForValue) {
       if (concurrencyBuilder_ == null) {
         concurrency_ = builderForValue.build();
-        onChanged();
       } else {
         concurrencyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1760,17 +1771,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeConcurrency(com.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency value) {
       if (concurrencyBuilder_ == null) {
-        if (concurrency_ != null) {
-          concurrency_ =
-            com.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency.newBuilder(concurrency_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          concurrency_ != null &&
+          concurrency_ != com.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency.getDefaultInstance()) {
+          getConcurrencyBuilder().mergeFrom(value);
         } else {
           concurrency_ = value;
         }
-        onChanged();
       } else {
         concurrencyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1782,14 +1794,13 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency concurrency = 2;</code>
      */
     public Builder clearConcurrency() {
-      if (concurrencyBuilder_ == null) {
-        concurrency_ = null;
-        onChanged();
-      } else {
-        concurrency_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      concurrency_ = null;
+      if (concurrencyBuilder_ != null) {
+        concurrencyBuilder_.dispose();
         concurrencyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1801,7 +1812,7 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency concurrency = 2;</code>
      */
     public com.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency.Builder getConcurrencyBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getConcurrencyFieldBuilder().getBuilder();
     }
@@ -1853,9 +1864,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh refresh = 3;</code>
+     * @return Whether the refresh field is set.
      */
     public boolean hasRefresh() {
-      return refreshBuilder_ != null || refresh_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1864,6 +1876,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh refresh = 3;</code>
+     * @return The refresh.
      */
     public com.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh getRefresh() {
       if (refreshBuilder_ == null) {
@@ -1886,11 +1899,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         refresh_ = value;
-        onChanged();
       } else {
         refreshBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1905,11 +1918,11 @@ private static final long serialVersionUID = 0L;
         com.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh.Builder builderForValue) {
       if (refreshBuilder_ == null) {
         refresh_ = builderForValue.build();
-        onChanged();
       } else {
         refreshBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1922,17 +1935,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRefresh(com.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh value) {
       if (refreshBuilder_ == null) {
-        if (refresh_ != null) {
-          refresh_ =
-            com.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh.newBuilder(refresh_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          refresh_ != null &&
+          refresh_ != com.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh.getDefaultInstance()) {
+          getRefreshBuilder().mergeFrom(value);
         } else {
           refresh_ = value;
         }
-        onChanged();
       } else {
         refreshBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1944,14 +1958,13 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh refresh = 3;</code>
      */
     public Builder clearRefresh() {
-      if (refreshBuilder_ == null) {
-        refresh_ = null;
-        onChanged();
-      } else {
-        refresh_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      refresh_ = null;
+      if (refreshBuilder_ != null) {
+        refreshBuilder_.dispose();
         refreshBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1963,7 +1976,7 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh refresh = 3;</code>
      */
     public com.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh.Builder getRefreshBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getRefreshFieldBuilder().getBuilder();
     }
@@ -2037,7 +2050,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AllocationStrategy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

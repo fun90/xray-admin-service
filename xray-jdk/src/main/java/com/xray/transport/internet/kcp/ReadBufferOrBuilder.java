@@ -13,6 +13,7 @@ public interface ReadBufferOrBuilder extends
    * </pre>
    *
    * <code>uint32 size = 1;</code>
+   * @return The size.
    */
   int getSize();
 }

@@ -6,7 +6,7 @@ package com.xray.proxy.dokodemo;
 /**
  * Protobuf type {@code xray.proxy.dokodemo.Config}
  */
-public  final class Config extends
+public final class Config extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.proxy.dokodemo.Config)
     ConfigOrBuilder {
@@ -20,119 +20,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new Config();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Config(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.xray.common.net.IPOrDomain.Builder subBuilder = null;
-            if (address_ != null) {
-              subBuilder = address_.toBuilder();
-            }
-            address_ = input.readMessage(com.xray.common.net.IPOrDomain.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(address_);
-              address_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 16: {
-
-            port_ = input.readUInt32();
-            break;
-          }
-          case 26: {
-            com.xray.common.net.NetworkList.Builder subBuilder = null;
-            if (networkList_ != null) {
-              subBuilder = networkList_.toBuilder();
-            }
-            networkList_ = input.readMessage(com.xray.common.net.NetworkList.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(networkList_);
-              networkList_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 32: {
-
-            timeout_ = input.readUInt32();
-            break;
-          }
-          case 40: {
-
-            followRedirect_ = input.readBool();
-            break;
-          }
-          case 48: {
-
-            userLevel_ = input.readUInt32();
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              networks_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            networks_.add(rawValue);
-            break;
-          }
-          case 58: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                networks_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              networks_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        networks_ = java.util.Collections.unmodifiableList(networks_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -147,33 +44,39 @@ private static final long serialVersionUID = 0L;
             com.xray.proxy.dokodemo.Config.class, com.xray.proxy.dokodemo.Config.Builder.class);
   }
 
-  private int bitField0_;
   public static final int ADDRESS_FIELD_NUMBER = 1;
   private com.xray.common.net.IPOrDomain address_;
   /**
    * <code>.xray.common.net.IPOrDomain address = 1;</code>
+   * @return Whether the address field is set.
    */
+  @java.lang.Override
   public boolean hasAddress() {
     return address_ != null;
   }
   /**
    * <code>.xray.common.net.IPOrDomain address = 1;</code>
+   * @return The address.
    */
+  @java.lang.Override
   public com.xray.common.net.IPOrDomain getAddress() {
     return address_ == null ? com.xray.common.net.IPOrDomain.getDefaultInstance() : address_;
   }
   /**
    * <code>.xray.common.net.IPOrDomain address = 1;</code>
    */
+  @java.lang.Override
   public com.xray.common.net.IPOrDomainOrBuilder getAddressOrBuilder() {
-    return getAddress();
+    return address_ == null ? com.xray.common.net.IPOrDomain.getDefaultInstance() : address_;
   }
 
   public static final int PORT_FIELD_NUMBER = 2;
-  private int port_;
+  private int port_ = 0;
   /**
    * <code>uint32 port = 2;</code>
+   * @return The port.
    */
+  @java.lang.Override
   public int getPort() {
     return port_;
   }
@@ -187,7 +90,11 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.common.net.NetworkList network_list = 3 [deprecated = true];</code>
+   * @deprecated xray.proxy.dokodemo.Config.network_list is deprecated.
+   *     See proxy/dokodemo/config.proto;l=17
+   * @return Whether the networkList field is set.
    */
+  @java.lang.Override
   @java.lang.Deprecated public boolean hasNetworkList() {
     return networkList_ != null;
   }
@@ -198,7 +105,11 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.common.net.NetworkList network_list = 3 [deprecated = true];</code>
+   * @deprecated xray.proxy.dokodemo.Config.network_list is deprecated.
+   *     See proxy/dokodemo/config.proto;l=17
+   * @return The networkList.
    */
+  @java.lang.Override
   @java.lang.Deprecated public com.xray.common.net.NetworkList getNetworkList() {
     return networkList_ == null ? com.xray.common.net.NetworkList.getDefaultInstance() : networkList_;
   }
@@ -210,19 +121,20 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.xray.common.net.NetworkList network_list = 3 [deprecated = true];</code>
    */
+  @java.lang.Override
   @java.lang.Deprecated public com.xray.common.net.NetworkListOrBuilder getNetworkListOrBuilder() {
-    return getNetworkList();
+    return networkList_ == null ? com.xray.common.net.NetworkList.getDefaultInstance() : networkList_;
   }
 
   public static final int NETWORKS_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> networks_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.xray.common.net.Network> networks_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.xray.common.net.Network>() {
             public com.xray.common.net.Network convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.xray.common.net.Network result = com.xray.common.net.Network.valueOf(from);
+              com.xray.common.net.Network result = com.xray.common.net.Network.forNumber(from);
               return result == null ? com.xray.common.net.Network.UNRECOGNIZED : result;
             }
           };
@@ -232,7 +144,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>repeated .xray.common.net.Network networks = 7;</code>
+   * @return A list containing the networks.
    */
+  @java.lang.Override
   public java.util.List<com.xray.common.net.Network> getNetworksList() {
     return new com.google.protobuf.Internal.ListAdapter<
         java.lang.Integer, com.xray.common.net.Network>(networks_, networks_converter_);
@@ -243,7 +157,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>repeated .xray.common.net.Network networks = 7;</code>
+   * @return The count of networks.
    */
+  @java.lang.Override
   public int getNetworksCount() {
     return networks_.size();
   }
@@ -253,7 +169,10 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>repeated .xray.common.net.Network networks = 7;</code>
+   * @param index The index of the element to return.
+   * @return The networks at the given index.
    */
+  @java.lang.Override
   public com.xray.common.net.Network getNetworks(int index) {
     return networks_converter_.convert(networks_.get(index));
   }
@@ -263,7 +182,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>repeated .xray.common.net.Network networks = 7;</code>
+   * @return A list containing the enum numeric values on the wire for networks.
    */
+  @java.lang.Override
   public java.util.List<java.lang.Integer>
   getNetworksValueList() {
     return networks_;
@@ -274,35 +195,46 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>repeated .xray.common.net.Network networks = 7;</code>
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of networks at the given index.
    */
+  @java.lang.Override
   public int getNetworksValue(int index) {
     return networks_.get(index);
   }
   private int networksMemoizedSerializedSize;
 
   public static final int TIMEOUT_FIELD_NUMBER = 4;
-  private int timeout_;
+  private int timeout_ = 0;
   /**
    * <code>uint32 timeout = 4 [deprecated = true];</code>
+   * @deprecated xray.proxy.dokodemo.Config.timeout is deprecated.
+   *     See proxy/dokodemo/config.proto;l=21
+   * @return The timeout.
    */
+  @java.lang.Override
   @java.lang.Deprecated public int getTimeout() {
     return timeout_;
   }
 
   public static final int FOLLOW_REDIRECT_FIELD_NUMBER = 5;
-  private boolean followRedirect_;
+  private boolean followRedirect_ = false;
   /**
    * <code>bool follow_redirect = 5;</code>
+   * @return The followRedirect.
    */
+  @java.lang.Override
   public boolean getFollowRedirect() {
     return followRedirect_;
   }
 
   public static final int USER_LEVEL_FIELD_NUMBER = 6;
-  private int userLevel_;
+  private int userLevel_ = 0;
   /**
    * <code>uint32 user_level = 6;</code>
+   * @return The userLevel.
    */
+  @java.lang.Override
   public int getUserLevel() {
     return userLevel_;
   }
@@ -347,7 +279,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < networks_.size(); i++) {
       output.writeEnumNoTag(networks_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -392,7 +324,7 @@ private static final long serialVersionUID = 0L;
           .computeUInt32SizeNoTag(dataSize);
       }networksMemoizedSerializedSize = dataSize;
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -426,7 +358,7 @@ private static final long serialVersionUID = 0L;
         != other.getFollowRedirect()) return false;
     if (getUserLevel()
         != other.getUserLevel()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -458,7 +390,7 @@ private static final long serialVersionUID = 0L;
         getFollowRedirect());
     hash = (37 * hash) + USER_LEVEL_FIELD_NUMBER;
     hash = (53 * hash) + getUserLevel();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -575,44 +507,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.proxy.dokodemo.Config.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (addressBuilder_ == null) {
-        address_ = null;
-      } else {
-        address_ = null;
+      bitField0_ = 0;
+      address_ = null;
+      if (addressBuilder_ != null) {
+        addressBuilder_.dispose();
         addressBuilder_ = null;
       }
       port_ = 0;
-
-      if (networkListBuilder_ == null) {
-        networkList_ = null;
-      } else {
-        networkList_ = null;
+      networkList_ = null;
+      if (networkListBuilder_ != null) {
+        networkListBuilder_.dispose();
         networkListBuilder_ = null;
       }
       networks_ = java.util.Collections.emptyList();
       bitField0_ = (bitField0_ & ~0x00000008);
       timeout_ = 0;
-
       followRedirect_ = false;
-
       userLevel_ = 0;
-
       return this;
     }
 
@@ -639,30 +561,44 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.proxy.dokodemo.Config buildPartial() {
       com.xray.proxy.dokodemo.Config result = new com.xray.proxy.dokodemo.Config(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (addressBuilder_ == null) {
-        result.address_ = address_;
-      } else {
-        result.address_ = addressBuilder_.build();
-      }
-      result.port_ = port_;
-      if (networkListBuilder_ == null) {
-        result.networkList_ = networkList_;
-      } else {
-        result.networkList_ = networkListBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.xray.proxy.dokodemo.Config result) {
       if (((bitField0_ & 0x00000008) != 0)) {
         networks_ = java.util.Collections.unmodifiableList(networks_);
         bitField0_ = (bitField0_ & ~0x00000008);
       }
       result.networks_ = networks_;
-      result.timeout_ = timeout_;
-      result.followRedirect_ = followRedirect_;
-      result.userLevel_ = userLevel_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.xray.proxy.dokodemo.Config result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.address_ = addressBuilder_ == null
+            ? address_
+            : addressBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.port_ = port_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.networkList_ = networkListBuilder_ == null
+            ? networkList_
+            : networkListBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.timeout_ = timeout_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.followRedirect_ = followRedirect_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.userLevel_ = userLevel_;
+      }
     }
 
     @java.lang.Override
@@ -737,7 +673,7 @@ private static final long serialVersionUID = 0L;
       if (other.getUserLevel() != 0) {
         setUserLevel(other.getUserLevel());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -752,17 +688,81 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.proxy.dokodemo.Config parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAddressFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              port_ = input.readUInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getNetworkListFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              timeout_ = input.readUInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 32
+            case 40: {
+              followRedirect_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 40
+            case 48: {
+              userLevel_ = input.readUInt32();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 48
+            case 56: {
+              int tmpRaw = input.readEnum();
+              ensureNetworksIsMutable();
+              networks_.add(tmpRaw);
+              break;
+            } // case 56
+            case 58: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureNetworksIsMutable();
+                networks_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.proxy.dokodemo.Config) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -772,12 +772,14 @@ private static final long serialVersionUID = 0L;
         com.xray.common.net.IPOrDomain, com.xray.common.net.IPOrDomain.Builder, com.xray.common.net.IPOrDomainOrBuilder> addressBuilder_;
     /**
      * <code>.xray.common.net.IPOrDomain address = 1;</code>
+     * @return Whether the address field is set.
      */
     public boolean hasAddress() {
-      return addressBuilder_ != null || address_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.xray.common.net.IPOrDomain address = 1;</code>
+     * @return The address.
      */
     public com.xray.common.net.IPOrDomain getAddress() {
       if (addressBuilder_ == null) {
@@ -795,11 +797,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         address_ = value;
-        onChanged();
       } else {
         addressBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -809,11 +811,11 @@ private static final long serialVersionUID = 0L;
         com.xray.common.net.IPOrDomain.Builder builderForValue) {
       if (addressBuilder_ == null) {
         address_ = builderForValue.build();
-        onChanged();
       } else {
         addressBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -821,38 +823,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAddress(com.xray.common.net.IPOrDomain value) {
       if (addressBuilder_ == null) {
-        if (address_ != null) {
-          address_ =
-            com.xray.common.net.IPOrDomain.newBuilder(address_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          address_ != null &&
+          address_ != com.xray.common.net.IPOrDomain.getDefaultInstance()) {
+          getAddressBuilder().mergeFrom(value);
         } else {
           address_ = value;
         }
-        onChanged();
       } else {
         addressBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.common.net.IPOrDomain address = 1;</code>
      */
     public Builder clearAddress() {
-      if (addressBuilder_ == null) {
-        address_ = null;
-        onChanged();
-      } else {
-        address_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      address_ = null;
+      if (addressBuilder_ != null) {
+        addressBuilder_.dispose();
         addressBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.common.net.IPOrDomain address = 1;</code>
      */
     public com.xray.common.net.IPOrDomain.Builder getAddressBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getAddressFieldBuilder().getBuilder();
     }
@@ -887,24 +889,30 @@ private static final long serialVersionUID = 0L;
     private int port_ ;
     /**
      * <code>uint32 port = 2;</code>
+     * @return The port.
      */
+    @java.lang.Override
     public int getPort() {
       return port_;
     }
     /**
      * <code>uint32 port = 2;</code>
+     * @param value The port to set.
+     * @return This builder for chaining.
      */
     public Builder setPort(int value) {
       
       port_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <code>uint32 port = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearPort() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       port_ = 0;
       onChanged();
       return this;
@@ -920,9 +928,12 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.common.net.NetworkList network_list = 3 [deprecated = true];</code>
+     * @deprecated xray.proxy.dokodemo.Config.network_list is deprecated.
+     *     See proxy/dokodemo/config.proto;l=17
+     * @return Whether the networkList field is set.
      */
     @java.lang.Deprecated public boolean hasNetworkList() {
-      return networkListBuilder_ != null || networkList_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -931,6 +942,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.common.net.NetworkList network_list = 3 [deprecated = true];</code>
+     * @deprecated xray.proxy.dokodemo.Config.network_list is deprecated.
+     *     See proxy/dokodemo/config.proto;l=17
+     * @return The networkList.
      */
     @java.lang.Deprecated public com.xray.common.net.NetworkList getNetworkList() {
       if (networkListBuilder_ == null) {
@@ -953,11 +967,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         networkList_ = value;
-        onChanged();
       } else {
         networkListBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -972,11 +986,11 @@ private static final long serialVersionUID = 0L;
         com.xray.common.net.NetworkList.Builder builderForValue) {
       if (networkListBuilder_ == null) {
         networkList_ = builderForValue.build();
-        onChanged();
       } else {
         networkListBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -989,17 +1003,18 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder mergeNetworkList(com.xray.common.net.NetworkList value) {
       if (networkListBuilder_ == null) {
-        if (networkList_ != null) {
-          networkList_ =
-            com.xray.common.net.NetworkList.newBuilder(networkList_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          networkList_ != null &&
+          networkList_ != com.xray.common.net.NetworkList.getDefaultInstance()) {
+          getNetworkListBuilder().mergeFrom(value);
         } else {
           networkList_ = value;
         }
-        onChanged();
       } else {
         networkListBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1011,14 +1026,13 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.common.net.NetworkList network_list = 3 [deprecated = true];</code>
      */
     @java.lang.Deprecated public Builder clearNetworkList() {
-      if (networkListBuilder_ == null) {
-        networkList_ = null;
-        onChanged();
-      } else {
-        networkList_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      networkList_ = null;
+      if (networkListBuilder_ != null) {
+        networkListBuilder_.dispose();
         networkListBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1030,7 +1044,7 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.common.net.NetworkList network_list = 3 [deprecated = true];</code>
      */
     @java.lang.Deprecated public com.xray.common.net.NetworkList.Builder getNetworkListBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getNetworkListFieldBuilder().getBuilder();
     }
@@ -1086,6 +1100,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 7;</code>
+     * @return A list containing the networks.
      */
     public java.util.List<com.xray.common.net.Network> getNetworksList() {
       return new com.google.protobuf.Internal.ListAdapter<
@@ -1097,6 +1112,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 7;</code>
+     * @return The count of networks.
      */
     public int getNetworksCount() {
       return networks_.size();
@@ -1107,6 +1123,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 7;</code>
+     * @param index The index of the element to return.
+     * @return The networks at the given index.
      */
     public com.xray.common.net.Network getNetworks(int index) {
       return networks_converter_.convert(networks_.get(index));
@@ -1117,6 +1135,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 7;</code>
+     * @param index The index to set the value at.
+     * @param value The networks to set.
+     * @return This builder for chaining.
      */
     public Builder setNetworks(
         int index, com.xray.common.net.Network value) {
@@ -1134,6 +1155,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 7;</code>
+     * @param value The networks to add.
+     * @return This builder for chaining.
      */
     public Builder addNetworks(com.xray.common.net.Network value) {
       if (value == null) {
@@ -1150,6 +1173,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 7;</code>
+     * @param values The networks to add.
+     * @return This builder for chaining.
      */
     public Builder addAllNetworks(
         java.lang.Iterable<? extends com.xray.common.net.Network> values) {
@@ -1166,6 +1191,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 7;</code>
+     * @return This builder for chaining.
      */
     public Builder clearNetworks() {
       networks_ = java.util.Collections.emptyList();
@@ -1179,6 +1205,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 7;</code>
+     * @return A list containing the enum numeric values on the wire for networks.
      */
     public java.util.List<java.lang.Integer>
     getNetworksValueList() {
@@ -1190,6 +1217,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 7;</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of networks at the given index.
      */
     public int getNetworksValue(int index) {
       return networks_.get(index);
@@ -1200,6 +1229,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 7;</code>
+     * @param index The index to set the value at.
+     * @param value The enum numeric value on the wire for networks to set.
+     * @return This builder for chaining.
      */
     public Builder setNetworksValue(
         int index, int value) {
@@ -1214,6 +1246,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 7;</code>
+     * @param value The enum numeric value on the wire for networks to add.
+     * @return This builder for chaining.
      */
     public Builder addNetworksValue(int value) {
       ensureNetworksIsMutable();
@@ -1227,6 +1261,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 7;</code>
+     * @param values The enum numeric values on the wire for networks to add.
+     * @return This builder for chaining.
      */
     public Builder addAllNetworksValue(
         java.lang.Iterable<java.lang.Integer> values) {
@@ -1241,24 +1277,36 @@ private static final long serialVersionUID = 0L;
     private int timeout_ ;
     /**
      * <code>uint32 timeout = 4 [deprecated = true];</code>
+     * @deprecated xray.proxy.dokodemo.Config.timeout is deprecated.
+     *     See proxy/dokodemo/config.proto;l=21
+     * @return The timeout.
      */
+    @java.lang.Override
     @java.lang.Deprecated public int getTimeout() {
       return timeout_;
     }
     /**
      * <code>uint32 timeout = 4 [deprecated = true];</code>
+     * @deprecated xray.proxy.dokodemo.Config.timeout is deprecated.
+     *     See proxy/dokodemo/config.proto;l=21
+     * @param value The timeout to set.
+     * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setTimeout(int value) {
       
       timeout_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <code>uint32 timeout = 4 [deprecated = true];</code>
+     * @deprecated xray.proxy.dokodemo.Config.timeout is deprecated.
+     *     See proxy/dokodemo/config.proto;l=21
+     * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearTimeout() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       timeout_ = 0;
       onChanged();
       return this;
@@ -1267,24 +1315,30 @@ private static final long serialVersionUID = 0L;
     private boolean followRedirect_ ;
     /**
      * <code>bool follow_redirect = 5;</code>
+     * @return The followRedirect.
      */
+    @java.lang.Override
     public boolean getFollowRedirect() {
       return followRedirect_;
     }
     /**
      * <code>bool follow_redirect = 5;</code>
+     * @param value The followRedirect to set.
+     * @return This builder for chaining.
      */
     public Builder setFollowRedirect(boolean value) {
       
       followRedirect_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
     /**
      * <code>bool follow_redirect = 5;</code>
+     * @return This builder for chaining.
      */
     public Builder clearFollowRedirect() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       followRedirect_ = false;
       onChanged();
       return this;
@@ -1293,24 +1347,30 @@ private static final long serialVersionUID = 0L;
     private int userLevel_ ;
     /**
      * <code>uint32 user_level = 6;</code>
+     * @return The userLevel.
      */
+    @java.lang.Override
     public int getUserLevel() {
       return userLevel_;
     }
     /**
      * <code>uint32 user_level = 6;</code>
+     * @param value The userLevel to set.
+     * @return This builder for chaining.
      */
     public Builder setUserLevel(int value) {
       
       userLevel_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
     /**
      * <code>uint32 user_level = 6;</code>
+     * @return This builder for chaining.
      */
     public Builder clearUserLevel() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       userLevel_ = 0;
       onChanged();
       return this;
@@ -1348,7 +1408,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Config(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

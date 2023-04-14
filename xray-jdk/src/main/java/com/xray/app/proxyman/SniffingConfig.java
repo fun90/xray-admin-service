@@ -6,7 +6,7 @@ package com.xray.app.proxyman;
 /**
  * Protobuf type {@code xray.app.proxyman.SniffingConfig}
  */
-public  final class SniffingConfig extends
+public final class SniffingConfig extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.app.proxyman.SniffingConfig)
     SniffingConfigOrBuilder {
@@ -21,76 +21,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new SniffingConfig();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private SniffingConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            enabled_ = input.readBool();
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              destinationOverride_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            destinationOverride_.add(s);
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              domainsExcluded_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            domainsExcluded_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        destinationOverride_ = destinationOverride_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        domainsExcluded_ = domainsExcluded_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -105,29 +45,32 @@ private static final long serialVersionUID = 0L;
             com.xray.app.proxyman.SniffingConfig.class, com.xray.app.proxyman.SniffingConfig.Builder.class);
   }
 
-  private int bitField0_;
   public static final int ENABLED_FIELD_NUMBER = 1;
-  private boolean enabled_;
+  private boolean enabled_ = false;
   /**
    * <pre>
    * Whether or not to enable content sniffing on an inbound connection.
    * </pre>
    *
    * <code>bool enabled = 1;</code>
+   * @return The enabled.
    */
+  @java.lang.Override
   public boolean getEnabled() {
     return enabled_;
   }
 
   public static final int DESTINATION_OVERRIDE_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList destinationOverride_;
   /**
    * <pre>
    * Override target destination if sniff'ed protocol is in the given list.
-   * Supported values are "http", "tls".
+   * Supported values are "http", "tls", "fakedns".
    * </pre>
    *
    * <code>repeated string destination_override = 2;</code>
+   * @return A list containing the destinationOverride.
    */
   public com.google.protobuf.ProtocolStringList
       getDestinationOverrideList() {
@@ -136,10 +79,11 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Override target destination if sniff'ed protocol is in the given list.
-   * Supported values are "http", "tls".
+   * Supported values are "http", "tls", "fakedns".
    * </pre>
    *
    * <code>repeated string destination_override = 2;</code>
+   * @return The count of destinationOverride.
    */
   public int getDestinationOverrideCount() {
     return destinationOverride_.size();
@@ -147,10 +91,12 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Override target destination if sniff'ed protocol is in the given list.
-   * Supported values are "http", "tls".
+   * Supported values are "http", "tls", "fakedns".
    * </pre>
    *
    * <code>repeated string destination_override = 2;</code>
+   * @param index The index of the element to return.
+   * @return The destinationOverride at the given index.
    */
   public java.lang.String getDestinationOverride(int index) {
     return destinationOverride_.get(index);
@@ -158,10 +104,12 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Override target destination if sniff'ed protocol is in the given list.
-   * Supported values are "http", "tls".
+   * Supported values are "http", "tls", "fakedns".
    * </pre>
    *
    * <code>repeated string destination_override = 2;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the destinationOverride at the given index.
    */
   public com.google.protobuf.ByteString
       getDestinationOverrideBytes(int index) {
@@ -169,9 +117,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DOMAINS_EXCLUDED_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList domainsExcluded_;
   /**
    * <code>repeated string domains_excluded = 3;</code>
+   * @return A list containing the domainsExcluded.
    */
   public com.google.protobuf.ProtocolStringList
       getDomainsExcludedList() {
@@ -179,22 +129,55 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>repeated string domains_excluded = 3;</code>
+   * @return The count of domainsExcluded.
    */
   public int getDomainsExcludedCount() {
     return domainsExcluded_.size();
   }
   /**
    * <code>repeated string domains_excluded = 3;</code>
+   * @param index The index of the element to return.
+   * @return The domainsExcluded at the given index.
    */
   public java.lang.String getDomainsExcluded(int index) {
     return domainsExcluded_.get(index);
   }
   /**
    * <code>repeated string domains_excluded = 3;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the domainsExcluded at the given index.
    */
   public com.google.protobuf.ByteString
       getDomainsExcludedBytes(int index) {
     return domainsExcluded_.getByteString(index);
+  }
+
+  public static final int METADATA_ONLY_FIELD_NUMBER = 4;
+  private boolean metadataOnly_ = false;
+  /**
+   * <pre>
+   * Whether should only try to sniff metadata without waiting for client input.
+   * Can be used to support SMTP like protocol where server send the first
+   * message.
+   * </pre>
+   *
+   * <code>bool metadata_only = 4;</code>
+   * @return The metadataOnly.
+   */
+  @java.lang.Override
+  public boolean getMetadataOnly() {
+    return metadataOnly_;
+  }
+
+  public static final int ROUTE_ONLY_FIELD_NUMBER = 5;
+  private boolean routeOnly_ = false;
+  /**
+   * <code>bool route_only = 5;</code>
+   * @return The routeOnly.
+   */
+  @java.lang.Override
+  public boolean getRouteOnly() {
+    return routeOnly_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -220,7 +203,13 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < domainsExcluded_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, domainsExcluded_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    if (metadataOnly_ != false) {
+      output.writeBool(4, metadataOnly_);
+    }
+    if (routeOnly_ != false) {
+      output.writeBool(5, routeOnly_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -249,7 +238,15 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getDomainsExcludedList().size();
     }
-    size += unknownFields.getSerializedSize();
+    if (metadataOnly_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(4, metadataOnly_);
+    }
+    if (routeOnly_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(5, routeOnly_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -270,7 +267,11 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDestinationOverrideList())) return false;
     if (!getDomainsExcludedList()
         .equals(other.getDomainsExcludedList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (getMetadataOnly()
+        != other.getMetadataOnly()) return false;
+    if (getRouteOnly()
+        != other.getRouteOnly()) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -292,7 +293,13 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DOMAINS_EXCLUDED_FIELD_NUMBER;
       hash = (53 * hash) + getDomainsExcludedList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + METADATA_ONLY_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getMetadataOnly());
+    hash = (37 * hash) + ROUTE_ONLY_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getRouteOnly());
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -409,28 +416,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.app.proxyman.SniffingConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       enabled_ = false;
-
       destinationOverride_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000002);
       domainsExcluded_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000004);
+      metadataOnly_ = false;
+      routeOnly_ = false;
       return this;
     }
 
@@ -457,9 +461,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.app.proxyman.SniffingConfig buildPartial() {
       com.xray.app.proxyman.SniffingConfig result = new com.xray.app.proxyman.SniffingConfig(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.enabled_ = enabled_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.xray.app.proxyman.SniffingConfig result) {
       if (((bitField0_ & 0x00000002) != 0)) {
         destinationOverride_ = destinationOverride_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -470,9 +478,19 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000004);
       }
       result.domainsExcluded_ = domainsExcluded_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.xray.app.proxyman.SniffingConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.enabled_ = enabled_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.metadataOnly_ = metadataOnly_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.routeOnly_ = routeOnly_;
+      }
     }
 
     @java.lang.Override
@@ -542,7 +560,13 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.getMetadataOnly() != false) {
+        setMetadataOnly(other.getMetadataOnly());
+      }
+      if (other.getRouteOnly() != false) {
+        setRouteOnly(other.getRouteOnly());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -557,17 +581,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.app.proxyman.SniffingConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              enabled_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureDestinationOverrideIsMutable();
+              destinationOverride_.add(s);
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureDomainsExcludedIsMutable();
+              domainsExcluded_.add(s);
+              break;
+            } // case 26
+            case 32: {
+              metadataOnly_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              routeOnly_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.app.proxyman.SniffingConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -579,7 +643,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bool enabled = 1;</code>
+     * @return The enabled.
      */
+    @java.lang.Override
     public boolean getEnabled() {
       return enabled_;
     }
@@ -589,10 +655,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bool enabled = 1;</code>
+     * @param value The enabled to set.
+     * @return This builder for chaining.
      */
     public Builder setEnabled(boolean value) {
       
       enabled_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -602,9 +671,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bool enabled = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearEnabled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       enabled_ = false;
       onChanged();
       return this;
@@ -620,10 +690,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Override target destination if sniff'ed protocol is in the given list.
-     * Supported values are "http", "tls".
+     * Supported values are "http", "tls", "fakedns".
      * </pre>
      *
      * <code>repeated string destination_override = 2;</code>
+     * @return A list containing the destinationOverride.
      */
     public com.google.protobuf.ProtocolStringList
         getDestinationOverrideList() {
@@ -632,10 +703,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Override target destination if sniff'ed protocol is in the given list.
-     * Supported values are "http", "tls".
+     * Supported values are "http", "tls", "fakedns".
      * </pre>
      *
      * <code>repeated string destination_override = 2;</code>
+     * @return The count of destinationOverride.
      */
     public int getDestinationOverrideCount() {
       return destinationOverride_.size();
@@ -643,10 +715,12 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Override target destination if sniff'ed protocol is in the given list.
-     * Supported values are "http", "tls".
+     * Supported values are "http", "tls", "fakedns".
      * </pre>
      *
      * <code>repeated string destination_override = 2;</code>
+     * @param index The index of the element to return.
+     * @return The destinationOverride at the given index.
      */
     public java.lang.String getDestinationOverride(int index) {
       return destinationOverride_.get(index);
@@ -654,10 +728,12 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Override target destination if sniff'ed protocol is in the given list.
-     * Supported values are "http", "tls".
+     * Supported values are "http", "tls", "fakedns".
      * </pre>
      *
      * <code>repeated string destination_override = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the destinationOverride at the given index.
      */
     public com.google.protobuf.ByteString
         getDestinationOverrideBytes(int index) {
@@ -666,17 +742,18 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Override target destination if sniff'ed protocol is in the given list.
-     * Supported values are "http", "tls".
+     * Supported values are "http", "tls", "fakedns".
      * </pre>
      *
      * <code>repeated string destination_override = 2;</code>
+     * @param index The index to set the value at.
+     * @param value The destinationOverride to set.
+     * @return This builder for chaining.
      */
     public Builder setDestinationOverride(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDestinationOverrideIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDestinationOverrideIsMutable();
       destinationOverride_.set(index, value);
       onChanged();
       return this;
@@ -684,17 +761,17 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Override target destination if sniff'ed protocol is in the given list.
-     * Supported values are "http", "tls".
+     * Supported values are "http", "tls", "fakedns".
      * </pre>
      *
      * <code>repeated string destination_override = 2;</code>
+     * @param value The destinationOverride to add.
+     * @return This builder for chaining.
      */
     public Builder addDestinationOverride(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDestinationOverrideIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDestinationOverrideIsMutable();
       destinationOverride_.add(value);
       onChanged();
       return this;
@@ -702,10 +779,12 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Override target destination if sniff'ed protocol is in the given list.
-     * Supported values are "http", "tls".
+     * Supported values are "http", "tls", "fakedns".
      * </pre>
      *
      * <code>repeated string destination_override = 2;</code>
+     * @param values The destinationOverride to add.
+     * @return This builder for chaining.
      */
     public Builder addAllDestinationOverride(
         java.lang.Iterable<java.lang.String> values) {
@@ -718,10 +797,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Override target destination if sniff'ed protocol is in the given list.
-     * Supported values are "http", "tls".
+     * Supported values are "http", "tls", "fakedns".
      * </pre>
      *
      * <code>repeated string destination_override = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearDestinationOverride() {
       destinationOverride_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -732,17 +812,17 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Override target destination if sniff'ed protocol is in the given list.
-     * Supported values are "http", "tls".
+     * Supported values are "http", "tls", "fakedns".
      * </pre>
      *
      * <code>repeated string destination_override = 2;</code>
+     * @param value The bytes of the destinationOverride to add.
+     * @return This builder for chaining.
      */
     public Builder addDestinationOverrideBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureDestinationOverrideIsMutable();
       destinationOverride_.add(value);
       onChanged();
@@ -758,6 +838,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string domains_excluded = 3;</code>
+     * @return A list containing the domainsExcluded.
      */
     public com.google.protobuf.ProtocolStringList
         getDomainsExcludedList() {
@@ -765,18 +846,23 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string domains_excluded = 3;</code>
+     * @return The count of domainsExcluded.
      */
     public int getDomainsExcludedCount() {
       return domainsExcluded_.size();
     }
     /**
      * <code>repeated string domains_excluded = 3;</code>
+     * @param index The index of the element to return.
+     * @return The domainsExcluded at the given index.
      */
     public java.lang.String getDomainsExcluded(int index) {
       return domainsExcluded_.get(index);
     }
     /**
      * <code>repeated string domains_excluded = 3;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the domainsExcluded at the given index.
      */
     public com.google.protobuf.ByteString
         getDomainsExcludedBytes(int index) {
@@ -784,32 +870,35 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string domains_excluded = 3;</code>
+     * @param index The index to set the value at.
+     * @param value The domainsExcluded to set.
+     * @return This builder for chaining.
      */
     public Builder setDomainsExcluded(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDomainsExcludedIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDomainsExcludedIsMutable();
       domainsExcluded_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <code>repeated string domains_excluded = 3;</code>
+     * @param value The domainsExcluded to add.
+     * @return This builder for chaining.
      */
     public Builder addDomainsExcluded(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDomainsExcludedIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDomainsExcludedIsMutable();
       domainsExcluded_.add(value);
       onChanged();
       return this;
     }
     /**
      * <code>repeated string domains_excluded = 3;</code>
+     * @param values The domainsExcluded to add.
+     * @return This builder for chaining.
      */
     public Builder addAllDomainsExcluded(
         java.lang.Iterable<java.lang.String> values) {
@@ -821,6 +910,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string domains_excluded = 3;</code>
+     * @return This builder for chaining.
      */
     public Builder clearDomainsExcluded() {
       domainsExcluded_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -830,15 +920,97 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string domains_excluded = 3;</code>
+     * @param value The bytes of the domainsExcluded to add.
+     * @return This builder for chaining.
      */
     public Builder addDomainsExcludedBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureDomainsExcludedIsMutable();
       domainsExcluded_.add(value);
+      onChanged();
+      return this;
+    }
+
+    private boolean metadataOnly_ ;
+    /**
+     * <pre>
+     * Whether should only try to sniff metadata without waiting for client input.
+     * Can be used to support SMTP like protocol where server send the first
+     * message.
+     * </pre>
+     *
+     * <code>bool metadata_only = 4;</code>
+     * @return The metadataOnly.
+     */
+    @java.lang.Override
+    public boolean getMetadataOnly() {
+      return metadataOnly_;
+    }
+    /**
+     * <pre>
+     * Whether should only try to sniff metadata without waiting for client input.
+     * Can be used to support SMTP like protocol where server send the first
+     * message.
+     * </pre>
+     *
+     * <code>bool metadata_only = 4;</code>
+     * @param value The metadataOnly to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMetadataOnly(boolean value) {
+      
+      metadataOnly_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether should only try to sniff metadata without waiting for client input.
+     * Can be used to support SMTP like protocol where server send the first
+     * message.
+     * </pre>
+     *
+     * <code>bool metadata_only = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMetadataOnly() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      metadataOnly_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean routeOnly_ ;
+    /**
+     * <code>bool route_only = 5;</code>
+     * @return The routeOnly.
+     */
+    @java.lang.Override
+    public boolean getRouteOnly() {
+      return routeOnly_;
+    }
+    /**
+     * <code>bool route_only = 5;</code>
+     * @param value The routeOnly to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRouteOnly(boolean value) {
+      
+      routeOnly_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool route_only = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRouteOnly() {
+      bitField0_ = (bitField0_ & ~0x00000010);
+      routeOnly_ = false;
       onChanged();
       return this;
     }
@@ -875,7 +1047,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SniffingConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

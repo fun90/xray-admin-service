@@ -6,7 +6,7 @@ package com.xray.transport.internet.headers.srtp;
 /**
  * Protobuf type {@code xray.transport.internet.headers.srtp.Config}
  */
-public  final class Config extends
+public final class Config extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.transport.internet.headers.srtp.Config)
     ConfigOrBuilder {
@@ -19,77 +19,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new Config();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Config(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            version_ = input.readUInt32();
-            break;
-          }
-          case 16: {
-
-            padding_ = input.readBool();
-            break;
-          }
-          case 24: {
-
-            extension_ = input.readBool();
-            break;
-          }
-          case 32: {
-
-            csrcCount_ = input.readUInt32();
-            break;
-          }
-          case 40: {
-
-            marker_ = input.readBool();
-            break;
-          }
-          case 48: {
-
-            payloadType_ = input.readUInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -105,55 +44,67 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERSION_FIELD_NUMBER = 1;
-  private int version_;
+  private int version_ = 0;
   /**
    * <code>uint32 version = 1;</code>
+   * @return The version.
    */
+  @java.lang.Override
   public int getVersion() {
     return version_;
   }
 
   public static final int PADDING_FIELD_NUMBER = 2;
-  private boolean padding_;
+  private boolean padding_ = false;
   /**
    * <code>bool padding = 2;</code>
+   * @return The padding.
    */
+  @java.lang.Override
   public boolean getPadding() {
     return padding_;
   }
 
   public static final int EXTENSION_FIELD_NUMBER = 3;
-  private boolean extension_;
+  private boolean extension_ = false;
   /**
    * <code>bool extension = 3;</code>
+   * @return The extension.
    */
+  @java.lang.Override
   public boolean getExtension() {
     return extension_;
   }
 
   public static final int CSRC_COUNT_FIELD_NUMBER = 4;
-  private int csrcCount_;
+  private int csrcCount_ = 0;
   /**
    * <code>uint32 csrc_count = 4;</code>
+   * @return The csrcCount.
    */
+  @java.lang.Override
   public int getCsrcCount() {
     return csrcCount_;
   }
 
   public static final int MARKER_FIELD_NUMBER = 5;
-  private boolean marker_;
+  private boolean marker_ = false;
   /**
    * <code>bool marker = 5;</code>
+   * @return The marker.
    */
+  @java.lang.Override
   public boolean getMarker() {
     return marker_;
   }
 
   public static final int PAYLOAD_TYPE_FIELD_NUMBER = 6;
-  private int payloadType_;
+  private int payloadType_ = 0;
   /**
    * <code>uint32 payload_type = 6;</code>
+   * @return The payloadType.
    */
+  @java.lang.Override
   public int getPayloadType() {
     return payloadType_;
   }
@@ -190,7 +141,7 @@ private static final long serialVersionUID = 0L;
     if (payloadType_ != 0) {
       output.writeUInt32(6, payloadType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -223,7 +174,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(6, payloadType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -250,7 +201,7 @@ private static final long serialVersionUID = 0L;
         != other.getMarker()) return false;
     if (getPayloadType()
         != other.getPayloadType()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -276,7 +227,7 @@ private static final long serialVersionUID = 0L;
         getMarker());
     hash = (37 * hash) + PAYLOAD_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + getPayloadType();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -393,34 +344,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.transport.internet.headers.srtp.Config.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       version_ = 0;
-
       padding_ = false;
-
       extension_ = false;
-
       csrcCount_ = 0;
-
       marker_ = false;
-
       payloadType_ = 0;
-
       return this;
     }
 
@@ -447,14 +388,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.transport.internet.headers.srtp.Config buildPartial() {
       com.xray.transport.internet.headers.srtp.Config result = new com.xray.transport.internet.headers.srtp.Config(this);
-      result.version_ = version_;
-      result.padding_ = padding_;
-      result.extension_ = extension_;
-      result.csrcCount_ = csrcCount_;
-      result.marker_ = marker_;
-      result.payloadType_ = payloadType_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.transport.internet.headers.srtp.Config result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.version_ = version_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.padding_ = padding_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.extension_ = extension_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.csrcCount_ = csrcCount_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.marker_ = marker_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.payloadType_ = payloadType_;
+      }
     }
 
     @java.lang.Override
@@ -519,7 +477,7 @@ private static final long serialVersionUID = 0L;
       if (other.getPayloadType() != 0) {
         setPayloadType(other.getPayloadType());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -534,41 +492,91 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.transport.internet.headers.srtp.Config parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              version_ = input.readUInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              padding_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              extension_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              csrcCount_ = input.readUInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              marker_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              payloadType_ = input.readUInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.transport.internet.headers.srtp.Config) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int version_ ;
     /**
      * <code>uint32 version = 1;</code>
+     * @return The version.
      */
+    @java.lang.Override
     public int getVersion() {
       return version_;
     }
     /**
      * <code>uint32 version = 1;</code>
+     * @param value The version to set.
+     * @return This builder for chaining.
      */
     public Builder setVersion(int value) {
       
       version_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <code>uint32 version = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearVersion() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       version_ = 0;
       onChanged();
       return this;
@@ -577,24 +585,30 @@ private static final long serialVersionUID = 0L;
     private boolean padding_ ;
     /**
      * <code>bool padding = 2;</code>
+     * @return The padding.
      */
+    @java.lang.Override
     public boolean getPadding() {
       return padding_;
     }
     /**
      * <code>bool padding = 2;</code>
+     * @param value The padding to set.
+     * @return This builder for chaining.
      */
     public Builder setPadding(boolean value) {
       
       padding_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <code>bool padding = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearPadding() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       padding_ = false;
       onChanged();
       return this;
@@ -603,24 +617,30 @@ private static final long serialVersionUID = 0L;
     private boolean extension_ ;
     /**
      * <code>bool extension = 3;</code>
+     * @return The extension.
      */
+    @java.lang.Override
     public boolean getExtension() {
       return extension_;
     }
     /**
      * <code>bool extension = 3;</code>
+     * @param value The extension to set.
+     * @return This builder for chaining.
      */
     public Builder setExtension(boolean value) {
       
       extension_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <code>bool extension = 3;</code>
+     * @return This builder for chaining.
      */
     public Builder clearExtension() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       extension_ = false;
       onChanged();
       return this;
@@ -629,24 +649,30 @@ private static final long serialVersionUID = 0L;
     private int csrcCount_ ;
     /**
      * <code>uint32 csrc_count = 4;</code>
+     * @return The csrcCount.
      */
+    @java.lang.Override
     public int getCsrcCount() {
       return csrcCount_;
     }
     /**
      * <code>uint32 csrc_count = 4;</code>
+     * @param value The csrcCount to set.
+     * @return This builder for chaining.
      */
     public Builder setCsrcCount(int value) {
       
       csrcCount_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <code>uint32 csrc_count = 4;</code>
+     * @return This builder for chaining.
      */
     public Builder clearCsrcCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       csrcCount_ = 0;
       onChanged();
       return this;
@@ -655,24 +681,30 @@ private static final long serialVersionUID = 0L;
     private boolean marker_ ;
     /**
      * <code>bool marker = 5;</code>
+     * @return The marker.
      */
+    @java.lang.Override
     public boolean getMarker() {
       return marker_;
     }
     /**
      * <code>bool marker = 5;</code>
+     * @param value The marker to set.
+     * @return This builder for chaining.
      */
     public Builder setMarker(boolean value) {
       
       marker_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <code>bool marker = 5;</code>
+     * @return This builder for chaining.
      */
     public Builder clearMarker() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       marker_ = false;
       onChanged();
       return this;
@@ -681,24 +713,30 @@ private static final long serialVersionUID = 0L;
     private int payloadType_ ;
     /**
      * <code>uint32 payload_type = 6;</code>
+     * @return The payloadType.
      */
+    @java.lang.Override
     public int getPayloadType() {
       return payloadType_;
     }
     /**
      * <code>uint32 payload_type = 6;</code>
+     * @param value The payloadType to set.
+     * @return This builder for chaining.
      */
     public Builder setPayloadType(int value) {
       
       payloadType_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
     /**
      * <code>uint32 payload_type = 6;</code>
+     * @return This builder for chaining.
      */
     public Builder clearPayloadType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       payloadType_ = 0;
       onChanged();
       return this;
@@ -736,7 +774,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Config(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

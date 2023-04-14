@@ -9,10 +9,12 @@ public interface TestRouteRequestOrBuilder extends
 
   /**
    * <code>.xray.app.router.command.RoutingContext RoutingContext = 1;</code>
+   * @return Whether the routingContext field is set.
    */
   boolean hasRoutingContext();
   /**
    * <code>.xray.app.router.command.RoutingContext RoutingContext = 1;</code>
+   * @return The routingContext.
    */
   com.xray.app.router.command.RoutingContext getRoutingContext();
   /**
@@ -22,25 +24,32 @@ public interface TestRouteRequestOrBuilder extends
 
   /**
    * <code>repeated string FieldSelectors = 2;</code>
+   * @return A list containing the fieldSelectors.
    */
   java.util.List<java.lang.String>
       getFieldSelectorsList();
   /**
    * <code>repeated string FieldSelectors = 2;</code>
+   * @return The count of fieldSelectors.
    */
   int getFieldSelectorsCount();
   /**
    * <code>repeated string FieldSelectors = 2;</code>
+   * @param index The index of the element to return.
+   * @return The fieldSelectors at the given index.
    */
   java.lang.String getFieldSelectors(int index);
   /**
    * <code>repeated string FieldSelectors = 2;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the fieldSelectors at the given index.
    */
   com.google.protobuf.ByteString
       getFieldSelectorsBytes(int index);
 
   /**
    * <code>bool PublishResult = 3;</code>
+   * @return The publishResult.
    */
   boolean getPublishResult();
 }

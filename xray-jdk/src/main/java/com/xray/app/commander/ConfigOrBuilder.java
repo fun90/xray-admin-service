@@ -13,6 +13,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>string tag = 1;</code>
+   * @return The tag.
    */
   java.lang.String getTag();
   /**
@@ -21,6 +22,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>string tag = 1;</code>
+   * @return The bytes for tag.
    */
   com.google.protobuf.ByteString
       getTagBytes();

@@ -6,7 +6,7 @@ package com.xray.app.dns;
 /**
  * Protobuf type {@code xray.app.dns.Config}
  */
-public  final class Config extends
+public final class Config extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.app.dns.Config)
     ConfigOrBuilder {
@@ -21,110 +21,20 @@ private static final long serialVersionUID = 0L;
     clientIp_ = com.google.protobuf.ByteString.EMPTY;
     staticHosts_ = java.util.Collections.emptyList();
     tag_ = "";
+    queryStrategy_ = 0;
+  }
+
+  @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new Config();
   }
 
   @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Config(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              nameServers_ = new java.util.ArrayList<com.xray.common.net.Endpoint>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            nameServers_.add(
-                input.readMessage(com.xray.common.net.Endpoint.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              hosts_ = com.google.protobuf.MapField.newMapField(
-                  HostsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.xray.common.net.IPOrDomain>
-            hosts__ = input.readMessage(
-                HostsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            hosts_.getMutableMap().put(
-                hosts__.getKey(), hosts__.getValue());
-            break;
-          }
-          case 26: {
-
-            clientIp_ = input.readBytes();
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              staticHosts_ = new java.util.ArrayList<com.xray.app.dns.Config.HostMapping>();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            staticHosts_.add(
-                input.readMessage(com.xray.app.dns.Config.HostMapping.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              nameServer_ = new java.util.ArrayList<com.xray.app.dns.NameServer>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            nameServer_.add(
-                input.readMessage(com.xray.app.dns.NameServer.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            tag_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        nameServers_ = java.util.Collections.unmodifiableList(nameServers_);
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        staticHosts_ = java.util.Collections.unmodifiableList(staticHosts_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        nameServer_ = java.util.Collections.unmodifiableList(nameServer_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -157,54 +67,62 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <code>.xray.app.dns.DomainMatchingType type = 1;</code>
+     * @return The enum numeric value on the wire for type.
      */
     int getTypeValue();
     /**
      * <code>.xray.app.dns.DomainMatchingType type = 1;</code>
+     * @return The type.
      */
     com.xray.app.dns.DomainMatchingType getType();
 
     /**
      * <code>string domain = 2;</code>
+     * @return The domain.
      */
     java.lang.String getDomain();
     /**
      * <code>string domain = 2;</code>
+     * @return The bytes for domain.
      */
     com.google.protobuf.ByteString
         getDomainBytes();
 
     /**
      * <code>repeated bytes ip = 3;</code>
+     * @return A list containing the ip.
      */
     java.util.List<com.google.protobuf.ByteString> getIpList();
     /**
      * <code>repeated bytes ip = 3;</code>
+     * @return The count of ip.
      */
     int getIpCount();
     /**
      * <code>repeated bytes ip = 3;</code>
+     * @param index The index of the element to return.
+     * @return The ip at the given index.
      */
     com.google.protobuf.ByteString getIp(int index);
 
     /**
      * <pre>
      * ProxiedDomain indicates the mapped domain has the same IP address on this
-     * domain. Xray will use this domain for IP queries. This field is only
-     * effective if ip is empty.
+     * domain. Xray will use this domain for IP queries.
      * </pre>
      *
      * <code>string proxied_domain = 4;</code>
+     * @return The proxiedDomain.
      */
     java.lang.String getProxiedDomain();
     /**
      * <pre>
      * ProxiedDomain indicates the mapped domain has the same IP address on this
-     * domain. Xray will use this domain for IP queries. This field is only
-     * effective if ip is empty.
+     * domain. Xray will use this domain for IP queries.
      * </pre>
      *
      * <code>string proxied_domain = 4;</code>
+     * @return The bytes for proxiedDomain.
      */
     com.google.protobuf.ByteString
         getProxiedDomainBytes();
@@ -212,7 +130,7 @@ private static final long serialVersionUID = 0L;
   /**
    * Protobuf type {@code xray.app.dns.Config.HostMapping}
    */
-  public  static final class HostMapping extends
+  public static final class HostMapping extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:xray.app.dns.Config.HostMapping)
       HostMappingOrBuilder {
@@ -229,76 +147,16 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new HostMapping();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private HostMapping(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              type_ = rawValue;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              domain_ = s;
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                ip_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              ip_.add(input.readBytes());
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              proxiedDomain_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          ip_ = java.util.Collections.unmodifiableList(ip_); // C
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -313,29 +171,32 @@ private static final long serialVersionUID = 0L;
               com.xray.app.dns.Config.HostMapping.class, com.xray.app.dns.Config.HostMapping.Builder.class);
     }
 
-    private int bitField0_;
     public static final int TYPE_FIELD_NUMBER = 1;
-    private int type_;
+    private int type_ = 0;
     /**
      * <code>.xray.app.dns.DomainMatchingType type = 1;</code>
+     * @return The enum numeric value on the wire for type.
      */
-    public int getTypeValue() {
+    @java.lang.Override public int getTypeValue() {
       return type_;
     }
     /**
      * <code>.xray.app.dns.DomainMatchingType type = 1;</code>
+     * @return The type.
      */
-    public com.xray.app.dns.DomainMatchingType getType() {
-      @SuppressWarnings("deprecation")
-      com.xray.app.dns.DomainMatchingType result = com.xray.app.dns.DomainMatchingType.valueOf(type_);
+    @java.lang.Override public com.xray.app.dns.DomainMatchingType getType() {
+      com.xray.app.dns.DomainMatchingType result = com.xray.app.dns.DomainMatchingType.forNumber(type_);
       return result == null ? com.xray.app.dns.DomainMatchingType.UNRECOGNIZED : result;
     }
 
     public static final int DOMAIN_FIELD_NUMBER = 2;
-    private volatile java.lang.Object domain_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object domain_ = "";
     /**
      * <code>string domain = 2;</code>
+     * @return The domain.
      */
+    @java.lang.Override
     public java.lang.String getDomain() {
       java.lang.Object ref = domain_;
       if (ref instanceof java.lang.String) {
@@ -350,7 +211,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string domain = 2;</code>
+     * @return The bytes for domain.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getDomainBytes() {
       java.lang.Object ref = domain_;
@@ -366,38 +229,46 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int IP_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.protobuf.ByteString> ip_;
     /**
      * <code>repeated bytes ip = 3;</code>
+     * @return A list containing the ip.
      */
+    @java.lang.Override
     public java.util.List<com.google.protobuf.ByteString>
         getIpList() {
       return ip_;
     }
     /**
      * <code>repeated bytes ip = 3;</code>
+     * @return The count of ip.
      */
     public int getIpCount() {
       return ip_.size();
     }
     /**
      * <code>repeated bytes ip = 3;</code>
+     * @param index The index of the element to return.
+     * @return The ip at the given index.
      */
     public com.google.protobuf.ByteString getIp(int index) {
       return ip_.get(index);
     }
 
     public static final int PROXIED_DOMAIN_FIELD_NUMBER = 4;
-    private volatile java.lang.Object proxiedDomain_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object proxiedDomain_ = "";
     /**
      * <pre>
      * ProxiedDomain indicates the mapped domain has the same IP address on this
-     * domain. Xray will use this domain for IP queries. This field is only
-     * effective if ip is empty.
+     * domain. Xray will use this domain for IP queries.
      * </pre>
      *
      * <code>string proxied_domain = 4;</code>
+     * @return The proxiedDomain.
      */
+    @java.lang.Override
     public java.lang.String getProxiedDomain() {
       java.lang.Object ref = proxiedDomain_;
       if (ref instanceof java.lang.String) {
@@ -413,12 +284,13 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * ProxiedDomain indicates the mapped domain has the same IP address on this
-     * domain. Xray will use this domain for IP queries. This field is only
-     * effective if ip is empty.
+     * domain. Xray will use this domain for IP queries.
      * </pre>
      *
      * <code>string proxied_domain = 4;</code>
+     * @return The bytes for proxiedDomain.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getProxiedDomainBytes() {
       java.lang.Object ref = proxiedDomain_;
@@ -450,16 +322,16 @@ private static final long serialVersionUID = 0L;
       if (type_ != com.xray.app.dns.DomainMatchingType.Full.getNumber()) {
         output.writeEnum(1, type_);
       }
-      if (!getDomainBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(domain_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, domain_);
       }
       for (int i = 0; i < ip_.size(); i++) {
         output.writeBytes(3, ip_.get(i));
       }
-      if (!getProxiedDomainBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(proxiedDomain_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, proxiedDomain_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -472,7 +344,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, type_);
       }
-      if (!getDomainBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(domain_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, domain_);
       }
       {
@@ -484,10 +356,10 @@ private static final long serialVersionUID = 0L;
         size += dataSize;
         size += 1 * getIpList().size();
       }
-      if (!getProxiedDomainBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(proxiedDomain_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, proxiedDomain_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -509,7 +381,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getIpList())) return false;
       if (!getProxiedDomain()
           .equals(other.getProxiedDomain())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -530,7 +402,7 @@ private static final long serialVersionUID = 0L;
       }
       hash = (37 * hash) + PROXIED_DOMAIN_FIELD_NUMBER;
       hash = (53 * hash) + getProxiedDomain().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -647,30 +519,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.xray.app.dns.Config.HostMapping.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         type_ = 0;
-
         domain_ = "";
-
         ip_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
         proxiedDomain_ = "";
-
         return this;
       }
 
@@ -697,19 +561,31 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.xray.app.dns.Config.HostMapping buildPartial() {
         com.xray.app.dns.Config.HostMapping result = new com.xray.app.dns.Config.HostMapping(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        result.type_ = type_;
-        result.domain_ = domain_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.xray.app.dns.Config.HostMapping result) {
         if (((bitField0_ & 0x00000004) != 0)) {
           ip_ = java.util.Collections.unmodifiableList(ip_);
           bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.ip_ = ip_;
-        result.proxiedDomain_ = proxiedDomain_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.xray.app.dns.Config.HostMapping result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.type_ = type_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.domain_ = domain_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.proxiedDomain_ = proxiedDomain_;
+        }
       }
 
       @java.lang.Override
@@ -761,6 +637,7 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getDomain().isEmpty()) {
           domain_ = other.domain_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.ip_.isEmpty()) {
@@ -775,9 +652,10 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getProxiedDomain().isEmpty()) {
           proxiedDomain_ = other.proxiedDomain_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -792,17 +670,51 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.xray.app.dns.Config.HostMapping parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                domain_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                com.google.protobuf.ByteString v = input.readBytes();
+                ensureIpIsMutable();
+                ip_.add(v);
+                break;
+              } // case 26
+              case 34: {
+                proxiedDomain_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.xray.app.dns.Config.HostMapping) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -810,43 +722,51 @@ private static final long serialVersionUID = 0L;
       private int type_ = 0;
       /**
        * <code>.xray.app.dns.DomainMatchingType type = 1;</code>
+       * @return The enum numeric value on the wire for type.
        */
-      public int getTypeValue() {
+      @java.lang.Override public int getTypeValue() {
         return type_;
       }
       /**
        * <code>.xray.app.dns.DomainMatchingType type = 1;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
         type_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <code>.xray.app.dns.DomainMatchingType type = 1;</code>
+       * @return The type.
        */
+      @java.lang.Override
       public com.xray.app.dns.DomainMatchingType getType() {
-        @SuppressWarnings("deprecation")
-        com.xray.app.dns.DomainMatchingType result = com.xray.app.dns.DomainMatchingType.valueOf(type_);
+        com.xray.app.dns.DomainMatchingType result = com.xray.app.dns.DomainMatchingType.forNumber(type_);
         return result == null ? com.xray.app.dns.DomainMatchingType.UNRECOGNIZED : result;
       }
       /**
        * <code>.xray.app.dns.DomainMatchingType type = 1;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
        */
       public Builder setType(com.xray.app.dns.DomainMatchingType value) {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         type_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
        * <code>.xray.app.dns.DomainMatchingType type = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         type_ = 0;
         onChanged();
         return this;
@@ -855,6 +775,7 @@ private static final long serialVersionUID = 0L;
       private java.lang.Object domain_ = "";
       /**
        * <code>string domain = 2;</code>
+       * @return The domain.
        */
       public java.lang.String getDomain() {
         java.lang.Object ref = domain_;
@@ -870,6 +791,7 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <code>string domain = 2;</code>
+       * @return The bytes for domain.
        */
       public com.google.protobuf.ByteString
           getDomainBytes() {
@@ -886,37 +808,38 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <code>string domain = 2;</code>
+       * @param value The domain to set.
+       * @return This builder for chaining.
        */
       public Builder setDomain(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         domain_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
        * <code>string domain = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDomain() {
-        
         domain_ = getDefaultInstance().getDomain();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
       /**
        * <code>string domain = 2;</code>
+       * @param value The bytes for domain to set.
+       * @return This builder for chaining.
        */
       public Builder setDomainBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         domain_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -926,10 +849,11 @@ private static final long serialVersionUID = 0L;
         if (!((bitField0_ & 0x00000004) != 0)) {
           ip_ = new java.util.ArrayList<com.google.protobuf.ByteString>(ip_);
           bitField0_ |= 0x00000004;
-         }
+        }
       }
       /**
        * <code>repeated bytes ip = 3;</code>
+       * @return A list containing the ip.
        */
       public java.util.List<com.google.protobuf.ByteString>
           getIpList() {
@@ -938,43 +862,49 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <code>repeated bytes ip = 3;</code>
+       * @return The count of ip.
        */
       public int getIpCount() {
         return ip_.size();
       }
       /**
        * <code>repeated bytes ip = 3;</code>
+       * @param index The index of the element to return.
+       * @return The ip at the given index.
        */
       public com.google.protobuf.ByteString getIp(int index) {
         return ip_.get(index);
       }
       /**
        * <code>repeated bytes ip = 3;</code>
+       * @param index The index to set the value at.
+       * @param value The ip to set.
+       * @return This builder for chaining.
        */
       public Builder setIp(
           int index, com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIpIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureIpIsMutable();
         ip_.set(index, value);
         onChanged();
         return this;
       }
       /**
        * <code>repeated bytes ip = 3;</code>
+       * @param value The ip to add.
+       * @return This builder for chaining.
        */
       public Builder addIp(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIpIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureIpIsMutable();
         ip_.add(value);
         onChanged();
         return this;
       }
       /**
        * <code>repeated bytes ip = 3;</code>
+       * @param values The ip to add.
+       * @return This builder for chaining.
        */
       public Builder addAllIp(
           java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
@@ -986,6 +916,7 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <code>repeated bytes ip = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearIp() {
         ip_ = java.util.Collections.emptyList();
@@ -998,11 +929,11 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * ProxiedDomain indicates the mapped domain has the same IP address on this
-       * domain. Xray will use this domain for IP queries. This field is only
-       * effective if ip is empty.
+       * domain. Xray will use this domain for IP queries.
        * </pre>
        *
        * <code>string proxied_domain = 4;</code>
+       * @return The proxiedDomain.
        */
       public java.lang.String getProxiedDomain() {
         java.lang.Object ref = proxiedDomain_;
@@ -1019,11 +950,11 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * ProxiedDomain indicates the mapped domain has the same IP address on this
-       * domain. Xray will use this domain for IP queries. This field is only
-       * effective if ip is empty.
+       * domain. Xray will use this domain for IP queries.
        * </pre>
        *
        * <code>string proxied_domain = 4;</code>
+       * @return The bytes for proxiedDomain.
        */
       public com.google.protobuf.ByteString
           getProxiedDomainBytes() {
@@ -1041,54 +972,52 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * ProxiedDomain indicates the mapped domain has the same IP address on this
-       * domain. Xray will use this domain for IP queries. This field is only
-       * effective if ip is empty.
+       * domain. Xray will use this domain for IP queries.
        * </pre>
        *
        * <code>string proxied_domain = 4;</code>
+       * @param value The proxiedDomain to set.
+       * @return This builder for chaining.
        */
       public Builder setProxiedDomain(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         proxiedDomain_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
       /**
        * <pre>
        * ProxiedDomain indicates the mapped domain has the same IP address on this
-       * domain. Xray will use this domain for IP queries. This field is only
-       * effective if ip is empty.
+       * domain. Xray will use this domain for IP queries.
        * </pre>
        *
        * <code>string proxied_domain = 4;</code>
+       * @return This builder for chaining.
        */
       public Builder clearProxiedDomain() {
-        
         proxiedDomain_ = getDefaultInstance().getProxiedDomain();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
       /**
        * <pre>
        * ProxiedDomain indicates the mapped domain has the same IP address on this
-       * domain. Xray will use this domain for IP queries. This field is only
-       * effective if ip is empty.
+       * domain. Xray will use this domain for IP queries.
        * </pre>
        *
        * <code>string proxied_domain = 4;</code>
+       * @param value The bytes for proxiedDomain to set.
+       * @return This builder for chaining.
        */
       public Builder setProxiedDomainBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         proxiedDomain_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1125,7 +1054,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new HostMapping(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1145,8 +1085,8 @@ private static final long serialVersionUID = 0L;
 
   }
 
-  private int bitField0_;
   public static final int NAMESERVERS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.xray.common.net.Endpoint> nameServers_;
   /**
    * <pre>
@@ -1157,6 +1097,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.net.Endpoint NameServers = 1 [deprecated = true];</code>
    */
+  @java.lang.Override
   @java.lang.Deprecated public java.util.List<com.xray.common.net.Endpoint> getNameServersList() {
     return nameServers_;
   }
@@ -1169,6 +1110,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.net.Endpoint NameServers = 1 [deprecated = true];</code>
    */
+  @java.lang.Override
   @java.lang.Deprecated public java.util.List<? extends com.xray.common.net.EndpointOrBuilder> 
       getNameServersOrBuilderList() {
     return nameServers_;
@@ -1182,6 +1124,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.net.Endpoint NameServers = 1 [deprecated = true];</code>
    */
+  @java.lang.Override
   @java.lang.Deprecated public int getNameServersCount() {
     return nameServers_.size();
   }
@@ -1194,6 +1137,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.net.Endpoint NameServers = 1 [deprecated = true];</code>
    */
+  @java.lang.Override
   @java.lang.Deprecated public com.xray.common.net.Endpoint getNameServers(int index) {
     return nameServers_.get(index);
   }
@@ -1206,12 +1150,14 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.net.Endpoint NameServers = 1 [deprecated = true];</code>
    */
+  @java.lang.Override
   @java.lang.Deprecated public com.xray.common.net.EndpointOrBuilder getNameServersOrBuilder(
       int index) {
     return nameServers_.get(index);
   }
 
   public static final int NAME_SERVER_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.xray.app.dns.NameServer> nameServer_;
   /**
    * <pre>
@@ -1220,6 +1166,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.dns.NameServer name_server = 5;</code>
    */
+  @java.lang.Override
   public java.util.List<com.xray.app.dns.NameServer> getNameServerList() {
     return nameServer_;
   }
@@ -1230,6 +1177,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.dns.NameServer name_server = 5;</code>
    */
+  @java.lang.Override
   public java.util.List<? extends com.xray.app.dns.NameServerOrBuilder> 
       getNameServerOrBuilderList() {
     return nameServer_;
@@ -1241,6 +1189,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.dns.NameServer name_server = 5;</code>
    */
+  @java.lang.Override
   public int getNameServerCount() {
     return nameServer_.size();
   }
@@ -1251,6 +1200,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.dns.NameServer name_server = 5;</code>
    */
+  @java.lang.Override
   public com.xray.app.dns.NameServer getNameServer(int index) {
     return nameServer_.get(index);
   }
@@ -1261,6 +1211,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.dns.NameServer name_server = 5;</code>
    */
+  @java.lang.Override
   public com.xray.app.dns.NameServerOrBuilder getNameServerOrBuilder(
       int index) {
     return nameServer_.get(index);
@@ -1278,6 +1229,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.xray.common.net.IPOrDomain.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.xray.common.net.IPOrDomain> hosts_;
   private com.google.protobuf.MapField<java.lang.String, com.xray.common.net.IPOrDomain>
@@ -1288,8 +1240,7 @@ private static final long serialVersionUID = 0L;
     }
     return hosts_;
   }
-  @java.lang.Deprecated 
-  public int getHostsCount() {
+  @java.lang.Deprecated public int getHostsCount() {
     return internalGetHosts().getMap().size();
   }
   /**
@@ -1300,15 +1251,16 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .xray.common.net.IPOrDomain&gt; Hosts = 2 [deprecated = true];</code>
    */
-  @java.lang.Deprecated 
-  public boolean containsHosts(
+  @java.lang.Override
+  @java.lang.Deprecated public boolean containsHosts(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     return internalGetHosts().getMap().containsKey(key);
   }
   /**
    * Use {@link #getHostsMap()} instead.
    */
+  @java.lang.Override
   @java.lang.Deprecated
   public java.util.Map<java.lang.String, com.xray.common.net.IPOrDomain> getHosts() {
     return getHostsMap();
@@ -1321,8 +1273,8 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .xray.common.net.IPOrDomain&gt; Hosts = 2 [deprecated = true];</code>
    */
-  @java.lang.Deprecated 
-  public java.util.Map<java.lang.String, com.xray.common.net.IPOrDomain> getHostsMap() {
+  @java.lang.Override
+  @java.lang.Deprecated public java.util.Map<java.lang.String, com.xray.common.net.IPOrDomain> getHostsMap() {
     return internalGetHosts().getMap();
   }
   /**
@@ -1333,11 +1285,13 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .xray.common.net.IPOrDomain&gt; Hosts = 2 [deprecated = true];</code>
    */
-  @java.lang.Deprecated 
-  public com.xray.common.net.IPOrDomain getHostsOrDefault(
+  @java.lang.Override
+  @java.lang.Deprecated public /* nullable */
+com.xray.common.net.IPOrDomain getHostsOrDefault(
       java.lang.String key,
-      com.xray.common.net.IPOrDomain defaultValue) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+      /* nullable */
+com.xray.common.net.IPOrDomain defaultValue) {
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.xray.common.net.IPOrDomain> map =
         internalGetHosts().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -1350,10 +1304,10 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .xray.common.net.IPOrDomain&gt; Hosts = 2 [deprecated = true];</code>
    */
-  @java.lang.Deprecated 
-  public com.xray.common.net.IPOrDomain getHostsOrThrow(
+  @java.lang.Override
+  @java.lang.Deprecated public com.xray.common.net.IPOrDomain getHostsOrThrow(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.xray.common.net.IPOrDomain> map =
         internalGetHosts().getMap();
     if (!map.containsKey(key)) {
@@ -1363,7 +1317,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLIENT_IP_FIELD_NUMBER = 3;
-  private com.google.protobuf.ByteString clientIp_;
+  private com.google.protobuf.ByteString clientIp_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * Client IP for EDNS client subnet. Must be 4 bytes (IPv4) or 16 bytes
@@ -1371,22 +1325,27 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>bytes client_ip = 3;</code>
+   * @return The clientIp.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString getClientIp() {
     return clientIp_;
   }
 
   public static final int STATIC_HOSTS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.xray.app.dns.Config.HostMapping> staticHosts_;
   /**
    * <code>repeated .xray.app.dns.Config.HostMapping static_hosts = 4;</code>
    */
+  @java.lang.Override
   public java.util.List<com.xray.app.dns.Config.HostMapping> getStaticHostsList() {
     return staticHosts_;
   }
   /**
    * <code>repeated .xray.app.dns.Config.HostMapping static_hosts = 4;</code>
    */
+  @java.lang.Override
   public java.util.List<? extends com.xray.app.dns.Config.HostMappingOrBuilder> 
       getStaticHostsOrBuilderList() {
     return staticHosts_;
@@ -1394,32 +1353,38 @@ private static final long serialVersionUID = 0L;
   /**
    * <code>repeated .xray.app.dns.Config.HostMapping static_hosts = 4;</code>
    */
+  @java.lang.Override
   public int getStaticHostsCount() {
     return staticHosts_.size();
   }
   /**
    * <code>repeated .xray.app.dns.Config.HostMapping static_hosts = 4;</code>
    */
+  @java.lang.Override
   public com.xray.app.dns.Config.HostMapping getStaticHosts(int index) {
     return staticHosts_.get(index);
   }
   /**
    * <code>repeated .xray.app.dns.Config.HostMapping static_hosts = 4;</code>
    */
+  @java.lang.Override
   public com.xray.app.dns.Config.HostMappingOrBuilder getStaticHostsOrBuilder(
       int index) {
     return staticHosts_.get(index);
   }
 
   public static final int TAG_FIELD_NUMBER = 6;
-  private volatile java.lang.Object tag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object tag_ = "";
   /**
    * <pre>
    * Tag is the inbound tag of DNS client.
    * </pre>
    *
    * <code>string tag = 6;</code>
+   * @return The tag.
    */
+  @java.lang.Override
   public java.lang.String getTag() {
     java.lang.Object ref = tag_;
     if (ref instanceof java.lang.String) {
@@ -1438,7 +1403,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string tag = 6;</code>
+   * @return The bytes for tag.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getTagBytes() {
     java.lang.Object ref = tag_;
@@ -1451,6 +1418,61 @@ private static final long serialVersionUID = 0L;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
+  }
+
+  public static final int DISABLECACHE_FIELD_NUMBER = 8;
+  private boolean disableCache_ = false;
+  /**
+   * <pre>
+   * DisableCache disables DNS cache
+   * </pre>
+   *
+   * <code>bool disableCache = 8;</code>
+   * @return The disableCache.
+   */
+  @java.lang.Override
+  public boolean getDisableCache() {
+    return disableCache_;
+  }
+
+  public static final int QUERY_STRATEGY_FIELD_NUMBER = 9;
+  private int queryStrategy_ = 0;
+  /**
+   * <code>.xray.app.dns.QueryStrategy query_strategy = 9;</code>
+   * @return The enum numeric value on the wire for queryStrategy.
+   */
+  @java.lang.Override public int getQueryStrategyValue() {
+    return queryStrategy_;
+  }
+  /**
+   * <code>.xray.app.dns.QueryStrategy query_strategy = 9;</code>
+   * @return The queryStrategy.
+   */
+  @java.lang.Override public com.xray.app.dns.QueryStrategy getQueryStrategy() {
+    com.xray.app.dns.QueryStrategy result = com.xray.app.dns.QueryStrategy.forNumber(queryStrategy_);
+    return result == null ? com.xray.app.dns.QueryStrategy.UNRECOGNIZED : result;
+  }
+
+  public static final int DISABLEFALLBACK_FIELD_NUMBER = 10;
+  private boolean disableFallback_ = false;
+  /**
+   * <code>bool disableFallback = 10;</code>
+   * @return The disableFallback.
+   */
+  @java.lang.Override
+  public boolean getDisableFallback() {
+    return disableFallback_;
+  }
+
+  public static final int DISABLEFALLBACKIFMATCH_FIELD_NUMBER = 11;
+  private boolean disableFallbackIfMatch_ = false;
+  /**
+   * <code>bool disableFallbackIfMatch = 11;</code>
+   * @return The disableFallbackIfMatch.
+   */
+  @java.lang.Override
+  public boolean getDisableFallbackIfMatch() {
+    return disableFallbackIfMatch_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1485,10 +1507,22 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < nameServer_.size(); i++) {
       output.writeMessage(5, nameServer_.get(i));
     }
-    if (!getTagBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tag_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, tag_);
     }
-    unknownFields.writeTo(output);
+    if (disableCache_ != false) {
+      output.writeBool(8, disableCache_);
+    }
+    if (queryStrategy_ != com.xray.app.dns.QueryStrategy.USE_IP.getNumber()) {
+      output.writeEnum(9, queryStrategy_);
+    }
+    if (disableFallback_ != false) {
+      output.writeBool(10, disableFallback_);
+    }
+    if (disableFallbackIfMatch_ != false) {
+      output.writeBool(11, disableFallbackIfMatch_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1523,10 +1557,26 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, nameServer_.get(i));
     }
-    if (!getTagBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tag_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, tag_);
     }
-    size += unknownFields.getSerializedSize();
+    if (disableCache_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(8, disableCache_);
+    }
+    if (queryStrategy_ != com.xray.app.dns.QueryStrategy.USE_IP.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(9, queryStrategy_);
+    }
+    if (disableFallback_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(10, disableFallback_);
+    }
+    if (disableFallbackIfMatch_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(11, disableFallbackIfMatch_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1553,7 +1603,14 @@ private static final long serialVersionUID = 0L;
         .equals(other.getStaticHostsList())) return false;
     if (!getTag()
         .equals(other.getTag())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (getDisableCache()
+        != other.getDisableCache()) return false;
+    if (queryStrategy_ != other.queryStrategy_) return false;
+    if (getDisableFallback()
+        != other.getDisableFallback()) return false;
+    if (getDisableFallbackIfMatch()
+        != other.getDisableFallbackIfMatch()) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1584,7 +1641,18 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + TAG_FIELD_NUMBER;
     hash = (53 * hash) + getTag().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + DISABLECACHE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getDisableCache());
+    hash = (37 * hash) + QUERY_STRATEGY_FIELD_NUMBER;
+    hash = (53 * hash) + queryStrategy_;
+    hash = (37 * hash) + DISABLEFALLBACK_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getDisableFallback());
+    hash = (37 * hash) + DISABLEFALLBACKIFMATCH_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getDisableFallbackIfMatch());
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1723,48 +1791,46 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.app.dns.Config.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getNameServersFieldBuilder();
-        getNameServerFieldBuilder();
-        getStaticHostsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (nameServersBuilder_ == null) {
         nameServers_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        nameServers_ = null;
         nameServersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (nameServerBuilder_ == null) {
         nameServer_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        nameServer_ = null;
         nameServerBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableHosts().clear();
       clientIp_ = com.google.protobuf.ByteString.EMPTY;
-
       if (staticHostsBuilder_ == null) {
         staticHosts_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
       } else {
+        staticHosts_ = null;
         staticHostsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       tag_ = "";
-
+      disableCache_ = false;
+      queryStrategy_ = 0;
+      disableFallback_ = false;
+      disableFallbackIfMatch_ = false;
       return this;
     }
 
@@ -1791,8 +1857,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.app.dns.Config buildPartial() {
       com.xray.app.dns.Config result = new com.xray.app.dns.Config(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.xray.app.dns.Config result) {
       if (nameServersBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           nameServers_ = java.util.Collections.unmodifiableList(nameServers_);
@@ -1811,9 +1882,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.nameServer_ = nameServerBuilder_.build();
       }
-      result.hosts_ = internalGetHosts();
-      result.hosts_.makeImmutable();
-      result.clientIp_ = clientIp_;
       if (staticHostsBuilder_ == null) {
         if (((bitField0_ & 0x00000010) != 0)) {
           staticHosts_ = java.util.Collections.unmodifiableList(staticHosts_);
@@ -1823,10 +1891,32 @@ private static final long serialVersionUID = 0L;
       } else {
         result.staticHosts_ = staticHostsBuilder_.build();
       }
-      result.tag_ = tag_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.xray.app.dns.Config result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.hosts_ = internalGetHosts();
+        result.hosts_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.clientIp_ = clientIp_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.tag_ = tag_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.disableCache_ = disableCache_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.queryStrategy_ = queryStrategy_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.disableFallback_ = disableFallback_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.disableFallbackIfMatch_ = disableFallbackIfMatch_;
+      }
     }
 
     @java.lang.Override
@@ -1927,6 +2017,7 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableHosts().mergeFrom(
           other.internalGetHosts());
+      bitField0_ |= 0x00000004;
       if (other.getClientIp() != com.google.protobuf.ByteString.EMPTY) {
         setClientIp(other.getClientIp());
       }
@@ -1958,9 +2049,22 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTag().isEmpty()) {
         tag_ = other.tag_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.getDisableCache() != false) {
+        setDisableCache(other.getDisableCache());
+      }
+      if (other.queryStrategy_ != 0) {
+        setQueryStrategyValue(other.getQueryStrategyValue());
+      }
+      if (other.getDisableFallback() != false) {
+        setDisableFallback(other.getDisableFallback());
+      }
+      if (other.getDisableFallbackIfMatch() != false) {
+        setDisableFallbackIfMatch(other.getDisableFallbackIfMatch());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1975,17 +2079,108 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.app.dns.Config parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.xray.common.net.Endpoint m =
+                  input.readMessage(
+                      com.xray.common.net.Endpoint.parser(),
+                      extensionRegistry);
+              if (nameServersBuilder_ == null) {
+                ensureNameServersIsMutable();
+                nameServers_.add(m);
+              } else {
+                nameServersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, com.xray.common.net.IPOrDomain>
+              hosts__ = input.readMessage(
+                  HostsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableHosts().getMutableMap().put(
+                  hosts__.getKey(), hosts__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              clientIp_ = input.readBytes();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 34: {
+              com.xray.app.dns.Config.HostMapping m =
+                  input.readMessage(
+                      com.xray.app.dns.Config.HostMapping.parser(),
+                      extensionRegistry);
+              if (staticHostsBuilder_ == null) {
+                ensureStaticHostsIsMutable();
+                staticHosts_.add(m);
+              } else {
+                staticHostsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              com.xray.app.dns.NameServer m =
+                  input.readMessage(
+                      com.xray.app.dns.NameServer.parser(),
+                      extensionRegistry);
+              if (nameServerBuilder_ == null) {
+                ensureNameServerIsMutable();
+                nameServer_.add(m);
+              } else {
+                nameServerBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              tag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 64: {
+              disableCache_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 64
+            case 72: {
+              queryStrategy_ = input.readEnum();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 72
+            case 80: {
+              disableFallback_ = input.readBool();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 80
+            case 88: {
+              disableFallbackIfMatch_ = input.readBool();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 88
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.app.dns.Config) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2652,17 +2847,16 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.MapField<
         java.lang.String, com.xray.common.net.IPOrDomain> hosts_;
-    private com.google.protobuf.MapField<java.lang.String, com.xray.common.net.IPOrDomain>
-    internalGetHosts() {
+    @java.lang.Deprecated private com.google.protobuf.MapField<java.lang.String, com.xray.common.net.IPOrDomain>
+        internalGetHosts() {
       if (hosts_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             HostsDefaultEntryHolder.defaultEntry);
       }
       return hosts_;
     }
-    private com.google.protobuf.MapField<java.lang.String, com.xray.common.net.IPOrDomain>
-    internalGetMutableHosts() {
-      onChanged();;
+    @java.lang.Deprecated private com.google.protobuf.MapField<java.lang.String, com.xray.common.net.IPOrDomain>
+        internalGetMutableHosts() {
       if (hosts_ == null) {
         hosts_ = com.google.protobuf.MapField.newMapField(
             HostsDefaultEntryHolder.defaultEntry);
@@ -2670,10 +2864,11 @@ private static final long serialVersionUID = 0L;
       if (!hosts_.isMutable()) {
         hosts_ = hosts_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return hosts_;
     }
-    @java.lang.Deprecated 
-    public int getHostsCount() {
+    @java.lang.Deprecated public int getHostsCount() {
       return internalGetHosts().getMap().size();
     }
     /**
@@ -2684,15 +2879,16 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .xray.common.net.IPOrDomain&gt; Hosts = 2 [deprecated = true];</code>
      */
-    @java.lang.Deprecated 
-    public boolean containsHosts(
+    @java.lang.Override
+    @java.lang.Deprecated public boolean containsHosts(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetHosts().getMap().containsKey(key);
     }
     /**
      * Use {@link #getHostsMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.xray.common.net.IPOrDomain> getHosts() {
       return getHostsMap();
@@ -2705,8 +2901,8 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .xray.common.net.IPOrDomain&gt; Hosts = 2 [deprecated = true];</code>
      */
-    @java.lang.Deprecated 
-    public java.util.Map<java.lang.String, com.xray.common.net.IPOrDomain> getHostsMap() {
+    @java.lang.Override
+    @java.lang.Deprecated public java.util.Map<java.lang.String, com.xray.common.net.IPOrDomain> getHostsMap() {
       return internalGetHosts().getMap();
     }
     /**
@@ -2717,11 +2913,13 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .xray.common.net.IPOrDomain&gt; Hosts = 2 [deprecated = true];</code>
      */
-    @java.lang.Deprecated 
-    public com.xray.common.net.IPOrDomain getHostsOrDefault(
+    @java.lang.Override
+    @java.lang.Deprecated public /* nullable */
+com.xray.common.net.IPOrDomain getHostsOrDefault(
         java.lang.String key,
-        com.xray.common.net.IPOrDomain defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+        /* nullable */
+com.xray.common.net.IPOrDomain defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.xray.common.net.IPOrDomain> map =
           internalGetHosts().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -2734,10 +2932,10 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .xray.common.net.IPOrDomain&gt; Hosts = 2 [deprecated = true];</code>
      */
-    @java.lang.Deprecated 
-    public com.xray.common.net.IPOrDomain getHostsOrThrow(
+    @java.lang.Override
+    @java.lang.Deprecated public com.xray.common.net.IPOrDomain getHostsOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.xray.common.net.IPOrDomain> map =
           internalGetHosts().getMap();
       if (!map.containsKey(key)) {
@@ -2745,8 +2943,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-    @java.lang.Deprecated 
-    public Builder clearHosts() {
+    @java.lang.Deprecated public Builder clearHosts() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableHosts().getMutableMap()
           .clear();
       return this;
@@ -2759,10 +2957,9 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .xray.common.net.IPOrDomain&gt; Hosts = 2 [deprecated = true];</code>
      */
-    @java.lang.Deprecated 
-    public Builder removeHosts(
+    @java.lang.Deprecated public Builder removeHosts(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       internalGetMutableHosts().getMutableMap()
           .remove(key);
       return this;
@@ -2772,7 +2969,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.xray.common.net.IPOrDomain>
-    getMutableHosts() {
+        getMutableHosts() {
+      bitField0_ |= 0x00000004;
       return internalGetMutableHosts().getMutableMap();
     }
     /**
@@ -2786,10 +2984,11 @@ private static final long serialVersionUID = 0L;
     @java.lang.Deprecated public Builder putHosts(
         java.lang.String key,
         com.xray.common.net.IPOrDomain value) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      if (value == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableHosts().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
@@ -2800,11 +2999,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .xray.common.net.IPOrDomain&gt; Hosts = 2 [deprecated = true];</code>
      */
-    @java.lang.Deprecated 
-    public Builder putAllHosts(
+    @java.lang.Deprecated public Builder putAllHosts(
         java.util.Map<java.lang.String, com.xray.common.net.IPOrDomain> values) {
       internalGetMutableHosts().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
 
@@ -2816,7 +3015,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bytes client_ip = 3;</code>
+     * @return The clientIp.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString getClientIp() {
       return clientIp_;
     }
@@ -2827,13 +3028,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bytes client_ip = 3;</code>
+     * @param value The clientIp to set.
+     * @return This builder for chaining.
      */
     public Builder setClientIp(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       clientIp_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2844,9 +3045,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bytes client_ip = 3;</code>
+     * @return This builder for chaining.
      */
     public Builder clearClientIp() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       clientIp_ = getDefaultInstance().getClientIp();
       onChanged();
       return this;
@@ -3099,6 +3301,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string tag = 6;</code>
+     * @return The tag.
      */
     public java.lang.String getTag() {
       java.lang.Object ref = tag_;
@@ -3118,6 +3321,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string tag = 6;</code>
+     * @return The bytes for tag.
      */
     public com.google.protobuf.ByteString
         getTagBytes() {
@@ -3138,14 +3342,14 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string tag = 6;</code>
+     * @param value The tag to set.
+     * @return This builder for chaining.
      */
     public Builder setTag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       tag_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3155,10 +3359,11 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string tag = 6;</code>
+     * @return This builder for chaining.
      */
     public Builder clearTag() {
-      
       tag_ = getDefaultInstance().getTag();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -3168,15 +3373,176 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string tag = 6;</code>
+     * @param value The bytes for tag to set.
+     * @return This builder for chaining.
      */
     public Builder setTagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       tag_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+
+    private boolean disableCache_ ;
+    /**
+     * <pre>
+     * DisableCache disables DNS cache
+     * </pre>
+     *
+     * <code>bool disableCache = 8;</code>
+     * @return The disableCache.
+     */
+    @java.lang.Override
+    public boolean getDisableCache() {
+      return disableCache_;
+    }
+    /**
+     * <pre>
+     * DisableCache disables DNS cache
+     * </pre>
+     *
+     * <code>bool disableCache = 8;</code>
+     * @param value The disableCache to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDisableCache(boolean value) {
+      
+      disableCache_ = value;
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * DisableCache disables DNS cache
+     * </pre>
+     *
+     * <code>bool disableCache = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDisableCache() {
+      bitField0_ = (bitField0_ & ~0x00000040);
+      disableCache_ = false;
+      onChanged();
+      return this;
+    }
+
+    private int queryStrategy_ = 0;
+    /**
+     * <code>.xray.app.dns.QueryStrategy query_strategy = 9;</code>
+     * @return The enum numeric value on the wire for queryStrategy.
+     */
+    @java.lang.Override public int getQueryStrategyValue() {
+      return queryStrategy_;
+    }
+    /**
+     * <code>.xray.app.dns.QueryStrategy query_strategy = 9;</code>
+     * @param value The enum numeric value on the wire for queryStrategy to set.
+     * @return This builder for chaining.
+     */
+    public Builder setQueryStrategyValue(int value) {
+      queryStrategy_ = value;
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.xray.app.dns.QueryStrategy query_strategy = 9;</code>
+     * @return The queryStrategy.
+     */
+    @java.lang.Override
+    public com.xray.app.dns.QueryStrategy getQueryStrategy() {
+      com.xray.app.dns.QueryStrategy result = com.xray.app.dns.QueryStrategy.forNumber(queryStrategy_);
+      return result == null ? com.xray.app.dns.QueryStrategy.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.xray.app.dns.QueryStrategy query_strategy = 9;</code>
+     * @param value The queryStrategy to set.
+     * @return This builder for chaining.
+     */
+    public Builder setQueryStrategy(com.xray.app.dns.QueryStrategy value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000080;
+      queryStrategy_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.xray.app.dns.QueryStrategy query_strategy = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearQueryStrategy() {
+      bitField0_ = (bitField0_ & ~0x00000080);
+      queryStrategy_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private boolean disableFallback_ ;
+    /**
+     * <code>bool disableFallback = 10;</code>
+     * @return The disableFallback.
+     */
+    @java.lang.Override
+    public boolean getDisableFallback() {
+      return disableFallback_;
+    }
+    /**
+     * <code>bool disableFallback = 10;</code>
+     * @param value The disableFallback to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDisableFallback(boolean value) {
+      
+      disableFallback_ = value;
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool disableFallback = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDisableFallback() {
+      bitField0_ = (bitField0_ & ~0x00000100);
+      disableFallback_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean disableFallbackIfMatch_ ;
+    /**
+     * <code>bool disableFallbackIfMatch = 11;</code>
+     * @return The disableFallbackIfMatch.
+     */
+    @java.lang.Override
+    public boolean getDisableFallbackIfMatch() {
+      return disableFallbackIfMatch_;
+    }
+    /**
+     * <code>bool disableFallbackIfMatch = 11;</code>
+     * @param value The disableFallbackIfMatch to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDisableFallbackIfMatch(boolean value) {
+      
+      disableFallbackIfMatch_ = value;
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool disableFallbackIfMatch = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDisableFallbackIfMatch() {
+      bitField0_ = (bitField0_ & ~0x00000200);
+      disableFallbackIfMatch_ = false;
       onChanged();
       return this;
     }
@@ -3213,7 +3579,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Config(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

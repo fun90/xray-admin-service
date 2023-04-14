@@ -9,10 +9,12 @@ public interface AllocationStrategyOrBuilder extends
 
   /**
    * <code>.xray.app.proxyman.AllocationStrategy.Type type = 1;</code>
+   * @return The enum numeric value on the wire for type.
    */
   int getTypeValue();
   /**
    * <code>.xray.app.proxyman.AllocationStrategy.Type type = 1;</code>
+   * @return The type.
    */
   com.xray.app.proxyman.AllocationStrategy.Type getType();
 
@@ -23,6 +25,7 @@ public interface AllocationStrategyOrBuilder extends
    * </pre>
    *
    * <code>.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency concurrency = 2;</code>
+   * @return Whether the concurrency field is set.
    */
   boolean hasConcurrency();
   /**
@@ -32,6 +35,7 @@ public interface AllocationStrategyOrBuilder extends
    * </pre>
    *
    * <code>.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency concurrency = 2;</code>
+   * @return The concurrency.
    */
   com.xray.app.proxyman.AllocationStrategy.AllocationStrategyConcurrency getConcurrency();
   /**
@@ -51,6 +55,7 @@ public interface AllocationStrategyOrBuilder extends
    * </pre>
    *
    * <code>.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh refresh = 3;</code>
+   * @return Whether the refresh field is set.
    */
   boolean hasRefresh();
   /**
@@ -60,6 +65,7 @@ public interface AllocationStrategyOrBuilder extends
    * </pre>
    *
    * <code>.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh refresh = 3;</code>
+   * @return The refresh.
    */
   com.xray.app.proxyman.AllocationStrategy.AllocationStrategyRefresh getRefresh();
   /**

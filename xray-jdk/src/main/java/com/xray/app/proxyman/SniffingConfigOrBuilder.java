@@ -13,64 +13,95 @@ public interface SniffingConfigOrBuilder extends
    * </pre>
    *
    * <code>bool enabled = 1;</code>
+   * @return The enabled.
    */
   boolean getEnabled();
 
   /**
    * <pre>
    * Override target destination if sniff'ed protocol is in the given list.
-   * Supported values are "http", "tls".
+   * Supported values are "http", "tls", "fakedns".
    * </pre>
    *
    * <code>repeated string destination_override = 2;</code>
+   * @return A list containing the destinationOverride.
    */
   java.util.List<java.lang.String>
       getDestinationOverrideList();
   /**
    * <pre>
    * Override target destination if sniff'ed protocol is in the given list.
-   * Supported values are "http", "tls".
+   * Supported values are "http", "tls", "fakedns".
    * </pre>
    *
    * <code>repeated string destination_override = 2;</code>
+   * @return The count of destinationOverride.
    */
   int getDestinationOverrideCount();
   /**
    * <pre>
    * Override target destination if sniff'ed protocol is in the given list.
-   * Supported values are "http", "tls".
+   * Supported values are "http", "tls", "fakedns".
    * </pre>
    *
    * <code>repeated string destination_override = 2;</code>
+   * @param index The index of the element to return.
+   * @return The destinationOverride at the given index.
    */
   java.lang.String getDestinationOverride(int index);
   /**
    * <pre>
    * Override target destination if sniff'ed protocol is in the given list.
-   * Supported values are "http", "tls".
+   * Supported values are "http", "tls", "fakedns".
    * </pre>
    *
    * <code>repeated string destination_override = 2;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the destinationOverride at the given index.
    */
   com.google.protobuf.ByteString
       getDestinationOverrideBytes(int index);
 
   /**
    * <code>repeated string domains_excluded = 3;</code>
+   * @return A list containing the domainsExcluded.
    */
   java.util.List<java.lang.String>
       getDomainsExcludedList();
   /**
    * <code>repeated string domains_excluded = 3;</code>
+   * @return The count of domainsExcluded.
    */
   int getDomainsExcludedCount();
   /**
    * <code>repeated string domains_excluded = 3;</code>
+   * @param index The index of the element to return.
+   * @return The domainsExcluded at the given index.
    */
   java.lang.String getDomainsExcluded(int index);
   /**
    * <code>repeated string domains_excluded = 3;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the domainsExcluded at the given index.
    */
   com.google.protobuf.ByteString
       getDomainsExcludedBytes(int index);
+
+  /**
+   * <pre>
+   * Whether should only try to sniff metadata without waiting for client input.
+   * Can be used to support SMTP like protocol where server send the first
+   * message.
+   * </pre>
+   *
+   * <code>bool metadata_only = 4;</code>
+   * @return The metadataOnly.
+   */
+  boolean getMetadataOnly();
+
+  /**
+   * <code>bool route_only = 5;</code>
+   * @return The routeOnly.
+   */
+  boolean getRouteOnly();
 }

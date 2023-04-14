@@ -13,6 +13,7 @@ public interface StatusOrBuilder extends
    * </pre>
    *
    * <code>string code = 1;</code>
+   * @return The code.
    */
   java.lang.String getCode();
   /**
@@ -21,6 +22,7 @@ public interface StatusOrBuilder extends
    * </pre>
    *
    * <code>string code = 1;</code>
+   * @return The bytes for code.
    */
   com.google.protobuf.ByteString
       getCodeBytes();
@@ -31,6 +33,7 @@ public interface StatusOrBuilder extends
    * </pre>
    *
    * <code>string reason = 2;</code>
+   * @return The reason.
    */
   java.lang.String getReason();
   /**
@@ -39,6 +42,7 @@ public interface StatusOrBuilder extends
    * </pre>
    *
    * <code>string reason = 2;</code>
+   * @return The bytes for reason.
    */
   com.google.protobuf.ByteString
       getReasonBytes();

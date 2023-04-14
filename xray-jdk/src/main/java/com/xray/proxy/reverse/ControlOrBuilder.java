@@ -9,15 +9,18 @@ public interface ControlOrBuilder extends
 
   /**
    * <code>.xray.app.reverse.Control.State state = 1;</code>
+   * @return The enum numeric value on the wire for state.
    */
   int getStateValue();
   /**
    * <code>.xray.app.reverse.Control.State state = 1;</code>
+   * @return The state.
    */
   com.xray.proxy.reverse.Control.State getState();
 
   /**
    * <code>bytes random = 99;</code>
+   * @return The random.
    */
   com.google.protobuf.ByteString getRandom();
 }

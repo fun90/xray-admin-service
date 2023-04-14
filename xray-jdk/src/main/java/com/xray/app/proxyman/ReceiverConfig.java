@@ -6,7 +6,7 @@ package com.xray.app.proxyman;
 /**
  * Protobuf type {@code xray.app.proxyman.ReceiverConfig}
  */
-public  final class ReceiverConfig extends
+public final class ReceiverConfig extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.app.proxyman.ReceiverConfig)
     ReceiverConfigOrBuilder {
@@ -20,143 +20,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new ReceiverConfig();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private ReceiverConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.xray.common.net.PortRange.Builder subBuilder = null;
-            if (portRange_ != null) {
-              subBuilder = portRange_.toBuilder();
-            }
-            portRange_ = input.readMessage(com.xray.common.net.PortRange.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(portRange_);
-              portRange_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.xray.common.net.IPOrDomain.Builder subBuilder = null;
-            if (listen_ != null) {
-              subBuilder = listen_.toBuilder();
-            }
-            listen_ = input.readMessage(com.xray.common.net.IPOrDomain.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(listen_);
-              listen_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.xray.app.proxyman.AllocationStrategy.Builder subBuilder = null;
-            if (allocationStrategy_ != null) {
-              subBuilder = allocationStrategy_.toBuilder();
-            }
-            allocationStrategy_ = input.readMessage(com.xray.app.proxyman.AllocationStrategy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(allocationStrategy_);
-              allocationStrategy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.xray.transport.internet.StreamConfig.Builder subBuilder = null;
-            if (streamSettings_ != null) {
-              subBuilder = streamSettings_.toBuilder();
-            }
-            streamSettings_ = input.readMessage(com.xray.transport.internet.StreamConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(streamSettings_);
-              streamSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-
-            receiveOriginalDestination_ = input.readBool();
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-              domainOverride_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000020;
-            }
-            domainOverride_.add(rawValue);
-            break;
-          }
-          case 58: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-                domainOverride_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000020;
-              }
-              domainOverride_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 66: {
-            com.xray.app.proxyman.SniffingConfig.Builder subBuilder = null;
-            if (sniffingSettings_ != null) {
-              subBuilder = sniffingSettings_.toBuilder();
-            }
-            sniffingSettings_ = input.readMessage(com.xray.app.proxyman.SniffingConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sniffingSettings_);
-              sniffingSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000020) != 0)) {
-        domainOverride_ = java.util.Collections.unmodifiableList(domainOverride_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -171,38 +44,42 @@ private static final long serialVersionUID = 0L;
             com.xray.app.proxyman.ReceiverConfig.class, com.xray.app.proxyman.ReceiverConfig.Builder.class);
   }
 
-  private int bitField0_;
-  public static final int PORT_RANGE_FIELD_NUMBER = 1;
-  private com.xray.common.net.PortRange portRange_;
+  public static final int PORT_LIST_FIELD_NUMBER = 1;
+  private com.xray.common.net.PortList portList_;
   /**
    * <pre>
-   * PortRange specifies the ports which the Receiver should listen on.
+   * PortList specifies the ports which the Receiver should listen on.
    * </pre>
    *
-   * <code>.xray.common.net.PortRange port_range = 1;</code>
+   * <code>.xray.common.net.PortList port_list = 1;</code>
+   * @return Whether the portList field is set.
    */
-  public boolean hasPortRange() {
-    return portRange_ != null;
+  @java.lang.Override
+  public boolean hasPortList() {
+    return portList_ != null;
   }
   /**
    * <pre>
-   * PortRange specifies the ports which the Receiver should listen on.
+   * PortList specifies the ports which the Receiver should listen on.
    * </pre>
    *
-   * <code>.xray.common.net.PortRange port_range = 1;</code>
+   * <code>.xray.common.net.PortList port_list = 1;</code>
+   * @return The portList.
    */
-  public com.xray.common.net.PortRange getPortRange() {
-    return portRange_ == null ? com.xray.common.net.PortRange.getDefaultInstance() : portRange_;
+  @java.lang.Override
+  public com.xray.common.net.PortList getPortList() {
+    return portList_ == null ? com.xray.common.net.PortList.getDefaultInstance() : portList_;
   }
   /**
    * <pre>
-   * PortRange specifies the ports which the Receiver should listen on.
+   * PortList specifies the ports which the Receiver should listen on.
    * </pre>
    *
-   * <code>.xray.common.net.PortRange port_range = 1;</code>
+   * <code>.xray.common.net.PortList port_list = 1;</code>
    */
-  public com.xray.common.net.PortRangeOrBuilder getPortRangeOrBuilder() {
-    return getPortRange();
+  @java.lang.Override
+  public com.xray.common.net.PortListOrBuilder getPortListOrBuilder() {
+    return portList_ == null ? com.xray.common.net.PortList.getDefaultInstance() : portList_;
   }
 
   public static final int LISTEN_FIELD_NUMBER = 2;
@@ -213,7 +90,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.common.net.IPOrDomain listen = 2;</code>
+   * @return Whether the listen field is set.
    */
+  @java.lang.Override
   public boolean hasListen() {
     return listen_ != null;
   }
@@ -223,7 +102,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.common.net.IPOrDomain listen = 2;</code>
+   * @return The listen.
    */
+  @java.lang.Override
   public com.xray.common.net.IPOrDomain getListen() {
     return listen_ == null ? com.xray.common.net.IPOrDomain.getDefaultInstance() : listen_;
   }
@@ -234,70 +115,83 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.xray.common.net.IPOrDomain listen = 2;</code>
    */
+  @java.lang.Override
   public com.xray.common.net.IPOrDomainOrBuilder getListenOrBuilder() {
-    return getListen();
+    return listen_ == null ? com.xray.common.net.IPOrDomain.getDefaultInstance() : listen_;
   }
 
   public static final int ALLOCATION_STRATEGY_FIELD_NUMBER = 3;
   private com.xray.app.proxyman.AllocationStrategy allocationStrategy_;
   /**
    * <code>.xray.app.proxyman.AllocationStrategy allocation_strategy = 3;</code>
+   * @return Whether the allocationStrategy field is set.
    */
+  @java.lang.Override
   public boolean hasAllocationStrategy() {
     return allocationStrategy_ != null;
   }
   /**
    * <code>.xray.app.proxyman.AllocationStrategy allocation_strategy = 3;</code>
+   * @return The allocationStrategy.
    */
+  @java.lang.Override
   public com.xray.app.proxyman.AllocationStrategy getAllocationStrategy() {
     return allocationStrategy_ == null ? com.xray.app.proxyman.AllocationStrategy.getDefaultInstance() : allocationStrategy_;
   }
   /**
    * <code>.xray.app.proxyman.AllocationStrategy allocation_strategy = 3;</code>
    */
+  @java.lang.Override
   public com.xray.app.proxyman.AllocationStrategyOrBuilder getAllocationStrategyOrBuilder() {
-    return getAllocationStrategy();
+    return allocationStrategy_ == null ? com.xray.app.proxyman.AllocationStrategy.getDefaultInstance() : allocationStrategy_;
   }
 
   public static final int STREAM_SETTINGS_FIELD_NUMBER = 4;
   private com.xray.transport.internet.StreamConfig streamSettings_;
   /**
    * <code>.xray.transport.internet.StreamConfig stream_settings = 4;</code>
+   * @return Whether the streamSettings field is set.
    */
+  @java.lang.Override
   public boolean hasStreamSettings() {
     return streamSettings_ != null;
   }
   /**
    * <code>.xray.transport.internet.StreamConfig stream_settings = 4;</code>
+   * @return The streamSettings.
    */
+  @java.lang.Override
   public com.xray.transport.internet.StreamConfig getStreamSettings() {
     return streamSettings_ == null ? com.xray.transport.internet.StreamConfig.getDefaultInstance() : streamSettings_;
   }
   /**
    * <code>.xray.transport.internet.StreamConfig stream_settings = 4;</code>
    */
+  @java.lang.Override
   public com.xray.transport.internet.StreamConfigOrBuilder getStreamSettingsOrBuilder() {
-    return getStreamSettings();
+    return streamSettings_ == null ? com.xray.transport.internet.StreamConfig.getDefaultInstance() : streamSettings_;
   }
 
   public static final int RECEIVE_ORIGINAL_DESTINATION_FIELD_NUMBER = 5;
-  private boolean receiveOriginalDestination_;
+  private boolean receiveOriginalDestination_ = false;
   /**
    * <code>bool receive_original_destination = 5;</code>
+   * @return The receiveOriginalDestination.
    */
+  @java.lang.Override
   public boolean getReceiveOriginalDestination() {
     return receiveOriginalDestination_;
   }
 
   public static final int DOMAIN_OVERRIDE_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> domainOverride_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.xray.app.proxyman.KnownProtocols> domainOverride_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.xray.app.proxyman.KnownProtocols>() {
             public com.xray.app.proxyman.KnownProtocols convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.xray.app.proxyman.KnownProtocols result = com.xray.app.proxyman.KnownProtocols.valueOf(from);
+              com.xray.app.proxyman.KnownProtocols result = com.xray.app.proxyman.KnownProtocols.forNumber(from);
               return result == null ? com.xray.app.proxyman.KnownProtocols.UNRECOGNIZED : result;
             }
           };
@@ -308,7 +202,11 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>repeated .xray.app.proxyman.KnownProtocols domain_override = 7 [deprecated = true];</code>
+   * @deprecated xray.app.proxyman.ReceiverConfig.domain_override is deprecated.
+   *     See app/proxyman/config.proto;l=75
+   * @return A list containing the domainOverride.
    */
+  @java.lang.Override
   @java.lang.Deprecated public java.util.List<com.xray.app.proxyman.KnownProtocols> getDomainOverrideList() {
     return new com.google.protobuf.Internal.ListAdapter<
         java.lang.Integer, com.xray.app.proxyman.KnownProtocols>(domainOverride_, domainOverride_converter_);
@@ -320,7 +218,11 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>repeated .xray.app.proxyman.KnownProtocols domain_override = 7 [deprecated = true];</code>
+   * @deprecated xray.app.proxyman.ReceiverConfig.domain_override is deprecated.
+   *     See app/proxyman/config.proto;l=75
+   * @return The count of domainOverride.
    */
+  @java.lang.Override
   @java.lang.Deprecated public int getDomainOverrideCount() {
     return domainOverride_.size();
   }
@@ -331,7 +233,12 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>repeated .xray.app.proxyman.KnownProtocols domain_override = 7 [deprecated = true];</code>
+   * @deprecated xray.app.proxyman.ReceiverConfig.domain_override is deprecated.
+   *     See app/proxyman/config.proto;l=75
+   * @param index The index of the element to return.
+   * @return The domainOverride at the given index.
    */
+  @java.lang.Override
   @java.lang.Deprecated public com.xray.app.proxyman.KnownProtocols getDomainOverride(int index) {
     return domainOverride_converter_.convert(domainOverride_.get(index));
   }
@@ -342,7 +249,11 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>repeated .xray.app.proxyman.KnownProtocols domain_override = 7 [deprecated = true];</code>
+   * @deprecated xray.app.proxyman.ReceiverConfig.domain_override is deprecated.
+   *     See app/proxyman/config.proto;l=75
+   * @return A list containing the enum numeric values on the wire for domainOverride.
    */
+  @java.lang.Override
   @java.lang.Deprecated public java.util.List<java.lang.Integer>
   getDomainOverrideValueList() {
     return domainOverride_;
@@ -354,7 +265,12 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>repeated .xray.app.proxyman.KnownProtocols domain_override = 7 [deprecated = true];</code>
+   * @deprecated xray.app.proxyman.ReceiverConfig.domain_override is deprecated.
+   *     See app/proxyman/config.proto;l=75
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of domainOverride at the given index.
    */
+  @java.lang.Override
   @java.lang.Deprecated public int getDomainOverrideValue(int index) {
     return domainOverride_.get(index);
   }
@@ -364,21 +280,26 @@ private static final long serialVersionUID = 0L;
   private com.xray.app.proxyman.SniffingConfig sniffingSettings_;
   /**
    * <code>.xray.app.proxyman.SniffingConfig sniffing_settings = 8;</code>
+   * @return Whether the sniffingSettings field is set.
    */
+  @java.lang.Override
   public boolean hasSniffingSettings() {
     return sniffingSettings_ != null;
   }
   /**
    * <code>.xray.app.proxyman.SniffingConfig sniffing_settings = 8;</code>
+   * @return The sniffingSettings.
    */
+  @java.lang.Override
   public com.xray.app.proxyman.SniffingConfig getSniffingSettings() {
     return sniffingSettings_ == null ? com.xray.app.proxyman.SniffingConfig.getDefaultInstance() : sniffingSettings_;
   }
   /**
    * <code>.xray.app.proxyman.SniffingConfig sniffing_settings = 8;</code>
    */
+  @java.lang.Override
   public com.xray.app.proxyman.SniffingConfigOrBuilder getSniffingSettingsOrBuilder() {
-    return getSniffingSettings();
+    return sniffingSettings_ == null ? com.xray.app.proxyman.SniffingConfig.getDefaultInstance() : sniffingSettings_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -396,8 +317,8 @@ private static final long serialVersionUID = 0L;
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     getSerializedSize();
-    if (portRange_ != null) {
-      output.writeMessage(1, getPortRange());
+    if (portList_ != null) {
+      output.writeMessage(1, getPortList());
     }
     if (listen_ != null) {
       output.writeMessage(2, getListen());
@@ -421,7 +342,7 @@ private static final long serialVersionUID = 0L;
     if (sniffingSettings_ != null) {
       output.writeMessage(8, getSniffingSettings());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -430,9 +351,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (portRange_ != null) {
+    if (portList_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getPortRange());
+        .computeMessageSize(1, getPortList());
     }
     if (listen_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -466,7 +387,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getSniffingSettings());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -481,10 +402,10 @@ private static final long serialVersionUID = 0L;
     }
     com.xray.app.proxyman.ReceiverConfig other = (com.xray.app.proxyman.ReceiverConfig) obj;
 
-    if (hasPortRange() != other.hasPortRange()) return false;
-    if (hasPortRange()) {
-      if (!getPortRange()
-          .equals(other.getPortRange())) return false;
+    if (hasPortList() != other.hasPortList()) return false;
+    if (hasPortList()) {
+      if (!getPortList()
+          .equals(other.getPortList())) return false;
     }
     if (hasListen() != other.hasListen()) return false;
     if (hasListen()) {
@@ -509,7 +430,7 @@ private static final long serialVersionUID = 0L;
       if (!getSniffingSettings()
           .equals(other.getSniffingSettings())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -520,9 +441,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (hasPortRange()) {
-      hash = (37 * hash) + PORT_RANGE_FIELD_NUMBER;
-      hash = (53 * hash) + getPortRange().hashCode();
+    if (hasPortList()) {
+      hash = (37 * hash) + PORT_LIST_FIELD_NUMBER;
+      hash = (53 * hash) + getPortList().hashCode();
     }
     if (hasListen()) {
       hash = (37 * hash) + LISTEN_FIELD_NUMBER;
@@ -547,7 +468,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SNIFFING_SETTINGS_FIELD_NUMBER;
       hash = (53 * hash) + getSniffingSettings().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -664,54 +585,44 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.app.proxyman.ReceiverConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (portRangeBuilder_ == null) {
-        portRange_ = null;
-      } else {
-        portRange_ = null;
-        portRangeBuilder_ = null;
+      bitField0_ = 0;
+      portList_ = null;
+      if (portListBuilder_ != null) {
+        portListBuilder_.dispose();
+        portListBuilder_ = null;
       }
-      if (listenBuilder_ == null) {
-        listen_ = null;
-      } else {
-        listen_ = null;
+      listen_ = null;
+      if (listenBuilder_ != null) {
+        listenBuilder_.dispose();
         listenBuilder_ = null;
       }
-      if (allocationStrategyBuilder_ == null) {
-        allocationStrategy_ = null;
-      } else {
-        allocationStrategy_ = null;
+      allocationStrategy_ = null;
+      if (allocationStrategyBuilder_ != null) {
+        allocationStrategyBuilder_.dispose();
         allocationStrategyBuilder_ = null;
       }
-      if (streamSettingsBuilder_ == null) {
-        streamSettings_ = null;
-      } else {
-        streamSettings_ = null;
+      streamSettings_ = null;
+      if (streamSettingsBuilder_ != null) {
+        streamSettingsBuilder_.dispose();
         streamSettingsBuilder_ = null;
       }
       receiveOriginalDestination_ = false;
-
       domainOverride_ = java.util.Collections.emptyList();
       bitField0_ = (bitField0_ & ~0x00000020);
-      if (sniffingSettingsBuilder_ == null) {
-        sniffingSettings_ = null;
-      } else {
-        sniffingSettings_ = null;
+      sniffingSettings_ = null;
+      if (sniffingSettingsBuilder_ != null) {
+        sniffingSettingsBuilder_.dispose();
         sniffingSettingsBuilder_ = null;
       }
       return this;
@@ -740,42 +651,50 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.app.proxyman.ReceiverConfig buildPartial() {
       com.xray.app.proxyman.ReceiverConfig result = new com.xray.app.proxyman.ReceiverConfig(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (portRangeBuilder_ == null) {
-        result.portRange_ = portRange_;
-      } else {
-        result.portRange_ = portRangeBuilder_.build();
-      }
-      if (listenBuilder_ == null) {
-        result.listen_ = listen_;
-      } else {
-        result.listen_ = listenBuilder_.build();
-      }
-      if (allocationStrategyBuilder_ == null) {
-        result.allocationStrategy_ = allocationStrategy_;
-      } else {
-        result.allocationStrategy_ = allocationStrategyBuilder_.build();
-      }
-      if (streamSettingsBuilder_ == null) {
-        result.streamSettings_ = streamSettings_;
-      } else {
-        result.streamSettings_ = streamSettingsBuilder_.build();
-      }
-      result.receiveOriginalDestination_ = receiveOriginalDestination_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.xray.app.proxyman.ReceiverConfig result) {
       if (((bitField0_ & 0x00000020) != 0)) {
         domainOverride_ = java.util.Collections.unmodifiableList(domainOverride_);
         bitField0_ = (bitField0_ & ~0x00000020);
       }
       result.domainOverride_ = domainOverride_;
-      if (sniffingSettingsBuilder_ == null) {
-        result.sniffingSettings_ = sniffingSettings_;
-      } else {
-        result.sniffingSettings_ = sniffingSettingsBuilder_.build();
+    }
+
+    private void buildPartial0(com.xray.app.proxyman.ReceiverConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.portList_ = portListBuilder_ == null
+            ? portList_
+            : portListBuilder_.build();
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.listen_ = listenBuilder_ == null
+            ? listen_
+            : listenBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.allocationStrategy_ = allocationStrategyBuilder_ == null
+            ? allocationStrategy_
+            : allocationStrategyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.streamSettings_ = streamSettingsBuilder_ == null
+            ? streamSettings_
+            : streamSettingsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.receiveOriginalDestination_ = receiveOriginalDestination_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.sniffingSettings_ = sniffingSettingsBuilder_ == null
+            ? sniffingSettings_
+            : sniffingSettingsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -822,8 +741,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.xray.app.proxyman.ReceiverConfig other) {
       if (other == com.xray.app.proxyman.ReceiverConfig.getDefaultInstance()) return this;
-      if (other.hasPortRange()) {
-        mergePortRange(other.getPortRange());
+      if (other.hasPortList()) {
+        mergePortList(other.getPortList());
       }
       if (other.hasListen()) {
         mergeListen(other.getListen());
@@ -850,7 +769,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasSniffingSettings()) {
         mergeSniffingSettings(other.getSniffingSettings());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -865,172 +784,244 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.app.proxyman.ReceiverConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getPortListFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getListenFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getAllocationStrategyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getStreamSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              receiveOriginalDestination_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 56: {
+              int tmpRaw = input.readEnum();
+              ensureDomainOverrideIsMutable();
+              domainOverride_.add(tmpRaw);
+              break;
+            } // case 56
+            case 58: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureDomainOverrideIsMutable();
+                domainOverride_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getSniffingSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.app.proxyman.ReceiverConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
 
-    private com.xray.common.net.PortRange portRange_;
+    private com.xray.common.net.PortList portList_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.xray.common.net.PortRange, com.xray.common.net.PortRange.Builder, com.xray.common.net.PortRangeOrBuilder> portRangeBuilder_;
+        com.xray.common.net.PortList, com.xray.common.net.PortList.Builder, com.xray.common.net.PortListOrBuilder> portListBuilder_;
     /**
      * <pre>
-     * PortRange specifies the ports which the Receiver should listen on.
+     * PortList specifies the ports which the Receiver should listen on.
      * </pre>
      *
-     * <code>.xray.common.net.PortRange port_range = 1;</code>
+     * <code>.xray.common.net.PortList port_list = 1;</code>
+     * @return Whether the portList field is set.
      */
-    public boolean hasPortRange() {
-      return portRangeBuilder_ != null || portRange_ != null;
+    public boolean hasPortList() {
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
-     * PortRange specifies the ports which the Receiver should listen on.
+     * PortList specifies the ports which the Receiver should listen on.
      * </pre>
      *
-     * <code>.xray.common.net.PortRange port_range = 1;</code>
+     * <code>.xray.common.net.PortList port_list = 1;</code>
+     * @return The portList.
      */
-    public com.xray.common.net.PortRange getPortRange() {
-      if (portRangeBuilder_ == null) {
-        return portRange_ == null ? com.xray.common.net.PortRange.getDefaultInstance() : portRange_;
+    public com.xray.common.net.PortList getPortList() {
+      if (portListBuilder_ == null) {
+        return portList_ == null ? com.xray.common.net.PortList.getDefaultInstance() : portList_;
       } else {
-        return portRangeBuilder_.getMessage();
+        return portListBuilder_.getMessage();
       }
     }
     /**
      * <pre>
-     * PortRange specifies the ports which the Receiver should listen on.
+     * PortList specifies the ports which the Receiver should listen on.
      * </pre>
      *
-     * <code>.xray.common.net.PortRange port_range = 1;</code>
+     * <code>.xray.common.net.PortList port_list = 1;</code>
      */
-    public Builder setPortRange(com.xray.common.net.PortRange value) {
-      if (portRangeBuilder_ == null) {
+    public Builder setPortList(com.xray.common.net.PortList value) {
+      if (portListBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        portRange_ = value;
-        onChanged();
+        portList_ = value;
       } else {
-        portRangeBuilder_.setMessage(value);
+        portListBuilder_.setMessage(value);
       }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * PortRange specifies the ports which the Receiver should listen on.
-     * </pre>
-     *
-     * <code>.xray.common.net.PortRange port_range = 1;</code>
-     */
-    public Builder setPortRange(
-        com.xray.common.net.PortRange.Builder builderForValue) {
-      if (portRangeBuilder_ == null) {
-        portRange_ = builderForValue.build();
-        onChanged();
-      } else {
-        portRangeBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * PortRange specifies the ports which the Receiver should listen on.
-     * </pre>
-     *
-     * <code>.xray.common.net.PortRange port_range = 1;</code>
-     */
-    public Builder mergePortRange(com.xray.common.net.PortRange value) {
-      if (portRangeBuilder_ == null) {
-        if (portRange_ != null) {
-          portRange_ =
-            com.xray.common.net.PortRange.newBuilder(portRange_).mergeFrom(value).buildPartial();
-        } else {
-          portRange_ = value;
-        }
-        onChanged();
-      } else {
-        portRangeBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * PortRange specifies the ports which the Receiver should listen on.
-     * </pre>
-     *
-     * <code>.xray.common.net.PortRange port_range = 1;</code>
-     */
-    public Builder clearPortRange() {
-      if (portRangeBuilder_ == null) {
-        portRange_ = null;
-        onChanged();
-      } else {
-        portRange_ = null;
-        portRangeBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * PortRange specifies the ports which the Receiver should listen on.
-     * </pre>
-     *
-     * <code>.xray.common.net.PortRange port_range = 1;</code>
-     */
-    public com.xray.common.net.PortRange.Builder getPortRangeBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
-      return getPortRangeFieldBuilder().getBuilder();
+      return this;
     }
     /**
      * <pre>
-     * PortRange specifies the ports which the Receiver should listen on.
+     * PortList specifies the ports which the Receiver should listen on.
      * </pre>
      *
-     * <code>.xray.common.net.PortRange port_range = 1;</code>
+     * <code>.xray.common.net.PortList port_list = 1;</code>
      */
-    public com.xray.common.net.PortRangeOrBuilder getPortRangeOrBuilder() {
-      if (portRangeBuilder_ != null) {
-        return portRangeBuilder_.getMessageOrBuilder();
+    public Builder setPortList(
+        com.xray.common.net.PortList.Builder builderForValue) {
+      if (portListBuilder_ == null) {
+        portList_ = builderForValue.build();
       } else {
-        return portRange_ == null ?
-            com.xray.common.net.PortRange.getDefaultInstance() : portRange_;
+        portListBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * PortList specifies the ports which the Receiver should listen on.
+     * </pre>
+     *
+     * <code>.xray.common.net.PortList port_list = 1;</code>
+     */
+    public Builder mergePortList(com.xray.common.net.PortList value) {
+      if (portListBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0) &&
+          portList_ != null &&
+          portList_ != com.xray.common.net.PortList.getDefaultInstance()) {
+          getPortListBuilder().mergeFrom(value);
+        } else {
+          portList_ = value;
+        }
+      } else {
+        portListBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * PortList specifies the ports which the Receiver should listen on.
+     * </pre>
+     *
+     * <code>.xray.common.net.PortList port_list = 1;</code>
+     */
+    public Builder clearPortList() {
+      bitField0_ = (bitField0_ & ~0x00000001);
+      portList_ = null;
+      if (portListBuilder_ != null) {
+        portListBuilder_.dispose();
+        portListBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * PortList specifies the ports which the Receiver should listen on.
+     * </pre>
+     *
+     * <code>.xray.common.net.PortList port_list = 1;</code>
+     */
+    public com.xray.common.net.PortList.Builder getPortListBuilder() {
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return getPortListFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * PortList specifies the ports which the Receiver should listen on.
+     * </pre>
+     *
+     * <code>.xray.common.net.PortList port_list = 1;</code>
+     */
+    public com.xray.common.net.PortListOrBuilder getPortListOrBuilder() {
+      if (portListBuilder_ != null) {
+        return portListBuilder_.getMessageOrBuilder();
+      } else {
+        return portList_ == null ?
+            com.xray.common.net.PortList.getDefaultInstance() : portList_;
       }
     }
     /**
      * <pre>
-     * PortRange specifies the ports which the Receiver should listen on.
+     * PortList specifies the ports which the Receiver should listen on.
      * </pre>
      *
-     * <code>.xray.common.net.PortRange port_range = 1;</code>
+     * <code>.xray.common.net.PortList port_list = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.xray.common.net.PortRange, com.xray.common.net.PortRange.Builder, com.xray.common.net.PortRangeOrBuilder> 
-        getPortRangeFieldBuilder() {
-      if (portRangeBuilder_ == null) {
-        portRangeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.xray.common.net.PortRange, com.xray.common.net.PortRange.Builder, com.xray.common.net.PortRangeOrBuilder>(
-                getPortRange(),
+        com.xray.common.net.PortList, com.xray.common.net.PortList.Builder, com.xray.common.net.PortListOrBuilder> 
+        getPortListFieldBuilder() {
+      if (portListBuilder_ == null) {
+        portListBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.xray.common.net.PortList, com.xray.common.net.PortList.Builder, com.xray.common.net.PortListOrBuilder>(
+                getPortList(),
                 getParentForChildren(),
                 isClean());
-        portRange_ = null;
+        portList_ = null;
       }
-      return portRangeBuilder_;
+      return portListBuilder_;
     }
 
     private com.xray.common.net.IPOrDomain listen_;
@@ -1042,9 +1033,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.common.net.IPOrDomain listen = 2;</code>
+     * @return Whether the listen field is set.
      */
     public boolean hasListen() {
-      return listenBuilder_ != null || listen_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1052,6 +1044,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.common.net.IPOrDomain listen = 2;</code>
+     * @return The listen.
      */
     public com.xray.common.net.IPOrDomain getListen() {
       if (listenBuilder_ == null) {
@@ -1073,11 +1066,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         listen_ = value;
-        onChanged();
       } else {
         listenBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1091,11 +1084,11 @@ private static final long serialVersionUID = 0L;
         com.xray.common.net.IPOrDomain.Builder builderForValue) {
       if (listenBuilder_ == null) {
         listen_ = builderForValue.build();
-        onChanged();
       } else {
         listenBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1107,17 +1100,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeListen(com.xray.common.net.IPOrDomain value) {
       if (listenBuilder_ == null) {
-        if (listen_ != null) {
-          listen_ =
-            com.xray.common.net.IPOrDomain.newBuilder(listen_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          listen_ != null &&
+          listen_ != com.xray.common.net.IPOrDomain.getDefaultInstance()) {
+          getListenBuilder().mergeFrom(value);
         } else {
           listen_ = value;
         }
-        onChanged();
       } else {
         listenBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1128,14 +1122,13 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.common.net.IPOrDomain listen = 2;</code>
      */
     public Builder clearListen() {
-      if (listenBuilder_ == null) {
-        listen_ = null;
-        onChanged();
-      } else {
-        listen_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      listen_ = null;
+      if (listenBuilder_ != null) {
+        listenBuilder_.dispose();
         listenBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1146,7 +1139,7 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.common.net.IPOrDomain listen = 2;</code>
      */
     public com.xray.common.net.IPOrDomain.Builder getListenBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getListenFieldBuilder().getBuilder();
     }
@@ -1191,12 +1184,14 @@ private static final long serialVersionUID = 0L;
         com.xray.app.proxyman.AllocationStrategy, com.xray.app.proxyman.AllocationStrategy.Builder, com.xray.app.proxyman.AllocationStrategyOrBuilder> allocationStrategyBuilder_;
     /**
      * <code>.xray.app.proxyman.AllocationStrategy allocation_strategy = 3;</code>
+     * @return Whether the allocationStrategy field is set.
      */
     public boolean hasAllocationStrategy() {
-      return allocationStrategyBuilder_ != null || allocationStrategy_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <code>.xray.app.proxyman.AllocationStrategy allocation_strategy = 3;</code>
+     * @return The allocationStrategy.
      */
     public com.xray.app.proxyman.AllocationStrategy getAllocationStrategy() {
       if (allocationStrategyBuilder_ == null) {
@@ -1214,11 +1209,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         allocationStrategy_ = value;
-        onChanged();
       } else {
         allocationStrategyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1228,11 +1223,11 @@ private static final long serialVersionUID = 0L;
         com.xray.app.proxyman.AllocationStrategy.Builder builderForValue) {
       if (allocationStrategyBuilder_ == null) {
         allocationStrategy_ = builderForValue.build();
-        onChanged();
       } else {
         allocationStrategyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1240,38 +1235,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAllocationStrategy(com.xray.app.proxyman.AllocationStrategy value) {
       if (allocationStrategyBuilder_ == null) {
-        if (allocationStrategy_ != null) {
-          allocationStrategy_ =
-            com.xray.app.proxyman.AllocationStrategy.newBuilder(allocationStrategy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          allocationStrategy_ != null &&
+          allocationStrategy_ != com.xray.app.proxyman.AllocationStrategy.getDefaultInstance()) {
+          getAllocationStrategyBuilder().mergeFrom(value);
         } else {
           allocationStrategy_ = value;
         }
-        onChanged();
       } else {
         allocationStrategyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.app.proxyman.AllocationStrategy allocation_strategy = 3;</code>
      */
     public Builder clearAllocationStrategy() {
-      if (allocationStrategyBuilder_ == null) {
-        allocationStrategy_ = null;
-        onChanged();
-      } else {
-        allocationStrategy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      allocationStrategy_ = null;
+      if (allocationStrategyBuilder_ != null) {
+        allocationStrategyBuilder_.dispose();
         allocationStrategyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.app.proxyman.AllocationStrategy allocation_strategy = 3;</code>
      */
     public com.xray.app.proxyman.AllocationStrategy.Builder getAllocationStrategyBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getAllocationStrategyFieldBuilder().getBuilder();
     }
@@ -1308,12 +1303,14 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.StreamConfig, com.xray.transport.internet.StreamConfig.Builder, com.xray.transport.internet.StreamConfigOrBuilder> streamSettingsBuilder_;
     /**
      * <code>.xray.transport.internet.StreamConfig stream_settings = 4;</code>
+     * @return Whether the streamSettings field is set.
      */
     public boolean hasStreamSettings() {
-      return streamSettingsBuilder_ != null || streamSettings_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <code>.xray.transport.internet.StreamConfig stream_settings = 4;</code>
+     * @return The streamSettings.
      */
     public com.xray.transport.internet.StreamConfig getStreamSettings() {
       if (streamSettingsBuilder_ == null) {
@@ -1331,11 +1328,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         streamSettings_ = value;
-        onChanged();
       } else {
         streamSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1345,11 +1342,11 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.StreamConfig.Builder builderForValue) {
       if (streamSettingsBuilder_ == null) {
         streamSettings_ = builderForValue.build();
-        onChanged();
       } else {
         streamSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1357,38 +1354,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStreamSettings(com.xray.transport.internet.StreamConfig value) {
       if (streamSettingsBuilder_ == null) {
-        if (streamSettings_ != null) {
-          streamSettings_ =
-            com.xray.transport.internet.StreamConfig.newBuilder(streamSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          streamSettings_ != null &&
+          streamSettings_ != com.xray.transport.internet.StreamConfig.getDefaultInstance()) {
+          getStreamSettingsBuilder().mergeFrom(value);
         } else {
           streamSettings_ = value;
         }
-        onChanged();
       } else {
         streamSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.StreamConfig stream_settings = 4;</code>
      */
     public Builder clearStreamSettings() {
-      if (streamSettingsBuilder_ == null) {
-        streamSettings_ = null;
-        onChanged();
-      } else {
-        streamSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      streamSettings_ = null;
+      if (streamSettingsBuilder_ != null) {
+        streamSettingsBuilder_.dispose();
         streamSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.StreamConfig stream_settings = 4;</code>
      */
     public com.xray.transport.internet.StreamConfig.Builder getStreamSettingsBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getStreamSettingsFieldBuilder().getBuilder();
     }
@@ -1423,24 +1420,30 @@ private static final long serialVersionUID = 0L;
     private boolean receiveOriginalDestination_ ;
     /**
      * <code>bool receive_original_destination = 5;</code>
+     * @return The receiveOriginalDestination.
      */
+    @java.lang.Override
     public boolean getReceiveOriginalDestination() {
       return receiveOriginalDestination_;
     }
     /**
      * <code>bool receive_original_destination = 5;</code>
+     * @param value The receiveOriginalDestination to set.
+     * @return This builder for chaining.
      */
     public Builder setReceiveOriginalDestination(boolean value) {
       
       receiveOriginalDestination_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <code>bool receive_original_destination = 5;</code>
+     * @return This builder for chaining.
      */
     public Builder clearReceiveOriginalDestination() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       receiveOriginalDestination_ = false;
       onChanged();
       return this;
@@ -1461,6 +1464,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.app.proxyman.KnownProtocols domain_override = 7 [deprecated = true];</code>
+     * @deprecated xray.app.proxyman.ReceiverConfig.domain_override is deprecated.
+     *     See app/proxyman/config.proto;l=75
+     * @return A list containing the domainOverride.
      */
     @java.lang.Deprecated public java.util.List<com.xray.app.proxyman.KnownProtocols> getDomainOverrideList() {
       return new com.google.protobuf.Internal.ListAdapter<
@@ -1473,6 +1479,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.app.proxyman.KnownProtocols domain_override = 7 [deprecated = true];</code>
+     * @deprecated xray.app.proxyman.ReceiverConfig.domain_override is deprecated.
+     *     See app/proxyman/config.proto;l=75
+     * @return The count of domainOverride.
      */
     @java.lang.Deprecated public int getDomainOverrideCount() {
       return domainOverride_.size();
@@ -1484,6 +1493,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.app.proxyman.KnownProtocols domain_override = 7 [deprecated = true];</code>
+     * @deprecated xray.app.proxyman.ReceiverConfig.domain_override is deprecated.
+     *     See app/proxyman/config.proto;l=75
+     * @param index The index of the element to return.
+     * @return The domainOverride at the given index.
      */
     @java.lang.Deprecated public com.xray.app.proxyman.KnownProtocols getDomainOverride(int index) {
       return domainOverride_converter_.convert(domainOverride_.get(index));
@@ -1495,6 +1508,11 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.app.proxyman.KnownProtocols domain_override = 7 [deprecated = true];</code>
+     * @deprecated xray.app.proxyman.ReceiverConfig.domain_override is deprecated.
+     *     See app/proxyman/config.proto;l=75
+     * @param index The index to set the value at.
+     * @param value The domainOverride to set.
+     * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setDomainOverride(
         int index, com.xray.app.proxyman.KnownProtocols value) {
@@ -1513,6 +1531,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.app.proxyman.KnownProtocols domain_override = 7 [deprecated = true];</code>
+     * @deprecated xray.app.proxyman.ReceiverConfig.domain_override is deprecated.
+     *     See app/proxyman/config.proto;l=75
+     * @param value The domainOverride to add.
+     * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder addDomainOverride(com.xray.app.proxyman.KnownProtocols value) {
       if (value == null) {
@@ -1530,6 +1552,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.app.proxyman.KnownProtocols domain_override = 7 [deprecated = true];</code>
+     * @deprecated xray.app.proxyman.ReceiverConfig.domain_override is deprecated.
+     *     See app/proxyman/config.proto;l=75
+     * @param values The domainOverride to add.
+     * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder addAllDomainOverride(
         java.lang.Iterable<? extends com.xray.app.proxyman.KnownProtocols> values) {
@@ -1547,6 +1573,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.app.proxyman.KnownProtocols domain_override = 7 [deprecated = true];</code>
+     * @deprecated xray.app.proxyman.ReceiverConfig.domain_override is deprecated.
+     *     See app/proxyman/config.proto;l=75
+     * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearDomainOverride() {
       domainOverride_ = java.util.Collections.emptyList();
@@ -1561,6 +1590,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.app.proxyman.KnownProtocols domain_override = 7 [deprecated = true];</code>
+     * @deprecated xray.app.proxyman.ReceiverConfig.domain_override is deprecated.
+     *     See app/proxyman/config.proto;l=75
+     * @return A list containing the enum numeric values on the wire for domainOverride.
      */
     @java.lang.Deprecated public java.util.List<java.lang.Integer>
     getDomainOverrideValueList() {
@@ -1573,6 +1605,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.app.proxyman.KnownProtocols domain_override = 7 [deprecated = true];</code>
+     * @deprecated xray.app.proxyman.ReceiverConfig.domain_override is deprecated.
+     *     See app/proxyman/config.proto;l=75
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of domainOverride at the given index.
      */
     @java.lang.Deprecated public int getDomainOverrideValue(int index) {
       return domainOverride_.get(index);
@@ -1584,6 +1620,11 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.app.proxyman.KnownProtocols domain_override = 7 [deprecated = true];</code>
+     * @deprecated xray.app.proxyman.ReceiverConfig.domain_override is deprecated.
+     *     See app/proxyman/config.proto;l=75
+     * @param index The index to set the value at.
+     * @param value The enum numeric value on the wire for domainOverride to set.
+     * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setDomainOverrideValue(
         int index, int value) {
@@ -1599,6 +1640,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.app.proxyman.KnownProtocols domain_override = 7 [deprecated = true];</code>
+     * @deprecated xray.app.proxyman.ReceiverConfig.domain_override is deprecated.
+     *     See app/proxyman/config.proto;l=75
+     * @param value The enum numeric value on the wire for domainOverride to add.
+     * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder addDomainOverrideValue(int value) {
       ensureDomainOverrideIsMutable();
@@ -1613,6 +1658,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.app.proxyman.KnownProtocols domain_override = 7 [deprecated = true];</code>
+     * @deprecated xray.app.proxyman.ReceiverConfig.domain_override is deprecated.
+     *     See app/proxyman/config.proto;l=75
+     * @param values The enum numeric values on the wire for domainOverride to add.
+     * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder addAllDomainOverrideValue(
         java.lang.Iterable<java.lang.Integer> values) {
@@ -1629,12 +1678,14 @@ private static final long serialVersionUID = 0L;
         com.xray.app.proxyman.SniffingConfig, com.xray.app.proxyman.SniffingConfig.Builder, com.xray.app.proxyman.SniffingConfigOrBuilder> sniffingSettingsBuilder_;
     /**
      * <code>.xray.app.proxyman.SniffingConfig sniffing_settings = 8;</code>
+     * @return Whether the sniffingSettings field is set.
      */
     public boolean hasSniffingSettings() {
-      return sniffingSettingsBuilder_ != null || sniffingSettings_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <code>.xray.app.proxyman.SniffingConfig sniffing_settings = 8;</code>
+     * @return The sniffingSettings.
      */
     public com.xray.app.proxyman.SniffingConfig getSniffingSettings() {
       if (sniffingSettingsBuilder_ == null) {
@@ -1652,11 +1703,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         sniffingSettings_ = value;
-        onChanged();
       } else {
         sniffingSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1666,11 +1717,11 @@ private static final long serialVersionUID = 0L;
         com.xray.app.proxyman.SniffingConfig.Builder builderForValue) {
       if (sniffingSettingsBuilder_ == null) {
         sniffingSettings_ = builderForValue.build();
-        onChanged();
       } else {
         sniffingSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1678,38 +1729,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSniffingSettings(com.xray.app.proxyman.SniffingConfig value) {
       if (sniffingSettingsBuilder_ == null) {
-        if (sniffingSettings_ != null) {
-          sniffingSettings_ =
-            com.xray.app.proxyman.SniffingConfig.newBuilder(sniffingSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          sniffingSettings_ != null &&
+          sniffingSettings_ != com.xray.app.proxyman.SniffingConfig.getDefaultInstance()) {
+          getSniffingSettingsBuilder().mergeFrom(value);
         } else {
           sniffingSettings_ = value;
         }
-        onChanged();
       } else {
         sniffingSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.app.proxyman.SniffingConfig sniffing_settings = 8;</code>
      */
     public Builder clearSniffingSettings() {
-      if (sniffingSettingsBuilder_ == null) {
-        sniffingSettings_ = null;
-        onChanged();
-      } else {
-        sniffingSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      sniffingSettings_ = null;
+      if (sniffingSettingsBuilder_ != null) {
+        sniffingSettingsBuilder_.dispose();
         sniffingSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.app.proxyman.SniffingConfig sniffing_settings = 8;</code>
      */
     public com.xray.app.proxyman.SniffingConfig.Builder getSniffingSettingsBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getSniffingSettingsFieldBuilder().getBuilder();
     }
@@ -1773,7 +1824,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ReceiverConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -10,7 +10,7 @@ package com.xray.proxy.http;
  *
  * Protobuf type {@code xray.proxy.http.ServerConfig}
  */
-public  final class ServerConfig extends
+public final class ServerConfig extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.proxy.http.ServerConfig)
     ServerConfigOrBuilder {
@@ -23,75 +23,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new ServerConfig();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private ServerConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            timeout_ = input.readUInt32();
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              accounts_ = com.google.protobuf.MapField.newMapField(
-                  AccountsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            accounts__ = input.readMessage(
-                AccountsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            accounts_.getMutableMap().put(
-                accounts__.getKey(), accounts__.getValue());
-            break;
-          }
-          case 24: {
-
-            allowTransparent_ = input.readBool();
-            break;
-          }
-          case 32: {
-
-            userLevel_ = input.readUInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -118,12 +59,15 @@ private static final long serialVersionUID = 0L;
             com.xray.proxy.http.ServerConfig.class, com.xray.proxy.http.ServerConfig.Builder.class);
   }
 
-  private int bitField0_;
   public static final int TIMEOUT_FIELD_NUMBER = 1;
-  private int timeout_;
+  private int timeout_ = 0;
   /**
    * <code>uint32 timeout = 1 [deprecated = true];</code>
+   * @deprecated xray.proxy.http.ServerConfig.timeout is deprecated.
+   *     See proxy/http/config.proto;l=17
+   * @return The timeout.
    */
+  @java.lang.Override
   @java.lang.Deprecated public int getTimeout() {
     return timeout_;
   }
@@ -140,6 +84,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> accounts_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -150,22 +95,22 @@ private static final long serialVersionUID = 0L;
     }
     return accounts_;
   }
-
   public int getAccountsCount() {
     return internalGetAccounts().getMap().size();
   }
   /**
    * <code>map&lt;string, string&gt; accounts = 2;</code>
    */
-
+  @java.lang.Override
   public boolean containsAccounts(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     return internalGetAccounts().getMap().containsKey(key);
   }
   /**
    * Use {@link #getAccountsMap()} instead.
    */
+  @java.lang.Override
   @java.lang.Deprecated
   public java.util.Map<java.lang.String, java.lang.String> getAccounts() {
     return getAccountsMap();
@@ -173,18 +118,20 @@ private static final long serialVersionUID = 0L;
   /**
    * <code>map&lt;string, string&gt; accounts = 2;</code>
    */
-
+  @java.lang.Override
   public java.util.Map<java.lang.String, java.lang.String> getAccountsMap() {
     return internalGetAccounts().getMap();
   }
   /**
    * <code>map&lt;string, string&gt; accounts = 2;</code>
    */
-
-  public java.lang.String getAccountsOrDefault(
+  @java.lang.Override
+  public /* nullable */
+java.lang.String getAccountsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+      /* nullable */
+java.lang.String defaultValue) {
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetAccounts().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -192,10 +139,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <code>map&lt;string, string&gt; accounts = 2;</code>
    */
-
+  @java.lang.Override
   public java.lang.String getAccountsOrThrow(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetAccounts().getMap();
     if (!map.containsKey(key)) {
@@ -205,19 +152,23 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALLOW_TRANSPARENT_FIELD_NUMBER = 3;
-  private boolean allowTransparent_;
+  private boolean allowTransparent_ = false;
   /**
    * <code>bool allow_transparent = 3;</code>
+   * @return The allowTransparent.
    */
+  @java.lang.Override
   public boolean getAllowTransparent() {
     return allowTransparent_;
   }
 
   public static final int USER_LEVEL_FIELD_NUMBER = 4;
-  private int userLevel_;
+  private int userLevel_ = 0;
   /**
    * <code>uint32 user_level = 4;</code>
+   * @return The userLevel.
    */
+  @java.lang.Override
   public int getUserLevel() {
     return userLevel_;
   }
@@ -251,7 +202,7 @@ private static final long serialVersionUID = 0L;
     if (userLevel_ != 0) {
       output.writeUInt32(4, userLevel_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -282,7 +233,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(4, userLevel_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -305,7 +256,7 @@ private static final long serialVersionUID = 0L;
         != other.getAllowTransparent()) return false;
     if (getUserLevel()
         != other.getUserLevel()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -327,7 +278,7 @@ private static final long serialVersionUID = 0L;
         getAllowTransparent());
     hash = (37 * hash) + USER_LEVEL_FIELD_NUMBER;
     hash = (53 * hash) + getUserLevel();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -470,29 +421,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.proxy.http.ServerConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       timeout_ = 0;
-
       internalGetMutableAccounts().clear();
       allowTransparent_ = false;
-
       userLevel_ = 0;
-
       return this;
     }
 
@@ -519,16 +463,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.proxy.http.ServerConfig buildPartial() {
       com.xray.proxy.http.ServerConfig result = new com.xray.proxy.http.ServerConfig(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.timeout_ = timeout_;
-      result.accounts_ = internalGetAccounts();
-      result.accounts_.makeImmutable();
-      result.allowTransparent_ = allowTransparent_;
-      result.userLevel_ = userLevel_;
-      result.bitField0_ = to_bitField0_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.proxy.http.ServerConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.timeout_ = timeout_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.accounts_ = internalGetAccounts();
+        result.accounts_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.allowTransparent_ = allowTransparent_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.userLevel_ = userLevel_;
+      }
     }
 
     @java.lang.Override
@@ -580,13 +534,14 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableAccounts().mergeFrom(
           other.internalGetAccounts());
+      bitField0_ |= 0x00000002;
       if (other.getAllowTransparent() != false) {
         setAllowTransparent(other.getAllowTransparent());
       }
       if (other.getUserLevel() != 0) {
         setUserLevel(other.getUserLevel());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -601,17 +556,54 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.proxy.http.ServerConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              timeout_ = input.readUInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              accounts__ = input.readMessage(
+                  AccountsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableAccounts().getMutableMap().put(
+                  accounts__.getKey(), accounts__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              allowTransparent_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              userLevel_ = input.readUInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.proxy.http.ServerConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -619,24 +611,36 @@ private static final long serialVersionUID = 0L;
     private int timeout_ ;
     /**
      * <code>uint32 timeout = 1 [deprecated = true];</code>
+     * @deprecated xray.proxy.http.ServerConfig.timeout is deprecated.
+     *     See proxy/http/config.proto;l=17
+     * @return The timeout.
      */
+    @java.lang.Override
     @java.lang.Deprecated public int getTimeout() {
       return timeout_;
     }
     /**
      * <code>uint32 timeout = 1 [deprecated = true];</code>
+     * @deprecated xray.proxy.http.ServerConfig.timeout is deprecated.
+     *     See proxy/http/config.proto;l=17
+     * @param value The timeout to set.
+     * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setTimeout(int value) {
       
       timeout_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <code>uint32 timeout = 1 [deprecated = true];</code>
+     * @deprecated xray.proxy.http.ServerConfig.timeout is deprecated.
+     *     See proxy/http/config.proto;l=17
+     * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearTimeout() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       timeout_ = 0;
       onChanged();
       return this;
@@ -645,7 +649,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> accounts_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetAccounts() {
+        internalGetAccounts() {
       if (accounts_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             AccountsDefaultEntryHolder.defaultEntry);
@@ -653,8 +657,7 @@ private static final long serialVersionUID = 0L;
       return accounts_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableAccounts() {
-      onChanged();;
+        internalGetMutableAccounts() {
       if (accounts_ == null) {
         accounts_ = com.google.protobuf.MapField.newMapField(
             AccountsDefaultEntryHolder.defaultEntry);
@@ -662,24 +665,26 @@ private static final long serialVersionUID = 0L;
       if (!accounts_.isMutable()) {
         accounts_ = accounts_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return accounts_;
     }
-
     public int getAccountsCount() {
       return internalGetAccounts().getMap().size();
     }
     /**
      * <code>map&lt;string, string&gt; accounts = 2;</code>
      */
-
+    @java.lang.Override
     public boolean containsAccounts(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetAccounts().getMap().containsKey(key);
     }
     /**
      * Use {@link #getAccountsMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String> getAccounts() {
       return getAccountsMap();
@@ -687,18 +692,20 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;string, string&gt; accounts = 2;</code>
      */
-
+    @java.lang.Override
     public java.util.Map<java.lang.String, java.lang.String> getAccountsMap() {
       return internalGetAccounts().getMap();
     }
     /**
      * <code>map&lt;string, string&gt; accounts = 2;</code>
      */
-
-    public java.lang.String getAccountsOrDefault(
+    @java.lang.Override
+    public /* nullable */
+java.lang.String getAccountsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+        /* nullable */
+java.lang.String defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetAccounts().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -706,10 +713,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;string, string&gt; accounts = 2;</code>
      */
-
+    @java.lang.Override
     public java.lang.String getAccountsOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetAccounts().getMap();
       if (!map.containsKey(key)) {
@@ -717,8 +724,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearAccounts() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableAccounts().getMutableMap()
           .clear();
       return this;
@@ -726,10 +733,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;string, string&gt; accounts = 2;</code>
      */
-
     public Builder removeAccounts(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       internalGetMutableAccounts().getMutableMap()
           .remove(key);
       return this;
@@ -739,7 +745,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableAccounts() {
+        getMutableAccounts() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableAccounts().getMutableMap();
     }
     /**
@@ -748,44 +755,51 @@ private static final long serialVersionUID = 0L;
     public Builder putAccounts(
         java.lang.String key,
         java.lang.String value) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      if (value == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableAccounts().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
      * <code>map&lt;string, string&gt; accounts = 2;</code>
      */
-
     public Builder putAllAccounts(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableAccounts().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
 
     private boolean allowTransparent_ ;
     /**
      * <code>bool allow_transparent = 3;</code>
+     * @return The allowTransparent.
      */
+    @java.lang.Override
     public boolean getAllowTransparent() {
       return allowTransparent_;
     }
     /**
      * <code>bool allow_transparent = 3;</code>
+     * @param value The allowTransparent to set.
+     * @return This builder for chaining.
      */
     public Builder setAllowTransparent(boolean value) {
       
       allowTransparent_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <code>bool allow_transparent = 3;</code>
+     * @return This builder for chaining.
      */
     public Builder clearAllowTransparent() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       allowTransparent_ = false;
       onChanged();
       return this;
@@ -794,24 +808,30 @@ private static final long serialVersionUID = 0L;
     private int userLevel_ ;
     /**
      * <code>uint32 user_level = 4;</code>
+     * @return The userLevel.
      */
+    @java.lang.Override
     public int getUserLevel() {
       return userLevel_;
     }
     /**
      * <code>uint32 user_level = 4;</code>
+     * @param value The userLevel to set.
+     * @return This builder for chaining.
      */
     public Builder setUserLevel(int value) {
       
       userLevel_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <code>uint32 user_level = 4;</code>
+     * @return This builder for chaining.
      */
     public Builder clearUserLevel() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       userLevel_ = 0;
       onChanged();
       return this;
@@ -849,7 +869,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ServerConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

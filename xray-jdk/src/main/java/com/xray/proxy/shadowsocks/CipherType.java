@@ -13,22 +13,6 @@ public enum CipherType
    */
   UNKNOWN(0),
   /**
-   * <code>AES_128_CFB = 1;</code>
-   */
-  AES_128_CFB(1),
-  /**
-   * <code>AES_256_CFB = 2;</code>
-   */
-  AES_256_CFB(2),
-  /**
-   * <code>CHACHA20 = 3;</code>
-   */
-  CHACHA20(3),
-  /**
-   * <code>CHACHA20_IETF = 4;</code>
-   */
-  CHACHA20_IETF(4),
-  /**
    * <code>AES_128_GCM = 5;</code>
    */
   AES_128_GCM(5),
@@ -41,9 +25,13 @@ public enum CipherType
    */
   CHACHA20_POLY1305(7),
   /**
-   * <code>NONE = 8;</code>
+   * <code>XCHACHA20_POLY1305 = 8;</code>
    */
-  NONE(8),
+  XCHACHA20_POLY1305(8),
+  /**
+   * <code>NONE = 9;</code>
+   */
+  NONE(9),
   UNRECOGNIZED(-1),
   ;
 
@@ -51,22 +39,6 @@ public enum CipherType
    * <code>UNKNOWN = 0;</code>
    */
   public static final int UNKNOWN_VALUE = 0;
-  /**
-   * <code>AES_128_CFB = 1;</code>
-   */
-  public static final int AES_128_CFB_VALUE = 1;
-  /**
-   * <code>AES_256_CFB = 2;</code>
-   */
-  public static final int AES_256_CFB_VALUE = 2;
-  /**
-   * <code>CHACHA20 = 3;</code>
-   */
-  public static final int CHACHA20_VALUE = 3;
-  /**
-   * <code>CHACHA20_IETF = 4;</code>
-   */
-  public static final int CHACHA20_IETF_VALUE = 4;
   /**
    * <code>AES_128_GCM = 5;</code>
    */
@@ -80,9 +52,13 @@ public enum CipherType
    */
   public static final int CHACHA20_POLY1305_VALUE = 7;
   /**
-   * <code>NONE = 8;</code>
+   * <code>XCHACHA20_POLY1305 = 8;</code>
    */
-  public static final int NONE_VALUE = 8;
+  public static final int XCHACHA20_POLY1305_VALUE = 8;
+  /**
+   * <code>NONE = 9;</code>
+   */
+  public static final int NONE_VALUE = 9;
 
 
   public final int getNumber() {
@@ -94,6 +70,8 @@ public enum CipherType
   }
 
   /**
+   * @param value The numeric wire value of the corresponding enum entry.
+   * @return The enum associated with the given numeric wire value.
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
@@ -101,17 +79,18 @@ public enum CipherType
     return forNumber(value);
   }
 
+  /**
+   * @param value The numeric wire value of the corresponding enum entry.
+   * @return The enum associated with the given numeric wire value.
+   */
   public static CipherType forNumber(int value) {
     switch (value) {
       case 0: return UNKNOWN;
-      case 1: return AES_128_CFB;
-      case 2: return AES_256_CFB;
-      case 3: return CHACHA20;
-      case 4: return CHACHA20_IETF;
       case 5: return AES_128_GCM;
       case 6: return AES_256_GCM;
       case 7: return CHACHA20_POLY1305;
-      case 8: return NONE;
+      case 8: return XCHACHA20_POLY1305;
+      case 9: return NONE;
       default: return null;
     }
   }
@@ -130,6 +109,10 @@ public enum CipherType
 
   public final com.google.protobuf.Descriptors.EnumValueDescriptor
       getValueDescriptor() {
+    if (this == UNRECOGNIZED) {
+      throw new java.lang.IllegalStateException(
+          "Can't get the descriptor of an unrecognized enum value.");
+    }
     return getDescriptor().getValues().get(ordinal());
   }
   public final com.google.protobuf.Descriptors.EnumDescriptor

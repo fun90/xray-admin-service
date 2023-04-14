@@ -9,6 +9,7 @@ public interface ConfigOrBuilder extends
 
   /**
    * <code>uint32 version = 1;</code>
+   * @return The version.
    */
   int getVersion();
 }

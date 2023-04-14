@@ -6,7 +6,7 @@ package com.xray.proxy.vmess.inbound;
 /**
  * Protobuf type {@code xray.proxy.vmess.inbound.Config}
  */
-public  final class Config extends
+public final class Config extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.proxy.vmess.inbound.Config)
     ConfigOrBuilder {
@@ -20,90 +20,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new Config();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Config(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              user_ = new java.util.ArrayList<com.xray.common.protocol.User>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            user_.add(
-                input.readMessage(com.xray.common.protocol.User.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            com.xray.proxy.vmess.inbound.DefaultConfig.Builder subBuilder = null;
-            if (default_ != null) {
-              subBuilder = default_.toBuilder();
-            }
-            default_ = input.readMessage(com.xray.proxy.vmess.inbound.DefaultConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(default_);
-              default_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.xray.proxy.vmess.inbound.DetourConfig.Builder subBuilder = null;
-            if (detour_ != null) {
-              subBuilder = detour_.toBuilder();
-            }
-            detour_ = input.readMessage(com.xray.proxy.vmess.inbound.DetourConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(detour_);
-              detour_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 32: {
-
-            secureEncryptionOnly_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        user_ = java.util.Collections.unmodifiableList(user_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -118,18 +44,20 @@ private static final long serialVersionUID = 0L;
             com.xray.proxy.vmess.inbound.Config.class, com.xray.proxy.vmess.inbound.Config.Builder.class);
   }
 
-  private int bitField0_;
   public static final int USER_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.xray.common.protocol.User> user_;
   /**
    * <code>repeated .xray.common.protocol.User user = 1;</code>
    */
+  @java.lang.Override
   public java.util.List<com.xray.common.protocol.User> getUserList() {
     return user_;
   }
   /**
    * <code>repeated .xray.common.protocol.User user = 1;</code>
    */
+  @java.lang.Override
   public java.util.List<? extends com.xray.common.protocol.UserOrBuilder> 
       getUserOrBuilderList() {
     return user_;
@@ -137,18 +65,21 @@ private static final long serialVersionUID = 0L;
   /**
    * <code>repeated .xray.common.protocol.User user = 1;</code>
    */
+  @java.lang.Override
   public int getUserCount() {
     return user_.size();
   }
   /**
    * <code>repeated .xray.common.protocol.User user = 1;</code>
    */
+  @java.lang.Override
   public com.xray.common.protocol.User getUser(int index) {
     return user_.get(index);
   }
   /**
    * <code>repeated .xray.common.protocol.User user = 1;</code>
    */
+  @java.lang.Override
   public com.xray.common.protocol.UserOrBuilder getUserOrBuilder(
       int index) {
     return user_.get(index);
@@ -158,49 +89,61 @@ private static final long serialVersionUID = 0L;
   private com.xray.proxy.vmess.inbound.DefaultConfig default_;
   /**
    * <code>.xray.proxy.vmess.inbound.DefaultConfig default = 2;</code>
+   * @return Whether the default field is set.
    */
+  @java.lang.Override
   public boolean hasDefault() {
     return default_ != null;
   }
   /**
    * <code>.xray.proxy.vmess.inbound.DefaultConfig default = 2;</code>
+   * @return The default.
    */
+  @java.lang.Override
   public com.xray.proxy.vmess.inbound.DefaultConfig getDefault() {
     return default_ == null ? com.xray.proxy.vmess.inbound.DefaultConfig.getDefaultInstance() : default_;
   }
   /**
    * <code>.xray.proxy.vmess.inbound.DefaultConfig default = 2;</code>
    */
+  @java.lang.Override
   public com.xray.proxy.vmess.inbound.DefaultConfigOrBuilder getDefaultOrBuilder() {
-    return getDefault();
+    return default_ == null ? com.xray.proxy.vmess.inbound.DefaultConfig.getDefaultInstance() : default_;
   }
 
   public static final int DETOUR_FIELD_NUMBER = 3;
   private com.xray.proxy.vmess.inbound.DetourConfig detour_;
   /**
    * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
+   * @return Whether the detour field is set.
    */
+  @java.lang.Override
   public boolean hasDetour() {
     return detour_ != null;
   }
   /**
    * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
+   * @return The detour.
    */
+  @java.lang.Override
   public com.xray.proxy.vmess.inbound.DetourConfig getDetour() {
     return detour_ == null ? com.xray.proxy.vmess.inbound.DetourConfig.getDefaultInstance() : detour_;
   }
   /**
    * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
    */
+  @java.lang.Override
   public com.xray.proxy.vmess.inbound.DetourConfigOrBuilder getDetourOrBuilder() {
-    return getDetour();
+    return detour_ == null ? com.xray.proxy.vmess.inbound.DetourConfig.getDefaultInstance() : detour_;
   }
 
   public static final int SECURE_ENCRYPTION_ONLY_FIELD_NUMBER = 4;
-  private boolean secureEncryptionOnly_;
+  private boolean secureEncryptionOnly_ = false;
   /**
    * <code>bool secure_encryption_only = 4;</code>
+   * @return The secureEncryptionOnly.
    */
+  @java.lang.Override
   public boolean getSecureEncryptionOnly() {
     return secureEncryptionOnly_;
   }
@@ -231,7 +174,7 @@ private static final long serialVersionUID = 0L;
     if (secureEncryptionOnly_ != false) {
       output.writeBool(4, secureEncryptionOnly_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -256,7 +199,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(4, secureEncryptionOnly_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -285,7 +228,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getSecureEncryptionOnly()
         != other.getSecureEncryptionOnly()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -311,7 +254,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + SECURE_ENCRYPTION_ONLY_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getSecureEncryptionOnly());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -428,43 +371,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.proxy.vmess.inbound.Config.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getUserFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (userBuilder_ == null) {
         user_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        user_ = null;
         userBuilder_.clear();
       }
-      if (defaultBuilder_ == null) {
-        default_ = null;
-      } else {
-        default_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      default_ = null;
+      if (defaultBuilder_ != null) {
+        defaultBuilder_.dispose();
         defaultBuilder_ = null;
       }
-      if (detourBuilder_ == null) {
-        detour_ = null;
-      } else {
-        detour_ = null;
+      detour_ = null;
+      if (detourBuilder_ != null) {
+        detourBuilder_.dispose();
         detourBuilder_ = null;
       }
       secureEncryptionOnly_ = false;
-
       return this;
     }
 
@@ -491,8 +427,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.proxy.vmess.inbound.Config buildPartial() {
       com.xray.proxy.vmess.inbound.Config result = new com.xray.proxy.vmess.inbound.Config(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.xray.proxy.vmess.inbound.Config result) {
       if (userBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           user_ = java.util.Collections.unmodifiableList(user_);
@@ -502,20 +443,23 @@ private static final long serialVersionUID = 0L;
       } else {
         result.user_ = userBuilder_.build();
       }
-      if (defaultBuilder_ == null) {
-        result.default_ = default_;
-      } else {
-        result.default_ = defaultBuilder_.build();
+    }
+
+    private void buildPartial0(com.xray.proxy.vmess.inbound.Config result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.default_ = defaultBuilder_ == null
+            ? default_
+            : defaultBuilder_.build();
       }
-      if (detourBuilder_ == null) {
-        result.detour_ = detour_;
-      } else {
-        result.detour_ = detourBuilder_.build();
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.detour_ = detourBuilder_ == null
+            ? detour_
+            : detourBuilder_.build();
       }
-      result.secureEncryptionOnly_ = secureEncryptionOnly_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.secureEncryptionOnly_ = secureEncryptionOnly_;
+      }
     }
 
     @java.lang.Override
@@ -597,7 +541,7 @@ private static final long serialVersionUID = 0L;
       if (other.getSecureEncryptionOnly() != false) {
         setSecureEncryptionOnly(other.getSecureEncryptionOnly());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -612,17 +556,62 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.proxy.vmess.inbound.Config parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.xray.common.protocol.User m =
+                  input.readMessage(
+                      com.xray.common.protocol.User.parser(),
+                      extensionRegistry);
+              if (userBuilder_ == null) {
+                ensureUserIsMutable();
+                user_.add(m);
+              } else {
+                userBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getDefaultFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getDetourFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              secureEncryptionOnly_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.proxy.vmess.inbound.Config) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -872,12 +861,14 @@ private static final long serialVersionUID = 0L;
         com.xray.proxy.vmess.inbound.DefaultConfig, com.xray.proxy.vmess.inbound.DefaultConfig.Builder, com.xray.proxy.vmess.inbound.DefaultConfigOrBuilder> defaultBuilder_;
     /**
      * <code>.xray.proxy.vmess.inbound.DefaultConfig default = 2;</code>
+     * @return Whether the default field is set.
      */
     public boolean hasDefault() {
-      return defaultBuilder_ != null || default_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>.xray.proxy.vmess.inbound.DefaultConfig default = 2;</code>
+     * @return The default.
      */
     public com.xray.proxy.vmess.inbound.DefaultConfig getDefault() {
       if (defaultBuilder_ == null) {
@@ -895,11 +886,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         default_ = value;
-        onChanged();
       } else {
         defaultBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -909,11 +900,11 @@ private static final long serialVersionUID = 0L;
         com.xray.proxy.vmess.inbound.DefaultConfig.Builder builderForValue) {
       if (defaultBuilder_ == null) {
         default_ = builderForValue.build();
-        onChanged();
       } else {
         defaultBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -921,38 +912,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDefault(com.xray.proxy.vmess.inbound.DefaultConfig value) {
       if (defaultBuilder_ == null) {
-        if (default_ != null) {
-          default_ =
-            com.xray.proxy.vmess.inbound.DefaultConfig.newBuilder(default_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          default_ != null &&
+          default_ != com.xray.proxy.vmess.inbound.DefaultConfig.getDefaultInstance()) {
+          getDefaultBuilder().mergeFrom(value);
         } else {
           default_ = value;
         }
-        onChanged();
       } else {
         defaultBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.proxy.vmess.inbound.DefaultConfig default = 2;</code>
      */
     public Builder clearDefault() {
-      if (defaultBuilder_ == null) {
-        default_ = null;
-        onChanged();
-      } else {
-        default_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      default_ = null;
+      if (defaultBuilder_ != null) {
+        defaultBuilder_.dispose();
         defaultBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.proxy.vmess.inbound.DefaultConfig default = 2;</code>
      */
     public com.xray.proxy.vmess.inbound.DefaultConfig.Builder getDefaultBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getDefaultFieldBuilder().getBuilder();
     }
@@ -989,12 +980,14 @@ private static final long serialVersionUID = 0L;
         com.xray.proxy.vmess.inbound.DetourConfig, com.xray.proxy.vmess.inbound.DetourConfig.Builder, com.xray.proxy.vmess.inbound.DetourConfigOrBuilder> detourBuilder_;
     /**
      * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
+     * @return Whether the detour field is set.
      */
     public boolean hasDetour() {
-      return detourBuilder_ != null || detour_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
+     * @return The detour.
      */
     public com.xray.proxy.vmess.inbound.DetourConfig getDetour() {
       if (detourBuilder_ == null) {
@@ -1012,11 +1005,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         detour_ = value;
-        onChanged();
       } else {
         detourBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1026,11 +1019,11 @@ private static final long serialVersionUID = 0L;
         com.xray.proxy.vmess.inbound.DetourConfig.Builder builderForValue) {
       if (detourBuilder_ == null) {
         detour_ = builderForValue.build();
-        onChanged();
       } else {
         detourBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1038,38 +1031,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDetour(com.xray.proxy.vmess.inbound.DetourConfig value) {
       if (detourBuilder_ == null) {
-        if (detour_ != null) {
-          detour_ =
-            com.xray.proxy.vmess.inbound.DetourConfig.newBuilder(detour_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          detour_ != null &&
+          detour_ != com.xray.proxy.vmess.inbound.DetourConfig.getDefaultInstance()) {
+          getDetourBuilder().mergeFrom(value);
         } else {
           detour_ = value;
         }
-        onChanged();
       } else {
         detourBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
      */
     public Builder clearDetour() {
-      if (detourBuilder_ == null) {
-        detour_ = null;
-        onChanged();
-      } else {
-        detour_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      detour_ = null;
+      if (detourBuilder_ != null) {
+        detourBuilder_.dispose();
         detourBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
      */
     public com.xray.proxy.vmess.inbound.DetourConfig.Builder getDetourBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getDetourFieldBuilder().getBuilder();
     }
@@ -1104,24 +1097,30 @@ private static final long serialVersionUID = 0L;
     private boolean secureEncryptionOnly_ ;
     /**
      * <code>bool secure_encryption_only = 4;</code>
+     * @return The secureEncryptionOnly.
      */
+    @java.lang.Override
     public boolean getSecureEncryptionOnly() {
       return secureEncryptionOnly_;
     }
     /**
      * <code>bool secure_encryption_only = 4;</code>
+     * @param value The secureEncryptionOnly to set.
+     * @return This builder for chaining.
      */
     public Builder setSecureEncryptionOnly(boolean value) {
       
       secureEncryptionOnly_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <code>bool secure_encryption_only = 4;</code>
+     * @return This builder for chaining.
      */
     public Builder clearSecureEncryptionOnly() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       secureEncryptionOnly_ = false;
       onChanged();
       return this;
@@ -1159,7 +1158,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Config(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

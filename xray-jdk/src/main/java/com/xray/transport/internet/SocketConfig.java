@@ -10,7 +10,7 @@ package com.xray.transport.internet;
  *
  * Protobuf type {@code xray.transport.internet.SocketConfig}
  */
-public  final class SocketConfig extends
+public final class SocketConfig extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.transport.internet.SocketConfig)
     SocketConfigOrBuilder {
@@ -20,90 +20,25 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private SocketConfig() {
-    tfo_ = 0;
     tproxy_ = 0;
     bindAddress_ = com.google.protobuf.ByteString.EMPTY;
+    domainStrategy_ = 0;
+    dialerProxy_ = "";
+    tcpCongestion_ = "";
+    interface_ = "";
+  }
+
+  @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new SocketConfig();
   }
 
   @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private SocketConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            mark_ = input.readInt32();
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            tfo_ = rawValue;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            tproxy_ = rawValue;
-            break;
-          }
-          case 32: {
-
-            receiveOriginalDestAddress_ = input.readBool();
-            break;
-          }
-          case 42: {
-
-            bindAddress_ = input.readBytes();
-            break;
-          }
-          case 48: {
-
-            bindPort_ = input.readUInt32();
-            break;
-          }
-          case 56: {
-
-            acceptProxyProtocol_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -116,137 +51,6 @@ private static final long serialVersionUID = 0L;
     return com.xray.transport.internet.Config.internal_static_xray_transport_internet_SocketConfig_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.xray.transport.internet.SocketConfig.class, com.xray.transport.internet.SocketConfig.Builder.class);
-  }
-
-  /**
-   * Protobuf enum {@code xray.transport.internet.SocketConfig.TCPFastOpenState}
-   */
-  public enum TCPFastOpenState
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <pre>
-     * AsIs is to leave the current TFO state as is, unmodified.
-     * </pre>
-     *
-     * <code>AsIs = 0;</code>
-     */
-    AsIs(0),
-    /**
-     * <pre>
-     * Enable is for enabling TFO explictly.
-     * </pre>
-     *
-     * <code>Enable = 1;</code>
-     */
-    Enable(1),
-    /**
-     * <pre>
-     * Disable is for disabling TFO explictly.
-     * </pre>
-     *
-     * <code>Disable = 2;</code>
-     */
-    Disable(2),
-    UNRECOGNIZED(-1),
-    ;
-
-    /**
-     * <pre>
-     * AsIs is to leave the current TFO state as is, unmodified.
-     * </pre>
-     *
-     * <code>AsIs = 0;</code>
-     */
-    public static final int AsIs_VALUE = 0;
-    /**
-     * <pre>
-     * Enable is for enabling TFO explictly.
-     * </pre>
-     *
-     * <code>Enable = 1;</code>
-     */
-    public static final int Enable_VALUE = 1;
-    /**
-     * <pre>
-     * Disable is for disabling TFO explictly.
-     * </pre>
-     *
-     * <code>Disable = 2;</code>
-     */
-    public static final int Disable_VALUE = 2;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
-    }
-
-    /**
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static TCPFastOpenState valueOf(int value) {
-      return forNumber(value);
-    }
-
-    public static TCPFastOpenState forNumber(int value) {
-      switch (value) {
-        case 0: return AsIs;
-        case 1: return Enable;
-        case 2: return Disable;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<TCPFastOpenState>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        TCPFastOpenState> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<TCPFastOpenState>() {
-            public TCPFastOpenState findValueByNumber(int number) {
-              return TCPFastOpenState.forNumber(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return com.xray.transport.internet.SocketConfig.getDescriptor().getEnumTypes().get(0);
-    }
-
-    private static final TCPFastOpenState[] VALUES = values();
-
-    public static TCPFastOpenState valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private TCPFastOpenState(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:xray.transport.internet.SocketConfig.TCPFastOpenState)
   }
 
   /**
@@ -316,6 +120,8 @@ private static final long serialVersionUID = 0L;
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -323,6 +129,10 @@ private static final long serialVersionUID = 0L;
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static TProxyMode forNumber(int value) {
       switch (value) {
         case 0: return Off;
@@ -346,6 +156,10 @@ private static final long serialVersionUID = 0L;
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -354,7 +168,7 @@ private static final long serialVersionUID = 0L;
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.xray.transport.internet.SocketConfig.getDescriptor().getEnumTypes().get(1);
+      return com.xray.transport.internet.SocketConfig.getDescriptor().getEnumTypes().get(0);
     }
 
     private static final TProxyMode[] VALUES = values();
@@ -381,53 +195,46 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MARK_FIELD_NUMBER = 1;
-  private int mark_;
+  private int mark_ = 0;
   /**
    * <pre>
    * Mark of the connection. If non-zero, the value will be set to SO_MARK.
    * </pre>
    *
    * <code>int32 mark = 1;</code>
+   * @return The mark.
    */
+  @java.lang.Override
   public int getMark() {
     return mark_;
   }
 
   public static final int TFO_FIELD_NUMBER = 2;
-  private int tfo_;
+  private int tfo_ = 0;
   /**
    * <pre>
    * TFO is the state of TFO settings.
    * </pre>
    *
-   * <code>.xray.transport.internet.SocketConfig.TCPFastOpenState tfo = 2;</code>
+   * <code>int32 tfo = 2;</code>
+   * @return The tfo.
    */
-  public int getTfoValue() {
+  @java.lang.Override
+  public int getTfo() {
     return tfo_;
-  }
-  /**
-   * <pre>
-   * TFO is the state of TFO settings.
-   * </pre>
-   *
-   * <code>.xray.transport.internet.SocketConfig.TCPFastOpenState tfo = 2;</code>
-   */
-  public com.xray.transport.internet.SocketConfig.TCPFastOpenState getTfo() {
-    @SuppressWarnings("deprecation")
-    com.xray.transport.internet.SocketConfig.TCPFastOpenState result = com.xray.transport.internet.SocketConfig.TCPFastOpenState.valueOf(tfo_);
-    return result == null ? com.xray.transport.internet.SocketConfig.TCPFastOpenState.UNRECOGNIZED : result;
   }
 
   public static final int TPROXY_FIELD_NUMBER = 3;
-  private int tproxy_;
+  private int tproxy_ = 0;
   /**
    * <pre>
    * TProxy is for enabling TProxy socket option.
    * </pre>
    *
    * <code>.xray.transport.internet.SocketConfig.TProxyMode tproxy = 3;</code>
+   * @return The enum numeric value on the wire for tproxy.
    */
-  public int getTproxyValue() {
+  @java.lang.Override public int getTproxyValue() {
     return tproxy_;
   }
   /**
@@ -436,15 +243,15 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.transport.internet.SocketConfig.TProxyMode tproxy = 3;</code>
+   * @return The tproxy.
    */
-  public com.xray.transport.internet.SocketConfig.TProxyMode getTproxy() {
-    @SuppressWarnings("deprecation")
-    com.xray.transport.internet.SocketConfig.TProxyMode result = com.xray.transport.internet.SocketConfig.TProxyMode.valueOf(tproxy_);
+  @java.lang.Override public com.xray.transport.internet.SocketConfig.TProxyMode getTproxy() {
+    com.xray.transport.internet.SocketConfig.TProxyMode result = com.xray.transport.internet.SocketConfig.TProxyMode.forNumber(tproxy_);
     return result == null ? com.xray.transport.internet.SocketConfig.TProxyMode.UNRECOGNIZED : result;
   }
 
   public static final int RECEIVE_ORIGINAL_DEST_ADDRESS_FIELD_NUMBER = 4;
-  private boolean receiveOriginalDestAddress_;
+  private boolean receiveOriginalDestAddress_ = false;
   /**
    * <pre>
    * ReceiveOriginalDestAddress is for enabling IP_RECVORIGDSTADDR socket
@@ -452,36 +259,223 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>bool receive_original_dest_address = 4;</code>
+   * @return The receiveOriginalDestAddress.
    */
+  @java.lang.Override
   public boolean getReceiveOriginalDestAddress() {
     return receiveOriginalDestAddress_;
   }
 
   public static final int BIND_ADDRESS_FIELD_NUMBER = 5;
-  private com.google.protobuf.ByteString bindAddress_;
+  private com.google.protobuf.ByteString bindAddress_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <code>bytes bind_address = 5;</code>
+   * @return The bindAddress.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString getBindAddress() {
     return bindAddress_;
   }
 
   public static final int BIND_PORT_FIELD_NUMBER = 6;
-  private int bindPort_;
+  private int bindPort_ = 0;
   /**
    * <code>uint32 bind_port = 6;</code>
+   * @return The bindPort.
    */
+  @java.lang.Override
   public int getBindPort() {
     return bindPort_;
   }
 
   public static final int ACCEPT_PROXY_PROTOCOL_FIELD_NUMBER = 7;
-  private boolean acceptProxyProtocol_;
+  private boolean acceptProxyProtocol_ = false;
   /**
    * <code>bool accept_proxy_protocol = 7;</code>
+   * @return The acceptProxyProtocol.
    */
+  @java.lang.Override
   public boolean getAcceptProxyProtocol() {
     return acceptProxyProtocol_;
+  }
+
+  public static final int DOMAIN_STRATEGY_FIELD_NUMBER = 8;
+  private int domainStrategy_ = 0;
+  /**
+   * <code>.xray.transport.internet.DomainStrategy domain_strategy = 8;</code>
+   * @return The enum numeric value on the wire for domainStrategy.
+   */
+  @java.lang.Override public int getDomainStrategyValue() {
+    return domainStrategy_;
+  }
+  /**
+   * <code>.xray.transport.internet.DomainStrategy domain_strategy = 8;</code>
+   * @return The domainStrategy.
+   */
+  @java.lang.Override public com.xray.transport.internet.DomainStrategy getDomainStrategy() {
+    com.xray.transport.internet.DomainStrategy result = com.xray.transport.internet.DomainStrategy.forNumber(domainStrategy_);
+    return result == null ? com.xray.transport.internet.DomainStrategy.UNRECOGNIZED : result;
+  }
+
+  public static final int DIALER_PROXY_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object dialerProxy_ = "";
+  /**
+   * <code>string dialer_proxy = 9;</code>
+   * @return The dialerProxy.
+   */
+  @java.lang.Override
+  public java.lang.String getDialerProxy() {
+    java.lang.Object ref = dialerProxy_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      dialerProxy_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string dialer_proxy = 9;</code>
+   * @return The bytes for dialerProxy.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getDialerProxyBytes() {
+    java.lang.Object ref = dialerProxy_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      dialerProxy_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int TCP_KEEP_ALIVE_INTERVAL_FIELD_NUMBER = 10;
+  private int tcpKeepAliveInterval_ = 0;
+  /**
+   * <code>int32 tcp_keep_alive_interval = 10;</code>
+   * @return The tcpKeepAliveInterval.
+   */
+  @java.lang.Override
+  public int getTcpKeepAliveInterval() {
+    return tcpKeepAliveInterval_;
+  }
+
+  public static final int TCP_KEEP_ALIVE_IDLE_FIELD_NUMBER = 11;
+  private int tcpKeepAliveIdle_ = 0;
+  /**
+   * <code>int32 tcp_keep_alive_idle = 11;</code>
+   * @return The tcpKeepAliveIdle.
+   */
+  @java.lang.Override
+  public int getTcpKeepAliveIdle() {
+    return tcpKeepAliveIdle_;
+  }
+
+  public static final int TCP_CONGESTION_FIELD_NUMBER = 12;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object tcpCongestion_ = "";
+  /**
+   * <code>string tcp_congestion = 12;</code>
+   * @return The tcpCongestion.
+   */
+  @java.lang.Override
+  public java.lang.String getTcpCongestion() {
+    java.lang.Object ref = tcpCongestion_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      tcpCongestion_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string tcp_congestion = 12;</code>
+   * @return The bytes for tcpCongestion.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getTcpCongestionBytes() {
+    java.lang.Object ref = tcpCongestion_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      tcpCongestion_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int INTERFACE_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object interface_ = "";
+  /**
+   * <code>string interface = 13;</code>
+   * @return The interface.
+   */
+  @java.lang.Override
+  public java.lang.String getInterface() {
+    java.lang.Object ref = interface_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      interface_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string interface = 13;</code>
+   * @return The bytes for interface.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getInterfaceBytes() {
+    java.lang.Object ref = interface_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      interface_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int V6ONLY_FIELD_NUMBER = 14;
+  private boolean v6Only_ = false;
+  /**
+   * <code>bool v6only = 14;</code>
+   * @return The v6only.
+   */
+  @java.lang.Override
+  public boolean getV6Only() {
+    return v6Only_;
+  }
+
+  public static final int TCP_WINDOW_CLAMP_FIELD_NUMBER = 15;
+  private int tcpWindowClamp_ = 0;
+  /**
+   * <code>int32 tcp_window_clamp = 15;</code>
+   * @return The tcpWindowClamp.
+   */
+  @java.lang.Override
+  public int getTcpWindowClamp() {
+    return tcpWindowClamp_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -501,8 +495,8 @@ private static final long serialVersionUID = 0L;
     if (mark_ != 0) {
       output.writeInt32(1, mark_);
     }
-    if (tfo_ != com.xray.transport.internet.SocketConfig.TCPFastOpenState.AsIs.getNumber()) {
-      output.writeEnum(2, tfo_);
+    if (tfo_ != 0) {
+      output.writeInt32(2, tfo_);
     }
     if (tproxy_ != com.xray.transport.internet.SocketConfig.TProxyMode.Off.getNumber()) {
       output.writeEnum(3, tproxy_);
@@ -519,7 +513,31 @@ private static final long serialVersionUID = 0L;
     if (acceptProxyProtocol_ != false) {
       output.writeBool(7, acceptProxyProtocol_);
     }
-    unknownFields.writeTo(output);
+    if (domainStrategy_ != com.xray.transport.internet.DomainStrategy.AS_IS.getNumber()) {
+      output.writeEnum(8, domainStrategy_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dialerProxy_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, dialerProxy_);
+    }
+    if (tcpKeepAliveInterval_ != 0) {
+      output.writeInt32(10, tcpKeepAliveInterval_);
+    }
+    if (tcpKeepAliveIdle_ != 0) {
+      output.writeInt32(11, tcpKeepAliveIdle_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tcpCongestion_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, tcpCongestion_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(interface_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 13, interface_);
+    }
+    if (v6Only_ != false) {
+      output.writeBool(14, v6Only_);
+    }
+    if (tcpWindowClamp_ != 0) {
+      output.writeInt32(15, tcpWindowClamp_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -532,9 +550,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(1, mark_);
     }
-    if (tfo_ != com.xray.transport.internet.SocketConfig.TCPFastOpenState.AsIs.getNumber()) {
+    if (tfo_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(2, tfo_);
+        .computeInt32Size(2, tfo_);
     }
     if (tproxy_ != com.xray.transport.internet.SocketConfig.TProxyMode.Off.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
@@ -556,7 +574,36 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(7, acceptProxyProtocol_);
     }
-    size += unknownFields.getSerializedSize();
+    if (domainStrategy_ != com.xray.transport.internet.DomainStrategy.AS_IS.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(8, domainStrategy_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dialerProxy_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, dialerProxy_);
+    }
+    if (tcpKeepAliveInterval_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(10, tcpKeepAliveInterval_);
+    }
+    if (tcpKeepAliveIdle_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(11, tcpKeepAliveIdle_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tcpCongestion_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, tcpCongestion_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(interface_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, interface_);
+    }
+    if (v6Only_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(14, v6Only_);
+    }
+    if (tcpWindowClamp_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(15, tcpWindowClamp_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -573,7 +620,8 @@ private static final long serialVersionUID = 0L;
 
     if (getMark()
         != other.getMark()) return false;
-    if (tfo_ != other.tfo_) return false;
+    if (getTfo()
+        != other.getTfo()) return false;
     if (tproxy_ != other.tproxy_) return false;
     if (getReceiveOriginalDestAddress()
         != other.getReceiveOriginalDestAddress()) return false;
@@ -583,7 +631,22 @@ private static final long serialVersionUID = 0L;
         != other.getBindPort()) return false;
     if (getAcceptProxyProtocol()
         != other.getAcceptProxyProtocol()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (domainStrategy_ != other.domainStrategy_) return false;
+    if (!getDialerProxy()
+        .equals(other.getDialerProxy())) return false;
+    if (getTcpKeepAliveInterval()
+        != other.getTcpKeepAliveInterval()) return false;
+    if (getTcpKeepAliveIdle()
+        != other.getTcpKeepAliveIdle()) return false;
+    if (!getTcpCongestion()
+        .equals(other.getTcpCongestion())) return false;
+    if (!getInterface()
+        .equals(other.getInterface())) return false;
+    if (getV6Only()
+        != other.getV6Only()) return false;
+    if (getTcpWindowClamp()
+        != other.getTcpWindowClamp()) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -597,7 +660,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + MARK_FIELD_NUMBER;
     hash = (53 * hash) + getMark();
     hash = (37 * hash) + TFO_FIELD_NUMBER;
-    hash = (53 * hash) + tfo_;
+    hash = (53 * hash) + getTfo();
     hash = (37 * hash) + TPROXY_FIELD_NUMBER;
     hash = (53 * hash) + tproxy_;
     hash = (37 * hash) + RECEIVE_ORIGINAL_DEST_ADDRESS_FIELD_NUMBER;
@@ -610,7 +673,24 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ACCEPT_PROXY_PROTOCOL_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getAcceptProxyProtocol());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + DOMAIN_STRATEGY_FIELD_NUMBER;
+    hash = (53 * hash) + domainStrategy_;
+    hash = (37 * hash) + DIALER_PROXY_FIELD_NUMBER;
+    hash = (53 * hash) + getDialerProxy().hashCode();
+    hash = (37 * hash) + TCP_KEEP_ALIVE_INTERVAL_FIELD_NUMBER;
+    hash = (53 * hash) + getTcpKeepAliveInterval();
+    hash = (37 * hash) + TCP_KEEP_ALIVE_IDLE_FIELD_NUMBER;
+    hash = (53 * hash) + getTcpKeepAliveIdle();
+    hash = (37 * hash) + TCP_CONGESTION_FIELD_NUMBER;
+    hash = (53 * hash) + getTcpCongestion().hashCode();
+    hash = (37 * hash) + INTERFACE_FIELD_NUMBER;
+    hash = (53 * hash) + getInterface().hashCode();
+    hash = (37 * hash) + V6ONLY_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getV6Only());
+    hash = (37 * hash) + TCP_WINDOW_CLAMP_FIELD_NUMBER;
+    hash = (53 * hash) + getTcpWindowClamp();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -731,36 +811,33 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.transport.internet.SocketConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       mark_ = 0;
-
       tfo_ = 0;
-
       tproxy_ = 0;
-
       receiveOriginalDestAddress_ = false;
-
       bindAddress_ = com.google.protobuf.ByteString.EMPTY;
-
       bindPort_ = 0;
-
       acceptProxyProtocol_ = false;
-
+      domainStrategy_ = 0;
+      dialerProxy_ = "";
+      tcpKeepAliveInterval_ = 0;
+      tcpKeepAliveIdle_ = 0;
+      tcpCongestion_ = "";
+      interface_ = "";
+      v6Only_ = false;
+      tcpWindowClamp_ = 0;
       return this;
     }
 
@@ -787,15 +864,58 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.transport.internet.SocketConfig buildPartial() {
       com.xray.transport.internet.SocketConfig result = new com.xray.transport.internet.SocketConfig(this);
-      result.mark_ = mark_;
-      result.tfo_ = tfo_;
-      result.tproxy_ = tproxy_;
-      result.receiveOriginalDestAddress_ = receiveOriginalDestAddress_;
-      result.bindAddress_ = bindAddress_;
-      result.bindPort_ = bindPort_;
-      result.acceptProxyProtocol_ = acceptProxyProtocol_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.transport.internet.SocketConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.mark_ = mark_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.tfo_ = tfo_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.tproxy_ = tproxy_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.receiveOriginalDestAddress_ = receiveOriginalDestAddress_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.bindAddress_ = bindAddress_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.bindPort_ = bindPort_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.acceptProxyProtocol_ = acceptProxyProtocol_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.domainStrategy_ = domainStrategy_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.dialerProxy_ = dialerProxy_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.tcpKeepAliveInterval_ = tcpKeepAliveInterval_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.tcpKeepAliveIdle_ = tcpKeepAliveIdle_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.tcpCongestion_ = tcpCongestion_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.interface_ = interface_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.v6Only_ = v6Only_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.tcpWindowClamp_ = tcpWindowClamp_;
+      }
     }
 
     @java.lang.Override
@@ -845,8 +965,8 @@ private static final long serialVersionUID = 0L;
       if (other.getMark() != 0) {
         setMark(other.getMark());
       }
-      if (other.tfo_ != 0) {
-        setTfoValue(other.getTfoValue());
+      if (other.getTfo() != 0) {
+        setTfo(other.getTfo());
       }
       if (other.tproxy_ != 0) {
         setTproxyValue(other.getTproxyValue());
@@ -863,7 +983,37 @@ private static final long serialVersionUID = 0L;
       if (other.getAcceptProxyProtocol() != false) {
         setAcceptProxyProtocol(other.getAcceptProxyProtocol());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.domainStrategy_ != 0) {
+        setDomainStrategyValue(other.getDomainStrategyValue());
+      }
+      if (!other.getDialerProxy().isEmpty()) {
+        dialerProxy_ = other.dialerProxy_;
+        bitField0_ |= 0x00000100;
+        onChanged();
+      }
+      if (other.getTcpKeepAliveInterval() != 0) {
+        setTcpKeepAliveInterval(other.getTcpKeepAliveInterval());
+      }
+      if (other.getTcpKeepAliveIdle() != 0) {
+        setTcpKeepAliveIdle(other.getTcpKeepAliveIdle());
+      }
+      if (!other.getTcpCongestion().isEmpty()) {
+        tcpCongestion_ = other.tcpCongestion_;
+        bitField0_ |= 0x00000800;
+        onChanged();
+      }
+      if (!other.getInterface().isEmpty()) {
+        interface_ = other.interface_;
+        bitField0_ |= 0x00001000;
+        onChanged();
+      }
+      if (other.getV6Only() != false) {
+        setV6Only(other.getV6Only());
+      }
+      if (other.getTcpWindowClamp() != 0) {
+        setTcpWindowClamp(other.getTcpWindowClamp());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -878,19 +1028,108 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.transport.internet.SocketConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              mark_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              tfo_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              tproxy_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              receiveOriginalDestAddress_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              bindAddress_ = input.readBytes();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              bindPort_ = input.readUInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              acceptProxyProtocol_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 64: {
+              domainStrategy_ = input.readEnum();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 74: {
+              dialerProxy_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 80: {
+              tcpKeepAliveInterval_ = input.readInt32();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            case 88: {
+              tcpKeepAliveIdle_ = input.readInt32();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            case 98: {
+              tcpCongestion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 106: {
+              interface_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 106
+            case 112: {
+              v6Only_ = input.readBool();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 112
+            case 120: {
+              tcpWindowClamp_ = input.readInt32();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 120
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.transport.internet.SocketConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int mark_ ;
     /**
@@ -899,7 +1138,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>int32 mark = 1;</code>
+     * @return The mark.
      */
+    @java.lang.Override
     public int getMark() {
       return mark_;
     }
@@ -909,10 +1150,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>int32 mark = 1;</code>
+     * @param value The mark to set.
+     * @return This builder for chaining.
      */
     public Builder setMark(int value) {
       
       mark_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -922,23 +1166,26 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>int32 mark = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearMark() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       mark_ = 0;
       onChanged();
       return this;
     }
 
-    private int tfo_ = 0;
+    private int tfo_ ;
     /**
      * <pre>
      * TFO is the state of TFO settings.
      * </pre>
      *
-     * <code>.xray.transport.internet.SocketConfig.TCPFastOpenState tfo = 2;</code>
+     * <code>int32 tfo = 2;</code>
+     * @return The tfo.
      */
-    public int getTfoValue() {
+    @java.lang.Override
+    public int getTfo() {
       return tfo_;
     }
     /**
@@ -946,38 +1193,14 @@ private static final long serialVersionUID = 0L;
      * TFO is the state of TFO settings.
      * </pre>
      *
-     * <code>.xray.transport.internet.SocketConfig.TCPFastOpenState tfo = 2;</code>
+     * <code>int32 tfo = 2;</code>
+     * @param value The tfo to set.
+     * @return This builder for chaining.
      */
-    public Builder setTfoValue(int value) {
-      tfo_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * TFO is the state of TFO settings.
-     * </pre>
-     *
-     * <code>.xray.transport.internet.SocketConfig.TCPFastOpenState tfo = 2;</code>
-     */
-    public com.xray.transport.internet.SocketConfig.TCPFastOpenState getTfo() {
-      @SuppressWarnings("deprecation")
-      com.xray.transport.internet.SocketConfig.TCPFastOpenState result = com.xray.transport.internet.SocketConfig.TCPFastOpenState.valueOf(tfo_);
-      return result == null ? com.xray.transport.internet.SocketConfig.TCPFastOpenState.UNRECOGNIZED : result;
-    }
-    /**
-     * <pre>
-     * TFO is the state of TFO settings.
-     * </pre>
-     *
-     * <code>.xray.transport.internet.SocketConfig.TCPFastOpenState tfo = 2;</code>
-     */
-    public Builder setTfo(com.xray.transport.internet.SocketConfig.TCPFastOpenState value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
+    public Builder setTfo(int value) {
       
-      tfo_ = value.getNumber();
+      tfo_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -986,10 +1209,11 @@ private static final long serialVersionUID = 0L;
      * TFO is the state of TFO settings.
      * </pre>
      *
-     * <code>.xray.transport.internet.SocketConfig.TCPFastOpenState tfo = 2;</code>
+     * <code>int32 tfo = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearTfo() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       tfo_ = 0;
       onChanged();
       return this;
@@ -1002,8 +1226,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.transport.internet.SocketConfig.TProxyMode tproxy = 3;</code>
+     * @return The enum numeric value on the wire for tproxy.
      */
-    public int getTproxyValue() {
+    @java.lang.Override public int getTproxyValue() {
       return tproxy_;
     }
     /**
@@ -1012,9 +1237,12 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.transport.internet.SocketConfig.TProxyMode tproxy = 3;</code>
+     * @param value The enum numeric value on the wire for tproxy to set.
+     * @return This builder for chaining.
      */
     public Builder setTproxyValue(int value) {
       tproxy_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1024,10 +1252,11 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.transport.internet.SocketConfig.TProxyMode tproxy = 3;</code>
+     * @return The tproxy.
      */
+    @java.lang.Override
     public com.xray.transport.internet.SocketConfig.TProxyMode getTproxy() {
-      @SuppressWarnings("deprecation")
-      com.xray.transport.internet.SocketConfig.TProxyMode result = com.xray.transport.internet.SocketConfig.TProxyMode.valueOf(tproxy_);
+      com.xray.transport.internet.SocketConfig.TProxyMode result = com.xray.transport.internet.SocketConfig.TProxyMode.forNumber(tproxy_);
       return result == null ? com.xray.transport.internet.SocketConfig.TProxyMode.UNRECOGNIZED : result;
     }
     /**
@@ -1036,12 +1265,14 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.transport.internet.SocketConfig.TProxyMode tproxy = 3;</code>
+     * @param value The tproxy to set.
+     * @return This builder for chaining.
      */
     public Builder setTproxy(com.xray.transport.internet.SocketConfig.TProxyMode value) {
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       tproxy_ = value.getNumber();
       onChanged();
       return this;
@@ -1052,9 +1283,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.transport.internet.SocketConfig.TProxyMode tproxy = 3;</code>
+     * @return This builder for chaining.
      */
     public Builder clearTproxy() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       tproxy_ = 0;
       onChanged();
       return this;
@@ -1068,7 +1300,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bool receive_original_dest_address = 4;</code>
+     * @return The receiveOriginalDestAddress.
      */
+    @java.lang.Override
     public boolean getReceiveOriginalDestAddress() {
       return receiveOriginalDestAddress_;
     }
@@ -1079,10 +1313,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bool receive_original_dest_address = 4;</code>
+     * @param value The receiveOriginalDestAddress to set.
+     * @return This builder for chaining.
      */
     public Builder setReceiveOriginalDestAddress(boolean value) {
       
       receiveOriginalDestAddress_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1093,9 +1330,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bool receive_original_dest_address = 4;</code>
+     * @return This builder for chaining.
      */
     public Builder clearReceiveOriginalDestAddress() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       receiveOriginalDestAddress_ = false;
       onChanged();
       return this;
@@ -1104,27 +1342,30 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.ByteString bindAddress_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <code>bytes bind_address = 5;</code>
+     * @return The bindAddress.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString getBindAddress() {
       return bindAddress_;
     }
     /**
      * <code>bytes bind_address = 5;</code>
+     * @param value The bindAddress to set.
+     * @return This builder for chaining.
      */
     public Builder setBindAddress(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       bindAddress_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <code>bytes bind_address = 5;</code>
+     * @return This builder for chaining.
      */
     public Builder clearBindAddress() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       bindAddress_ = getDefaultInstance().getBindAddress();
       onChanged();
       return this;
@@ -1133,24 +1374,30 @@ private static final long serialVersionUID = 0L;
     private int bindPort_ ;
     /**
      * <code>uint32 bind_port = 6;</code>
+     * @return The bindPort.
      */
+    @java.lang.Override
     public int getBindPort() {
       return bindPort_;
     }
     /**
      * <code>uint32 bind_port = 6;</code>
+     * @param value The bindPort to set.
+     * @return This builder for chaining.
      */
     public Builder setBindPort(int value) {
       
       bindPort_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
     /**
      * <code>uint32 bind_port = 6;</code>
+     * @return This builder for chaining.
      */
     public Builder clearBindPort() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       bindPort_ = 0;
       onChanged();
       return this;
@@ -1159,25 +1406,428 @@ private static final long serialVersionUID = 0L;
     private boolean acceptProxyProtocol_ ;
     /**
      * <code>bool accept_proxy_protocol = 7;</code>
+     * @return The acceptProxyProtocol.
      */
+    @java.lang.Override
     public boolean getAcceptProxyProtocol() {
       return acceptProxyProtocol_;
     }
     /**
      * <code>bool accept_proxy_protocol = 7;</code>
+     * @param value The acceptProxyProtocol to set.
+     * @return This builder for chaining.
      */
     public Builder setAcceptProxyProtocol(boolean value) {
       
       acceptProxyProtocol_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
     /**
      * <code>bool accept_proxy_protocol = 7;</code>
+     * @return This builder for chaining.
      */
     public Builder clearAcceptProxyProtocol() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       acceptProxyProtocol_ = false;
+      onChanged();
+      return this;
+    }
+
+    private int domainStrategy_ = 0;
+    /**
+     * <code>.xray.transport.internet.DomainStrategy domain_strategy = 8;</code>
+     * @return The enum numeric value on the wire for domainStrategy.
+     */
+    @java.lang.Override public int getDomainStrategyValue() {
+      return domainStrategy_;
+    }
+    /**
+     * <code>.xray.transport.internet.DomainStrategy domain_strategy = 8;</code>
+     * @param value The enum numeric value on the wire for domainStrategy to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDomainStrategyValue(int value) {
+      domainStrategy_ = value;
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.xray.transport.internet.DomainStrategy domain_strategy = 8;</code>
+     * @return The domainStrategy.
+     */
+    @java.lang.Override
+    public com.xray.transport.internet.DomainStrategy getDomainStrategy() {
+      com.xray.transport.internet.DomainStrategy result = com.xray.transport.internet.DomainStrategy.forNumber(domainStrategy_);
+      return result == null ? com.xray.transport.internet.DomainStrategy.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.xray.transport.internet.DomainStrategy domain_strategy = 8;</code>
+     * @param value The domainStrategy to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDomainStrategy(com.xray.transport.internet.DomainStrategy value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000080;
+      domainStrategy_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.xray.transport.internet.DomainStrategy domain_strategy = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDomainStrategy() {
+      bitField0_ = (bitField0_ & ~0x00000080);
+      domainStrategy_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object dialerProxy_ = "";
+    /**
+     * <code>string dialer_proxy = 9;</code>
+     * @return The dialerProxy.
+     */
+    public java.lang.String getDialerProxy() {
+      java.lang.Object ref = dialerProxy_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        dialerProxy_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string dialer_proxy = 9;</code>
+     * @return The bytes for dialerProxy.
+     */
+    public com.google.protobuf.ByteString
+        getDialerProxyBytes() {
+      java.lang.Object ref = dialerProxy_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dialerProxy_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string dialer_proxy = 9;</code>
+     * @param value The dialerProxy to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDialerProxy(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      dialerProxy_ = value;
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string dialer_proxy = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDialerProxy() {
+      dialerProxy_ = getDefaultInstance().getDialerProxy();
+      bitField0_ = (bitField0_ & ~0x00000100);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string dialer_proxy = 9;</code>
+     * @param value The bytes for dialerProxy to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDialerProxyBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      dialerProxy_ = value;
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+
+    private int tcpKeepAliveInterval_ ;
+    /**
+     * <code>int32 tcp_keep_alive_interval = 10;</code>
+     * @return The tcpKeepAliveInterval.
+     */
+    @java.lang.Override
+    public int getTcpKeepAliveInterval() {
+      return tcpKeepAliveInterval_;
+    }
+    /**
+     * <code>int32 tcp_keep_alive_interval = 10;</code>
+     * @param value The tcpKeepAliveInterval to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTcpKeepAliveInterval(int value) {
+      
+      tcpKeepAliveInterval_ = value;
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 tcp_keep_alive_interval = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTcpKeepAliveInterval() {
+      bitField0_ = (bitField0_ & ~0x00000200);
+      tcpKeepAliveInterval_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int tcpKeepAliveIdle_ ;
+    /**
+     * <code>int32 tcp_keep_alive_idle = 11;</code>
+     * @return The tcpKeepAliveIdle.
+     */
+    @java.lang.Override
+    public int getTcpKeepAliveIdle() {
+      return tcpKeepAliveIdle_;
+    }
+    /**
+     * <code>int32 tcp_keep_alive_idle = 11;</code>
+     * @param value The tcpKeepAliveIdle to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTcpKeepAliveIdle(int value) {
+      
+      tcpKeepAliveIdle_ = value;
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 tcp_keep_alive_idle = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTcpKeepAliveIdle() {
+      bitField0_ = (bitField0_ & ~0x00000400);
+      tcpKeepAliveIdle_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object tcpCongestion_ = "";
+    /**
+     * <code>string tcp_congestion = 12;</code>
+     * @return The tcpCongestion.
+     */
+    public java.lang.String getTcpCongestion() {
+      java.lang.Object ref = tcpCongestion_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        tcpCongestion_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string tcp_congestion = 12;</code>
+     * @return The bytes for tcpCongestion.
+     */
+    public com.google.protobuf.ByteString
+        getTcpCongestionBytes() {
+      java.lang.Object ref = tcpCongestion_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        tcpCongestion_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string tcp_congestion = 12;</code>
+     * @param value The tcpCongestion to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTcpCongestion(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      tcpCongestion_ = value;
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string tcp_congestion = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTcpCongestion() {
+      tcpCongestion_ = getDefaultInstance().getTcpCongestion();
+      bitField0_ = (bitField0_ & ~0x00000800);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string tcp_congestion = 12;</code>
+     * @param value The bytes for tcpCongestion to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTcpCongestionBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      tcpCongestion_ = value;
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object interface_ = "";
+    /**
+     * <code>string interface = 13;</code>
+     * @return The interface.
+     */
+    public java.lang.String getInterface() {
+      java.lang.Object ref = interface_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        interface_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string interface = 13;</code>
+     * @return The bytes for interface.
+     */
+    public com.google.protobuf.ByteString
+        getInterfaceBytes() {
+      java.lang.Object ref = interface_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        interface_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string interface = 13;</code>
+     * @param value The interface to set.
+     * @return This builder for chaining.
+     */
+    public Builder setInterface(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      interface_ = value;
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string interface = 13;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearInterface() {
+      interface_ = getDefaultInstance().getInterface();
+      bitField0_ = (bitField0_ & ~0x00001000);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string interface = 13;</code>
+     * @param value The bytes for interface to set.
+     * @return This builder for chaining.
+     */
+    public Builder setInterfaceBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      interface_ = value;
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return this;
+    }
+
+    private boolean v6Only_ ;
+    /**
+     * <code>bool v6only = 14;</code>
+     * @return The v6only.
+     */
+    @java.lang.Override
+    public boolean getV6Only() {
+      return v6Only_;
+    }
+    /**
+     * <code>bool v6only = 14;</code>
+     * @param value The v6only to set.
+     * @return This builder for chaining.
+     */
+    public Builder setV6Only(boolean value) {
+      
+      v6Only_ = value;
+      bitField0_ |= 0x00002000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool v6only = 14;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearV6Only() {
+      bitField0_ = (bitField0_ & ~0x00002000);
+      v6Only_ = false;
+      onChanged();
+      return this;
+    }
+
+    private int tcpWindowClamp_ ;
+    /**
+     * <code>int32 tcp_window_clamp = 15;</code>
+     * @return The tcpWindowClamp.
+     */
+    @java.lang.Override
+    public int getTcpWindowClamp() {
+      return tcpWindowClamp_;
+    }
+    /**
+     * <code>int32 tcp_window_clamp = 15;</code>
+     * @param value The tcpWindowClamp to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTcpWindowClamp(int value) {
+      
+      tcpWindowClamp_ = value;
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 tcp_window_clamp = 15;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTcpWindowClamp() {
+      bitField0_ = (bitField0_ & ~0x00004000);
+      tcpWindowClamp_ = 0;
       onChanged();
       return this;
     }
@@ -1214,7 +1864,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SocketConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

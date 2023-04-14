@@ -13,6 +13,9 @@ public interface StreamConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.transport.internet.TransportProtocol protocol = 1 [deprecated = true];</code>
+   * @deprecated xray.transport.internet.StreamConfig.protocol is deprecated.
+   *     See transport/internet/config.proto;l=40
+   * @return The enum numeric value on the wire for protocol.
    */
   @java.lang.Deprecated int getProtocolValue();
   /**
@@ -21,6 +24,9 @@ public interface StreamConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.transport.internet.TransportProtocol protocol = 1 [deprecated = true];</code>
+   * @deprecated xray.transport.internet.StreamConfig.protocol is deprecated.
+   *     See transport/internet/config.proto;l=40
+   * @return The protocol.
    */
   @java.lang.Deprecated com.xray.transport.internet.TransportProtocol getProtocol();
 
@@ -30,6 +36,7 @@ public interface StreamConfigOrBuilder extends
    * </pre>
    *
    * <code>string protocol_name = 5;</code>
+   * @return The protocolName.
    */
   java.lang.String getProtocolName();
   /**
@@ -38,6 +45,7 @@ public interface StreamConfigOrBuilder extends
    * </pre>
    *
    * <code>string protocol_name = 5;</code>
+   * @return The bytes for protocolName.
    */
   com.google.protobuf.ByteString
       getProtocolNameBytes();
@@ -72,6 +80,7 @@ public interface StreamConfigOrBuilder extends
    * </pre>
    *
    * <code>string security_type = 3;</code>
+   * @return The securityType.
    */
   java.lang.String getSecurityType();
   /**
@@ -80,6 +89,7 @@ public interface StreamConfigOrBuilder extends
    * </pre>
    *
    * <code>string security_type = 3;</code>
+   * @return The bytes for securityType.
    */
   com.google.protobuf.ByteString
       getSecurityTypeBytes();
@@ -130,10 +140,12 @@ public interface StreamConfigOrBuilder extends
 
   /**
    * <code>.xray.transport.internet.SocketConfig socket_settings = 6;</code>
+   * @return Whether the socketSettings field is set.
    */
   boolean hasSocketSettings();
   /**
    * <code>.xray.transport.internet.SocketConfig socket_settings = 6;</code>
+   * @return The socketSettings.
    */
   com.xray.transport.internet.SocketConfig getSocketSettings();
   /**

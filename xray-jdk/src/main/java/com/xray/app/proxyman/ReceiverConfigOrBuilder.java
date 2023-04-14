@@ -9,28 +9,30 @@ public interface ReceiverConfigOrBuilder extends
 
   /**
    * <pre>
-   * PortRange specifies the ports which the Receiver should listen on.
+   * PortList specifies the ports which the Receiver should listen on.
    * </pre>
    *
-   * <code>.xray.common.net.PortRange port_range = 1;</code>
+   * <code>.xray.common.net.PortList port_list = 1;</code>
+   * @return Whether the portList field is set.
    */
-  boolean hasPortRange();
+  boolean hasPortList();
   /**
    * <pre>
-   * PortRange specifies the ports which the Receiver should listen on.
+   * PortList specifies the ports which the Receiver should listen on.
    * </pre>
    *
-   * <code>.xray.common.net.PortRange port_range = 1;</code>
+   * <code>.xray.common.net.PortList port_list = 1;</code>
+   * @return The portList.
    */
-  com.xray.common.net.PortRange getPortRange();
+  com.xray.common.net.PortList getPortList();
   /**
    * <pre>
-   * PortRange specifies the ports which the Receiver should listen on.
+   * PortList specifies the ports which the Receiver should listen on.
    * </pre>
    *
-   * <code>.xray.common.net.PortRange port_range = 1;</code>
+   * <code>.xray.common.net.PortList port_list = 1;</code>
    */
-  com.xray.common.net.PortRangeOrBuilder getPortRangeOrBuilder();
+  com.xray.common.net.PortListOrBuilder getPortListOrBuilder();
 
   /**
    * <pre>
@@ -38,6 +40,7 @@ public interface ReceiverConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.common.net.IPOrDomain listen = 2;</code>
+   * @return Whether the listen field is set.
    */
   boolean hasListen();
   /**
@@ -46,6 +49,7 @@ public interface ReceiverConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.common.net.IPOrDomain listen = 2;</code>
+   * @return The listen.
    */
   com.xray.common.net.IPOrDomain getListen();
   /**
@@ -59,10 +63,12 @@ public interface ReceiverConfigOrBuilder extends
 
   /**
    * <code>.xray.app.proxyman.AllocationStrategy allocation_strategy = 3;</code>
+   * @return Whether the allocationStrategy field is set.
    */
   boolean hasAllocationStrategy();
   /**
    * <code>.xray.app.proxyman.AllocationStrategy allocation_strategy = 3;</code>
+   * @return The allocationStrategy.
    */
   com.xray.app.proxyman.AllocationStrategy getAllocationStrategy();
   /**
@@ -72,10 +78,12 @@ public interface ReceiverConfigOrBuilder extends
 
   /**
    * <code>.xray.transport.internet.StreamConfig stream_settings = 4;</code>
+   * @return Whether the streamSettings field is set.
    */
   boolean hasStreamSettings();
   /**
    * <code>.xray.transport.internet.StreamConfig stream_settings = 4;</code>
+   * @return The streamSettings.
    */
   com.xray.transport.internet.StreamConfig getStreamSettings();
   /**
@@ -85,6 +93,7 @@ public interface ReceiverConfigOrBuilder extends
 
   /**
    * <code>bool receive_original_destination = 5;</code>
+   * @return The receiveOriginalDestination.
    */
   boolean getReceiveOriginalDestination();
 
@@ -95,6 +104,9 @@ public interface ReceiverConfigOrBuilder extends
    * </pre>
    *
    * <code>repeated .xray.app.proxyman.KnownProtocols domain_override = 7 [deprecated = true];</code>
+   * @deprecated xray.app.proxyman.ReceiverConfig.domain_override is deprecated.
+   *     See app/proxyman/config.proto;l=75
+   * @return A list containing the domainOverride.
    */
   @java.lang.Deprecated java.util.List<com.xray.app.proxyman.KnownProtocols> getDomainOverrideList();
   /**
@@ -104,6 +116,9 @@ public interface ReceiverConfigOrBuilder extends
    * </pre>
    *
    * <code>repeated .xray.app.proxyman.KnownProtocols domain_override = 7 [deprecated = true];</code>
+   * @deprecated xray.app.proxyman.ReceiverConfig.domain_override is deprecated.
+   *     See app/proxyman/config.proto;l=75
+   * @return The count of domainOverride.
    */
   @java.lang.Deprecated int getDomainOverrideCount();
   /**
@@ -113,6 +128,10 @@ public interface ReceiverConfigOrBuilder extends
    * </pre>
    *
    * <code>repeated .xray.app.proxyman.KnownProtocols domain_override = 7 [deprecated = true];</code>
+   * @deprecated xray.app.proxyman.ReceiverConfig.domain_override is deprecated.
+   *     See app/proxyman/config.proto;l=75
+   * @param index The index of the element to return.
+   * @return The domainOverride at the given index.
    */
   @java.lang.Deprecated com.xray.app.proxyman.KnownProtocols getDomainOverride(int index);
   /**
@@ -122,6 +141,9 @@ public interface ReceiverConfigOrBuilder extends
    * </pre>
    *
    * <code>repeated .xray.app.proxyman.KnownProtocols domain_override = 7 [deprecated = true];</code>
+   * @deprecated xray.app.proxyman.ReceiverConfig.domain_override is deprecated.
+   *     See app/proxyman/config.proto;l=75
+   * @return A list containing the enum numeric values on the wire for domainOverride.
    */
   @java.lang.Deprecated java.util.List<java.lang.Integer>
   getDomainOverrideValueList();
@@ -132,15 +154,21 @@ public interface ReceiverConfigOrBuilder extends
    * </pre>
    *
    * <code>repeated .xray.app.proxyman.KnownProtocols domain_override = 7 [deprecated = true];</code>
+   * @deprecated xray.app.proxyman.ReceiverConfig.domain_override is deprecated.
+   *     See app/proxyman/config.proto;l=75
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of domainOverride at the given index.
    */
   @java.lang.Deprecated int getDomainOverrideValue(int index);
 
   /**
    * <code>.xray.app.proxyman.SniffingConfig sniffing_settings = 8;</code>
+   * @return Whether the sniffingSettings field is set.
    */
   boolean hasSniffingSettings();
   /**
    * <code>.xray.app.proxyman.SniffingConfig sniffing_settings = 8;</code>
+   * @return The sniffingSettings.
    */
   com.xray.app.proxyman.SniffingConfig getSniffingSettings();
   /**

@@ -30,6 +30,11 @@ public final class Config {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_xray_proxy_http_ServerConfig_AccountsEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_xray_proxy_http_Header_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_xray_proxy_http_Header_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_xray_proxy_http_ClientConfig_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -51,24 +56,18 @@ public final class Config {
       "erverConfig.AccountsEntry\022\031\n\021allow_trans" +
       "parent\030\003 \001(\010\022\022\n\nuser_level\030\004 \001(\r\032/\n\rAcco" +
       "untsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028" +
-      "\001\"D\n\014ClientConfig\0224\n\006server\030\001 \003(\0132$.xray" +
-      ".common.protocol.ServerEndpointBO\n\023com.x" +
-      "ray.proxy.httpP\001Z$github.com/xtls/xray-c" +
-      "ore/proxy/http\252\002\017Xray.Proxy.Httpb\006proto3"
+      "\001\"$\n\006Header\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"" +
+      "m\n\014ClientConfig\0224\n\006server\030\001 \003(\0132$.xray.c" +
+      "ommon.protocol.ServerEndpoint\022\'\n\006header\030" +
+      "\002 \003(\0132\027.xray.proxy.http.HeaderBO\n\023com.xr" +
+      "ay.proxy.httpP\001Z$github.com/xtls/xray-co" +
+      "re/proxy/http\252\002\017Xray.Proxy.Httpb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.xray.common.protocol.ServerSpec.getDescriptor(),
-        }, assigner);
+        });
     internal_static_xray_proxy_http_Account_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_xray_proxy_http_Account_fieldAccessorTable = new
@@ -87,12 +86,18 @@ public final class Config {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xray_proxy_http_ServerConfig_AccountsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_xray_proxy_http_ClientConfig_descriptor =
+    internal_static_xray_proxy_http_Header_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_xray_proxy_http_Header_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_xray_proxy_http_Header_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_xray_proxy_http_ClientConfig_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_xray_proxy_http_ClientConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xray_proxy_http_ClientConfig_descriptor,
-        new java.lang.String[] { "Server", });
+        new java.lang.String[] { "Server", "Header", });
     com.xray.common.protocol.ServerSpec.getDescriptor();
   }
 

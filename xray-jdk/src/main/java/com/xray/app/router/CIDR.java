@@ -10,7 +10,7 @@ package com.xray.app.router;
  *
  * Protobuf type {@code xray.app.router.CIDR}
  */
-public  final class CIDR extends
+public final class CIDR extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.app.router.CIDR)
     CIDROrBuilder {
@@ -24,57 +24,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new CIDR();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private CIDR(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-
-            ip_ = input.readBytes();
-            break;
-          }
-          case 16: {
-
-            prefix_ = input.readUInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -90,27 +49,31 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IP_FIELD_NUMBER = 1;
-  private com.google.protobuf.ByteString ip_;
+  private com.google.protobuf.ByteString ip_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * IP address, should be either 4 or 16 bytes.
    * </pre>
    *
    * <code>bytes ip = 1;</code>
+   * @return The ip.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString getIp() {
     return ip_;
   }
 
   public static final int PREFIX_FIELD_NUMBER = 2;
-  private int prefix_;
+  private int prefix_ = 0;
   /**
    * <pre>
    * Number of leading ones in the network mask.
    * </pre>
    *
    * <code>uint32 prefix = 2;</code>
+   * @return The prefix.
    */
+  @java.lang.Override
   public int getPrefix() {
     return prefix_;
   }
@@ -135,7 +98,7 @@ private static final long serialVersionUID = 0L;
     if (prefix_ != 0) {
       output.writeUInt32(2, prefix_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -152,7 +115,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(2, prefix_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -171,7 +134,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getIp())) return false;
     if (getPrefix()
         != other.getPrefix()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -186,7 +149,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getIp().hashCode();
     hash = (37 * hash) + PREFIX_FIELD_NUMBER;
     hash = (53 * hash) + getPrefix();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -307,26 +270,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.app.router.CIDR.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       ip_ = com.google.protobuf.ByteString.EMPTY;
-
       prefix_ = 0;
-
       return this;
     }
 
@@ -353,10 +310,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.app.router.CIDR buildPartial() {
       com.xray.app.router.CIDR result = new com.xray.app.router.CIDR(this);
-      result.ip_ = ip_;
-      result.prefix_ = prefix_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.app.router.CIDR result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.ip_ = ip_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.prefix_ = prefix_;
+      }
     }
 
     @java.lang.Override
@@ -409,7 +375,7 @@ private static final long serialVersionUID = 0L;
       if (other.getPrefix() != 0) {
         setPrefix(other.getPrefix());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -424,19 +390,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.app.router.CIDR parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              ip_ = input.readBytes();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              prefix_ = input.readUInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.app.router.CIDR) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.ByteString ip_ = com.google.protobuf.ByteString.EMPTY;
     /**
@@ -445,7 +435,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bytes ip = 1;</code>
+     * @return The ip.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString getIp() {
       return ip_;
     }
@@ -455,13 +447,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bytes ip = 1;</code>
+     * @param value The ip to set.
+     * @return This builder for chaining.
      */
     public Builder setIp(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       ip_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -471,9 +463,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bytes ip = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearIp() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       ip_ = getDefaultInstance().getIp();
       onChanged();
       return this;
@@ -486,7 +479,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>uint32 prefix = 2;</code>
+     * @return The prefix.
      */
+    @java.lang.Override
     public int getPrefix() {
       return prefix_;
     }
@@ -496,10 +491,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>uint32 prefix = 2;</code>
+     * @param value The prefix to set.
+     * @return This builder for chaining.
      */
     public Builder setPrefix(int value) {
       
       prefix_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -509,9 +507,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>uint32 prefix = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearPrefix() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       prefix_ = 0;
       onChanged();
       return this;
@@ -549,7 +548,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CIDR(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

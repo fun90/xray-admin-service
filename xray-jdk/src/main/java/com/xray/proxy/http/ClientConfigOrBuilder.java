@@ -50,4 +50,28 @@ public interface ClientConfigOrBuilder extends
    */
   com.xray.common.protocol.ServerEndpointOrBuilder getServerOrBuilder(
       int index);
+
+  /**
+   * <code>repeated .xray.proxy.http.Header header = 2;</code>
+   */
+  java.util.List<com.xray.proxy.http.Header> 
+      getHeaderList();
+  /**
+   * <code>repeated .xray.proxy.http.Header header = 2;</code>
+   */
+  com.xray.proxy.http.Header getHeader(int index);
+  /**
+   * <code>repeated .xray.proxy.http.Header header = 2;</code>
+   */
+  int getHeaderCount();
+  /**
+   * <code>repeated .xray.proxy.http.Header header = 2;</code>
+   */
+  java.util.List<? extends com.xray.proxy.http.HeaderOrBuilder> 
+      getHeaderOrBuilderList();
+  /**
+   * <code>repeated .xray.proxy.http.Header header = 2;</code>
+   */
+  com.xray.proxy.http.HeaderOrBuilder getHeaderOrBuilder(
+      int index);
 }

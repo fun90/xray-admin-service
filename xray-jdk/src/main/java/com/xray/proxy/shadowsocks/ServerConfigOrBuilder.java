@@ -33,23 +33,30 @@ public interface ServerConfigOrBuilder extends
 
   /**
    * <code>repeated .xray.common.net.Network network = 2;</code>
+   * @return A list containing the network.
    */
   java.util.List<com.xray.common.net.Network> getNetworkList();
   /**
    * <code>repeated .xray.common.net.Network network = 2;</code>
+   * @return The count of network.
    */
   int getNetworkCount();
   /**
    * <code>repeated .xray.common.net.Network network = 2;</code>
+   * @param index The index of the element to return.
+   * @return The network at the given index.
    */
   com.xray.common.net.Network getNetwork(int index);
   /**
    * <code>repeated .xray.common.net.Network network = 2;</code>
+   * @return A list containing the enum numeric values on the wire for network.
    */
   java.util.List<java.lang.Integer>
   getNetworkValueList();
   /**
    * <code>repeated .xray.common.net.Network network = 2;</code>
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of network at the given index.
    */
   int getNetworkValue(int index);
 }

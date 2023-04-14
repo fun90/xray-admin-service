@@ -9,10 +9,12 @@ public interface SystemPolicyOrBuilder extends
 
   /**
    * <code>.xray.app.policy.SystemPolicy.Stats stats = 1;</code>
+   * @return Whether the stats field is set.
    */
   boolean hasStats();
   /**
    * <code>.xray.app.policy.SystemPolicy.Stats stats = 1;</code>
+   * @return The stats.
    */
   com.xray.app.policy.SystemPolicy.Stats getStats();
   /**

@@ -6,7 +6,7 @@ package com.xray.app.stats.command;
 /**
  * Protobuf type {@code xray.app.stats.command.QueryStatsRequest}
  */
-public  final class QueryStatsRequest extends
+public final class QueryStatsRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.app.stats.command.QueryStatsRequest)
     QueryStatsRequestOrBuilder {
@@ -20,58 +20,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new QueryStatsRequest();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private QueryStatsRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pattern_ = s;
-            break;
-          }
-          case 16: {
-
-            reset_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -87,10 +45,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PATTERN_FIELD_NUMBER = 1;
-  private volatile java.lang.Object pattern_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pattern_ = "";
   /**
    * <code>string pattern = 1;</code>
+   * @return The pattern.
    */
+  @java.lang.Override
   public java.lang.String getPattern() {
     java.lang.Object ref = pattern_;
     if (ref instanceof java.lang.String) {
@@ -105,7 +66,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string pattern = 1;</code>
+   * @return The bytes for pattern.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getPatternBytes() {
     java.lang.Object ref = pattern_;
@@ -121,10 +84,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESET_FIELD_NUMBER = 2;
-  private boolean reset_;
+  private boolean reset_ = false;
   /**
    * <code>bool reset = 2;</code>
+   * @return The reset.
    */
+  @java.lang.Override
   public boolean getReset() {
     return reset_;
   }
@@ -143,13 +108,13 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getPatternBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pattern_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, pattern_);
     }
     if (reset_ != false) {
       output.writeBool(2, reset_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -158,14 +123,14 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getPatternBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pattern_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, pattern_);
     }
     if (reset_ != false) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(2, reset_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -184,7 +149,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPattern())) return false;
     if (getReset()
         != other.getReset()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -200,7 +165,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + RESET_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getReset());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -317,26 +282,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.app.stats.command.QueryStatsRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       pattern_ = "";
-
       reset_ = false;
-
       return this;
     }
 
@@ -363,10 +322,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.app.stats.command.QueryStatsRequest buildPartial() {
       com.xray.app.stats.command.QueryStatsRequest result = new com.xray.app.stats.command.QueryStatsRequest(this);
-      result.pattern_ = pattern_;
-      result.reset_ = reset_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.app.stats.command.QueryStatsRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.pattern_ = pattern_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.reset_ = reset_;
+      }
     }
 
     @java.lang.Override
@@ -415,12 +383,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.xray.app.stats.command.QueryStatsRequest.getDefaultInstance()) return this;
       if (!other.getPattern().isEmpty()) {
         pattern_ = other.pattern_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getReset() != false) {
         setReset(other.getReset());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -435,23 +404,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.app.stats.command.QueryStatsRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              pattern_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              reset_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.app.stats.command.QueryStatsRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object pattern_ = "";
     /**
      * <code>string pattern = 1;</code>
+     * @return The pattern.
      */
     public java.lang.String getPattern() {
       java.lang.Object ref = pattern_;
@@ -467,6 +461,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string pattern = 1;</code>
+     * @return The bytes for pattern.
      */
     public com.google.protobuf.ByteString
         getPatternBytes() {
@@ -483,37 +478,38 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string pattern = 1;</code>
+     * @param value The pattern to set.
+     * @return This builder for chaining.
      */
     public Builder setPattern(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pattern_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <code>string pattern = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearPattern() {
-      
       pattern_ = getDefaultInstance().getPattern();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <code>string pattern = 1;</code>
+     * @param value The bytes for pattern to set.
+     * @return This builder for chaining.
      */
     public Builder setPatternBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pattern_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -521,24 +517,30 @@ private static final long serialVersionUID = 0L;
     private boolean reset_ ;
     /**
      * <code>bool reset = 2;</code>
+     * @return The reset.
      */
+    @java.lang.Override
     public boolean getReset() {
       return reset_;
     }
     /**
      * <code>bool reset = 2;</code>
+     * @param value The reset to set.
+     * @return This builder for chaining.
      */
     public Builder setReset(boolean value) {
       
       reset_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <code>bool reset = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearReset() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       reset_ = false;
       onChanged();
       return this;
@@ -576,7 +578,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new QueryStatsRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

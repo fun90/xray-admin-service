@@ -14,6 +14,9 @@ public interface TransportConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.transport.internet.TransportProtocol protocol = 1 [deprecated = true];</code>
+   * @deprecated xray.transport.internet.TransportConfig.protocol is deprecated.
+   *     See transport/internet/config.proto;l=29
+   * @return The enum numeric value on the wire for protocol.
    */
   @java.lang.Deprecated int getProtocolValue();
   /**
@@ -23,6 +26,9 @@ public interface TransportConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.transport.internet.TransportProtocol protocol = 1 [deprecated = true];</code>
+   * @deprecated xray.transport.internet.TransportConfig.protocol is deprecated.
+   *     See transport/internet/config.proto;l=29
+   * @return The protocol.
    */
   @java.lang.Deprecated com.xray.transport.internet.TransportProtocol getProtocol();
 
@@ -32,6 +38,7 @@ public interface TransportConfigOrBuilder extends
    * </pre>
    *
    * <code>string protocol_name = 3;</code>
+   * @return The protocolName.
    */
   java.lang.String getProtocolName();
   /**
@@ -40,6 +47,7 @@ public interface TransportConfigOrBuilder extends
    * </pre>
    *
    * <code>string protocol_name = 3;</code>
+   * @return The bytes for protocolName.
    */
   com.google.protobuf.ByteString
       getProtocolNameBytes();
@@ -50,6 +58,7 @@ public interface TransportConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.common.serial.TypedMessage settings = 2;</code>
+   * @return Whether the settings field is set.
    */
   boolean hasSettings();
   /**
@@ -58,6 +67,7 @@ public interface TransportConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.common.serial.TypedMessage settings = 2;</code>
+   * @return The settings.
    */
   com.xray.common.serial.TypedMessage getSettings();
   /**

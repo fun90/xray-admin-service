@@ -6,7 +6,7 @@ package com.xray.proxy.trojan;
 /**
  * Protobuf type {@code xray.proxy.trojan.Fallback}
  */
-public  final class Fallback extends
+public final class Fallback extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.proxy.trojan.Fallback)
     FallbackOrBuilder {
@@ -24,82 +24,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new Fallback();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Fallback(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            alpn_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            path_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            type_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            dest_ = s;
-            break;
-          }
-          case 48: {
-
-            xver_ = input.readUInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -115,10 +49,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <code>string name = 1;</code>
+   * @return The name.
    */
+  @java.lang.Override
   public java.lang.String getName() {
     java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
@@ -133,7 +70,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string name = 1;</code>
+   * @return The bytes for name.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getNameBytes() {
     java.lang.Object ref = name_;
@@ -149,10 +88,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALPN_FIELD_NUMBER = 2;
-  private volatile java.lang.Object alpn_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object alpn_ = "";
   /**
    * <code>string alpn = 2;</code>
+   * @return The alpn.
    */
+  @java.lang.Override
   public java.lang.String getAlpn() {
     java.lang.Object ref = alpn_;
     if (ref instanceof java.lang.String) {
@@ -167,7 +109,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string alpn = 2;</code>
+   * @return The bytes for alpn.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getAlpnBytes() {
     java.lang.Object ref = alpn_;
@@ -183,10 +127,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PATH_FIELD_NUMBER = 3;
-  private volatile java.lang.Object path_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object path_ = "";
   /**
    * <code>string path = 3;</code>
+   * @return The path.
    */
+  @java.lang.Override
   public java.lang.String getPath() {
     java.lang.Object ref = path_;
     if (ref instanceof java.lang.String) {
@@ -201,7 +148,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string path = 3;</code>
+   * @return The bytes for path.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getPathBytes() {
     java.lang.Object ref = path_;
@@ -217,10 +166,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 4;
-  private volatile java.lang.Object type_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object type_ = "";
   /**
    * <code>string type = 4;</code>
+   * @return The type.
    */
+  @java.lang.Override
   public java.lang.String getType() {
     java.lang.Object ref = type_;
     if (ref instanceof java.lang.String) {
@@ -235,7 +187,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string type = 4;</code>
+   * @return The bytes for type.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getTypeBytes() {
     java.lang.Object ref = type_;
@@ -251,10 +205,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEST_FIELD_NUMBER = 5;
-  private volatile java.lang.Object dest_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object dest_ = "";
   /**
    * <code>string dest = 5;</code>
+   * @return The dest.
    */
+  @java.lang.Override
   public java.lang.String getDest() {
     java.lang.Object ref = dest_;
     if (ref instanceof java.lang.String) {
@@ -269,7 +226,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string dest = 5;</code>
+   * @return The bytes for dest.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getDestBytes() {
     java.lang.Object ref = dest_;
@@ -285,10 +244,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int XVER_FIELD_NUMBER = 6;
-  private long xver_;
+  private long xver_ = 0L;
   /**
    * <code>uint64 xver = 6;</code>
+   * @return The xver.
    */
+  @java.lang.Override
   public long getXver() {
     return xver_;
   }
@@ -307,25 +268,25 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
-    if (!getAlpnBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(alpn_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, alpn_);
     }
-    if (!getPathBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(path_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, path_);
     }
-    if (!getTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(type_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, type_);
     }
-    if (!getDestBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dest_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, dest_);
     }
     if (xver_ != 0L) {
       output.writeUInt64(6, xver_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -334,26 +295,26 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
     }
-    if (!getAlpnBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(alpn_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, alpn_);
     }
-    if (!getPathBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(path_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, path_);
     }
-    if (!getTypeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(type_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, type_);
     }
-    if (!getDestBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dest_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, dest_);
     }
     if (xver_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
         .computeUInt64Size(6, xver_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -380,7 +341,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDest())) return false;
     if (getXver()
         != other.getXver()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -404,7 +365,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + XVER_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getXver());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -521,34 +482,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.proxy.trojan.Fallback.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       alpn_ = "";
-
       path_ = "";
-
       type_ = "";
-
       dest_ = "";
-
       xver_ = 0L;
-
       return this;
     }
 
@@ -575,14 +526,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.proxy.trojan.Fallback buildPartial() {
       com.xray.proxy.trojan.Fallback result = new com.xray.proxy.trojan.Fallback(this);
-      result.name_ = name_;
-      result.alpn_ = alpn_;
-      result.path_ = path_;
-      result.type_ = type_;
-      result.dest_ = dest_;
-      result.xver_ = xver_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.proxy.trojan.Fallback result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.alpn_ = alpn_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.path_ = path_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.dest_ = dest_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.xver_ = xver_;
+      }
     }
 
     @java.lang.Override
@@ -631,28 +599,33 @@ private static final long serialVersionUID = 0L;
       if (other == com.xray.proxy.trojan.Fallback.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getAlpn().isEmpty()) {
         alpn_ = other.alpn_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getPath().isEmpty()) {
         path_ = other.path_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getType().isEmpty()) {
         type_ = other.type_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getDest().isEmpty()) {
         dest_ = other.dest_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.getXver() != 0L) {
         setXver(other.getXver());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -667,23 +640,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.proxy.trojan.Fallback parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              alpn_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              path_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              type_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              dest_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              xver_ = input.readUInt64();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.proxy.trojan.Fallback) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
      * <code>string name = 1;</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -699,6 +717,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 1;</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -715,37 +734,38 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 1;</code>
+     * @param value The name to set.
+     * @return This builder for chaining.
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <code>string name = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <code>string name = 1;</code>
+     * @param value The bytes for name to set.
+     * @return This builder for chaining.
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -753,6 +773,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object alpn_ = "";
     /**
      * <code>string alpn = 2;</code>
+     * @return The alpn.
      */
     public java.lang.String getAlpn() {
       java.lang.Object ref = alpn_;
@@ -768,6 +789,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string alpn = 2;</code>
+     * @return The bytes for alpn.
      */
     public com.google.protobuf.ByteString
         getAlpnBytes() {
@@ -784,37 +806,38 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string alpn = 2;</code>
+     * @param value The alpn to set.
+     * @return This builder for chaining.
      */
     public Builder setAlpn(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       alpn_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <code>string alpn = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearAlpn() {
-      
       alpn_ = getDefaultInstance().getAlpn();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <code>string alpn = 2;</code>
+     * @param value The bytes for alpn to set.
+     * @return This builder for chaining.
      */
     public Builder setAlpnBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       alpn_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -822,6 +845,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object path_ = "";
     /**
      * <code>string path = 3;</code>
+     * @return The path.
      */
     public java.lang.String getPath() {
       java.lang.Object ref = path_;
@@ -837,6 +861,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string path = 3;</code>
+     * @return The bytes for path.
      */
     public com.google.protobuf.ByteString
         getPathBytes() {
@@ -853,37 +878,38 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string path = 3;</code>
+     * @param value The path to set.
+     * @return This builder for chaining.
      */
     public Builder setPath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       path_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <code>string path = 3;</code>
+     * @return This builder for chaining.
      */
     public Builder clearPath() {
-      
       path_ = getDefaultInstance().getPath();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <code>string path = 3;</code>
+     * @param value The bytes for path to set.
+     * @return This builder for chaining.
      */
     public Builder setPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       path_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -891,6 +917,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object type_ = "";
     /**
      * <code>string type = 4;</code>
+     * @return The type.
      */
     public java.lang.String getType() {
       java.lang.Object ref = type_;
@@ -906,6 +933,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string type = 4;</code>
+     * @return The bytes for type.
      */
     public com.google.protobuf.ByteString
         getTypeBytes() {
@@ -922,37 +950,38 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string type = 4;</code>
+     * @param value The type to set.
+     * @return This builder for chaining.
      */
     public Builder setType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       type_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <code>string type = 4;</code>
+     * @return This builder for chaining.
      */
     public Builder clearType() {
-      
       type_ = getDefaultInstance().getType();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
     /**
      * <code>string type = 4;</code>
+     * @param value The bytes for type to set.
+     * @return This builder for chaining.
      */
     public Builder setTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       type_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -960,6 +989,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object dest_ = "";
     /**
      * <code>string dest = 5;</code>
+     * @return The dest.
      */
     public java.lang.String getDest() {
       java.lang.Object ref = dest_;
@@ -975,6 +1005,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string dest = 5;</code>
+     * @return The bytes for dest.
      */
     public com.google.protobuf.ByteString
         getDestBytes() {
@@ -991,37 +1022,38 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string dest = 5;</code>
+     * @param value The dest to set.
+     * @return This builder for chaining.
      */
     public Builder setDest(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       dest_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <code>string dest = 5;</code>
+     * @return This builder for chaining.
      */
     public Builder clearDest() {
-      
       dest_ = getDefaultInstance().getDest();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
     /**
      * <code>string dest = 5;</code>
+     * @param value The bytes for dest to set.
+     * @return This builder for chaining.
      */
     public Builder setDestBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       dest_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1029,24 +1061,30 @@ private static final long serialVersionUID = 0L;
     private long xver_ ;
     /**
      * <code>uint64 xver = 6;</code>
+     * @return The xver.
      */
+    @java.lang.Override
     public long getXver() {
       return xver_;
     }
     /**
      * <code>uint64 xver = 6;</code>
+     * @param value The xver to set.
+     * @return This builder for chaining.
      */
     public Builder setXver(long value) {
       
       xver_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
     /**
      * <code>uint64 xver = 6;</code>
+     * @return This builder for chaining.
      */
     public Builder clearXver() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       xver_ = 0L;
       onChanged();
       return this;
@@ -1084,7 +1122,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Fallback(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -9,10 +9,12 @@ public interface ConfigOrBuilder extends
 
   /**
    * <code>.xray.common.serial.TypedMessage response = 1;</code>
+   * @return Whether the response field is set.
    */
   boolean hasResponse();
   /**
    * <code>.xray.common.serial.TypedMessage response = 1;</code>
+   * @return The response.
    */
   com.xray.common.serial.TypedMessage getResponse();
   /**

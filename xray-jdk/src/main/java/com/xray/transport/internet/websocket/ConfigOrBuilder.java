@@ -13,6 +13,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>string path = 2;</code>
+   * @return The path.
    */
   java.lang.String getPath();
   /**
@@ -21,6 +22,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>string path = 2;</code>
+   * @return The bytes for path.
    */
   com.google.protobuf.ByteString
       getPathBytes();
@@ -51,6 +53,13 @@ public interface ConfigOrBuilder extends
 
   /**
    * <code>bool accept_proxy_protocol = 4;</code>
+   * @return The acceptProxyProtocol.
    */
   boolean getAcceptProxyProtocol();
+
+  /**
+   * <code>uint32 ed = 5;</code>
+   * @return The ed.
+   */
+  int getEd();
 }

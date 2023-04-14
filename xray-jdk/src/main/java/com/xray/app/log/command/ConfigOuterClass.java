@@ -48,18 +48,10 @@ public final class ConfigOuterClass {
       "tls/xray-core/app/log/command\252\002\024Xray.App" +
       ".Log.Commandb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
+        });
     internal_static_xray_app_log_command_Config_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_xray_app_log_command_Config_fieldAccessorTable = new

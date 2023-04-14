@@ -9,20 +9,24 @@ public interface AlterInboundRequestOrBuilder extends
 
   /**
    * <code>string tag = 1;</code>
+   * @return The tag.
    */
   java.lang.String getTag();
   /**
    * <code>string tag = 1;</code>
+   * @return The bytes for tag.
    */
   com.google.protobuf.ByteString
       getTagBytes();
 
   /**
    * <code>.xray.common.serial.TypedMessage operation = 2;</code>
+   * @return Whether the operation field is set.
    */
   boolean hasOperation();
   /**
    * <code>.xray.common.serial.TypedMessage operation = 2;</code>
+   * @return The operation.
    */
   com.xray.common.serial.TypedMessage getOperation();
   /**

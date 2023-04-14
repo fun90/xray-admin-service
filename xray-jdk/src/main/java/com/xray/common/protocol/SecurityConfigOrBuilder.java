@@ -9,10 +9,12 @@ public interface SecurityConfigOrBuilder extends
 
   /**
    * <code>.xray.common.protocol.SecurityType type = 1;</code>
+   * @return The enum numeric value on the wire for type.
    */
   int getTypeValue();
   /**
    * <code>.xray.common.protocol.SecurityType type = 1;</code>
+   * @return The type.
    */
   com.xray.common.protocol.SecurityType getType();
 }

@@ -13,6 +13,7 @@ public interface RequestConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.transport.internet.headers.http.Version version = 1;</code>
+   * @return Whether the version field is set.
    */
   boolean hasVersion();
   /**
@@ -21,6 +22,7 @@ public interface RequestConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.transport.internet.headers.http.Version version = 1;</code>
+   * @return The version.
    */
   com.xray.transport.internet.headers.http.Version getVersion();
   /**
@@ -38,6 +40,7 @@ public interface RequestConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.transport.internet.headers.http.Method method = 2;</code>
+   * @return Whether the method field is set.
    */
   boolean hasMethod();
   /**
@@ -46,6 +49,7 @@ public interface RequestConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.transport.internet.headers.http.Method method = 2;</code>
+   * @return The method.
    */
   com.xray.transport.internet.headers.http.Method getMethod();
   /**
@@ -63,6 +67,7 @@ public interface RequestConfigOrBuilder extends
    * </pre>
    *
    * <code>repeated string uri = 3;</code>
+   * @return A list containing the uri.
    */
   java.util.List<java.lang.String>
       getUriList();
@@ -72,6 +77,7 @@ public interface RequestConfigOrBuilder extends
    * </pre>
    *
    * <code>repeated string uri = 3;</code>
+   * @return The count of uri.
    */
   int getUriCount();
   /**
@@ -80,6 +86,8 @@ public interface RequestConfigOrBuilder extends
    * </pre>
    *
    * <code>repeated string uri = 3;</code>
+   * @param index The index of the element to return.
+   * @return The uri at the given index.
    */
   java.lang.String getUri(int index);
   /**
@@ -88,6 +96,8 @@ public interface RequestConfigOrBuilder extends
    * </pre>
    *
    * <code>repeated string uri = 3;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the uri at the given index.
    */
   com.google.protobuf.ByteString
       getUriBytes(int index);

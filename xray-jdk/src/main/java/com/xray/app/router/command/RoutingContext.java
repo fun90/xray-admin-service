@@ -12,7 +12,7 @@ package com.xray.app.router.command;
  *
  * Protobuf type {@code xray.app.router.command.RoutingContext}
  */
-public  final class RoutingContext extends
+public final class RoutingContext extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.app.router.command.RoutingContext)
     RoutingContextOrBuilder {
@@ -34,140 +34,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new RoutingContext();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private RoutingContext(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            inboundTag_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            network_ = rawValue;
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              sourceIPs_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            sourceIPs_.add(input.readBytes());
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              targetIPs_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            targetIPs_.add(input.readBytes());
-            break;
-          }
-          case 40: {
-
-            sourcePort_ = input.readUInt32();
-            break;
-          }
-          case 48: {
-
-            targetPort_ = input.readUInt32();
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            targetDomain_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            protocol_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            user_ = s;
-            break;
-          }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000200) != 0)) {
-              attributes_ = com.google.protobuf.MapField.newMapField(
-                  AttributesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000200;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            attributes__ = input.readMessage(
-                AttributesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            attributes_.getMutableMap().put(
-                attributes__.getKey(), attributes__.getValue());
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000400) != 0)) {
-              outboundGroupTags_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000400;
-            }
-            outboundGroupTags_.add(s);
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            outboundTag_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        sourceIPs_ = java.util.Collections.unmodifiableList(sourceIPs_); // C
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        targetIPs_ = java.util.Collections.unmodifiableList(targetIPs_); // C
-      }
-      if (((mutable_bitField0_ & 0x00000400) != 0)) {
-        outboundGroupTags_ = outboundGroupTags_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -194,12 +70,14 @@ private static final long serialVersionUID = 0L;
             com.xray.app.router.command.RoutingContext.class, com.xray.app.router.command.RoutingContext.Builder.class);
   }
 
-  private int bitField0_;
   public static final int INBOUNDTAG_FIELD_NUMBER = 1;
-  private volatile java.lang.Object inboundTag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object inboundTag_ = "";
   /**
    * <code>string InboundTag = 1;</code>
+   * @return The inboundTag.
    */
+  @java.lang.Override
   public java.lang.String getInboundTag() {
     java.lang.Object ref = inboundTag_;
     if (ref instanceof java.lang.String) {
@@ -214,7 +92,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string InboundTag = 1;</code>
+   * @return The bytes for inboundTag.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getInboundTagBytes() {
     java.lang.Object ref = inboundTag_;
@@ -230,89 +110,109 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NETWORK_FIELD_NUMBER = 2;
-  private int network_;
+  private int network_ = 0;
   /**
    * <code>.xray.common.net.Network Network = 2;</code>
+   * @return The enum numeric value on the wire for network.
    */
-  public int getNetworkValue() {
+  @java.lang.Override public int getNetworkValue() {
     return network_;
   }
   /**
    * <code>.xray.common.net.Network Network = 2;</code>
+   * @return The network.
    */
-  public com.xray.common.net.Network getNetwork() {
-    @SuppressWarnings("deprecation")
-    com.xray.common.net.Network result = com.xray.common.net.Network.valueOf(network_);
+  @java.lang.Override public com.xray.common.net.Network getNetwork() {
+    com.xray.common.net.Network result = com.xray.common.net.Network.forNumber(network_);
     return result == null ? com.xray.common.net.Network.UNRECOGNIZED : result;
   }
 
   public static final int SOURCEIPS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.protobuf.ByteString> sourceIPs_;
   /**
    * <code>repeated bytes SourceIPs = 3;</code>
+   * @return A list containing the sourceIPs.
    */
+  @java.lang.Override
   public java.util.List<com.google.protobuf.ByteString>
       getSourceIPsList() {
     return sourceIPs_;
   }
   /**
    * <code>repeated bytes SourceIPs = 3;</code>
+   * @return The count of sourceIPs.
    */
   public int getSourceIPsCount() {
     return sourceIPs_.size();
   }
   /**
    * <code>repeated bytes SourceIPs = 3;</code>
+   * @param index The index of the element to return.
+   * @return The sourceIPs at the given index.
    */
   public com.google.protobuf.ByteString getSourceIPs(int index) {
     return sourceIPs_.get(index);
   }
 
   public static final int TARGETIPS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.protobuf.ByteString> targetIPs_;
   /**
    * <code>repeated bytes TargetIPs = 4;</code>
+   * @return A list containing the targetIPs.
    */
+  @java.lang.Override
   public java.util.List<com.google.protobuf.ByteString>
       getTargetIPsList() {
     return targetIPs_;
   }
   /**
    * <code>repeated bytes TargetIPs = 4;</code>
+   * @return The count of targetIPs.
    */
   public int getTargetIPsCount() {
     return targetIPs_.size();
   }
   /**
    * <code>repeated bytes TargetIPs = 4;</code>
+   * @param index The index of the element to return.
+   * @return The targetIPs at the given index.
    */
   public com.google.protobuf.ByteString getTargetIPs(int index) {
     return targetIPs_.get(index);
   }
 
   public static final int SOURCEPORT_FIELD_NUMBER = 5;
-  private int sourcePort_;
+  private int sourcePort_ = 0;
   /**
    * <code>uint32 SourcePort = 5;</code>
+   * @return The sourcePort.
    */
+  @java.lang.Override
   public int getSourcePort() {
     return sourcePort_;
   }
 
   public static final int TARGETPORT_FIELD_NUMBER = 6;
-  private int targetPort_;
+  private int targetPort_ = 0;
   /**
    * <code>uint32 TargetPort = 6;</code>
+   * @return The targetPort.
    */
+  @java.lang.Override
   public int getTargetPort() {
     return targetPort_;
   }
 
   public static final int TARGETDOMAIN_FIELD_NUMBER = 7;
-  private volatile java.lang.Object targetDomain_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object targetDomain_ = "";
   /**
    * <code>string TargetDomain = 7;</code>
+   * @return The targetDomain.
    */
+  @java.lang.Override
   public java.lang.String getTargetDomain() {
     java.lang.Object ref = targetDomain_;
     if (ref instanceof java.lang.String) {
@@ -327,7 +227,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string TargetDomain = 7;</code>
+   * @return The bytes for targetDomain.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getTargetDomainBytes() {
     java.lang.Object ref = targetDomain_;
@@ -343,10 +245,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROTOCOL_FIELD_NUMBER = 8;
-  private volatile java.lang.Object protocol_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object protocol_ = "";
   /**
    * <code>string Protocol = 8;</code>
+   * @return The protocol.
    */
+  @java.lang.Override
   public java.lang.String getProtocol() {
     java.lang.Object ref = protocol_;
     if (ref instanceof java.lang.String) {
@@ -361,7 +266,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string Protocol = 8;</code>
+   * @return The bytes for protocol.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getProtocolBytes() {
     java.lang.Object ref = protocol_;
@@ -377,10 +284,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_FIELD_NUMBER = 9;
-  private volatile java.lang.Object user_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object user_ = "";
   /**
    * <code>string User = 9;</code>
+   * @return The user.
    */
+  @java.lang.Override
   public java.lang.String getUser() {
     java.lang.Object ref = user_;
     if (ref instanceof java.lang.String) {
@@ -395,7 +305,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string User = 9;</code>
+   * @return The bytes for user.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getUserBytes() {
     java.lang.Object ref = user_;
@@ -422,6 +334,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> attributes_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -432,22 +345,22 @@ private static final long serialVersionUID = 0L;
     }
     return attributes_;
   }
-
   public int getAttributesCount() {
     return internalGetAttributes().getMap().size();
   }
   /**
    * <code>map&lt;string, string&gt; Attributes = 10;</code>
    */
-
+  @java.lang.Override
   public boolean containsAttributes(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     return internalGetAttributes().getMap().containsKey(key);
   }
   /**
    * Use {@link #getAttributesMap()} instead.
    */
+  @java.lang.Override
   @java.lang.Deprecated
   public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
     return getAttributesMap();
@@ -455,18 +368,20 @@ private static final long serialVersionUID = 0L;
   /**
    * <code>map&lt;string, string&gt; Attributes = 10;</code>
    */
-
+  @java.lang.Override
   public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
     return internalGetAttributes().getMap();
   }
   /**
    * <code>map&lt;string, string&gt; Attributes = 10;</code>
    */
-
-  public java.lang.String getAttributesOrDefault(
+  @java.lang.Override
+  public /* nullable */
+java.lang.String getAttributesOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+      /* nullable */
+java.lang.String defaultValue) {
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetAttributes().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -474,10 +389,10 @@ private static final long serialVersionUID = 0L;
   /**
    * <code>map&lt;string, string&gt; Attributes = 10;</code>
    */
-
+  @java.lang.Override
   public java.lang.String getAttributesOrThrow(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetAttributes().getMap();
     if (!map.containsKey(key)) {
@@ -487,9 +402,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OUTBOUNDGROUPTAGS_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList outboundGroupTags_;
   /**
    * <code>repeated string OutboundGroupTags = 11;</code>
+   * @return A list containing the outboundGroupTags.
    */
   public com.google.protobuf.ProtocolStringList
       getOutboundGroupTagsList() {
@@ -497,18 +414,23 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>repeated string OutboundGroupTags = 11;</code>
+   * @return The count of outboundGroupTags.
    */
   public int getOutboundGroupTagsCount() {
     return outboundGroupTags_.size();
   }
   /**
    * <code>repeated string OutboundGroupTags = 11;</code>
+   * @param index The index of the element to return.
+   * @return The outboundGroupTags at the given index.
    */
   public java.lang.String getOutboundGroupTags(int index) {
     return outboundGroupTags_.get(index);
   }
   /**
    * <code>repeated string OutboundGroupTags = 11;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the outboundGroupTags at the given index.
    */
   public com.google.protobuf.ByteString
       getOutboundGroupTagsBytes(int index) {
@@ -516,10 +438,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OUTBOUNDTAG_FIELD_NUMBER = 12;
-  private volatile java.lang.Object outboundTag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object outboundTag_ = "";
   /**
    * <code>string OutboundTag = 12;</code>
+   * @return The outboundTag.
    */
+  @java.lang.Override
   public java.lang.String getOutboundTag() {
     java.lang.Object ref = outboundTag_;
     if (ref instanceof java.lang.String) {
@@ -534,7 +459,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string OutboundTag = 12;</code>
+   * @return The bytes for outboundTag.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getOutboundTagBytes() {
     java.lang.Object ref = outboundTag_;
@@ -563,7 +490,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getInboundTagBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(inboundTag_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, inboundTag_);
     }
     if (network_ != com.xray.common.net.Network.Unknown.getNumber()) {
@@ -581,13 +508,13 @@ private static final long serialVersionUID = 0L;
     if (targetPort_ != 0) {
       output.writeUInt32(6, targetPort_);
     }
-    if (!getTargetDomainBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(targetDomain_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, targetDomain_);
     }
-    if (!getProtocolBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(protocol_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, protocol_);
     }
-    if (!getUserBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(user_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, user_);
     }
     com.google.protobuf.GeneratedMessageV3
@@ -599,10 +526,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < outboundGroupTags_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 11, outboundGroupTags_.getRaw(i));
     }
-    if (!getOutboundTagBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(outboundTag_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 12, outboundTag_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -611,7 +538,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getInboundTagBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(inboundTag_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, inboundTag_);
     }
     if (network_ != com.xray.common.net.Network.Unknown.getNumber()) {
@@ -644,13 +571,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(6, targetPort_);
     }
-    if (!getTargetDomainBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(targetDomain_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, targetDomain_);
     }
-    if (!getProtocolBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(protocol_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, protocol_);
     }
-    if (!getUserBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(user_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, user_);
     }
     for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
@@ -671,10 +598,10 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getOutboundGroupTagsList().size();
     }
-    if (!getOutboundTagBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(outboundTag_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, outboundTag_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -712,7 +639,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getOutboundGroupTagsList())) return false;
     if (!getOutboundTag()
         .equals(other.getOutboundTag())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -755,7 +682,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + OUTBOUNDTAG_FIELD_NUMBER;
     hash = (53 * hash) + getOutboundTag().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -900,45 +827,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.app.router.command.RoutingContext.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       inboundTag_ = "";
-
       network_ = 0;
-
       sourceIPs_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000004);
       targetIPs_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000008);
       sourcePort_ = 0;
-
       targetPort_ = 0;
-
       targetDomain_ = "";
-
       protocol_ = "";
-
       user_ = "";
-
       internalGetMutableAttributes().clear();
       outboundGroupTags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000400);
       outboundTag_ = "";
-
       return this;
     }
 
@@ -965,10 +878,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.app.router.command.RoutingContext buildPartial() {
       com.xray.app.router.command.RoutingContext result = new com.xray.app.router.command.RoutingContext(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.inboundTag_ = inboundTag_;
-      result.network_ = network_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.xray.app.router.command.RoutingContext result) {
       if (((bitField0_ & 0x00000004) != 0)) {
         sourceIPs_ = java.util.Collections.unmodifiableList(sourceIPs_);
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -979,22 +895,43 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000008);
       }
       result.targetIPs_ = targetIPs_;
-      result.sourcePort_ = sourcePort_;
-      result.targetPort_ = targetPort_;
-      result.targetDomain_ = targetDomain_;
-      result.protocol_ = protocol_;
-      result.user_ = user_;
-      result.attributes_ = internalGetAttributes();
-      result.attributes_.makeImmutable();
       if (((bitField0_ & 0x00000400) != 0)) {
         outboundGroupTags_ = outboundGroupTags_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000400);
       }
       result.outboundGroupTags_ = outboundGroupTags_;
-      result.outboundTag_ = outboundTag_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.xray.app.router.command.RoutingContext result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.inboundTag_ = inboundTag_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.network_ = network_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.sourcePort_ = sourcePort_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.targetPort_ = targetPort_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.targetDomain_ = targetDomain_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.protocol_ = protocol_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.user_ = user_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.attributes_ = internalGetAttributes();
+        result.attributes_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.outboundTag_ = outboundTag_;
+      }
     }
 
     @java.lang.Override
@@ -1043,6 +980,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.xray.app.router.command.RoutingContext.getDefaultInstance()) return this;
       if (!other.getInboundTag().isEmpty()) {
         inboundTag_ = other.inboundTag_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.network_ != 0) {
@@ -1076,18 +1014,22 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTargetDomain().isEmpty()) {
         targetDomain_ = other.targetDomain_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getProtocol().isEmpty()) {
         protocol_ = other.protocol_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (!other.getUser().isEmpty()) {
         user_ = other.user_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       internalGetMutableAttributes().mergeFrom(
           other.internalGetAttributes());
+      bitField0_ |= 0x00000200;
       if (!other.outboundGroupTags_.isEmpty()) {
         if (outboundGroupTags_.isEmpty()) {
           outboundGroupTags_ = other.outboundGroupTags_;
@@ -1100,9 +1042,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getOutboundTag().isEmpty()) {
         outboundTag_ = other.outboundTag_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1117,17 +1060,97 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.app.router.command.RoutingContext parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              inboundTag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              network_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              com.google.protobuf.ByteString v = input.readBytes();
+              ensureSourceIPsIsMutable();
+              sourceIPs_.add(v);
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.ByteString v = input.readBytes();
+              ensureTargetIPsIsMutable();
+              targetIPs_.add(v);
+              break;
+            } // case 34
+            case 40: {
+              sourcePort_ = input.readUInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              targetPort_ = input.readUInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              targetDomain_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              protocol_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              user_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              attributes__ = input.readMessage(
+                  AttributesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableAttributes().getMutableMap().put(
+                  attributes__.getKey(), attributes__.getValue());
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureOutboundGroupTagsIsMutable();
+              outboundGroupTags_.add(s);
+              break;
+            } // case 90
+            case 98: {
+              outboundTag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.app.router.command.RoutingContext) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1135,6 +1158,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object inboundTag_ = "";
     /**
      * <code>string InboundTag = 1;</code>
+     * @return The inboundTag.
      */
     public java.lang.String getInboundTag() {
       java.lang.Object ref = inboundTag_;
@@ -1150,6 +1174,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string InboundTag = 1;</code>
+     * @return The bytes for inboundTag.
      */
     public com.google.protobuf.ByteString
         getInboundTagBytes() {
@@ -1166,37 +1191,38 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string InboundTag = 1;</code>
+     * @param value The inboundTag to set.
+     * @return This builder for chaining.
      */
     public Builder setInboundTag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       inboundTag_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <code>string InboundTag = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearInboundTag() {
-      
       inboundTag_ = getDefaultInstance().getInboundTag();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <code>string InboundTag = 1;</code>
+     * @param value The bytes for inboundTag to set.
+     * @return This builder for chaining.
      */
     public Builder setInboundTagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       inboundTag_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1204,43 +1230,51 @@ private static final long serialVersionUID = 0L;
     private int network_ = 0;
     /**
      * <code>.xray.common.net.Network Network = 2;</code>
+     * @return The enum numeric value on the wire for network.
      */
-    public int getNetworkValue() {
+    @java.lang.Override public int getNetworkValue() {
       return network_;
     }
     /**
      * <code>.xray.common.net.Network Network = 2;</code>
+     * @param value The enum numeric value on the wire for network to set.
+     * @return This builder for chaining.
      */
     public Builder setNetworkValue(int value) {
       network_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <code>.xray.common.net.Network Network = 2;</code>
+     * @return The network.
      */
+    @java.lang.Override
     public com.xray.common.net.Network getNetwork() {
-      @SuppressWarnings("deprecation")
-      com.xray.common.net.Network result = com.xray.common.net.Network.valueOf(network_);
+      com.xray.common.net.Network result = com.xray.common.net.Network.forNumber(network_);
       return result == null ? com.xray.common.net.Network.UNRECOGNIZED : result;
     }
     /**
      * <code>.xray.common.net.Network Network = 2;</code>
+     * @param value The network to set.
+     * @return This builder for chaining.
      */
     public Builder setNetwork(com.xray.common.net.Network value) {
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       network_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <code>.xray.common.net.Network Network = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearNetwork() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       network_ = 0;
       onChanged();
       return this;
@@ -1251,10 +1285,11 @@ private static final long serialVersionUID = 0L;
       if (!((bitField0_ & 0x00000004) != 0)) {
         sourceIPs_ = new java.util.ArrayList<com.google.protobuf.ByteString>(sourceIPs_);
         bitField0_ |= 0x00000004;
-       }
+      }
     }
     /**
      * <code>repeated bytes SourceIPs = 3;</code>
+     * @return A list containing the sourceIPs.
      */
     public java.util.List<com.google.protobuf.ByteString>
         getSourceIPsList() {
@@ -1263,43 +1298,49 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated bytes SourceIPs = 3;</code>
+     * @return The count of sourceIPs.
      */
     public int getSourceIPsCount() {
       return sourceIPs_.size();
     }
     /**
      * <code>repeated bytes SourceIPs = 3;</code>
+     * @param index The index of the element to return.
+     * @return The sourceIPs at the given index.
      */
     public com.google.protobuf.ByteString getSourceIPs(int index) {
       return sourceIPs_.get(index);
     }
     /**
      * <code>repeated bytes SourceIPs = 3;</code>
+     * @param index The index to set the value at.
+     * @param value The sourceIPs to set.
+     * @return This builder for chaining.
      */
     public Builder setSourceIPs(
         int index, com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSourceIPsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSourceIPsIsMutable();
       sourceIPs_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <code>repeated bytes SourceIPs = 3;</code>
+     * @param value The sourceIPs to add.
+     * @return This builder for chaining.
      */
     public Builder addSourceIPs(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSourceIPsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSourceIPsIsMutable();
       sourceIPs_.add(value);
       onChanged();
       return this;
     }
     /**
      * <code>repeated bytes SourceIPs = 3;</code>
+     * @param values The sourceIPs to add.
+     * @return This builder for chaining.
      */
     public Builder addAllSourceIPs(
         java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
@@ -1311,6 +1352,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated bytes SourceIPs = 3;</code>
+     * @return This builder for chaining.
      */
     public Builder clearSourceIPs() {
       sourceIPs_ = java.util.Collections.emptyList();
@@ -1324,10 +1366,11 @@ private static final long serialVersionUID = 0L;
       if (!((bitField0_ & 0x00000008) != 0)) {
         targetIPs_ = new java.util.ArrayList<com.google.protobuf.ByteString>(targetIPs_);
         bitField0_ |= 0x00000008;
-       }
+      }
     }
     /**
      * <code>repeated bytes TargetIPs = 4;</code>
+     * @return A list containing the targetIPs.
      */
     public java.util.List<com.google.protobuf.ByteString>
         getTargetIPsList() {
@@ -1336,43 +1379,49 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated bytes TargetIPs = 4;</code>
+     * @return The count of targetIPs.
      */
     public int getTargetIPsCount() {
       return targetIPs_.size();
     }
     /**
      * <code>repeated bytes TargetIPs = 4;</code>
+     * @param index The index of the element to return.
+     * @return The targetIPs at the given index.
      */
     public com.google.protobuf.ByteString getTargetIPs(int index) {
       return targetIPs_.get(index);
     }
     /**
      * <code>repeated bytes TargetIPs = 4;</code>
+     * @param index The index to set the value at.
+     * @param value The targetIPs to set.
+     * @return This builder for chaining.
      */
     public Builder setTargetIPs(
         int index, com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTargetIPsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTargetIPsIsMutable();
       targetIPs_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <code>repeated bytes TargetIPs = 4;</code>
+     * @param value The targetIPs to add.
+     * @return This builder for chaining.
      */
     public Builder addTargetIPs(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTargetIPsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTargetIPsIsMutable();
       targetIPs_.add(value);
       onChanged();
       return this;
     }
     /**
      * <code>repeated bytes TargetIPs = 4;</code>
+     * @param values The targetIPs to add.
+     * @return This builder for chaining.
      */
     public Builder addAllTargetIPs(
         java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
@@ -1384,6 +1433,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated bytes TargetIPs = 4;</code>
+     * @return This builder for chaining.
      */
     public Builder clearTargetIPs() {
       targetIPs_ = java.util.Collections.emptyList();
@@ -1395,24 +1445,30 @@ private static final long serialVersionUID = 0L;
     private int sourcePort_ ;
     /**
      * <code>uint32 SourcePort = 5;</code>
+     * @return The sourcePort.
      */
+    @java.lang.Override
     public int getSourcePort() {
       return sourcePort_;
     }
     /**
      * <code>uint32 SourcePort = 5;</code>
+     * @param value The sourcePort to set.
+     * @return This builder for chaining.
      */
     public Builder setSourcePort(int value) {
       
       sourcePort_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <code>uint32 SourcePort = 5;</code>
+     * @return This builder for chaining.
      */
     public Builder clearSourcePort() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       sourcePort_ = 0;
       onChanged();
       return this;
@@ -1421,24 +1477,30 @@ private static final long serialVersionUID = 0L;
     private int targetPort_ ;
     /**
      * <code>uint32 TargetPort = 6;</code>
+     * @return The targetPort.
      */
+    @java.lang.Override
     public int getTargetPort() {
       return targetPort_;
     }
     /**
      * <code>uint32 TargetPort = 6;</code>
+     * @param value The targetPort to set.
+     * @return This builder for chaining.
      */
     public Builder setTargetPort(int value) {
       
       targetPort_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
     /**
      * <code>uint32 TargetPort = 6;</code>
+     * @return This builder for chaining.
      */
     public Builder clearTargetPort() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       targetPort_ = 0;
       onChanged();
       return this;
@@ -1447,6 +1509,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object targetDomain_ = "";
     /**
      * <code>string TargetDomain = 7;</code>
+     * @return The targetDomain.
      */
     public java.lang.String getTargetDomain() {
       java.lang.Object ref = targetDomain_;
@@ -1462,6 +1525,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string TargetDomain = 7;</code>
+     * @return The bytes for targetDomain.
      */
     public com.google.protobuf.ByteString
         getTargetDomainBytes() {
@@ -1478,37 +1542,38 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string TargetDomain = 7;</code>
+     * @param value The targetDomain to set.
+     * @return This builder for chaining.
      */
     public Builder setTargetDomain(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       targetDomain_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
     /**
      * <code>string TargetDomain = 7;</code>
+     * @return This builder for chaining.
      */
     public Builder clearTargetDomain() {
-      
       targetDomain_ = getDefaultInstance().getTargetDomain();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
     /**
      * <code>string TargetDomain = 7;</code>
+     * @param value The bytes for targetDomain to set.
+     * @return This builder for chaining.
      */
     public Builder setTargetDomainBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       targetDomain_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1516,6 +1581,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object protocol_ = "";
     /**
      * <code>string Protocol = 8;</code>
+     * @return The protocol.
      */
     public java.lang.String getProtocol() {
       java.lang.Object ref = protocol_;
@@ -1531,6 +1597,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string Protocol = 8;</code>
+     * @return The bytes for protocol.
      */
     public com.google.protobuf.ByteString
         getProtocolBytes() {
@@ -1547,37 +1614,38 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string Protocol = 8;</code>
+     * @param value The protocol to set.
+     * @return This builder for chaining.
      */
     public Builder setProtocol(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       protocol_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
     /**
      * <code>string Protocol = 8;</code>
+     * @return This builder for chaining.
      */
     public Builder clearProtocol() {
-      
       protocol_ = getDefaultInstance().getProtocol();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
     /**
      * <code>string Protocol = 8;</code>
+     * @param value The bytes for protocol to set.
+     * @return This builder for chaining.
      */
     public Builder setProtocolBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       protocol_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1585,6 +1653,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object user_ = "";
     /**
      * <code>string User = 9;</code>
+     * @return The user.
      */
     public java.lang.String getUser() {
       java.lang.Object ref = user_;
@@ -1600,6 +1669,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string User = 9;</code>
+     * @return The bytes for user.
      */
     public com.google.protobuf.ByteString
         getUserBytes() {
@@ -1616,37 +1686,38 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string User = 9;</code>
+     * @param value The user to set.
+     * @return This builder for chaining.
      */
     public Builder setUser(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       user_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
     /**
      * <code>string User = 9;</code>
+     * @return This builder for chaining.
      */
     public Builder clearUser() {
-      
       user_ = getDefaultInstance().getUser();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
     /**
      * <code>string User = 9;</code>
+     * @param value The bytes for user to set.
+     * @return This builder for chaining.
      */
     public Builder setUserBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       user_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -1654,7 +1725,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> attributes_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetAttributes() {
+        internalGetAttributes() {
       if (attributes_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             AttributesDefaultEntryHolder.defaultEntry);
@@ -1662,8 +1733,7 @@ private static final long serialVersionUID = 0L;
       return attributes_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableAttributes() {
-      onChanged();;
+        internalGetMutableAttributes() {
       if (attributes_ == null) {
         attributes_ = com.google.protobuf.MapField.newMapField(
             AttributesDefaultEntryHolder.defaultEntry);
@@ -1671,24 +1741,26 @@ private static final long serialVersionUID = 0L;
       if (!attributes_.isMutable()) {
         attributes_ = attributes_.copy();
       }
+      bitField0_ |= 0x00000200;
+      onChanged();
       return attributes_;
     }
-
     public int getAttributesCount() {
       return internalGetAttributes().getMap().size();
     }
     /**
      * <code>map&lt;string, string&gt; Attributes = 10;</code>
      */
-
+    @java.lang.Override
     public boolean containsAttributes(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetAttributes().getMap().containsKey(key);
     }
     /**
      * Use {@link #getAttributesMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
       return getAttributesMap();
@@ -1696,18 +1768,20 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;string, string&gt; Attributes = 10;</code>
      */
-
+    @java.lang.Override
     public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
       return internalGetAttributes().getMap();
     }
     /**
      * <code>map&lt;string, string&gt; Attributes = 10;</code>
      */
-
-    public java.lang.String getAttributesOrDefault(
+    @java.lang.Override
+    public /* nullable */
+java.lang.String getAttributesOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+        /* nullable */
+java.lang.String defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetAttributes().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -1715,10 +1789,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;string, string&gt; Attributes = 10;</code>
      */
-
+    @java.lang.Override
     public java.lang.String getAttributesOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetAttributes().getMap();
       if (!map.containsKey(key)) {
@@ -1726,8 +1800,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearAttributes() {
+      bitField0_ = (bitField0_ & ~0x00000200);
       internalGetMutableAttributes().getMutableMap()
           .clear();
       return this;
@@ -1735,10 +1809,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;string, string&gt; Attributes = 10;</code>
      */
-
     public Builder removeAttributes(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       internalGetMutableAttributes().getMutableMap()
           .remove(key);
       return this;
@@ -1748,7 +1821,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableAttributes() {
+        getMutableAttributes() {
+      bitField0_ |= 0x00000200;
       return internalGetMutableAttributes().getMutableMap();
     }
     /**
@@ -1757,20 +1831,21 @@ private static final long serialVersionUID = 0L;
     public Builder putAttributes(
         java.lang.String key,
         java.lang.String value) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      if (value == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableAttributes().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000200;
       return this;
     }
     /**
      * <code>map&lt;string, string&gt; Attributes = 10;</code>
      */
-
     public Builder putAllAttributes(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableAttributes().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000200;
       return this;
     }
 
@@ -1783,6 +1858,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string OutboundGroupTags = 11;</code>
+     * @return A list containing the outboundGroupTags.
      */
     public com.google.protobuf.ProtocolStringList
         getOutboundGroupTagsList() {
@@ -1790,18 +1866,23 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string OutboundGroupTags = 11;</code>
+     * @return The count of outboundGroupTags.
      */
     public int getOutboundGroupTagsCount() {
       return outboundGroupTags_.size();
     }
     /**
      * <code>repeated string OutboundGroupTags = 11;</code>
+     * @param index The index of the element to return.
+     * @return The outboundGroupTags at the given index.
      */
     public java.lang.String getOutboundGroupTags(int index) {
       return outboundGroupTags_.get(index);
     }
     /**
      * <code>repeated string OutboundGroupTags = 11;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the outboundGroupTags at the given index.
      */
     public com.google.protobuf.ByteString
         getOutboundGroupTagsBytes(int index) {
@@ -1809,32 +1890,35 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string OutboundGroupTags = 11;</code>
+     * @param index The index to set the value at.
+     * @param value The outboundGroupTags to set.
+     * @return This builder for chaining.
      */
     public Builder setOutboundGroupTags(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureOutboundGroupTagsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureOutboundGroupTagsIsMutable();
       outboundGroupTags_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <code>repeated string OutboundGroupTags = 11;</code>
+     * @param value The outboundGroupTags to add.
+     * @return This builder for chaining.
      */
     public Builder addOutboundGroupTags(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureOutboundGroupTagsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureOutboundGroupTagsIsMutable();
       outboundGroupTags_.add(value);
       onChanged();
       return this;
     }
     /**
      * <code>repeated string OutboundGroupTags = 11;</code>
+     * @param values The outboundGroupTags to add.
+     * @return This builder for chaining.
      */
     public Builder addAllOutboundGroupTags(
         java.lang.Iterable<java.lang.String> values) {
@@ -1846,6 +1930,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string OutboundGroupTags = 11;</code>
+     * @return This builder for chaining.
      */
     public Builder clearOutboundGroupTags() {
       outboundGroupTags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -1855,13 +1940,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string OutboundGroupTags = 11;</code>
+     * @param value The bytes of the outboundGroupTags to add.
+     * @return This builder for chaining.
      */
     public Builder addOutboundGroupTagsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureOutboundGroupTagsIsMutable();
       outboundGroupTags_.add(value);
       onChanged();
@@ -1871,6 +1956,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object outboundTag_ = "";
     /**
      * <code>string OutboundTag = 12;</code>
+     * @return The outboundTag.
      */
     public java.lang.String getOutboundTag() {
       java.lang.Object ref = outboundTag_;
@@ -1886,6 +1972,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string OutboundTag = 12;</code>
+     * @return The bytes for outboundTag.
      */
     public com.google.protobuf.ByteString
         getOutboundTagBytes() {
@@ -1902,37 +1989,38 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string OutboundTag = 12;</code>
+     * @param value The outboundTag to set.
+     * @return This builder for chaining.
      */
     public Builder setOutboundTag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       outboundTag_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
     /**
      * <code>string OutboundTag = 12;</code>
+     * @return This builder for chaining.
      */
     public Builder clearOutboundTag() {
-      
       outboundTag_ = getDefaultInstance().getOutboundTag();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
     /**
      * <code>string OutboundTag = 12;</code>
+     * @param value The bytes for outboundTag to set.
+     * @return This builder for chaining.
      */
     public Builder setOutboundTagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       outboundTag_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -1969,7 +2057,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RoutingContext(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

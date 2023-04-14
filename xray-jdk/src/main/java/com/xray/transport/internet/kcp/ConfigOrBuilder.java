@@ -9,10 +9,12 @@ public interface ConfigOrBuilder extends
 
   /**
    * <code>.xray.transport.internet.kcp.MTU mtu = 1;</code>
+   * @return Whether the mtu field is set.
    */
   boolean hasMtu();
   /**
    * <code>.xray.transport.internet.kcp.MTU mtu = 1;</code>
+   * @return The mtu.
    */
   com.xray.transport.internet.kcp.MTU getMtu();
   /**
@@ -22,10 +24,12 @@ public interface ConfigOrBuilder extends
 
   /**
    * <code>.xray.transport.internet.kcp.TTI tti = 2;</code>
+   * @return Whether the tti field is set.
    */
   boolean hasTti();
   /**
    * <code>.xray.transport.internet.kcp.TTI tti = 2;</code>
+   * @return The tti.
    */
   com.xray.transport.internet.kcp.TTI getTti();
   /**
@@ -35,10 +39,12 @@ public interface ConfigOrBuilder extends
 
   /**
    * <code>.xray.transport.internet.kcp.UplinkCapacity uplink_capacity = 3;</code>
+   * @return Whether the uplinkCapacity field is set.
    */
   boolean hasUplinkCapacity();
   /**
    * <code>.xray.transport.internet.kcp.UplinkCapacity uplink_capacity = 3;</code>
+   * @return The uplinkCapacity.
    */
   com.xray.transport.internet.kcp.UplinkCapacity getUplinkCapacity();
   /**
@@ -48,10 +54,12 @@ public interface ConfigOrBuilder extends
 
   /**
    * <code>.xray.transport.internet.kcp.DownlinkCapacity downlink_capacity = 4;</code>
+   * @return Whether the downlinkCapacity field is set.
    */
   boolean hasDownlinkCapacity();
   /**
    * <code>.xray.transport.internet.kcp.DownlinkCapacity downlink_capacity = 4;</code>
+   * @return The downlinkCapacity.
    */
   com.xray.transport.internet.kcp.DownlinkCapacity getDownlinkCapacity();
   /**
@@ -61,15 +69,18 @@ public interface ConfigOrBuilder extends
 
   /**
    * <code>bool congestion = 5;</code>
+   * @return The congestion.
    */
   boolean getCongestion();
 
   /**
    * <code>.xray.transport.internet.kcp.WriteBuffer write_buffer = 6;</code>
+   * @return Whether the writeBuffer field is set.
    */
   boolean hasWriteBuffer();
   /**
    * <code>.xray.transport.internet.kcp.WriteBuffer write_buffer = 6;</code>
+   * @return The writeBuffer.
    */
   com.xray.transport.internet.kcp.WriteBuffer getWriteBuffer();
   /**
@@ -79,10 +90,12 @@ public interface ConfigOrBuilder extends
 
   /**
    * <code>.xray.transport.internet.kcp.ReadBuffer read_buffer = 7;</code>
+   * @return Whether the readBuffer field is set.
    */
   boolean hasReadBuffer();
   /**
    * <code>.xray.transport.internet.kcp.ReadBuffer read_buffer = 7;</code>
+   * @return The readBuffer.
    */
   com.xray.transport.internet.kcp.ReadBuffer getReadBuffer();
   /**
@@ -92,10 +105,12 @@ public interface ConfigOrBuilder extends
 
   /**
    * <code>.xray.common.serial.TypedMessage header_config = 8;</code>
+   * @return Whether the headerConfig field is set.
    */
   boolean hasHeaderConfig();
   /**
    * <code>.xray.common.serial.TypedMessage header_config = 8;</code>
+   * @return The headerConfig.
    */
   com.xray.common.serial.TypedMessage getHeaderConfig();
   /**
@@ -105,10 +120,12 @@ public interface ConfigOrBuilder extends
 
   /**
    * <code>.xray.transport.internet.kcp.EncryptionSeed seed = 10;</code>
+   * @return Whether the seed field is set.
    */
   boolean hasSeed();
   /**
    * <code>.xray.transport.internet.kcp.EncryptionSeed seed = 10;</code>
+   * @return The seed.
    */
   com.xray.transport.internet.kcp.EncryptionSeed getSeed();
   /**

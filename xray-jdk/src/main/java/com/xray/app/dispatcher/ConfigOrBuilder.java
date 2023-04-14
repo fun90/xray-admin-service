@@ -9,10 +9,12 @@ public interface ConfigOrBuilder extends
 
   /**
    * <code>.xray.app.dispatcher.SessionConfig settings = 1;</code>
+   * @return Whether the settings field is set.
    */
   boolean hasSettings();
   /**
    * <code>.xray.app.dispatcher.SessionConfig settings = 1;</code>
+   * @return The settings.
    */
   com.xray.app.dispatcher.SessionConfig getSettings();
   /**

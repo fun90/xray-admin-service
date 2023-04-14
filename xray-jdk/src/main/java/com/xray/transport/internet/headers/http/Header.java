@@ -6,7 +6,7 @@ package com.xray.transport.internet.headers.http;
 /**
  * Protobuf type {@code xray.transport.internet.headers.http.Header}
  */
-public  final class Header extends
+public final class Header extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.transport.internet.headers.http.Header)
     HeaderOrBuilder {
@@ -21,65 +21,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new Header();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Header(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              value_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            value_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        value_ = value_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -94,16 +45,18 @@ private static final long serialVersionUID = 0L;
             com.xray.transport.internet.headers.http.Header.class, com.xray.transport.internet.headers.http.Header.Builder.class);
   }
 
-  private int bitField0_;
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * "Accept", "Cookie", etc
    * </pre>
    *
    * <code>string name = 1;</code>
+   * @return The name.
    */
+  @java.lang.Override
   public java.lang.String getName() {
     java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
@@ -122,7 +75,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string name = 1;</code>
+   * @return The bytes for name.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getNameBytes() {
     java.lang.Object ref = name_;
@@ -138,6 +93,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VALUE_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList value_;
   /**
    * <pre>
@@ -146,6 +102,7 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>repeated string value = 2;</code>
+   * @return A list containing the value.
    */
   public com.google.protobuf.ProtocolStringList
       getValueList() {
@@ -158,6 +115,7 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>repeated string value = 2;</code>
+   * @return The count of value.
    */
   public int getValueCount() {
     return value_.size();
@@ -169,6 +127,8 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>repeated string value = 2;</code>
+   * @param index The index of the element to return.
+   * @return The value at the given index.
    */
   public java.lang.String getValue(int index) {
     return value_.get(index);
@@ -180,6 +140,8 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>repeated string value = 2;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the value at the given index.
    */
   public com.google.protobuf.ByteString
       getValueBytes(int index) {
@@ -200,13 +162,13 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
     for (int i = 0; i < value_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, value_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -215,7 +177,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
     }
     {
@@ -226,7 +188,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getValueList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -245,7 +207,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getName())) return false;
     if (!getValueList()
         .equals(other.getValueList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -262,7 +224,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + VALUE_FIELD_NUMBER;
       hash = (53 * hash) + getValueList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -379,24 +341,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.transport.internet.headers.http.Header.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       value_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000002);
       return this;
@@ -425,17 +382,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.transport.internet.headers.http.Header buildPartial() {
       com.xray.transport.internet.headers.http.Header result = new com.xray.transport.internet.headers.http.Header(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.name_ = name_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.xray.transport.internet.headers.http.Header result) {
       if (((bitField0_ & 0x00000002) != 0)) {
         value_ = value_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000002);
       }
       result.value_ = value_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.xray.transport.internet.headers.http.Header result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
     }
 
     @java.lang.Override
@@ -484,6 +449,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.xray.transport.internet.headers.http.Header.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.value_.isEmpty()) {
@@ -496,7 +462,7 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -511,17 +477,41 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.transport.internet.headers.http.Header parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureValueIsMutable();
+              value_.add(s);
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.transport.internet.headers.http.Header) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -533,6 +523,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string name = 1;</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -552,6 +543,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string name = 1;</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -572,14 +564,14 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string name = 1;</code>
+     * @param value The name to set.
+     * @return This builder for chaining.
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -589,10 +581,11 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string name = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -602,15 +595,15 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string name = 1;</code>
+     * @param value The bytes for name to set.
+     * @return This builder for chaining.
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -629,6 +622,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated string value = 2;</code>
+     * @return A list containing the value.
      */
     public com.google.protobuf.ProtocolStringList
         getValueList() {
@@ -641,6 +635,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated string value = 2;</code>
+     * @return The count of value.
      */
     public int getValueCount() {
       return value_.size();
@@ -652,6 +647,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated string value = 2;</code>
+     * @param index The index of the element to return.
+     * @return The value at the given index.
      */
     public java.lang.String getValue(int index) {
       return value_.get(index);
@@ -663,6 +660,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated string value = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the value at the given index.
      */
     public com.google.protobuf.ByteString
         getValueBytes(int index) {
@@ -675,13 +674,14 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated string value = 2;</code>
+     * @param index The index to set the value at.
+     * @param value The value to set.
+     * @return This builder for chaining.
      */
     public Builder setValue(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureValueIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureValueIsMutable();
       value_.set(index, value);
       onChanged();
       return this;
@@ -693,13 +693,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated string value = 2;</code>
+     * @param value The value to add.
+     * @return This builder for chaining.
      */
     public Builder addValue(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureValueIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureValueIsMutable();
       value_.add(value);
       onChanged();
       return this;
@@ -711,6 +711,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated string value = 2;</code>
+     * @param values The value to add.
+     * @return This builder for chaining.
      */
     public Builder addAllValue(
         java.lang.Iterable<java.lang.String> values) {
@@ -727,6 +729,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated string value = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearValue() {
       value_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -741,13 +744,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated string value = 2;</code>
+     * @param value The bytes of the value to add.
+     * @return This builder for chaining.
      */
     public Builder addValueBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureValueIsMutable();
       value_.add(value);
       onChanged();
@@ -786,7 +789,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Header(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -14,6 +14,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>string path = 1;</code>
+   * @return The path.
    */
   java.lang.String getPath();
   /**
@@ -23,6 +24,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>string path = 1;</code>
+   * @return The bytes for path.
    */
   com.google.protobuf.ByteString
       getPathBytes();
@@ -35,6 +37,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>bool abstract = 2;</code>
+   * @return The abstract.
    */
   boolean getAbstract();
 
@@ -45,6 +48,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>bool padding = 3;</code>
+   * @return The padding.
    */
   boolean getPadding();
 }

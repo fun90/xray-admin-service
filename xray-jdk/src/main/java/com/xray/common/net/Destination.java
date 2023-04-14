@@ -37,20 +37,12 @@ public final class Destination {
       "$github.com/xtls/xray-core/common/net\252\002\017" +
       "Xray.Common.Netb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.xray.common.net.NetworkOuterClass.getDescriptor(),
           com.xray.common.net.Address.getDescriptor(),
-        }, assigner);
+        });
     internal_static_xray_common_net_Endpoint_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_xray_common_net_Endpoint_fieldAccessorTable = new

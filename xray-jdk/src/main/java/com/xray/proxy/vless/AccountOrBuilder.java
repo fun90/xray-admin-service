@@ -13,6 +13,7 @@ public interface AccountOrBuilder extends
    * </pre>
    *
    * <code>string id = 1;</code>
+   * @return The id.
    */
   java.lang.String getId();
   /**
@@ -21,24 +22,27 @@ public interface AccountOrBuilder extends
    * </pre>
    *
    * <code>string id = 1;</code>
+   * @return The bytes for id.
    */
   com.google.protobuf.ByteString
       getIdBytes();
 
   /**
    * <pre>
-   * Flow settings. May be "xtls-rprx-direct".
+   * Flow settings. May be "xtls-rprx-vision".
    * </pre>
    *
    * <code>string flow = 2;</code>
+   * @return The flow.
    */
   java.lang.String getFlow();
   /**
    * <pre>
-   * Flow settings. May be "xtls-rprx-direct".
+   * Flow settings. May be "xtls-rprx-vision".
    * </pre>
    *
    * <code>string flow = 2;</code>
+   * @return The bytes for flow.
    */
   com.google.protobuf.ByteString
       getFlowBytes();
@@ -49,6 +53,7 @@ public interface AccountOrBuilder extends
    * </pre>
    *
    * <code>string encryption = 3;</code>
+   * @return The encryption.
    */
   java.lang.String getEncryption();
   /**
@@ -57,6 +62,7 @@ public interface AccountOrBuilder extends
    * </pre>
    *
    * <code>string encryption = 3;</code>
+   * @return The bytes for encryption.
    */
   com.google.protobuf.ByteString
       getEncryptionBytes();

@@ -10,7 +10,7 @@ package com.xray.proxy.socks;
  *
  * Protobuf type {@code xray.proxy.socks.ClientConfig}
  */
-public  final class ClientConfig extends
+public final class ClientConfig extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.proxy.socks.ClientConfig)
     ClientConfigOrBuilder {
@@ -21,62 +21,20 @@ private static final long serialVersionUID = 0L;
   }
   private ClientConfig() {
     server_ = java.util.Collections.emptyList();
+    version_ = 0;
+  }
+
+  @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new ClientConfig();
   }
 
   @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private ClientConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              server_ = new java.util.ArrayList<com.xray.common.protocol.ServerEndpoint>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            server_.add(
-                input.readMessage(com.xray.common.protocol.ServerEndpoint.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        server_ = java.util.Collections.unmodifiableList(server_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -92,6 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVER_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.xray.common.protocol.ServerEndpoint> server_;
   /**
    * <pre>
@@ -100,6 +59,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.protocol.ServerEndpoint server = 1;</code>
    */
+  @java.lang.Override
   public java.util.List<com.xray.common.protocol.ServerEndpoint> getServerList() {
     return server_;
   }
@@ -110,6 +70,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.protocol.ServerEndpoint server = 1;</code>
    */
+  @java.lang.Override
   public java.util.List<? extends com.xray.common.protocol.ServerEndpointOrBuilder> 
       getServerOrBuilderList() {
     return server_;
@@ -121,6 +82,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.protocol.ServerEndpoint server = 1;</code>
    */
+  @java.lang.Override
   public int getServerCount() {
     return server_.size();
   }
@@ -131,6 +93,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.protocol.ServerEndpoint server = 1;</code>
    */
+  @java.lang.Override
   public com.xray.common.protocol.ServerEndpoint getServer(int index) {
     return server_.get(index);
   }
@@ -141,9 +104,28 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.protocol.ServerEndpoint server = 1;</code>
    */
+  @java.lang.Override
   public com.xray.common.protocol.ServerEndpointOrBuilder getServerOrBuilder(
       int index) {
     return server_.get(index);
+  }
+
+  public static final int VERSION_FIELD_NUMBER = 2;
+  private int version_ = 0;
+  /**
+   * <code>.xray.proxy.socks.Version version = 2;</code>
+   * @return The enum numeric value on the wire for version.
+   */
+  @java.lang.Override public int getVersionValue() {
+    return version_;
+  }
+  /**
+   * <code>.xray.proxy.socks.Version version = 2;</code>
+   * @return The version.
+   */
+  @java.lang.Override public com.xray.proxy.socks.Version getVersion() {
+    com.xray.proxy.socks.Version result = com.xray.proxy.socks.Version.forNumber(version_);
+    return result == null ? com.xray.proxy.socks.Version.UNRECOGNIZED : result;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -163,7 +145,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < server_.size(); i++) {
       output.writeMessage(1, server_.get(i));
     }
-    unknownFields.writeTo(output);
+    if (version_ != com.xray.proxy.socks.Version.SOCKS5.getNumber()) {
+      output.writeEnum(2, version_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -176,7 +161,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, server_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    if (version_ != com.xray.proxy.socks.Version.SOCKS5.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(2, version_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -193,7 +182,8 @@ private static final long serialVersionUID = 0L;
 
     if (!getServerList()
         .equals(other.getServerList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (version_ != other.version_) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -208,7 +198,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SERVER_FIELD_NUMBER;
       hash = (53 * hash) + getServerList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + VERSION_FIELD_NUMBER;
+    hash = (53 * hash) + version_;
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -329,29 +321,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.proxy.socks.ClientConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getServerFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (serverBuilder_ == null) {
         server_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        server_ = null;
         serverBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
+      version_ = 0;
       return this;
     }
 
@@ -378,7 +367,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.proxy.socks.ClientConfig buildPartial() {
       com.xray.proxy.socks.ClientConfig result = new com.xray.proxy.socks.ClientConfig(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.xray.proxy.socks.ClientConfig result) {
       if (serverBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           server_ = java.util.Collections.unmodifiableList(server_);
@@ -388,8 +383,13 @@ private static final long serialVersionUID = 0L;
       } else {
         result.server_ = serverBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.xray.proxy.socks.ClientConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.version_ = version_;
+      }
     }
 
     @java.lang.Override
@@ -462,7 +462,10 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.version_ != 0) {
+        setVersionValue(other.getVersionValue());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -477,17 +480,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.proxy.socks.ClientConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.xray.common.protocol.ServerEndpoint m =
+                  input.readMessage(
+                      com.xray.common.protocol.ServerEndpoint.parser(),
+                      extensionRegistry);
+              if (serverBuilder_ == null) {
+                ensureServerIsMutable();
+                server_.add(m);
+              } else {
+                serverBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 16: {
+              version_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.proxy.socks.ClientConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -803,6 +837,59 @@ private static final long serialVersionUID = 0L;
       }
       return serverBuilder_;
     }
+
+    private int version_ = 0;
+    /**
+     * <code>.xray.proxy.socks.Version version = 2;</code>
+     * @return The enum numeric value on the wire for version.
+     */
+    @java.lang.Override public int getVersionValue() {
+      return version_;
+    }
+    /**
+     * <code>.xray.proxy.socks.Version version = 2;</code>
+     * @param value The enum numeric value on the wire for version to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVersionValue(int value) {
+      version_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.xray.proxy.socks.Version version = 2;</code>
+     * @return The version.
+     */
+    @java.lang.Override
+    public com.xray.proxy.socks.Version getVersion() {
+      com.xray.proxy.socks.Version result = com.xray.proxy.socks.Version.forNumber(version_);
+      return result == null ? com.xray.proxy.socks.Version.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.xray.proxy.socks.Version version = 2;</code>
+     * @param value The version to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVersion(com.xray.proxy.socks.Version value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000002;
+      version_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.xray.proxy.socks.Version version = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearVersion() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      version_ = 0;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -836,7 +923,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ClientConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

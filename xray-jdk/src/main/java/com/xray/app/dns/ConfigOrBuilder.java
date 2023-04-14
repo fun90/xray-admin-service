@@ -148,10 +148,11 @@ public interface ConfigOrBuilder extends
    *
    * <code>map&lt;string, .xray.common.net.IPOrDomain&gt; Hosts = 2 [deprecated = true];</code>
    */
-  @java.lang.Deprecated 
-  com.xray.common.net.IPOrDomain getHostsOrDefault(
+  @java.lang.Deprecated /* nullable */
+com.xray.common.net.IPOrDomain getHostsOrDefault(
       java.lang.String key,
-      com.xray.common.net.IPOrDomain defaultValue);
+      /* nullable */
+com.xray.common.net.IPOrDomain defaultValue);
   /**
    * <pre>
    * Static hosts. Domain to IP.
@@ -160,8 +161,7 @@ public interface ConfigOrBuilder extends
    *
    * <code>map&lt;string, .xray.common.net.IPOrDomain&gt; Hosts = 2 [deprecated = true];</code>
    */
-  @java.lang.Deprecated 
-  com.xray.common.net.IPOrDomain getHostsOrThrow(
+  @java.lang.Deprecated com.xray.common.net.IPOrDomain getHostsOrThrow(
       java.lang.String key);
 
   /**
@@ -171,6 +171,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>bytes client_ip = 3;</code>
+   * @return The clientIp.
    */
   com.google.protobuf.ByteString getClientIp();
 
@@ -204,6 +205,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>string tag = 6;</code>
+   * @return The tag.
    */
   java.lang.String getTag();
   /**
@@ -212,7 +214,41 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>string tag = 6;</code>
+   * @return The bytes for tag.
    */
   com.google.protobuf.ByteString
       getTagBytes();
+
+  /**
+   * <pre>
+   * DisableCache disables DNS cache
+   * </pre>
+   *
+   * <code>bool disableCache = 8;</code>
+   * @return The disableCache.
+   */
+  boolean getDisableCache();
+
+  /**
+   * <code>.xray.app.dns.QueryStrategy query_strategy = 9;</code>
+   * @return The enum numeric value on the wire for queryStrategy.
+   */
+  int getQueryStrategyValue();
+  /**
+   * <code>.xray.app.dns.QueryStrategy query_strategy = 9;</code>
+   * @return The queryStrategy.
+   */
+  com.xray.app.dns.QueryStrategy getQueryStrategy();
+
+  /**
+   * <code>bool disableFallback = 10;</code>
+   * @return The disableFallback.
+   */
+  boolean getDisableFallback();
+
+  /**
+   * <code>bool disableFallbackIfMatch = 11;</code>
+   * @return The disableFallbackIfMatch.
+   */
+  boolean getDisableFallbackIfMatch();
 }

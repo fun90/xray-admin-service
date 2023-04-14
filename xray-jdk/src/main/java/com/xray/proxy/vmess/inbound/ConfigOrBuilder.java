@@ -33,10 +33,12 @@ public interface ConfigOrBuilder extends
 
   /**
    * <code>.xray.proxy.vmess.inbound.DefaultConfig default = 2;</code>
+   * @return Whether the default field is set.
    */
   boolean hasDefault();
   /**
    * <code>.xray.proxy.vmess.inbound.DefaultConfig default = 2;</code>
+   * @return The default.
    */
   com.xray.proxy.vmess.inbound.DefaultConfig getDefault();
   /**
@@ -46,10 +48,12 @@ public interface ConfigOrBuilder extends
 
   /**
    * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
+   * @return Whether the detour field is set.
    */
   boolean hasDetour();
   /**
    * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
+   * @return The detour.
    */
   com.xray.proxy.vmess.inbound.DetourConfig getDetour();
   /**
@@ -59,6 +63,7 @@ public interface ConfigOrBuilder extends
 
   /**
    * <code>bool secure_encryption_only = 4;</code>
+   * @return The secureEncryptionOnly.
    */
   boolean getSecureEncryptionOnly();
 }

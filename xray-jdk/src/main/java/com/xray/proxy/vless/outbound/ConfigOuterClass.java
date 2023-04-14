@@ -36,19 +36,11 @@ public final class ConfigOuterClass {
       "hub.com/xtls/xray-core/proxy/vless/outbo" +
       "und\252\002\031Xray.Proxy.Vless.Outboundb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.xray.common.protocol.ServerSpec.getDescriptor(),
-        }, assigner);
+        });
     internal_static_xray_proxy_vless_outbound_Config_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_xray_proxy_vless_outbound_Config_fieldAccessorTable = new

@@ -6,7 +6,7 @@ package com.xray.app.router;
 /**
  * Protobuf type {@code xray.app.router.BalancingRule}
  */
-public  final class BalancingRule extends
+public final class BalancingRule extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.app.router.BalancingRule)
     BalancingRuleOrBuilder {
@@ -18,68 +18,20 @@ private static final long serialVersionUID = 0L;
   private BalancingRule() {
     tag_ = "";
     outboundSelector_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    strategy_ = "";
+  }
+
+  @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new BalancingRule();
   }
 
   @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private BalancingRule(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            tag_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              outboundSelector_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            outboundSelector_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        outboundSelector_ = outboundSelector_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -94,12 +46,14 @@ private static final long serialVersionUID = 0L;
             com.xray.app.router.BalancingRule.class, com.xray.app.router.BalancingRule.Builder.class);
   }
 
-  private int bitField0_;
   public static final int TAG_FIELD_NUMBER = 1;
-  private volatile java.lang.Object tag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object tag_ = "";
   /**
    * <code>string tag = 1;</code>
+   * @return The tag.
    */
+  @java.lang.Override
   public java.lang.String getTag() {
     java.lang.Object ref = tag_;
     if (ref instanceof java.lang.String) {
@@ -114,7 +68,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string tag = 1;</code>
+   * @return The bytes for tag.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getTagBytes() {
     java.lang.Object ref = tag_;
@@ -130,9 +86,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OUTBOUND_SELECTOR_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList outboundSelector_;
   /**
    * <code>repeated string outbound_selector = 2;</code>
+   * @return A list containing the outboundSelector.
    */
   public com.google.protobuf.ProtocolStringList
       getOutboundSelectorList() {
@@ -140,22 +98,66 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>repeated string outbound_selector = 2;</code>
+   * @return The count of outboundSelector.
    */
   public int getOutboundSelectorCount() {
     return outboundSelector_.size();
   }
   /**
    * <code>repeated string outbound_selector = 2;</code>
+   * @param index The index of the element to return.
+   * @return The outboundSelector at the given index.
    */
   public java.lang.String getOutboundSelector(int index) {
     return outboundSelector_.get(index);
   }
   /**
    * <code>repeated string outbound_selector = 2;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the outboundSelector at the given index.
    */
   public com.google.protobuf.ByteString
       getOutboundSelectorBytes(int index) {
     return outboundSelector_.getByteString(index);
+  }
+
+  public static final int STRATEGY_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object strategy_ = "";
+  /**
+   * <code>string strategy = 3;</code>
+   * @return The strategy.
+   */
+  @java.lang.Override
+  public java.lang.String getStrategy() {
+    java.lang.Object ref = strategy_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      strategy_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string strategy = 3;</code>
+   * @return The bytes for strategy.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getStrategyBytes() {
+    java.lang.Object ref = strategy_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      strategy_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -172,13 +174,16 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getTagBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tag_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tag_);
     }
     for (int i = 0; i < outboundSelector_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, outboundSelector_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(strategy_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, strategy_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -187,7 +192,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getTagBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tag_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, tag_);
     }
     {
@@ -198,7 +203,10 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getOutboundSelectorList().size();
     }
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(strategy_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, strategy_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -217,7 +225,9 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTag())) return false;
     if (!getOutboundSelectorList()
         .equals(other.getOutboundSelectorList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getStrategy()
+        .equals(other.getStrategy())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -234,7 +244,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + OUTBOUND_SELECTOR_FIELD_NUMBER;
       hash = (53 * hash) + getOutboundSelectorList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + STRATEGY_FIELD_NUMBER;
+    hash = (53 * hash) + getStrategy().hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -351,26 +363,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.app.router.BalancingRule.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       tag_ = "";
-
       outboundSelector_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000002);
+      strategy_ = "";
       return this;
     }
 
@@ -397,17 +405,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.app.router.BalancingRule buildPartial() {
       com.xray.app.router.BalancingRule result = new com.xray.app.router.BalancingRule(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.tag_ = tag_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.xray.app.router.BalancingRule result) {
       if (((bitField0_ & 0x00000002) != 0)) {
         outboundSelector_ = outboundSelector_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000002);
       }
       result.outboundSelector_ = outboundSelector_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.xray.app.router.BalancingRule result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.tag_ = tag_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.strategy_ = strategy_;
+      }
     }
 
     @java.lang.Override
@@ -456,6 +475,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.xray.app.router.BalancingRule.getDefaultInstance()) return this;
       if (!other.getTag().isEmpty()) {
         tag_ = other.tag_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.outboundSelector_.isEmpty()) {
@@ -468,7 +488,12 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (!other.getStrategy().isEmpty()) {
+        strategy_ = other.strategy_;
+        bitField0_ |= 0x00000004;
+        onChanged();
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -483,17 +508,46 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.app.router.BalancingRule parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              tag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureOutboundSelectorIsMutable();
+              outboundSelector_.add(s);
+              break;
+            } // case 18
+            case 26: {
+              strategy_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.app.router.BalancingRule) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -501,6 +555,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object tag_ = "";
     /**
      * <code>string tag = 1;</code>
+     * @return The tag.
      */
     public java.lang.String getTag() {
       java.lang.Object ref = tag_;
@@ -516,6 +571,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string tag = 1;</code>
+     * @return The bytes for tag.
      */
     public com.google.protobuf.ByteString
         getTagBytes() {
@@ -532,37 +588,38 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string tag = 1;</code>
+     * @param value The tag to set.
+     * @return This builder for chaining.
      */
     public Builder setTag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       tag_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <code>string tag = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearTag() {
-      
       tag_ = getDefaultInstance().getTag();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <code>string tag = 1;</code>
+     * @param value The bytes for tag to set.
+     * @return This builder for chaining.
      */
     public Builder setTagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       tag_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -576,6 +633,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string outbound_selector = 2;</code>
+     * @return A list containing the outboundSelector.
      */
     public com.google.protobuf.ProtocolStringList
         getOutboundSelectorList() {
@@ -583,18 +641,23 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string outbound_selector = 2;</code>
+     * @return The count of outboundSelector.
      */
     public int getOutboundSelectorCount() {
       return outboundSelector_.size();
     }
     /**
      * <code>repeated string outbound_selector = 2;</code>
+     * @param index The index of the element to return.
+     * @return The outboundSelector at the given index.
      */
     public java.lang.String getOutboundSelector(int index) {
       return outboundSelector_.get(index);
     }
     /**
      * <code>repeated string outbound_selector = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the outboundSelector at the given index.
      */
     public com.google.protobuf.ByteString
         getOutboundSelectorBytes(int index) {
@@ -602,32 +665,35 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string outbound_selector = 2;</code>
+     * @param index The index to set the value at.
+     * @param value The outboundSelector to set.
+     * @return This builder for chaining.
      */
     public Builder setOutboundSelector(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureOutboundSelectorIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureOutboundSelectorIsMutable();
       outboundSelector_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <code>repeated string outbound_selector = 2;</code>
+     * @param value The outboundSelector to add.
+     * @return This builder for chaining.
      */
     public Builder addOutboundSelector(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureOutboundSelectorIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureOutboundSelectorIsMutable();
       outboundSelector_.add(value);
       onChanged();
       return this;
     }
     /**
      * <code>repeated string outbound_selector = 2;</code>
+     * @param values The outboundSelector to add.
+     * @return This builder for chaining.
      */
     public Builder addAllOutboundSelector(
         java.lang.Iterable<java.lang.String> values) {
@@ -639,6 +705,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string outbound_selector = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearOutboundSelector() {
       outboundSelector_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -648,15 +715,87 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string outbound_selector = 2;</code>
+     * @param value The bytes of the outboundSelector to add.
+     * @return This builder for chaining.
      */
     public Builder addOutboundSelectorBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureOutboundSelectorIsMutable();
       outboundSelector_.add(value);
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object strategy_ = "";
+    /**
+     * <code>string strategy = 3;</code>
+     * @return The strategy.
+     */
+    public java.lang.String getStrategy() {
+      java.lang.Object ref = strategy_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        strategy_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string strategy = 3;</code>
+     * @return The bytes for strategy.
+     */
+    public com.google.protobuf.ByteString
+        getStrategyBytes() {
+      java.lang.Object ref = strategy_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        strategy_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string strategy = 3;</code>
+     * @param value The strategy to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStrategy(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      strategy_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string strategy = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearStrategy() {
+      strategy_ = getDefaultInstance().getStrategy();
+      bitField0_ = (bitField0_ & ~0x00000004);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string strategy = 3;</code>
+     * @param value The bytes for strategy to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStrategyBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      strategy_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -693,7 +832,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BalancingRule(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

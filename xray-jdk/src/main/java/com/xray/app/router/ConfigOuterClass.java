@@ -82,54 +82,47 @@ public final class ConfigOuterClass {
       "\t\022\024\n\nbool_value\030\002 \001(\010H\000\022\023\n\tint_value\030\003 \001" +
       "(\003H\000B\r\n\013typed_value\"2\n\004Type\022\t\n\005Plain\020\000\022\t" +
       "\n\005Regex\020\001\022\n\n\006Domain\020\002\022\010\n\004Full\020\003\"\"\n\004CIDR\022" +
-      "\n\n\002ip\030\001 \001(\014\022\016\n\006prefix\030\002 \001(\r\"B\n\005GeoIP\022\024\n\014" +
+      "\n\n\002ip\030\001 \001(\014\022\016\n\006prefix\030\002 \001(\r\"Y\n\005GeoIP\022\024\n\014" +
       "country_code\030\001 \001(\t\022#\n\004cidr\030\002 \003(\0132\025.xray." +
-      "app.router.CIDR\"2\n\tGeoIPList\022%\n\005entry\030\001 " +
-      "\003(\0132\026.xray.app.router.GeoIP\"H\n\007GeoSite\022\024" +
-      "\n\014country_code\030\001 \001(\t\022\'\n\006domain\030\002 \003(\0132\027.x" +
-      "ray.app.router.Domain\"6\n\013GeoSiteList\022\'\n\005" +
-      "entry\030\001 \003(\0132\030.xray.app.router.GeoSite\"\344\004" +
-      "\n\013RoutingRule\022\r\n\003tag\030\001 \001(\tH\000\022\027\n\rbalancin" +
-      "g_tag\030\014 \001(\tH\000\022\'\n\006domain\030\002 \003(\0132\027.xray.app" +
-      ".router.Domain\022\'\n\004cidr\030\003 \003(\0132\025.xray.app." +
-      "router.CIDRB\002\030\001\022%\n\005geoip\030\n \003(\0132\026.xray.ap" +
-      "p.router.GeoIP\0222\n\nport_range\030\004 \001(\0132\032.xra" +
-      "y.common.net.PortRangeB\002\030\001\022,\n\tport_list\030" +
-      "\016 \001(\0132\031.xray.common.net.PortList\0226\n\014netw" +
-      "ork_list\030\005 \001(\0132\034.xray.common.net.Network" +
-      "ListB\002\030\001\022*\n\010networks\030\r \003(\0162\030.xray.common" +
-      ".net.Network\022.\n\013source_cidr\030\006 \003(\0132\025.xray" +
-      ".app.router.CIDRB\002\030\001\022,\n\014source_geoip\030\013 \003" +
-      "(\0132\026.xray.app.router.GeoIP\0223\n\020source_por" +
-      "t_list\030\020 \001(\0132\031.xray.common.net.PortList\022" +
-      "\022\n\nuser_email\030\007 \003(\t\022\023\n\013inbound_tag\030\010 \003(\t" +
-      "\022\020\n\010protocol\030\t \003(\t\022\022\n\nattributes\030\017 \001(\tB\014" +
-      "\n\ntarget_tag\"7\n\rBalancingRule\022\013\n\003tag\030\001 \001" +
-      "(\t\022\031\n\021outbound_selector\030\002 \003(\t\"\366\001\n\006Config" +
-      "\022?\n\017domain_strategy\030\001 \001(\0162&.xray.app.rou" +
-      "ter.Config.DomainStrategy\022*\n\004rule\030\002 \003(\0132" +
-      "\034.xray.app.router.RoutingRule\0226\n\016balanci" +
-      "ng_rule\030\003 \003(\0132\036.xray.app.router.Balancin" +
-      "gRule\"G\n\016DomainStrategy\022\010\n\004AsIs\020\000\022\t\n\005Use" +
-      "Ip\020\001\022\020\n\014IpIfNonMatch\020\002\022\016\n\nIpOnDemand\020\003BO" +
-      "\n\023com.xray.app.routerP\001Z$github.com/xtls" +
-      "/xray-core/app/router\252\002\017Xray.App.Routerb" +
-      "\006proto3"
+      "app.router.CIDR\022\025\n\rreverse_match\030\003 \001(\010\"2" +
+      "\n\tGeoIPList\022%\n\005entry\030\001 \003(\0132\026.xray.app.ro" +
+      "uter.GeoIP\"H\n\007GeoSite\022\024\n\014country_code\030\001 " +
+      "\001(\t\022\'\n\006domain\030\002 \003(\0132\027.xray.app.router.Do" +
+      "main\"6\n\013GeoSiteList\022\'\n\005entry\030\001 \003(\0132\030.xra" +
+      "y.app.router.GeoSite\"\374\004\n\013RoutingRule\022\r\n\003" +
+      "tag\030\001 \001(\tH\000\022\027\n\rbalancing_tag\030\014 \001(\tH\000\022\'\n\006" +
+      "domain\030\002 \003(\0132\027.xray.app.router.Domain\022\'\n" +
+      "\004cidr\030\003 \003(\0132\025.xray.app.router.CIDRB\002\030\001\022%" +
+      "\n\005geoip\030\n \003(\0132\026.xray.app.router.GeoIP\0222\n" +
+      "\nport_range\030\004 \001(\0132\032.xray.common.net.Port" +
+      "RangeB\002\030\001\022,\n\tport_list\030\016 \001(\0132\031.xray.comm" +
+      "on.net.PortList\0226\n\014network_list\030\005 \001(\0132\034." +
+      "xray.common.net.NetworkListB\002\030\001\022*\n\010netwo" +
+      "rks\030\r \003(\0162\030.xray.common.net.Network\022.\n\013s" +
+      "ource_cidr\030\006 \003(\0132\025.xray.app.router.CIDRB" +
+      "\002\030\001\022,\n\014source_geoip\030\013 \003(\0132\026.xray.app.rou" +
+      "ter.GeoIP\0223\n\020source_port_list\030\020 \001(\0132\031.xr" +
+      "ay.common.net.PortList\022\022\n\nuser_email\030\007 \003" +
+      "(\t\022\023\n\013inbound_tag\030\010 \003(\t\022\020\n\010protocol\030\t \003(" +
+      "\t\022\022\n\nattributes\030\017 \001(\t\022\026\n\016domain_matcher\030" +
+      "\021 \001(\tB\014\n\ntarget_tag\"I\n\rBalancingRule\022\013\n\003" +
+      "tag\030\001 \001(\t\022\031\n\021outbound_selector\030\002 \003(\t\022\020\n\010" +
+      "strategy\030\003 \001(\t\"\366\001\n\006Config\022?\n\017domain_stra" +
+      "tegy\030\001 \001(\0162&.xray.app.router.Config.Doma" +
+      "inStrategy\022*\n\004rule\030\002 \003(\0132\034.xray.app.rout" +
+      "er.RoutingRule\0226\n\016balancing_rule\030\003 \003(\0132\036" +
+      ".xray.app.router.BalancingRule\"G\n\016Domain" +
+      "Strategy\022\010\n\004AsIs\020\000\022\t\n\005UseIp\020\001\022\020\n\014IpIfNon" +
+      "Match\020\002\022\016\n\nIpOnDemand\020\003BO\n\023com.xray.app." +
+      "routerP\001Z$github.com/xtls/xray-core/app/" +
+      "router\252\002\017Xray.App.Routerb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.xray.common.net.Port.getDescriptor(),
           com.xray.common.net.NetworkOuterClass.getDescriptor(),
-        }, assigner);
+        });
     internal_static_xray_app_router_Domain_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_xray_app_router_Domain_fieldAccessorTable = new
@@ -153,7 +146,7 @@ public final class ConfigOuterClass {
     internal_static_xray_app_router_GeoIP_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xray_app_router_GeoIP_descriptor,
-        new java.lang.String[] { "CountryCode", "Cidr", });
+        new java.lang.String[] { "CountryCode", "Cidr", "ReverseMatch", });
     internal_static_xray_app_router_GeoIPList_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_xray_app_router_GeoIPList_fieldAccessorTable = new
@@ -177,13 +170,13 @@ public final class ConfigOuterClass {
     internal_static_xray_app_router_RoutingRule_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xray_app_router_RoutingRule_descriptor,
-        new java.lang.String[] { "Tag", "BalancingTag", "Domain", "Cidr", "Geoip", "PortRange", "PortList", "NetworkList", "Networks", "SourceCidr", "SourceGeoip", "SourcePortList", "UserEmail", "InboundTag", "Protocol", "Attributes", "TargetTag", });
+        new java.lang.String[] { "Tag", "BalancingTag", "Domain", "Cidr", "Geoip", "PortRange", "PortList", "NetworkList", "Networks", "SourceCidr", "SourceGeoip", "SourcePortList", "UserEmail", "InboundTag", "Protocol", "Attributes", "DomainMatcher", "TargetTag", });
     internal_static_xray_app_router_BalancingRule_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_xray_app_router_BalancingRule_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xray_app_router_BalancingRule_descriptor,
-        new java.lang.String[] { "Tag", "OutboundSelector", });
+        new java.lang.String[] { "Tag", "OutboundSelector", "Strategy", });
     internal_static_xray_app_router_Config_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_xray_app_router_Config_fieldAccessorTable = new

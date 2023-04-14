@@ -6,7 +6,7 @@ package com.xray.app.stats.command;
 /**
  * Protobuf type {@code xray.app.stats.command.SysStatsResponse}
  */
-public  final class SysStatsResponse extends
+public final class SysStatsResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.app.stats.command.SysStatsResponse)
     SysStatsResponseOrBuilder {
@@ -19,97 +19,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new SysStatsResponse();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private SysStatsResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            numGoroutine_ = input.readUInt32();
-            break;
-          }
-          case 16: {
-
-            numGC_ = input.readUInt32();
-            break;
-          }
-          case 24: {
-
-            alloc_ = input.readUInt64();
-            break;
-          }
-          case 32: {
-
-            totalAlloc_ = input.readUInt64();
-            break;
-          }
-          case 40: {
-
-            sys_ = input.readUInt64();
-            break;
-          }
-          case 48: {
-
-            mallocs_ = input.readUInt64();
-            break;
-          }
-          case 56: {
-
-            frees_ = input.readUInt64();
-            break;
-          }
-          case 64: {
-
-            liveObjects_ = input.readUInt64();
-            break;
-          }
-          case 72: {
-
-            pauseTotalNs_ = input.readUInt64();
-            break;
-          }
-          case 80: {
-
-            uptime_ = input.readUInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -125,91 +44,111 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NUMGOROUTINE_FIELD_NUMBER = 1;
-  private int numGoroutine_;
+  private int numGoroutine_ = 0;
   /**
    * <code>uint32 NumGoroutine = 1;</code>
+   * @return The numGoroutine.
    */
+  @java.lang.Override
   public int getNumGoroutine() {
     return numGoroutine_;
   }
 
   public static final int NUMGC_FIELD_NUMBER = 2;
-  private int numGC_;
+  private int numGC_ = 0;
   /**
    * <code>uint32 NumGC = 2;</code>
+   * @return The numGC.
    */
+  @java.lang.Override
   public int getNumGC() {
     return numGC_;
   }
 
   public static final int ALLOC_FIELD_NUMBER = 3;
-  private long alloc_;
+  private long alloc_ = 0L;
   /**
    * <code>uint64 Alloc = 3;</code>
+   * @return The alloc.
    */
+  @java.lang.Override
   public long getAlloc() {
     return alloc_;
   }
 
   public static final int TOTALALLOC_FIELD_NUMBER = 4;
-  private long totalAlloc_;
+  private long totalAlloc_ = 0L;
   /**
    * <code>uint64 TotalAlloc = 4;</code>
+   * @return The totalAlloc.
    */
+  @java.lang.Override
   public long getTotalAlloc() {
     return totalAlloc_;
   }
 
   public static final int SYS_FIELD_NUMBER = 5;
-  private long sys_;
+  private long sys_ = 0L;
   /**
    * <code>uint64 Sys = 5;</code>
+   * @return The sys.
    */
+  @java.lang.Override
   public long getSys() {
     return sys_;
   }
 
   public static final int MALLOCS_FIELD_NUMBER = 6;
-  private long mallocs_;
+  private long mallocs_ = 0L;
   /**
    * <code>uint64 Mallocs = 6;</code>
+   * @return The mallocs.
    */
+  @java.lang.Override
   public long getMallocs() {
     return mallocs_;
   }
 
   public static final int FREES_FIELD_NUMBER = 7;
-  private long frees_;
+  private long frees_ = 0L;
   /**
    * <code>uint64 Frees = 7;</code>
+   * @return The frees.
    */
+  @java.lang.Override
   public long getFrees() {
     return frees_;
   }
 
   public static final int LIVEOBJECTS_FIELD_NUMBER = 8;
-  private long liveObjects_;
+  private long liveObjects_ = 0L;
   /**
    * <code>uint64 LiveObjects = 8;</code>
+   * @return The liveObjects.
    */
+  @java.lang.Override
   public long getLiveObjects() {
     return liveObjects_;
   }
 
   public static final int PAUSETOTALNS_FIELD_NUMBER = 9;
-  private long pauseTotalNs_;
+  private long pauseTotalNs_ = 0L;
   /**
    * <code>uint64 PauseTotalNs = 9;</code>
+   * @return The pauseTotalNs.
    */
+  @java.lang.Override
   public long getPauseTotalNs() {
     return pauseTotalNs_;
   }
 
   public static final int UPTIME_FIELD_NUMBER = 10;
-  private int uptime_;
+  private int uptime_ = 0;
   /**
    * <code>uint32 Uptime = 10;</code>
+   * @return The uptime.
    */
+  @java.lang.Override
   public int getUptime() {
     return uptime_;
   }
@@ -258,7 +197,7 @@ private static final long serialVersionUID = 0L;
     if (uptime_ != 0) {
       output.writeUInt32(10, uptime_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -307,7 +246,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(10, uptime_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -342,7 +281,7 @@ private static final long serialVersionUID = 0L;
         != other.getPauseTotalNs()) return false;
     if (getUptime()
         != other.getUptime()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -380,7 +319,7 @@ private static final long serialVersionUID = 0L;
         getPauseTotalNs());
     hash = (37 * hash) + UPTIME_FIELD_NUMBER;
     hash = (53 * hash) + getUptime();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -497,42 +436,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.app.stats.command.SysStatsResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       numGoroutine_ = 0;
-
       numGC_ = 0;
-
       alloc_ = 0L;
-
       totalAlloc_ = 0L;
-
       sys_ = 0L;
-
       mallocs_ = 0L;
-
       frees_ = 0L;
-
       liveObjects_ = 0L;
-
       pauseTotalNs_ = 0L;
-
       uptime_ = 0;
-
       return this;
     }
 
@@ -559,18 +484,43 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.app.stats.command.SysStatsResponse buildPartial() {
       com.xray.app.stats.command.SysStatsResponse result = new com.xray.app.stats.command.SysStatsResponse(this);
-      result.numGoroutine_ = numGoroutine_;
-      result.numGC_ = numGC_;
-      result.alloc_ = alloc_;
-      result.totalAlloc_ = totalAlloc_;
-      result.sys_ = sys_;
-      result.mallocs_ = mallocs_;
-      result.frees_ = frees_;
-      result.liveObjects_ = liveObjects_;
-      result.pauseTotalNs_ = pauseTotalNs_;
-      result.uptime_ = uptime_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.app.stats.command.SysStatsResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.numGoroutine_ = numGoroutine_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.numGC_ = numGC_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.alloc_ = alloc_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.totalAlloc_ = totalAlloc_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.sys_ = sys_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.mallocs_ = mallocs_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.frees_ = frees_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.liveObjects_ = liveObjects_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.pauseTotalNs_ = pauseTotalNs_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.uptime_ = uptime_;
+      }
     }
 
     @java.lang.Override
@@ -647,7 +597,7 @@ private static final long serialVersionUID = 0L;
       if (other.getUptime() != 0) {
         setUptime(other.getUptime());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -662,41 +612,111 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.app.stats.command.SysStatsResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              numGoroutine_ = input.readUInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              numGC_ = input.readUInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              alloc_ = input.readUInt64();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              totalAlloc_ = input.readUInt64();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              sys_ = input.readUInt64();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              mallocs_ = input.readUInt64();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              frees_ = input.readUInt64();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 64: {
+              liveObjects_ = input.readUInt64();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 72: {
+              pauseTotalNs_ = input.readUInt64();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 80: {
+              uptime_ = input.readUInt32();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.app.stats.command.SysStatsResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int numGoroutine_ ;
     /**
      * <code>uint32 NumGoroutine = 1;</code>
+     * @return The numGoroutine.
      */
+    @java.lang.Override
     public int getNumGoroutine() {
       return numGoroutine_;
     }
     /**
      * <code>uint32 NumGoroutine = 1;</code>
+     * @param value The numGoroutine to set.
+     * @return This builder for chaining.
      */
     public Builder setNumGoroutine(int value) {
       
       numGoroutine_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <code>uint32 NumGoroutine = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearNumGoroutine() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       numGoroutine_ = 0;
       onChanged();
       return this;
@@ -705,24 +725,30 @@ private static final long serialVersionUID = 0L;
     private int numGC_ ;
     /**
      * <code>uint32 NumGC = 2;</code>
+     * @return The numGC.
      */
+    @java.lang.Override
     public int getNumGC() {
       return numGC_;
     }
     /**
      * <code>uint32 NumGC = 2;</code>
+     * @param value The numGC to set.
+     * @return This builder for chaining.
      */
     public Builder setNumGC(int value) {
       
       numGC_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <code>uint32 NumGC = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearNumGC() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       numGC_ = 0;
       onChanged();
       return this;
@@ -731,24 +757,30 @@ private static final long serialVersionUID = 0L;
     private long alloc_ ;
     /**
      * <code>uint64 Alloc = 3;</code>
+     * @return The alloc.
      */
+    @java.lang.Override
     public long getAlloc() {
       return alloc_;
     }
     /**
      * <code>uint64 Alloc = 3;</code>
+     * @param value The alloc to set.
+     * @return This builder for chaining.
      */
     public Builder setAlloc(long value) {
       
       alloc_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <code>uint64 Alloc = 3;</code>
+     * @return This builder for chaining.
      */
     public Builder clearAlloc() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       alloc_ = 0L;
       onChanged();
       return this;
@@ -757,24 +789,30 @@ private static final long serialVersionUID = 0L;
     private long totalAlloc_ ;
     /**
      * <code>uint64 TotalAlloc = 4;</code>
+     * @return The totalAlloc.
      */
+    @java.lang.Override
     public long getTotalAlloc() {
       return totalAlloc_;
     }
     /**
      * <code>uint64 TotalAlloc = 4;</code>
+     * @param value The totalAlloc to set.
+     * @return This builder for chaining.
      */
     public Builder setTotalAlloc(long value) {
       
       totalAlloc_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <code>uint64 TotalAlloc = 4;</code>
+     * @return This builder for chaining.
      */
     public Builder clearTotalAlloc() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       totalAlloc_ = 0L;
       onChanged();
       return this;
@@ -783,24 +821,30 @@ private static final long serialVersionUID = 0L;
     private long sys_ ;
     /**
      * <code>uint64 Sys = 5;</code>
+     * @return The sys.
      */
+    @java.lang.Override
     public long getSys() {
       return sys_;
     }
     /**
      * <code>uint64 Sys = 5;</code>
+     * @param value The sys to set.
+     * @return This builder for chaining.
      */
     public Builder setSys(long value) {
       
       sys_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <code>uint64 Sys = 5;</code>
+     * @return This builder for chaining.
      */
     public Builder clearSys() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       sys_ = 0L;
       onChanged();
       return this;
@@ -809,24 +853,30 @@ private static final long serialVersionUID = 0L;
     private long mallocs_ ;
     /**
      * <code>uint64 Mallocs = 6;</code>
+     * @return The mallocs.
      */
+    @java.lang.Override
     public long getMallocs() {
       return mallocs_;
     }
     /**
      * <code>uint64 Mallocs = 6;</code>
+     * @param value The mallocs to set.
+     * @return This builder for chaining.
      */
     public Builder setMallocs(long value) {
       
       mallocs_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
     /**
      * <code>uint64 Mallocs = 6;</code>
+     * @return This builder for chaining.
      */
     public Builder clearMallocs() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       mallocs_ = 0L;
       onChanged();
       return this;
@@ -835,24 +885,30 @@ private static final long serialVersionUID = 0L;
     private long frees_ ;
     /**
      * <code>uint64 Frees = 7;</code>
+     * @return The frees.
      */
+    @java.lang.Override
     public long getFrees() {
       return frees_;
     }
     /**
      * <code>uint64 Frees = 7;</code>
+     * @param value The frees to set.
+     * @return This builder for chaining.
      */
     public Builder setFrees(long value) {
       
       frees_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
     /**
      * <code>uint64 Frees = 7;</code>
+     * @return This builder for chaining.
      */
     public Builder clearFrees() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       frees_ = 0L;
       onChanged();
       return this;
@@ -861,24 +917,30 @@ private static final long serialVersionUID = 0L;
     private long liveObjects_ ;
     /**
      * <code>uint64 LiveObjects = 8;</code>
+     * @return The liveObjects.
      */
+    @java.lang.Override
     public long getLiveObjects() {
       return liveObjects_;
     }
     /**
      * <code>uint64 LiveObjects = 8;</code>
+     * @param value The liveObjects to set.
+     * @return This builder for chaining.
      */
     public Builder setLiveObjects(long value) {
       
       liveObjects_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
     /**
      * <code>uint64 LiveObjects = 8;</code>
+     * @return This builder for chaining.
      */
     public Builder clearLiveObjects() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       liveObjects_ = 0L;
       onChanged();
       return this;
@@ -887,24 +949,30 @@ private static final long serialVersionUID = 0L;
     private long pauseTotalNs_ ;
     /**
      * <code>uint64 PauseTotalNs = 9;</code>
+     * @return The pauseTotalNs.
      */
+    @java.lang.Override
     public long getPauseTotalNs() {
       return pauseTotalNs_;
     }
     /**
      * <code>uint64 PauseTotalNs = 9;</code>
+     * @param value The pauseTotalNs to set.
+     * @return This builder for chaining.
      */
     public Builder setPauseTotalNs(long value) {
       
       pauseTotalNs_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
     /**
      * <code>uint64 PauseTotalNs = 9;</code>
+     * @return This builder for chaining.
      */
     public Builder clearPauseTotalNs() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       pauseTotalNs_ = 0L;
       onChanged();
       return this;
@@ -913,24 +981,30 @@ private static final long serialVersionUID = 0L;
     private int uptime_ ;
     /**
      * <code>uint32 Uptime = 10;</code>
+     * @return The uptime.
      */
+    @java.lang.Override
     public int getUptime() {
       return uptime_;
     }
     /**
      * <code>uint32 Uptime = 10;</code>
+     * @param value The uptime to set.
+     * @return This builder for chaining.
      */
     public Builder setUptime(int value) {
       
       uptime_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
     /**
      * <code>uint32 Uptime = 10;</code>
+     * @return This builder for chaining.
      */
     public Builder clearUptime() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       uptime_ = 0;
       onChanged();
       return this;
@@ -968,7 +1042,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SysStatsResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

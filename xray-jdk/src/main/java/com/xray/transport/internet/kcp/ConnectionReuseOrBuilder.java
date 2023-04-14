@@ -9,6 +9,7 @@ public interface ConnectionReuseOrBuilder extends
 
   /**
    * <code>bool enable = 1;</code>
+   * @return The enable.
    */
   boolean getEnable();
 }

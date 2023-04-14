@@ -55,53 +55,51 @@ public final class ConfigOuterClass {
     java.lang.String[] descriptorData = {
       "\n\024app/dns/config.proto\022\014xray.app.dns\032\030co" +
       "mmon/net/address.proto\032\034common/net/desti" +
-      "nation.proto\032\027app/router/config.proto\"\341\002" +
+      "nation.proto\032\027app/router/config.proto\"\212\003" +
       "\n\nNameServer\022*\n\007address\030\001 \001(\0132\031.xray.com" +
-      "mon.net.Endpoint\022C\n\022prioritized_domain\030\002" +
-      " \003(\0132\'.xray.app.dns.NameServer.PriorityD" +
-      "omain\022%\n\005geoip\030\003 \003(\0132\026.xray.app.router.G" +
-      "eoIP\022=\n\016original_rules\030\004 \003(\0132%.xray.app." +
-      "dns.NameServer.OriginalRule\032P\n\016PriorityD" +
-      "omain\022.\n\004type\030\001 \001(\0162 .xray.app.dns.Domai" +
-      "nMatchingType\022\016\n\006domain\030\002 \001(\t\032*\n\014Origina" +
-      "lRule\022\014\n\004rule\030\001 \001(\t\022\014\n\004size\030\002 \001(\r\"\265\003\n\006Co" +
-      "nfig\0222\n\013NameServers\030\001 \003(\0132\031.xray.common." +
-      "net.EndpointB\002\030\001\022-\n\013name_server\030\005 \003(\0132\030." +
-      "xray.app.dns.NameServer\0222\n\005Hosts\030\002 \003(\0132\037" +
-      ".xray.app.dns.Config.HostsEntryB\002\030\001\022\021\n\tc" +
-      "lient_ip\030\003 \001(\014\0226\n\014static_hosts\030\004 \003(\0132 .x" +
-      "ray.app.dns.Config.HostMapping\022\013\n\003tag\030\006 " +
-      "\001(\t\032I\n\nHostsEntry\022\013\n\003key\030\001 \001(\t\022*\n\005value\030" +
-      "\002 \001(\0132\033.xray.common.net.IPOrDomain:\0028\001\032q" +
-      "\n\013HostMapping\022.\n\004type\030\001 \001(\0162 .xray.app.d" +
-      "ns.DomainMatchingType\022\016\n\006domain\030\002 \001(\t\022\n\n" +
-      "\002ip\030\003 \003(\014\022\026\n\016proxied_domain\030\004 \001(\t*E\n\022Dom" +
-      "ainMatchingType\022\010\n\004Full\020\000\022\r\n\tSubdomain\020\001" +
-      "\022\013\n\007Keyword\020\002\022\t\n\005Regex\020\003BF\n\020com.xray.app" +
-      ".dnsP\001Z!github.com/xtls/xray-core/app/dn" +
-      "s\252\002\014Xray.App.Dnsb\006proto3"
+      "mon.net.Endpoint\022\021\n\tclient_ip\030\005 \001(\014\022\024\n\014s" +
+      "kipFallback\030\006 \001(\010\022C\n\022prioritized_domain\030" +
+      "\002 \003(\0132\'.xray.app.dns.NameServer.Priority" +
+      "Domain\022%\n\005geoip\030\003 \003(\0132\026.xray.app.router." +
+      "GeoIP\022=\n\016original_rules\030\004 \003(\0132%.xray.app" +
+      ".dns.NameServer.OriginalRule\032P\n\016Priority" +
+      "Domain\022.\n\004type\030\001 \001(\0162 .xray.app.dns.Doma" +
+      "inMatchingType\022\016\n\006domain\030\002 \001(\t\032*\n\014Origin" +
+      "alRule\022\014\n\004rule\030\001 \001(\t\022\014\n\004size\030\002 \001(\r\"\277\004\n\006C" +
+      "onfig\0222\n\013NameServers\030\001 \003(\0132\031.xray.common" +
+      ".net.EndpointB\002\030\001\022-\n\013name_server\030\005 \003(\0132\030" +
+      ".xray.app.dns.NameServer\0222\n\005Hosts\030\002 \003(\0132" +
+      "\037.xray.app.dns.Config.HostsEntryB\002\030\001\022\021\n\t" +
+      "client_ip\030\003 \001(\014\0226\n\014static_hosts\030\004 \003(\0132 ." +
+      "xray.app.dns.Config.HostMapping\022\013\n\003tag\030\006" +
+      " \001(\t\022\024\n\014disableCache\030\010 \001(\010\0223\n\016query_stra" +
+      "tegy\030\t \001(\0162\033.xray.app.dns.QueryStrategy\022" +
+      "\027\n\017disableFallback\030\n \001(\010\022\036\n\026disableFallb" +
+      "ackIfMatch\030\013 \001(\010\032I\n\nHostsEntry\022\013\n\003key\030\001 " +
+      "\001(\t\022*\n\005value\030\002 \001(\0132\033.xray.common.net.IPO" +
+      "rDomain:\0028\001\032q\n\013HostMapping\022.\n\004type\030\001 \001(\016" +
+      "2 .xray.app.dns.DomainMatchingType\022\016\n\006do" +
+      "main\030\002 \001(\t\022\n\n\002ip\030\003 \003(\014\022\026\n\016proxied_domain" +
+      "\030\004 \001(\tJ\004\010\007\020\010*E\n\022DomainMatchingType\022\010\n\004Fu" +
+      "ll\020\000\022\r\n\tSubdomain\020\001\022\013\n\007Keyword\020\002\022\t\n\005Rege" +
+      "x\020\003*5\n\rQueryStrategy\022\n\n\006USE_IP\020\000\022\013\n\007USE_" +
+      "IP4\020\001\022\013\n\007USE_IP6\020\002BF\n\020com.xray.app.dnsP\001" +
+      "Z!github.com/xtls/xray-core/app/dns\252\002\014Xr" +
+      "ay.App.Dnsb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.xray.common.net.Address.getDescriptor(),
           com.xray.common.net.Destination.getDescriptor(),
           com.xray.app.router.ConfigOuterClass.getDescriptor(),
-        }, assigner);
+        });
     internal_static_xray_app_dns_NameServer_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_xray_app_dns_NameServer_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xray_app_dns_NameServer_descriptor,
-        new java.lang.String[] { "Address", "PrioritizedDomain", "Geoip", "OriginalRules", });
+        new java.lang.String[] { "Address", "ClientIp", "SkipFallback", "PrioritizedDomain", "Geoip", "OriginalRules", });
     internal_static_xray_app_dns_NameServer_PriorityDomain_descriptor =
       internal_static_xray_app_dns_NameServer_descriptor.getNestedTypes().get(0);
     internal_static_xray_app_dns_NameServer_PriorityDomain_fieldAccessorTable = new
@@ -119,7 +117,7 @@ public final class ConfigOuterClass {
     internal_static_xray_app_dns_Config_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xray_app_dns_Config_descriptor,
-        new java.lang.String[] { "NameServers", "NameServer", "Hosts", "ClientIp", "StaticHosts", "Tag", });
+        new java.lang.String[] { "NameServers", "NameServer", "Hosts", "ClientIp", "StaticHosts", "Tag", "DisableCache", "QueryStrategy", "DisableFallback", "DisableFallbackIfMatch", });
     internal_static_xray_app_dns_Config_HostsEntry_descriptor =
       internal_static_xray_app_dns_Config_descriptor.getNestedTypes().get(0);
     internal_static_xray_app_dns_Config_HostsEntry_fieldAccessorTable = new

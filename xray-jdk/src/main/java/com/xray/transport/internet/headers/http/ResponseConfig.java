@@ -6,7 +6,7 @@ package com.xray.transport.internet.headers.http;
 /**
  * Protobuf type {@code xray.transport.internet.headers.http.ResponseConfig}
  */
-public  final class ResponseConfig extends
+public final class ResponseConfig extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.transport.internet.headers.http.ResponseConfig)
     ResponseConfigOrBuilder {
@@ -20,85 +20,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new ResponseConfig();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private ResponseConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.xray.transport.internet.headers.http.Version.Builder subBuilder = null;
-            if (version_ != null) {
-              subBuilder = version_.toBuilder();
-            }
-            version_ = input.readMessage(com.xray.transport.internet.headers.http.Version.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(version_);
-              version_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.xray.transport.internet.headers.http.Status.Builder subBuilder = null;
-            if (status_ != null) {
-              subBuilder = status_.toBuilder();
-            }
-            status_ = input.readMessage(com.xray.transport.internet.headers.http.Status.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(status_);
-              status_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              header_ = new java.util.ArrayList<com.xray.transport.internet.headers.http.Header>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            header_.add(
-                input.readMessage(com.xray.transport.internet.headers.http.Header.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        header_ = java.util.Collections.unmodifiableList(header_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -113,60 +44,72 @@ private static final long serialVersionUID = 0L;
             com.xray.transport.internet.headers.http.ResponseConfig.class, com.xray.transport.internet.headers.http.ResponseConfig.Builder.class);
   }
 
-  private int bitField0_;
   public static final int VERSION_FIELD_NUMBER = 1;
   private com.xray.transport.internet.headers.http.Version version_;
   /**
    * <code>.xray.transport.internet.headers.http.Version version = 1;</code>
+   * @return Whether the version field is set.
    */
+  @java.lang.Override
   public boolean hasVersion() {
     return version_ != null;
   }
   /**
    * <code>.xray.transport.internet.headers.http.Version version = 1;</code>
+   * @return The version.
    */
+  @java.lang.Override
   public com.xray.transport.internet.headers.http.Version getVersion() {
     return version_ == null ? com.xray.transport.internet.headers.http.Version.getDefaultInstance() : version_;
   }
   /**
    * <code>.xray.transport.internet.headers.http.Version version = 1;</code>
    */
+  @java.lang.Override
   public com.xray.transport.internet.headers.http.VersionOrBuilder getVersionOrBuilder() {
-    return getVersion();
+    return version_ == null ? com.xray.transport.internet.headers.http.Version.getDefaultInstance() : version_;
   }
 
   public static final int STATUS_FIELD_NUMBER = 2;
   private com.xray.transport.internet.headers.http.Status status_;
   /**
    * <code>.xray.transport.internet.headers.http.Status status = 2;</code>
+   * @return Whether the status field is set.
    */
+  @java.lang.Override
   public boolean hasStatus() {
     return status_ != null;
   }
   /**
    * <code>.xray.transport.internet.headers.http.Status status = 2;</code>
+   * @return The status.
    */
+  @java.lang.Override
   public com.xray.transport.internet.headers.http.Status getStatus() {
     return status_ == null ? com.xray.transport.internet.headers.http.Status.getDefaultInstance() : status_;
   }
   /**
    * <code>.xray.transport.internet.headers.http.Status status = 2;</code>
    */
+  @java.lang.Override
   public com.xray.transport.internet.headers.http.StatusOrBuilder getStatusOrBuilder() {
-    return getStatus();
+    return status_ == null ? com.xray.transport.internet.headers.http.Status.getDefaultInstance() : status_;
   }
 
   public static final int HEADER_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.xray.transport.internet.headers.http.Header> header_;
   /**
    * <code>repeated .xray.transport.internet.headers.http.Header header = 3;</code>
    */
+  @java.lang.Override
   public java.util.List<com.xray.transport.internet.headers.http.Header> getHeaderList() {
     return header_;
   }
   /**
    * <code>repeated .xray.transport.internet.headers.http.Header header = 3;</code>
    */
+  @java.lang.Override
   public java.util.List<? extends com.xray.transport.internet.headers.http.HeaderOrBuilder> 
       getHeaderOrBuilderList() {
     return header_;
@@ -174,18 +117,21 @@ private static final long serialVersionUID = 0L;
   /**
    * <code>repeated .xray.transport.internet.headers.http.Header header = 3;</code>
    */
+  @java.lang.Override
   public int getHeaderCount() {
     return header_.size();
   }
   /**
    * <code>repeated .xray.transport.internet.headers.http.Header header = 3;</code>
    */
+  @java.lang.Override
   public com.xray.transport.internet.headers.http.Header getHeader(int index) {
     return header_.get(index);
   }
   /**
    * <code>repeated .xray.transport.internet.headers.http.Header header = 3;</code>
    */
+  @java.lang.Override
   public com.xray.transport.internet.headers.http.HeaderOrBuilder getHeaderOrBuilder(
       int index) {
     return header_.get(index);
@@ -214,7 +160,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < header_.size(); i++) {
       output.writeMessage(3, header_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -235,7 +181,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, header_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -262,7 +208,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getHeaderList()
         .equals(other.getHeaderList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -285,7 +231,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + HEADER_FIELD_NUMBER;
       hash = (53 * hash) + getHeaderList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -402,41 +348,35 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.transport.internet.headers.http.ResponseConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getHeaderFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (versionBuilder_ == null) {
-        version_ = null;
-      } else {
-        version_ = null;
+      bitField0_ = 0;
+      version_ = null;
+      if (versionBuilder_ != null) {
+        versionBuilder_.dispose();
         versionBuilder_ = null;
       }
-      if (statusBuilder_ == null) {
-        status_ = null;
-      } else {
-        status_ = null;
+      status_ = null;
+      if (statusBuilder_ != null) {
+        statusBuilder_.dispose();
         statusBuilder_ = null;
       }
       if (headerBuilder_ == null) {
         header_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        header_ = null;
         headerBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -463,18 +403,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.transport.internet.headers.http.ResponseConfig buildPartial() {
       com.xray.transport.internet.headers.http.ResponseConfig result = new com.xray.transport.internet.headers.http.ResponseConfig(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (versionBuilder_ == null) {
-        result.version_ = version_;
-      } else {
-        result.version_ = versionBuilder_.build();
-      }
-      if (statusBuilder_ == null) {
-        result.status_ = status_;
-      } else {
-        result.status_ = statusBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.xray.transport.internet.headers.http.ResponseConfig result) {
       if (headerBuilder_ == null) {
         if (((bitField0_ & 0x00000004) != 0)) {
           header_ = java.util.Collections.unmodifiableList(header_);
@@ -484,9 +419,20 @@ private static final long serialVersionUID = 0L;
       } else {
         result.header_ = headerBuilder_.build();
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.xray.transport.internet.headers.http.ResponseConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.version_ = versionBuilder_ == null
+            ? version_
+            : versionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.status_ = statusBuilder_ == null
+            ? status_
+            : statusBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -565,7 +511,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -580,17 +526,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.transport.internet.headers.http.ResponseConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getVersionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getStatusFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.xray.transport.internet.headers.http.Header m =
+                  input.readMessage(
+                      com.xray.transport.internet.headers.http.Header.parser(),
+                      extensionRegistry);
+              if (headerBuilder_ == null) {
+                ensureHeaderIsMutable();
+                header_.add(m);
+              } else {
+                headerBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.transport.internet.headers.http.ResponseConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -600,12 +586,14 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.headers.http.Version, com.xray.transport.internet.headers.http.Version.Builder, com.xray.transport.internet.headers.http.VersionOrBuilder> versionBuilder_;
     /**
      * <code>.xray.transport.internet.headers.http.Version version = 1;</code>
+     * @return Whether the version field is set.
      */
     public boolean hasVersion() {
-      return versionBuilder_ != null || version_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.xray.transport.internet.headers.http.Version version = 1;</code>
+     * @return The version.
      */
     public com.xray.transport.internet.headers.http.Version getVersion() {
       if (versionBuilder_ == null) {
@@ -623,11 +611,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         version_ = value;
-        onChanged();
       } else {
         versionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -637,11 +625,11 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.headers.http.Version.Builder builderForValue) {
       if (versionBuilder_ == null) {
         version_ = builderForValue.build();
-        onChanged();
       } else {
         versionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -649,38 +637,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeVersion(com.xray.transport.internet.headers.http.Version value) {
       if (versionBuilder_ == null) {
-        if (version_ != null) {
-          version_ =
-            com.xray.transport.internet.headers.http.Version.newBuilder(version_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          version_ != null &&
+          version_ != com.xray.transport.internet.headers.http.Version.getDefaultInstance()) {
+          getVersionBuilder().mergeFrom(value);
         } else {
           version_ = value;
         }
-        onChanged();
       } else {
         versionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.headers.http.Version version = 1;</code>
      */
     public Builder clearVersion() {
-      if (versionBuilder_ == null) {
-        version_ = null;
-        onChanged();
-      } else {
-        version_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      version_ = null;
+      if (versionBuilder_ != null) {
+        versionBuilder_.dispose();
         versionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.headers.http.Version version = 1;</code>
      */
     public com.xray.transport.internet.headers.http.Version.Builder getVersionBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getVersionFieldBuilder().getBuilder();
     }
@@ -717,12 +705,14 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.headers.http.Status, com.xray.transport.internet.headers.http.Status.Builder, com.xray.transport.internet.headers.http.StatusOrBuilder> statusBuilder_;
     /**
      * <code>.xray.transport.internet.headers.http.Status status = 2;</code>
+     * @return Whether the status field is set.
      */
     public boolean hasStatus() {
-      return statusBuilder_ != null || status_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>.xray.transport.internet.headers.http.Status status = 2;</code>
+     * @return The status.
      */
     public com.xray.transport.internet.headers.http.Status getStatus() {
       if (statusBuilder_ == null) {
@@ -740,11 +730,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         status_ = value;
-        onChanged();
       } else {
         statusBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -754,11 +744,11 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.headers.http.Status.Builder builderForValue) {
       if (statusBuilder_ == null) {
         status_ = builderForValue.build();
-        onChanged();
       } else {
         statusBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -766,38 +756,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStatus(com.xray.transport.internet.headers.http.Status value) {
       if (statusBuilder_ == null) {
-        if (status_ != null) {
-          status_ =
-            com.xray.transport.internet.headers.http.Status.newBuilder(status_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          status_ != null &&
+          status_ != com.xray.transport.internet.headers.http.Status.getDefaultInstance()) {
+          getStatusBuilder().mergeFrom(value);
         } else {
           status_ = value;
         }
-        onChanged();
       } else {
         statusBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.headers.http.Status status = 2;</code>
      */
     public Builder clearStatus() {
-      if (statusBuilder_ == null) {
-        status_ = null;
-        onChanged();
-      } else {
-        status_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      status_ = null;
+      if (statusBuilder_ != null) {
+        statusBuilder_.dispose();
         statusBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.headers.http.Status status = 2;</code>
      */
     public com.xray.transport.internet.headers.http.Status.Builder getStatusBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getStatusFieldBuilder().getBuilder();
     }
@@ -1101,7 +1091,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ResponseConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

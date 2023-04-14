@@ -13,6 +13,7 @@ public interface PortRangeOrBuilder extends
    * </pre>
    *
    * <code>uint32 From = 1;</code>
+   * @return The from.
    */
   int getFrom();
 
@@ -22,6 +23,7 @@ public interface PortRangeOrBuilder extends
    * </pre>
    *
    * <code>uint32 To = 2;</code>
+   * @return The to.
    */
   int getTo();
 }

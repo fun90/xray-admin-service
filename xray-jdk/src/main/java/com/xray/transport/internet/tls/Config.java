@@ -6,7 +6,7 @@ package com.xray.transport.internet.tls;
 /**
  * Protobuf type {@code xray.transport.internet.tls.Config}
  */
-public  final class Config extends
+public final class Config extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.transport.internet.tls.Config)
     ConfigOrBuilder {
@@ -22,118 +22,22 @@ private static final long serialVersionUID = 0L;
     minVersion_ = "";
     maxVersion_ = "";
     cipherSuites_ = "";
+    fingerprint_ = "";
+    pinnedPeerCertificateChainSha256_ = java.util.Collections.emptyList();
+    pinnedPeerCertificatePublicKeySha256_ = java.util.Collections.emptyList();
+  }
+
+  @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new Config();
   }
 
   @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Config(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            allowInsecure_ = input.readBool();
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              certificate_ = new java.util.ArrayList<com.xray.transport.internet.tls.Certificate>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            certificate_.add(
-                input.readMessage(com.xray.transport.internet.tls.Certificate.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            serverName_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              nextProtocol_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            nextProtocol_.add(s);
-            break;
-          }
-          case 40: {
-
-            enableSessionResumption_ = input.readBool();
-            break;
-          }
-          case 48: {
-
-            disableSystemRoot_ = input.readBool();
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            minVersion_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            maxVersion_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            cipherSuites_ = s;
-            break;
-          }
-          case 80: {
-
-            preferServerCipherSuites_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        certificate_ = java.util.Collections.unmodifiableList(certificate_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        nextProtocol_ = nextProtocol_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -148,21 +52,23 @@ private static final long serialVersionUID = 0L;
             com.xray.transport.internet.tls.Config.class, com.xray.transport.internet.tls.Config.Builder.class);
   }
 
-  private int bitField0_;
   public static final int ALLOW_INSECURE_FIELD_NUMBER = 1;
-  private boolean allowInsecure_;
+  private boolean allowInsecure_ = false;
   /**
    * <pre>
    * Whether or not to allow self-signed certificates.
    * </pre>
    *
    * <code>bool allow_insecure = 1;</code>
+   * @return The allowInsecure.
    */
+  @java.lang.Override
   public boolean getAllowInsecure() {
     return allowInsecure_;
   }
 
   public static final int CERTIFICATE_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.xray.transport.internet.tls.Certificate> certificate_;
   /**
    * <pre>
@@ -171,6 +77,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.transport.internet.tls.Certificate certificate = 2;</code>
    */
+  @java.lang.Override
   public java.util.List<com.xray.transport.internet.tls.Certificate> getCertificateList() {
     return certificate_;
   }
@@ -181,6 +88,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.transport.internet.tls.Certificate certificate = 2;</code>
    */
+  @java.lang.Override
   public java.util.List<? extends com.xray.transport.internet.tls.CertificateOrBuilder> 
       getCertificateOrBuilderList() {
     return certificate_;
@@ -192,6 +100,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.transport.internet.tls.Certificate certificate = 2;</code>
    */
+  @java.lang.Override
   public int getCertificateCount() {
     return certificate_.size();
   }
@@ -202,6 +111,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.transport.internet.tls.Certificate certificate = 2;</code>
    */
+  @java.lang.Override
   public com.xray.transport.internet.tls.Certificate getCertificate(int index) {
     return certificate_.get(index);
   }
@@ -212,20 +122,24 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.transport.internet.tls.Certificate certificate = 2;</code>
    */
+  @java.lang.Override
   public com.xray.transport.internet.tls.CertificateOrBuilder getCertificateOrBuilder(
       int index) {
     return certificate_.get(index);
   }
 
   public static final int SERVER_NAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object serverName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object serverName_ = "";
   /**
    * <pre>
    * Override server name.
    * </pre>
    *
    * <code>string server_name = 3;</code>
+   * @return The serverName.
    */
+  @java.lang.Override
   public java.lang.String getServerName() {
     java.lang.Object ref = serverName_;
     if (ref instanceof java.lang.String) {
@@ -244,7 +158,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string server_name = 3;</code>
+   * @return The bytes for serverName.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getServerNameBytes() {
     java.lang.Object ref = serverName_;
@@ -260,6 +176,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NEXT_PROTOCOL_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList nextProtocol_;
   /**
    * <pre>
@@ -267,6 +184,7 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>repeated string next_protocol = 4;</code>
+   * @return A list containing the nextProtocol.
    */
   public com.google.protobuf.ProtocolStringList
       getNextProtocolList() {
@@ -278,6 +196,7 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>repeated string next_protocol = 4;</code>
+   * @return The count of nextProtocol.
    */
   public int getNextProtocolCount() {
     return nextProtocol_.size();
@@ -288,6 +207,8 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>repeated string next_protocol = 4;</code>
+   * @param index The index of the element to return.
+   * @return The nextProtocol at the given index.
    */
   public java.lang.String getNextProtocol(int index) {
     return nextProtocol_.get(index);
@@ -298,6 +219,8 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>repeated string next_protocol = 4;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the nextProtocol at the given index.
    */
   public com.google.protobuf.ByteString
       getNextProtocolBytes(int index) {
@@ -305,20 +228,22 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_SESSION_RESUMPTION_FIELD_NUMBER = 5;
-  private boolean enableSessionResumption_;
+  private boolean enableSessionResumption_ = false;
   /**
    * <pre>
    * Whether or not to enable session (ticket) resumption.
    * </pre>
    *
    * <code>bool enable_session_resumption = 5;</code>
+   * @return The enableSessionResumption.
    */
+  @java.lang.Override
   public boolean getEnableSessionResumption() {
     return enableSessionResumption_;
   }
 
   public static final int DISABLE_SYSTEM_ROOT_FIELD_NUMBER = 6;
-  private boolean disableSystemRoot_;
+  private boolean disableSystemRoot_ = false;
   /**
    * <pre>
    * If true, root certificates on the system will not be loaded for
@@ -326,20 +251,25 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>bool disable_system_root = 6;</code>
+   * @return The disableSystemRoot.
    */
+  @java.lang.Override
   public boolean getDisableSystemRoot() {
     return disableSystemRoot_;
   }
 
   public static final int MIN_VERSION_FIELD_NUMBER = 7;
-  private volatile java.lang.Object minVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object minVersion_ = "";
   /**
    * <pre>
    * The minimum TLS version.
    * </pre>
    *
    * <code>string min_version = 7;</code>
+   * @return The minVersion.
    */
+  @java.lang.Override
   public java.lang.String getMinVersion() {
     java.lang.Object ref = minVersion_;
     if (ref instanceof java.lang.String) {
@@ -358,7 +288,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string min_version = 7;</code>
+   * @return The bytes for minVersion.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getMinVersionBytes() {
     java.lang.Object ref = minVersion_;
@@ -374,14 +306,17 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_VERSION_FIELD_NUMBER = 8;
-  private volatile java.lang.Object maxVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object maxVersion_ = "";
   /**
    * <pre>
    * The maximum TLS version.
    * </pre>
    *
    * <code>string max_version = 8;</code>
+   * @return The maxVersion.
    */
+  @java.lang.Override
   public java.lang.String getMaxVersion() {
     java.lang.Object ref = maxVersion_;
     if (ref instanceof java.lang.String) {
@@ -400,7 +335,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string max_version = 8;</code>
+   * @return The bytes for maxVersion.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getMaxVersionBytes() {
     java.lang.Object ref = maxVersion_;
@@ -416,14 +353,17 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CIPHER_SUITES_FIELD_NUMBER = 9;
-  private volatile java.lang.Object cipherSuites_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object cipherSuites_ = "";
   /**
    * <pre>
    * Specify cipher suites, except for TLS 1.3.
    * </pre>
    *
    * <code>string cipher_suites = 9;</code>
+   * @return The cipherSuites.
    */
+  @java.lang.Override
   public java.lang.String getCipherSuites() {
     java.lang.Object ref = cipherSuites_;
     if (ref instanceof java.lang.String) {
@@ -442,7 +382,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string cipher_suites = 9;</code>
+   * @return The bytes for cipherSuites.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getCipherSuitesBytes() {
     java.lang.Object ref = cipherSuites_;
@@ -458,16 +400,174 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PREFER_SERVER_CIPHER_SUITES_FIELD_NUMBER = 10;
-  private boolean preferServerCipherSuites_;
+  private boolean preferServerCipherSuites_ = false;
   /**
    * <pre>
    * Whether the server selects its most preferred ciphersuite.
    * </pre>
    *
    * <code>bool prefer_server_cipher_suites = 10;</code>
+   * @return The preferServerCipherSuites.
    */
+  @java.lang.Override
   public boolean getPreferServerCipherSuites() {
     return preferServerCipherSuites_;
+  }
+
+  public static final int FINGERPRINT_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object fingerprint_ = "";
+  /**
+   * <pre>
+   * TLS Client Hello fingerprint (uTLS).
+   * </pre>
+   *
+   * <code>string fingerprint = 11;</code>
+   * @return The fingerprint.
+   */
+  @java.lang.Override
+  public java.lang.String getFingerprint() {
+    java.lang.Object ref = fingerprint_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      fingerprint_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * TLS Client Hello fingerprint (uTLS).
+   * </pre>
+   *
+   * <code>string fingerprint = 11;</code>
+   * @return The bytes for fingerprint.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getFingerprintBytes() {
+    java.lang.Object ref = fingerprint_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      fingerprint_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int REJECT_UNKNOWN_SNI_FIELD_NUMBER = 12;
+  private boolean rejectUnknownSni_ = false;
+  /**
+   * <code>bool reject_unknown_sni = 12;</code>
+   * @return The rejectUnknownSni.
+   */
+  @java.lang.Override
+  public boolean getRejectUnknownSni() {
+    return rejectUnknownSni_;
+  }
+
+  public static final int PINNED_PEER_CERTIFICATE_CHAIN_SHA256_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
+  private java.util.List<com.google.protobuf.ByteString> pinnedPeerCertificateChainSha256_;
+  /**
+   * <pre>
+   * &#64;Document A pinned certificate chain sha256 hash.
+   *&#64;Document If the server's hash does not match this value, the connection will be aborted.
+   *&#64;Document This value replace allow_insecure.
+   *&#64;Critical
+   * </pre>
+   *
+   * <code>repeated bytes pinned_peer_certificate_chain_sha256 = 13;</code>
+   * @return A list containing the pinnedPeerCertificateChainSha256.
+   */
+  @java.lang.Override
+  public java.util.List<com.google.protobuf.ByteString>
+      getPinnedPeerCertificateChainSha256List() {
+    return pinnedPeerCertificateChainSha256_;
+  }
+  /**
+   * <pre>
+   * &#64;Document A pinned certificate chain sha256 hash.
+   *&#64;Document If the server's hash does not match this value, the connection will be aborted.
+   *&#64;Document This value replace allow_insecure.
+   *&#64;Critical
+   * </pre>
+   *
+   * <code>repeated bytes pinned_peer_certificate_chain_sha256 = 13;</code>
+   * @return The count of pinnedPeerCertificateChainSha256.
+   */
+  public int getPinnedPeerCertificateChainSha256Count() {
+    return pinnedPeerCertificateChainSha256_.size();
+  }
+  /**
+   * <pre>
+   * &#64;Document A pinned certificate chain sha256 hash.
+   *&#64;Document If the server's hash does not match this value, the connection will be aborted.
+   *&#64;Document This value replace allow_insecure.
+   *&#64;Critical
+   * </pre>
+   *
+   * <code>repeated bytes pinned_peer_certificate_chain_sha256 = 13;</code>
+   * @param index The index of the element to return.
+   * @return The pinnedPeerCertificateChainSha256 at the given index.
+   */
+  public com.google.protobuf.ByteString getPinnedPeerCertificateChainSha256(int index) {
+    return pinnedPeerCertificateChainSha256_.get(index);
+  }
+
+  public static final int PINNED_PEER_CERTIFICATE_PUBLIC_KEY_SHA256_FIELD_NUMBER = 14;
+  @SuppressWarnings("serial")
+  private java.util.List<com.google.protobuf.ByteString> pinnedPeerCertificatePublicKeySha256_;
+  /**
+   * <pre>
+   * &#64;Document A pinned certificate public key sha256 hash.
+   *&#64;Document If the server's public key hash does not match this value, the connection will be aborted.
+   *&#64;Document This value replace allow_insecure.
+   *&#64;Critical
+   * </pre>
+   *
+   * <code>repeated bytes pinned_peer_certificate_public_key_sha256 = 14;</code>
+   * @return A list containing the pinnedPeerCertificatePublicKeySha256.
+   */
+  @java.lang.Override
+  public java.util.List<com.google.protobuf.ByteString>
+      getPinnedPeerCertificatePublicKeySha256List() {
+    return pinnedPeerCertificatePublicKeySha256_;
+  }
+  /**
+   * <pre>
+   * &#64;Document A pinned certificate public key sha256 hash.
+   *&#64;Document If the server's public key hash does not match this value, the connection will be aborted.
+   *&#64;Document This value replace allow_insecure.
+   *&#64;Critical
+   * </pre>
+   *
+   * <code>repeated bytes pinned_peer_certificate_public_key_sha256 = 14;</code>
+   * @return The count of pinnedPeerCertificatePublicKeySha256.
+   */
+  public int getPinnedPeerCertificatePublicKeySha256Count() {
+    return pinnedPeerCertificatePublicKeySha256_.size();
+  }
+  /**
+   * <pre>
+   * &#64;Document A pinned certificate public key sha256 hash.
+   *&#64;Document If the server's public key hash does not match this value, the connection will be aborted.
+   *&#64;Document This value replace allow_insecure.
+   *&#64;Critical
+   * </pre>
+   *
+   * <code>repeated bytes pinned_peer_certificate_public_key_sha256 = 14;</code>
+   * @param index The index of the element to return.
+   * @return The pinnedPeerCertificatePublicKeySha256 at the given index.
+   */
+  public com.google.protobuf.ByteString getPinnedPeerCertificatePublicKeySha256(int index) {
+    return pinnedPeerCertificatePublicKeySha256_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -490,7 +590,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < certificate_.size(); i++) {
       output.writeMessage(2, certificate_.get(i));
     }
-    if (!getServerNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serverName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, serverName_);
     }
     for (int i = 0; i < nextProtocol_.size(); i++) {
@@ -502,19 +602,31 @@ private static final long serialVersionUID = 0L;
     if (disableSystemRoot_ != false) {
       output.writeBool(6, disableSystemRoot_);
     }
-    if (!getMinVersionBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(minVersion_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, minVersion_);
     }
-    if (!getMaxVersionBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(maxVersion_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, maxVersion_);
     }
-    if (!getCipherSuitesBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cipherSuites_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, cipherSuites_);
     }
     if (preferServerCipherSuites_ != false) {
       output.writeBool(10, preferServerCipherSuites_);
     }
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fingerprint_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, fingerprint_);
+    }
+    if (rejectUnknownSni_ != false) {
+      output.writeBool(12, rejectUnknownSni_);
+    }
+    for (int i = 0; i < pinnedPeerCertificateChainSha256_.size(); i++) {
+      output.writeBytes(13, pinnedPeerCertificateChainSha256_.get(i));
+    }
+    for (int i = 0; i < pinnedPeerCertificatePublicKeySha256_.size(); i++) {
+      output.writeBytes(14, pinnedPeerCertificatePublicKeySha256_.get(i));
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -531,7 +643,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, certificate_.get(i));
     }
-    if (!getServerNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serverName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, serverName_);
     }
     {
@@ -550,20 +662,45 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(6, disableSystemRoot_);
     }
-    if (!getMinVersionBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(minVersion_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, minVersion_);
     }
-    if (!getMaxVersionBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(maxVersion_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, maxVersion_);
     }
-    if (!getCipherSuitesBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cipherSuites_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, cipherSuites_);
     }
     if (preferServerCipherSuites_ != false) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(10, preferServerCipherSuites_);
     }
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fingerprint_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, fingerprint_);
+    }
+    if (rejectUnknownSni_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(12, rejectUnknownSni_);
+    }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < pinnedPeerCertificateChainSha256_.size(); i++) {
+        dataSize += com.google.protobuf.CodedOutputStream
+          .computeBytesSizeNoTag(pinnedPeerCertificateChainSha256_.get(i));
+      }
+      size += dataSize;
+      size += 1 * getPinnedPeerCertificateChainSha256List().size();
+    }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < pinnedPeerCertificatePublicKeySha256_.size(); i++) {
+        dataSize += com.google.protobuf.CodedOutputStream
+          .computeBytesSizeNoTag(pinnedPeerCertificatePublicKeySha256_.get(i));
+      }
+      size += dataSize;
+      size += 1 * getPinnedPeerCertificatePublicKeySha256List().size();
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -598,7 +735,15 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCipherSuites())) return false;
     if (getPreferServerCipherSuites()
         != other.getPreferServerCipherSuites()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getFingerprint()
+        .equals(other.getFingerprint())) return false;
+    if (getRejectUnknownSni()
+        != other.getRejectUnknownSni()) return false;
+    if (!getPinnedPeerCertificateChainSha256List()
+        .equals(other.getPinnedPeerCertificateChainSha256List())) return false;
+    if (!getPinnedPeerCertificatePublicKeySha256List()
+        .equals(other.getPinnedPeerCertificatePublicKeySha256List())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -637,7 +782,20 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + PREFER_SERVER_CIPHER_SUITES_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getPreferServerCipherSuites());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + FINGERPRINT_FIELD_NUMBER;
+    hash = (53 * hash) + getFingerprint().hashCode();
+    hash = (37 * hash) + REJECT_UNKNOWN_SNI_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getRejectUnknownSni());
+    if (getPinnedPeerCertificateChainSha256Count() > 0) {
+      hash = (37 * hash) + PINNED_PEER_CERTIFICATE_CHAIN_SHA256_FIELD_NUMBER;
+      hash = (53 * hash) + getPinnedPeerCertificateChainSha256List().hashCode();
+    }
+    if (getPinnedPeerCertificatePublicKeySha256Count() > 0) {
+      hash = (37 * hash) + PINNED_PEER_CERTIFICATE_PUBLIC_KEY_SHA256_FIELD_NUMBER;
+      hash = (53 * hash) + getPinnedPeerCertificatePublicKeySha256List().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -754,47 +912,39 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.transport.internet.tls.Config.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getCertificateFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       allowInsecure_ = false;
-
       if (certificateBuilder_ == null) {
         certificate_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        certificate_ = null;
         certificateBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       serverName_ = "";
-
       nextProtocol_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000008);
       enableSessionResumption_ = false;
-
       disableSystemRoot_ = false;
-
       minVersion_ = "";
-
       maxVersion_ = "";
-
       cipherSuites_ = "";
-
       preferServerCipherSuites_ = false;
-
+      fingerprint_ = "";
+      rejectUnknownSni_ = false;
+      pinnedPeerCertificateChainSha256_ = java.util.Collections.emptyList();
+      pinnedPeerCertificatePublicKeySha256_ = java.util.Collections.emptyList();
       return this;
     }
 
@@ -821,9 +971,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.transport.internet.tls.Config buildPartial() {
       com.xray.transport.internet.tls.Config result = new com.xray.transport.internet.tls.Config(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.allowInsecure_ = allowInsecure_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.xray.transport.internet.tls.Config result) {
       if (certificateBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0)) {
           certificate_ = java.util.Collections.unmodifiableList(certificate_);
@@ -833,21 +987,55 @@ private static final long serialVersionUID = 0L;
       } else {
         result.certificate_ = certificateBuilder_.build();
       }
-      result.serverName_ = serverName_;
       if (((bitField0_ & 0x00000008) != 0)) {
         nextProtocol_ = nextProtocol_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000008);
       }
       result.nextProtocol_ = nextProtocol_;
-      result.enableSessionResumption_ = enableSessionResumption_;
-      result.disableSystemRoot_ = disableSystemRoot_;
-      result.minVersion_ = minVersion_;
-      result.maxVersion_ = maxVersion_;
-      result.cipherSuites_ = cipherSuites_;
-      result.preferServerCipherSuites_ = preferServerCipherSuites_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      if (((bitField0_ & 0x00001000) != 0)) {
+        pinnedPeerCertificateChainSha256_ = java.util.Collections.unmodifiableList(pinnedPeerCertificateChainSha256_);
+        bitField0_ = (bitField0_ & ~0x00001000);
+      }
+      result.pinnedPeerCertificateChainSha256_ = pinnedPeerCertificateChainSha256_;
+      if (((bitField0_ & 0x00002000) != 0)) {
+        pinnedPeerCertificatePublicKeySha256_ = java.util.Collections.unmodifiableList(pinnedPeerCertificatePublicKeySha256_);
+        bitField0_ = (bitField0_ & ~0x00002000);
+      }
+      result.pinnedPeerCertificatePublicKeySha256_ = pinnedPeerCertificatePublicKeySha256_;
+    }
+
+    private void buildPartial0(com.xray.transport.internet.tls.Config result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.allowInsecure_ = allowInsecure_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.serverName_ = serverName_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.enableSessionResumption_ = enableSessionResumption_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.disableSystemRoot_ = disableSystemRoot_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.minVersion_ = minVersion_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.maxVersion_ = maxVersion_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.cipherSuites_ = cipherSuites_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.preferServerCipherSuites_ = preferServerCipherSuites_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.fingerprint_ = fingerprint_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.rejectUnknownSni_ = rejectUnknownSni_;
+      }
     }
 
     @java.lang.Override
@@ -925,6 +1113,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getServerName().isEmpty()) {
         serverName_ = other.serverName_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.nextProtocol_.isEmpty()) {
@@ -945,20 +1134,51 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getMinVersion().isEmpty()) {
         minVersion_ = other.minVersion_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getMaxVersion().isEmpty()) {
         maxVersion_ = other.maxVersion_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (!other.getCipherSuites().isEmpty()) {
         cipherSuites_ = other.cipherSuites_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (other.getPreferServerCipherSuites() != false) {
         setPreferServerCipherSuites(other.getPreferServerCipherSuites());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (!other.getFingerprint().isEmpty()) {
+        fingerprint_ = other.fingerprint_;
+        bitField0_ |= 0x00000400;
+        onChanged();
+      }
+      if (other.getRejectUnknownSni() != false) {
+        setRejectUnknownSni(other.getRejectUnknownSni());
+      }
+      if (!other.pinnedPeerCertificateChainSha256_.isEmpty()) {
+        if (pinnedPeerCertificateChainSha256_.isEmpty()) {
+          pinnedPeerCertificateChainSha256_ = other.pinnedPeerCertificateChainSha256_;
+          bitField0_ = (bitField0_ & ~0x00001000);
+        } else {
+          ensurePinnedPeerCertificateChainSha256IsMutable();
+          pinnedPeerCertificateChainSha256_.addAll(other.pinnedPeerCertificateChainSha256_);
+        }
+        onChanged();
+      }
+      if (!other.pinnedPeerCertificatePublicKeySha256_.isEmpty()) {
+        if (pinnedPeerCertificatePublicKeySha256_.isEmpty()) {
+          pinnedPeerCertificatePublicKeySha256_ = other.pinnedPeerCertificatePublicKeySha256_;
+          bitField0_ = (bitField0_ & ~0x00002000);
+        } else {
+          ensurePinnedPeerCertificatePublicKeySha256IsMutable();
+          pinnedPeerCertificatePublicKeySha256_.addAll(other.pinnedPeerCertificatePublicKeySha256_);
+        }
+        onChanged();
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -973,17 +1193,111 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.transport.internet.tls.Config parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              allowInsecure_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              com.xray.transport.internet.tls.Certificate m =
+                  input.readMessage(
+                      com.xray.transport.internet.tls.Certificate.parser(),
+                      extensionRegistry);
+              if (certificateBuilder_ == null) {
+                ensureCertificateIsMutable();
+                certificate_.add(m);
+              } else {
+                certificateBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              serverName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureNextProtocolIsMutable();
+              nextProtocol_.add(s);
+              break;
+            } // case 34
+            case 40: {
+              enableSessionResumption_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              disableSystemRoot_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              minVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              maxVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              cipherSuites_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 80: {
+              preferServerCipherSuites_ = input.readBool();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            case 90: {
+              fingerprint_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 96: {
+              rejectUnknownSni_ = input.readBool();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 96
+            case 106: {
+              com.google.protobuf.ByteString v = input.readBytes();
+              ensurePinnedPeerCertificateChainSha256IsMutable();
+              pinnedPeerCertificateChainSha256_.add(v);
+              break;
+            } // case 106
+            case 114: {
+              com.google.protobuf.ByteString v = input.readBytes();
+              ensurePinnedPeerCertificatePublicKeySha256IsMutable();
+              pinnedPeerCertificatePublicKeySha256_.add(v);
+              break;
+            } // case 114
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.transport.internet.tls.Config) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -995,7 +1309,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bool allow_insecure = 1;</code>
+     * @return The allowInsecure.
      */
+    @java.lang.Override
     public boolean getAllowInsecure() {
       return allowInsecure_;
     }
@@ -1005,10 +1321,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bool allow_insecure = 1;</code>
+     * @param value The allowInsecure to set.
+     * @return This builder for chaining.
      */
     public Builder setAllowInsecure(boolean value) {
       
       allowInsecure_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1018,9 +1337,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bool allow_insecure = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearAllowInsecure() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       allowInsecure_ = false;
       onChanged();
       return this;
@@ -1345,6 +1665,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string server_name = 3;</code>
+     * @return The serverName.
      */
     public java.lang.String getServerName() {
       java.lang.Object ref = serverName_;
@@ -1364,6 +1685,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string server_name = 3;</code>
+     * @return The bytes for serverName.
      */
     public com.google.protobuf.ByteString
         getServerNameBytes() {
@@ -1384,14 +1706,14 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string server_name = 3;</code>
+     * @param value The serverName to set.
+     * @return This builder for chaining.
      */
     public Builder setServerName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       serverName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1401,10 +1723,11 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string server_name = 3;</code>
+     * @return This builder for chaining.
      */
     public Builder clearServerName() {
-      
       serverName_ = getDefaultInstance().getServerName();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1414,15 +1737,15 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string server_name = 3;</code>
+     * @param value The bytes for serverName to set.
+     * @return This builder for chaining.
      */
     public Builder setServerNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       serverName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1440,6 +1763,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated string next_protocol = 4;</code>
+     * @return A list containing the nextProtocol.
      */
     public com.google.protobuf.ProtocolStringList
         getNextProtocolList() {
@@ -1451,6 +1775,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated string next_protocol = 4;</code>
+     * @return The count of nextProtocol.
      */
     public int getNextProtocolCount() {
       return nextProtocol_.size();
@@ -1461,6 +1786,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated string next_protocol = 4;</code>
+     * @param index The index of the element to return.
+     * @return The nextProtocol at the given index.
      */
     public java.lang.String getNextProtocol(int index) {
       return nextProtocol_.get(index);
@@ -1471,6 +1798,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated string next_protocol = 4;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the nextProtocol at the given index.
      */
     public com.google.protobuf.ByteString
         getNextProtocolBytes(int index) {
@@ -1482,13 +1811,14 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated string next_protocol = 4;</code>
+     * @param index The index to set the value at.
+     * @param value The nextProtocol to set.
+     * @return This builder for chaining.
      */
     public Builder setNextProtocol(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureNextProtocolIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureNextProtocolIsMutable();
       nextProtocol_.set(index, value);
       onChanged();
       return this;
@@ -1499,13 +1829,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated string next_protocol = 4;</code>
+     * @param value The nextProtocol to add.
+     * @return This builder for chaining.
      */
     public Builder addNextProtocol(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureNextProtocolIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureNextProtocolIsMutable();
       nextProtocol_.add(value);
       onChanged();
       return this;
@@ -1516,6 +1846,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated string next_protocol = 4;</code>
+     * @param values The nextProtocol to add.
+     * @return This builder for chaining.
      */
     public Builder addAllNextProtocol(
         java.lang.Iterable<java.lang.String> values) {
@@ -1531,6 +1863,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated string next_protocol = 4;</code>
+     * @return This builder for chaining.
      */
     public Builder clearNextProtocol() {
       nextProtocol_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -1544,13 +1877,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated string next_protocol = 4;</code>
+     * @param value The bytes of the nextProtocol to add.
+     * @return This builder for chaining.
      */
     public Builder addNextProtocolBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureNextProtocolIsMutable();
       nextProtocol_.add(value);
       onChanged();
@@ -1564,7 +1897,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bool enable_session_resumption = 5;</code>
+     * @return The enableSessionResumption.
      */
+    @java.lang.Override
     public boolean getEnableSessionResumption() {
       return enableSessionResumption_;
     }
@@ -1574,10 +1909,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bool enable_session_resumption = 5;</code>
+     * @param value The enableSessionResumption to set.
+     * @return This builder for chaining.
      */
     public Builder setEnableSessionResumption(boolean value) {
       
       enableSessionResumption_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1587,9 +1925,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bool enable_session_resumption = 5;</code>
+     * @return This builder for chaining.
      */
     public Builder clearEnableSessionResumption() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       enableSessionResumption_ = false;
       onChanged();
       return this;
@@ -1603,7 +1942,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bool disable_system_root = 6;</code>
+     * @return The disableSystemRoot.
      */
+    @java.lang.Override
     public boolean getDisableSystemRoot() {
       return disableSystemRoot_;
     }
@@ -1614,10 +1955,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bool disable_system_root = 6;</code>
+     * @param value The disableSystemRoot to set.
+     * @return This builder for chaining.
      */
     public Builder setDisableSystemRoot(boolean value) {
       
       disableSystemRoot_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1628,9 +1972,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bool disable_system_root = 6;</code>
+     * @return This builder for chaining.
      */
     public Builder clearDisableSystemRoot() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       disableSystemRoot_ = false;
       onChanged();
       return this;
@@ -1643,6 +1988,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string min_version = 7;</code>
+     * @return The minVersion.
      */
     public java.lang.String getMinVersion() {
       java.lang.Object ref = minVersion_;
@@ -1662,6 +2008,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string min_version = 7;</code>
+     * @return The bytes for minVersion.
      */
     public com.google.protobuf.ByteString
         getMinVersionBytes() {
@@ -1682,14 +2029,14 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string min_version = 7;</code>
+     * @param value The minVersion to set.
+     * @return This builder for chaining.
      */
     public Builder setMinVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       minVersion_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1699,10 +2046,11 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string min_version = 7;</code>
+     * @return This builder for chaining.
      */
     public Builder clearMinVersion() {
-      
       minVersion_ = getDefaultInstance().getMinVersion();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1712,15 +2060,15 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string min_version = 7;</code>
+     * @param value The bytes for minVersion to set.
+     * @return This builder for chaining.
      */
     public Builder setMinVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       minVersion_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1732,6 +2080,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string max_version = 8;</code>
+     * @return The maxVersion.
      */
     public java.lang.String getMaxVersion() {
       java.lang.Object ref = maxVersion_;
@@ -1751,6 +2100,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string max_version = 8;</code>
+     * @return The bytes for maxVersion.
      */
     public com.google.protobuf.ByteString
         getMaxVersionBytes() {
@@ -1771,14 +2121,14 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string max_version = 8;</code>
+     * @param value The maxVersion to set.
+     * @return This builder for chaining.
      */
     public Builder setMaxVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       maxVersion_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1788,10 +2138,11 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string max_version = 8;</code>
+     * @return This builder for chaining.
      */
     public Builder clearMaxVersion() {
-      
       maxVersion_ = getDefaultInstance().getMaxVersion();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -1801,15 +2152,15 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string max_version = 8;</code>
+     * @param value The bytes for maxVersion to set.
+     * @return This builder for chaining.
      */
     public Builder setMaxVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       maxVersion_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1821,6 +2172,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string cipher_suites = 9;</code>
+     * @return The cipherSuites.
      */
     public java.lang.String getCipherSuites() {
       java.lang.Object ref = cipherSuites_;
@@ -1840,6 +2192,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string cipher_suites = 9;</code>
+     * @return The bytes for cipherSuites.
      */
     public com.google.protobuf.ByteString
         getCipherSuitesBytes() {
@@ -1860,14 +2213,14 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string cipher_suites = 9;</code>
+     * @param value The cipherSuites to set.
+     * @return This builder for chaining.
      */
     public Builder setCipherSuites(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       cipherSuites_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -1877,10 +2230,11 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string cipher_suites = 9;</code>
+     * @return This builder for chaining.
      */
     public Builder clearCipherSuites() {
-      
       cipherSuites_ = getDefaultInstance().getCipherSuites();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -1890,15 +2244,15 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string cipher_suites = 9;</code>
+     * @param value The bytes for cipherSuites to set.
+     * @return This builder for chaining.
      */
     public Builder setCipherSuitesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       cipherSuites_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -1910,7 +2264,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bool prefer_server_cipher_suites = 10;</code>
+     * @return The preferServerCipherSuites.
      */
+    @java.lang.Override
     public boolean getPreferServerCipherSuites() {
       return preferServerCipherSuites_;
     }
@@ -1920,10 +2276,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bool prefer_server_cipher_suites = 10;</code>
+     * @param value The preferServerCipherSuites to set.
+     * @return This builder for chaining.
      */
     public Builder setPreferServerCipherSuites(boolean value) {
       
       preferServerCipherSuites_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -1933,10 +2292,395 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bool prefer_server_cipher_suites = 10;</code>
+     * @return This builder for chaining.
      */
     public Builder clearPreferServerCipherSuites() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       preferServerCipherSuites_ = false;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object fingerprint_ = "";
+    /**
+     * <pre>
+     * TLS Client Hello fingerprint (uTLS).
+     * </pre>
+     *
+     * <code>string fingerprint = 11;</code>
+     * @return The fingerprint.
+     */
+    public java.lang.String getFingerprint() {
+      java.lang.Object ref = fingerprint_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fingerprint_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * TLS Client Hello fingerprint (uTLS).
+     * </pre>
+     *
+     * <code>string fingerprint = 11;</code>
+     * @return The bytes for fingerprint.
+     */
+    public com.google.protobuf.ByteString
+        getFingerprintBytes() {
+      java.lang.Object ref = fingerprint_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fingerprint_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * TLS Client Hello fingerprint (uTLS).
+     * </pre>
+     *
+     * <code>string fingerprint = 11;</code>
+     * @param value The fingerprint to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFingerprint(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      fingerprint_ = value;
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * TLS Client Hello fingerprint (uTLS).
+     * </pre>
+     *
+     * <code>string fingerprint = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFingerprint() {
+      fingerprint_ = getDefaultInstance().getFingerprint();
+      bitField0_ = (bitField0_ & ~0x00000400);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * TLS Client Hello fingerprint (uTLS).
+     * </pre>
+     *
+     * <code>string fingerprint = 11;</code>
+     * @param value The bytes for fingerprint to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFingerprintBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      fingerprint_ = value;
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+
+    private boolean rejectUnknownSni_ ;
+    /**
+     * <code>bool reject_unknown_sni = 12;</code>
+     * @return The rejectUnknownSni.
+     */
+    @java.lang.Override
+    public boolean getRejectUnknownSni() {
+      return rejectUnknownSni_;
+    }
+    /**
+     * <code>bool reject_unknown_sni = 12;</code>
+     * @param value The rejectUnknownSni to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRejectUnknownSni(boolean value) {
+      
+      rejectUnknownSni_ = value;
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool reject_unknown_sni = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRejectUnknownSni() {
+      bitField0_ = (bitField0_ & ~0x00000800);
+      rejectUnknownSni_ = false;
+      onChanged();
+      return this;
+    }
+
+    private java.util.List<com.google.protobuf.ByteString> pinnedPeerCertificateChainSha256_ = java.util.Collections.emptyList();
+    private void ensurePinnedPeerCertificateChainSha256IsMutable() {
+      if (!((bitField0_ & 0x00001000) != 0)) {
+        pinnedPeerCertificateChainSha256_ = new java.util.ArrayList<com.google.protobuf.ByteString>(pinnedPeerCertificateChainSha256_);
+        bitField0_ |= 0x00001000;
+      }
+    }
+    /**
+     * <pre>
+     * &#64;Document A pinned certificate chain sha256 hash.
+     *&#64;Document If the server's hash does not match this value, the connection will be aborted.
+     *&#64;Document This value replace allow_insecure.
+     *&#64;Critical
+     * </pre>
+     *
+     * <code>repeated bytes pinned_peer_certificate_chain_sha256 = 13;</code>
+     * @return A list containing the pinnedPeerCertificateChainSha256.
+     */
+    public java.util.List<com.google.protobuf.ByteString>
+        getPinnedPeerCertificateChainSha256List() {
+      return ((bitField0_ & 0x00001000) != 0) ?
+               java.util.Collections.unmodifiableList(pinnedPeerCertificateChainSha256_) : pinnedPeerCertificateChainSha256_;
+    }
+    /**
+     * <pre>
+     * &#64;Document A pinned certificate chain sha256 hash.
+     *&#64;Document If the server's hash does not match this value, the connection will be aborted.
+     *&#64;Document This value replace allow_insecure.
+     *&#64;Critical
+     * </pre>
+     *
+     * <code>repeated bytes pinned_peer_certificate_chain_sha256 = 13;</code>
+     * @return The count of pinnedPeerCertificateChainSha256.
+     */
+    public int getPinnedPeerCertificateChainSha256Count() {
+      return pinnedPeerCertificateChainSha256_.size();
+    }
+    /**
+     * <pre>
+     * &#64;Document A pinned certificate chain sha256 hash.
+     *&#64;Document If the server's hash does not match this value, the connection will be aborted.
+     *&#64;Document This value replace allow_insecure.
+     *&#64;Critical
+     * </pre>
+     *
+     * <code>repeated bytes pinned_peer_certificate_chain_sha256 = 13;</code>
+     * @param index The index of the element to return.
+     * @return The pinnedPeerCertificateChainSha256 at the given index.
+     */
+    public com.google.protobuf.ByteString getPinnedPeerCertificateChainSha256(int index) {
+      return pinnedPeerCertificateChainSha256_.get(index);
+    }
+    /**
+     * <pre>
+     * &#64;Document A pinned certificate chain sha256 hash.
+     *&#64;Document If the server's hash does not match this value, the connection will be aborted.
+     *&#64;Document This value replace allow_insecure.
+     *&#64;Critical
+     * </pre>
+     *
+     * <code>repeated bytes pinned_peer_certificate_chain_sha256 = 13;</code>
+     * @param index The index to set the value at.
+     * @param value The pinnedPeerCertificateChainSha256 to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPinnedPeerCertificateChainSha256(
+        int index, com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensurePinnedPeerCertificateChainSha256IsMutable();
+      pinnedPeerCertificateChainSha256_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * &#64;Document A pinned certificate chain sha256 hash.
+     *&#64;Document If the server's hash does not match this value, the connection will be aborted.
+     *&#64;Document This value replace allow_insecure.
+     *&#64;Critical
+     * </pre>
+     *
+     * <code>repeated bytes pinned_peer_certificate_chain_sha256 = 13;</code>
+     * @param value The pinnedPeerCertificateChainSha256 to add.
+     * @return This builder for chaining.
+     */
+    public Builder addPinnedPeerCertificateChainSha256(com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensurePinnedPeerCertificateChainSha256IsMutable();
+      pinnedPeerCertificateChainSha256_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * &#64;Document A pinned certificate chain sha256 hash.
+     *&#64;Document If the server's hash does not match this value, the connection will be aborted.
+     *&#64;Document This value replace allow_insecure.
+     *&#64;Critical
+     * </pre>
+     *
+     * <code>repeated bytes pinned_peer_certificate_chain_sha256 = 13;</code>
+     * @param values The pinnedPeerCertificateChainSha256 to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllPinnedPeerCertificateChainSha256(
+        java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
+      ensurePinnedPeerCertificateChainSha256IsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, pinnedPeerCertificateChainSha256_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * &#64;Document A pinned certificate chain sha256 hash.
+     *&#64;Document If the server's hash does not match this value, the connection will be aborted.
+     *&#64;Document This value replace allow_insecure.
+     *&#64;Critical
+     * </pre>
+     *
+     * <code>repeated bytes pinned_peer_certificate_chain_sha256 = 13;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPinnedPeerCertificateChainSha256() {
+      pinnedPeerCertificateChainSha256_ = java.util.Collections.emptyList();
+      bitField0_ = (bitField0_ & ~0x00001000);
+      onChanged();
+      return this;
+    }
+
+    private java.util.List<com.google.protobuf.ByteString> pinnedPeerCertificatePublicKeySha256_ = java.util.Collections.emptyList();
+    private void ensurePinnedPeerCertificatePublicKeySha256IsMutable() {
+      if (!((bitField0_ & 0x00002000) != 0)) {
+        pinnedPeerCertificatePublicKeySha256_ = new java.util.ArrayList<com.google.protobuf.ByteString>(pinnedPeerCertificatePublicKeySha256_);
+        bitField0_ |= 0x00002000;
+      }
+    }
+    /**
+     * <pre>
+     * &#64;Document A pinned certificate public key sha256 hash.
+     *&#64;Document If the server's public key hash does not match this value, the connection will be aborted.
+     *&#64;Document This value replace allow_insecure.
+     *&#64;Critical
+     * </pre>
+     *
+     * <code>repeated bytes pinned_peer_certificate_public_key_sha256 = 14;</code>
+     * @return A list containing the pinnedPeerCertificatePublicKeySha256.
+     */
+    public java.util.List<com.google.protobuf.ByteString>
+        getPinnedPeerCertificatePublicKeySha256List() {
+      return ((bitField0_ & 0x00002000) != 0) ?
+               java.util.Collections.unmodifiableList(pinnedPeerCertificatePublicKeySha256_) : pinnedPeerCertificatePublicKeySha256_;
+    }
+    /**
+     * <pre>
+     * &#64;Document A pinned certificate public key sha256 hash.
+     *&#64;Document If the server's public key hash does not match this value, the connection will be aborted.
+     *&#64;Document This value replace allow_insecure.
+     *&#64;Critical
+     * </pre>
+     *
+     * <code>repeated bytes pinned_peer_certificate_public_key_sha256 = 14;</code>
+     * @return The count of pinnedPeerCertificatePublicKeySha256.
+     */
+    public int getPinnedPeerCertificatePublicKeySha256Count() {
+      return pinnedPeerCertificatePublicKeySha256_.size();
+    }
+    /**
+     * <pre>
+     * &#64;Document A pinned certificate public key sha256 hash.
+     *&#64;Document If the server's public key hash does not match this value, the connection will be aborted.
+     *&#64;Document This value replace allow_insecure.
+     *&#64;Critical
+     * </pre>
+     *
+     * <code>repeated bytes pinned_peer_certificate_public_key_sha256 = 14;</code>
+     * @param index The index of the element to return.
+     * @return The pinnedPeerCertificatePublicKeySha256 at the given index.
+     */
+    public com.google.protobuf.ByteString getPinnedPeerCertificatePublicKeySha256(int index) {
+      return pinnedPeerCertificatePublicKeySha256_.get(index);
+    }
+    /**
+     * <pre>
+     * &#64;Document A pinned certificate public key sha256 hash.
+     *&#64;Document If the server's public key hash does not match this value, the connection will be aborted.
+     *&#64;Document This value replace allow_insecure.
+     *&#64;Critical
+     * </pre>
+     *
+     * <code>repeated bytes pinned_peer_certificate_public_key_sha256 = 14;</code>
+     * @param index The index to set the value at.
+     * @param value The pinnedPeerCertificatePublicKeySha256 to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPinnedPeerCertificatePublicKeySha256(
+        int index, com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensurePinnedPeerCertificatePublicKeySha256IsMutable();
+      pinnedPeerCertificatePublicKeySha256_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * &#64;Document A pinned certificate public key sha256 hash.
+     *&#64;Document If the server's public key hash does not match this value, the connection will be aborted.
+     *&#64;Document This value replace allow_insecure.
+     *&#64;Critical
+     * </pre>
+     *
+     * <code>repeated bytes pinned_peer_certificate_public_key_sha256 = 14;</code>
+     * @param value The pinnedPeerCertificatePublicKeySha256 to add.
+     * @return This builder for chaining.
+     */
+    public Builder addPinnedPeerCertificatePublicKeySha256(com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensurePinnedPeerCertificatePublicKeySha256IsMutable();
+      pinnedPeerCertificatePublicKeySha256_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * &#64;Document A pinned certificate public key sha256 hash.
+     *&#64;Document If the server's public key hash does not match this value, the connection will be aborted.
+     *&#64;Document This value replace allow_insecure.
+     *&#64;Critical
+     * </pre>
+     *
+     * <code>repeated bytes pinned_peer_certificate_public_key_sha256 = 14;</code>
+     * @param values The pinnedPeerCertificatePublicKeySha256 to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllPinnedPeerCertificatePublicKeySha256(
+        java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
+      ensurePinnedPeerCertificatePublicKeySha256IsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, pinnedPeerCertificatePublicKeySha256_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * &#64;Document A pinned certificate public key sha256 hash.
+     *&#64;Document If the server's public key hash does not match this value, the connection will be aborted.
+     *&#64;Document This value replace allow_insecure.
+     *&#64;Critical
+     * </pre>
+     *
+     * <code>repeated bytes pinned_peer_certificate_public_key_sha256 = 14;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPinnedPeerCertificatePublicKeySha256() {
+      pinnedPeerCertificatePublicKeySha256_ = java.util.Collections.emptyList();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -1973,7 +2717,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Config(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

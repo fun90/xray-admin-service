@@ -9,6 +9,7 @@ public interface DownlinkCapacityOrBuilder extends
 
   /**
    * <code>uint32 value = 1;</code>
+   * @return The value.
    */
   int getValue();
 }

@@ -13,6 +13,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>bool allow_insecure = 1;</code>
+   * @return The allowInsecure.
    */
   boolean getAllowInsecure();
 
@@ -66,6 +67,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>string server_name = 3;</code>
+   * @return The serverName.
    */
   java.lang.String getServerName();
   /**
@@ -74,6 +76,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>string server_name = 3;</code>
+   * @return The bytes for serverName.
    */
   com.google.protobuf.ByteString
       getServerNameBytes();
@@ -84,6 +87,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>repeated string next_protocol = 4;</code>
+   * @return A list containing the nextProtocol.
    */
   java.util.List<java.lang.String>
       getNextProtocolList();
@@ -93,6 +97,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>repeated string next_protocol = 4;</code>
+   * @return The count of nextProtocol.
    */
   int getNextProtocolCount();
   /**
@@ -101,6 +106,8 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>repeated string next_protocol = 4;</code>
+   * @param index The index of the element to return.
+   * @return The nextProtocol at the given index.
    */
   java.lang.String getNextProtocol(int index);
   /**
@@ -109,6 +116,8 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>repeated string next_protocol = 4;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the nextProtocol at the given index.
    */
   com.google.protobuf.ByteString
       getNextProtocolBytes(int index);
@@ -119,6 +128,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>bool enable_session_resumption = 5;</code>
+   * @return The enableSessionResumption.
    */
   boolean getEnableSessionResumption();
 
@@ -129,6 +139,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>bool disable_system_root = 6;</code>
+   * @return The disableSystemRoot.
    */
   boolean getDisableSystemRoot();
 
@@ -138,6 +149,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>string min_version = 7;</code>
+   * @return The minVersion.
    */
   java.lang.String getMinVersion();
   /**
@@ -146,6 +158,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>string min_version = 7;</code>
+   * @return The bytes for minVersion.
    */
   com.google.protobuf.ByteString
       getMinVersionBytes();
@@ -156,6 +169,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>string max_version = 8;</code>
+   * @return The maxVersion.
    */
   java.lang.String getMaxVersion();
   /**
@@ -164,6 +178,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>string max_version = 8;</code>
+   * @return The bytes for maxVersion.
    */
   com.google.protobuf.ByteString
       getMaxVersionBytes();
@@ -174,6 +189,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>string cipher_suites = 9;</code>
+   * @return The cipherSuites.
    */
   java.lang.String getCipherSuites();
   /**
@@ -182,6 +198,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>string cipher_suites = 9;</code>
+   * @return The bytes for cipherSuites.
    */
   com.google.protobuf.ByteString
       getCipherSuitesBytes();
@@ -192,6 +209,109 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>bool prefer_server_cipher_suites = 10;</code>
+   * @return The preferServerCipherSuites.
    */
   boolean getPreferServerCipherSuites();
+
+  /**
+   * <pre>
+   * TLS Client Hello fingerprint (uTLS).
+   * </pre>
+   *
+   * <code>string fingerprint = 11;</code>
+   * @return The fingerprint.
+   */
+  java.lang.String getFingerprint();
+  /**
+   * <pre>
+   * TLS Client Hello fingerprint (uTLS).
+   * </pre>
+   *
+   * <code>string fingerprint = 11;</code>
+   * @return The bytes for fingerprint.
+   */
+  com.google.protobuf.ByteString
+      getFingerprintBytes();
+
+  /**
+   * <code>bool reject_unknown_sni = 12;</code>
+   * @return The rejectUnknownSni.
+   */
+  boolean getRejectUnknownSni();
+
+  /**
+   * <pre>
+   * &#64;Document A pinned certificate chain sha256 hash.
+   *&#64;Document If the server's hash does not match this value, the connection will be aborted.
+   *&#64;Document This value replace allow_insecure.
+   *&#64;Critical
+   * </pre>
+   *
+   * <code>repeated bytes pinned_peer_certificate_chain_sha256 = 13;</code>
+   * @return A list containing the pinnedPeerCertificateChainSha256.
+   */
+  java.util.List<com.google.protobuf.ByteString> getPinnedPeerCertificateChainSha256List();
+  /**
+   * <pre>
+   * &#64;Document A pinned certificate chain sha256 hash.
+   *&#64;Document If the server's hash does not match this value, the connection will be aborted.
+   *&#64;Document This value replace allow_insecure.
+   *&#64;Critical
+   * </pre>
+   *
+   * <code>repeated bytes pinned_peer_certificate_chain_sha256 = 13;</code>
+   * @return The count of pinnedPeerCertificateChainSha256.
+   */
+  int getPinnedPeerCertificateChainSha256Count();
+  /**
+   * <pre>
+   * &#64;Document A pinned certificate chain sha256 hash.
+   *&#64;Document If the server's hash does not match this value, the connection will be aborted.
+   *&#64;Document This value replace allow_insecure.
+   *&#64;Critical
+   * </pre>
+   *
+   * <code>repeated bytes pinned_peer_certificate_chain_sha256 = 13;</code>
+   * @param index The index of the element to return.
+   * @return The pinnedPeerCertificateChainSha256 at the given index.
+   */
+  com.google.protobuf.ByteString getPinnedPeerCertificateChainSha256(int index);
+
+  /**
+   * <pre>
+   * &#64;Document A pinned certificate public key sha256 hash.
+   *&#64;Document If the server's public key hash does not match this value, the connection will be aborted.
+   *&#64;Document This value replace allow_insecure.
+   *&#64;Critical
+   * </pre>
+   *
+   * <code>repeated bytes pinned_peer_certificate_public_key_sha256 = 14;</code>
+   * @return A list containing the pinnedPeerCertificatePublicKeySha256.
+   */
+  java.util.List<com.google.protobuf.ByteString> getPinnedPeerCertificatePublicKeySha256List();
+  /**
+   * <pre>
+   * &#64;Document A pinned certificate public key sha256 hash.
+   *&#64;Document If the server's public key hash does not match this value, the connection will be aborted.
+   *&#64;Document This value replace allow_insecure.
+   *&#64;Critical
+   * </pre>
+   *
+   * <code>repeated bytes pinned_peer_certificate_public_key_sha256 = 14;</code>
+   * @return The count of pinnedPeerCertificatePublicKeySha256.
+   */
+  int getPinnedPeerCertificatePublicKeySha256Count();
+  /**
+   * <pre>
+   * &#64;Document A pinned certificate public key sha256 hash.
+   *&#64;Document If the server's public key hash does not match this value, the connection will be aborted.
+   *&#64;Document This value replace allow_insecure.
+   *&#64;Critical
+   * </pre>
+   *
+   * <code>repeated bytes pinned_peer_certificate_public_key_sha256 = 14;</code>
+   * @param index The index of the element to return.
+   * @return The pinnedPeerCertificatePublicKeySha256 at the given index.
+   */
+  com.google.protobuf.ByteString getPinnedPeerCertificatePublicKeySha256(int index);
 }

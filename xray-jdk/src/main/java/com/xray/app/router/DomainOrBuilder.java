@@ -13,6 +13,7 @@ public interface DomainOrBuilder extends
    * </pre>
    *
    * <code>.xray.app.router.Domain.Type type = 1;</code>
+   * @return The enum numeric value on the wire for type.
    */
   int getTypeValue();
   /**
@@ -21,6 +22,7 @@ public interface DomainOrBuilder extends
    * </pre>
    *
    * <code>.xray.app.router.Domain.Type type = 1;</code>
+   * @return The type.
    */
   com.xray.app.router.Domain.Type getType();
 
@@ -30,6 +32,7 @@ public interface DomainOrBuilder extends
    * </pre>
    *
    * <code>string value = 2;</code>
+   * @return The value.
    */
   java.lang.String getValue();
   /**
@@ -38,6 +41,7 @@ public interface DomainOrBuilder extends
    * </pre>
    *
    * <code>string value = 2;</code>
+   * @return The bytes for value.
    */
   com.google.protobuf.ByteString
       getValueBytes();

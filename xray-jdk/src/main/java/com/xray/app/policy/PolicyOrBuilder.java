@@ -9,10 +9,12 @@ public interface PolicyOrBuilder extends
 
   /**
    * <code>.xray.app.policy.Policy.Timeout timeout = 1;</code>
+   * @return Whether the timeout field is set.
    */
   boolean hasTimeout();
   /**
    * <code>.xray.app.policy.Policy.Timeout timeout = 1;</code>
+   * @return The timeout.
    */
   com.xray.app.policy.Policy.Timeout getTimeout();
   /**
@@ -22,10 +24,12 @@ public interface PolicyOrBuilder extends
 
   /**
    * <code>.xray.app.policy.Policy.Stats stats = 2;</code>
+   * @return Whether the stats field is set.
    */
   boolean hasStats();
   /**
    * <code>.xray.app.policy.Policy.Stats stats = 2;</code>
+   * @return The stats.
    */
   com.xray.app.policy.Policy.Stats getStats();
   /**
@@ -35,10 +39,12 @@ public interface PolicyOrBuilder extends
 
   /**
    * <code>.xray.app.policy.Policy.Buffer buffer = 3;</code>
+   * @return Whether the buffer field is set.
    */
   boolean hasBuffer();
   /**
    * <code>.xray.app.policy.Policy.Buffer buffer = 3;</code>
+   * @return The buffer.
    */
   com.xray.app.policy.Policy.Buffer getBuffer();
   /**

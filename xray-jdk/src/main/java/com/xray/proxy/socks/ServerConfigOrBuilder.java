@@ -9,10 +9,12 @@ public interface ServerConfigOrBuilder extends
 
   /**
    * <code>.xray.proxy.socks.AuthType auth_type = 1;</code>
+   * @return The enum numeric value on the wire for authType.
    */
   int getAuthTypeValue();
   /**
    * <code>.xray.proxy.socks.AuthType auth_type = 1;</code>
+   * @return The authType.
    */
   com.xray.proxy.socks.AuthType getAuthType();
 
@@ -39,23 +41,25 @@ public interface ServerConfigOrBuilder extends
   /**
    * <code>map&lt;string, string&gt; accounts = 2;</code>
    */
-
-  java.lang.String getAccountsOrDefault(
+  /* nullable */
+java.lang.String getAccountsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue);
+      /* nullable */
+java.lang.String defaultValue);
   /**
    * <code>map&lt;string, string&gt; accounts = 2;</code>
    */
-
   java.lang.String getAccountsOrThrow(
       java.lang.String key);
 
   /**
    * <code>.xray.common.net.IPOrDomain address = 3;</code>
+   * @return Whether the address field is set.
    */
   boolean hasAddress();
   /**
    * <code>.xray.common.net.IPOrDomain address = 3;</code>
+   * @return The address.
    */
   com.xray.common.net.IPOrDomain getAddress();
   /**
@@ -65,16 +69,21 @@ public interface ServerConfigOrBuilder extends
 
   /**
    * <code>bool udp_enabled = 4;</code>
+   * @return The udpEnabled.
    */
   boolean getUdpEnabled();
 
   /**
    * <code>uint32 timeout = 5 [deprecated = true];</code>
+   * @deprecated xray.proxy.socks.ServerConfig.timeout is deprecated.
+   *     See proxy/socks/config.proto;l=37
+   * @return The timeout.
    */
   @java.lang.Deprecated int getTimeout();
 
   /**
    * <code>uint32 user_level = 6;</code>
+   * @return The userLevel.
    */
   int getUserLevel();
 }

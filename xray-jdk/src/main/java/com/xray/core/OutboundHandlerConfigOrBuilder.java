@@ -13,6 +13,7 @@ public interface OutboundHandlerConfigOrBuilder extends
    * </pre>
    *
    * <code>string tag = 1;</code>
+   * @return The tag.
    */
   java.lang.String getTag();
   /**
@@ -21,6 +22,7 @@ public interface OutboundHandlerConfigOrBuilder extends
    * </pre>
    *
    * <code>string tag = 1;</code>
+   * @return The bytes for tag.
    */
   com.google.protobuf.ByteString
       getTagBytes();
@@ -31,6 +33,7 @@ public interface OutboundHandlerConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.common.serial.TypedMessage sender_settings = 2;</code>
+   * @return Whether the senderSettings field is set.
    */
   boolean hasSenderSettings();
   /**
@@ -39,6 +42,7 @@ public interface OutboundHandlerConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.common.serial.TypedMessage sender_settings = 2;</code>
+   * @return The senderSettings.
    */
   com.xray.common.serial.TypedMessage getSenderSettings();
   /**
@@ -56,6 +60,7 @@ public interface OutboundHandlerConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.common.serial.TypedMessage proxy_settings = 3;</code>
+   * @return Whether the proxySettings field is set.
    */
   boolean hasProxySettings();
   /**
@@ -64,6 +69,7 @@ public interface OutboundHandlerConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.common.serial.TypedMessage proxy_settings = 3;</code>
+   * @return The proxySettings.
    */
   com.xray.common.serial.TypedMessage getProxySettings();
   /**
@@ -81,6 +87,7 @@ public interface OutboundHandlerConfigOrBuilder extends
    * </pre>
    *
    * <code>int64 expire = 4;</code>
+   * @return The expire.
    */
   long getExpire();
 
@@ -90,6 +97,7 @@ public interface OutboundHandlerConfigOrBuilder extends
    * </pre>
    *
    * <code>string comment = 5;</code>
+   * @return The comment.
    */
   java.lang.String getComment();
   /**
@@ -98,6 +106,7 @@ public interface OutboundHandlerConfigOrBuilder extends
    * </pre>
    *
    * <code>string comment = 5;</code>
+   * @return The bytes for comment.
    */
   com.google.protobuf.ByteString
       getCommentBytes();

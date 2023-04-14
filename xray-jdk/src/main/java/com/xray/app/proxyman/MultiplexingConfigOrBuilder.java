@@ -13,6 +13,7 @@ public interface MultiplexingConfigOrBuilder extends
    * </pre>
    *
    * <code>bool enabled = 1;</code>
+   * @return The enabled.
    */
   boolean getEnabled();
 
@@ -21,7 +22,18 @@ public interface MultiplexingConfigOrBuilder extends
    * Max number of concurrent connections that one Mux connection can handle.
    * </pre>
    *
-   * <code>uint32 concurrency = 2;</code>
+   * <code>int32 concurrency = 2;</code>
+   * @return The concurrency.
    */
   int getConcurrency();
+
+  /**
+   * <pre>
+   * Transport XUDP in another Mux.
+   * </pre>
+   *
+   * <code>int32 xudpConcurrency = 3;</code>
+   * @return The xudpConcurrency.
+   */
+  int getXudpConcurrency();
 }

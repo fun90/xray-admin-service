@@ -13,6 +13,16 @@ public interface IPOrDomainOrBuilder extends
    * </pre>
    *
    * <code>bytes ip = 1;</code>
+   * @return Whether the ip field is set.
+   */
+  boolean hasIp();
+  /**
+   * <pre>
+   * IP address. Must by either 4 or 16 bytes.
+   * </pre>
+   *
+   * <code>bytes ip = 1;</code>
+   * @return The ip.
    */
   com.google.protobuf.ByteString getIp();
 
@@ -22,6 +32,16 @@ public interface IPOrDomainOrBuilder extends
    * </pre>
    *
    * <code>string domain = 2;</code>
+   * @return Whether the domain field is set.
+   */
+  boolean hasDomain();
+  /**
+   * <pre>
+   * Domain address.
+   * </pre>
+   *
+   * <code>string domain = 2;</code>
+   * @return The domain.
    */
   java.lang.String getDomain();
   /**
@@ -30,6 +50,7 @@ public interface IPOrDomainOrBuilder extends
    * </pre>
    *
    * <code>string domain = 2;</code>
+   * @return The bytes for domain.
    */
   com.google.protobuf.ByteString
       getDomainBytes();

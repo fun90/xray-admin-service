@@ -29,30 +29,29 @@ public final class ConfigOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n$transport/internet/http/config.proto\022\034" +
-      "xray.transport.internet.http\"$\n\006Config\022\014" +
-      "\n\004host\030\001 \003(\t\022\014\n\004path\030\002 \001(\tBv\n com.xray.t" +
-      "ransport.internet.httpP\001Z1github.com/xtl" +
-      "s/xray-core/transport/internet/http\252\002\034Xr" +
-      "ay.Transport.Internet.Httpb\006proto3"
+      "xray.transport.internet.http\032,transport/" +
+      "internet/headers/http/config.proto\"\246\001\n\006C" +
+      "onfig\022\014\n\004host\030\001 \003(\t\022\014\n\004path\030\002 \001(\t\022\024\n\014idl" +
+      "e_timeout\030\003 \001(\005\022\034\n\024health_check_timeout\030" +
+      "\004 \001(\005\022\016\n\006method\030\005 \001(\t\022<\n\006header\030\006 \003(\0132,." +
+      "xray.transport.internet.headers.http.Hea" +
+      "derBv\n com.xray.transport.internet.httpP" +
+      "\001Z1github.com/xtls/xray-core/transport/i" +
+      "nternet/http\252\002\034Xray.Transport.Internet.H" +
+      "ttpb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
+          com.xray.transport.internet.headers.http.ConfigOuterClass.getDescriptor(),
+        });
     internal_static_xray_transport_internet_http_Config_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_xray_transport_internet_http_Config_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xray_transport_internet_http_Config_descriptor,
-        new java.lang.String[] { "Host", "Path", });
+        new java.lang.String[] { "Host", "Path", "IdleTimeout", "HealthCheckTimeout", "Method", "Header", });
+    com.xray.transport.internet.headers.http.ConfigOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -31,25 +31,17 @@ public final class Headers {
       "\n\035common/protocol/headers.proto\022\024xray.co" +
       "mmon.protocol\"B\n\016SecurityConfig\0220\n\004type\030" +
       "\001 \001(\0162\".xray.common.protocol.SecurityTyp" +
-      "e*b\n\014SecurityType\022\013\n\007UNKNOWN\020\000\022\n\n\006LEGACY" +
+      "e*l\n\014SecurityType\022\013\n\007UNKNOWN\020\000\022\n\n\006LEGACY" +
       "\020\001\022\010\n\004AUTO\020\002\022\016\n\nAES128_GCM\020\003\022\025\n\021CHACHA20" +
-      "_POLY1305\020\004\022\010\n\004NONE\020\005B^\n\030com.xray.common" +
-      ".protocolP\001Z)github.com/xtls/xray-core/c" +
-      "ommon/protocol\252\002\024Xray.Common.Protocolb\006p" +
-      "roto3"
+      "_POLY1305\020\004\022\010\n\004NONE\020\005\022\010\n\004ZERO\020\006B^\n\030com.x" +
+      "ray.common.protocolP\001Z)github.com/xtls/x" +
+      "ray-core/common/protocol\252\002\024Xray.Common.P" +
+      "rotocolb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
+        });
     internal_static_xray_common_protocol_SecurityConfig_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_xray_common_protocol_SecurityConfig_fieldAccessorTable = new

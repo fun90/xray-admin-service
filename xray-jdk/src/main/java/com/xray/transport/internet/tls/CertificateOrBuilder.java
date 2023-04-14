@@ -13,6 +13,7 @@ public interface CertificateOrBuilder extends
    * </pre>
    *
    * <code>bytes certificate = 1;</code>
+   * @return The certificate.
    */
   com.google.protobuf.ByteString getCertificate();
 
@@ -22,20 +23,74 @@ public interface CertificateOrBuilder extends
    * </pre>
    *
    * <code>bytes key = 2;</code>
+   * @return The key.
    */
   com.google.protobuf.ByteString getKey();
 
   /**
    * <code>.xray.transport.internet.tls.Certificate.Usage usage = 3;</code>
+   * @return The enum numeric value on the wire for usage.
    */
   int getUsageValue();
   /**
    * <code>.xray.transport.internet.tls.Certificate.Usage usage = 3;</code>
+   * @return The usage.
    */
   com.xray.transport.internet.tls.Certificate.Usage getUsage();
 
   /**
-   * <code>int64 ocsp_stapling = 4;</code>
+   * <code>uint64 ocsp_stapling = 4;</code>
+   * @return The ocspStapling.
    */
   long getOcspStapling();
+
+  /**
+   * <pre>
+   * TLS certificate path
+   * </pre>
+   *
+   * <code>string certificate_path = 5;</code>
+   * @return The certificatePath.
+   */
+  java.lang.String getCertificatePath();
+  /**
+   * <pre>
+   * TLS certificate path
+   * </pre>
+   *
+   * <code>string certificate_path = 5;</code>
+   * @return The bytes for certificatePath.
+   */
+  com.google.protobuf.ByteString
+      getCertificatePathBytes();
+
+  /**
+   * <pre>
+   * TLS Key path
+   * </pre>
+   *
+   * <code>string key_path = 6;</code>
+   * @return The keyPath.
+   */
+  java.lang.String getKeyPath();
+  /**
+   * <pre>
+   * TLS Key path
+   * </pre>
+   *
+   * <code>string key_path = 6;</code>
+   * @return The bytes for keyPath.
+   */
+  com.google.protobuf.ByteString
+      getKeyPathBytes();
+
+  /**
+   * <pre>
+   * If true, one-Time Loading
+   * </pre>
+   *
+   * <code>bool One_time_loading = 7;</code>
+   * @return The oneTimeLoading.
+   */
+  boolean getOneTimeLoading();
 }

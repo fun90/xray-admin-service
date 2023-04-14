@@ -9,10 +9,12 @@ public interface GetStatsResponseOrBuilder extends
 
   /**
    * <code>.xray.app.stats.command.Stat stat = 1;</code>
+   * @return Whether the stat field is set.
    */
   boolean hasStat();
   /**
    * <code>.xray.app.stats.command.Stat stat = 1;</code>
+   * @return The stat.
    */
   com.xray.app.stats.command.Stat getStat();
   /**

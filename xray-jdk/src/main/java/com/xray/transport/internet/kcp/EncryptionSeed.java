@@ -10,7 +10,7 @@ package com.xray.transport.internet.kcp;
  *
  * Protobuf type {@code xray.transport.internet.kcp.EncryptionSeed}
  */
-public  final class EncryptionSeed extends
+public final class EncryptionSeed extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.transport.internet.kcp.EncryptionSeed)
     EncryptionSeedOrBuilder {
@@ -24,53 +24,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new EncryptionSeed();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private EncryptionSeed(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            seed_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -86,10 +49,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SEED_FIELD_NUMBER = 1;
-  private volatile java.lang.Object seed_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object seed_ = "";
   /**
    * <code>string seed = 1;</code>
+   * @return The seed.
    */
+  @java.lang.Override
   public java.lang.String getSeed() {
     java.lang.Object ref = seed_;
     if (ref instanceof java.lang.String) {
@@ -104,7 +70,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string seed = 1;</code>
+   * @return The bytes for seed.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getSeedBytes() {
     java.lang.Object ref = seed_;
@@ -133,10 +101,10 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getSeedBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(seed_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, seed_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -145,10 +113,10 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getSeedBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(seed_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, seed_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -165,7 +133,7 @@ private static final long serialVersionUID = 0L;
 
     if (!getSeed()
         .equals(other.getSeed())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -178,7 +146,7 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + SEED_FIELD_NUMBER;
     hash = (53 * hash) + getSeed().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -299,24 +267,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.transport.internet.kcp.EncryptionSeed.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       seed_ = "";
-
       return this;
     }
 
@@ -343,9 +306,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.transport.internet.kcp.EncryptionSeed buildPartial() {
       com.xray.transport.internet.kcp.EncryptionSeed result = new com.xray.transport.internet.kcp.EncryptionSeed(this);
-      result.seed_ = seed_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.transport.internet.kcp.EncryptionSeed result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.seed_ = seed_;
+      }
     }
 
     @java.lang.Override
@@ -394,9 +364,10 @@ private static final long serialVersionUID = 0L;
       if (other == com.xray.transport.internet.kcp.EncryptionSeed.getDefaultInstance()) return this;
       if (!other.getSeed().isEmpty()) {
         seed_ = other.seed_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -411,23 +382,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.transport.internet.kcp.EncryptionSeed parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              seed_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.transport.internet.kcp.EncryptionSeed) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object seed_ = "";
     /**
      * <code>string seed = 1;</code>
+     * @return The seed.
      */
     public java.lang.String getSeed() {
       java.lang.Object ref = seed_;
@@ -443,6 +434,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string seed = 1;</code>
+     * @return The bytes for seed.
      */
     public com.google.protobuf.ByteString
         getSeedBytes() {
@@ -459,37 +451,38 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string seed = 1;</code>
+     * @param value The seed to set.
+     * @return This builder for chaining.
      */
     public Builder setSeed(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       seed_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <code>string seed = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearSeed() {
-      
       seed_ = getDefaultInstance().getSeed();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <code>string seed = 1;</code>
+     * @param value The bytes for seed to set.
+     * @return This builder for chaining.
      */
     public Builder setSeedBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       seed_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -526,7 +519,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new EncryptionSeed(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

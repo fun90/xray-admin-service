@@ -9,10 +9,12 @@ public interface DetourConfigOrBuilder extends
 
   /**
    * <code>string to = 1;</code>
+   * @return The to.
    */
   java.lang.String getTo();
   /**
    * <code>string to = 1;</code>
+   * @return The bytes for to.
    */
   com.google.protobuf.ByteString
       getToBytes();

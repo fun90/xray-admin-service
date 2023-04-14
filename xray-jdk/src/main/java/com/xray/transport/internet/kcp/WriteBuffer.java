@@ -6,7 +6,7 @@ package com.xray.transport.internet.kcp;
 /**
  * Protobuf type {@code xray.transport.internet.kcp.WriteBuffer}
  */
-public  final class WriteBuffer extends
+public final class WriteBuffer extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.transport.internet.kcp.WriteBuffer)
     WriteBufferOrBuilder {
@@ -19,52 +19,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new WriteBuffer();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private WriteBuffer(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            size_ = input.readUInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -80,14 +44,16 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SIZE_FIELD_NUMBER = 1;
-  private int size_;
+  private int size_ = 0;
   /**
    * <pre>
    * Buffer size in bytes.
    * </pre>
    *
    * <code>uint32 size = 1;</code>
+   * @return The size.
    */
+  @java.lang.Override
   public int getSize() {
     return size_;
   }
@@ -109,7 +75,7 @@ private static final long serialVersionUID = 0L;
     if (size_ != 0) {
       output.writeUInt32(1, size_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -122,7 +88,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(1, size_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -139,7 +105,7 @@ private static final long serialVersionUID = 0L;
 
     if (getSize()
         != other.getSize()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -152,7 +118,7 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + SIZE_FIELD_NUMBER;
     hash = (53 * hash) + getSize();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -269,24 +235,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.transport.internet.kcp.WriteBuffer.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       size_ = 0;
-
       return this;
     }
 
@@ -313,9 +274,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.transport.internet.kcp.WriteBuffer buildPartial() {
       com.xray.transport.internet.kcp.WriteBuffer result = new com.xray.transport.internet.kcp.WriteBuffer(this);
-      result.size_ = size_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.transport.internet.kcp.WriteBuffer result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.size_ = size_;
+      }
     }
 
     @java.lang.Override
@@ -365,7 +333,7 @@ private static final long serialVersionUID = 0L;
       if (other.getSize() != 0) {
         setSize(other.getSize());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -380,19 +348,38 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.transport.internet.kcp.WriteBuffer parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              size_ = input.readUInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.transport.internet.kcp.WriteBuffer) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int size_ ;
     /**
@@ -401,7 +388,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>uint32 size = 1;</code>
+     * @return The size.
      */
+    @java.lang.Override
     public int getSize() {
       return size_;
     }
@@ -411,10 +400,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>uint32 size = 1;</code>
+     * @param value The size to set.
+     * @return This builder for chaining.
      */
     public Builder setSize(int value) {
       
       size_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -424,9 +416,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>uint32 size = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       size_ = 0;
       onChanged();
       return this;
@@ -464,7 +457,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new WriteBuffer(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -39,20 +39,12 @@ public final class ConfigOuterClass {
       "ray-core/transport/internet/quic\252\002\034Xray." +
       "Transport.Internet.Quicb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.xray.common.serial.TypedMessageOuterClass.getDescriptor(),
           com.xray.common.protocol.Headers.getDescriptor(),
-        }, assigner);
+        });
     internal_static_xray_transport_internet_quic_Config_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_xray_transport_internet_quic_Config_fieldAccessorTable = new

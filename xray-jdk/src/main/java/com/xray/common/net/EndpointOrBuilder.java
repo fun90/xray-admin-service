@@ -9,19 +9,23 @@ public interface EndpointOrBuilder extends
 
   /**
    * <code>.xray.common.net.Network network = 1;</code>
+   * @return The enum numeric value on the wire for network.
    */
   int getNetworkValue();
   /**
    * <code>.xray.common.net.Network network = 1;</code>
+   * @return The network.
    */
   com.xray.common.net.Network getNetwork();
 
   /**
    * <code>.xray.common.net.IPOrDomain address = 2;</code>
+   * @return Whether the address field is set.
    */
   boolean hasAddress();
   /**
    * <code>.xray.common.net.IPOrDomain address = 2;</code>
+   * @return The address.
    */
   com.xray.common.net.IPOrDomain getAddress();
   /**
@@ -31,6 +35,7 @@ public interface EndpointOrBuilder extends
 
   /**
    * <code>uint32 port = 3;</code>
+   * @return The port.
    */
   int getPort();
 }

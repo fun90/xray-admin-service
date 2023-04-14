@@ -9,24 +9,31 @@ public interface ConfigOrBuilder extends
 
   /**
    * <code>.xray.proxy.freedom.Config.DomainStrategy domain_strategy = 1;</code>
+   * @return The enum numeric value on the wire for domainStrategy.
    */
   int getDomainStrategyValue();
   /**
    * <code>.xray.proxy.freedom.Config.DomainStrategy domain_strategy = 1;</code>
+   * @return The domainStrategy.
    */
   com.xray.proxy.freedom.Config.DomainStrategy getDomainStrategy();
 
   /**
    * <code>uint32 timeout = 2 [deprecated = true];</code>
+   * @deprecated xray.proxy.freedom.Config.timeout is deprecated.
+   *     See proxy/freedom/config.proto;l=22
+   * @return The timeout.
    */
   @java.lang.Deprecated int getTimeout();
 
   /**
    * <code>.xray.proxy.freedom.DestinationOverride destination_override = 3;</code>
+   * @return Whether the destinationOverride field is set.
    */
   boolean hasDestinationOverride();
   /**
    * <code>.xray.proxy.freedom.DestinationOverride destination_override = 3;</code>
+   * @return The destinationOverride.
    */
   com.xray.proxy.freedom.DestinationOverride getDestinationOverride();
   /**
@@ -36,6 +43,7 @@ public interface ConfigOrBuilder extends
 
   /**
    * <code>uint32 user_level = 4;</code>
+   * @return The userLevel.
    */
   int getUserLevel();
 }

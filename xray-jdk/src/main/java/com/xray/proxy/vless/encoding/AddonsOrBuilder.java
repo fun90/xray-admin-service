@@ -9,16 +9,19 @@ public interface AddonsOrBuilder extends
 
   /**
    * <code>string Flow = 1;</code>
+   * @return The flow.
    */
   java.lang.String getFlow();
   /**
    * <code>string Flow = 1;</code>
+   * @return The bytes for flow.
    */
   com.google.protobuf.ByteString
       getFlowBytes();
 
   /**
    * <code>bytes Seed = 2;</code>
+   * @return The seed.
    */
   com.google.protobuf.ByteString getSeed();
 }

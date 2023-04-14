@@ -9,16 +9,19 @@ public interface QueryStatsRequestOrBuilder extends
 
   /**
    * <code>string pattern = 1;</code>
+   * @return The pattern.
    */
   java.lang.String getPattern();
   /**
    * <code>string pattern = 1;</code>
+   * @return The bytes for pattern.
    */
   com.google.protobuf.ByteString
       getPatternBytes();
 
   /**
    * <code>bool reset = 2;</code>
+   * @return The reset.
    */
   boolean getReset();
 }

@@ -9,10 +9,12 @@ public interface GeoIPOrBuilder extends
 
   /**
    * <code>string country_code = 1;</code>
+   * @return The countryCode.
    */
   java.lang.String getCountryCode();
   /**
    * <code>string country_code = 1;</code>
+   * @return The bytes for countryCode.
    */
   com.google.protobuf.ByteString
       getCountryCodeBytes();
@@ -40,4 +42,10 @@ public interface GeoIPOrBuilder extends
    */
   com.xray.app.router.CIDROrBuilder getCidrOrBuilder(
       int index);
+
+  /**
+   * <code>bool reverse_match = 3;</code>
+   * @return The reverseMatch.
+   */
+  boolean getReverseMatch();
 }

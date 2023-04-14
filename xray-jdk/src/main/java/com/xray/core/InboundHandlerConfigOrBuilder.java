@@ -14,6 +14,7 @@ public interface InboundHandlerConfigOrBuilder extends
    * </pre>
    *
    * <code>string tag = 1;</code>
+   * @return The tag.
    */
   java.lang.String getTag();
   /**
@@ -23,6 +24,7 @@ public interface InboundHandlerConfigOrBuilder extends
    * </pre>
    *
    * <code>string tag = 1;</code>
+   * @return The bytes for tag.
    */
   com.google.protobuf.ByteString
       getTagBytes();
@@ -33,6 +35,7 @@ public interface InboundHandlerConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.common.serial.TypedMessage receiver_settings = 2;</code>
+   * @return Whether the receiverSettings field is set.
    */
   boolean hasReceiverSettings();
   /**
@@ -41,6 +44,7 @@ public interface InboundHandlerConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.common.serial.TypedMessage receiver_settings = 2;</code>
+   * @return The receiverSettings.
    */
   com.xray.common.serial.TypedMessage getReceiverSettings();
   /**
@@ -58,6 +62,7 @@ public interface InboundHandlerConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.common.serial.TypedMessage proxy_settings = 3;</code>
+   * @return Whether the proxySettings field is set.
    */
   boolean hasProxySettings();
   /**
@@ -66,6 +71,7 @@ public interface InboundHandlerConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.common.serial.TypedMessage proxy_settings = 3;</code>
+   * @return The proxySettings.
    */
   com.xray.common.serial.TypedMessage getProxySettings();
   /**

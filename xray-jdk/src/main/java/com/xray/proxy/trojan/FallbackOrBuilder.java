@@ -9,56 +9,67 @@ public interface FallbackOrBuilder extends
 
   /**
    * <code>string name = 1;</code>
+   * @return The name.
    */
   java.lang.String getName();
   /**
    * <code>string name = 1;</code>
+   * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
    * <code>string alpn = 2;</code>
+   * @return The alpn.
    */
   java.lang.String getAlpn();
   /**
    * <code>string alpn = 2;</code>
+   * @return The bytes for alpn.
    */
   com.google.protobuf.ByteString
       getAlpnBytes();
 
   /**
    * <code>string path = 3;</code>
+   * @return The path.
    */
   java.lang.String getPath();
   /**
    * <code>string path = 3;</code>
+   * @return The bytes for path.
    */
   com.google.protobuf.ByteString
       getPathBytes();
 
   /**
    * <code>string type = 4;</code>
+   * @return The type.
    */
   java.lang.String getType();
   /**
    * <code>string type = 4;</code>
+   * @return The bytes for type.
    */
   com.google.protobuf.ByteString
       getTypeBytes();
 
   /**
    * <code>string dest = 5;</code>
+   * @return The dest.
    */
   java.lang.String getDest();
   /**
    * <code>string dest = 5;</code>
+   * @return The bytes for dest.
    */
   com.google.protobuf.ByteString
       getDestBytes();
 
   /**
    * <code>uint64 xver = 6;</code>
+   * @return The xver.
    */
   long getXver();
 }

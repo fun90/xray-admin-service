@@ -6,7 +6,7 @@ package com.xray.app.policy;
 /**
  * Protobuf type {@code xray.app.policy.Config}
  */
-public  final class Config extends
+public final class Config extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.app.policy.Config)
     ConfigOrBuilder {
@@ -19,73 +19,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new Config();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Config(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              level_ = com.google.protobuf.MapField.newMapField(
-                  LevelDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, com.xray.app.policy.Policy>
-            level__ = input.readMessage(
-                LevelDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            level_.getMutableMap().put(
-                level__.getKey(), level__.getValue());
-            break;
-          }
-          case 18: {
-            com.xray.app.policy.SystemPolicy.Builder subBuilder = null;
-            if (system_ != null) {
-              subBuilder = system_.toBuilder();
-            }
-            system_ = input.readMessage(com.xray.app.policy.SystemPolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(system_);
-              system_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -112,7 +55,6 @@ private static final long serialVersionUID = 0L;
             com.xray.app.policy.Config.class, com.xray.app.policy.Config.Builder.class);
   }
 
-  private int bitField0_;
   public static final int LEVEL_FIELD_NUMBER = 1;
   private static final class LevelDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
@@ -125,6 +67,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.xray.app.policy.Policy.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Integer, com.xray.app.policy.Policy> level_;
   private com.google.protobuf.MapField<java.lang.Integer, com.xray.app.policy.Policy>
@@ -135,14 +78,13 @@ private static final long serialVersionUID = 0L;
     }
     return level_;
   }
-
   public int getLevelCount() {
     return internalGetLevel().getMap().size();
   }
   /**
    * <code>map&lt;uint32, .xray.app.policy.Policy&gt; level = 1;</code>
    */
-
+  @java.lang.Override
   public boolean containsLevel(
       int key) {
     
@@ -151,6 +93,7 @@ private static final long serialVersionUID = 0L;
   /**
    * Use {@link #getLevelMap()} instead.
    */
+  @java.lang.Override
   @java.lang.Deprecated
   public java.util.Map<java.lang.Integer, com.xray.app.policy.Policy> getLevel() {
     return getLevelMap();
@@ -158,17 +101,19 @@ private static final long serialVersionUID = 0L;
   /**
    * <code>map&lt;uint32, .xray.app.policy.Policy&gt; level = 1;</code>
    */
-
+  @java.lang.Override
   public java.util.Map<java.lang.Integer, com.xray.app.policy.Policy> getLevelMap() {
     return internalGetLevel().getMap();
   }
   /**
    * <code>map&lt;uint32, .xray.app.policy.Policy&gt; level = 1;</code>
    */
-
-  public com.xray.app.policy.Policy getLevelOrDefault(
+  @java.lang.Override
+  public /* nullable */
+com.xray.app.policy.Policy getLevelOrDefault(
       int key,
-      com.xray.app.policy.Policy defaultValue) {
+      /* nullable */
+com.xray.app.policy.Policy defaultValue) {
     
     java.util.Map<java.lang.Integer, com.xray.app.policy.Policy> map =
         internalGetLevel().getMap();
@@ -177,7 +122,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <code>map&lt;uint32, .xray.app.policy.Policy&gt; level = 1;</code>
    */
-
+  @java.lang.Override
   public com.xray.app.policy.Policy getLevelOrThrow(
       int key) {
     
@@ -193,21 +138,26 @@ private static final long serialVersionUID = 0L;
   private com.xray.app.policy.SystemPolicy system_;
   /**
    * <code>.xray.app.policy.SystemPolicy system = 2;</code>
+   * @return Whether the system field is set.
    */
+  @java.lang.Override
   public boolean hasSystem() {
     return system_ != null;
   }
   /**
    * <code>.xray.app.policy.SystemPolicy system = 2;</code>
+   * @return The system.
    */
+  @java.lang.Override
   public com.xray.app.policy.SystemPolicy getSystem() {
     return system_ == null ? com.xray.app.policy.SystemPolicy.getDefaultInstance() : system_;
   }
   /**
    * <code>.xray.app.policy.SystemPolicy system = 2;</code>
    */
+  @java.lang.Override
   public com.xray.app.policy.SystemPolicyOrBuilder getSystemOrBuilder() {
-    return getSystem();
+    return system_ == null ? com.xray.app.policy.SystemPolicy.getDefaultInstance() : system_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -233,7 +183,7 @@ private static final long serialVersionUID = 0L;
     if (system_ != null) {
       output.writeMessage(2, getSystem());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -256,7 +206,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getSystem());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -278,7 +228,7 @@ private static final long serialVersionUID = 0L;
       if (!getSystem()
           .equals(other.getSystem())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -297,7 +247,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SYSTEM_FIELD_NUMBER;
       hash = (53 * hash) + getSystem().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -436,27 +386,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.app.policy.Config.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableLevel().clear();
-      if (systemBuilder_ == null) {
-        system_ = null;
-      } else {
-        system_ = null;
+      system_ = null;
+      if (systemBuilder_ != null) {
+        systemBuilder_.dispose();
         systemBuilder_ = null;
       }
       return this;
@@ -485,18 +430,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.app.policy.Config buildPartial() {
       com.xray.app.policy.Config result = new com.xray.app.policy.Config(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.level_ = internalGetLevel();
-      result.level_.makeImmutable();
-      if (systemBuilder_ == null) {
-        result.system_ = system_;
-      } else {
-        result.system_ = systemBuilder_.build();
-      }
-      result.bitField0_ = to_bitField0_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.app.policy.Config result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.level_ = internalGetLevel();
+        result.level_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.system_ = systemBuilder_ == null
+            ? system_
+            : systemBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -545,10 +494,11 @@ private static final long serialVersionUID = 0L;
       if (other == com.xray.app.policy.Config.getDefaultInstance()) return this;
       internalGetMutableLevel().mergeFrom(
           other.internalGetLevel());
+      bitField0_ |= 0x00000001;
       if (other.hasSystem()) {
         mergeSystem(other.getSystem());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -563,17 +513,46 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.app.policy.Config parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.xray.app.policy.Policy>
+              level__ = input.readMessage(
+                  LevelDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLevel().getMutableMap().put(
+                  level__.getKey(), level__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getSystemFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.app.policy.Config) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -581,7 +560,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.Integer, com.xray.app.policy.Policy> level_;
     private com.google.protobuf.MapField<java.lang.Integer, com.xray.app.policy.Policy>
-    internalGetLevel() {
+        internalGetLevel() {
       if (level_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LevelDefaultEntryHolder.defaultEntry);
@@ -589,8 +568,7 @@ private static final long serialVersionUID = 0L;
       return level_;
     }
     private com.google.protobuf.MapField<java.lang.Integer, com.xray.app.policy.Policy>
-    internalGetMutableLevel() {
-      onChanged();;
+        internalGetMutableLevel() {
       if (level_ == null) {
         level_ = com.google.protobuf.MapField.newMapField(
             LevelDefaultEntryHolder.defaultEntry);
@@ -598,16 +576,17 @@ private static final long serialVersionUID = 0L;
       if (!level_.isMutable()) {
         level_ = level_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return level_;
     }
-
     public int getLevelCount() {
       return internalGetLevel().getMap().size();
     }
     /**
      * <code>map&lt;uint32, .xray.app.policy.Policy&gt; level = 1;</code>
      */
-
+    @java.lang.Override
     public boolean containsLevel(
         int key) {
       
@@ -616,6 +595,7 @@ private static final long serialVersionUID = 0L;
     /**
      * Use {@link #getLevelMap()} instead.
      */
+    @java.lang.Override
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, com.xray.app.policy.Policy> getLevel() {
       return getLevelMap();
@@ -623,17 +603,19 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;uint32, .xray.app.policy.Policy&gt; level = 1;</code>
      */
-
+    @java.lang.Override
     public java.util.Map<java.lang.Integer, com.xray.app.policy.Policy> getLevelMap() {
       return internalGetLevel().getMap();
     }
     /**
      * <code>map&lt;uint32, .xray.app.policy.Policy&gt; level = 1;</code>
      */
-
-    public com.xray.app.policy.Policy getLevelOrDefault(
+    @java.lang.Override
+    public /* nullable */
+com.xray.app.policy.Policy getLevelOrDefault(
         int key,
-        com.xray.app.policy.Policy defaultValue) {
+        /* nullable */
+com.xray.app.policy.Policy defaultValue) {
       
       java.util.Map<java.lang.Integer, com.xray.app.policy.Policy> map =
           internalGetLevel().getMap();
@@ -642,7 +624,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;uint32, .xray.app.policy.Policy&gt; level = 1;</code>
      */
-
+    @java.lang.Override
     public com.xray.app.policy.Policy getLevelOrThrow(
         int key) {
       
@@ -653,8 +635,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLevel() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableLevel().getMutableMap()
           .clear();
       return this;
@@ -662,7 +644,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>map&lt;uint32, .xray.app.policy.Policy&gt; level = 1;</code>
      */
-
     public Builder removeLevel(
         int key) {
       
@@ -675,7 +656,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, com.xray.app.policy.Policy>
-    getMutableLevel() {
+        getMutableLevel() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableLevel().getMutableMap();
     }
     /**
@@ -685,19 +667,20 @@ private static final long serialVersionUID = 0L;
         int key,
         com.xray.app.policy.Policy value) {
       
-      if (value == null) { throw new java.lang.NullPointerException(); }
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLevel().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
      * <code>map&lt;uint32, .xray.app.policy.Policy&gt; level = 1;</code>
      */
-
     public Builder putAllLevel(
         java.util.Map<java.lang.Integer, com.xray.app.policy.Policy> values) {
       internalGetMutableLevel().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
 
@@ -706,12 +689,14 @@ private static final long serialVersionUID = 0L;
         com.xray.app.policy.SystemPolicy, com.xray.app.policy.SystemPolicy.Builder, com.xray.app.policy.SystemPolicyOrBuilder> systemBuilder_;
     /**
      * <code>.xray.app.policy.SystemPolicy system = 2;</code>
+     * @return Whether the system field is set.
      */
     public boolean hasSystem() {
-      return systemBuilder_ != null || system_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>.xray.app.policy.SystemPolicy system = 2;</code>
+     * @return The system.
      */
     public com.xray.app.policy.SystemPolicy getSystem() {
       if (systemBuilder_ == null) {
@@ -729,11 +714,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         system_ = value;
-        onChanged();
       } else {
         systemBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -743,11 +728,11 @@ private static final long serialVersionUID = 0L;
         com.xray.app.policy.SystemPolicy.Builder builderForValue) {
       if (systemBuilder_ == null) {
         system_ = builderForValue.build();
-        onChanged();
       } else {
         systemBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -755,38 +740,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSystem(com.xray.app.policy.SystemPolicy value) {
       if (systemBuilder_ == null) {
-        if (system_ != null) {
-          system_ =
-            com.xray.app.policy.SystemPolicy.newBuilder(system_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          system_ != null &&
+          system_ != com.xray.app.policy.SystemPolicy.getDefaultInstance()) {
+          getSystemBuilder().mergeFrom(value);
         } else {
           system_ = value;
         }
-        onChanged();
       } else {
         systemBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.app.policy.SystemPolicy system = 2;</code>
      */
     public Builder clearSystem() {
-      if (systemBuilder_ == null) {
-        system_ = null;
-        onChanged();
-      } else {
-        system_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      system_ = null;
+      if (systemBuilder_ != null) {
+        systemBuilder_.dispose();
         systemBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.app.policy.SystemPolicy system = 2;</code>
      */
     public com.xray.app.policy.SystemPolicy.Builder getSystemBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getSystemFieldBuilder().getBuilder();
     }
@@ -850,7 +835,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Config(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

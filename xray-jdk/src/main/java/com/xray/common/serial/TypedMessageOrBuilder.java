@@ -13,6 +13,7 @@ public interface TypedMessageOrBuilder extends
    * </pre>
    *
    * <code>string type = 1;</code>
+   * @return The type.
    */
   java.lang.String getType();
   /**
@@ -21,6 +22,7 @@ public interface TypedMessageOrBuilder extends
    * </pre>
    *
    * <code>string type = 1;</code>
+   * @return The bytes for type.
    */
   com.google.protobuf.ByteString
       getTypeBytes();
@@ -31,6 +33,7 @@ public interface TypedMessageOrBuilder extends
    * </pre>
    *
    * <code>bytes value = 2;</code>
+   * @return The value.
    */
   com.google.protobuf.ByteString getValue();
 }

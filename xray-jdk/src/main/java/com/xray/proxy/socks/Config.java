@@ -53,27 +53,22 @@ public final class Config {
       "\022,\n\007address\030\003 \001(\0132\033.xray.common.net.IPOr" +
       "Domain\022\023\n\013udp_enabled\030\004 \001(\010\022\023\n\007timeout\030\005" +
       " \001(\rB\002\030\001\022\022\n\nuser_level\030\006 \001(\r\032/\n\rAccounts" +
-      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"D\n" +
+      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"p\n" +
       "\014ClientConfig\0224\n\006server\030\001 \003(\0132$.xray.com" +
-      "mon.protocol.ServerEndpoint*%\n\010AuthType\022" +
-      "\013\n\007NO_AUTH\020\000\022\014\n\010PASSWORD\020\001BR\n\024com.xray.p" +
-      "roxy.socksP\001Z%github.com/xtls/xray-core/" +
-      "proxy/socks\252\002\020Xray.Proxy.Socksb\006proto3"
+      "mon.protocol.ServerEndpoint\022*\n\007version\030\002" +
+      " \001(\0162\031.xray.proxy.socks.Version*%\n\010AuthT" +
+      "ype\022\013\n\007NO_AUTH\020\000\022\014\n\010PASSWORD\020\001*.\n\007Versio" +
+      "n\022\n\n\006SOCKS5\020\000\022\n\n\006SOCKS4\020\001\022\013\n\007SOCKS4A\020\002BR" +
+      "\n\024com.xray.proxy.socksP\001Z%github.com/xtl" +
+      "s/xray-core/proxy/socks\252\002\020Xray.Proxy.Soc" +
+      "ksb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.xray.common.net.Address.getDescriptor(),
           com.xray.common.protocol.ServerSpec.getDescriptor(),
-        }, assigner);
+        });
     internal_static_xray_proxy_socks_Account_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_xray_proxy_socks_Account_fieldAccessorTable = new
@@ -97,7 +92,7 @@ public final class Config {
     internal_static_xray_proxy_socks_ClientConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xray_proxy_socks_ClientConfig_descriptor,
-        new java.lang.String[] { "Server", });
+        new java.lang.String[] { "Server", "Version", });
     com.xray.common.net.Address.getDescriptor();
     com.xray.common.protocol.ServerSpec.getDescriptor();
   }

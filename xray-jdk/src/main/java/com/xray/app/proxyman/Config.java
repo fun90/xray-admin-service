@@ -87,52 +87,46 @@ public final class Config {
       "ocationStrategyConcurrency\022\r\n\005value\030\001 \001(" +
       "\r\032*\n\031AllocationStrategyRefresh\022\r\n\005value\030" +
       "\001 \001(\r\",\n\004Type\022\n\n\006Always\020\000\022\n\n\006Random\020\001\022\014\n" +
-      "\010External\020\002\"Y\n\016SniffingConfig\022\017\n\007enabled" +
-      "\030\001 \001(\010\022\034\n\024destination_override\030\002 \003(\t\022\030\n\020" +
-      "domains_excluded\030\003 \003(\t\"\233\003\n\016ReceiverConfi" +
-      "g\022.\n\nport_range\030\001 \001(\0132\032.xray.common.net." +
-      "PortRange\022+\n\006listen\030\002 \001(\0132\033.xray.common." +
-      "net.IPOrDomain\022B\n\023allocation_strategy\030\003 " +
-      "\001(\0132%.xray.app.proxyman.AllocationStrate" +
-      "gy\022>\n\017stream_settings\030\004 \001(\0132%.xray.trans" +
-      "port.internet.StreamConfig\022$\n\034receive_or" +
-      "iginal_destination\030\005 \001(\010\022>\n\017domain_overr" +
-      "ide\030\007 \003(\0162!.xray.app.proxyman.KnownProto" +
-      "colsB\002\030\001\022<\n\021sniffing_settings\030\010 \001(\0132!.xr" +
-      "ay.app.proxyman.SniffingConfigJ\004\010\006\020\007\"\232\001\n" +
-      "\024InboundHandlerConfig\022\013\n\003tag\030\001 \001(\t\022;\n\021re" +
-      "ceiver_settings\030\002 \001(\0132 .xray.common.seri" +
-      "al.TypedMessage\0228\n\016proxy_settings\030\003 \001(\0132" +
-      " .xray.common.serial.TypedMessage\"\020\n\016Out" +
-      "boundConfig\"\371\001\n\014SenderConfig\022(\n\003via\030\001 \001(" +
-      "\0132\033.xray.common.net.IPOrDomain\022>\n\017stream" +
-      "_settings\030\002 \001(\0132%.xray.transport.interne" +
-      "t.StreamConfig\022<\n\016proxy_settings\030\003 \001(\0132$" +
-      ".xray.transport.internet.ProxyConfig\022A\n\022" +
-      "multiplex_settings\030\004 \001(\0132%.xray.app.prox" +
-      "yman.MultiplexingConfig\":\n\022MultiplexingC" +
-      "onfig\022\017\n\007enabled\030\001 \001(\010\022\023\n\013concurrency\030\002 " +
-      "\001(\r*#\n\016KnownProtocols\022\010\n\004HTTP\020\000\022\007\n\003TLS\020\001" +
-      "BU\n\025com.xray.app.proxymanP\001Z&github.com/" +
-      "xtls/xray-core/app/proxyman\252\002\021Xray.App.P" +
-      "roxymanb\006proto3"
+      "\010External\020\002\"\204\001\n\016SniffingConfig\022\017\n\007enable" +
+      "d\030\001 \001(\010\022\034\n\024destination_override\030\002 \003(\t\022\030\n" +
+      "\020domains_excluded\030\003 \003(\t\022\025\n\rmetadata_only" +
+      "\030\004 \001(\010\022\022\n\nroute_only\030\005 \001(\010\"\231\003\n\016ReceiverC" +
+      "onfig\022,\n\tport_list\030\001 \001(\0132\031.xray.common.n" +
+      "et.PortList\022+\n\006listen\030\002 \001(\0132\033.xray.commo" +
+      "n.net.IPOrDomain\022B\n\023allocation_strategy\030" +
+      "\003 \001(\0132%.xray.app.proxyman.AllocationStra" +
+      "tegy\022>\n\017stream_settings\030\004 \001(\0132%.xray.tra" +
+      "nsport.internet.StreamConfig\022$\n\034receive_" +
+      "original_destination\030\005 \001(\010\022>\n\017domain_ove" +
+      "rride\030\007 \003(\0162!.xray.app.proxyman.KnownPro" +
+      "tocolsB\002\030\001\022<\n\021sniffing_settings\030\010 \001(\0132!." +
+      "xray.app.proxyman.SniffingConfigJ\004\010\006\020\007\"\232" +
+      "\001\n\024InboundHandlerConfig\022\013\n\003tag\030\001 \001(\t\022;\n\021" +
+      "receiver_settings\030\002 \001(\0132 .xray.common.se" +
+      "rial.TypedMessage\0228\n\016proxy_settings\030\003 \001(" +
+      "\0132 .xray.common.serial.TypedMessage\"\020\n\016O" +
+      "utboundConfig\"\371\001\n\014SenderConfig\022(\n\003via\030\001 " +
+      "\001(\0132\033.xray.common.net.IPOrDomain\022>\n\017stre" +
+      "am_settings\030\002 \001(\0132%.xray.transport.inter" +
+      "net.StreamConfig\022<\n\016proxy_settings\030\003 \001(\013" +
+      "2$.xray.transport.internet.ProxyConfig\022A" +
+      "\n\022multiplex_settings\030\004 \001(\0132%.xray.app.pr" +
+      "oxyman.MultiplexingConfig\"S\n\022Multiplexin" +
+      "gConfig\022\017\n\007enabled\030\001 \001(\010\022\023\n\013concurrency\030" +
+      "\002 \001(\005\022\027\n\017xudpConcurrency\030\003 \001(\005*#\n\016KnownP" +
+      "rotocols\022\010\n\004HTTP\020\000\022\007\n\003TLS\020\001BU\n\025com.xray." +
+      "app.proxymanP\001Z&github.com/xtls/xray-cor" +
+      "e/app/proxyman\252\002\021Xray.App.Proxymanb\006prot" +
+      "o3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.xray.common.net.Address.getDescriptor(),
           com.xray.common.net.Port.getDescriptor(),
           com.xray.transport.internet.Config.getDescriptor(),
           com.xray.common.serial.TypedMessageOuterClass.getDescriptor(),
-        }, assigner);
+        });
     internal_static_xray_app_proxyman_InboundConfig_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_xray_app_proxyman_InboundConfig_fieldAccessorTable = new
@@ -162,13 +156,13 @@ public final class Config {
     internal_static_xray_app_proxyman_SniffingConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xray_app_proxyman_SniffingConfig_descriptor,
-        new java.lang.String[] { "Enabled", "DestinationOverride", "DomainsExcluded", });
+        new java.lang.String[] { "Enabled", "DestinationOverride", "DomainsExcluded", "MetadataOnly", "RouteOnly", });
     internal_static_xray_app_proxyman_ReceiverConfig_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_xray_app_proxyman_ReceiverConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xray_app_proxyman_ReceiverConfig_descriptor,
-        new java.lang.String[] { "PortRange", "Listen", "AllocationStrategy", "StreamSettings", "ReceiveOriginalDestination", "DomainOverride", "SniffingSettings", });
+        new java.lang.String[] { "PortList", "Listen", "AllocationStrategy", "StreamSettings", "ReceiveOriginalDestination", "DomainOverride", "SniffingSettings", });
     internal_static_xray_app_proxyman_InboundHandlerConfig_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_xray_app_proxyman_InboundHandlerConfig_fieldAccessorTable = new
@@ -192,7 +186,7 @@ public final class Config {
     internal_static_xray_app_proxyman_MultiplexingConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xray_app_proxyman_MultiplexingConfig_descriptor,
-        new java.lang.String[] { "Enabled", "Concurrency", });
+        new java.lang.String[] { "Enabled", "Concurrency", "XudpConcurrency", });
     com.xray.common.net.Address.getDescriptor();
     com.xray.common.net.Port.getDescriptor();
     com.xray.transport.internet.Config.getDescriptor();

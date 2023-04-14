@@ -30,23 +30,25 @@ public interface ConfigOrBuilder extends
   /**
    * <code>map&lt;uint32, .xray.app.policy.Policy&gt; level = 1;</code>
    */
-
-  com.xray.app.policy.Policy getLevelOrDefault(
+  /* nullable */
+com.xray.app.policy.Policy getLevelOrDefault(
       int key,
-      com.xray.app.policy.Policy defaultValue);
+      /* nullable */
+com.xray.app.policy.Policy defaultValue);
   /**
    * <code>map&lt;uint32, .xray.app.policy.Policy&gt; level = 1;</code>
    */
-
   com.xray.app.policy.Policy getLevelOrThrow(
       int key);
 
   /**
    * <code>.xray.app.policy.SystemPolicy system = 2;</code>
+   * @return Whether the system field is set.
    */
   boolean hasSystem();
   /**
    * <code>.xray.app.policy.SystemPolicy system = 2;</code>
+   * @return The system.
    */
   com.xray.app.policy.SystemPolicy getSystem();
   /**

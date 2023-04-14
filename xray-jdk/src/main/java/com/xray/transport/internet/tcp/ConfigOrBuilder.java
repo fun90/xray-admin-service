@@ -9,10 +9,12 @@ public interface ConfigOrBuilder extends
 
   /**
    * <code>.xray.common.serial.TypedMessage header_settings = 2;</code>
+   * @return Whether the headerSettings field is set.
    */
   boolean hasHeaderSettings();
   /**
    * <code>.xray.common.serial.TypedMessage header_settings = 2;</code>
+   * @return The headerSettings.
    */
   com.xray.common.serial.TypedMessage getHeaderSettings();
   /**
@@ -22,6 +24,7 @@ public interface ConfigOrBuilder extends
 
   /**
    * <code>bool accept_proxy_protocol = 3;</code>
+   * @return The acceptProxyProtocol.
    */
   boolean getAcceptProxyProtocol();
 }

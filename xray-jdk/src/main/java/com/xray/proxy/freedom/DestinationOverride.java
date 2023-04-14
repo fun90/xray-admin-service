@@ -6,7 +6,7 @@ package com.xray.proxy.freedom;
 /**
  * Protobuf type {@code xray.proxy.freedom.DestinationOverride}
  */
-public  final class DestinationOverride extends
+public final class DestinationOverride extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.proxy.freedom.DestinationOverride)
     DestinationOverrideOrBuilder {
@@ -19,60 +19,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new DestinationOverride();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private DestinationOverride(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.xray.common.protocol.ServerEndpoint.Builder subBuilder = null;
-            if (server_ != null) {
-              subBuilder = server_.toBuilder();
-            }
-            server_ = input.readMessage(com.xray.common.protocol.ServerEndpoint.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(server_);
-              server_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -91,21 +47,26 @@ private static final long serialVersionUID = 0L;
   private com.xray.common.protocol.ServerEndpoint server_;
   /**
    * <code>.xray.common.protocol.ServerEndpoint server = 1;</code>
+   * @return Whether the server field is set.
    */
+  @java.lang.Override
   public boolean hasServer() {
     return server_ != null;
   }
   /**
    * <code>.xray.common.protocol.ServerEndpoint server = 1;</code>
+   * @return The server.
    */
+  @java.lang.Override
   public com.xray.common.protocol.ServerEndpoint getServer() {
     return server_ == null ? com.xray.common.protocol.ServerEndpoint.getDefaultInstance() : server_;
   }
   /**
    * <code>.xray.common.protocol.ServerEndpoint server = 1;</code>
    */
+  @java.lang.Override
   public com.xray.common.protocol.ServerEndpointOrBuilder getServerOrBuilder() {
-    return getServer();
+    return server_ == null ? com.xray.common.protocol.ServerEndpoint.getDefaultInstance() : server_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -125,7 +86,7 @@ private static final long serialVersionUID = 0L;
     if (server_ != null) {
       output.writeMessage(1, getServer());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -138,7 +99,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getServer());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -158,7 +119,7 @@ private static final long serialVersionUID = 0L;
       if (!getServer()
           .equals(other.getServer())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -173,7 +134,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SERVER_FIELD_NUMBER;
       hash = (53 * hash) + getServer().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -290,26 +251,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.proxy.freedom.DestinationOverride.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (serverBuilder_ == null) {
-        server_ = null;
-      } else {
-        server_ = null;
+      bitField0_ = 0;
+      server_ = null;
+      if (serverBuilder_ != null) {
+        serverBuilder_.dispose();
         serverBuilder_ = null;
       }
       return this;
@@ -338,13 +294,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.proxy.freedom.DestinationOverride buildPartial() {
       com.xray.proxy.freedom.DestinationOverride result = new com.xray.proxy.freedom.DestinationOverride(this);
-      if (serverBuilder_ == null) {
-        result.server_ = server_;
-      } else {
-        result.server_ = serverBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.proxy.freedom.DestinationOverride result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.server_ = serverBuilder_ == null
+            ? server_
+            : serverBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -394,7 +355,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasServer()) {
         mergeServer(other.getServer());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -409,31 +370,54 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.proxy.freedom.DestinationOverride parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getServerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.proxy.freedom.DestinationOverride) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.xray.common.protocol.ServerEndpoint server_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.xray.common.protocol.ServerEndpoint, com.xray.common.protocol.ServerEndpoint.Builder, com.xray.common.protocol.ServerEndpointOrBuilder> serverBuilder_;
     /**
      * <code>.xray.common.protocol.ServerEndpoint server = 1;</code>
+     * @return Whether the server field is set.
      */
     public boolean hasServer() {
-      return serverBuilder_ != null || server_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.xray.common.protocol.ServerEndpoint server = 1;</code>
+     * @return The server.
      */
     public com.xray.common.protocol.ServerEndpoint getServer() {
       if (serverBuilder_ == null) {
@@ -451,11 +435,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         server_ = value;
-        onChanged();
       } else {
         serverBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -465,11 +449,11 @@ private static final long serialVersionUID = 0L;
         com.xray.common.protocol.ServerEndpoint.Builder builderForValue) {
       if (serverBuilder_ == null) {
         server_ = builderForValue.build();
-        onChanged();
       } else {
         serverBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -477,38 +461,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeServer(com.xray.common.protocol.ServerEndpoint value) {
       if (serverBuilder_ == null) {
-        if (server_ != null) {
-          server_ =
-            com.xray.common.protocol.ServerEndpoint.newBuilder(server_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          server_ != null &&
+          server_ != com.xray.common.protocol.ServerEndpoint.getDefaultInstance()) {
+          getServerBuilder().mergeFrom(value);
         } else {
           server_ = value;
         }
-        onChanged();
       } else {
         serverBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.common.protocol.ServerEndpoint server = 1;</code>
      */
     public Builder clearServer() {
-      if (serverBuilder_ == null) {
-        server_ = null;
-        onChanged();
-      } else {
-        server_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      server_ = null;
+      if (serverBuilder_ != null) {
+        serverBuilder_.dispose();
         serverBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.common.protocol.ServerEndpoint server = 1;</code>
      */
     public com.xray.common.protocol.ServerEndpoint.Builder getServerBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getServerFieldBuilder().getBuilder();
     }
@@ -572,7 +556,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DestinationOverride(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

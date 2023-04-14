@@ -10,7 +10,7 @@ package com.xray.common.protocol;
  *
  * Protobuf type {@code xray.common.protocol.User}
  */
-public  final class User extends
+public final class User extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.common.protocol.User)
     UserOrBuilder {
@@ -24,71 +24,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new User();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private User(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            level_ = input.readUInt32();
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            email_ = s;
-            break;
-          }
-          case 26: {
-            com.xray.common.serial.TypedMessage.Builder subBuilder = null;
-            if (account_ != null) {
-              subBuilder = account_.toBuilder();
-            }
-            account_ = input.readMessage(com.xray.common.serial.TypedMessage.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(account_);
-              account_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -104,19 +49,24 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LEVEL_FIELD_NUMBER = 1;
-  private int level_;
+  private int level_ = 0;
   /**
    * <code>uint32 level = 1;</code>
+   * @return The level.
    */
+  @java.lang.Override
   public int getLevel() {
     return level_;
   }
 
   public static final int EMAIL_FIELD_NUMBER = 2;
-  private volatile java.lang.Object email_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object email_ = "";
   /**
    * <code>string email = 2;</code>
+   * @return The email.
    */
+  @java.lang.Override
   public java.lang.String getEmail() {
     java.lang.Object ref = email_;
     if (ref instanceof java.lang.String) {
@@ -131,7 +81,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string email = 2;</code>
+   * @return The bytes for email.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getEmailBytes() {
     java.lang.Object ref = email_;
@@ -155,7 +107,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.common.serial.TypedMessage account = 3;</code>
+   * @return Whether the account field is set.
    */
+  @java.lang.Override
   public boolean hasAccount() {
     return account_ != null;
   }
@@ -166,7 +120,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.common.serial.TypedMessage account = 3;</code>
+   * @return The account.
    */
+  @java.lang.Override
   public com.xray.common.serial.TypedMessage getAccount() {
     return account_ == null ? com.xray.common.serial.TypedMessage.getDefaultInstance() : account_;
   }
@@ -178,8 +134,9 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.xray.common.serial.TypedMessage account = 3;</code>
    */
+  @java.lang.Override
   public com.xray.common.serial.TypedMessageOrBuilder getAccountOrBuilder() {
-    return getAccount();
+    return account_ == null ? com.xray.common.serial.TypedMessage.getDefaultInstance() : account_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -199,13 +156,13 @@ private static final long serialVersionUID = 0L;
     if (level_ != 0) {
       output.writeUInt32(1, level_);
     }
-    if (!getEmailBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(email_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, email_);
     }
     if (account_ != null) {
       output.writeMessage(3, getAccount());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -218,14 +175,14 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(1, level_);
     }
-    if (!getEmailBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(email_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, email_);
     }
     if (account_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getAccount());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -249,7 +206,7 @@ private static final long serialVersionUID = 0L;
       if (!getAccount()
           .equals(other.getAccount())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -268,7 +225,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ACCOUNT_FIELD_NUMBER;
       hash = (53 * hash) + getAccount().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -389,30 +346,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.common.protocol.User.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       level_ = 0;
-
       email_ = "";
-
-      if (accountBuilder_ == null) {
-        account_ = null;
-      } else {
-        account_ = null;
+      account_ = null;
+      if (accountBuilder_ != null) {
+        accountBuilder_.dispose();
         accountBuilder_ = null;
       }
       return this;
@@ -441,15 +391,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.common.protocol.User buildPartial() {
       com.xray.common.protocol.User result = new com.xray.common.protocol.User(this);
-      result.level_ = level_;
-      result.email_ = email_;
-      if (accountBuilder_ == null) {
-        result.account_ = account_;
-      } else {
-        result.account_ = accountBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.common.protocol.User result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.level_ = level_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.email_ = email_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.account_ = accountBuilder_ == null
+            ? account_
+            : accountBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -501,12 +460,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getEmail().isEmpty()) {
         email_ = other.email_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasAccount()) {
         mergeAccount(other.getAccount());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -521,41 +481,78 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.common.protocol.User parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              level_ = input.readUInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              email_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getAccountFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.common.protocol.User) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int level_ ;
     /**
      * <code>uint32 level = 1;</code>
+     * @return The level.
      */
+    @java.lang.Override
     public int getLevel() {
       return level_;
     }
     /**
      * <code>uint32 level = 1;</code>
+     * @param value The level to set.
+     * @return This builder for chaining.
      */
     public Builder setLevel(int value) {
       
       level_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <code>uint32 level = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearLevel() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       level_ = 0;
       onChanged();
       return this;
@@ -564,6 +561,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object email_ = "";
     /**
      * <code>string email = 2;</code>
+     * @return The email.
      */
     public java.lang.String getEmail() {
       java.lang.Object ref = email_;
@@ -579,6 +577,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string email = 2;</code>
+     * @return The bytes for email.
      */
     public com.google.protobuf.ByteString
         getEmailBytes() {
@@ -595,37 +594,38 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string email = 2;</code>
+     * @param value The email to set.
+     * @return This builder for chaining.
      */
     public Builder setEmail(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       email_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <code>string email = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearEmail() {
-      
       email_ = getDefaultInstance().getEmail();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <code>string email = 2;</code>
+     * @param value The bytes for email to set.
+     * @return This builder for chaining.
      */
     public Builder setEmailBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       email_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -640,9 +640,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.common.serial.TypedMessage account = 3;</code>
+     * @return Whether the account field is set.
      */
     public boolean hasAccount() {
-      return accountBuilder_ != null || account_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -651,6 +652,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.common.serial.TypedMessage account = 3;</code>
+     * @return The account.
      */
     public com.xray.common.serial.TypedMessage getAccount() {
       if (accountBuilder_ == null) {
@@ -673,11 +675,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         account_ = value;
-        onChanged();
       } else {
         accountBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -692,11 +694,11 @@ private static final long serialVersionUID = 0L;
         com.xray.common.serial.TypedMessage.Builder builderForValue) {
       if (accountBuilder_ == null) {
         account_ = builderForValue.build();
-        onChanged();
       } else {
         accountBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -709,17 +711,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAccount(com.xray.common.serial.TypedMessage value) {
       if (accountBuilder_ == null) {
-        if (account_ != null) {
-          account_ =
-            com.xray.common.serial.TypedMessage.newBuilder(account_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          account_ != null &&
+          account_ != com.xray.common.serial.TypedMessage.getDefaultInstance()) {
+          getAccountBuilder().mergeFrom(value);
         } else {
           account_ = value;
         }
-        onChanged();
       } else {
         accountBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -731,14 +734,13 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.common.serial.TypedMessage account = 3;</code>
      */
     public Builder clearAccount() {
-      if (accountBuilder_ == null) {
-        account_ = null;
-        onChanged();
-      } else {
-        account_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      account_ = null;
+      if (accountBuilder_ != null) {
+        accountBuilder_.dispose();
         accountBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -750,7 +752,7 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.common.serial.TypedMessage account = 3;</code>
      */
     public com.xray.common.serial.TypedMessage.Builder getAccountBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getAccountFieldBuilder().getBuilder();
     }
@@ -824,7 +826,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new User(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

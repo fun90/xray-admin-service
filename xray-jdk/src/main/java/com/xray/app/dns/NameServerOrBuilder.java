@@ -9,16 +9,30 @@ public interface NameServerOrBuilder extends
 
   /**
    * <code>.xray.common.net.Endpoint address = 1;</code>
+   * @return Whether the address field is set.
    */
   boolean hasAddress();
   /**
    * <code>.xray.common.net.Endpoint address = 1;</code>
+   * @return The address.
    */
   com.xray.common.net.Endpoint getAddress();
   /**
    * <code>.xray.common.net.Endpoint address = 1;</code>
    */
   com.xray.common.net.EndpointOrBuilder getAddressOrBuilder();
+
+  /**
+   * <code>bytes client_ip = 5;</code>
+   * @return The clientIp.
+   */
+  com.google.protobuf.ByteString getClientIp();
+
+  /**
+   * <code>bool skipFallback = 6;</code>
+   * @return The skipFallback.
+   */
+  boolean getSkipFallback();
 
   /**
    * <code>repeated .xray.app.dns.NameServer.PriorityDomain prioritized_domain = 2;</code>

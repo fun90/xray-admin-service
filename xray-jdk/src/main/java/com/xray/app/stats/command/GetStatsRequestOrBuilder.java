@@ -13,6 +13,7 @@ public interface GetStatsRequestOrBuilder extends
    * </pre>
    *
    * <code>string name = 1;</code>
+   * @return The name.
    */
   java.lang.String getName();
   /**
@@ -21,6 +22,7 @@ public interface GetStatsRequestOrBuilder extends
    * </pre>
    *
    * <code>string name = 1;</code>
+   * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
@@ -31,6 +33,7 @@ public interface GetStatsRequestOrBuilder extends
    * </pre>
    *
    * <code>bool reset = 2;</code>
+   * @return The reset.
    */
   boolean getReset();
 }

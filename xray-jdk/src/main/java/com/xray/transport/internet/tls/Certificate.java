@@ -6,7 +6,7 @@ package com.xray.transport.internet.tls;
 /**
  * Protobuf type {@code xray.transport.internet.tls.Certificate}
  */
-public  final class Certificate extends
+public final class Certificate extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.transport.internet.tls.Certificate)
     CertificateOrBuilder {
@@ -19,71 +19,21 @@ private static final long serialVersionUID = 0L;
     certificate_ = com.google.protobuf.ByteString.EMPTY;
     key_ = com.google.protobuf.ByteString.EMPTY;
     usage_ = 0;
+    certificatePath_ = "";
+    keyPath_ = "";
+  }
+
+  @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new Certificate();
   }
 
   @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Certificate(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-
-            certificate_ = input.readBytes();
-            break;
-          }
-          case 18: {
-
-            key_ = input.readBytes();
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            usage_ = rawValue;
-            break;
-          }
-          case 32: {
-
-            ocspStapling_ = input.readInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -141,6 +91,8 @@ private static final long serialVersionUID = 0L;
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -148,6 +100,10 @@ private static final long serialVersionUID = 0L;
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static Usage forNumber(int value) {
       switch (value) {
         case 0: return ENCIPHERMENT;
@@ -171,6 +127,10 @@ private static final long serialVersionUID = 0L;
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -206,55 +166,171 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CERTIFICATE_FIELD_NUMBER = 1;
-  private com.google.protobuf.ByteString certificate_;
+  private com.google.protobuf.ByteString certificate_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * TLS certificate in x509 format.
    * </pre>
    *
    * <code>bytes certificate = 1;</code>
+   * @return The certificate.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString getCertificate() {
     return certificate_;
   }
 
   public static final int KEY_FIELD_NUMBER = 2;
-  private com.google.protobuf.ByteString key_;
+  private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * TLS key in x509 format.
    * </pre>
    *
    * <code>bytes key = 2;</code>
+   * @return The key.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString getKey() {
     return key_;
   }
 
   public static final int USAGE_FIELD_NUMBER = 3;
-  private int usage_;
+  private int usage_ = 0;
   /**
    * <code>.xray.transport.internet.tls.Certificate.Usage usage = 3;</code>
+   * @return The enum numeric value on the wire for usage.
    */
-  public int getUsageValue() {
+  @java.lang.Override public int getUsageValue() {
     return usage_;
   }
   /**
    * <code>.xray.transport.internet.tls.Certificate.Usage usage = 3;</code>
+   * @return The usage.
    */
-  public com.xray.transport.internet.tls.Certificate.Usage getUsage() {
-    @SuppressWarnings("deprecation")
-    com.xray.transport.internet.tls.Certificate.Usage result = com.xray.transport.internet.tls.Certificate.Usage.valueOf(usage_);
+  @java.lang.Override public com.xray.transport.internet.tls.Certificate.Usage getUsage() {
+    com.xray.transport.internet.tls.Certificate.Usage result = com.xray.transport.internet.tls.Certificate.Usage.forNumber(usage_);
     return result == null ? com.xray.transport.internet.tls.Certificate.Usage.UNRECOGNIZED : result;
   }
 
   public static final int OCSP_STAPLING_FIELD_NUMBER = 4;
-  private long ocspStapling_;
+  private long ocspStapling_ = 0L;
   /**
-   * <code>int64 ocsp_stapling = 4;</code>
+   * <code>uint64 ocsp_stapling = 4;</code>
+   * @return The ocspStapling.
    */
+  @java.lang.Override
   public long getOcspStapling() {
     return ocspStapling_;
+  }
+
+  public static final int CERTIFICATE_PATH_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object certificatePath_ = "";
+  /**
+   * <pre>
+   * TLS certificate path
+   * </pre>
+   *
+   * <code>string certificate_path = 5;</code>
+   * @return The certificatePath.
+   */
+  @java.lang.Override
+  public java.lang.String getCertificatePath() {
+    java.lang.Object ref = certificatePath_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      certificatePath_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * TLS certificate path
+   * </pre>
+   *
+   * <code>string certificate_path = 5;</code>
+   * @return The bytes for certificatePath.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getCertificatePathBytes() {
+    java.lang.Object ref = certificatePath_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      certificatePath_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int KEY_PATH_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object keyPath_ = "";
+  /**
+   * <pre>
+   * TLS Key path
+   * </pre>
+   *
+   * <code>string key_path = 6;</code>
+   * @return The keyPath.
+   */
+  @java.lang.Override
+  public java.lang.String getKeyPath() {
+    java.lang.Object ref = keyPath_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      keyPath_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * TLS Key path
+   * </pre>
+   *
+   * <code>string key_path = 6;</code>
+   * @return The bytes for keyPath.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getKeyPathBytes() {
+    java.lang.Object ref = keyPath_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      keyPath_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ONE_TIME_LOADING_FIELD_NUMBER = 7;
+  private boolean oneTimeLoading_ = false;
+  /**
+   * <pre>
+   * If true, one-Time Loading
+   * </pre>
+   *
+   * <code>bool One_time_loading = 7;</code>
+   * @return The oneTimeLoading.
+   */
+  @java.lang.Override
+  public boolean getOneTimeLoading() {
+    return oneTimeLoading_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -281,9 +357,18 @@ private static final long serialVersionUID = 0L;
       output.writeEnum(3, usage_);
     }
     if (ocspStapling_ != 0L) {
-      output.writeInt64(4, ocspStapling_);
+      output.writeUInt64(4, ocspStapling_);
     }
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(certificatePath_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, certificatePath_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyPath_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, keyPath_);
+    }
+    if (oneTimeLoading_ != false) {
+      output.writeBool(7, oneTimeLoading_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -306,9 +391,19 @@ private static final long serialVersionUID = 0L;
     }
     if (ocspStapling_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(4, ocspStapling_);
+        .computeUInt64Size(4, ocspStapling_);
     }
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(certificatePath_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, certificatePath_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyPath_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, keyPath_);
+    }
+    if (oneTimeLoading_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(7, oneTimeLoading_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -330,7 +425,13 @@ private static final long serialVersionUID = 0L;
     if (usage_ != other.usage_) return false;
     if (getOcspStapling()
         != other.getOcspStapling()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getCertificatePath()
+        .equals(other.getCertificatePath())) return false;
+    if (!getKeyPath()
+        .equals(other.getKeyPath())) return false;
+    if (getOneTimeLoading()
+        != other.getOneTimeLoading()) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -350,7 +451,14 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + OCSP_STAPLING_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getOcspStapling());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + CERTIFICATE_PATH_FIELD_NUMBER;
+    hash = (53 * hash) + getCertificatePath().hashCode();
+    hash = (37 * hash) + KEY_PATH_FIELD_NUMBER;
+    hash = (53 * hash) + getKeyPath().hashCode();
+    hash = (37 * hash) + ONE_TIME_LOADING_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getOneTimeLoading());
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -467,30 +575,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.transport.internet.tls.Certificate.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       certificate_ = com.google.protobuf.ByteString.EMPTY;
-
       key_ = com.google.protobuf.ByteString.EMPTY;
-
       usage_ = 0;
-
       ocspStapling_ = 0L;
-
+      certificatePath_ = "";
+      keyPath_ = "";
+      oneTimeLoading_ = false;
       return this;
     }
 
@@ -517,12 +620,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.transport.internet.tls.Certificate buildPartial() {
       com.xray.transport.internet.tls.Certificate result = new com.xray.transport.internet.tls.Certificate(this);
-      result.certificate_ = certificate_;
-      result.key_ = key_;
-      result.usage_ = usage_;
-      result.ocspStapling_ = ocspStapling_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.transport.internet.tls.Certificate result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.certificate_ = certificate_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.key_ = key_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.usage_ = usage_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.ocspStapling_ = ocspStapling_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.certificatePath_ = certificatePath_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.keyPath_ = keyPath_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.oneTimeLoading_ = oneTimeLoading_;
+      }
     }
 
     @java.lang.Override
@@ -581,7 +706,20 @@ private static final long serialVersionUID = 0L;
       if (other.getOcspStapling() != 0L) {
         setOcspStapling(other.getOcspStapling());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (!other.getCertificatePath().isEmpty()) {
+        certificatePath_ = other.certificatePath_;
+        bitField0_ |= 0x00000010;
+        onChanged();
+      }
+      if (!other.getKeyPath().isEmpty()) {
+        keyPath_ = other.keyPath_;
+        bitField0_ |= 0x00000020;
+        onChanged();
+      }
+      if (other.getOneTimeLoading() != false) {
+        setOneTimeLoading(other.getOneTimeLoading());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -596,19 +734,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.transport.internet.tls.Certificate parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              certificate_ = input.readBytes();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              key_ = input.readBytes();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              usage_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              ocspStapling_ = input.readUInt64();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              certificatePath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              keyPath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 56: {
+              oneTimeLoading_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.transport.internet.tls.Certificate) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.ByteString certificate_ = com.google.protobuf.ByteString.EMPTY;
     /**
@@ -617,7 +804,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bytes certificate = 1;</code>
+     * @return The certificate.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString getCertificate() {
       return certificate_;
     }
@@ -627,13 +816,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bytes certificate = 1;</code>
+     * @param value The certificate to set.
+     * @return This builder for chaining.
      */
     public Builder setCertificate(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       certificate_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -643,9 +832,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bytes certificate = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearCertificate() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       certificate_ = getDefaultInstance().getCertificate();
       onChanged();
       return this;
@@ -658,7 +848,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bytes key = 2;</code>
+     * @return The key.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString getKey() {
       return key_;
     }
@@ -668,13 +860,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bytes key = 2;</code>
+     * @param value The key to set.
+     * @return This builder for chaining.
      */
     public Builder setKey(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       key_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -684,9 +876,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bytes key = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearKey() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       key_ = getDefaultInstance().getKey();
       onChanged();
       return this;
@@ -695,43 +888,51 @@ private static final long serialVersionUID = 0L;
     private int usage_ = 0;
     /**
      * <code>.xray.transport.internet.tls.Certificate.Usage usage = 3;</code>
+     * @return The enum numeric value on the wire for usage.
      */
-    public int getUsageValue() {
+    @java.lang.Override public int getUsageValue() {
       return usage_;
     }
     /**
      * <code>.xray.transport.internet.tls.Certificate.Usage usage = 3;</code>
+     * @param value The enum numeric value on the wire for usage to set.
+     * @return This builder for chaining.
      */
     public Builder setUsageValue(int value) {
       usage_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.tls.Certificate.Usage usage = 3;</code>
+     * @return The usage.
      */
+    @java.lang.Override
     public com.xray.transport.internet.tls.Certificate.Usage getUsage() {
-      @SuppressWarnings("deprecation")
-      com.xray.transport.internet.tls.Certificate.Usage result = com.xray.transport.internet.tls.Certificate.Usage.valueOf(usage_);
+      com.xray.transport.internet.tls.Certificate.Usage result = com.xray.transport.internet.tls.Certificate.Usage.forNumber(usage_);
       return result == null ? com.xray.transport.internet.tls.Certificate.Usage.UNRECOGNIZED : result;
     }
     /**
      * <code>.xray.transport.internet.tls.Certificate.Usage usage = 3;</code>
+     * @param value The usage to set.
+     * @return This builder for chaining.
      */
     public Builder setUsage(com.xray.transport.internet.tls.Certificate.Usage value) {
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       usage_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.tls.Certificate.Usage usage = 3;</code>
+     * @return This builder for chaining.
      */
     public Builder clearUsage() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       usage_ = 0;
       onChanged();
       return this;
@@ -739,26 +940,260 @@ private static final long serialVersionUID = 0L;
 
     private long ocspStapling_ ;
     /**
-     * <code>int64 ocsp_stapling = 4;</code>
+     * <code>uint64 ocsp_stapling = 4;</code>
+     * @return The ocspStapling.
      */
+    @java.lang.Override
     public long getOcspStapling() {
       return ocspStapling_;
     }
     /**
-     * <code>int64 ocsp_stapling = 4;</code>
+     * <code>uint64 ocsp_stapling = 4;</code>
+     * @param value The ocspStapling to set.
+     * @return This builder for chaining.
      */
     public Builder setOcspStapling(long value) {
       
       ocspStapling_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 ocsp_stapling = 4;</code>
+     * <code>uint64 ocsp_stapling = 4;</code>
+     * @return This builder for chaining.
      */
     public Builder clearOcspStapling() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       ocspStapling_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object certificatePath_ = "";
+    /**
+     * <pre>
+     * TLS certificate path
+     * </pre>
+     *
+     * <code>string certificate_path = 5;</code>
+     * @return The certificatePath.
+     */
+    public java.lang.String getCertificatePath() {
+      java.lang.Object ref = certificatePath_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        certificatePath_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * TLS certificate path
+     * </pre>
+     *
+     * <code>string certificate_path = 5;</code>
+     * @return The bytes for certificatePath.
+     */
+    public com.google.protobuf.ByteString
+        getCertificatePathBytes() {
+      java.lang.Object ref = certificatePath_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        certificatePath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * TLS certificate path
+     * </pre>
+     *
+     * <code>string certificate_path = 5;</code>
+     * @param value The certificatePath to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCertificatePath(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      certificatePath_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * TLS certificate path
+     * </pre>
+     *
+     * <code>string certificate_path = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCertificatePath() {
+      certificatePath_ = getDefaultInstance().getCertificatePath();
+      bitField0_ = (bitField0_ & ~0x00000010);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * TLS certificate path
+     * </pre>
+     *
+     * <code>string certificate_path = 5;</code>
+     * @param value The bytes for certificatePath to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCertificatePathBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      certificatePath_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object keyPath_ = "";
+    /**
+     * <pre>
+     * TLS Key path
+     * </pre>
+     *
+     * <code>string key_path = 6;</code>
+     * @return The keyPath.
+     */
+    public java.lang.String getKeyPath() {
+      java.lang.Object ref = keyPath_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        keyPath_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * TLS Key path
+     * </pre>
+     *
+     * <code>string key_path = 6;</code>
+     * @return The bytes for keyPath.
+     */
+    public com.google.protobuf.ByteString
+        getKeyPathBytes() {
+      java.lang.Object ref = keyPath_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        keyPath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * TLS Key path
+     * </pre>
+     *
+     * <code>string key_path = 6;</code>
+     * @param value The keyPath to set.
+     * @return This builder for chaining.
+     */
+    public Builder setKeyPath(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      keyPath_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * TLS Key path
+     * </pre>
+     *
+     * <code>string key_path = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearKeyPath() {
+      keyPath_ = getDefaultInstance().getKeyPath();
+      bitField0_ = (bitField0_ & ~0x00000020);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * TLS Key path
+     * </pre>
+     *
+     * <code>string key_path = 6;</code>
+     * @param value The bytes for keyPath to set.
+     * @return This builder for chaining.
+     */
+    public Builder setKeyPathBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      keyPath_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+
+    private boolean oneTimeLoading_ ;
+    /**
+     * <pre>
+     * If true, one-Time Loading
+     * </pre>
+     *
+     * <code>bool One_time_loading = 7;</code>
+     * @return The oneTimeLoading.
+     */
+    @java.lang.Override
+    public boolean getOneTimeLoading() {
+      return oneTimeLoading_;
+    }
+    /**
+     * <pre>
+     * If true, one-Time Loading
+     * </pre>
+     *
+     * <code>bool One_time_loading = 7;</code>
+     * @param value The oneTimeLoading to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOneTimeLoading(boolean value) {
+      
+      oneTimeLoading_ = value;
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * If true, one-Time Loading
+     * </pre>
+     *
+     * <code>bool One_time_loading = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOneTimeLoading() {
+      bitField0_ = (bitField0_ & ~0x00000040);
+      oneTimeLoading_ = false;
       onChanged();
       return this;
     }
@@ -795,7 +1230,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Certificate(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

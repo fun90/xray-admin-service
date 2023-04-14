@@ -6,7 +6,7 @@ package com.xray.proxy.vmess;
 /**
  * Protobuf type {@code xray.proxy.vmess.Account}
  */
-public  final class Account extends
+public final class Account extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.proxy.vmess.Account)
     AccountOrBuilder {
@@ -21,77 +21,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new Account();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Account(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 16: {
-
-            alterId_ = input.readUInt32();
-            break;
-          }
-          case 26: {
-            com.xray.common.protocol.SecurityConfig.Builder subBuilder = null;
-            if (securitySettings_ != null) {
-              subBuilder = securitySettings_.toBuilder();
-            }
-            securitySettings_ = input.readMessage(com.xray.common.protocol.SecurityConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(securitySettings_);
-              securitySettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            testsEnabled_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -107,7 +46,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * ID of the account, in the form of a UUID, e.g.,
@@ -115,7 +55,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string id = 1;</code>
+   * @return The id.
    */
+  @java.lang.Override
   public java.lang.String getId() {
     java.lang.Object ref = id_;
     if (ref instanceof java.lang.String) {
@@ -135,7 +77,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string id = 1;</code>
+   * @return The bytes for id.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getIdBytes() {
     java.lang.Object ref = id_;
@@ -151,14 +95,16 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALTER_ID_FIELD_NUMBER = 2;
-  private int alterId_;
+  private int alterId_ = 0;
   /**
    * <pre>
    * Number of alternative IDs. Client and server must share the same number.
    * </pre>
    *
    * <code>uint32 alter_id = 2;</code>
+   * @return The alterId.
    */
+  @java.lang.Override
   public int getAlterId() {
     return alterId_;
   }
@@ -171,7 +117,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.common.protocol.SecurityConfig security_settings = 3;</code>
+   * @return Whether the securitySettings field is set.
    */
+  @java.lang.Override
   public boolean hasSecuritySettings() {
     return securitySettings_ != null;
   }
@@ -181,7 +129,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.common.protocol.SecurityConfig security_settings = 3;</code>
+   * @return The securitySettings.
    */
+  @java.lang.Override
   public com.xray.common.protocol.SecurityConfig getSecuritySettings() {
     return securitySettings_ == null ? com.xray.common.protocol.SecurityConfig.getDefaultInstance() : securitySettings_;
   }
@@ -192,19 +142,23 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.xray.common.protocol.SecurityConfig security_settings = 3;</code>
    */
+  @java.lang.Override
   public com.xray.common.protocol.SecurityConfigOrBuilder getSecuritySettingsOrBuilder() {
-    return getSecuritySettings();
+    return securitySettings_ == null ? com.xray.common.protocol.SecurityConfig.getDefaultInstance() : securitySettings_;
   }
 
   public static final int TESTS_ENABLED_FIELD_NUMBER = 4;
-  private volatile java.lang.Object testsEnabled_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object testsEnabled_ = "";
   /**
    * <pre>
    * Define tests enabled for this account
    * </pre>
    *
    * <code>string tests_enabled = 4;</code>
+   * @return The testsEnabled.
    */
+  @java.lang.Override
   public java.lang.String getTestsEnabled() {
     java.lang.Object ref = testsEnabled_;
     if (ref instanceof java.lang.String) {
@@ -223,7 +177,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string tests_enabled = 4;</code>
+   * @return The bytes for testsEnabled.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getTestsEnabledBytes() {
     java.lang.Object ref = testsEnabled_;
@@ -252,7 +208,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
     }
     if (alterId_ != 0) {
@@ -261,10 +217,10 @@ private static final long serialVersionUID = 0L;
     if (securitySettings_ != null) {
       output.writeMessage(3, getSecuritySettings());
     }
-    if (!getTestsEnabledBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(testsEnabled_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, testsEnabled_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -273,7 +229,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
     }
     if (alterId_ != 0) {
@@ -284,10 +240,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getSecuritySettings());
     }
-    if (!getTestsEnabledBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(testsEnabled_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, testsEnabled_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -313,7 +269,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getTestsEnabled()
         .equals(other.getTestsEnabled())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -334,7 +290,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + TESTS_ENABLED_FIELD_NUMBER;
     hash = (53 * hash) + getTestsEnabled().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -451,34 +407,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.proxy.vmess.Account.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       id_ = "";
-
       alterId_ = 0;
-
-      if (securitySettingsBuilder_ == null) {
-        securitySettings_ = null;
-      } else {
-        securitySettings_ = null;
+      securitySettings_ = null;
+      if (securitySettingsBuilder_ != null) {
+        securitySettingsBuilder_.dispose();
         securitySettingsBuilder_ = null;
       }
       testsEnabled_ = "";
-
       return this;
     }
 
@@ -505,16 +453,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.proxy.vmess.Account buildPartial() {
       com.xray.proxy.vmess.Account result = new com.xray.proxy.vmess.Account(this);
-      result.id_ = id_;
-      result.alterId_ = alterId_;
-      if (securitySettingsBuilder_ == null) {
-        result.securitySettings_ = securitySettings_;
-      } else {
-        result.securitySettings_ = securitySettingsBuilder_.build();
-      }
-      result.testsEnabled_ = testsEnabled_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.proxy.vmess.Account result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.id_ = id_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.alterId_ = alterId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.securitySettings_ = securitySettingsBuilder_ == null
+            ? securitySettings_
+            : securitySettingsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.testsEnabled_ = testsEnabled_;
+      }
     }
 
     @java.lang.Override
@@ -563,6 +522,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.xray.proxy.vmess.Account.getDefaultInstance()) return this;
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getAlterId() != 0) {
@@ -573,9 +533,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTestsEnabled().isEmpty()) {
         testsEnabled_ = other.testsEnabled_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -590,19 +551,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.proxy.vmess.Account parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              alterId_ = input.readUInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getSecuritySettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              testsEnabled_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.proxy.vmess.Account) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object id_ = "";
     /**
@@ -612,6 +609,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @return The id.
      */
     public java.lang.String getId() {
       java.lang.Object ref = id_;
@@ -632,6 +630,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @return The bytes for id.
      */
     public com.google.protobuf.ByteString
         getIdBytes() {
@@ -653,14 +652,14 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @param value The id to set.
+     * @return This builder for chaining.
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -671,10 +670,11 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearId() {
-      
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -685,15 +685,15 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string id = 1;</code>
+     * @param value The bytes for id to set.
+     * @return This builder for chaining.
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -705,7 +705,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>uint32 alter_id = 2;</code>
+     * @return The alterId.
      */
+    @java.lang.Override
     public int getAlterId() {
       return alterId_;
     }
@@ -715,10 +717,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>uint32 alter_id = 2;</code>
+     * @param value The alterId to set.
+     * @return This builder for chaining.
      */
     public Builder setAlterId(int value) {
       
       alterId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -728,9 +733,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>uint32 alter_id = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearAlterId() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       alterId_ = 0;
       onChanged();
       return this;
@@ -745,9 +751,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.common.protocol.SecurityConfig security_settings = 3;</code>
+     * @return Whether the securitySettings field is set.
      */
     public boolean hasSecuritySettings() {
-      return securitySettingsBuilder_ != null || securitySettings_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -755,6 +762,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.common.protocol.SecurityConfig security_settings = 3;</code>
+     * @return The securitySettings.
      */
     public com.xray.common.protocol.SecurityConfig getSecuritySettings() {
       if (securitySettingsBuilder_ == null) {
@@ -776,11 +784,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         securitySettings_ = value;
-        onChanged();
       } else {
         securitySettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -794,11 +802,11 @@ private static final long serialVersionUID = 0L;
         com.xray.common.protocol.SecurityConfig.Builder builderForValue) {
       if (securitySettingsBuilder_ == null) {
         securitySettings_ = builderForValue.build();
-        onChanged();
       } else {
         securitySettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -810,17 +818,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSecuritySettings(com.xray.common.protocol.SecurityConfig value) {
       if (securitySettingsBuilder_ == null) {
-        if (securitySettings_ != null) {
-          securitySettings_ =
-            com.xray.common.protocol.SecurityConfig.newBuilder(securitySettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          securitySettings_ != null &&
+          securitySettings_ != com.xray.common.protocol.SecurityConfig.getDefaultInstance()) {
+          getSecuritySettingsBuilder().mergeFrom(value);
         } else {
           securitySettings_ = value;
         }
-        onChanged();
       } else {
         securitySettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -831,14 +840,13 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.common.protocol.SecurityConfig security_settings = 3;</code>
      */
     public Builder clearSecuritySettings() {
-      if (securitySettingsBuilder_ == null) {
-        securitySettings_ = null;
-        onChanged();
-      } else {
-        securitySettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      securitySettings_ = null;
+      if (securitySettingsBuilder_ != null) {
+        securitySettingsBuilder_.dispose();
         securitySettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -849,7 +857,7 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.common.protocol.SecurityConfig security_settings = 3;</code>
      */
     public com.xray.common.protocol.SecurityConfig.Builder getSecuritySettingsBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getSecuritySettingsFieldBuilder().getBuilder();
     }
@@ -896,6 +904,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string tests_enabled = 4;</code>
+     * @return The testsEnabled.
      */
     public java.lang.String getTestsEnabled() {
       java.lang.Object ref = testsEnabled_;
@@ -915,6 +924,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string tests_enabled = 4;</code>
+     * @return The bytes for testsEnabled.
      */
     public com.google.protobuf.ByteString
         getTestsEnabledBytes() {
@@ -935,14 +945,14 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string tests_enabled = 4;</code>
+     * @param value The testsEnabled to set.
+     * @return This builder for chaining.
      */
     public Builder setTestsEnabled(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       testsEnabled_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -952,10 +962,11 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string tests_enabled = 4;</code>
+     * @return This builder for chaining.
      */
     public Builder clearTestsEnabled() {
-      
       testsEnabled_ = getDefaultInstance().getTestsEnabled();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -965,15 +976,15 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string tests_enabled = 4;</code>
+     * @param value The bytes for testsEnabled to set.
+     * @return This builder for chaining.
      */
     public Builder setTestsEnabledBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       testsEnabled_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1010,7 +1021,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Account(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

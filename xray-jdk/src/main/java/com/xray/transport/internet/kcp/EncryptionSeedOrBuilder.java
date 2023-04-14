@@ -9,10 +9,12 @@ public interface EncryptionSeedOrBuilder extends
 
   /**
    * <code>string seed = 1;</code>
+   * @return The seed.
    */
   java.lang.String getSeed();
   /**
    * <code>string seed = 1;</code>
+   * @return The bytes for seed.
    */
   com.google.protobuf.ByteString
       getSeedBytes();

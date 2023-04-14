@@ -32,6 +32,10 @@ public enum SecurityType
    * <code>NONE = 5;</code>
    */
   NONE(5),
+  /**
+   * <code>ZERO = 6;</code>
+   */
+  ZERO(6),
   UNRECOGNIZED(-1),
   ;
 
@@ -59,6 +63,10 @@ public enum SecurityType
    * <code>NONE = 5;</code>
    */
   public static final int NONE_VALUE = 5;
+  /**
+   * <code>ZERO = 6;</code>
+   */
+  public static final int ZERO_VALUE = 6;
 
 
   public final int getNumber() {
@@ -70,6 +78,8 @@ public enum SecurityType
   }
 
   /**
+   * @param value The numeric wire value of the corresponding enum entry.
+   * @return The enum associated with the given numeric wire value.
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
@@ -77,6 +87,10 @@ public enum SecurityType
     return forNumber(value);
   }
 
+  /**
+   * @param value The numeric wire value of the corresponding enum entry.
+   * @return The enum associated with the given numeric wire value.
+   */
   public static SecurityType forNumber(int value) {
     switch (value) {
       case 0: return UNKNOWN;
@@ -85,6 +99,7 @@ public enum SecurityType
       case 3: return AES128_GCM;
       case 4: return CHACHA20_POLY1305;
       case 5: return NONE;
+      case 6: return ZERO;
       default: return null;
     }
   }
@@ -103,6 +118,10 @@ public enum SecurityType
 
   public final com.google.protobuf.Descriptors.EnumValueDescriptor
       getValueDescriptor() {
+    if (this == UNRECOGNIZED) {
+      throw new java.lang.IllegalStateException(
+          "Can't get the descriptor of an unrecognized enum value.");
+    }
     return getDescriptor().getValues().get(ordinal());
   }
   public final com.google.protobuf.Descriptors.EnumDescriptor

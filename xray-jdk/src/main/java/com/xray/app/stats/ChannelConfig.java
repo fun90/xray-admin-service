@@ -6,7 +6,7 @@ package com.xray.app.stats;
 /**
  * Protobuf type {@code xray.app.stats.ChannelConfig}
  */
-public  final class ChannelConfig extends
+public final class ChannelConfig extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.app.stats.ChannelConfig)
     ChannelConfigOrBuilder {
@@ -19,62 +19,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new ChannelConfig();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private ChannelConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            blocking_ = input.readBool();
-            break;
-          }
-          case 16: {
-
-            subscriberLimit_ = input.readInt32();
-            break;
-          }
-          case 24: {
-
-            bufferSize_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -90,28 +44,34 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BLOCKING_FIELD_NUMBER = 1;
-  private boolean blocking_;
+  private boolean blocking_ = false;
   /**
    * <code>bool Blocking = 1;</code>
+   * @return The blocking.
    */
+  @java.lang.Override
   public boolean getBlocking() {
     return blocking_;
   }
 
   public static final int SUBSCRIBERLIMIT_FIELD_NUMBER = 2;
-  private int subscriberLimit_;
+  private int subscriberLimit_ = 0;
   /**
    * <code>int32 SubscriberLimit = 2;</code>
+   * @return The subscriberLimit.
    */
+  @java.lang.Override
   public int getSubscriberLimit() {
     return subscriberLimit_;
   }
 
   public static final int BUFFERSIZE_FIELD_NUMBER = 3;
-  private int bufferSize_;
+  private int bufferSize_ = 0;
   /**
    * <code>int32 BufferSize = 3;</code>
+   * @return The bufferSize.
    */
+  @java.lang.Override
   public int getBufferSize() {
     return bufferSize_;
   }
@@ -139,7 +99,7 @@ private static final long serialVersionUID = 0L;
     if (bufferSize_ != 0) {
       output.writeInt32(3, bufferSize_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -160,7 +120,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(3, bufferSize_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -181,7 +141,7 @@ private static final long serialVersionUID = 0L;
         != other.getSubscriberLimit()) return false;
     if (getBufferSize()
         != other.getBufferSize()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -199,7 +159,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getSubscriberLimit();
     hash = (37 * hash) + BUFFERSIZE_FIELD_NUMBER;
     hash = (53 * hash) + getBufferSize();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -316,28 +276,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.app.stats.ChannelConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       blocking_ = false;
-
       subscriberLimit_ = 0;
-
       bufferSize_ = 0;
-
       return this;
     }
 
@@ -364,11 +317,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.app.stats.ChannelConfig buildPartial() {
       com.xray.app.stats.ChannelConfig result = new com.xray.app.stats.ChannelConfig(this);
-      result.blocking_ = blocking_;
-      result.subscriberLimit_ = subscriberLimit_;
-      result.bufferSize_ = bufferSize_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.app.stats.ChannelConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.blocking_ = blocking_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.subscriberLimit_ = subscriberLimit_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.bufferSize_ = bufferSize_;
+      }
     }
 
     @java.lang.Override
@@ -424,7 +388,7 @@ private static final long serialVersionUID = 0L;
       if (other.getBufferSize() != 0) {
         setBufferSize(other.getBufferSize());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -439,41 +403,76 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.app.stats.ChannelConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              blocking_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              subscriberLimit_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              bufferSize_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.app.stats.ChannelConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean blocking_ ;
     /**
      * <code>bool Blocking = 1;</code>
+     * @return The blocking.
      */
+    @java.lang.Override
     public boolean getBlocking() {
       return blocking_;
     }
     /**
      * <code>bool Blocking = 1;</code>
+     * @param value The blocking to set.
+     * @return This builder for chaining.
      */
     public Builder setBlocking(boolean value) {
       
       blocking_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <code>bool Blocking = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearBlocking() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       blocking_ = false;
       onChanged();
       return this;
@@ -482,24 +481,30 @@ private static final long serialVersionUID = 0L;
     private int subscriberLimit_ ;
     /**
      * <code>int32 SubscriberLimit = 2;</code>
+     * @return The subscriberLimit.
      */
+    @java.lang.Override
     public int getSubscriberLimit() {
       return subscriberLimit_;
     }
     /**
      * <code>int32 SubscriberLimit = 2;</code>
+     * @param value The subscriberLimit to set.
+     * @return This builder for chaining.
      */
     public Builder setSubscriberLimit(int value) {
       
       subscriberLimit_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <code>int32 SubscriberLimit = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearSubscriberLimit() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       subscriberLimit_ = 0;
       onChanged();
       return this;
@@ -508,24 +513,30 @@ private static final long serialVersionUID = 0L;
     private int bufferSize_ ;
     /**
      * <code>int32 BufferSize = 3;</code>
+     * @return The bufferSize.
      */
+    @java.lang.Override
     public int getBufferSize() {
       return bufferSize_;
     }
     /**
      * <code>int32 BufferSize = 3;</code>
+     * @param value The bufferSize to set.
+     * @return This builder for chaining.
      */
     public Builder setBufferSize(int value) {
       
       bufferSize_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <code>int32 BufferSize = 3;</code>
+     * @return This builder for chaining.
      */
     public Builder clearBufferSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       bufferSize_ = 0;
       onChanged();
       return this;
@@ -563,7 +574,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ChannelConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

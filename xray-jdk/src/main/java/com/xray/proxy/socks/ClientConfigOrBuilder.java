@@ -50,4 +50,15 @@ public interface ClientConfigOrBuilder extends
    */
   com.xray.common.protocol.ServerEndpointOrBuilder getServerOrBuilder(
       int index);
+
+  /**
+   * <code>.xray.proxy.socks.Version version = 2;</code>
+   * @return The enum numeric value on the wire for version.
+   */
+  int getVersionValue();
+  /**
+   * <code>.xray.proxy.socks.Version version = 2;</code>
+   * @return The version.
+   */
+  com.xray.proxy.socks.Version getVersion();
 }

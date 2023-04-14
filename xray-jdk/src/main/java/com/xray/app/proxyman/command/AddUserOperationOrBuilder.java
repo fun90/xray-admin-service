@@ -9,10 +9,12 @@ public interface AddUserOperationOrBuilder extends
 
   /**
    * <code>.xray.common.protocol.User user = 1;</code>
+   * @return Whether the user field is set.
    */
   boolean hasUser();
   /**
    * <code>.xray.common.protocol.User user = 1;</code>
+   * @return The user.
    */
   com.xray.common.protocol.User getUser();
   /**

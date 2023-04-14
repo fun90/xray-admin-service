@@ -39,40 +39,32 @@ public final class ConfigOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\021core/config.proto\022\txray.core\032!common/s" +
-      "erial/typed_message.proto\032\026transport/con" +
-      "fig.proto\"\207\002\n\006Config\0220\n\007inbound\030\001 \003(\0132\037." +
-      "xray.core.InboundHandlerConfig\0222\n\010outbou" +
-      "nd\030\002 \003(\0132 .xray.core.OutboundHandlerConf" +
-      "ig\022-\n\003app\030\004 \003(\0132 .xray.common.serial.Typ" +
-      "edMessage\022-\n\ttransport\030\005 \001(\0132\026.xray.tran" +
-      "sport.ConfigB\002\030\001\0223\n\textension\030\006 \003(\0132 .xr" +
-      "ay.common.serial.TypedMessageJ\004\010\003\020\004\"\232\001\n\024" +
-      "InboundHandlerConfig\022\013\n\003tag\030\001 \001(\t\022;\n\021rec" +
-      "eiver_settings\030\002 \001(\0132 .xray.common.seria" +
-      "l.TypedMessage\0228\n\016proxy_settings\030\003 \001(\0132 " +
-      ".xray.common.serial.TypedMessage\"\272\001\n\025Out" +
-      "boundHandlerConfig\022\013\n\003tag\030\001 \001(\t\0229\n\017sende" +
-      "r_settings\030\002 \001(\0132 .xray.common.serial.Ty" +
-      "pedMessage\0228\n\016proxy_settings\030\003 \001(\0132 .xra" +
-      "y.common.serial.TypedMessage\022\016\n\006expire\030\004" +
-      " \001(\003\022\017\n\007comment\030\005 \001(\tB=\n\rcom.xray.coreP\001" +
-      "Z\036github.com/xtls/xray-core/core\252\002\tXray." +
-      "Coreb\006proto3"
+      "erial/typed_message.proto\032\035transport/glo" +
+      "bal/config.proto\"\207\002\n\006Config\0220\n\007inbound\030\001" +
+      " \003(\0132\037.xray.core.InboundHandlerConfig\0222\n" +
+      "\010outbound\030\002 \003(\0132 .xray.core.OutboundHand" +
+      "lerConfig\022-\n\003app\030\004 \003(\0132 .xray.common.ser" +
+      "ial.TypedMessage\022-\n\ttransport\030\005 \001(\0132\026.xr" +
+      "ay.transport.ConfigB\002\030\001\0223\n\textension\030\006 \003" +
+      "(\0132 .xray.common.serial.TypedMessageJ\004\010\003" +
+      "\020\004\"\232\001\n\024InboundHandlerConfig\022\013\n\003tag\030\001 \001(\t" +
+      "\022;\n\021receiver_settings\030\002 \001(\0132 .xray.commo" +
+      "n.serial.TypedMessage\0228\n\016proxy_settings\030" +
+      "\003 \001(\0132 .xray.common.serial.TypedMessage\"" +
+      "\272\001\n\025OutboundHandlerConfig\022\013\n\003tag\030\001 \001(\t\0229" +
+      "\n\017sender_settings\030\002 \001(\0132 .xray.common.se" +
+      "rial.TypedMessage\0228\n\016proxy_settings\030\003 \001(" +
+      "\0132 .xray.common.serial.TypedMessage\022\016\n\006e" +
+      "xpire\030\004 \001(\003\022\017\n\007comment\030\005 \001(\tB=\n\rcom.xray" +
+      ".coreP\001Z\036github.com/xtls/xray-core/core\252" +
+      "\002\tXray.Coreb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.xray.common.serial.TypedMessageOuterClass.getDescriptor(),
-          com.xray.transport.ConfigOuterClass.getDescriptor(),
-        }, assigner);
+          com.xray.transport.global.ConfigOuterClass.getDescriptor(),
+        });
     internal_static_xray_core_Config_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_xray_core_Config_fieldAccessorTable = new
@@ -92,7 +84,7 @@ public final class ConfigOuterClass {
         internal_static_xray_core_OutboundHandlerConfig_descriptor,
         new java.lang.String[] { "Tag", "SenderSettings", "ProxySettings", "Expire", "Comment", });
     com.xray.common.serial.TypedMessageOuterClass.getDescriptor();
-    com.xray.transport.ConfigOuterClass.getDescriptor();
+    com.xray.transport.global.ConfigOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

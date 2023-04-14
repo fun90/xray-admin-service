@@ -75,19 +75,11 @@ public final class Command {
       "om/xtls/xray-core/app/router/command\252\002\027X" +
       "ray.App.Router.Commandb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.xray.common.net.NetworkOuterClass.getDescriptor(),
-        }, assigner);
+        });
     internal_static_xray_app_router_command_RoutingContext_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_xray_app_router_command_RoutingContext_fieldAccessorTable = new

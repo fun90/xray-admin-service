@@ -6,7 +6,7 @@ package com.xray.app.proxyman;
 /**
  * Protobuf type {@code xray.app.proxyman.SenderConfig}
  */
-public  final class SenderConfig extends
+public final class SenderConfig extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.app.proxyman.SenderConfig)
     SenderConfigOrBuilder {
@@ -19,99 +19,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new SenderConfig();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private SenderConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.xray.common.net.IPOrDomain.Builder subBuilder = null;
-            if (via_ != null) {
-              subBuilder = via_.toBuilder();
-            }
-            via_ = input.readMessage(com.xray.common.net.IPOrDomain.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(via_);
-              via_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.xray.transport.internet.StreamConfig.Builder subBuilder = null;
-            if (streamSettings_ != null) {
-              subBuilder = streamSettings_.toBuilder();
-            }
-            streamSettings_ = input.readMessage(com.xray.transport.internet.StreamConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(streamSettings_);
-              streamSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.xray.transport.internet.ProxyConfig.Builder subBuilder = null;
-            if (proxySettings_ != null) {
-              subBuilder = proxySettings_.toBuilder();
-            }
-            proxySettings_ = input.readMessage(com.xray.transport.internet.ProxyConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(proxySettings_);
-              proxySettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.xray.app.proxyman.MultiplexingConfig.Builder subBuilder = null;
-            if (multiplexSettings_ != null) {
-              subBuilder = multiplexSettings_.toBuilder();
-            }
-            multiplexSettings_ = input.readMessage(com.xray.app.proxyman.MultiplexingConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(multiplexSettings_);
-              multiplexSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -134,7 +51,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.common.net.IPOrDomain via = 1;</code>
+   * @return Whether the via field is set.
    */
+  @java.lang.Override
   public boolean hasVia() {
     return via_ != null;
   }
@@ -144,7 +63,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.common.net.IPOrDomain via = 1;</code>
+   * @return The via.
    */
+  @java.lang.Override
   public com.xray.common.net.IPOrDomain getVia() {
     return via_ == null ? com.xray.common.net.IPOrDomain.getDefaultInstance() : via_;
   }
@@ -155,71 +76,87 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.xray.common.net.IPOrDomain via = 1;</code>
    */
+  @java.lang.Override
   public com.xray.common.net.IPOrDomainOrBuilder getViaOrBuilder() {
-    return getVia();
+    return via_ == null ? com.xray.common.net.IPOrDomain.getDefaultInstance() : via_;
   }
 
   public static final int STREAM_SETTINGS_FIELD_NUMBER = 2;
   private com.xray.transport.internet.StreamConfig streamSettings_;
   /**
    * <code>.xray.transport.internet.StreamConfig stream_settings = 2;</code>
+   * @return Whether the streamSettings field is set.
    */
+  @java.lang.Override
   public boolean hasStreamSettings() {
     return streamSettings_ != null;
   }
   /**
    * <code>.xray.transport.internet.StreamConfig stream_settings = 2;</code>
+   * @return The streamSettings.
    */
+  @java.lang.Override
   public com.xray.transport.internet.StreamConfig getStreamSettings() {
     return streamSettings_ == null ? com.xray.transport.internet.StreamConfig.getDefaultInstance() : streamSettings_;
   }
   /**
    * <code>.xray.transport.internet.StreamConfig stream_settings = 2;</code>
    */
+  @java.lang.Override
   public com.xray.transport.internet.StreamConfigOrBuilder getStreamSettingsOrBuilder() {
-    return getStreamSettings();
+    return streamSettings_ == null ? com.xray.transport.internet.StreamConfig.getDefaultInstance() : streamSettings_;
   }
 
   public static final int PROXY_SETTINGS_FIELD_NUMBER = 3;
   private com.xray.transport.internet.ProxyConfig proxySettings_;
   /**
    * <code>.xray.transport.internet.ProxyConfig proxy_settings = 3;</code>
+   * @return Whether the proxySettings field is set.
    */
+  @java.lang.Override
   public boolean hasProxySettings() {
     return proxySettings_ != null;
   }
   /**
    * <code>.xray.transport.internet.ProxyConfig proxy_settings = 3;</code>
+   * @return The proxySettings.
    */
+  @java.lang.Override
   public com.xray.transport.internet.ProxyConfig getProxySettings() {
     return proxySettings_ == null ? com.xray.transport.internet.ProxyConfig.getDefaultInstance() : proxySettings_;
   }
   /**
    * <code>.xray.transport.internet.ProxyConfig proxy_settings = 3;</code>
    */
+  @java.lang.Override
   public com.xray.transport.internet.ProxyConfigOrBuilder getProxySettingsOrBuilder() {
-    return getProxySettings();
+    return proxySettings_ == null ? com.xray.transport.internet.ProxyConfig.getDefaultInstance() : proxySettings_;
   }
 
   public static final int MULTIPLEX_SETTINGS_FIELD_NUMBER = 4;
   private com.xray.app.proxyman.MultiplexingConfig multiplexSettings_;
   /**
    * <code>.xray.app.proxyman.MultiplexingConfig multiplex_settings = 4;</code>
+   * @return Whether the multiplexSettings field is set.
    */
+  @java.lang.Override
   public boolean hasMultiplexSettings() {
     return multiplexSettings_ != null;
   }
   /**
    * <code>.xray.app.proxyman.MultiplexingConfig multiplex_settings = 4;</code>
+   * @return The multiplexSettings.
    */
+  @java.lang.Override
   public com.xray.app.proxyman.MultiplexingConfig getMultiplexSettings() {
     return multiplexSettings_ == null ? com.xray.app.proxyman.MultiplexingConfig.getDefaultInstance() : multiplexSettings_;
   }
   /**
    * <code>.xray.app.proxyman.MultiplexingConfig multiplex_settings = 4;</code>
    */
+  @java.lang.Override
   public com.xray.app.proxyman.MultiplexingConfigOrBuilder getMultiplexSettingsOrBuilder() {
-    return getMultiplexSettings();
+    return multiplexSettings_ == null ? com.xray.app.proxyman.MultiplexingConfig.getDefaultInstance() : multiplexSettings_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -248,7 +185,7 @@ private static final long serialVersionUID = 0L;
     if (multiplexSettings_ != null) {
       output.writeMessage(4, getMultiplexSettings());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -273,7 +210,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getMultiplexSettings());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -308,7 +245,7 @@ private static final long serialVersionUID = 0L;
       if (!getMultiplexSettings()
           .equals(other.getMultiplexSettings())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -335,7 +272,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MULTIPLEX_SETTINGS_FIELD_NUMBER;
       hash = (53 * hash) + getMultiplexSettings().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -452,44 +389,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.app.proxyman.SenderConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (viaBuilder_ == null) {
-        via_ = null;
-      } else {
-        via_ = null;
+      bitField0_ = 0;
+      via_ = null;
+      if (viaBuilder_ != null) {
+        viaBuilder_.dispose();
         viaBuilder_ = null;
       }
-      if (streamSettingsBuilder_ == null) {
-        streamSettings_ = null;
-      } else {
-        streamSettings_ = null;
+      streamSettings_ = null;
+      if (streamSettingsBuilder_ != null) {
+        streamSettingsBuilder_.dispose();
         streamSettingsBuilder_ = null;
       }
-      if (proxySettingsBuilder_ == null) {
-        proxySettings_ = null;
-      } else {
-        proxySettings_ = null;
+      proxySettings_ = null;
+      if (proxySettingsBuilder_ != null) {
+        proxySettingsBuilder_.dispose();
         proxySettingsBuilder_ = null;
       }
-      if (multiplexSettingsBuilder_ == null) {
-        multiplexSettings_ = null;
-      } else {
-        multiplexSettings_ = null;
+      multiplexSettings_ = null;
+      if (multiplexSettingsBuilder_ != null) {
+        multiplexSettingsBuilder_.dispose();
         multiplexSettingsBuilder_ = null;
       }
       return this;
@@ -518,28 +447,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.app.proxyman.SenderConfig buildPartial() {
       com.xray.app.proxyman.SenderConfig result = new com.xray.app.proxyman.SenderConfig(this);
-      if (viaBuilder_ == null) {
-        result.via_ = via_;
-      } else {
-        result.via_ = viaBuilder_.build();
-      }
-      if (streamSettingsBuilder_ == null) {
-        result.streamSettings_ = streamSettings_;
-      } else {
-        result.streamSettings_ = streamSettingsBuilder_.build();
-      }
-      if (proxySettingsBuilder_ == null) {
-        result.proxySettings_ = proxySettings_;
-      } else {
-        result.proxySettings_ = proxySettingsBuilder_.build();
-      }
-      if (multiplexSettingsBuilder_ == null) {
-        result.multiplexSettings_ = multiplexSettings_;
-      } else {
-        result.multiplexSettings_ = multiplexSettingsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.app.proxyman.SenderConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.via_ = viaBuilder_ == null
+            ? via_
+            : viaBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.streamSettings_ = streamSettingsBuilder_ == null
+            ? streamSettings_
+            : streamSettingsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.proxySettings_ = proxySettingsBuilder_ == null
+            ? proxySettings_
+            : proxySettingsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.multiplexSettings_ = multiplexSettingsBuilder_ == null
+            ? multiplexSettings_
+            : multiplexSettingsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -598,7 +532,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasMultiplexSettings()) {
         mergeMultiplexSettings(other.getMultiplexSettings());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -613,19 +547,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.app.proxyman.SenderConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getViaFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getStreamSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getProxySettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getMultiplexSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.app.proxyman.SenderConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.xray.common.net.IPOrDomain via_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -636,9 +612,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.common.net.IPOrDomain via = 1;</code>
+     * @return Whether the via field is set.
      */
     public boolean hasVia() {
-      return viaBuilder_ != null || via_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -646,6 +623,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.common.net.IPOrDomain via = 1;</code>
+     * @return The via.
      */
     public com.xray.common.net.IPOrDomain getVia() {
       if (viaBuilder_ == null) {
@@ -667,11 +645,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         via_ = value;
-        onChanged();
       } else {
         viaBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -685,11 +663,11 @@ private static final long serialVersionUID = 0L;
         com.xray.common.net.IPOrDomain.Builder builderForValue) {
       if (viaBuilder_ == null) {
         via_ = builderForValue.build();
-        onChanged();
       } else {
         viaBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -701,17 +679,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeVia(com.xray.common.net.IPOrDomain value) {
       if (viaBuilder_ == null) {
-        if (via_ != null) {
-          via_ =
-            com.xray.common.net.IPOrDomain.newBuilder(via_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          via_ != null &&
+          via_ != com.xray.common.net.IPOrDomain.getDefaultInstance()) {
+          getViaBuilder().mergeFrom(value);
         } else {
           via_ = value;
         }
-        onChanged();
       } else {
         viaBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -722,14 +701,13 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.common.net.IPOrDomain via = 1;</code>
      */
     public Builder clearVia() {
-      if (viaBuilder_ == null) {
-        via_ = null;
-        onChanged();
-      } else {
-        via_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      via_ = null;
+      if (viaBuilder_ != null) {
+        viaBuilder_.dispose();
         viaBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -740,7 +718,7 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.common.net.IPOrDomain via = 1;</code>
      */
     public com.xray.common.net.IPOrDomain.Builder getViaBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getViaFieldBuilder().getBuilder();
     }
@@ -785,12 +763,14 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.StreamConfig, com.xray.transport.internet.StreamConfig.Builder, com.xray.transport.internet.StreamConfigOrBuilder> streamSettingsBuilder_;
     /**
      * <code>.xray.transport.internet.StreamConfig stream_settings = 2;</code>
+     * @return Whether the streamSettings field is set.
      */
     public boolean hasStreamSettings() {
-      return streamSettingsBuilder_ != null || streamSettings_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>.xray.transport.internet.StreamConfig stream_settings = 2;</code>
+     * @return The streamSettings.
      */
     public com.xray.transport.internet.StreamConfig getStreamSettings() {
       if (streamSettingsBuilder_ == null) {
@@ -808,11 +788,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         streamSettings_ = value;
-        onChanged();
       } else {
         streamSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -822,11 +802,11 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.StreamConfig.Builder builderForValue) {
       if (streamSettingsBuilder_ == null) {
         streamSettings_ = builderForValue.build();
-        onChanged();
       } else {
         streamSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -834,38 +814,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStreamSettings(com.xray.transport.internet.StreamConfig value) {
       if (streamSettingsBuilder_ == null) {
-        if (streamSettings_ != null) {
-          streamSettings_ =
-            com.xray.transport.internet.StreamConfig.newBuilder(streamSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          streamSettings_ != null &&
+          streamSettings_ != com.xray.transport.internet.StreamConfig.getDefaultInstance()) {
+          getStreamSettingsBuilder().mergeFrom(value);
         } else {
           streamSettings_ = value;
         }
-        onChanged();
       } else {
         streamSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.StreamConfig stream_settings = 2;</code>
      */
     public Builder clearStreamSettings() {
-      if (streamSettingsBuilder_ == null) {
-        streamSettings_ = null;
-        onChanged();
-      } else {
-        streamSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      streamSettings_ = null;
+      if (streamSettingsBuilder_ != null) {
+        streamSettingsBuilder_.dispose();
         streamSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.StreamConfig stream_settings = 2;</code>
      */
     public com.xray.transport.internet.StreamConfig.Builder getStreamSettingsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getStreamSettingsFieldBuilder().getBuilder();
     }
@@ -902,12 +882,14 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.ProxyConfig, com.xray.transport.internet.ProxyConfig.Builder, com.xray.transport.internet.ProxyConfigOrBuilder> proxySettingsBuilder_;
     /**
      * <code>.xray.transport.internet.ProxyConfig proxy_settings = 3;</code>
+     * @return Whether the proxySettings field is set.
      */
     public boolean hasProxySettings() {
-      return proxySettingsBuilder_ != null || proxySettings_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <code>.xray.transport.internet.ProxyConfig proxy_settings = 3;</code>
+     * @return The proxySettings.
      */
     public com.xray.transport.internet.ProxyConfig getProxySettings() {
       if (proxySettingsBuilder_ == null) {
@@ -925,11 +907,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         proxySettings_ = value;
-        onChanged();
       } else {
         proxySettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -939,11 +921,11 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.ProxyConfig.Builder builderForValue) {
       if (proxySettingsBuilder_ == null) {
         proxySettings_ = builderForValue.build();
-        onChanged();
       } else {
         proxySettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -951,38 +933,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeProxySettings(com.xray.transport.internet.ProxyConfig value) {
       if (proxySettingsBuilder_ == null) {
-        if (proxySettings_ != null) {
-          proxySettings_ =
-            com.xray.transport.internet.ProxyConfig.newBuilder(proxySettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          proxySettings_ != null &&
+          proxySettings_ != com.xray.transport.internet.ProxyConfig.getDefaultInstance()) {
+          getProxySettingsBuilder().mergeFrom(value);
         } else {
           proxySettings_ = value;
         }
-        onChanged();
       } else {
         proxySettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.ProxyConfig proxy_settings = 3;</code>
      */
     public Builder clearProxySettings() {
-      if (proxySettingsBuilder_ == null) {
-        proxySettings_ = null;
-        onChanged();
-      } else {
-        proxySettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      proxySettings_ = null;
+      if (proxySettingsBuilder_ != null) {
+        proxySettingsBuilder_.dispose();
         proxySettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.ProxyConfig proxy_settings = 3;</code>
      */
     public com.xray.transport.internet.ProxyConfig.Builder getProxySettingsBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getProxySettingsFieldBuilder().getBuilder();
     }
@@ -1019,12 +1001,14 @@ private static final long serialVersionUID = 0L;
         com.xray.app.proxyman.MultiplexingConfig, com.xray.app.proxyman.MultiplexingConfig.Builder, com.xray.app.proxyman.MultiplexingConfigOrBuilder> multiplexSettingsBuilder_;
     /**
      * <code>.xray.app.proxyman.MultiplexingConfig multiplex_settings = 4;</code>
+     * @return Whether the multiplexSettings field is set.
      */
     public boolean hasMultiplexSettings() {
-      return multiplexSettingsBuilder_ != null || multiplexSettings_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <code>.xray.app.proxyman.MultiplexingConfig multiplex_settings = 4;</code>
+     * @return The multiplexSettings.
      */
     public com.xray.app.proxyman.MultiplexingConfig getMultiplexSettings() {
       if (multiplexSettingsBuilder_ == null) {
@@ -1042,11 +1026,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         multiplexSettings_ = value;
-        onChanged();
       } else {
         multiplexSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1056,11 +1040,11 @@ private static final long serialVersionUID = 0L;
         com.xray.app.proxyman.MultiplexingConfig.Builder builderForValue) {
       if (multiplexSettingsBuilder_ == null) {
         multiplexSettings_ = builderForValue.build();
-        onChanged();
       } else {
         multiplexSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1068,38 +1052,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMultiplexSettings(com.xray.app.proxyman.MultiplexingConfig value) {
       if (multiplexSettingsBuilder_ == null) {
-        if (multiplexSettings_ != null) {
-          multiplexSettings_ =
-            com.xray.app.proxyman.MultiplexingConfig.newBuilder(multiplexSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          multiplexSettings_ != null &&
+          multiplexSettings_ != com.xray.app.proxyman.MultiplexingConfig.getDefaultInstance()) {
+          getMultiplexSettingsBuilder().mergeFrom(value);
         } else {
           multiplexSettings_ = value;
         }
-        onChanged();
       } else {
         multiplexSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.app.proxyman.MultiplexingConfig multiplex_settings = 4;</code>
      */
     public Builder clearMultiplexSettings() {
-      if (multiplexSettingsBuilder_ == null) {
-        multiplexSettings_ = null;
-        onChanged();
-      } else {
-        multiplexSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      multiplexSettings_ = null;
+      if (multiplexSettingsBuilder_ != null) {
+        multiplexSettingsBuilder_.dispose();
         multiplexSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.app.proxyman.MultiplexingConfig multiplex_settings = 4;</code>
      */
     public com.xray.app.proxyman.MultiplexingConfig.Builder getMultiplexSettingsBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getMultiplexSettingsFieldBuilder().getBuilder();
     }
@@ -1163,7 +1147,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SenderConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

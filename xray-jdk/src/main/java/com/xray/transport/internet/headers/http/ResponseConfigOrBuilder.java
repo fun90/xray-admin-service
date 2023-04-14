@@ -9,10 +9,12 @@ public interface ResponseConfigOrBuilder extends
 
   /**
    * <code>.xray.transport.internet.headers.http.Version version = 1;</code>
+   * @return Whether the version field is set.
    */
   boolean hasVersion();
   /**
    * <code>.xray.transport.internet.headers.http.Version version = 1;</code>
+   * @return The version.
    */
   com.xray.transport.internet.headers.http.Version getVersion();
   /**
@@ -22,10 +24,12 @@ public interface ResponseConfigOrBuilder extends
 
   /**
    * <code>.xray.transport.internet.headers.http.Status status = 2;</code>
+   * @return Whether the status field is set.
    */
   boolean hasStatus();
   /**
    * <code>.xray.transport.internet.headers.http.Status status = 2;</code>
+   * @return The status.
    */
   com.xray.transport.internet.headers.http.Status getStatus();
   /**

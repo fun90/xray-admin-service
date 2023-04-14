@@ -6,7 +6,7 @@ package com.xray.app.policy;
 /**
  * Protobuf type {@code xray.app.policy.Policy}
  */
-public  final class Policy extends
+public final class Policy extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.app.policy.Policy)
     PolicyOrBuilder {
@@ -19,86 +19,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new Policy();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Policy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.xray.app.policy.Policy.Timeout.Builder subBuilder = null;
-            if (timeout_ != null) {
-              subBuilder = timeout_.toBuilder();
-            }
-            timeout_ = input.readMessage(com.xray.app.policy.Policy.Timeout.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(timeout_);
-              timeout_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.xray.app.policy.Policy.Stats.Builder subBuilder = null;
-            if (stats_ != null) {
-              subBuilder = stats_.toBuilder();
-            }
-            stats_ = input.readMessage(com.xray.app.policy.Policy.Stats.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(stats_);
-              stats_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.xray.app.policy.Policy.Buffer.Builder subBuilder = null;
-            if (buffer_ != null) {
-              subBuilder = buffer_.toBuilder();
-            }
-            buffer_ = input.readMessage(com.xray.app.policy.Policy.Buffer.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(buffer_);
-              buffer_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -119,10 +49,12 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <code>.xray.app.policy.Second handshake = 1;</code>
+     * @return Whether the handshake field is set.
      */
     boolean hasHandshake();
     /**
      * <code>.xray.app.policy.Second handshake = 1;</code>
+     * @return The handshake.
      */
     com.xray.app.policy.Second getHandshake();
     /**
@@ -132,10 +64,12 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <code>.xray.app.policy.Second connection_idle = 2;</code>
+     * @return Whether the connectionIdle field is set.
      */
     boolean hasConnectionIdle();
     /**
      * <code>.xray.app.policy.Second connection_idle = 2;</code>
+     * @return The connectionIdle.
      */
     com.xray.app.policy.Second getConnectionIdle();
     /**
@@ -145,10 +79,12 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <code>.xray.app.policy.Second uplink_only = 3;</code>
+     * @return Whether the uplinkOnly field is set.
      */
     boolean hasUplinkOnly();
     /**
      * <code>.xray.app.policy.Second uplink_only = 3;</code>
+     * @return The uplinkOnly.
      */
     com.xray.app.policy.Second getUplinkOnly();
     /**
@@ -158,10 +94,12 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <code>.xray.app.policy.Second downlink_only = 4;</code>
+     * @return Whether the downlinkOnly field is set.
      */
     boolean hasDownlinkOnly();
     /**
      * <code>.xray.app.policy.Second downlink_only = 4;</code>
+     * @return The downlinkOnly.
      */
     com.xray.app.policy.Second getDownlinkOnly();
     /**
@@ -176,7 +114,7 @@ private static final long serialVersionUID = 0L;
    *
    * Protobuf type {@code xray.app.policy.Policy.Timeout}
    */
-  public  static final class Timeout extends
+  public static final class Timeout extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:xray.app.policy.Policy.Timeout)
       TimeoutOrBuilder {
@@ -189,99 +127,16 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Timeout();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Timeout(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.xray.app.policy.Second.Builder subBuilder = null;
-              if (handshake_ != null) {
-                subBuilder = handshake_.toBuilder();
-              }
-              handshake_ = input.readMessage(com.xray.app.policy.Second.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(handshake_);
-                handshake_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.xray.app.policy.Second.Builder subBuilder = null;
-              if (connectionIdle_ != null) {
-                subBuilder = connectionIdle_.toBuilder();
-              }
-              connectionIdle_ = input.readMessage(com.xray.app.policy.Second.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(connectionIdle_);
-                connectionIdle_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              com.xray.app.policy.Second.Builder subBuilder = null;
-              if (uplinkOnly_ != null) {
-                subBuilder = uplinkOnly_.toBuilder();
-              }
-              uplinkOnly_ = input.readMessage(com.xray.app.policy.Second.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(uplinkOnly_);
-                uplinkOnly_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 34: {
-              com.xray.app.policy.Second.Builder subBuilder = null;
-              if (downlinkOnly_ != null) {
-                subBuilder = downlinkOnly_.toBuilder();
-              }
-              downlinkOnly_ = input.readMessage(com.xray.app.policy.Second.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(downlinkOnly_);
-                downlinkOnly_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -300,84 +155,104 @@ private static final long serialVersionUID = 0L;
     private com.xray.app.policy.Second handshake_;
     /**
      * <code>.xray.app.policy.Second handshake = 1;</code>
+     * @return Whether the handshake field is set.
      */
+    @java.lang.Override
     public boolean hasHandshake() {
       return handshake_ != null;
     }
     /**
      * <code>.xray.app.policy.Second handshake = 1;</code>
+     * @return The handshake.
      */
+    @java.lang.Override
     public com.xray.app.policy.Second getHandshake() {
       return handshake_ == null ? com.xray.app.policy.Second.getDefaultInstance() : handshake_;
     }
     /**
      * <code>.xray.app.policy.Second handshake = 1;</code>
      */
+    @java.lang.Override
     public com.xray.app.policy.SecondOrBuilder getHandshakeOrBuilder() {
-      return getHandshake();
+      return handshake_ == null ? com.xray.app.policy.Second.getDefaultInstance() : handshake_;
     }
 
     public static final int CONNECTION_IDLE_FIELD_NUMBER = 2;
     private com.xray.app.policy.Second connectionIdle_;
     /**
      * <code>.xray.app.policy.Second connection_idle = 2;</code>
+     * @return Whether the connectionIdle field is set.
      */
+    @java.lang.Override
     public boolean hasConnectionIdle() {
       return connectionIdle_ != null;
     }
     /**
      * <code>.xray.app.policy.Second connection_idle = 2;</code>
+     * @return The connectionIdle.
      */
+    @java.lang.Override
     public com.xray.app.policy.Second getConnectionIdle() {
       return connectionIdle_ == null ? com.xray.app.policy.Second.getDefaultInstance() : connectionIdle_;
     }
     /**
      * <code>.xray.app.policy.Second connection_idle = 2;</code>
      */
+    @java.lang.Override
     public com.xray.app.policy.SecondOrBuilder getConnectionIdleOrBuilder() {
-      return getConnectionIdle();
+      return connectionIdle_ == null ? com.xray.app.policy.Second.getDefaultInstance() : connectionIdle_;
     }
 
     public static final int UPLINK_ONLY_FIELD_NUMBER = 3;
     private com.xray.app.policy.Second uplinkOnly_;
     /**
      * <code>.xray.app.policy.Second uplink_only = 3;</code>
+     * @return Whether the uplinkOnly field is set.
      */
+    @java.lang.Override
     public boolean hasUplinkOnly() {
       return uplinkOnly_ != null;
     }
     /**
      * <code>.xray.app.policy.Second uplink_only = 3;</code>
+     * @return The uplinkOnly.
      */
+    @java.lang.Override
     public com.xray.app.policy.Second getUplinkOnly() {
       return uplinkOnly_ == null ? com.xray.app.policy.Second.getDefaultInstance() : uplinkOnly_;
     }
     /**
      * <code>.xray.app.policy.Second uplink_only = 3;</code>
      */
+    @java.lang.Override
     public com.xray.app.policy.SecondOrBuilder getUplinkOnlyOrBuilder() {
-      return getUplinkOnly();
+      return uplinkOnly_ == null ? com.xray.app.policy.Second.getDefaultInstance() : uplinkOnly_;
     }
 
     public static final int DOWNLINK_ONLY_FIELD_NUMBER = 4;
     private com.xray.app.policy.Second downlinkOnly_;
     /**
      * <code>.xray.app.policy.Second downlink_only = 4;</code>
+     * @return Whether the downlinkOnly field is set.
      */
+    @java.lang.Override
     public boolean hasDownlinkOnly() {
       return downlinkOnly_ != null;
     }
     /**
      * <code>.xray.app.policy.Second downlink_only = 4;</code>
+     * @return The downlinkOnly.
      */
+    @java.lang.Override
     public com.xray.app.policy.Second getDownlinkOnly() {
       return downlinkOnly_ == null ? com.xray.app.policy.Second.getDefaultInstance() : downlinkOnly_;
     }
     /**
      * <code>.xray.app.policy.Second downlink_only = 4;</code>
      */
+    @java.lang.Override
     public com.xray.app.policy.SecondOrBuilder getDownlinkOnlyOrBuilder() {
-      return getDownlinkOnly();
+      return downlinkOnly_ == null ? com.xray.app.policy.Second.getDefaultInstance() : downlinkOnly_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -406,7 +281,7 @@ private static final long serialVersionUID = 0L;
       if (downlinkOnly_ != null) {
         output.writeMessage(4, getDownlinkOnly());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -431,7 +306,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getDownlinkOnly());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -466,7 +341,7 @@ private static final long serialVersionUID = 0L;
         if (!getDownlinkOnly()
             .equals(other.getDownlinkOnly())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -493,7 +368,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + DOWNLINK_ONLY_FIELD_NUMBER;
         hash = (53 * hash) + getDownlinkOnly().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -614,44 +489,36 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.xray.app.policy.Policy.Timeout.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (handshakeBuilder_ == null) {
-          handshake_ = null;
-        } else {
-          handshake_ = null;
+        bitField0_ = 0;
+        handshake_ = null;
+        if (handshakeBuilder_ != null) {
+          handshakeBuilder_.dispose();
           handshakeBuilder_ = null;
         }
-        if (connectionIdleBuilder_ == null) {
-          connectionIdle_ = null;
-        } else {
-          connectionIdle_ = null;
+        connectionIdle_ = null;
+        if (connectionIdleBuilder_ != null) {
+          connectionIdleBuilder_.dispose();
           connectionIdleBuilder_ = null;
         }
-        if (uplinkOnlyBuilder_ == null) {
-          uplinkOnly_ = null;
-        } else {
-          uplinkOnly_ = null;
+        uplinkOnly_ = null;
+        if (uplinkOnlyBuilder_ != null) {
+          uplinkOnlyBuilder_.dispose();
           uplinkOnlyBuilder_ = null;
         }
-        if (downlinkOnlyBuilder_ == null) {
-          downlinkOnly_ = null;
-        } else {
-          downlinkOnly_ = null;
+        downlinkOnly_ = null;
+        if (downlinkOnlyBuilder_ != null) {
+          downlinkOnlyBuilder_.dispose();
           downlinkOnlyBuilder_ = null;
         }
         return this;
@@ -680,28 +547,33 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.xray.app.policy.Policy.Timeout buildPartial() {
         com.xray.app.policy.Policy.Timeout result = new com.xray.app.policy.Policy.Timeout(this);
-        if (handshakeBuilder_ == null) {
-          result.handshake_ = handshake_;
-        } else {
-          result.handshake_ = handshakeBuilder_.build();
-        }
-        if (connectionIdleBuilder_ == null) {
-          result.connectionIdle_ = connectionIdle_;
-        } else {
-          result.connectionIdle_ = connectionIdleBuilder_.build();
-        }
-        if (uplinkOnlyBuilder_ == null) {
-          result.uplinkOnly_ = uplinkOnly_;
-        } else {
-          result.uplinkOnly_ = uplinkOnlyBuilder_.build();
-        }
-        if (downlinkOnlyBuilder_ == null) {
-          result.downlinkOnly_ = downlinkOnly_;
-        } else {
-          result.downlinkOnly_ = downlinkOnlyBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.xray.app.policy.Policy.Timeout result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.handshake_ = handshakeBuilder_ == null
+              ? handshake_
+              : handshakeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.connectionIdle_ = connectionIdleBuilder_ == null
+              ? connectionIdle_
+              : connectionIdleBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.uplinkOnly_ = uplinkOnlyBuilder_ == null
+              ? uplinkOnly_
+              : uplinkOnlyBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.downlinkOnly_ = downlinkOnlyBuilder_ == null
+              ? downlinkOnly_
+              : downlinkOnlyBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -760,7 +632,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasDownlinkOnly()) {
           mergeDownlinkOnly(other.getDownlinkOnly());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -775,31 +647,75 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.xray.app.policy.Policy.Timeout parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getHandshakeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getConnectionIdleFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getUplinkOnlyFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getDownlinkOnlyFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.xray.app.policy.Policy.Timeout) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.xray.app.policy.Second handshake_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.xray.app.policy.Second, com.xray.app.policy.Second.Builder, com.xray.app.policy.SecondOrBuilder> handshakeBuilder_;
       /**
        * <code>.xray.app.policy.Second handshake = 1;</code>
+       * @return Whether the handshake field is set.
        */
       public boolean hasHandshake() {
-        return handshakeBuilder_ != null || handshake_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>.xray.app.policy.Second handshake = 1;</code>
+       * @return The handshake.
        */
       public com.xray.app.policy.Second getHandshake() {
         if (handshakeBuilder_ == null) {
@@ -817,11 +733,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           handshake_ = value;
-          onChanged();
         } else {
           handshakeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -831,11 +747,11 @@ private static final long serialVersionUID = 0L;
           com.xray.app.policy.Second.Builder builderForValue) {
         if (handshakeBuilder_ == null) {
           handshake_ = builderForValue.build();
-          onChanged();
         } else {
           handshakeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -843,38 +759,38 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeHandshake(com.xray.app.policy.Second value) {
         if (handshakeBuilder_ == null) {
-          if (handshake_ != null) {
-            handshake_ =
-              com.xray.app.policy.Second.newBuilder(handshake_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            handshake_ != null &&
+            handshake_ != com.xray.app.policy.Second.getDefaultInstance()) {
+            getHandshakeBuilder().mergeFrom(value);
           } else {
             handshake_ = value;
           }
-          onChanged();
         } else {
           handshakeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>.xray.app.policy.Second handshake = 1;</code>
        */
       public Builder clearHandshake() {
-        if (handshakeBuilder_ == null) {
-          handshake_ = null;
-          onChanged();
-        } else {
-          handshake_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        handshake_ = null;
+        if (handshakeBuilder_ != null) {
+          handshakeBuilder_.dispose();
           handshakeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.xray.app.policy.Second handshake = 1;</code>
        */
       public com.xray.app.policy.Second.Builder getHandshakeBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getHandshakeFieldBuilder().getBuilder();
       }
@@ -911,12 +827,14 @@ private static final long serialVersionUID = 0L;
           com.xray.app.policy.Second, com.xray.app.policy.Second.Builder, com.xray.app.policy.SecondOrBuilder> connectionIdleBuilder_;
       /**
        * <code>.xray.app.policy.Second connection_idle = 2;</code>
+       * @return Whether the connectionIdle field is set.
        */
       public boolean hasConnectionIdle() {
-        return connectionIdleBuilder_ != null || connectionIdle_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <code>.xray.app.policy.Second connection_idle = 2;</code>
+       * @return The connectionIdle.
        */
       public com.xray.app.policy.Second getConnectionIdle() {
         if (connectionIdleBuilder_ == null) {
@@ -934,11 +852,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           connectionIdle_ = value;
-          onChanged();
         } else {
           connectionIdleBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -948,11 +866,11 @@ private static final long serialVersionUID = 0L;
           com.xray.app.policy.Second.Builder builderForValue) {
         if (connectionIdleBuilder_ == null) {
           connectionIdle_ = builderForValue.build();
-          onChanged();
         } else {
           connectionIdleBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -960,38 +878,38 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeConnectionIdle(com.xray.app.policy.Second value) {
         if (connectionIdleBuilder_ == null) {
-          if (connectionIdle_ != null) {
-            connectionIdle_ =
-              com.xray.app.policy.Second.newBuilder(connectionIdle_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            connectionIdle_ != null &&
+            connectionIdle_ != com.xray.app.policy.Second.getDefaultInstance()) {
+            getConnectionIdleBuilder().mergeFrom(value);
           } else {
             connectionIdle_ = value;
           }
-          onChanged();
         } else {
           connectionIdleBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
        * <code>.xray.app.policy.Second connection_idle = 2;</code>
        */
       public Builder clearConnectionIdle() {
-        if (connectionIdleBuilder_ == null) {
-          connectionIdle_ = null;
-          onChanged();
-        } else {
-          connectionIdle_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        connectionIdle_ = null;
+        if (connectionIdleBuilder_ != null) {
+          connectionIdleBuilder_.dispose();
           connectionIdleBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.xray.app.policy.Second connection_idle = 2;</code>
        */
       public com.xray.app.policy.Second.Builder getConnectionIdleBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getConnectionIdleFieldBuilder().getBuilder();
       }
@@ -1028,12 +946,14 @@ private static final long serialVersionUID = 0L;
           com.xray.app.policy.Second, com.xray.app.policy.Second.Builder, com.xray.app.policy.SecondOrBuilder> uplinkOnlyBuilder_;
       /**
        * <code>.xray.app.policy.Second uplink_only = 3;</code>
+       * @return Whether the uplinkOnly field is set.
        */
       public boolean hasUplinkOnly() {
-        return uplinkOnlyBuilder_ != null || uplinkOnly_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <code>.xray.app.policy.Second uplink_only = 3;</code>
+       * @return The uplinkOnly.
        */
       public com.xray.app.policy.Second getUplinkOnly() {
         if (uplinkOnlyBuilder_ == null) {
@@ -1051,11 +971,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           uplinkOnly_ = value;
-          onChanged();
         } else {
           uplinkOnlyBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1065,11 +985,11 @@ private static final long serialVersionUID = 0L;
           com.xray.app.policy.Second.Builder builderForValue) {
         if (uplinkOnlyBuilder_ == null) {
           uplinkOnly_ = builderForValue.build();
-          onChanged();
         } else {
           uplinkOnlyBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1077,38 +997,38 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeUplinkOnly(com.xray.app.policy.Second value) {
         if (uplinkOnlyBuilder_ == null) {
-          if (uplinkOnly_ != null) {
-            uplinkOnly_ =
-              com.xray.app.policy.Second.newBuilder(uplinkOnly_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            uplinkOnly_ != null &&
+            uplinkOnly_ != com.xray.app.policy.Second.getDefaultInstance()) {
+            getUplinkOnlyBuilder().mergeFrom(value);
           } else {
             uplinkOnly_ = value;
           }
-          onChanged();
         } else {
           uplinkOnlyBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
        * <code>.xray.app.policy.Second uplink_only = 3;</code>
        */
       public Builder clearUplinkOnly() {
-        if (uplinkOnlyBuilder_ == null) {
-          uplinkOnly_ = null;
-          onChanged();
-        } else {
-          uplinkOnly_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        uplinkOnly_ = null;
+        if (uplinkOnlyBuilder_ != null) {
+          uplinkOnlyBuilder_.dispose();
           uplinkOnlyBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.xray.app.policy.Second uplink_only = 3;</code>
        */
       public com.xray.app.policy.Second.Builder getUplinkOnlyBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getUplinkOnlyFieldBuilder().getBuilder();
       }
@@ -1145,12 +1065,14 @@ private static final long serialVersionUID = 0L;
           com.xray.app.policy.Second, com.xray.app.policy.Second.Builder, com.xray.app.policy.SecondOrBuilder> downlinkOnlyBuilder_;
       /**
        * <code>.xray.app.policy.Second downlink_only = 4;</code>
+       * @return Whether the downlinkOnly field is set.
        */
       public boolean hasDownlinkOnly() {
-        return downlinkOnlyBuilder_ != null || downlinkOnly_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <code>.xray.app.policy.Second downlink_only = 4;</code>
+       * @return The downlinkOnly.
        */
       public com.xray.app.policy.Second getDownlinkOnly() {
         if (downlinkOnlyBuilder_ == null) {
@@ -1168,11 +1090,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           downlinkOnly_ = value;
-          onChanged();
         } else {
           downlinkOnlyBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -1182,11 +1104,11 @@ private static final long serialVersionUID = 0L;
           com.xray.app.policy.Second.Builder builderForValue) {
         if (downlinkOnlyBuilder_ == null) {
           downlinkOnly_ = builderForValue.build();
-          onChanged();
         } else {
           downlinkOnlyBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -1194,38 +1116,38 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeDownlinkOnly(com.xray.app.policy.Second value) {
         if (downlinkOnlyBuilder_ == null) {
-          if (downlinkOnly_ != null) {
-            downlinkOnly_ =
-              com.xray.app.policy.Second.newBuilder(downlinkOnly_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            downlinkOnly_ != null &&
+            downlinkOnly_ != com.xray.app.policy.Second.getDefaultInstance()) {
+            getDownlinkOnlyBuilder().mergeFrom(value);
           } else {
             downlinkOnly_ = value;
           }
-          onChanged();
         } else {
           downlinkOnlyBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
        * <code>.xray.app.policy.Second downlink_only = 4;</code>
        */
       public Builder clearDownlinkOnly() {
-        if (downlinkOnlyBuilder_ == null) {
-          downlinkOnly_ = null;
-          onChanged();
-        } else {
-          downlinkOnly_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        downlinkOnly_ = null;
+        if (downlinkOnlyBuilder_ != null) {
+          downlinkOnlyBuilder_.dispose();
           downlinkOnlyBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.xray.app.policy.Second downlink_only = 4;</code>
        */
       public com.xray.app.policy.Second.Builder getDownlinkOnlyBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getDownlinkOnlyFieldBuilder().getBuilder();
       }
@@ -1289,7 +1211,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Timeout(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1315,18 +1248,20 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <code>bool user_uplink = 1;</code>
+     * @return The userUplink.
      */
     boolean getUserUplink();
 
     /**
      * <code>bool user_downlink = 2;</code>
+     * @return The userDownlink.
      */
     boolean getUserDownlink();
   }
   /**
    * Protobuf type {@code xray.app.policy.Policy.Stats}
    */
-  public  static final class Stats extends
+  public static final class Stats extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:xray.app.policy.Policy.Stats)
       StatsOrBuilder {
@@ -1339,57 +1274,16 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Stats();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Stats(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              userUplink_ = input.readBool();
-              break;
-            }
-            case 16: {
-
-              userDownlink_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -1405,19 +1299,23 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int USER_UPLINK_FIELD_NUMBER = 1;
-    private boolean userUplink_;
+    private boolean userUplink_ = false;
     /**
      * <code>bool user_uplink = 1;</code>
+     * @return The userUplink.
      */
+    @java.lang.Override
     public boolean getUserUplink() {
       return userUplink_;
     }
 
     public static final int USER_DOWNLINK_FIELD_NUMBER = 2;
-    private boolean userDownlink_;
+    private boolean userDownlink_ = false;
     /**
      * <code>bool user_downlink = 2;</code>
+     * @return The userDownlink.
      */
+    @java.lang.Override
     public boolean getUserDownlink() {
       return userDownlink_;
     }
@@ -1442,7 +1340,7 @@ private static final long serialVersionUID = 0L;
       if (userDownlink_ != false) {
         output.writeBool(2, userDownlink_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1459,7 +1357,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, userDownlink_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1478,7 +1376,7 @@ private static final long serialVersionUID = 0L;
           != other.getUserUplink()) return false;
       if (getUserDownlink()
           != other.getUserDownlink()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1495,7 +1393,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + USER_DOWNLINK_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getUserDownlink());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1612,26 +1510,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.xray.app.policy.Policy.Stats.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         userUplink_ = false;
-
         userDownlink_ = false;
-
         return this;
       }
 
@@ -1658,10 +1550,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.xray.app.policy.Policy.Stats buildPartial() {
         com.xray.app.policy.Policy.Stats result = new com.xray.app.policy.Policy.Stats(this);
-        result.userUplink_ = userUplink_;
-        result.userDownlink_ = userDownlink_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.xray.app.policy.Policy.Stats result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.userUplink_ = userUplink_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.userDownlink_ = userDownlink_;
+        }
       }
 
       @java.lang.Override
@@ -1714,7 +1615,7 @@ private static final long serialVersionUID = 0L;
         if (other.getUserDownlink() != false) {
           setUserDownlink(other.getUserDownlink());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1729,41 +1630,71 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.xray.app.policy.Policy.Stats parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                userUplink_ = input.readBool();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                userDownlink_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.xray.app.policy.Policy.Stats) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private boolean userUplink_ ;
       /**
        * <code>bool user_uplink = 1;</code>
+       * @return The userUplink.
        */
+      @java.lang.Override
       public boolean getUserUplink() {
         return userUplink_;
       }
       /**
        * <code>bool user_uplink = 1;</code>
+       * @param value The userUplink to set.
+       * @return This builder for chaining.
        */
       public Builder setUserUplink(boolean value) {
         
         userUplink_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <code>bool user_uplink = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearUserUplink() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         userUplink_ = false;
         onChanged();
         return this;
@@ -1772,24 +1703,30 @@ private static final long serialVersionUID = 0L;
       private boolean userDownlink_ ;
       /**
        * <code>bool user_downlink = 2;</code>
+       * @return The userDownlink.
        */
+      @java.lang.Override
       public boolean getUserDownlink() {
         return userDownlink_;
       }
       /**
        * <code>bool user_downlink = 2;</code>
+       * @param value The userDownlink to set.
+       * @return This builder for chaining.
        */
       public Builder setUserDownlink(boolean value) {
         
         userDownlink_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
        * <code>bool user_downlink = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearUserDownlink() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         userDownlink_ = false;
         onChanged();
         return this;
@@ -1827,7 +1764,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Stats(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1857,13 +1805,14 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>int32 connection = 1;</code>
+     * @return The connection.
      */
     int getConnection();
   }
   /**
    * Protobuf type {@code xray.app.policy.Policy.Buffer}
    */
-  public  static final class Buffer extends
+  public static final class Buffer extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:xray.app.policy.Policy.Buffer)
       BufferOrBuilder {
@@ -1876,52 +1825,16 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Buffer();
+    }
+
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Buffer(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              connection_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -1937,14 +1850,16 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int CONNECTION_FIELD_NUMBER = 1;
-    private int connection_;
+    private int connection_ = 0;
     /**
      * <pre>
      * Buffer size per connection, in bytes. -1 for unlimited buffer.
      * </pre>
      *
      * <code>int32 connection = 1;</code>
+     * @return The connection.
      */
+    @java.lang.Override
     public int getConnection() {
       return connection_;
     }
@@ -1966,7 +1881,7 @@ private static final long serialVersionUID = 0L;
       if (connection_ != 0) {
         output.writeInt32(1, connection_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1979,7 +1894,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, connection_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1996,7 +1911,7 @@ private static final long serialVersionUID = 0L;
 
       if (getConnection()
           != other.getConnection()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2009,7 +1924,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + CONNECTION_FIELD_NUMBER;
       hash = (53 * hash) + getConnection();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2126,24 +2041,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.xray.app.policy.Policy.Buffer.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         connection_ = 0;
-
         return this;
       }
 
@@ -2170,9 +2080,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.xray.app.policy.Policy.Buffer buildPartial() {
         com.xray.app.policy.Policy.Buffer result = new com.xray.app.policy.Policy.Buffer(this);
-        result.connection_ = connection_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.xray.app.policy.Policy.Buffer result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.connection_ = connection_;
+        }
       }
 
       @java.lang.Override
@@ -2222,7 +2139,7 @@ private static final long serialVersionUID = 0L;
         if (other.getConnection() != 0) {
           setConnection(other.getConnection());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2237,19 +2154,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.xray.app.policy.Policy.Buffer parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                connection_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.xray.app.policy.Policy.Buffer) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int connection_ ;
       /**
@@ -2258,7 +2194,9 @@ private static final long serialVersionUID = 0L;
        * </pre>
        *
        * <code>int32 connection = 1;</code>
+       * @return The connection.
        */
+      @java.lang.Override
       public int getConnection() {
         return connection_;
       }
@@ -2268,10 +2206,13 @@ private static final long serialVersionUID = 0L;
        * </pre>
        *
        * <code>int32 connection = 1;</code>
+       * @param value The connection to set.
+       * @return This builder for chaining.
        */
       public Builder setConnection(int value) {
         
         connection_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2281,9 +2222,10 @@ private static final long serialVersionUID = 0L;
        * </pre>
        *
        * <code>int32 connection = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearConnection() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         connection_ = 0;
         onChanged();
         return this;
@@ -2321,7 +2263,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Buffer(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2345,63 +2298,78 @@ private static final long serialVersionUID = 0L;
   private com.xray.app.policy.Policy.Timeout timeout_;
   /**
    * <code>.xray.app.policy.Policy.Timeout timeout = 1;</code>
+   * @return Whether the timeout field is set.
    */
+  @java.lang.Override
   public boolean hasTimeout() {
     return timeout_ != null;
   }
   /**
    * <code>.xray.app.policy.Policy.Timeout timeout = 1;</code>
+   * @return The timeout.
    */
+  @java.lang.Override
   public com.xray.app.policy.Policy.Timeout getTimeout() {
     return timeout_ == null ? com.xray.app.policy.Policy.Timeout.getDefaultInstance() : timeout_;
   }
   /**
    * <code>.xray.app.policy.Policy.Timeout timeout = 1;</code>
    */
+  @java.lang.Override
   public com.xray.app.policy.Policy.TimeoutOrBuilder getTimeoutOrBuilder() {
-    return getTimeout();
+    return timeout_ == null ? com.xray.app.policy.Policy.Timeout.getDefaultInstance() : timeout_;
   }
 
   public static final int STATS_FIELD_NUMBER = 2;
   private com.xray.app.policy.Policy.Stats stats_;
   /**
    * <code>.xray.app.policy.Policy.Stats stats = 2;</code>
+   * @return Whether the stats field is set.
    */
+  @java.lang.Override
   public boolean hasStats() {
     return stats_ != null;
   }
   /**
    * <code>.xray.app.policy.Policy.Stats stats = 2;</code>
+   * @return The stats.
    */
+  @java.lang.Override
   public com.xray.app.policy.Policy.Stats getStats() {
     return stats_ == null ? com.xray.app.policy.Policy.Stats.getDefaultInstance() : stats_;
   }
   /**
    * <code>.xray.app.policy.Policy.Stats stats = 2;</code>
    */
+  @java.lang.Override
   public com.xray.app.policy.Policy.StatsOrBuilder getStatsOrBuilder() {
-    return getStats();
+    return stats_ == null ? com.xray.app.policy.Policy.Stats.getDefaultInstance() : stats_;
   }
 
   public static final int BUFFER_FIELD_NUMBER = 3;
   private com.xray.app.policy.Policy.Buffer buffer_;
   /**
    * <code>.xray.app.policy.Policy.Buffer buffer = 3;</code>
+   * @return Whether the buffer field is set.
    */
+  @java.lang.Override
   public boolean hasBuffer() {
     return buffer_ != null;
   }
   /**
    * <code>.xray.app.policy.Policy.Buffer buffer = 3;</code>
+   * @return The buffer.
    */
+  @java.lang.Override
   public com.xray.app.policy.Policy.Buffer getBuffer() {
     return buffer_ == null ? com.xray.app.policy.Policy.Buffer.getDefaultInstance() : buffer_;
   }
   /**
    * <code>.xray.app.policy.Policy.Buffer buffer = 3;</code>
    */
+  @java.lang.Override
   public com.xray.app.policy.Policy.BufferOrBuilder getBufferOrBuilder() {
-    return getBuffer();
+    return buffer_ == null ? com.xray.app.policy.Policy.Buffer.getDefaultInstance() : buffer_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -2427,7 +2395,7 @@ private static final long serialVersionUID = 0L;
     if (buffer_ != null) {
       output.writeMessage(3, getBuffer());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2448,7 +2416,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getBuffer());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2478,7 +2446,7 @@ private static final long serialVersionUID = 0L;
       if (!getBuffer()
           .equals(other.getBuffer())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2501,7 +2469,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BUFFER_FIELD_NUMBER;
       hash = (53 * hash) + getBuffer().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2618,38 +2586,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.app.policy.Policy.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (timeoutBuilder_ == null) {
-        timeout_ = null;
-      } else {
-        timeout_ = null;
+      bitField0_ = 0;
+      timeout_ = null;
+      if (timeoutBuilder_ != null) {
+        timeoutBuilder_.dispose();
         timeoutBuilder_ = null;
       }
-      if (statsBuilder_ == null) {
-        stats_ = null;
-      } else {
-        stats_ = null;
+      stats_ = null;
+      if (statsBuilder_ != null) {
+        statsBuilder_.dispose();
         statsBuilder_ = null;
       }
-      if (bufferBuilder_ == null) {
-        buffer_ = null;
-      } else {
-        buffer_ = null;
+      buffer_ = null;
+      if (bufferBuilder_ != null) {
+        bufferBuilder_.dispose();
         bufferBuilder_ = null;
       }
       return this;
@@ -2678,23 +2639,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.app.policy.Policy buildPartial() {
       com.xray.app.policy.Policy result = new com.xray.app.policy.Policy(this);
-      if (timeoutBuilder_ == null) {
-        result.timeout_ = timeout_;
-      } else {
-        result.timeout_ = timeoutBuilder_.build();
-      }
-      if (statsBuilder_ == null) {
-        result.stats_ = stats_;
-      } else {
-        result.stats_ = statsBuilder_.build();
-      }
-      if (bufferBuilder_ == null) {
-        result.buffer_ = buffer_;
-      } else {
-        result.buffer_ = bufferBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.app.policy.Policy result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.timeout_ = timeoutBuilder_ == null
+            ? timeout_
+            : timeoutBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.stats_ = statsBuilder_ == null
+            ? stats_
+            : statsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.buffer_ = bufferBuilder_ == null
+            ? buffer_
+            : bufferBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2750,7 +2716,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasBuffer()) {
         mergeBuffer(other.getBuffer());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2765,31 +2731,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.app.policy.Policy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getTimeoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getStatsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getBufferFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.app.policy.Policy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.xray.app.policy.Policy.Timeout timeout_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.xray.app.policy.Policy.Timeout, com.xray.app.policy.Policy.Timeout.Builder, com.xray.app.policy.Policy.TimeoutOrBuilder> timeoutBuilder_;
     /**
      * <code>.xray.app.policy.Policy.Timeout timeout = 1;</code>
+     * @return Whether the timeout field is set.
      */
     public boolean hasTimeout() {
-      return timeoutBuilder_ != null || timeout_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.xray.app.policy.Policy.Timeout timeout = 1;</code>
+     * @return The timeout.
      */
     public com.xray.app.policy.Policy.Timeout getTimeout() {
       if (timeoutBuilder_ == null) {
@@ -2807,11 +2810,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         timeout_ = value;
-        onChanged();
       } else {
         timeoutBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2821,11 +2824,11 @@ private static final long serialVersionUID = 0L;
         com.xray.app.policy.Policy.Timeout.Builder builderForValue) {
       if (timeoutBuilder_ == null) {
         timeout_ = builderForValue.build();
-        onChanged();
       } else {
         timeoutBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2833,38 +2836,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTimeout(com.xray.app.policy.Policy.Timeout value) {
       if (timeoutBuilder_ == null) {
-        if (timeout_ != null) {
-          timeout_ =
-            com.xray.app.policy.Policy.Timeout.newBuilder(timeout_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          timeout_ != null &&
+          timeout_ != com.xray.app.policy.Policy.Timeout.getDefaultInstance()) {
+          getTimeoutBuilder().mergeFrom(value);
         } else {
           timeout_ = value;
         }
-        onChanged();
       } else {
         timeoutBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.app.policy.Policy.Timeout timeout = 1;</code>
      */
     public Builder clearTimeout() {
-      if (timeoutBuilder_ == null) {
-        timeout_ = null;
-        onChanged();
-      } else {
-        timeout_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      timeout_ = null;
+      if (timeoutBuilder_ != null) {
+        timeoutBuilder_.dispose();
         timeoutBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.app.policy.Policy.Timeout timeout = 1;</code>
      */
     public com.xray.app.policy.Policy.Timeout.Builder getTimeoutBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getTimeoutFieldBuilder().getBuilder();
     }
@@ -2901,12 +2904,14 @@ private static final long serialVersionUID = 0L;
         com.xray.app.policy.Policy.Stats, com.xray.app.policy.Policy.Stats.Builder, com.xray.app.policy.Policy.StatsOrBuilder> statsBuilder_;
     /**
      * <code>.xray.app.policy.Policy.Stats stats = 2;</code>
+     * @return Whether the stats field is set.
      */
     public boolean hasStats() {
-      return statsBuilder_ != null || stats_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>.xray.app.policy.Policy.Stats stats = 2;</code>
+     * @return The stats.
      */
     public com.xray.app.policy.Policy.Stats getStats() {
       if (statsBuilder_ == null) {
@@ -2924,11 +2929,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         stats_ = value;
-        onChanged();
       } else {
         statsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2938,11 +2943,11 @@ private static final long serialVersionUID = 0L;
         com.xray.app.policy.Policy.Stats.Builder builderForValue) {
       if (statsBuilder_ == null) {
         stats_ = builderForValue.build();
-        onChanged();
       } else {
         statsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2950,38 +2955,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStats(com.xray.app.policy.Policy.Stats value) {
       if (statsBuilder_ == null) {
-        if (stats_ != null) {
-          stats_ =
-            com.xray.app.policy.Policy.Stats.newBuilder(stats_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          stats_ != null &&
+          stats_ != com.xray.app.policy.Policy.Stats.getDefaultInstance()) {
+          getStatsBuilder().mergeFrom(value);
         } else {
           stats_ = value;
         }
-        onChanged();
       } else {
         statsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.app.policy.Policy.Stats stats = 2;</code>
      */
     public Builder clearStats() {
-      if (statsBuilder_ == null) {
-        stats_ = null;
-        onChanged();
-      } else {
-        stats_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      stats_ = null;
+      if (statsBuilder_ != null) {
+        statsBuilder_.dispose();
         statsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.app.policy.Policy.Stats stats = 2;</code>
      */
     public com.xray.app.policy.Policy.Stats.Builder getStatsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getStatsFieldBuilder().getBuilder();
     }
@@ -3018,12 +3023,14 @@ private static final long serialVersionUID = 0L;
         com.xray.app.policy.Policy.Buffer, com.xray.app.policy.Policy.Buffer.Builder, com.xray.app.policy.Policy.BufferOrBuilder> bufferBuilder_;
     /**
      * <code>.xray.app.policy.Policy.Buffer buffer = 3;</code>
+     * @return Whether the buffer field is set.
      */
     public boolean hasBuffer() {
-      return bufferBuilder_ != null || buffer_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <code>.xray.app.policy.Policy.Buffer buffer = 3;</code>
+     * @return The buffer.
      */
     public com.xray.app.policy.Policy.Buffer getBuffer() {
       if (bufferBuilder_ == null) {
@@ -3041,11 +3048,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         buffer_ = value;
-        onChanged();
       } else {
         bufferBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -3055,11 +3062,11 @@ private static final long serialVersionUID = 0L;
         com.xray.app.policy.Policy.Buffer.Builder builderForValue) {
       if (bufferBuilder_ == null) {
         buffer_ = builderForValue.build();
-        onChanged();
       } else {
         bufferBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -3067,38 +3074,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeBuffer(com.xray.app.policy.Policy.Buffer value) {
       if (bufferBuilder_ == null) {
-        if (buffer_ != null) {
-          buffer_ =
-            com.xray.app.policy.Policy.Buffer.newBuilder(buffer_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          buffer_ != null &&
+          buffer_ != com.xray.app.policy.Policy.Buffer.getDefaultInstance()) {
+          getBufferBuilder().mergeFrom(value);
         } else {
           buffer_ = value;
         }
-        onChanged();
       } else {
         bufferBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.app.policy.Policy.Buffer buffer = 3;</code>
      */
     public Builder clearBuffer() {
-      if (bufferBuilder_ == null) {
-        buffer_ = null;
-        onChanged();
-      } else {
-        buffer_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      buffer_ = null;
+      if (bufferBuilder_ != null) {
+        bufferBuilder_.dispose();
         bufferBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.app.policy.Policy.Buffer buffer = 3;</code>
      */
     public com.xray.app.policy.Policy.Buffer.Builder getBufferBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getBufferFieldBuilder().getBuilder();
     }
@@ -3162,7 +3169,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Policy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

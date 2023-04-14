@@ -6,7 +6,7 @@ package com.xray.app.router;
 /**
  * Protobuf type {@code xray.app.router.RoutingRule}
  */
-public  final class RoutingRule extends
+public final class RoutingRule extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.app.router.RoutingRule)
     RoutingRuleOrBuilder {
@@ -26,242 +26,20 @@ private static final long serialVersionUID = 0L;
     inboundTag_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     protocol_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     attributes_ = "";
+    domainMatcher_ = "";
+  }
+
+  @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new RoutingRule();
   }
 
   @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private RoutingRule(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            targetTagCase_ = 1;
-            targetTag_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              domain_ = new java.util.ArrayList<com.xray.app.router.Domain>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            domain_.add(
-                input.readMessage(com.xray.app.router.Domain.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              cidr_ = new java.util.ArrayList<com.xray.app.router.CIDR>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            cidr_.add(
-                input.readMessage(com.xray.app.router.CIDR.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            com.xray.common.net.PortRange.Builder subBuilder = null;
-            if (portRange_ != null) {
-              subBuilder = portRange_.toBuilder();
-            }
-            portRange_ = input.readMessage(com.xray.common.net.PortRange.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(portRange_);
-              portRange_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.xray.common.net.NetworkList.Builder subBuilder = null;
-            if (networkList_ != null) {
-              subBuilder = networkList_.toBuilder();
-            }
-            networkList_ = input.readMessage(com.xray.common.net.NetworkList.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(networkList_);
-              networkList_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000200) != 0)) {
-              sourceCidr_ = new java.util.ArrayList<com.xray.app.router.CIDR>();
-              mutable_bitField0_ |= 0x00000200;
-            }
-            sourceCidr_.add(
-                input.readMessage(com.xray.app.router.CIDR.parser(), extensionRegistry));
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00001000) != 0)) {
-              userEmail_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00001000;
-            }
-            userEmail_.add(s);
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00002000) != 0)) {
-              inboundTag_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00002000;
-            }
-            inboundTag_.add(s);
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00004000) != 0)) {
-              protocol_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00004000;
-            }
-            protocol_.add(s);
-            break;
-          }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              geoip_ = new java.util.ArrayList<com.xray.app.router.GeoIP>();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            geoip_.add(
-                input.readMessage(com.xray.app.router.GeoIP.parser(), extensionRegistry));
-            break;
-          }
-          case 90: {
-            if (!((mutable_bitField0_ & 0x00000400) != 0)) {
-              sourceGeoip_ = new java.util.ArrayList<com.xray.app.router.GeoIP>();
-              mutable_bitField0_ |= 0x00000400;
-            }
-            sourceGeoip_.add(
-                input.readMessage(com.xray.app.router.GeoIP.parser(), extensionRegistry));
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-            targetTagCase_ = 12;
-            targetTag_ = s;
-            break;
-          }
-          case 104: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000100) != 0)) {
-              networks_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000100;
-            }
-            networks_.add(rawValue);
-            break;
-          }
-          case 106: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000100) != 0)) {
-                networks_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000100;
-              }
-              networks_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 114: {
-            com.xray.common.net.PortList.Builder subBuilder = null;
-            if (portList_ != null) {
-              subBuilder = portList_.toBuilder();
-            }
-            portList_ = input.readMessage(com.xray.common.net.PortList.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(portList_);
-              portList_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            attributes_ = s;
-            break;
-          }
-          case 130: {
-            com.xray.common.net.PortList.Builder subBuilder = null;
-            if (sourcePortList_ != null) {
-              subBuilder = sourcePortList_.toBuilder();
-            }
-            sourcePortList_ = input.readMessage(com.xray.common.net.PortList.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sourcePortList_);
-              sourcePortList_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        domain_ = java.util.Collections.unmodifiableList(domain_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        cidr_ = java.util.Collections.unmodifiableList(cidr_);
-      }
-      if (((mutable_bitField0_ & 0x00000200) != 0)) {
-        sourceCidr_ = java.util.Collections.unmodifiableList(sourceCidr_);
-      }
-      if (((mutable_bitField0_ & 0x00001000) != 0)) {
-        userEmail_ = userEmail_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00002000) != 0)) {
-        inboundTag_ = inboundTag_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00004000) != 0)) {
-        protocol_ = protocol_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        geoip_ = java.util.Collections.unmodifiableList(geoip_);
-      }
-      if (((mutable_bitField0_ & 0x00000400) != 0)) {
-        sourceGeoip_ = java.util.Collections.unmodifiableList(sourceGeoip_);
-      }
-      if (((mutable_bitField0_ & 0x00000100) != 0)) {
-        networks_ = java.util.Collections.unmodifiableList(networks_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -276,11 +54,11 @@ private static final long serialVersionUID = 0L;
             com.xray.app.router.RoutingRule.class, com.xray.app.router.RoutingRule.Builder.class);
   }
 
-  private int bitField0_;
   private int targetTagCase_ = 0;
   private java.lang.Object targetTag_;
   public enum TargetTagCase
-      implements com.google.protobuf.Internal.EnumLite {
+      implements com.google.protobuf.Internal.EnumLite,
+          com.google.protobuf.AbstractMessage.InternalOneOfEnum {
     TAG(1),
     BALANCING_TAG(12),
     TARGETTAG_NOT_SET(0);
@@ -289,6 +67,8 @@ private static final long serialVersionUID = 0L;
       this.value = value;
     }
     /**
+     * @param value The number of the enum to look for.
+     * @return The enum associated with the given number.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -322,6 +102,18 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string tag = 1;</code>
+   * @return Whether the tag field is set.
+   */
+  public boolean hasTag() {
+    return targetTagCase_ == 1;
+  }
+  /**
+   * <pre>
+   * Tag of outbound that this rule is pointing to.
+   * </pre>
+   *
+   * <code>string tag = 1;</code>
+   * @return The tag.
    */
   public java.lang.String getTag() {
     java.lang.Object ref = "";
@@ -346,6 +138,7 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string tag = 1;</code>
+   * @return The bytes for tag.
    */
   public com.google.protobuf.ByteString
       getTagBytes() {
@@ -373,6 +166,18 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string balancing_tag = 12;</code>
+   * @return Whether the balancingTag field is set.
+   */
+  public boolean hasBalancingTag() {
+    return targetTagCase_ == 12;
+  }
+  /**
+   * <pre>
+   * Tag of routing balancer.
+   * </pre>
+   *
+   * <code>string balancing_tag = 12;</code>
+   * @return The balancingTag.
    */
   public java.lang.String getBalancingTag() {
     java.lang.Object ref = "";
@@ -397,6 +202,7 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string balancing_tag = 12;</code>
+   * @return The bytes for balancingTag.
    */
   public com.google.protobuf.ByteString
       getBalancingTagBytes() {
@@ -418,6 +224,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DOMAIN_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.xray.app.router.Domain> domain_;
   /**
    * <pre>
@@ -426,6 +233,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.Domain domain = 2;</code>
    */
+  @java.lang.Override
   public java.util.List<com.xray.app.router.Domain> getDomainList() {
     return domain_;
   }
@@ -436,6 +244,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.Domain domain = 2;</code>
    */
+  @java.lang.Override
   public java.util.List<? extends com.xray.app.router.DomainOrBuilder> 
       getDomainOrBuilderList() {
     return domain_;
@@ -447,6 +256,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.Domain domain = 2;</code>
    */
+  @java.lang.Override
   public int getDomainCount() {
     return domain_.size();
   }
@@ -457,6 +267,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.Domain domain = 2;</code>
    */
+  @java.lang.Override
   public com.xray.app.router.Domain getDomain(int index) {
     return domain_.get(index);
   }
@@ -467,12 +278,14 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.Domain domain = 2;</code>
    */
+  @java.lang.Override
   public com.xray.app.router.DomainOrBuilder getDomainOrBuilder(
       int index) {
     return domain_.get(index);
   }
 
   public static final int CIDR_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.xray.app.router.CIDR> cidr_;
   /**
    * <pre>
@@ -482,6 +295,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.CIDR cidr = 3 [deprecated = true];</code>
    */
+  @java.lang.Override
   @java.lang.Deprecated public java.util.List<com.xray.app.router.CIDR> getCidrList() {
     return cidr_;
   }
@@ -493,6 +307,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.CIDR cidr = 3 [deprecated = true];</code>
    */
+  @java.lang.Override
   @java.lang.Deprecated public java.util.List<? extends com.xray.app.router.CIDROrBuilder> 
       getCidrOrBuilderList() {
     return cidr_;
@@ -505,6 +320,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.CIDR cidr = 3 [deprecated = true];</code>
    */
+  @java.lang.Override
   @java.lang.Deprecated public int getCidrCount() {
     return cidr_.size();
   }
@@ -516,6 +332,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.CIDR cidr = 3 [deprecated = true];</code>
    */
+  @java.lang.Override
   @java.lang.Deprecated public com.xray.app.router.CIDR getCidr(int index) {
     return cidr_.get(index);
   }
@@ -527,12 +344,14 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.CIDR cidr = 3 [deprecated = true];</code>
    */
+  @java.lang.Override
   @java.lang.Deprecated public com.xray.app.router.CIDROrBuilder getCidrOrBuilder(
       int index) {
     return cidr_.get(index);
   }
 
   public static final int GEOIP_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
   private java.util.List<com.xray.app.router.GeoIP> geoip_;
   /**
    * <pre>
@@ -544,6 +363,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.GeoIP geoip = 10;</code>
    */
+  @java.lang.Override
   public java.util.List<com.xray.app.router.GeoIP> getGeoipList() {
     return geoip_;
   }
@@ -557,6 +377,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.GeoIP geoip = 10;</code>
    */
+  @java.lang.Override
   public java.util.List<? extends com.xray.app.router.GeoIPOrBuilder> 
       getGeoipOrBuilderList() {
     return geoip_;
@@ -571,6 +392,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.GeoIP geoip = 10;</code>
    */
+  @java.lang.Override
   public int getGeoipCount() {
     return geoip_.size();
   }
@@ -584,6 +406,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.GeoIP geoip = 10;</code>
    */
+  @java.lang.Override
   public com.xray.app.router.GeoIP getGeoip(int index) {
     return geoip_.get(index);
   }
@@ -597,6 +420,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.GeoIP geoip = 10;</code>
    */
+  @java.lang.Override
   public com.xray.app.router.GeoIPOrBuilder getGeoipOrBuilder(
       int index) {
     return geoip_.get(index);
@@ -611,7 +435,11 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.common.net.PortRange port_range = 4 [deprecated = true];</code>
+   * @deprecated xray.app.router.RoutingRule.port_range is deprecated.
+   *     See app/router/config.proto;l=96
+   * @return Whether the portRange field is set.
    */
+  @java.lang.Override
   @java.lang.Deprecated public boolean hasPortRange() {
     return portRange_ != null;
   }
@@ -622,7 +450,11 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.common.net.PortRange port_range = 4 [deprecated = true];</code>
+   * @deprecated xray.app.router.RoutingRule.port_range is deprecated.
+   *     See app/router/config.proto;l=96
+   * @return The portRange.
    */
+  @java.lang.Override
   @java.lang.Deprecated public com.xray.common.net.PortRange getPortRange() {
     return portRange_ == null ? com.xray.common.net.PortRange.getDefaultInstance() : portRange_;
   }
@@ -634,8 +466,9 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.xray.common.net.PortRange port_range = 4 [deprecated = true];</code>
    */
+  @java.lang.Override
   @java.lang.Deprecated public com.xray.common.net.PortRangeOrBuilder getPortRangeOrBuilder() {
-    return getPortRange();
+    return portRange_ == null ? com.xray.common.net.PortRange.getDefaultInstance() : portRange_;
   }
 
   public static final int PORT_LIST_FIELD_NUMBER = 14;
@@ -646,7 +479,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.common.net.PortList port_list = 14;</code>
+   * @return Whether the portList field is set.
    */
+  @java.lang.Override
   public boolean hasPortList() {
     return portList_ != null;
   }
@@ -656,7 +491,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.common.net.PortList port_list = 14;</code>
+   * @return The portList.
    */
+  @java.lang.Override
   public com.xray.common.net.PortList getPortList() {
     return portList_ == null ? com.xray.common.net.PortList.getDefaultInstance() : portList_;
   }
@@ -667,8 +504,9 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.xray.common.net.PortList port_list = 14;</code>
    */
+  @java.lang.Override
   public com.xray.common.net.PortListOrBuilder getPortListOrBuilder() {
-    return getPortList();
+    return portList_ == null ? com.xray.common.net.PortList.getDefaultInstance() : portList_;
   }
 
   public static final int NETWORK_LIST_FIELD_NUMBER = 5;
@@ -679,7 +517,11 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.common.net.NetworkList network_list = 5 [deprecated = true];</code>
+   * @deprecated xray.app.router.RoutingRule.network_list is deprecated.
+   *     See app/router/config.proto;l=102
+   * @return Whether the networkList field is set.
    */
+  @java.lang.Override
   @java.lang.Deprecated public boolean hasNetworkList() {
     return networkList_ != null;
   }
@@ -689,7 +531,11 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.common.net.NetworkList network_list = 5 [deprecated = true];</code>
+   * @deprecated xray.app.router.RoutingRule.network_list is deprecated.
+   *     See app/router/config.proto;l=102
+   * @return The networkList.
    */
+  @java.lang.Override
   @java.lang.Deprecated public com.xray.common.net.NetworkList getNetworkList() {
     return networkList_ == null ? com.xray.common.net.NetworkList.getDefaultInstance() : networkList_;
   }
@@ -700,19 +546,20 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.xray.common.net.NetworkList network_list = 5 [deprecated = true];</code>
    */
+  @java.lang.Override
   @java.lang.Deprecated public com.xray.common.net.NetworkListOrBuilder getNetworkListOrBuilder() {
-    return getNetworkList();
+    return networkList_ == null ? com.xray.common.net.NetworkList.getDefaultInstance() : networkList_;
   }
 
   public static final int NETWORKS_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> networks_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.xray.common.net.Network> networks_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.xray.common.net.Network>() {
             public com.xray.common.net.Network convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.xray.common.net.Network result = com.xray.common.net.Network.valueOf(from);
+              com.xray.common.net.Network result = com.xray.common.net.Network.forNumber(from);
               return result == null ? com.xray.common.net.Network.UNRECOGNIZED : result;
             }
           };
@@ -722,7 +569,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>repeated .xray.common.net.Network networks = 13;</code>
+   * @return A list containing the networks.
    */
+  @java.lang.Override
   public java.util.List<com.xray.common.net.Network> getNetworksList() {
     return new com.google.protobuf.Internal.ListAdapter<
         java.lang.Integer, com.xray.common.net.Network>(networks_, networks_converter_);
@@ -733,7 +582,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>repeated .xray.common.net.Network networks = 13;</code>
+   * @return The count of networks.
    */
+  @java.lang.Override
   public int getNetworksCount() {
     return networks_.size();
   }
@@ -743,7 +594,10 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>repeated .xray.common.net.Network networks = 13;</code>
+   * @param index The index of the element to return.
+   * @return The networks at the given index.
    */
+  @java.lang.Override
   public com.xray.common.net.Network getNetworks(int index) {
     return networks_converter_.convert(networks_.get(index));
   }
@@ -753,7 +607,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>repeated .xray.common.net.Network networks = 13;</code>
+   * @return A list containing the enum numeric values on the wire for networks.
    */
+  @java.lang.Override
   public java.util.List<java.lang.Integer>
   getNetworksValueList() {
     return networks_;
@@ -764,13 +620,17 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>repeated .xray.common.net.Network networks = 13;</code>
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of networks at the given index.
    */
+  @java.lang.Override
   public int getNetworksValue(int index) {
     return networks_.get(index);
   }
   private int networksMemoizedSerializedSize;
 
   public static final int SOURCE_CIDR_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<com.xray.app.router.CIDR> sourceCidr_;
   /**
    * <pre>
@@ -779,6 +639,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.CIDR source_cidr = 6 [deprecated = true];</code>
    */
+  @java.lang.Override
   @java.lang.Deprecated public java.util.List<com.xray.app.router.CIDR> getSourceCidrList() {
     return sourceCidr_;
   }
@@ -789,6 +650,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.CIDR source_cidr = 6 [deprecated = true];</code>
    */
+  @java.lang.Override
   @java.lang.Deprecated public java.util.List<? extends com.xray.app.router.CIDROrBuilder> 
       getSourceCidrOrBuilderList() {
     return sourceCidr_;
@@ -800,6 +662,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.CIDR source_cidr = 6 [deprecated = true];</code>
    */
+  @java.lang.Override
   @java.lang.Deprecated public int getSourceCidrCount() {
     return sourceCidr_.size();
   }
@@ -810,6 +673,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.CIDR source_cidr = 6 [deprecated = true];</code>
    */
+  @java.lang.Override
   @java.lang.Deprecated public com.xray.app.router.CIDR getSourceCidr(int index) {
     return sourceCidr_.get(index);
   }
@@ -820,12 +684,14 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.CIDR source_cidr = 6 [deprecated = true];</code>
    */
+  @java.lang.Override
   @java.lang.Deprecated public com.xray.app.router.CIDROrBuilder getSourceCidrOrBuilder(
       int index) {
     return sourceCidr_.get(index);
   }
 
   public static final int SOURCE_GEOIP_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
   private java.util.List<com.xray.app.router.GeoIP> sourceGeoip_;
   /**
    * <pre>
@@ -835,6 +701,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.GeoIP source_geoip = 11;</code>
    */
+  @java.lang.Override
   public java.util.List<com.xray.app.router.GeoIP> getSourceGeoipList() {
     return sourceGeoip_;
   }
@@ -846,6 +713,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.GeoIP source_geoip = 11;</code>
    */
+  @java.lang.Override
   public java.util.List<? extends com.xray.app.router.GeoIPOrBuilder> 
       getSourceGeoipOrBuilderList() {
     return sourceGeoip_;
@@ -858,6 +726,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.GeoIP source_geoip = 11;</code>
    */
+  @java.lang.Override
   public int getSourceGeoipCount() {
     return sourceGeoip_.size();
   }
@@ -869,6 +738,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.GeoIP source_geoip = 11;</code>
    */
+  @java.lang.Override
   public com.xray.app.router.GeoIP getSourceGeoip(int index) {
     return sourceGeoip_.get(index);
   }
@@ -880,6 +750,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.app.router.GeoIP source_geoip = 11;</code>
    */
+  @java.lang.Override
   public com.xray.app.router.GeoIPOrBuilder getSourceGeoipOrBuilder(
       int index) {
     return sourceGeoip_.get(index);
@@ -893,7 +764,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.common.net.PortList source_port_list = 16;</code>
+   * @return Whether the sourcePortList field is set.
    */
+  @java.lang.Override
   public boolean hasSourcePortList() {
     return sourcePortList_ != null;
   }
@@ -903,7 +776,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.common.net.PortList source_port_list = 16;</code>
+   * @return The sourcePortList.
    */
+  @java.lang.Override
   public com.xray.common.net.PortList getSourcePortList() {
     return sourcePortList_ == null ? com.xray.common.net.PortList.getDefaultInstance() : sourcePortList_;
   }
@@ -914,14 +789,17 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.xray.common.net.PortList source_port_list = 16;</code>
    */
+  @java.lang.Override
   public com.xray.common.net.PortListOrBuilder getSourcePortListOrBuilder() {
-    return getSourcePortList();
+    return sourcePortList_ == null ? com.xray.common.net.PortList.getDefaultInstance() : sourcePortList_;
   }
 
   public static final int USER_EMAIL_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList userEmail_;
   /**
    * <code>repeated string user_email = 7;</code>
+   * @return A list containing the userEmail.
    */
   public com.google.protobuf.ProtocolStringList
       getUserEmailList() {
@@ -929,18 +807,23 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>repeated string user_email = 7;</code>
+   * @return The count of userEmail.
    */
   public int getUserEmailCount() {
     return userEmail_.size();
   }
   /**
    * <code>repeated string user_email = 7;</code>
+   * @param index The index of the element to return.
+   * @return The userEmail at the given index.
    */
   public java.lang.String getUserEmail(int index) {
     return userEmail_.get(index);
   }
   /**
    * <code>repeated string user_email = 7;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the userEmail at the given index.
    */
   public com.google.protobuf.ByteString
       getUserEmailBytes(int index) {
@@ -948,9 +831,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INBOUND_TAG_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList inboundTag_;
   /**
    * <code>repeated string inbound_tag = 8;</code>
+   * @return A list containing the inboundTag.
    */
   public com.google.protobuf.ProtocolStringList
       getInboundTagList() {
@@ -958,18 +843,23 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>repeated string inbound_tag = 8;</code>
+   * @return The count of inboundTag.
    */
   public int getInboundTagCount() {
     return inboundTag_.size();
   }
   /**
    * <code>repeated string inbound_tag = 8;</code>
+   * @param index The index of the element to return.
+   * @return The inboundTag at the given index.
    */
   public java.lang.String getInboundTag(int index) {
     return inboundTag_.get(index);
   }
   /**
    * <code>repeated string inbound_tag = 8;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the inboundTag at the given index.
    */
   public com.google.protobuf.ByteString
       getInboundTagBytes(int index) {
@@ -977,9 +867,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROTOCOL_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList protocol_;
   /**
    * <code>repeated string protocol = 9;</code>
+   * @return A list containing the protocol.
    */
   public com.google.protobuf.ProtocolStringList
       getProtocolList() {
@@ -987,18 +879,23 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>repeated string protocol = 9;</code>
+   * @return The count of protocol.
    */
   public int getProtocolCount() {
     return protocol_.size();
   }
   /**
    * <code>repeated string protocol = 9;</code>
+   * @param index The index of the element to return.
+   * @return The protocol at the given index.
    */
   public java.lang.String getProtocol(int index) {
     return protocol_.get(index);
   }
   /**
    * <code>repeated string protocol = 9;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the protocol at the given index.
    */
   public com.google.protobuf.ByteString
       getProtocolBytes(int index) {
@@ -1006,10 +903,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ATTRIBUTES_FIELD_NUMBER = 15;
-  private volatile java.lang.Object attributes_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object attributes_ = "";
   /**
    * <code>string attributes = 15;</code>
+   * @return The attributes.
    */
+  @java.lang.Override
   public java.lang.String getAttributes() {
     java.lang.Object ref = attributes_;
     if (ref instanceof java.lang.String) {
@@ -1024,7 +924,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string attributes = 15;</code>
+   * @return The bytes for attributes.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getAttributesBytes() {
     java.lang.Object ref = attributes_;
@@ -1033,6 +935,45 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       attributes_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int DOMAIN_MATCHER_FIELD_NUMBER = 17;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object domainMatcher_ = "";
+  /**
+   * <code>string domain_matcher = 17;</code>
+   * @return The domainMatcher.
+   */
+  @java.lang.Override
+  public java.lang.String getDomainMatcher() {
+    java.lang.Object ref = domainMatcher_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      domainMatcher_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string domain_matcher = 17;</code>
+   * @return The bytes for domainMatcher.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getDomainMatcherBytes() {
+    java.lang.Object ref = domainMatcher_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      domainMatcher_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -1100,13 +1041,16 @@ private static final long serialVersionUID = 0L;
     if (portList_ != null) {
       output.writeMessage(14, getPortList());
     }
-    if (!getAttributesBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(attributes_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 15, attributes_);
     }
     if (sourcePortList_ != null) {
       output.writeMessage(16, getSourcePortList());
     }
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(domainMatcher_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 17, domainMatcher_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1189,14 +1133,17 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(14, getPortList());
     }
-    if (!getAttributesBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(attributes_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, attributes_);
     }
     if (sourcePortList_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(16, getSourcePortList());
     }
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(domainMatcher_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(17, domainMatcher_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1250,6 +1197,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getProtocolList())) return false;
     if (!getAttributes()
         .equals(other.getAttributes())) return false;
+    if (!getDomainMatcher()
+        .equals(other.getDomainMatcher())) return false;
     if (!getTargetTagCase().equals(other.getTargetTagCase())) return false;
     switch (targetTagCase_) {
       case 1:
@@ -1263,7 +1212,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1328,6 +1277,8 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + ATTRIBUTES_FIELD_NUMBER;
     hash = (53 * hash) + getAttributes().hashCode();
+    hash = (37 * hash) + DOMAIN_MATCHER_FIELD_NUMBER;
+    hash = (53 * hash) + getDomainMatcher().hashCode();
     switch (targetTagCase_) {
       case 1:
         hash = (37 * hash) + TAG_FIELD_NUMBER;
@@ -1340,7 +1291,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1457,81 +1408,73 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.app.router.RoutingRule.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getDomainFieldBuilder();
-        getCidrFieldBuilder();
-        getGeoipFieldBuilder();
-        getSourceCidrFieldBuilder();
-        getSourceGeoipFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (domainBuilder_ == null) {
         domain_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        domain_ = null;
         domainBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       if (cidrBuilder_ == null) {
         cidr_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        cidr_ = null;
         cidrBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       if (geoipBuilder_ == null) {
         geoip_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
       } else {
+        geoip_ = null;
         geoipBuilder_.clear();
       }
-      if (portRangeBuilder_ == null) {
-        portRange_ = null;
-      } else {
-        portRange_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      portRange_ = null;
+      if (portRangeBuilder_ != null) {
+        portRangeBuilder_.dispose();
         portRangeBuilder_ = null;
       }
-      if (portListBuilder_ == null) {
-        portList_ = null;
-      } else {
-        portList_ = null;
+      portList_ = null;
+      if (portListBuilder_ != null) {
+        portListBuilder_.dispose();
         portListBuilder_ = null;
       }
-      if (networkListBuilder_ == null) {
-        networkList_ = null;
-      } else {
-        networkList_ = null;
+      networkList_ = null;
+      if (networkListBuilder_ != null) {
+        networkListBuilder_.dispose();
         networkListBuilder_ = null;
       }
       networks_ = java.util.Collections.emptyList();
       bitField0_ = (bitField0_ & ~0x00000100);
       if (sourceCidrBuilder_ == null) {
         sourceCidr_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000200);
       } else {
+        sourceCidr_ = null;
         sourceCidrBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000200);
       if (sourceGeoipBuilder_ == null) {
         sourceGeoip_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000400);
       } else {
+        sourceGeoip_ = null;
         sourceGeoipBuilder_.clear();
       }
-      if (sourcePortListBuilder_ == null) {
-        sourcePortList_ = null;
-      } else {
-        sourcePortList_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      sourcePortList_ = null;
+      if (sourcePortListBuilder_ != null) {
+        sourcePortListBuilder_.dispose();
         sourcePortListBuilder_ = null;
       }
       userEmail_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -1541,7 +1484,7 @@ private static final long serialVersionUID = 0L;
       protocol_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00004000);
       attributes_ = "";
-
+      domainMatcher_ = "";
       targetTagCase_ = 0;
       targetTag_ = null;
       return this;
@@ -1570,14 +1513,14 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.app.router.RoutingRule buildPartial() {
       com.xray.app.router.RoutingRule result = new com.xray.app.router.RoutingRule(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (targetTagCase_ == 1) {
-        result.targetTag_ = targetTag_;
-      }
-      if (targetTagCase_ == 12) {
-        result.targetTag_ = targetTag_;
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.xray.app.router.RoutingRule result) {
       if (domainBuilder_ == null) {
         if (((bitField0_ & 0x00000004) != 0)) {
           domain_ = java.util.Collections.unmodifiableList(domain_);
@@ -1605,21 +1548,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.geoip_ = geoipBuilder_.build();
       }
-      if (portRangeBuilder_ == null) {
-        result.portRange_ = portRange_;
-      } else {
-        result.portRange_ = portRangeBuilder_.build();
-      }
-      if (portListBuilder_ == null) {
-        result.portList_ = portList_;
-      } else {
-        result.portList_ = portListBuilder_.build();
-      }
-      if (networkListBuilder_ == null) {
-        result.networkList_ = networkList_;
-      } else {
-        result.networkList_ = networkListBuilder_.build();
-      }
       if (((bitField0_ & 0x00000100) != 0)) {
         networks_ = java.util.Collections.unmodifiableList(networks_);
         bitField0_ = (bitField0_ & ~0x00000100);
@@ -1643,11 +1571,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.sourceGeoip_ = sourceGeoipBuilder_.build();
       }
-      if (sourcePortListBuilder_ == null) {
-        result.sourcePortList_ = sourcePortList_;
-      } else {
-        result.sourcePortList_ = sourcePortListBuilder_.build();
-      }
       if (((bitField0_ & 0x00001000) != 0)) {
         userEmail_ = userEmail_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00001000);
@@ -1663,11 +1586,41 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00004000);
       }
       result.protocol_ = protocol_;
-      result.attributes_ = attributes_;
-      result.bitField0_ = to_bitField0_;
+    }
+
+    private void buildPartial0(com.xray.app.router.RoutingRule result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.portRange_ = portRangeBuilder_ == null
+            ? portRange_
+            : portRangeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.portList_ = portListBuilder_ == null
+            ? portList_
+            : portListBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.networkList_ = networkListBuilder_ == null
+            ? networkList_
+            : networkListBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.sourcePortList_ = sourcePortListBuilder_ == null
+            ? sourcePortList_
+            : sourcePortListBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.attributes_ = attributes_;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.domainMatcher_ = domainMatcher_;
+      }
+    }
+
+    private void buildPartialOneofs(com.xray.app.router.RoutingRule result) {
       result.targetTagCase_ = targetTagCase_;
-      onBuilt();
-      return result;
+      result.targetTag_ = this.targetTag_;
     }
 
     @java.lang.Override
@@ -1898,6 +1851,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAttributes().isEmpty()) {
         attributes_ = other.attributes_;
+        bitField0_ |= 0x00008000;
+        onChanged();
+      }
+      if (!other.getDomainMatcher().isEmpty()) {
+        domainMatcher_ = other.domainMatcher_;
+        bitField0_ |= 0x00010000;
         onChanged();
       }
       switch (other.getTargetTagCase()) {
@@ -1917,7 +1876,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1932,17 +1891,180 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.app.router.RoutingRule parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              targetTagCase_ = 1;
+              targetTag_ = s;
+              break;
+            } // case 10
+            case 18: {
+              com.xray.app.router.Domain m =
+                  input.readMessage(
+                      com.xray.app.router.Domain.parser(),
+                      extensionRegistry);
+              if (domainBuilder_ == null) {
+                ensureDomainIsMutable();
+                domain_.add(m);
+              } else {
+                domainBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              com.xray.app.router.CIDR m =
+                  input.readMessage(
+                      com.xray.app.router.CIDR.parser(),
+                      extensionRegistry);
+              if (cidrBuilder_ == null) {
+                ensureCidrIsMutable();
+                cidr_.add(m);
+              } else {
+                cidrBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getPortRangeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getNetworkListFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 42
+            case 50: {
+              com.xray.app.router.CIDR m =
+                  input.readMessage(
+                      com.xray.app.router.CIDR.parser(),
+                      extensionRegistry);
+              if (sourceCidrBuilder_ == null) {
+                ensureSourceCidrIsMutable();
+                sourceCidr_.add(m);
+              } else {
+                sourceCidrBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureUserEmailIsMutable();
+              userEmail_.add(s);
+              break;
+            } // case 58
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureInboundTagIsMutable();
+              inboundTag_.add(s);
+              break;
+            } // case 66
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureProtocolIsMutable();
+              protocol_.add(s);
+              break;
+            } // case 74
+            case 82: {
+              com.xray.app.router.GeoIP m =
+                  input.readMessage(
+                      com.xray.app.router.GeoIP.parser(),
+                      extensionRegistry);
+              if (geoipBuilder_ == null) {
+                ensureGeoipIsMutable();
+                geoip_.add(m);
+              } else {
+                geoipBuilder_.addMessage(m);
+              }
+              break;
+            } // case 82
+            case 90: {
+              com.xray.app.router.GeoIP m =
+                  input.readMessage(
+                      com.xray.app.router.GeoIP.parser(),
+                      extensionRegistry);
+              if (sourceGeoipBuilder_ == null) {
+                ensureSourceGeoipIsMutable();
+                sourceGeoip_.add(m);
+              } else {
+                sourceGeoipBuilder_.addMessage(m);
+              }
+              break;
+            } // case 90
+            case 98: {
+              java.lang.String s = input.readStringRequireUtf8();
+              targetTagCase_ = 12;
+              targetTag_ = s;
+              break;
+            } // case 98
+            case 104: {
+              int tmpRaw = input.readEnum();
+              ensureNetworksIsMutable();
+              networks_.add(tmpRaw);
+              break;
+            } // case 104
+            case 106: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureNetworksIsMutable();
+                networks_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 106
+            case 114: {
+              input.readMessage(
+                  getPortListFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 114
+            case 122: {
+              attributes_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getSourcePortListFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 130
+            case 138: {
+              domainMatcher_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 138
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.app.router.RoutingRule) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int targetTagCase_ = 0;
@@ -1968,7 +2090,21 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string tag = 1;</code>
+     * @return Whether the tag field is set.
      */
+    @java.lang.Override
+    public boolean hasTag() {
+      return targetTagCase_ == 1;
+    }
+    /**
+     * <pre>
+     * Tag of outbound that this rule is pointing to.
+     * </pre>
+     *
+     * <code>string tag = 1;</code>
+     * @return The tag.
+     */
+    @java.lang.Override
     public java.lang.String getTag() {
       java.lang.Object ref = "";
       if (targetTagCase_ == 1) {
@@ -1992,7 +2128,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string tag = 1;</code>
+     * @return The bytes for tag.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getTagBytes() {
       java.lang.Object ref = "";
@@ -2017,13 +2155,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string tag = 1;</code>
+     * @param value The tag to set.
+     * @return This builder for chaining.
      */
     public Builder setTag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  targetTagCase_ = 1;
+      if (value == null) { throw new NullPointerException(); }
+      targetTagCase_ = 1;
       targetTag_ = value;
       onChanged();
       return this;
@@ -2034,6 +2172,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string tag = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearTag() {
       if (targetTagCase_ == 1) {
@@ -2049,13 +2188,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string tag = 1;</code>
+     * @param value The bytes for tag to set.
+     * @return This builder for chaining.
      */
     public Builder setTagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       targetTagCase_ = 1;
       targetTag_ = value;
       onChanged();
@@ -2068,7 +2207,21 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string balancing_tag = 12;</code>
+     * @return Whether the balancingTag field is set.
      */
+    @java.lang.Override
+    public boolean hasBalancingTag() {
+      return targetTagCase_ == 12;
+    }
+    /**
+     * <pre>
+     * Tag of routing balancer.
+     * </pre>
+     *
+     * <code>string balancing_tag = 12;</code>
+     * @return The balancingTag.
+     */
+    @java.lang.Override
     public java.lang.String getBalancingTag() {
       java.lang.Object ref = "";
       if (targetTagCase_ == 12) {
@@ -2092,7 +2245,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string balancing_tag = 12;</code>
+     * @return The bytes for balancingTag.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getBalancingTagBytes() {
       java.lang.Object ref = "";
@@ -2117,13 +2272,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string balancing_tag = 12;</code>
+     * @param value The balancingTag to set.
+     * @return This builder for chaining.
      */
     public Builder setBalancingTag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  targetTagCase_ = 12;
+      if (value == null) { throw new NullPointerException(); }
+      targetTagCase_ = 12;
       targetTag_ = value;
       onChanged();
       return this;
@@ -2134,6 +2289,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string balancing_tag = 12;</code>
+     * @return This builder for chaining.
      */
     public Builder clearBalancingTag() {
       if (targetTagCase_ == 12) {
@@ -2149,13 +2305,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string balancing_tag = 12;</code>
+     * @param value The bytes for balancingTag to set.
+     * @return This builder for chaining.
      */
     public Builder setBalancingTagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       targetTagCase_ = 12;
       targetTag_ = value;
       onChanged();
@@ -3180,9 +3336,12 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.common.net.PortRange port_range = 4 [deprecated = true];</code>
+     * @deprecated xray.app.router.RoutingRule.port_range is deprecated.
+     *     See app/router/config.proto;l=96
+     * @return Whether the portRange field is set.
      */
     @java.lang.Deprecated public boolean hasPortRange() {
-      return portRangeBuilder_ != null || portRange_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -3191,6 +3350,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.common.net.PortRange port_range = 4 [deprecated = true];</code>
+     * @deprecated xray.app.router.RoutingRule.port_range is deprecated.
+     *     See app/router/config.proto;l=96
+     * @return The portRange.
      */
     @java.lang.Deprecated public com.xray.common.net.PortRange getPortRange() {
       if (portRangeBuilder_ == null) {
@@ -3213,11 +3375,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         portRange_ = value;
-        onChanged();
       } else {
         portRangeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3232,11 +3394,11 @@ private static final long serialVersionUID = 0L;
         com.xray.common.net.PortRange.Builder builderForValue) {
       if (portRangeBuilder_ == null) {
         portRange_ = builderForValue.build();
-        onChanged();
       } else {
         portRangeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3249,17 +3411,18 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder mergePortRange(com.xray.common.net.PortRange value) {
       if (portRangeBuilder_ == null) {
-        if (portRange_ != null) {
-          portRange_ =
-            com.xray.common.net.PortRange.newBuilder(portRange_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          portRange_ != null &&
+          portRange_ != com.xray.common.net.PortRange.getDefaultInstance()) {
+          getPortRangeBuilder().mergeFrom(value);
         } else {
           portRange_ = value;
         }
-        onChanged();
       } else {
         portRangeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3271,14 +3434,13 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.common.net.PortRange port_range = 4 [deprecated = true];</code>
      */
     @java.lang.Deprecated public Builder clearPortRange() {
-      if (portRangeBuilder_ == null) {
-        portRange_ = null;
-        onChanged();
-      } else {
-        portRange_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      portRange_ = null;
+      if (portRangeBuilder_ != null) {
+        portRangeBuilder_.dispose();
         portRangeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3290,7 +3452,7 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.common.net.PortRange port_range = 4 [deprecated = true];</code>
      */
     @java.lang.Deprecated public com.xray.common.net.PortRange.Builder getPortRangeBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getPortRangeFieldBuilder().getBuilder();
     }
@@ -3341,9 +3503,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.common.net.PortList port_list = 14;</code>
+     * @return Whether the portList field is set.
      */
     public boolean hasPortList() {
-      return portListBuilder_ != null || portList_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -3351,6 +3514,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.common.net.PortList port_list = 14;</code>
+     * @return The portList.
      */
     public com.xray.common.net.PortList getPortList() {
       if (portListBuilder_ == null) {
@@ -3372,11 +3536,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         portList_ = value;
-        onChanged();
       } else {
         portListBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3390,11 +3554,11 @@ private static final long serialVersionUID = 0L;
         com.xray.common.net.PortList.Builder builderForValue) {
       if (portListBuilder_ == null) {
         portList_ = builderForValue.build();
-        onChanged();
       } else {
         portListBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3406,17 +3570,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePortList(com.xray.common.net.PortList value) {
       if (portListBuilder_ == null) {
-        if (portList_ != null) {
-          portList_ =
-            com.xray.common.net.PortList.newBuilder(portList_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          portList_ != null &&
+          portList_ != com.xray.common.net.PortList.getDefaultInstance()) {
+          getPortListBuilder().mergeFrom(value);
         } else {
           portList_ = value;
         }
-        onChanged();
       } else {
         portListBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3427,14 +3592,13 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.common.net.PortList port_list = 14;</code>
      */
     public Builder clearPortList() {
-      if (portListBuilder_ == null) {
-        portList_ = null;
-        onChanged();
-      } else {
-        portList_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      portList_ = null;
+      if (portListBuilder_ != null) {
+        portListBuilder_.dispose();
         portListBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3445,7 +3609,7 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.common.net.PortList port_list = 14;</code>
      */
     public com.xray.common.net.PortList.Builder getPortListBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getPortListFieldBuilder().getBuilder();
     }
@@ -3494,9 +3658,12 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.common.net.NetworkList network_list = 5 [deprecated = true];</code>
+     * @deprecated xray.app.router.RoutingRule.network_list is deprecated.
+     *     See app/router/config.proto;l=102
+     * @return Whether the networkList field is set.
      */
     @java.lang.Deprecated public boolean hasNetworkList() {
-      return networkListBuilder_ != null || networkList_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -3504,6 +3671,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.common.net.NetworkList network_list = 5 [deprecated = true];</code>
+     * @deprecated xray.app.router.RoutingRule.network_list is deprecated.
+     *     See app/router/config.proto;l=102
+     * @return The networkList.
      */
     @java.lang.Deprecated public com.xray.common.net.NetworkList getNetworkList() {
       if (networkListBuilder_ == null) {
@@ -3525,11 +3695,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         networkList_ = value;
-        onChanged();
       } else {
         networkListBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3543,11 +3713,11 @@ private static final long serialVersionUID = 0L;
         com.xray.common.net.NetworkList.Builder builderForValue) {
       if (networkListBuilder_ == null) {
         networkList_ = builderForValue.build();
-        onChanged();
       } else {
         networkListBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3559,17 +3729,18 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder mergeNetworkList(com.xray.common.net.NetworkList value) {
       if (networkListBuilder_ == null) {
-        if (networkList_ != null) {
-          networkList_ =
-            com.xray.common.net.NetworkList.newBuilder(networkList_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          networkList_ != null &&
+          networkList_ != com.xray.common.net.NetworkList.getDefaultInstance()) {
+          getNetworkListBuilder().mergeFrom(value);
         } else {
           networkList_ = value;
         }
-        onChanged();
       } else {
         networkListBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3580,14 +3751,13 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.common.net.NetworkList network_list = 5 [deprecated = true];</code>
      */
     @java.lang.Deprecated public Builder clearNetworkList() {
-      if (networkListBuilder_ == null) {
-        networkList_ = null;
-        onChanged();
-      } else {
-        networkList_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      networkList_ = null;
+      if (networkListBuilder_ != null) {
+        networkListBuilder_.dispose();
         networkListBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3598,7 +3768,7 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.common.net.NetworkList network_list = 5 [deprecated = true];</code>
      */
     @java.lang.Deprecated public com.xray.common.net.NetworkList.Builder getNetworkListBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getNetworkListFieldBuilder().getBuilder();
     }
@@ -3652,6 +3822,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 13;</code>
+     * @return A list containing the networks.
      */
     public java.util.List<com.xray.common.net.Network> getNetworksList() {
       return new com.google.protobuf.Internal.ListAdapter<
@@ -3663,6 +3834,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 13;</code>
+     * @return The count of networks.
      */
     public int getNetworksCount() {
       return networks_.size();
@@ -3673,6 +3845,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 13;</code>
+     * @param index The index of the element to return.
+     * @return The networks at the given index.
      */
     public com.xray.common.net.Network getNetworks(int index) {
       return networks_converter_.convert(networks_.get(index));
@@ -3683,6 +3857,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 13;</code>
+     * @param index The index to set the value at.
+     * @param value The networks to set.
+     * @return This builder for chaining.
      */
     public Builder setNetworks(
         int index, com.xray.common.net.Network value) {
@@ -3700,6 +3877,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 13;</code>
+     * @param value The networks to add.
+     * @return This builder for chaining.
      */
     public Builder addNetworks(com.xray.common.net.Network value) {
       if (value == null) {
@@ -3716,6 +3895,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 13;</code>
+     * @param values The networks to add.
+     * @return This builder for chaining.
      */
     public Builder addAllNetworks(
         java.lang.Iterable<? extends com.xray.common.net.Network> values) {
@@ -3732,6 +3913,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 13;</code>
+     * @return This builder for chaining.
      */
     public Builder clearNetworks() {
       networks_ = java.util.Collections.emptyList();
@@ -3745,6 +3927,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 13;</code>
+     * @return A list containing the enum numeric values on the wire for networks.
      */
     public java.util.List<java.lang.Integer>
     getNetworksValueList() {
@@ -3756,6 +3939,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 13;</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of networks at the given index.
      */
     public int getNetworksValue(int index) {
       return networks_.get(index);
@@ -3766,6 +3951,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 13;</code>
+     * @param index The index to set the value at.
+     * @param value The enum numeric value on the wire for networks to set.
+     * @return This builder for chaining.
      */
     public Builder setNetworksValue(
         int index, int value) {
@@ -3780,6 +3968,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 13;</code>
+     * @param value The enum numeric value on the wire for networks to add.
+     * @return This builder for chaining.
      */
     public Builder addNetworksValue(int value) {
       ensureNetworksIsMutable();
@@ -3793,6 +3983,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>repeated .xray.common.net.Network networks = 13;</code>
+     * @param values The enum numeric values on the wire for networks to add.
+     * @return This builder for chaining.
      */
     public Builder addAllNetworksValue(
         java.lang.Iterable<java.lang.Integer> values) {
@@ -4455,9 +4647,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.common.net.PortList source_port_list = 16;</code>
+     * @return Whether the sourcePortList field is set.
      */
     public boolean hasSourcePortList() {
-      return sourcePortListBuilder_ != null || sourcePortList_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -4465,6 +4658,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.common.net.PortList source_port_list = 16;</code>
+     * @return The sourcePortList.
      */
     public com.xray.common.net.PortList getSourcePortList() {
       if (sourcePortListBuilder_ == null) {
@@ -4486,11 +4680,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         sourcePortList_ = value;
-        onChanged();
       } else {
         sourcePortListBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -4504,11 +4698,11 @@ private static final long serialVersionUID = 0L;
         com.xray.common.net.PortList.Builder builderForValue) {
       if (sourcePortListBuilder_ == null) {
         sourcePortList_ = builderForValue.build();
-        onChanged();
       } else {
         sourcePortListBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -4520,17 +4714,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSourcePortList(com.xray.common.net.PortList value) {
       if (sourcePortListBuilder_ == null) {
-        if (sourcePortList_ != null) {
-          sourcePortList_ =
-            com.xray.common.net.PortList.newBuilder(sourcePortList_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          sourcePortList_ != null &&
+          sourcePortList_ != com.xray.common.net.PortList.getDefaultInstance()) {
+          getSourcePortListBuilder().mergeFrom(value);
         } else {
           sourcePortList_ = value;
         }
-        onChanged();
       } else {
         sourcePortListBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -4541,14 +4736,13 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.common.net.PortList source_port_list = 16;</code>
      */
     public Builder clearSourcePortList() {
-      if (sourcePortListBuilder_ == null) {
-        sourcePortList_ = null;
-        onChanged();
-      } else {
-        sourcePortList_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      sourcePortList_ = null;
+      if (sourcePortListBuilder_ != null) {
+        sourcePortListBuilder_.dispose();
         sourcePortListBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4559,7 +4753,7 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.common.net.PortList source_port_list = 16;</code>
      */
     public com.xray.common.net.PortList.Builder getSourcePortListBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getSourcePortListFieldBuilder().getBuilder();
     }
@@ -4608,6 +4802,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string user_email = 7;</code>
+     * @return A list containing the userEmail.
      */
     public com.google.protobuf.ProtocolStringList
         getUserEmailList() {
@@ -4615,18 +4810,23 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string user_email = 7;</code>
+     * @return The count of userEmail.
      */
     public int getUserEmailCount() {
       return userEmail_.size();
     }
     /**
      * <code>repeated string user_email = 7;</code>
+     * @param index The index of the element to return.
+     * @return The userEmail at the given index.
      */
     public java.lang.String getUserEmail(int index) {
       return userEmail_.get(index);
     }
     /**
      * <code>repeated string user_email = 7;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the userEmail at the given index.
      */
     public com.google.protobuf.ByteString
         getUserEmailBytes(int index) {
@@ -4634,32 +4834,35 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string user_email = 7;</code>
+     * @param index The index to set the value at.
+     * @param value The userEmail to set.
+     * @return This builder for chaining.
      */
     public Builder setUserEmail(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureUserEmailIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureUserEmailIsMutable();
       userEmail_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <code>repeated string user_email = 7;</code>
+     * @param value The userEmail to add.
+     * @return This builder for chaining.
      */
     public Builder addUserEmail(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureUserEmailIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureUserEmailIsMutable();
       userEmail_.add(value);
       onChanged();
       return this;
     }
     /**
      * <code>repeated string user_email = 7;</code>
+     * @param values The userEmail to add.
+     * @return This builder for chaining.
      */
     public Builder addAllUserEmail(
         java.lang.Iterable<java.lang.String> values) {
@@ -4671,6 +4874,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string user_email = 7;</code>
+     * @return This builder for chaining.
      */
     public Builder clearUserEmail() {
       userEmail_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -4680,13 +4884,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string user_email = 7;</code>
+     * @param value The bytes of the userEmail to add.
+     * @return This builder for chaining.
      */
     public Builder addUserEmailBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureUserEmailIsMutable();
       userEmail_.add(value);
       onChanged();
@@ -4702,6 +4906,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string inbound_tag = 8;</code>
+     * @return A list containing the inboundTag.
      */
     public com.google.protobuf.ProtocolStringList
         getInboundTagList() {
@@ -4709,18 +4914,23 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string inbound_tag = 8;</code>
+     * @return The count of inboundTag.
      */
     public int getInboundTagCount() {
       return inboundTag_.size();
     }
     /**
      * <code>repeated string inbound_tag = 8;</code>
+     * @param index The index of the element to return.
+     * @return The inboundTag at the given index.
      */
     public java.lang.String getInboundTag(int index) {
       return inboundTag_.get(index);
     }
     /**
      * <code>repeated string inbound_tag = 8;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the inboundTag at the given index.
      */
     public com.google.protobuf.ByteString
         getInboundTagBytes(int index) {
@@ -4728,32 +4938,35 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string inbound_tag = 8;</code>
+     * @param index The index to set the value at.
+     * @param value The inboundTag to set.
+     * @return This builder for chaining.
      */
     public Builder setInboundTag(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureInboundTagIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureInboundTagIsMutable();
       inboundTag_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <code>repeated string inbound_tag = 8;</code>
+     * @param value The inboundTag to add.
+     * @return This builder for chaining.
      */
     public Builder addInboundTag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureInboundTagIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureInboundTagIsMutable();
       inboundTag_.add(value);
       onChanged();
       return this;
     }
     /**
      * <code>repeated string inbound_tag = 8;</code>
+     * @param values The inboundTag to add.
+     * @return This builder for chaining.
      */
     public Builder addAllInboundTag(
         java.lang.Iterable<java.lang.String> values) {
@@ -4765,6 +4978,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string inbound_tag = 8;</code>
+     * @return This builder for chaining.
      */
     public Builder clearInboundTag() {
       inboundTag_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -4774,13 +4988,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string inbound_tag = 8;</code>
+     * @param value The bytes of the inboundTag to add.
+     * @return This builder for chaining.
      */
     public Builder addInboundTagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureInboundTagIsMutable();
       inboundTag_.add(value);
       onChanged();
@@ -4796,6 +5010,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string protocol = 9;</code>
+     * @return A list containing the protocol.
      */
     public com.google.protobuf.ProtocolStringList
         getProtocolList() {
@@ -4803,18 +5018,23 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string protocol = 9;</code>
+     * @return The count of protocol.
      */
     public int getProtocolCount() {
       return protocol_.size();
     }
     /**
      * <code>repeated string protocol = 9;</code>
+     * @param index The index of the element to return.
+     * @return The protocol at the given index.
      */
     public java.lang.String getProtocol(int index) {
       return protocol_.get(index);
     }
     /**
      * <code>repeated string protocol = 9;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the protocol at the given index.
      */
     public com.google.protobuf.ByteString
         getProtocolBytes(int index) {
@@ -4822,32 +5042,35 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string protocol = 9;</code>
+     * @param index The index to set the value at.
+     * @param value The protocol to set.
+     * @return This builder for chaining.
      */
     public Builder setProtocol(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureProtocolIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureProtocolIsMutable();
       protocol_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <code>repeated string protocol = 9;</code>
+     * @param value The protocol to add.
+     * @return This builder for chaining.
      */
     public Builder addProtocol(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureProtocolIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureProtocolIsMutable();
       protocol_.add(value);
       onChanged();
       return this;
     }
     /**
      * <code>repeated string protocol = 9;</code>
+     * @param values The protocol to add.
+     * @return This builder for chaining.
      */
     public Builder addAllProtocol(
         java.lang.Iterable<java.lang.String> values) {
@@ -4859,6 +5082,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string protocol = 9;</code>
+     * @return This builder for chaining.
      */
     public Builder clearProtocol() {
       protocol_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -4868,13 +5092,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string protocol = 9;</code>
+     * @param value The bytes of the protocol to add.
+     * @return This builder for chaining.
      */
     public Builder addProtocolBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureProtocolIsMutable();
       protocol_.add(value);
       onChanged();
@@ -4884,6 +5108,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object attributes_ = "";
     /**
      * <code>string attributes = 15;</code>
+     * @return The attributes.
      */
     public java.lang.String getAttributes() {
       java.lang.Object ref = attributes_;
@@ -4899,6 +5124,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string attributes = 15;</code>
+     * @return The bytes for attributes.
      */
     public com.google.protobuf.ByteString
         getAttributesBytes() {
@@ -4915,37 +5141,110 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string attributes = 15;</code>
+     * @param value The attributes to set.
+     * @return This builder for chaining.
      */
     public Builder setAttributes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       attributes_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
     /**
      * <code>string attributes = 15;</code>
+     * @return This builder for chaining.
      */
     public Builder clearAttributes() {
-      
       attributes_ = getDefaultInstance().getAttributes();
+      bitField0_ = (bitField0_ & ~0x00008000);
       onChanged();
       return this;
     }
     /**
      * <code>string attributes = 15;</code>
+     * @param value The bytes for attributes to set.
+     * @return This builder for chaining.
      */
     public Builder setAttributesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       attributes_ = value;
+      bitField0_ |= 0x00008000;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object domainMatcher_ = "";
+    /**
+     * <code>string domain_matcher = 17;</code>
+     * @return The domainMatcher.
+     */
+    public java.lang.String getDomainMatcher() {
+      java.lang.Object ref = domainMatcher_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        domainMatcher_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string domain_matcher = 17;</code>
+     * @return The bytes for domainMatcher.
+     */
+    public com.google.protobuf.ByteString
+        getDomainMatcherBytes() {
+      java.lang.Object ref = domainMatcher_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        domainMatcher_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string domain_matcher = 17;</code>
+     * @param value The domainMatcher to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDomainMatcher(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      domainMatcher_ = value;
+      bitField0_ |= 0x00010000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string domain_matcher = 17;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDomainMatcher() {
+      domainMatcher_ = getDefaultInstance().getDomainMatcher();
+      bitField0_ = (bitField0_ & ~0x00010000);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string domain_matcher = 17;</code>
+     * @param value The bytes for domainMatcher to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDomainMatcherBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      domainMatcher_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -4982,7 +5281,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RoutingRule(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -9,20 +9,30 @@ public interface AccountOrBuilder extends
 
   /**
    * <code>string password = 1;</code>
+   * @return The password.
    */
   java.lang.String getPassword();
   /**
    * <code>string password = 1;</code>
+   * @return The bytes for password.
    */
   com.google.protobuf.ByteString
       getPasswordBytes();
 
   /**
    * <code>.xray.proxy.shadowsocks.CipherType cipher_type = 2;</code>
+   * @return The enum numeric value on the wire for cipherType.
    */
   int getCipherTypeValue();
   /**
    * <code>.xray.proxy.shadowsocks.CipherType cipher_type = 2;</code>
+   * @return The cipherType.
    */
   com.xray.proxy.shadowsocks.CipherType getCipherType();
+
+  /**
+   * <code>bool iv_check = 3;</code>
+   * @return The ivCheck.
+   */
+  boolean getIvCheck();
 }

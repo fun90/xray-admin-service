@@ -9,16 +9,19 @@ public interface StatOrBuilder extends
 
   /**
    * <code>string name = 1;</code>
+   * @return The name.
    */
   java.lang.String getName();
   /**
    * <code>string name = 1;</code>
+   * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
    * <code>int64 value = 2;</code>
+   * @return The value.
    */
   long getValue();
 }

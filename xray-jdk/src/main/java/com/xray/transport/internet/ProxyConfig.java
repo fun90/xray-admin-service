@@ -6,7 +6,7 @@ package com.xray.transport.internet;
 /**
  * Protobuf type {@code xray.transport.internet.ProxyConfig}
  */
-public  final class ProxyConfig extends
+public final class ProxyConfig extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.transport.internet.ProxyConfig)
     ProxyConfigOrBuilder {
@@ -20,53 +20,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new ProxyConfig();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private ProxyConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            tag_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -82,10 +45,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TAG_FIELD_NUMBER = 1;
-  private volatile java.lang.Object tag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object tag_ = "";
   /**
    * <code>string tag = 1;</code>
+   * @return The tag.
    */
+  @java.lang.Override
   public java.lang.String getTag() {
     java.lang.Object ref = tag_;
     if (ref instanceof java.lang.String) {
@@ -100,7 +66,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string tag = 1;</code>
+   * @return The bytes for tag.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getTagBytes() {
     java.lang.Object ref = tag_;
@@ -113,6 +81,17 @@ private static final long serialVersionUID = 0L;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
+  }
+
+  public static final int TRANSPORTLAYERPROXY_FIELD_NUMBER = 2;
+  private boolean transportLayerProxy_ = false;
+  /**
+   * <code>bool transportLayerProxy = 2;</code>
+   * @return The transportLayerProxy.
+   */
+  @java.lang.Override
+  public boolean getTransportLayerProxy() {
+    return transportLayerProxy_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -129,10 +108,13 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getTagBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tag_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tag_);
     }
-    unknownFields.writeTo(output);
+    if (transportLayerProxy_ != false) {
+      output.writeBool(2, transportLayerProxy_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -141,10 +123,14 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getTagBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tag_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, tag_);
     }
-    size += unknownFields.getSerializedSize();
+    if (transportLayerProxy_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(2, transportLayerProxy_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -161,7 +147,9 @@ private static final long serialVersionUID = 0L;
 
     if (!getTag()
         .equals(other.getTag())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (getTransportLayerProxy()
+        != other.getTransportLayerProxy()) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -174,7 +162,10 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + TAG_FIELD_NUMBER;
     hash = (53 * hash) + getTag().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + TRANSPORTLAYERPROXY_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getTransportLayerProxy());
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -291,24 +282,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.transport.internet.ProxyConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       tag_ = "";
-
+      transportLayerProxy_ = false;
       return this;
     }
 
@@ -335,9 +322,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.transport.internet.ProxyConfig buildPartial() {
       com.xray.transport.internet.ProxyConfig result = new com.xray.transport.internet.ProxyConfig(this);
-      result.tag_ = tag_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.transport.internet.ProxyConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.tag_ = tag_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.transportLayerProxy_ = transportLayerProxy_;
+      }
     }
 
     @java.lang.Override
@@ -386,9 +383,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.xray.transport.internet.ProxyConfig.getDefaultInstance()) return this;
       if (!other.getTag().isEmpty()) {
         tag_ = other.tag_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.getTransportLayerProxy() != false) {
+        setTransportLayerProxy(other.getTransportLayerProxy());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -403,23 +404,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.transport.internet.ProxyConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              tag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              transportLayerProxy_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.transport.internet.ProxyConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object tag_ = "";
     /**
      * <code>string tag = 1;</code>
+     * @return The tag.
      */
     public java.lang.String getTag() {
       java.lang.Object ref = tag_;
@@ -435,6 +461,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string tag = 1;</code>
+     * @return The bytes for tag.
      */
     public com.google.protobuf.ByteString
         getTagBytes() {
@@ -451,37 +478,70 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string tag = 1;</code>
+     * @param value The tag to set.
+     * @return This builder for chaining.
      */
     public Builder setTag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       tag_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <code>string tag = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearTag() {
-      
       tag_ = getDefaultInstance().getTag();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <code>string tag = 1;</code>
+     * @param value The bytes for tag to set.
+     * @return This builder for chaining.
      */
     public Builder setTagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       tag_ = value;
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+
+    private boolean transportLayerProxy_ ;
+    /**
+     * <code>bool transportLayerProxy = 2;</code>
+     * @return The transportLayerProxy.
+     */
+    @java.lang.Override
+    public boolean getTransportLayerProxy() {
+      return transportLayerProxy_;
+    }
+    /**
+     * <code>bool transportLayerProxy = 2;</code>
+     * @param value The transportLayerProxy to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTransportLayerProxy(boolean value) {
+      
+      transportLayerProxy_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool transportLayerProxy = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTransportLayerProxy() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      transportLayerProxy_ = false;
       onChanged();
       return this;
     }
@@ -518,7 +578,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ProxyConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

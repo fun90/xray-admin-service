@@ -9,20 +9,24 @@ public interface ConfigOrBuilder extends
 
   /**
    * <code>string key = 1;</code>
+   * @return The key.
    */
   java.lang.String getKey();
   /**
    * <code>string key = 1;</code>
+   * @return The bytes for key.
    */
   com.google.protobuf.ByteString
       getKeyBytes();
 
   /**
    * <code>.xray.common.protocol.SecurityConfig security = 2;</code>
+   * @return Whether the security field is set.
    */
   boolean hasSecurity();
   /**
    * <code>.xray.common.protocol.SecurityConfig security = 2;</code>
+   * @return The security.
    */
   com.xray.common.protocol.SecurityConfig getSecurity();
   /**
@@ -32,10 +36,12 @@ public interface ConfigOrBuilder extends
 
   /**
    * <code>.xray.common.serial.TypedMessage header = 3;</code>
+   * @return Whether the header field is set.
    */
   boolean hasHeader();
   /**
    * <code>.xray.common.serial.TypedMessage header = 3;</code>
+   * @return The header.
    */
   com.xray.common.serial.TypedMessage getHeader();
   /**

@@ -6,7 +6,7 @@ package com.xray.app.log;
 /**
  * Protobuf type {@code xray.app.log.Config}
  */
-public  final class Config extends
+public final class Config extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.app.log.Config)
     ConfigOrBuilder {
@@ -24,77 +24,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new Config();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Config(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            errorLogType_ = rawValue;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            errorLogLevel_ = rawValue;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            errorLogPath_ = s;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            accessLogType_ = rawValue;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            accessLogPath_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -110,44 +49,49 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ERROR_LOG_TYPE_FIELD_NUMBER = 1;
-  private int errorLogType_;
+  private int errorLogType_ = 0;
   /**
    * <code>.xray.app.log.LogType error_log_type = 1;</code>
+   * @return The enum numeric value on the wire for errorLogType.
    */
-  public int getErrorLogTypeValue() {
+  @java.lang.Override public int getErrorLogTypeValue() {
     return errorLogType_;
   }
   /**
    * <code>.xray.app.log.LogType error_log_type = 1;</code>
+   * @return The errorLogType.
    */
-  public com.xray.app.log.LogType getErrorLogType() {
-    @SuppressWarnings("deprecation")
-    com.xray.app.log.LogType result = com.xray.app.log.LogType.valueOf(errorLogType_);
+  @java.lang.Override public com.xray.app.log.LogType getErrorLogType() {
+    com.xray.app.log.LogType result = com.xray.app.log.LogType.forNumber(errorLogType_);
     return result == null ? com.xray.app.log.LogType.UNRECOGNIZED : result;
   }
 
   public static final int ERROR_LOG_LEVEL_FIELD_NUMBER = 2;
-  private int errorLogLevel_;
+  private int errorLogLevel_ = 0;
   /**
    * <code>.xray.common.log.Severity error_log_level = 2;</code>
+   * @return The enum numeric value on the wire for errorLogLevel.
    */
-  public int getErrorLogLevelValue() {
+  @java.lang.Override public int getErrorLogLevelValue() {
     return errorLogLevel_;
   }
   /**
    * <code>.xray.common.log.Severity error_log_level = 2;</code>
+   * @return The errorLogLevel.
    */
-  public com.xray.common.log.Severity getErrorLogLevel() {
-    @SuppressWarnings("deprecation")
-    com.xray.common.log.Severity result = com.xray.common.log.Severity.valueOf(errorLogLevel_);
+  @java.lang.Override public com.xray.common.log.Severity getErrorLogLevel() {
+    com.xray.common.log.Severity result = com.xray.common.log.Severity.forNumber(errorLogLevel_);
     return result == null ? com.xray.common.log.Severity.UNRECOGNIZED : result;
   }
 
   public static final int ERROR_LOG_PATH_FIELD_NUMBER = 3;
-  private volatile java.lang.Object errorLogPath_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object errorLogPath_ = "";
   /**
    * <code>string error_log_path = 3;</code>
+   * @return The errorLogPath.
    */
+  @java.lang.Override
   public java.lang.String getErrorLogPath() {
     java.lang.Object ref = errorLogPath_;
     if (ref instanceof java.lang.String) {
@@ -162,7 +106,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string error_log_path = 3;</code>
+   * @return The bytes for errorLogPath.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getErrorLogPathBytes() {
     java.lang.Object ref = errorLogPath_;
@@ -178,27 +124,31 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACCESS_LOG_TYPE_FIELD_NUMBER = 4;
-  private int accessLogType_;
+  private int accessLogType_ = 0;
   /**
    * <code>.xray.app.log.LogType access_log_type = 4;</code>
+   * @return The enum numeric value on the wire for accessLogType.
    */
-  public int getAccessLogTypeValue() {
+  @java.lang.Override public int getAccessLogTypeValue() {
     return accessLogType_;
   }
   /**
    * <code>.xray.app.log.LogType access_log_type = 4;</code>
+   * @return The accessLogType.
    */
-  public com.xray.app.log.LogType getAccessLogType() {
-    @SuppressWarnings("deprecation")
-    com.xray.app.log.LogType result = com.xray.app.log.LogType.valueOf(accessLogType_);
+  @java.lang.Override public com.xray.app.log.LogType getAccessLogType() {
+    com.xray.app.log.LogType result = com.xray.app.log.LogType.forNumber(accessLogType_);
     return result == null ? com.xray.app.log.LogType.UNRECOGNIZED : result;
   }
 
   public static final int ACCESS_LOG_PATH_FIELD_NUMBER = 5;
-  private volatile java.lang.Object accessLogPath_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object accessLogPath_ = "";
   /**
    * <code>string access_log_path = 5;</code>
+   * @return The accessLogPath.
    */
+  @java.lang.Override
   public java.lang.String getAccessLogPath() {
     java.lang.Object ref = accessLogPath_;
     if (ref instanceof java.lang.String) {
@@ -213,7 +163,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string access_log_path = 5;</code>
+   * @return The bytes for accessLogPath.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getAccessLogPathBytes() {
     java.lang.Object ref = accessLogPath_;
@@ -226,6 +178,17 @@ private static final long serialVersionUID = 0L;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
+  }
+
+  public static final int ENABLE_DNS_LOG_FIELD_NUMBER = 6;
+  private boolean enableDnsLog_ = false;
+  /**
+   * <code>bool enable_dns_log = 6;</code>
+   * @return The enableDnsLog.
+   */
+  @java.lang.Override
+  public boolean getEnableDnsLog() {
+    return enableDnsLog_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -248,16 +211,19 @@ private static final long serialVersionUID = 0L;
     if (errorLogLevel_ != com.xray.common.log.Severity.Unknown.getNumber()) {
       output.writeEnum(2, errorLogLevel_);
     }
-    if (!getErrorLogPathBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(errorLogPath_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, errorLogPath_);
     }
     if (accessLogType_ != com.xray.app.log.LogType.None.getNumber()) {
       output.writeEnum(4, accessLogType_);
     }
-    if (!getAccessLogPathBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accessLogPath_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, accessLogPath_);
     }
-    unknownFields.writeTo(output);
+    if (enableDnsLog_ != false) {
+      output.writeBool(6, enableDnsLog_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -274,17 +240,21 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, errorLogLevel_);
     }
-    if (!getErrorLogPathBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(errorLogPath_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, errorLogPath_);
     }
     if (accessLogType_ != com.xray.app.log.LogType.None.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, accessLogType_);
     }
-    if (!getAccessLogPathBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accessLogPath_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, accessLogPath_);
     }
-    size += unknownFields.getSerializedSize();
+    if (enableDnsLog_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(6, enableDnsLog_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -306,7 +276,9 @@ private static final long serialVersionUID = 0L;
     if (accessLogType_ != other.accessLogType_) return false;
     if (!getAccessLogPath()
         .equals(other.getAccessLogPath())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (getEnableDnsLog()
+        != other.getEnableDnsLog()) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -327,7 +299,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + accessLogType_;
     hash = (37 * hash) + ACCESS_LOG_PATH_FIELD_NUMBER;
     hash = (53 * hash) + getAccessLogPath().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + ENABLE_DNS_LOG_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getEnableDnsLog());
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -444,32 +419,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.app.log.Config.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       errorLogType_ = 0;
-
       errorLogLevel_ = 0;
-
       errorLogPath_ = "";
-
       accessLogType_ = 0;
-
       accessLogPath_ = "";
-
+      enableDnsLog_ = false;
       return this;
     }
 
@@ -496,13 +463,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.app.log.Config buildPartial() {
       com.xray.app.log.Config result = new com.xray.app.log.Config(this);
-      result.errorLogType_ = errorLogType_;
-      result.errorLogLevel_ = errorLogLevel_;
-      result.errorLogPath_ = errorLogPath_;
-      result.accessLogType_ = accessLogType_;
-      result.accessLogPath_ = accessLogPath_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.app.log.Config result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.errorLogType_ = errorLogType_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.errorLogLevel_ = errorLogLevel_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.errorLogPath_ = errorLogPath_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.accessLogType_ = accessLogType_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.accessLogPath_ = accessLogPath_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.enableDnsLog_ = enableDnsLog_;
+      }
     }
 
     @java.lang.Override
@@ -557,6 +542,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getErrorLogPath().isEmpty()) {
         errorLogPath_ = other.errorLogPath_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.accessLogType_ != 0) {
@@ -564,9 +550,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAccessLogPath().isEmpty()) {
         accessLogPath_ = other.accessLogPath_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.getEnableDnsLog() != false) {
+        setEnableDnsLog(other.getEnableDnsLog());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -581,60 +571,112 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.app.log.Config parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              errorLogType_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              errorLogLevel_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              errorLogPath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              accessLogType_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              accessLogPath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              enableDnsLog_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.app.log.Config) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int errorLogType_ = 0;
     /**
      * <code>.xray.app.log.LogType error_log_type = 1;</code>
+     * @return The enum numeric value on the wire for errorLogType.
      */
-    public int getErrorLogTypeValue() {
+    @java.lang.Override public int getErrorLogTypeValue() {
       return errorLogType_;
     }
     /**
      * <code>.xray.app.log.LogType error_log_type = 1;</code>
+     * @param value The enum numeric value on the wire for errorLogType to set.
+     * @return This builder for chaining.
      */
     public Builder setErrorLogTypeValue(int value) {
       errorLogType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <code>.xray.app.log.LogType error_log_type = 1;</code>
+     * @return The errorLogType.
      */
+    @java.lang.Override
     public com.xray.app.log.LogType getErrorLogType() {
-      @SuppressWarnings("deprecation")
-      com.xray.app.log.LogType result = com.xray.app.log.LogType.valueOf(errorLogType_);
+      com.xray.app.log.LogType result = com.xray.app.log.LogType.forNumber(errorLogType_);
       return result == null ? com.xray.app.log.LogType.UNRECOGNIZED : result;
     }
     /**
      * <code>.xray.app.log.LogType error_log_type = 1;</code>
+     * @param value The errorLogType to set.
+     * @return This builder for chaining.
      */
     public Builder setErrorLogType(com.xray.app.log.LogType value) {
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       errorLogType_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <code>.xray.app.log.LogType error_log_type = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearErrorLogType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       errorLogType_ = 0;
       onChanged();
       return this;
@@ -643,43 +685,51 @@ private static final long serialVersionUID = 0L;
     private int errorLogLevel_ = 0;
     /**
      * <code>.xray.common.log.Severity error_log_level = 2;</code>
+     * @return The enum numeric value on the wire for errorLogLevel.
      */
-    public int getErrorLogLevelValue() {
+    @java.lang.Override public int getErrorLogLevelValue() {
       return errorLogLevel_;
     }
     /**
      * <code>.xray.common.log.Severity error_log_level = 2;</code>
+     * @param value The enum numeric value on the wire for errorLogLevel to set.
+     * @return This builder for chaining.
      */
     public Builder setErrorLogLevelValue(int value) {
       errorLogLevel_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <code>.xray.common.log.Severity error_log_level = 2;</code>
+     * @return The errorLogLevel.
      */
+    @java.lang.Override
     public com.xray.common.log.Severity getErrorLogLevel() {
-      @SuppressWarnings("deprecation")
-      com.xray.common.log.Severity result = com.xray.common.log.Severity.valueOf(errorLogLevel_);
+      com.xray.common.log.Severity result = com.xray.common.log.Severity.forNumber(errorLogLevel_);
       return result == null ? com.xray.common.log.Severity.UNRECOGNIZED : result;
     }
     /**
      * <code>.xray.common.log.Severity error_log_level = 2;</code>
+     * @param value The errorLogLevel to set.
+     * @return This builder for chaining.
      */
     public Builder setErrorLogLevel(com.xray.common.log.Severity value) {
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       errorLogLevel_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <code>.xray.common.log.Severity error_log_level = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearErrorLogLevel() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       errorLogLevel_ = 0;
       onChanged();
       return this;
@@ -688,6 +738,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object errorLogPath_ = "";
     /**
      * <code>string error_log_path = 3;</code>
+     * @return The errorLogPath.
      */
     public java.lang.String getErrorLogPath() {
       java.lang.Object ref = errorLogPath_;
@@ -703,6 +754,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string error_log_path = 3;</code>
+     * @return The bytes for errorLogPath.
      */
     public com.google.protobuf.ByteString
         getErrorLogPathBytes() {
@@ -719,37 +771,38 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string error_log_path = 3;</code>
+     * @param value The errorLogPath to set.
+     * @return This builder for chaining.
      */
     public Builder setErrorLogPath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       errorLogPath_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <code>string error_log_path = 3;</code>
+     * @return This builder for chaining.
      */
     public Builder clearErrorLogPath() {
-      
       errorLogPath_ = getDefaultInstance().getErrorLogPath();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <code>string error_log_path = 3;</code>
+     * @param value The bytes for errorLogPath to set.
+     * @return This builder for chaining.
      */
     public Builder setErrorLogPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       errorLogPath_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -757,43 +810,51 @@ private static final long serialVersionUID = 0L;
     private int accessLogType_ = 0;
     /**
      * <code>.xray.app.log.LogType access_log_type = 4;</code>
+     * @return The enum numeric value on the wire for accessLogType.
      */
-    public int getAccessLogTypeValue() {
+    @java.lang.Override public int getAccessLogTypeValue() {
       return accessLogType_;
     }
     /**
      * <code>.xray.app.log.LogType access_log_type = 4;</code>
+     * @param value The enum numeric value on the wire for accessLogType to set.
+     * @return This builder for chaining.
      */
     public Builder setAccessLogTypeValue(int value) {
       accessLogType_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <code>.xray.app.log.LogType access_log_type = 4;</code>
+     * @return The accessLogType.
      */
+    @java.lang.Override
     public com.xray.app.log.LogType getAccessLogType() {
-      @SuppressWarnings("deprecation")
-      com.xray.app.log.LogType result = com.xray.app.log.LogType.valueOf(accessLogType_);
+      com.xray.app.log.LogType result = com.xray.app.log.LogType.forNumber(accessLogType_);
       return result == null ? com.xray.app.log.LogType.UNRECOGNIZED : result;
     }
     /**
      * <code>.xray.app.log.LogType access_log_type = 4;</code>
+     * @param value The accessLogType to set.
+     * @return This builder for chaining.
      */
     public Builder setAccessLogType(com.xray.app.log.LogType value) {
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       accessLogType_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <code>.xray.app.log.LogType access_log_type = 4;</code>
+     * @return This builder for chaining.
      */
     public Builder clearAccessLogType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       accessLogType_ = 0;
       onChanged();
       return this;
@@ -802,6 +863,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object accessLogPath_ = "";
     /**
      * <code>string access_log_path = 5;</code>
+     * @return The accessLogPath.
      */
     public java.lang.String getAccessLogPath() {
       java.lang.Object ref = accessLogPath_;
@@ -817,6 +879,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string access_log_path = 5;</code>
+     * @return The bytes for accessLogPath.
      */
     public com.google.protobuf.ByteString
         getAccessLogPathBytes() {
@@ -833,37 +896,70 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string access_log_path = 5;</code>
+     * @param value The accessLogPath to set.
+     * @return This builder for chaining.
      */
     public Builder setAccessLogPath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       accessLogPath_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <code>string access_log_path = 5;</code>
+     * @return This builder for chaining.
      */
     public Builder clearAccessLogPath() {
-      
       accessLogPath_ = getDefaultInstance().getAccessLogPath();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
     /**
      * <code>string access_log_path = 5;</code>
+     * @param value The bytes for accessLogPath to set.
+     * @return This builder for chaining.
      */
     public Builder setAccessLogPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       accessLogPath_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+
+    private boolean enableDnsLog_ ;
+    /**
+     * <code>bool enable_dns_log = 6;</code>
+     * @return The enableDnsLog.
+     */
+    @java.lang.Override
+    public boolean getEnableDnsLog() {
+      return enableDnsLog_;
+    }
+    /**
+     * <code>bool enable_dns_log = 6;</code>
+     * @param value The enableDnsLog to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEnableDnsLog(boolean value) {
+      
+      enableDnsLog_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool enable_dns_log = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEnableDnsLog() {
+      bitField0_ = (bitField0_ & ~0x00000020);
+      enableDnsLog_ = false;
       onChanged();
       return this;
     }
@@ -900,7 +996,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Config(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

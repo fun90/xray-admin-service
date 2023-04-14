@@ -57,20 +57,12 @@ public final class Config {
       "oxy.trojanP\001Z&github.com/xtls/xray-core/" +
       "proxy/trojan\252\002\021Xray.Proxy.Trojanb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.xray.common.protocol.UserOuterClass.getDescriptor(),
           com.xray.common.protocol.ServerSpec.getDescriptor(),
-        }, assigner);
+        });
     internal_static_xray_proxy_trojan_Account_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_xray_proxy_trojan_Account_fieldAccessorTable = new

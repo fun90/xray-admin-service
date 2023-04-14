@@ -6,7 +6,7 @@ package com.xray.app.proxyman.command;
 /**
  * Protobuf type {@code xray.app.proxyman.command.AddInboundRequest}
  */
-public  final class AddInboundRequest extends
+public final class AddInboundRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.app.proxyman.command.AddInboundRequest)
     AddInboundRequestOrBuilder {
@@ -19,60 +19,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new AddInboundRequest();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private AddInboundRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.xray.core.InboundHandlerConfig.Builder subBuilder = null;
-            if (inbound_ != null) {
-              subBuilder = inbound_.toBuilder();
-            }
-            inbound_ = input.readMessage(com.xray.core.InboundHandlerConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(inbound_);
-              inbound_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -91,21 +47,26 @@ private static final long serialVersionUID = 0L;
   private com.xray.core.InboundHandlerConfig inbound_;
   /**
    * <code>.xray.core.InboundHandlerConfig inbound = 1;</code>
+   * @return Whether the inbound field is set.
    */
+  @java.lang.Override
   public boolean hasInbound() {
     return inbound_ != null;
   }
   /**
    * <code>.xray.core.InboundHandlerConfig inbound = 1;</code>
+   * @return The inbound.
    */
+  @java.lang.Override
   public com.xray.core.InboundHandlerConfig getInbound() {
     return inbound_ == null ? com.xray.core.InboundHandlerConfig.getDefaultInstance() : inbound_;
   }
   /**
    * <code>.xray.core.InboundHandlerConfig inbound = 1;</code>
    */
+  @java.lang.Override
   public com.xray.core.InboundHandlerConfigOrBuilder getInboundOrBuilder() {
-    return getInbound();
+    return inbound_ == null ? com.xray.core.InboundHandlerConfig.getDefaultInstance() : inbound_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -125,7 +86,7 @@ private static final long serialVersionUID = 0L;
     if (inbound_ != null) {
       output.writeMessage(1, getInbound());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -138,7 +99,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getInbound());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -158,7 +119,7 @@ private static final long serialVersionUID = 0L;
       if (!getInbound()
           .equals(other.getInbound())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -173,7 +134,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + INBOUND_FIELD_NUMBER;
       hash = (53 * hash) + getInbound().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -290,26 +251,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.app.proxyman.command.AddInboundRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (inboundBuilder_ == null) {
-        inbound_ = null;
-      } else {
-        inbound_ = null;
+      bitField0_ = 0;
+      inbound_ = null;
+      if (inboundBuilder_ != null) {
+        inboundBuilder_.dispose();
         inboundBuilder_ = null;
       }
       return this;
@@ -338,13 +294,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.app.proxyman.command.AddInboundRequest buildPartial() {
       com.xray.app.proxyman.command.AddInboundRequest result = new com.xray.app.proxyman.command.AddInboundRequest(this);
-      if (inboundBuilder_ == null) {
-        result.inbound_ = inbound_;
-      } else {
-        result.inbound_ = inboundBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.app.proxyman.command.AddInboundRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.inbound_ = inboundBuilder_ == null
+            ? inbound_
+            : inboundBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -394,7 +355,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasInbound()) {
         mergeInbound(other.getInbound());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -409,31 +370,54 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.app.proxyman.command.AddInboundRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getInboundFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.app.proxyman.command.AddInboundRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.xray.core.InboundHandlerConfig inbound_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.xray.core.InboundHandlerConfig, com.xray.core.InboundHandlerConfig.Builder, com.xray.core.InboundHandlerConfigOrBuilder> inboundBuilder_;
     /**
      * <code>.xray.core.InboundHandlerConfig inbound = 1;</code>
+     * @return Whether the inbound field is set.
      */
     public boolean hasInbound() {
-      return inboundBuilder_ != null || inbound_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.xray.core.InboundHandlerConfig inbound = 1;</code>
+     * @return The inbound.
      */
     public com.xray.core.InboundHandlerConfig getInbound() {
       if (inboundBuilder_ == null) {
@@ -451,11 +435,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         inbound_ = value;
-        onChanged();
       } else {
         inboundBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -465,11 +449,11 @@ private static final long serialVersionUID = 0L;
         com.xray.core.InboundHandlerConfig.Builder builderForValue) {
       if (inboundBuilder_ == null) {
         inbound_ = builderForValue.build();
-        onChanged();
       } else {
         inboundBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -477,38 +461,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInbound(com.xray.core.InboundHandlerConfig value) {
       if (inboundBuilder_ == null) {
-        if (inbound_ != null) {
-          inbound_ =
-            com.xray.core.InboundHandlerConfig.newBuilder(inbound_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          inbound_ != null &&
+          inbound_ != com.xray.core.InboundHandlerConfig.getDefaultInstance()) {
+          getInboundBuilder().mergeFrom(value);
         } else {
           inbound_ = value;
         }
-        onChanged();
       } else {
         inboundBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.core.InboundHandlerConfig inbound = 1;</code>
      */
     public Builder clearInbound() {
-      if (inboundBuilder_ == null) {
-        inbound_ = null;
-        onChanged();
-      } else {
-        inbound_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      inbound_ = null;
+      if (inboundBuilder_ != null) {
+        inboundBuilder_.dispose();
         inboundBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.core.InboundHandlerConfig inbound = 1;</code>
      */
     public com.xray.core.InboundHandlerConfig.Builder getInboundBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getInboundFieldBuilder().getBuilder();
     }
@@ -572,7 +556,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AddInboundRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

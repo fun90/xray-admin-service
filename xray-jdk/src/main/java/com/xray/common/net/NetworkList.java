@@ -10,7 +10,7 @@ package com.xray.common.net;
  *
  * Protobuf type {@code xray.common.net.NetworkList}
  */
-public  final class NetworkList extends
+public final class NetworkList extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.common.net.NetworkList)
     NetworkListOrBuilder {
@@ -24,73 +24,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new NetworkList();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private NetworkList(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              network_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            network_.add(rawValue);
-            break;
-          }
-          case 10: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                network_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              network_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        network_ = java.util.Collections.unmodifiableList(network_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -106,46 +49,58 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NETWORK_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> network_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.xray.common.net.Network> network_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.xray.common.net.Network>() {
             public com.xray.common.net.Network convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.xray.common.net.Network result = com.xray.common.net.Network.valueOf(from);
+              com.xray.common.net.Network result = com.xray.common.net.Network.forNumber(from);
               return result == null ? com.xray.common.net.Network.UNRECOGNIZED : result;
             }
           };
   /**
    * <code>repeated .xray.common.net.Network network = 1;</code>
+   * @return A list containing the network.
    */
+  @java.lang.Override
   public java.util.List<com.xray.common.net.Network> getNetworkList() {
     return new com.google.protobuf.Internal.ListAdapter<
         java.lang.Integer, com.xray.common.net.Network>(network_, network_converter_);
   }
   /**
    * <code>repeated .xray.common.net.Network network = 1;</code>
+   * @return The count of network.
    */
+  @java.lang.Override
   public int getNetworkCount() {
     return network_.size();
   }
   /**
    * <code>repeated .xray.common.net.Network network = 1;</code>
+   * @param index The index of the element to return.
+   * @return The network at the given index.
    */
+  @java.lang.Override
   public com.xray.common.net.Network getNetwork(int index) {
     return network_converter_.convert(network_.get(index));
   }
   /**
    * <code>repeated .xray.common.net.Network network = 1;</code>
+   * @return A list containing the enum numeric values on the wire for network.
    */
+  @java.lang.Override
   public java.util.List<java.lang.Integer>
   getNetworkValueList() {
     return network_;
   }
   /**
    * <code>repeated .xray.common.net.Network network = 1;</code>
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of network at the given index.
    */
+  @java.lang.Override
   public int getNetworkValue(int index) {
     return network_.get(index);
   }
@@ -173,7 +128,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < network_.size(); i++) {
       output.writeEnumNoTag(network_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -194,7 +149,7 @@ private static final long serialVersionUID = 0L;
           .computeUInt32SizeNoTag(dataSize);
       }networkMemoizedSerializedSize = dataSize;
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -210,7 +165,7 @@ private static final long serialVersionUID = 0L;
     com.xray.common.net.NetworkList other = (com.xray.common.net.NetworkList) obj;
 
     if (!network_.equals(other.network_)) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -225,7 +180,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + NETWORK_FIELD_NUMBER;
       hash = (53 * hash) + network_.hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -346,22 +301,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.common.net.NetworkList.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       network_ = java.util.Collections.emptyList();
       bitField0_ = (bitField0_ & ~0x00000001);
       return this;
@@ -390,14 +341,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.common.net.NetworkList buildPartial() {
       com.xray.common.net.NetworkList result = new com.xray.common.net.NetworkList(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.xray.common.net.NetworkList result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         network_ = java.util.Collections.unmodifiableList(network_);
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.network_ = network_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.xray.common.net.NetworkList result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -454,7 +413,7 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -469,17 +428,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.common.net.NetworkList parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int tmpRaw = input.readEnum();
+              ensureNetworkIsMutable();
+              network_.add(tmpRaw);
+              break;
+            } // case 8
+            case 10: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureNetworkIsMutable();
+                network_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.common.net.NetworkList) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -494,6 +483,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated .xray.common.net.Network network = 1;</code>
+     * @return A list containing the network.
      */
     public java.util.List<com.xray.common.net.Network> getNetworkList() {
       return new com.google.protobuf.Internal.ListAdapter<
@@ -501,18 +491,24 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated .xray.common.net.Network network = 1;</code>
+     * @return The count of network.
      */
     public int getNetworkCount() {
       return network_.size();
     }
     /**
      * <code>repeated .xray.common.net.Network network = 1;</code>
+     * @param index The index of the element to return.
+     * @return The network at the given index.
      */
     public com.xray.common.net.Network getNetwork(int index) {
       return network_converter_.convert(network_.get(index));
     }
     /**
      * <code>repeated .xray.common.net.Network network = 1;</code>
+     * @param index The index to set the value at.
+     * @param value The network to set.
+     * @return This builder for chaining.
      */
     public Builder setNetwork(
         int index, com.xray.common.net.Network value) {
@@ -526,6 +522,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated .xray.common.net.Network network = 1;</code>
+     * @param value The network to add.
+     * @return This builder for chaining.
      */
     public Builder addNetwork(com.xray.common.net.Network value) {
       if (value == null) {
@@ -538,6 +536,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated .xray.common.net.Network network = 1;</code>
+     * @param values The network to add.
+     * @return This builder for chaining.
      */
     public Builder addAllNetwork(
         java.lang.Iterable<? extends com.xray.common.net.Network> values) {
@@ -550,6 +550,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated .xray.common.net.Network network = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearNetwork() {
       network_ = java.util.Collections.emptyList();
@@ -559,6 +560,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated .xray.common.net.Network network = 1;</code>
+     * @return A list containing the enum numeric values on the wire for network.
      */
     public java.util.List<java.lang.Integer>
     getNetworkValueList() {
@@ -566,12 +568,17 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated .xray.common.net.Network network = 1;</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of network at the given index.
      */
     public int getNetworkValue(int index) {
       return network_.get(index);
     }
     /**
      * <code>repeated .xray.common.net.Network network = 1;</code>
+     * @param index The index to set the value at.
+     * @param value The enum numeric value on the wire for network to set.
+     * @return This builder for chaining.
      */
     public Builder setNetworkValue(
         int index, int value) {
@@ -582,6 +589,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated .xray.common.net.Network network = 1;</code>
+     * @param value The enum numeric value on the wire for network to add.
+     * @return This builder for chaining.
      */
     public Builder addNetworkValue(int value) {
       ensureNetworkIsMutable();
@@ -591,6 +600,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated .xray.common.net.Network network = 1;</code>
+     * @param values The enum numeric values on the wire for network to add.
+     * @return This builder for chaining.
      */
     public Builder addAllNetworkValue(
         java.lang.Iterable<java.lang.Integer> values) {
@@ -634,7 +645,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new NetworkList(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

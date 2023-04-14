@@ -9,10 +9,12 @@ public interface AddInboundRequestOrBuilder extends
 
   /**
    * <code>.xray.core.InboundHandlerConfig inbound = 1;</code>
+   * @return Whether the inbound field is set.
    */
   boolean hasInbound();
   /**
    * <code>.xray.core.InboundHandlerConfig inbound = 1;</code>
+   * @return The inbound.
    */
   com.xray.core.InboundHandlerConfig getInbound();
   /**

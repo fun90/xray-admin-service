@@ -13,6 +13,7 @@ public interface HeaderOrBuilder extends
    * </pre>
    *
    * <code>string name = 1;</code>
+   * @return The name.
    */
   java.lang.String getName();
   /**
@@ -21,6 +22,7 @@ public interface HeaderOrBuilder extends
    * </pre>
    *
    * <code>string name = 1;</code>
+   * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
@@ -32,6 +34,7 @@ public interface HeaderOrBuilder extends
    * </pre>
    *
    * <code>repeated string value = 2;</code>
+   * @return A list containing the value.
    */
   java.util.List<java.lang.String>
       getValueList();
@@ -42,6 +45,7 @@ public interface HeaderOrBuilder extends
    * </pre>
    *
    * <code>repeated string value = 2;</code>
+   * @return The count of value.
    */
   int getValueCount();
   /**
@@ -51,6 +55,8 @@ public interface HeaderOrBuilder extends
    * </pre>
    *
    * <code>repeated string value = 2;</code>
+   * @param index The index of the element to return.
+   * @return The value at the given index.
    */
   java.lang.String getValue(int index);
   /**
@@ -60,6 +66,8 @@ public interface HeaderOrBuilder extends
    * </pre>
    *
    * <code>repeated string value = 2;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the value at the given index.
    */
   com.google.protobuf.ByteString
       getValueBytes(int index);

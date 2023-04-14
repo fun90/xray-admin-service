@@ -14,6 +14,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.common.net.Endpoint server = 1;</code>
+   * @return Whether the server field is set.
    */
   boolean hasServer();
   /**
@@ -23,6 +24,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.common.net.Endpoint server = 1;</code>
+   * @return The server.
    */
   com.xray.common.net.Endpoint getServer();
   /**
@@ -34,4 +36,10 @@ public interface ConfigOrBuilder extends
    * <code>.xray.common.net.Endpoint server = 1;</code>
    */
   com.xray.common.net.EndpointOrBuilder getServerOrBuilder();
+
+  /**
+   * <code>uint32 user_level = 2;</code>
+   * @return The userLevel.
+   */
+  int getUserLevel();
 }

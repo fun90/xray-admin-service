@@ -29,31 +29,23 @@ public final class ConfigOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\026proxy/dns/config.proto\022\016xray.proxy.dns" +
-      "\032\034common/net/destination.proto\"3\n\006Config" +
+      "\032\034common/net/destination.proto\"G\n\006Config" +
       "\022)\n\006server\030\001 \001(\0132\031.xray.common.net.Endpo" +
-      "intBL\n\022com.xray.proxy.dnsP\001Z#github.com/" +
-      "xtls/xray-core/proxy/dns\252\002\016Xray.Proxy.Dn" +
-      "sb\006proto3"
+      "int\022\022\n\nuser_level\030\002 \001(\rBL\n\022com.xray.prox" +
+      "y.dnsP\001Z#github.com/xtls/xray-core/proxy" +
+      "/dns\252\002\016Xray.Proxy.Dnsb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.xray.common.net.Destination.getDescriptor(),
-        }, assigner);
+        });
     internal_static_xray_proxy_dns_Config_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_xray_proxy_dns_Config_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xray_proxy_dns_Config_descriptor,
-        new java.lang.String[] { "Server", });
+        new java.lang.String[] { "Server", "UserLevel", });
     com.xray.common.net.Destination.getDescriptor();
   }
 

@@ -9,15 +9,18 @@ public interface UserOrBuilder extends
 
   /**
    * <code>uint32 level = 1;</code>
+   * @return The level.
    */
   int getLevel();
 
   /**
    * <code>string email = 2;</code>
+   * @return The email.
    */
   java.lang.String getEmail();
   /**
    * <code>string email = 2;</code>
+   * @return The bytes for email.
    */
   com.google.protobuf.ByteString
       getEmailBytes();
@@ -29,6 +32,7 @@ public interface UserOrBuilder extends
    * </pre>
    *
    * <code>.xray.common.serial.TypedMessage account = 3;</code>
+   * @return Whether the account field is set.
    */
   boolean hasAccount();
   /**
@@ -38,6 +42,7 @@ public interface UserOrBuilder extends
    * </pre>
    *
    * <code>.xray.common.serial.TypedMessage account = 3;</code>
+   * @return The account.
    */
   com.xray.common.serial.TypedMessage getAccount();
   /**

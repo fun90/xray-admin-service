@@ -9,10 +9,12 @@ public interface ConfigOrBuilder extends
 
   /**
    * <code>.xray.app.router.Config.DomainStrategy domain_strategy = 1;</code>
+   * @return The enum numeric value on the wire for domainStrategy.
    */
   int getDomainStrategyValue();
   /**
    * <code>.xray.app.router.Config.DomainStrategy domain_strategy = 1;</code>
+   * @return The domainStrategy.
    */
   com.xray.app.router.Config.DomainStrategy getDomainStrategy();
 

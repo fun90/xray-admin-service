@@ -9,10 +9,12 @@ public interface RemoveUserOperationOrBuilder extends
 
   /**
    * <code>string email = 1;</code>
+   * @return The email.
    */
   java.lang.String getEmail();
   /**
    * <code>string email = 1;</code>
+   * @return The bytes for email.
    */
   com.google.protobuf.ByteString
       getEmailBytes();

@@ -9,10 +9,12 @@ public interface AddOutboundRequestOrBuilder extends
 
   /**
    * <code>.xray.core.OutboundHandlerConfig outbound = 1;</code>
+   * @return Whether the outbound field is set.
    */
   boolean hasOutbound();
   /**
    * <code>.xray.core.OutboundHandlerConfig outbound = 1;</code>
+   * @return The outbound.
    */
   com.xray.core.OutboundHandlerConfig getOutbound();
   /**

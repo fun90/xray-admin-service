@@ -6,7 +6,7 @@ package com.xray.app.router;
 /**
  * Protobuf type {@code xray.app.router.GeoIP}
  */
-public  final class GeoIP extends
+public final class GeoIP extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.app.router.GeoIP)
     GeoIPOrBuilder {
@@ -21,65 +21,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new GeoIP();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private GeoIP(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            countryCode_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              cidr_ = new java.util.ArrayList<com.xray.app.router.CIDR>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            cidr_.add(
-                input.readMessage(com.xray.app.router.CIDR.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        cidr_ = java.util.Collections.unmodifiableList(cidr_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -94,12 +45,14 @@ private static final long serialVersionUID = 0L;
             com.xray.app.router.GeoIP.class, com.xray.app.router.GeoIP.Builder.class);
   }
 
-  private int bitField0_;
   public static final int COUNTRY_CODE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object countryCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object countryCode_ = "";
   /**
    * <code>string country_code = 1;</code>
+   * @return The countryCode.
    */
+  @java.lang.Override
   public java.lang.String getCountryCode() {
     java.lang.Object ref = countryCode_;
     if (ref instanceof java.lang.String) {
@@ -114,7 +67,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string country_code = 1;</code>
+   * @return The bytes for countryCode.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getCountryCodeBytes() {
     java.lang.Object ref = countryCode_;
@@ -130,16 +85,19 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CIDR_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.xray.app.router.CIDR> cidr_;
   /**
    * <code>repeated .xray.app.router.CIDR cidr = 2;</code>
    */
+  @java.lang.Override
   public java.util.List<com.xray.app.router.CIDR> getCidrList() {
     return cidr_;
   }
   /**
    * <code>repeated .xray.app.router.CIDR cidr = 2;</code>
    */
+  @java.lang.Override
   public java.util.List<? extends com.xray.app.router.CIDROrBuilder> 
       getCidrOrBuilderList() {
     return cidr_;
@@ -147,21 +105,35 @@ private static final long serialVersionUID = 0L;
   /**
    * <code>repeated .xray.app.router.CIDR cidr = 2;</code>
    */
+  @java.lang.Override
   public int getCidrCount() {
     return cidr_.size();
   }
   /**
    * <code>repeated .xray.app.router.CIDR cidr = 2;</code>
    */
+  @java.lang.Override
   public com.xray.app.router.CIDR getCidr(int index) {
     return cidr_.get(index);
   }
   /**
    * <code>repeated .xray.app.router.CIDR cidr = 2;</code>
    */
+  @java.lang.Override
   public com.xray.app.router.CIDROrBuilder getCidrOrBuilder(
       int index) {
     return cidr_.get(index);
+  }
+
+  public static final int REVERSE_MATCH_FIELD_NUMBER = 3;
+  private boolean reverseMatch_ = false;
+  /**
+   * <code>bool reverse_match = 3;</code>
+   * @return The reverseMatch.
+   */
+  @java.lang.Override
+  public boolean getReverseMatch() {
+    return reverseMatch_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -178,13 +150,16 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getCountryCodeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(countryCode_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, countryCode_);
     }
     for (int i = 0; i < cidr_.size(); i++) {
       output.writeMessage(2, cidr_.get(i));
     }
-    unknownFields.writeTo(output);
+    if (reverseMatch_ != false) {
+      output.writeBool(3, reverseMatch_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -193,14 +168,18 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getCountryCodeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(countryCode_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, countryCode_);
     }
     for (int i = 0; i < cidr_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, cidr_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    if (reverseMatch_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(3, reverseMatch_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -219,7 +198,9 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCountryCode())) return false;
     if (!getCidrList()
         .equals(other.getCidrList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (getReverseMatch()
+        != other.getReverseMatch()) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -236,7 +217,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CIDR_FIELD_NUMBER;
       hash = (53 * hash) + getCidrList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + REVERSE_MATCH_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getReverseMatch());
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -353,31 +337,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.app.router.GeoIP.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getCidrFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       countryCode_ = "";
-
       if (cidrBuilder_ == null) {
         cidr_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        cidr_ = null;
         cidrBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
+      reverseMatch_ = false;
       return this;
     }
 
@@ -404,9 +384,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.app.router.GeoIP buildPartial() {
       com.xray.app.router.GeoIP result = new com.xray.app.router.GeoIP(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.countryCode_ = countryCode_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.xray.app.router.GeoIP result) {
       if (cidrBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0)) {
           cidr_ = java.util.Collections.unmodifiableList(cidr_);
@@ -416,9 +400,16 @@ private static final long serialVersionUID = 0L;
       } else {
         result.cidr_ = cidrBuilder_.build();
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.xray.app.router.GeoIP result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.countryCode_ = countryCode_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.reverseMatch_ = reverseMatch_;
+      }
     }
 
     @java.lang.Override
@@ -467,6 +458,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.xray.app.router.GeoIP.getDefaultInstance()) return this;
       if (!other.getCountryCode().isEmpty()) {
         countryCode_ = other.countryCode_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (cidrBuilder_ == null) {
@@ -495,7 +487,10 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.getReverseMatch() != false) {
+        setReverseMatch(other.getReverseMatch());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -510,17 +505,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.app.router.GeoIP parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              countryCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.xray.app.router.CIDR m =
+                  input.readMessage(
+                      com.xray.app.router.CIDR.parser(),
+                      extensionRegistry);
+              if (cidrBuilder_ == null) {
+                ensureCidrIsMutable();
+                cidr_.add(m);
+              } else {
+                cidrBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 24: {
+              reverseMatch_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.app.router.GeoIP) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -528,6 +559,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object countryCode_ = "";
     /**
      * <code>string country_code = 1;</code>
+     * @return The countryCode.
      */
     public java.lang.String getCountryCode() {
       java.lang.Object ref = countryCode_;
@@ -543,6 +575,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string country_code = 1;</code>
+     * @return The bytes for countryCode.
      */
     public com.google.protobuf.ByteString
         getCountryCodeBytes() {
@@ -559,37 +592,38 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string country_code = 1;</code>
+     * @param value The countryCode to set.
+     * @return This builder for chaining.
      */
     public Builder setCountryCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       countryCode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <code>string country_code = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearCountryCode() {
-      
       countryCode_ = getDefaultInstance().getCountryCode();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <code>string country_code = 1;</code>
+     * @param value The bytes for countryCode to set.
+     * @return This builder for chaining.
      */
     public Builder setCountryCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       countryCode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -833,6 +867,38 @@ private static final long serialVersionUID = 0L;
       }
       return cidrBuilder_;
     }
+
+    private boolean reverseMatch_ ;
+    /**
+     * <code>bool reverse_match = 3;</code>
+     * @return The reverseMatch.
+     */
+    @java.lang.Override
+    public boolean getReverseMatch() {
+      return reverseMatch_;
+    }
+    /**
+     * <code>bool reverse_match = 3;</code>
+     * @param value The reverseMatch to set.
+     * @return This builder for chaining.
+     */
+    public Builder setReverseMatch(boolean value) {
+      
+      reverseMatch_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool reverse_match = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearReverseMatch() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      reverseMatch_ = false;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -866,7 +932,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GeoIP(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

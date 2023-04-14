@@ -11,7 +11,7 @@ package com.xray.core;
  *
  * Protobuf type {@code xray.core.Config}
  */
-public  final class Config extends
+public final class Config extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.core.Config)
     ConfigOrBuilder {
@@ -28,108 +28,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new Config();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Config(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              inbound_ = new java.util.ArrayList<com.xray.core.InboundHandlerConfig>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            inbound_.add(
-                input.readMessage(com.xray.core.InboundHandlerConfig.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              outbound_ = new java.util.ArrayList<com.xray.core.OutboundHandlerConfig>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            outbound_.add(
-                input.readMessage(com.xray.core.OutboundHandlerConfig.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              app_ = new java.util.ArrayList<com.xray.common.serial.TypedMessage>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            app_.add(
-                input.readMessage(com.xray.common.serial.TypedMessage.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            com.xray.transport.Config.Builder subBuilder = null;
-            if (transport_ != null) {
-              subBuilder = transport_.toBuilder();
-            }
-            transport_ = input.readMessage(com.xray.transport.Config.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(transport_);
-              transport_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              extension_ = new java.util.ArrayList<com.xray.common.serial.TypedMessage>();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            extension_.add(
-                input.readMessage(com.xray.common.serial.TypedMessage.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        inbound_ = java.util.Collections.unmodifiableList(inbound_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        outbound_ = java.util.Collections.unmodifiableList(outbound_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        app_ = java.util.Collections.unmodifiableList(app_);
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        extension_ = java.util.Collections.unmodifiableList(extension_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -144,8 +52,8 @@ private static final long serialVersionUID = 0L;
             com.xray.core.Config.class, com.xray.core.Config.Builder.class);
   }
 
-  private int bitField0_;
   public static final int INBOUND_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.xray.core.InboundHandlerConfig> inbound_;
   /**
    * <pre>
@@ -154,6 +62,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.core.InboundHandlerConfig inbound = 1;</code>
    */
+  @java.lang.Override
   public java.util.List<com.xray.core.InboundHandlerConfig> getInboundList() {
     return inbound_;
   }
@@ -164,6 +73,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.core.InboundHandlerConfig inbound = 1;</code>
    */
+  @java.lang.Override
   public java.util.List<? extends com.xray.core.InboundHandlerConfigOrBuilder> 
       getInboundOrBuilderList() {
     return inbound_;
@@ -175,6 +85,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.core.InboundHandlerConfig inbound = 1;</code>
    */
+  @java.lang.Override
   public int getInboundCount() {
     return inbound_.size();
   }
@@ -185,6 +96,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.core.InboundHandlerConfig inbound = 1;</code>
    */
+  @java.lang.Override
   public com.xray.core.InboundHandlerConfig getInbound(int index) {
     return inbound_.get(index);
   }
@@ -195,12 +107,14 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.core.InboundHandlerConfig inbound = 1;</code>
    */
+  @java.lang.Override
   public com.xray.core.InboundHandlerConfigOrBuilder getInboundOrBuilder(
       int index) {
     return inbound_.get(index);
   }
 
   public static final int OUTBOUND_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.xray.core.OutboundHandlerConfig> outbound_;
   /**
    * <pre>
@@ -210,6 +124,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.core.OutboundHandlerConfig outbound = 2;</code>
    */
+  @java.lang.Override
   public java.util.List<com.xray.core.OutboundHandlerConfig> getOutboundList() {
     return outbound_;
   }
@@ -221,6 +136,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.core.OutboundHandlerConfig outbound = 2;</code>
    */
+  @java.lang.Override
   public java.util.List<? extends com.xray.core.OutboundHandlerConfigOrBuilder> 
       getOutboundOrBuilderList() {
     return outbound_;
@@ -233,6 +149,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.core.OutboundHandlerConfig outbound = 2;</code>
    */
+  @java.lang.Override
   public int getOutboundCount() {
     return outbound_.size();
   }
@@ -244,6 +161,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.core.OutboundHandlerConfig outbound = 2;</code>
    */
+  @java.lang.Override
   public com.xray.core.OutboundHandlerConfig getOutbound(int index) {
     return outbound_.get(index);
   }
@@ -255,12 +173,14 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.core.OutboundHandlerConfig outbound = 2;</code>
    */
+  @java.lang.Override
   public com.xray.core.OutboundHandlerConfigOrBuilder getOutboundOrBuilder(
       int index) {
     return outbound_.get(index);
   }
 
   public static final int APP_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.xray.common.serial.TypedMessage> app_;
   /**
    * <pre>
@@ -271,6 +191,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.serial.TypedMessage app = 4;</code>
    */
+  @java.lang.Override
   public java.util.List<com.xray.common.serial.TypedMessage> getAppList() {
     return app_;
   }
@@ -283,6 +204,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.serial.TypedMessage app = 4;</code>
    */
+  @java.lang.Override
   public java.util.List<? extends com.xray.common.serial.TypedMessageOrBuilder> 
       getAppOrBuilderList() {
     return app_;
@@ -296,6 +218,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.serial.TypedMessage app = 4;</code>
    */
+  @java.lang.Override
   public int getAppCount() {
     return app_.size();
   }
@@ -308,6 +231,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.serial.TypedMessage app = 4;</code>
    */
+  @java.lang.Override
   public com.xray.common.serial.TypedMessage getApp(int index) {
     return app_.get(index);
   }
@@ -320,13 +244,14 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.serial.TypedMessage app = 4;</code>
    */
+  @java.lang.Override
   public com.xray.common.serial.TypedMessageOrBuilder getAppOrBuilder(
       int index) {
     return app_.get(index);
   }
 
   public static final int TRANSPORT_FIELD_NUMBER = 5;
-  private com.xray.transport.Config transport_;
+  private com.xray.transport.global.Config transport_;
   /**
    * <pre>
    * Transport settings.
@@ -335,7 +260,11 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.transport.Config transport = 5 [deprecated = true];</code>
+   * @deprecated xray.core.Config.transport is deprecated.
+   *     See core/config.proto;l=31
+   * @return Whether the transport field is set.
    */
+  @java.lang.Override
   @java.lang.Deprecated public boolean hasTransport() {
     return transport_ != null;
   }
@@ -347,9 +276,13 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.xray.transport.Config transport = 5 [deprecated = true];</code>
+   * @deprecated xray.core.Config.transport is deprecated.
+   *     See core/config.proto;l=31
+   * @return The transport.
    */
-  @java.lang.Deprecated public com.xray.transport.Config getTransport() {
-    return transport_ == null ? com.xray.transport.Config.getDefaultInstance() : transport_;
+  @java.lang.Override
+  @java.lang.Deprecated public com.xray.transport.global.Config getTransport() {
+    return transport_ == null ? com.xray.transport.global.Config.getDefaultInstance() : transport_;
   }
   /**
    * <pre>
@@ -360,11 +293,13 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.xray.transport.Config transport = 5 [deprecated = true];</code>
    */
-  @java.lang.Deprecated public com.xray.transport.ConfigOrBuilder getTransportOrBuilder() {
-    return getTransport();
+  @java.lang.Override
+  @java.lang.Deprecated public com.xray.transport.global.ConfigOrBuilder getTransportOrBuilder() {
+    return transport_ == null ? com.xray.transport.global.Config.getDefaultInstance() : transport_;
   }
 
   public static final int EXTENSION_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<com.xray.common.serial.TypedMessage> extension_;
   /**
    * <pre>
@@ -375,6 +310,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.serial.TypedMessage extension = 6;</code>
    */
+  @java.lang.Override
   public java.util.List<com.xray.common.serial.TypedMessage> getExtensionList() {
     return extension_;
   }
@@ -387,6 +323,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.serial.TypedMessage extension = 6;</code>
    */
+  @java.lang.Override
   public java.util.List<? extends com.xray.common.serial.TypedMessageOrBuilder> 
       getExtensionOrBuilderList() {
     return extension_;
@@ -400,6 +337,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.serial.TypedMessage extension = 6;</code>
    */
+  @java.lang.Override
   public int getExtensionCount() {
     return extension_.size();
   }
@@ -412,6 +350,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.serial.TypedMessage extension = 6;</code>
    */
+  @java.lang.Override
   public com.xray.common.serial.TypedMessage getExtension(int index) {
     return extension_.get(index);
   }
@@ -424,6 +363,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated .xray.common.serial.TypedMessage extension = 6;</code>
    */
+  @java.lang.Override
   public com.xray.common.serial.TypedMessageOrBuilder getExtensionOrBuilder(
       int index) {
     return extension_.get(index);
@@ -458,7 +398,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < extension_.size(); i++) {
       output.writeMessage(6, extension_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -487,7 +427,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, extension_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -515,7 +455,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getExtensionList()
         .equals(other.getExtensionList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -546,7 +486,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXTENSION_FIELD_NUMBER;
       hash = (53 * hash) + getExtensionList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -668,56 +608,51 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.core.Config.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getInboundFieldBuilder();
-        getOutboundFieldBuilder();
-        getAppFieldBuilder();
-        getExtensionFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (inboundBuilder_ == null) {
         inbound_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        inbound_ = null;
         inboundBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (outboundBuilder_ == null) {
         outbound_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        outbound_ = null;
         outboundBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       if (appBuilder_ == null) {
         app_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        app_ = null;
         appBuilder_.clear();
       }
-      if (transportBuilder_ == null) {
-        transport_ = null;
-      } else {
-        transport_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      transport_ = null;
+      if (transportBuilder_ != null) {
+        transportBuilder_.dispose();
         transportBuilder_ = null;
       }
       if (extensionBuilder_ == null) {
         extension_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
       } else {
+        extension_ = null;
         extensionBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -744,8 +679,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.core.Config buildPartial() {
       com.xray.core.Config result = new com.xray.core.Config(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.xray.core.Config result) {
       if (inboundBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           inbound_ = java.util.Collections.unmodifiableList(inbound_);
@@ -773,11 +713,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.app_ = appBuilder_.build();
       }
-      if (transportBuilder_ == null) {
-        result.transport_ = transport_;
-      } else {
-        result.transport_ = transportBuilder_.build();
-      }
       if (extensionBuilder_ == null) {
         if (((bitField0_ & 0x00000010) != 0)) {
           extension_ = java.util.Collections.unmodifiableList(extension_);
@@ -787,9 +722,15 @@ private static final long serialVersionUID = 0L;
       } else {
         result.extension_ = extensionBuilder_.build();
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.xray.core.Config result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.transport_ = transportBuilder_ == null
+            ? transport_
+            : transportBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -943,7 +884,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -958,17 +899,89 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.core.Config parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.xray.core.InboundHandlerConfig m =
+                  input.readMessage(
+                      com.xray.core.InboundHandlerConfig.parser(),
+                      extensionRegistry);
+              if (inboundBuilder_ == null) {
+                ensureInboundIsMutable();
+                inbound_.add(m);
+              } else {
+                inboundBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              com.xray.core.OutboundHandlerConfig m =
+                  input.readMessage(
+                      com.xray.core.OutboundHandlerConfig.parser(),
+                      extensionRegistry);
+              if (outboundBuilder_ == null) {
+                ensureOutboundIsMutable();
+                outbound_.add(m);
+              } else {
+                outboundBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 34: {
+              com.xray.common.serial.TypedMessage m =
+                  input.readMessage(
+                      com.xray.common.serial.TypedMessage.parser(),
+                      extensionRegistry);
+              if (appBuilder_ == null) {
+                ensureAppIsMutable();
+                app_.add(m);
+              } else {
+                appBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getTransportFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            case 50: {
+              com.xray.common.serial.TypedMessage m =
+                  input.readMessage(
+                      com.xray.common.serial.TypedMessage.parser(),
+                      extensionRegistry);
+              if (extensionBuilder_ == null) {
+                ensureExtensionIsMutable();
+                extension_.add(m);
+              } else {
+                extensionBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.core.Config) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1963,9 +1976,9 @@ private static final long serialVersionUID = 0L;
       return appBuilder_;
     }
 
-    private com.xray.transport.Config transport_;
+    private com.xray.transport.global.Config transport_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.xray.transport.Config, com.xray.transport.Config.Builder, com.xray.transport.ConfigOrBuilder> transportBuilder_;
+        com.xray.transport.global.Config, com.xray.transport.global.Config.Builder, com.xray.transport.global.ConfigOrBuilder> transportBuilder_;
     /**
      * <pre>
      * Transport settings.
@@ -1974,9 +1987,12 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.transport.Config transport = 5 [deprecated = true];</code>
+     * @deprecated xray.core.Config.transport is deprecated.
+     *     See core/config.proto;l=31
+     * @return Whether the transport field is set.
      */
     @java.lang.Deprecated public boolean hasTransport() {
-      return transportBuilder_ != null || transport_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1986,10 +2002,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.xray.transport.Config transport = 5 [deprecated = true];</code>
+     * @deprecated xray.core.Config.transport is deprecated.
+     *     See core/config.proto;l=31
+     * @return The transport.
      */
-    @java.lang.Deprecated public com.xray.transport.Config getTransport() {
+    @java.lang.Deprecated public com.xray.transport.global.Config getTransport() {
       if (transportBuilder_ == null) {
-        return transport_ == null ? com.xray.transport.Config.getDefaultInstance() : transport_;
+        return transport_ == null ? com.xray.transport.global.Config.getDefaultInstance() : transport_;
       } else {
         return transportBuilder_.getMessage();
       }
@@ -2003,17 +2022,17 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.xray.transport.Config transport = 5 [deprecated = true];</code>
      */
-    @java.lang.Deprecated public Builder setTransport(com.xray.transport.Config value) {
+    @java.lang.Deprecated public Builder setTransport(com.xray.transport.global.Config value) {
       if (transportBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
         transport_ = value;
-        onChanged();
       } else {
         transportBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2026,14 +2045,14 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.transport.Config transport = 5 [deprecated = true];</code>
      */
     @java.lang.Deprecated public Builder setTransport(
-        com.xray.transport.Config.Builder builderForValue) {
+        com.xray.transport.global.Config.Builder builderForValue) {
       if (transportBuilder_ == null) {
         transport_ = builderForValue.build();
-        onChanged();
       } else {
         transportBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2045,19 +2064,20 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.xray.transport.Config transport = 5 [deprecated = true];</code>
      */
-    @java.lang.Deprecated public Builder mergeTransport(com.xray.transport.Config value) {
+    @java.lang.Deprecated public Builder mergeTransport(com.xray.transport.global.Config value) {
       if (transportBuilder_ == null) {
-        if (transport_ != null) {
-          transport_ =
-            com.xray.transport.Config.newBuilder(transport_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          transport_ != null &&
+          transport_ != com.xray.transport.global.Config.getDefaultInstance()) {
+          getTransportBuilder().mergeFrom(value);
         } else {
           transport_ = value;
         }
-        onChanged();
       } else {
         transportBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2070,14 +2090,13 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.transport.Config transport = 5 [deprecated = true];</code>
      */
     @java.lang.Deprecated public Builder clearTransport() {
-      if (transportBuilder_ == null) {
-        transport_ = null;
-        onChanged();
-      } else {
-        transport_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      transport_ = null;
+      if (transportBuilder_ != null) {
+        transportBuilder_.dispose();
         transportBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2089,8 +2108,8 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.xray.transport.Config transport = 5 [deprecated = true];</code>
      */
-    @java.lang.Deprecated public com.xray.transport.Config.Builder getTransportBuilder() {
-      
+    @java.lang.Deprecated public com.xray.transport.global.Config.Builder getTransportBuilder() {
+      bitField0_ |= 0x00000008;
       onChanged();
       return getTransportFieldBuilder().getBuilder();
     }
@@ -2103,12 +2122,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.xray.transport.Config transport = 5 [deprecated = true];</code>
      */
-    @java.lang.Deprecated public com.xray.transport.ConfigOrBuilder getTransportOrBuilder() {
+    @java.lang.Deprecated public com.xray.transport.global.ConfigOrBuilder getTransportOrBuilder() {
       if (transportBuilder_ != null) {
         return transportBuilder_.getMessageOrBuilder();
       } else {
         return transport_ == null ?
-            com.xray.transport.Config.getDefaultInstance() : transport_;
+            com.xray.transport.global.Config.getDefaultInstance() : transport_;
       }
     }
     /**
@@ -2121,11 +2140,11 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.transport.Config transport = 5 [deprecated = true];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.xray.transport.Config, com.xray.transport.Config.Builder, com.xray.transport.ConfigOrBuilder> 
+        com.xray.transport.global.Config, com.xray.transport.global.Config.Builder, com.xray.transport.global.ConfigOrBuilder> 
         getTransportFieldBuilder() {
       if (transportBuilder_ == null) {
         transportBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.xray.transport.Config, com.xray.transport.Config.Builder, com.xray.transport.ConfigOrBuilder>(
+            com.xray.transport.global.Config, com.xray.transport.global.Config.Builder, com.xray.transport.global.ConfigOrBuilder>(
                 getTransport(),
                 getParentForChildren(),
                 isClean());
@@ -2514,7 +2533,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Config(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

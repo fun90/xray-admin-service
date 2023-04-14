@@ -9,10 +9,12 @@ public interface RemoveOutboundRequestOrBuilder extends
 
   /**
    * <code>string tag = 1;</code>
+   * @return The tag.
    */
   java.lang.String getTag();
   /**
    * <code>string tag = 1;</code>
+   * @return The bytes for tag.
    */
   com.google.protobuf.ByteString
       getTagBytes();

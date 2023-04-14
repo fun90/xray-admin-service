@@ -9,10 +9,12 @@ public interface DestinationOverrideOrBuilder extends
 
   /**
    * <code>.xray.common.protocol.ServerEndpoint server = 1;</code>
+   * @return Whether the server field is set.
    */
   boolean hasServer();
   /**
    * <code>.xray.common.protocol.ServerEndpoint server = 1;</code>
+   * @return The server.
    */
   com.xray.common.protocol.ServerEndpoint getServer();
   /**

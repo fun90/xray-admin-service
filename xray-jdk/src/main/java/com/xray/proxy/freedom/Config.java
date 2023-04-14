@@ -6,7 +6,7 @@ package com.xray.proxy.freedom;
 /**
  * Protobuf type {@code xray.proxy.freedom.Config}
  */
-public  final class Config extends
+public final class Config extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.proxy.freedom.Config)
     ConfigOrBuilder {
@@ -20,76 +20,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new Config();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Config(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            domainStrategy_ = rawValue;
-            break;
-          }
-          case 16: {
-
-            timeout_ = input.readUInt32();
-            break;
-          }
-          case 26: {
-            com.xray.proxy.freedom.DestinationOverride.Builder subBuilder = null;
-            if (destinationOverride_ != null) {
-              subBuilder = destinationOverride_.toBuilder();
-            }
-            destinationOverride_ = input.readMessage(com.xray.proxy.freedom.DestinationOverride.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(destinationOverride_);
-              destinationOverride_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 32: {
-
-            userLevel_ = input.readUInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -155,6 +95,8 @@ private static final long serialVersionUID = 0L;
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -162,6 +104,10 @@ private static final long serialVersionUID = 0L;
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static DomainStrategy forNumber(int value) {
       switch (value) {
         case 0: return AS_IS;
@@ -186,6 +132,10 @@ private static final long serialVersionUID = 0L;
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -221,27 +171,32 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DOMAIN_STRATEGY_FIELD_NUMBER = 1;
-  private int domainStrategy_;
+  private int domainStrategy_ = 0;
   /**
    * <code>.xray.proxy.freedom.Config.DomainStrategy domain_strategy = 1;</code>
+   * @return The enum numeric value on the wire for domainStrategy.
    */
-  public int getDomainStrategyValue() {
+  @java.lang.Override public int getDomainStrategyValue() {
     return domainStrategy_;
   }
   /**
    * <code>.xray.proxy.freedom.Config.DomainStrategy domain_strategy = 1;</code>
+   * @return The domainStrategy.
    */
-  public com.xray.proxy.freedom.Config.DomainStrategy getDomainStrategy() {
-    @SuppressWarnings("deprecation")
-    com.xray.proxy.freedom.Config.DomainStrategy result = com.xray.proxy.freedom.Config.DomainStrategy.valueOf(domainStrategy_);
+  @java.lang.Override public com.xray.proxy.freedom.Config.DomainStrategy getDomainStrategy() {
+    com.xray.proxy.freedom.Config.DomainStrategy result = com.xray.proxy.freedom.Config.DomainStrategy.forNumber(domainStrategy_);
     return result == null ? com.xray.proxy.freedom.Config.DomainStrategy.UNRECOGNIZED : result;
   }
 
   public static final int TIMEOUT_FIELD_NUMBER = 2;
-  private int timeout_;
+  private int timeout_ = 0;
   /**
    * <code>uint32 timeout = 2 [deprecated = true];</code>
+   * @deprecated xray.proxy.freedom.Config.timeout is deprecated.
+   *     See proxy/freedom/config.proto;l=22
+   * @return The timeout.
    */
+  @java.lang.Override
   @java.lang.Deprecated public int getTimeout() {
     return timeout_;
   }
@@ -250,28 +205,35 @@ private static final long serialVersionUID = 0L;
   private com.xray.proxy.freedom.DestinationOverride destinationOverride_;
   /**
    * <code>.xray.proxy.freedom.DestinationOverride destination_override = 3;</code>
+   * @return Whether the destinationOverride field is set.
    */
+  @java.lang.Override
   public boolean hasDestinationOverride() {
     return destinationOverride_ != null;
   }
   /**
    * <code>.xray.proxy.freedom.DestinationOverride destination_override = 3;</code>
+   * @return The destinationOverride.
    */
+  @java.lang.Override
   public com.xray.proxy.freedom.DestinationOverride getDestinationOverride() {
     return destinationOverride_ == null ? com.xray.proxy.freedom.DestinationOverride.getDefaultInstance() : destinationOverride_;
   }
   /**
    * <code>.xray.proxy.freedom.DestinationOverride destination_override = 3;</code>
    */
+  @java.lang.Override
   public com.xray.proxy.freedom.DestinationOverrideOrBuilder getDestinationOverrideOrBuilder() {
-    return getDestinationOverride();
+    return destinationOverride_ == null ? com.xray.proxy.freedom.DestinationOverride.getDefaultInstance() : destinationOverride_;
   }
 
   public static final int USER_LEVEL_FIELD_NUMBER = 4;
-  private int userLevel_;
+  private int userLevel_ = 0;
   /**
    * <code>uint32 user_level = 4;</code>
+   * @return The userLevel.
    */
+  @java.lang.Override
   public int getUserLevel() {
     return userLevel_;
   }
@@ -302,7 +264,7 @@ private static final long serialVersionUID = 0L;
     if (userLevel_ != 0) {
       output.writeUInt32(4, userLevel_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -327,7 +289,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(4, userLevel_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -352,7 +314,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getUserLevel()
         != other.getUserLevel()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -373,7 +335,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + USER_LEVEL_FIELD_NUMBER;
     hash = (53 * hash) + getUserLevel();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -490,34 +452,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.proxy.freedom.Config.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       domainStrategy_ = 0;
-
       timeout_ = 0;
-
-      if (destinationOverrideBuilder_ == null) {
-        destinationOverride_ = null;
-      } else {
-        destinationOverride_ = null;
+      destinationOverride_ = null;
+      if (destinationOverrideBuilder_ != null) {
+        destinationOverrideBuilder_.dispose();
         destinationOverrideBuilder_ = null;
       }
       userLevel_ = 0;
-
       return this;
     }
 
@@ -544,16 +498,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.proxy.freedom.Config buildPartial() {
       com.xray.proxy.freedom.Config result = new com.xray.proxy.freedom.Config(this);
-      result.domainStrategy_ = domainStrategy_;
-      result.timeout_ = timeout_;
-      if (destinationOverrideBuilder_ == null) {
-        result.destinationOverride_ = destinationOverride_;
-      } else {
-        result.destinationOverride_ = destinationOverrideBuilder_.build();
-      }
-      result.userLevel_ = userLevel_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.proxy.freedom.Config result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.domainStrategy_ = domainStrategy_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.timeout_ = timeout_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.destinationOverride_ = destinationOverrideBuilder_ == null
+            ? destinationOverride_
+            : destinationOverrideBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.userLevel_ = userLevel_;
+      }
     }
 
     @java.lang.Override
@@ -612,7 +577,7 @@ private static final long serialVersionUID = 0L;
       if (other.getUserLevel() != 0) {
         setUserLevel(other.getUserLevel());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -627,60 +592,104 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.proxy.freedom.Config parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              domainStrategy_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              timeout_ = input.readUInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getDestinationOverrideFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              userLevel_ = input.readUInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.proxy.freedom.Config) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int domainStrategy_ = 0;
     /**
      * <code>.xray.proxy.freedom.Config.DomainStrategy domain_strategy = 1;</code>
+     * @return The enum numeric value on the wire for domainStrategy.
      */
-    public int getDomainStrategyValue() {
+    @java.lang.Override public int getDomainStrategyValue() {
       return domainStrategy_;
     }
     /**
      * <code>.xray.proxy.freedom.Config.DomainStrategy domain_strategy = 1;</code>
+     * @param value The enum numeric value on the wire for domainStrategy to set.
+     * @return This builder for chaining.
      */
     public Builder setDomainStrategyValue(int value) {
       domainStrategy_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <code>.xray.proxy.freedom.Config.DomainStrategy domain_strategy = 1;</code>
+     * @return The domainStrategy.
      */
+    @java.lang.Override
     public com.xray.proxy.freedom.Config.DomainStrategy getDomainStrategy() {
-      @SuppressWarnings("deprecation")
-      com.xray.proxy.freedom.Config.DomainStrategy result = com.xray.proxy.freedom.Config.DomainStrategy.valueOf(domainStrategy_);
+      com.xray.proxy.freedom.Config.DomainStrategy result = com.xray.proxy.freedom.Config.DomainStrategy.forNumber(domainStrategy_);
       return result == null ? com.xray.proxy.freedom.Config.DomainStrategy.UNRECOGNIZED : result;
     }
     /**
      * <code>.xray.proxy.freedom.Config.DomainStrategy domain_strategy = 1;</code>
+     * @param value The domainStrategy to set.
+     * @return This builder for chaining.
      */
     public Builder setDomainStrategy(com.xray.proxy.freedom.Config.DomainStrategy value) {
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       domainStrategy_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <code>.xray.proxy.freedom.Config.DomainStrategy domain_strategy = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearDomainStrategy() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       domainStrategy_ = 0;
       onChanged();
       return this;
@@ -689,24 +698,36 @@ private static final long serialVersionUID = 0L;
     private int timeout_ ;
     /**
      * <code>uint32 timeout = 2 [deprecated = true];</code>
+     * @deprecated xray.proxy.freedom.Config.timeout is deprecated.
+     *     See proxy/freedom/config.proto;l=22
+     * @return The timeout.
      */
+    @java.lang.Override
     @java.lang.Deprecated public int getTimeout() {
       return timeout_;
     }
     /**
      * <code>uint32 timeout = 2 [deprecated = true];</code>
+     * @deprecated xray.proxy.freedom.Config.timeout is deprecated.
+     *     See proxy/freedom/config.proto;l=22
+     * @param value The timeout to set.
+     * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setTimeout(int value) {
       
       timeout_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <code>uint32 timeout = 2 [deprecated = true];</code>
+     * @deprecated xray.proxy.freedom.Config.timeout is deprecated.
+     *     See proxy/freedom/config.proto;l=22
+     * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearTimeout() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       timeout_ = 0;
       onChanged();
       return this;
@@ -717,12 +738,14 @@ private static final long serialVersionUID = 0L;
         com.xray.proxy.freedom.DestinationOverride, com.xray.proxy.freedom.DestinationOverride.Builder, com.xray.proxy.freedom.DestinationOverrideOrBuilder> destinationOverrideBuilder_;
     /**
      * <code>.xray.proxy.freedom.DestinationOverride destination_override = 3;</code>
+     * @return Whether the destinationOverride field is set.
      */
     public boolean hasDestinationOverride() {
-      return destinationOverrideBuilder_ != null || destinationOverride_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <code>.xray.proxy.freedom.DestinationOverride destination_override = 3;</code>
+     * @return The destinationOverride.
      */
     public com.xray.proxy.freedom.DestinationOverride getDestinationOverride() {
       if (destinationOverrideBuilder_ == null) {
@@ -740,11 +763,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         destinationOverride_ = value;
-        onChanged();
       } else {
         destinationOverrideBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -754,11 +777,11 @@ private static final long serialVersionUID = 0L;
         com.xray.proxy.freedom.DestinationOverride.Builder builderForValue) {
       if (destinationOverrideBuilder_ == null) {
         destinationOverride_ = builderForValue.build();
-        onChanged();
       } else {
         destinationOverrideBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -766,38 +789,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDestinationOverride(com.xray.proxy.freedom.DestinationOverride value) {
       if (destinationOverrideBuilder_ == null) {
-        if (destinationOverride_ != null) {
-          destinationOverride_ =
-            com.xray.proxy.freedom.DestinationOverride.newBuilder(destinationOverride_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          destinationOverride_ != null &&
+          destinationOverride_ != com.xray.proxy.freedom.DestinationOverride.getDefaultInstance()) {
+          getDestinationOverrideBuilder().mergeFrom(value);
         } else {
           destinationOverride_ = value;
         }
-        onChanged();
       } else {
         destinationOverrideBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.proxy.freedom.DestinationOverride destination_override = 3;</code>
      */
     public Builder clearDestinationOverride() {
-      if (destinationOverrideBuilder_ == null) {
-        destinationOverride_ = null;
-        onChanged();
-      } else {
-        destinationOverride_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      destinationOverride_ = null;
+      if (destinationOverrideBuilder_ != null) {
+        destinationOverrideBuilder_.dispose();
         destinationOverrideBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.proxy.freedom.DestinationOverride destination_override = 3;</code>
      */
     public com.xray.proxy.freedom.DestinationOverride.Builder getDestinationOverrideBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getDestinationOverrideFieldBuilder().getBuilder();
     }
@@ -832,24 +855,30 @@ private static final long serialVersionUID = 0L;
     private int userLevel_ ;
     /**
      * <code>uint32 user_level = 4;</code>
+     * @return The userLevel.
      */
+    @java.lang.Override
     public int getUserLevel() {
       return userLevel_;
     }
     /**
      * <code>uint32 user_level = 4;</code>
+     * @param value The userLevel to set.
+     * @return This builder for chaining.
      */
     public Builder setUserLevel(int value) {
       
       userLevel_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <code>uint32 user_level = 4;</code>
+     * @return This builder for chaining.
      */
     public Builder clearUserLevel() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       userLevel_ = 0;
       onChanged();
       return this;
@@ -887,7 +916,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Config(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

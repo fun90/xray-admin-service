@@ -9,10 +9,12 @@ public interface GeoSiteOrBuilder extends
 
   /**
    * <code>string country_code = 1;</code>
+   * @return The countryCode.
    */
   java.lang.String getCountryCode();
   /**
    * <code>string country_code = 1;</code>
+   * @return The bytes for countryCode.
    */
   com.google.protobuf.ByteString
       getCountryCodeBytes();

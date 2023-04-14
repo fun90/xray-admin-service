@@ -13,6 +13,7 @@ public interface CIDROrBuilder extends
    * </pre>
    *
    * <code>bytes ip = 1;</code>
+   * @return The ip.
    */
   com.google.protobuf.ByteString getIp();
 
@@ -22,6 +23,7 @@ public interface CIDROrBuilder extends
    * </pre>
    *
    * <code>uint32 prefix = 2;</code>
+   * @return The prefix.
    */
   int getPrefix();
 }

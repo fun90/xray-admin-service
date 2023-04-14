@@ -9,11 +9,13 @@ public interface DefaultConfigOrBuilder extends
 
   /**
    * <code>uint32 alter_id = 1;</code>
+   * @return The alterId.
    */
   int getAlterId();
 
   /**
    * <code>uint32 level = 2;</code>
+   * @return The level.
    */
   int getLevel();
 }

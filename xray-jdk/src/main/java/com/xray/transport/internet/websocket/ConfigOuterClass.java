@@ -35,27 +35,19 @@ public final class ConfigOuterClass {
     java.lang.String[] descriptorData = {
       "\n)transport/internet/websocket/config.pr" +
       "oto\022!xray.transport.internet.websocket\"$" +
-      "\n\006Header\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"v\n\006" +
-      "Config\022\014\n\004path\030\002 \001(\t\0229\n\006header\030\003 \003(\0132).x" +
-      "ray.transport.internet.websocket.Header\022" +
-      "\035\n\025accept_proxy_protocol\030\004 \001(\010J\004\010\001\020\002B\205\001\n" +
-      "%com.xray.transport.internet.websocketP\001" +
-      "Z6github.com/xtls/xray-core/transport/in" +
-      "ternet/websocket\252\002!Xray.Transport.Intern" +
-      "et.Websocketb\006proto3"
+      "\n\006Header\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\202\001\n" +
+      "\006Config\022\014\n\004path\030\002 \001(\t\0229\n\006header\030\003 \003(\0132)." +
+      "xray.transport.internet.websocket.Header" +
+      "\022\035\n\025accept_proxy_protocol\030\004 \001(\010\022\n\n\002ed\030\005 " +
+      "\001(\rJ\004\010\001\020\002B\205\001\n%com.xray.transport.interne" +
+      "t.websocketP\001Z6github.com/xtls/xray-core" +
+      "/transport/internet/websocket\252\002!Xray.Tra" +
+      "nsport.Internet.Websocketb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
+        });
     internal_static_xray_transport_internet_websocket_Header_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_xray_transport_internet_websocket_Header_fieldAccessorTable = new
@@ -67,7 +59,7 @@ public final class ConfigOuterClass {
     internal_static_xray_transport_internet_websocket_Config_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xray_transport_internet_websocket_Config_descriptor,
-        new java.lang.String[] { "Path", "Header", "AcceptProxyProtocol", });
+        new java.lang.String[] { "Path", "Header", "AcceptProxyProtocol", "Ed", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

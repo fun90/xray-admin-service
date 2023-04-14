@@ -6,7 +6,7 @@ package com.xray.app.proxyman;
 /**
  * Protobuf type {@code xray.app.proxyman.MultiplexingConfig}
  */
-public  final class MultiplexingConfig extends
+public final class MultiplexingConfig extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.app.proxyman.MultiplexingConfig)
     MultiplexingConfigOrBuilder {
@@ -19,57 +19,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new MultiplexingConfig();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private MultiplexingConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            enabled_ = input.readBool();
-            break;
-          }
-          case 16: {
-
-            concurrency_ = input.readUInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -85,29 +44,48 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLED_FIELD_NUMBER = 1;
-  private boolean enabled_;
+  private boolean enabled_ = false;
   /**
    * <pre>
    * Whether or not Mux is enabled.
    * </pre>
    *
    * <code>bool enabled = 1;</code>
+   * @return The enabled.
    */
+  @java.lang.Override
   public boolean getEnabled() {
     return enabled_;
   }
 
   public static final int CONCURRENCY_FIELD_NUMBER = 2;
-  private int concurrency_;
+  private int concurrency_ = 0;
   /**
    * <pre>
    * Max number of concurrent connections that one Mux connection can handle.
    * </pre>
    *
-   * <code>uint32 concurrency = 2;</code>
+   * <code>int32 concurrency = 2;</code>
+   * @return The concurrency.
    */
+  @java.lang.Override
   public int getConcurrency() {
     return concurrency_;
+  }
+
+  public static final int XUDPCONCURRENCY_FIELD_NUMBER = 3;
+  private int xudpConcurrency_ = 0;
+  /**
+   * <pre>
+   * Transport XUDP in another Mux.
+   * </pre>
+   *
+   * <code>int32 xudpConcurrency = 3;</code>
+   * @return The xudpConcurrency.
+   */
+  @java.lang.Override
+  public int getXudpConcurrency() {
+    return xudpConcurrency_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -128,9 +106,12 @@ private static final long serialVersionUID = 0L;
       output.writeBool(1, enabled_);
     }
     if (concurrency_ != 0) {
-      output.writeUInt32(2, concurrency_);
+      output.writeInt32(2, concurrency_);
     }
-    unknownFields.writeTo(output);
+    if (xudpConcurrency_ != 0) {
+      output.writeInt32(3, xudpConcurrency_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -145,9 +126,13 @@ private static final long serialVersionUID = 0L;
     }
     if (concurrency_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeUInt32Size(2, concurrency_);
+        .computeInt32Size(2, concurrency_);
     }
-    size += unknownFields.getSerializedSize();
+    if (xudpConcurrency_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(3, xudpConcurrency_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -166,7 +151,9 @@ private static final long serialVersionUID = 0L;
         != other.getEnabled()) return false;
     if (getConcurrency()
         != other.getConcurrency()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (getXudpConcurrency()
+        != other.getXudpConcurrency()) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -182,7 +169,9 @@ private static final long serialVersionUID = 0L;
         getEnabled());
     hash = (37 * hash) + CONCURRENCY_FIELD_NUMBER;
     hash = (53 * hash) + getConcurrency();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + XUDPCONCURRENCY_FIELD_NUMBER;
+    hash = (53 * hash) + getXudpConcurrency();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -299,26 +288,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.app.proxyman.MultiplexingConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       enabled_ = false;
-
       concurrency_ = 0;
-
+      xudpConcurrency_ = 0;
       return this;
     }
 
@@ -345,10 +329,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.app.proxyman.MultiplexingConfig buildPartial() {
       com.xray.app.proxyman.MultiplexingConfig result = new com.xray.app.proxyman.MultiplexingConfig(this);
-      result.enabled_ = enabled_;
-      result.concurrency_ = concurrency_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.app.proxyman.MultiplexingConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.enabled_ = enabled_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.concurrency_ = concurrency_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.xudpConcurrency_ = xudpConcurrency_;
+      }
     }
 
     @java.lang.Override
@@ -401,7 +397,10 @@ private static final long serialVersionUID = 0L;
       if (other.getConcurrency() != 0) {
         setConcurrency(other.getConcurrency());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.getXudpConcurrency() != 0) {
+        setXudpConcurrency(other.getXudpConcurrency());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -416,19 +415,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.app.proxyman.MultiplexingConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              enabled_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              concurrency_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              xudpConcurrency_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.app.proxyman.MultiplexingConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean enabled_ ;
     /**
@@ -437,7 +465,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bool enabled = 1;</code>
+     * @return The enabled.
      */
+    @java.lang.Override
     public boolean getEnabled() {
       return enabled_;
     }
@@ -447,10 +477,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bool enabled = 1;</code>
+     * @param value The enabled to set.
+     * @return This builder for chaining.
      */
     public Builder setEnabled(boolean value) {
       
       enabled_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -460,9 +493,10 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bool enabled = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearEnabled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       enabled_ = false;
       onChanged();
       return this;
@@ -474,8 +508,10 @@ private static final long serialVersionUID = 0L;
      * Max number of concurrent connections that one Mux connection can handle.
      * </pre>
      *
-     * <code>uint32 concurrency = 2;</code>
+     * <code>int32 concurrency = 2;</code>
+     * @return The concurrency.
      */
+    @java.lang.Override
     public int getConcurrency() {
       return concurrency_;
     }
@@ -484,11 +520,14 @@ private static final long serialVersionUID = 0L;
      * Max number of concurrent connections that one Mux connection can handle.
      * </pre>
      *
-     * <code>uint32 concurrency = 2;</code>
+     * <code>int32 concurrency = 2;</code>
+     * @param value The concurrency to set.
+     * @return This builder for chaining.
      */
     public Builder setConcurrency(int value) {
       
       concurrency_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -497,11 +536,56 @@ private static final long serialVersionUID = 0L;
      * Max number of concurrent connections that one Mux connection can handle.
      * </pre>
      *
-     * <code>uint32 concurrency = 2;</code>
+     * <code>int32 concurrency = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearConcurrency() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       concurrency_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int xudpConcurrency_ ;
+    /**
+     * <pre>
+     * Transport XUDP in another Mux.
+     * </pre>
+     *
+     * <code>int32 xudpConcurrency = 3;</code>
+     * @return The xudpConcurrency.
+     */
+    @java.lang.Override
+    public int getXudpConcurrency() {
+      return xudpConcurrency_;
+    }
+    /**
+     * <pre>
+     * Transport XUDP in another Mux.
+     * </pre>
+     *
+     * <code>int32 xudpConcurrency = 3;</code>
+     * @param value The xudpConcurrency to set.
+     * @return This builder for chaining.
+     */
+    public Builder setXudpConcurrency(int value) {
+      
+      xudpConcurrency_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Transport XUDP in another Mux.
+     * </pre>
+     *
+     * <code>int32 xudpConcurrency = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearXudpConcurrency() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      xudpConcurrency_ = 0;
       onChanged();
       return this;
     }
@@ -538,7 +622,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MultiplexingConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

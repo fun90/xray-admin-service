@@ -14,6 +14,7 @@ public interface AccountOrBuilder extends
    * </pre>
    *
    * <code>string id = 1;</code>
+   * @return The id.
    */
   java.lang.String getId();
   /**
@@ -23,6 +24,7 @@ public interface AccountOrBuilder extends
    * </pre>
    *
    * <code>string id = 1;</code>
+   * @return The bytes for id.
    */
   com.google.protobuf.ByteString
       getIdBytes();
@@ -33,6 +35,7 @@ public interface AccountOrBuilder extends
    * </pre>
    *
    * <code>uint32 alter_id = 2;</code>
+   * @return The alterId.
    */
   int getAlterId();
 
@@ -42,6 +45,7 @@ public interface AccountOrBuilder extends
    * </pre>
    *
    * <code>.xray.common.protocol.SecurityConfig security_settings = 3;</code>
+   * @return Whether the securitySettings field is set.
    */
   boolean hasSecuritySettings();
   /**
@@ -50,6 +54,7 @@ public interface AccountOrBuilder extends
    * </pre>
    *
    * <code>.xray.common.protocol.SecurityConfig security_settings = 3;</code>
+   * @return The securitySettings.
    */
   com.xray.common.protocol.SecurityConfig getSecuritySettings();
   /**
@@ -67,6 +72,7 @@ public interface AccountOrBuilder extends
    * </pre>
    *
    * <code>string tests_enabled = 4;</code>
+   * @return The testsEnabled.
    */
   java.lang.String getTestsEnabled();
   /**
@@ -75,6 +81,7 @@ public interface AccountOrBuilder extends
    * </pre>
    *
    * <code>string tests_enabled = 4;</code>
+   * @return The bytes for testsEnabled.
    */
   com.google.protobuf.ByteString
       getTestsEnabledBytes();

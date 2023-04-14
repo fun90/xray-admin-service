@@ -6,7 +6,7 @@ package com.xray.transport.internet.kcp;
 /**
  * Protobuf type {@code xray.transport.internet.kcp.Config}
  */
-public  final class Config extends
+public final class Config extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.transport.internet.kcp.Config)
     ConfigOrBuilder {
@@ -19,156 +19,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new Config();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Config(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.xray.transport.internet.kcp.MTU.Builder subBuilder = null;
-            if (mtu_ != null) {
-              subBuilder = mtu_.toBuilder();
-            }
-            mtu_ = input.readMessage(com.xray.transport.internet.kcp.MTU.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(mtu_);
-              mtu_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.xray.transport.internet.kcp.TTI.Builder subBuilder = null;
-            if (tti_ != null) {
-              subBuilder = tti_.toBuilder();
-            }
-            tti_ = input.readMessage(com.xray.transport.internet.kcp.TTI.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(tti_);
-              tti_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.xray.transport.internet.kcp.UplinkCapacity.Builder subBuilder = null;
-            if (uplinkCapacity_ != null) {
-              subBuilder = uplinkCapacity_.toBuilder();
-            }
-            uplinkCapacity_ = input.readMessage(com.xray.transport.internet.kcp.UplinkCapacity.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(uplinkCapacity_);
-              uplinkCapacity_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.xray.transport.internet.kcp.DownlinkCapacity.Builder subBuilder = null;
-            if (downlinkCapacity_ != null) {
-              subBuilder = downlinkCapacity_.toBuilder();
-            }
-            downlinkCapacity_ = input.readMessage(com.xray.transport.internet.kcp.DownlinkCapacity.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(downlinkCapacity_);
-              downlinkCapacity_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-
-            congestion_ = input.readBool();
-            break;
-          }
-          case 50: {
-            com.xray.transport.internet.kcp.WriteBuffer.Builder subBuilder = null;
-            if (writeBuffer_ != null) {
-              subBuilder = writeBuffer_.toBuilder();
-            }
-            writeBuffer_ = input.readMessage(com.xray.transport.internet.kcp.WriteBuffer.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(writeBuffer_);
-              writeBuffer_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            com.xray.transport.internet.kcp.ReadBuffer.Builder subBuilder = null;
-            if (readBuffer_ != null) {
-              subBuilder = readBuffer_.toBuilder();
-            }
-            readBuffer_ = input.readMessage(com.xray.transport.internet.kcp.ReadBuffer.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(readBuffer_);
-              readBuffer_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            com.xray.common.serial.TypedMessage.Builder subBuilder = null;
-            if (headerConfig_ != null) {
-              subBuilder = headerConfig_.toBuilder();
-            }
-            headerConfig_ = input.readMessage(com.xray.common.serial.TypedMessage.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(headerConfig_);
-              headerConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            com.xray.transport.internet.kcp.EncryptionSeed.Builder subBuilder = null;
-            if (seed_ != null) {
-              subBuilder = seed_.toBuilder();
-            }
-            seed_ = input.readMessage(com.xray.transport.internet.kcp.EncryptionSeed.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(seed_);
-              seed_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -187,91 +47,113 @@ private static final long serialVersionUID = 0L;
   private com.xray.transport.internet.kcp.MTU mtu_;
   /**
    * <code>.xray.transport.internet.kcp.MTU mtu = 1;</code>
+   * @return Whether the mtu field is set.
    */
+  @java.lang.Override
   public boolean hasMtu() {
     return mtu_ != null;
   }
   /**
    * <code>.xray.transport.internet.kcp.MTU mtu = 1;</code>
+   * @return The mtu.
    */
+  @java.lang.Override
   public com.xray.transport.internet.kcp.MTU getMtu() {
     return mtu_ == null ? com.xray.transport.internet.kcp.MTU.getDefaultInstance() : mtu_;
   }
   /**
    * <code>.xray.transport.internet.kcp.MTU mtu = 1;</code>
    */
+  @java.lang.Override
   public com.xray.transport.internet.kcp.MTUOrBuilder getMtuOrBuilder() {
-    return getMtu();
+    return mtu_ == null ? com.xray.transport.internet.kcp.MTU.getDefaultInstance() : mtu_;
   }
 
   public static final int TTI_FIELD_NUMBER = 2;
   private com.xray.transport.internet.kcp.TTI tti_;
   /**
    * <code>.xray.transport.internet.kcp.TTI tti = 2;</code>
+   * @return Whether the tti field is set.
    */
+  @java.lang.Override
   public boolean hasTti() {
     return tti_ != null;
   }
   /**
    * <code>.xray.transport.internet.kcp.TTI tti = 2;</code>
+   * @return The tti.
    */
+  @java.lang.Override
   public com.xray.transport.internet.kcp.TTI getTti() {
     return tti_ == null ? com.xray.transport.internet.kcp.TTI.getDefaultInstance() : tti_;
   }
   /**
    * <code>.xray.transport.internet.kcp.TTI tti = 2;</code>
    */
+  @java.lang.Override
   public com.xray.transport.internet.kcp.TTIOrBuilder getTtiOrBuilder() {
-    return getTti();
+    return tti_ == null ? com.xray.transport.internet.kcp.TTI.getDefaultInstance() : tti_;
   }
 
   public static final int UPLINK_CAPACITY_FIELD_NUMBER = 3;
   private com.xray.transport.internet.kcp.UplinkCapacity uplinkCapacity_;
   /**
    * <code>.xray.transport.internet.kcp.UplinkCapacity uplink_capacity = 3;</code>
+   * @return Whether the uplinkCapacity field is set.
    */
+  @java.lang.Override
   public boolean hasUplinkCapacity() {
     return uplinkCapacity_ != null;
   }
   /**
    * <code>.xray.transport.internet.kcp.UplinkCapacity uplink_capacity = 3;</code>
+   * @return The uplinkCapacity.
    */
+  @java.lang.Override
   public com.xray.transport.internet.kcp.UplinkCapacity getUplinkCapacity() {
     return uplinkCapacity_ == null ? com.xray.transport.internet.kcp.UplinkCapacity.getDefaultInstance() : uplinkCapacity_;
   }
   /**
    * <code>.xray.transport.internet.kcp.UplinkCapacity uplink_capacity = 3;</code>
    */
+  @java.lang.Override
   public com.xray.transport.internet.kcp.UplinkCapacityOrBuilder getUplinkCapacityOrBuilder() {
-    return getUplinkCapacity();
+    return uplinkCapacity_ == null ? com.xray.transport.internet.kcp.UplinkCapacity.getDefaultInstance() : uplinkCapacity_;
   }
 
   public static final int DOWNLINK_CAPACITY_FIELD_NUMBER = 4;
   private com.xray.transport.internet.kcp.DownlinkCapacity downlinkCapacity_;
   /**
    * <code>.xray.transport.internet.kcp.DownlinkCapacity downlink_capacity = 4;</code>
+   * @return Whether the downlinkCapacity field is set.
    */
+  @java.lang.Override
   public boolean hasDownlinkCapacity() {
     return downlinkCapacity_ != null;
   }
   /**
    * <code>.xray.transport.internet.kcp.DownlinkCapacity downlink_capacity = 4;</code>
+   * @return The downlinkCapacity.
    */
+  @java.lang.Override
   public com.xray.transport.internet.kcp.DownlinkCapacity getDownlinkCapacity() {
     return downlinkCapacity_ == null ? com.xray.transport.internet.kcp.DownlinkCapacity.getDefaultInstance() : downlinkCapacity_;
   }
   /**
    * <code>.xray.transport.internet.kcp.DownlinkCapacity downlink_capacity = 4;</code>
    */
+  @java.lang.Override
   public com.xray.transport.internet.kcp.DownlinkCapacityOrBuilder getDownlinkCapacityOrBuilder() {
-    return getDownlinkCapacity();
+    return downlinkCapacity_ == null ? com.xray.transport.internet.kcp.DownlinkCapacity.getDefaultInstance() : downlinkCapacity_;
   }
 
   public static final int CONGESTION_FIELD_NUMBER = 5;
-  private boolean congestion_;
+  private boolean congestion_ = false;
   /**
    * <code>bool congestion = 5;</code>
+   * @return The congestion.
    */
+  @java.lang.Override
   public boolean getCongestion() {
     return congestion_;
   }
@@ -280,84 +162,104 @@ private static final long serialVersionUID = 0L;
   private com.xray.transport.internet.kcp.WriteBuffer writeBuffer_;
   /**
    * <code>.xray.transport.internet.kcp.WriteBuffer write_buffer = 6;</code>
+   * @return Whether the writeBuffer field is set.
    */
+  @java.lang.Override
   public boolean hasWriteBuffer() {
     return writeBuffer_ != null;
   }
   /**
    * <code>.xray.transport.internet.kcp.WriteBuffer write_buffer = 6;</code>
+   * @return The writeBuffer.
    */
+  @java.lang.Override
   public com.xray.transport.internet.kcp.WriteBuffer getWriteBuffer() {
     return writeBuffer_ == null ? com.xray.transport.internet.kcp.WriteBuffer.getDefaultInstance() : writeBuffer_;
   }
   /**
    * <code>.xray.transport.internet.kcp.WriteBuffer write_buffer = 6;</code>
    */
+  @java.lang.Override
   public com.xray.transport.internet.kcp.WriteBufferOrBuilder getWriteBufferOrBuilder() {
-    return getWriteBuffer();
+    return writeBuffer_ == null ? com.xray.transport.internet.kcp.WriteBuffer.getDefaultInstance() : writeBuffer_;
   }
 
   public static final int READ_BUFFER_FIELD_NUMBER = 7;
   private com.xray.transport.internet.kcp.ReadBuffer readBuffer_;
   /**
    * <code>.xray.transport.internet.kcp.ReadBuffer read_buffer = 7;</code>
+   * @return Whether the readBuffer field is set.
    */
+  @java.lang.Override
   public boolean hasReadBuffer() {
     return readBuffer_ != null;
   }
   /**
    * <code>.xray.transport.internet.kcp.ReadBuffer read_buffer = 7;</code>
+   * @return The readBuffer.
    */
+  @java.lang.Override
   public com.xray.transport.internet.kcp.ReadBuffer getReadBuffer() {
     return readBuffer_ == null ? com.xray.transport.internet.kcp.ReadBuffer.getDefaultInstance() : readBuffer_;
   }
   /**
    * <code>.xray.transport.internet.kcp.ReadBuffer read_buffer = 7;</code>
    */
+  @java.lang.Override
   public com.xray.transport.internet.kcp.ReadBufferOrBuilder getReadBufferOrBuilder() {
-    return getReadBuffer();
+    return readBuffer_ == null ? com.xray.transport.internet.kcp.ReadBuffer.getDefaultInstance() : readBuffer_;
   }
 
   public static final int HEADER_CONFIG_FIELD_NUMBER = 8;
   private com.xray.common.serial.TypedMessage headerConfig_;
   /**
    * <code>.xray.common.serial.TypedMessage header_config = 8;</code>
+   * @return Whether the headerConfig field is set.
    */
+  @java.lang.Override
   public boolean hasHeaderConfig() {
     return headerConfig_ != null;
   }
   /**
    * <code>.xray.common.serial.TypedMessage header_config = 8;</code>
+   * @return The headerConfig.
    */
+  @java.lang.Override
   public com.xray.common.serial.TypedMessage getHeaderConfig() {
     return headerConfig_ == null ? com.xray.common.serial.TypedMessage.getDefaultInstance() : headerConfig_;
   }
   /**
    * <code>.xray.common.serial.TypedMessage header_config = 8;</code>
    */
+  @java.lang.Override
   public com.xray.common.serial.TypedMessageOrBuilder getHeaderConfigOrBuilder() {
-    return getHeaderConfig();
+    return headerConfig_ == null ? com.xray.common.serial.TypedMessage.getDefaultInstance() : headerConfig_;
   }
 
   public static final int SEED_FIELD_NUMBER = 10;
   private com.xray.transport.internet.kcp.EncryptionSeed seed_;
   /**
    * <code>.xray.transport.internet.kcp.EncryptionSeed seed = 10;</code>
+   * @return Whether the seed field is set.
    */
+  @java.lang.Override
   public boolean hasSeed() {
     return seed_ != null;
   }
   /**
    * <code>.xray.transport.internet.kcp.EncryptionSeed seed = 10;</code>
+   * @return The seed.
    */
+  @java.lang.Override
   public com.xray.transport.internet.kcp.EncryptionSeed getSeed() {
     return seed_ == null ? com.xray.transport.internet.kcp.EncryptionSeed.getDefaultInstance() : seed_;
   }
   /**
    * <code>.xray.transport.internet.kcp.EncryptionSeed seed = 10;</code>
    */
+  @java.lang.Override
   public com.xray.transport.internet.kcp.EncryptionSeedOrBuilder getSeedOrBuilder() {
-    return getSeed();
+    return seed_ == null ? com.xray.transport.internet.kcp.EncryptionSeed.getDefaultInstance() : seed_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -401,7 +303,7 @@ private static final long serialVersionUID = 0L;
     if (seed_ != null) {
       output.writeMessage(10, getSeed());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -446,7 +348,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, getSeed());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -503,7 +405,7 @@ private static final long serialVersionUID = 0L;
       if (!getSeed()
           .equals(other.getSeed())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -549,7 +451,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SEED_FIELD_NUMBER;
       hash = (53 * hash) + getSeed().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -666,70 +568,57 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.transport.internet.kcp.Config.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (mtuBuilder_ == null) {
-        mtu_ = null;
-      } else {
-        mtu_ = null;
+      bitField0_ = 0;
+      mtu_ = null;
+      if (mtuBuilder_ != null) {
+        mtuBuilder_.dispose();
         mtuBuilder_ = null;
       }
-      if (ttiBuilder_ == null) {
-        tti_ = null;
-      } else {
-        tti_ = null;
+      tti_ = null;
+      if (ttiBuilder_ != null) {
+        ttiBuilder_.dispose();
         ttiBuilder_ = null;
       }
-      if (uplinkCapacityBuilder_ == null) {
-        uplinkCapacity_ = null;
-      } else {
-        uplinkCapacity_ = null;
+      uplinkCapacity_ = null;
+      if (uplinkCapacityBuilder_ != null) {
+        uplinkCapacityBuilder_.dispose();
         uplinkCapacityBuilder_ = null;
       }
-      if (downlinkCapacityBuilder_ == null) {
-        downlinkCapacity_ = null;
-      } else {
-        downlinkCapacity_ = null;
+      downlinkCapacity_ = null;
+      if (downlinkCapacityBuilder_ != null) {
+        downlinkCapacityBuilder_.dispose();
         downlinkCapacityBuilder_ = null;
       }
       congestion_ = false;
-
-      if (writeBufferBuilder_ == null) {
-        writeBuffer_ = null;
-      } else {
-        writeBuffer_ = null;
+      writeBuffer_ = null;
+      if (writeBufferBuilder_ != null) {
+        writeBufferBuilder_.dispose();
         writeBufferBuilder_ = null;
       }
-      if (readBufferBuilder_ == null) {
-        readBuffer_ = null;
-      } else {
-        readBuffer_ = null;
+      readBuffer_ = null;
+      if (readBufferBuilder_ != null) {
+        readBufferBuilder_.dispose();
         readBufferBuilder_ = null;
       }
-      if (headerConfigBuilder_ == null) {
-        headerConfig_ = null;
-      } else {
-        headerConfig_ = null;
+      headerConfig_ = null;
+      if (headerConfigBuilder_ != null) {
+        headerConfigBuilder_.dispose();
         headerConfigBuilder_ = null;
       }
-      if (seedBuilder_ == null) {
-        seed_ = null;
-      } else {
-        seed_ = null;
+      seed_ = null;
+      if (seedBuilder_ != null) {
+        seedBuilder_.dispose();
         seedBuilder_ = null;
       }
       return this;
@@ -758,49 +647,56 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.transport.internet.kcp.Config buildPartial() {
       com.xray.transport.internet.kcp.Config result = new com.xray.transport.internet.kcp.Config(this);
-      if (mtuBuilder_ == null) {
-        result.mtu_ = mtu_;
-      } else {
-        result.mtu_ = mtuBuilder_.build();
-      }
-      if (ttiBuilder_ == null) {
-        result.tti_ = tti_;
-      } else {
-        result.tti_ = ttiBuilder_.build();
-      }
-      if (uplinkCapacityBuilder_ == null) {
-        result.uplinkCapacity_ = uplinkCapacity_;
-      } else {
-        result.uplinkCapacity_ = uplinkCapacityBuilder_.build();
-      }
-      if (downlinkCapacityBuilder_ == null) {
-        result.downlinkCapacity_ = downlinkCapacity_;
-      } else {
-        result.downlinkCapacity_ = downlinkCapacityBuilder_.build();
-      }
-      result.congestion_ = congestion_;
-      if (writeBufferBuilder_ == null) {
-        result.writeBuffer_ = writeBuffer_;
-      } else {
-        result.writeBuffer_ = writeBufferBuilder_.build();
-      }
-      if (readBufferBuilder_ == null) {
-        result.readBuffer_ = readBuffer_;
-      } else {
-        result.readBuffer_ = readBufferBuilder_.build();
-      }
-      if (headerConfigBuilder_ == null) {
-        result.headerConfig_ = headerConfig_;
-      } else {
-        result.headerConfig_ = headerConfigBuilder_.build();
-      }
-      if (seedBuilder_ == null) {
-        result.seed_ = seed_;
-      } else {
-        result.seed_ = seedBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.transport.internet.kcp.Config result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.mtu_ = mtuBuilder_ == null
+            ? mtu_
+            : mtuBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.tti_ = ttiBuilder_ == null
+            ? tti_
+            : ttiBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.uplinkCapacity_ = uplinkCapacityBuilder_ == null
+            ? uplinkCapacity_
+            : uplinkCapacityBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.downlinkCapacity_ = downlinkCapacityBuilder_ == null
+            ? downlinkCapacity_
+            : downlinkCapacityBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.congestion_ = congestion_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.writeBuffer_ = writeBufferBuilder_ == null
+            ? writeBuffer_
+            : writeBufferBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.readBuffer_ = readBufferBuilder_ == null
+            ? readBuffer_
+            : readBufferBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.headerConfig_ = headerConfigBuilder_ == null
+            ? headerConfig_
+            : headerConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.seed_ = seedBuilder_ == null
+            ? seed_
+            : seedBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -874,7 +770,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasSeed()) {
         mergeSeed(other.getSeed());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -889,31 +785,108 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.transport.internet.kcp.Config parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getMtuFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getTtiFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getUplinkCapacityFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getDownlinkCapacityFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              congestion_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              input.readMessage(
+                  getWriteBufferFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getReadBufferFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getHeaderConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 82: {
+              input.readMessage(
+                  getSeedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.transport.internet.kcp.Config) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.xray.transport.internet.kcp.MTU mtu_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.xray.transport.internet.kcp.MTU, com.xray.transport.internet.kcp.MTU.Builder, com.xray.transport.internet.kcp.MTUOrBuilder> mtuBuilder_;
     /**
      * <code>.xray.transport.internet.kcp.MTU mtu = 1;</code>
+     * @return Whether the mtu field is set.
      */
     public boolean hasMtu() {
-      return mtuBuilder_ != null || mtu_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.xray.transport.internet.kcp.MTU mtu = 1;</code>
+     * @return The mtu.
      */
     public com.xray.transport.internet.kcp.MTU getMtu() {
       if (mtuBuilder_ == null) {
@@ -931,11 +904,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         mtu_ = value;
-        onChanged();
       } else {
         mtuBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -945,11 +918,11 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.kcp.MTU.Builder builderForValue) {
       if (mtuBuilder_ == null) {
         mtu_ = builderForValue.build();
-        onChanged();
       } else {
         mtuBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -957,38 +930,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMtu(com.xray.transport.internet.kcp.MTU value) {
       if (mtuBuilder_ == null) {
-        if (mtu_ != null) {
-          mtu_ =
-            com.xray.transport.internet.kcp.MTU.newBuilder(mtu_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          mtu_ != null &&
+          mtu_ != com.xray.transport.internet.kcp.MTU.getDefaultInstance()) {
+          getMtuBuilder().mergeFrom(value);
         } else {
           mtu_ = value;
         }
-        onChanged();
       } else {
         mtuBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.kcp.MTU mtu = 1;</code>
      */
     public Builder clearMtu() {
-      if (mtuBuilder_ == null) {
-        mtu_ = null;
-        onChanged();
-      } else {
-        mtu_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      mtu_ = null;
+      if (mtuBuilder_ != null) {
+        mtuBuilder_.dispose();
         mtuBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.kcp.MTU mtu = 1;</code>
      */
     public com.xray.transport.internet.kcp.MTU.Builder getMtuBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getMtuFieldBuilder().getBuilder();
     }
@@ -1025,12 +998,14 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.kcp.TTI, com.xray.transport.internet.kcp.TTI.Builder, com.xray.transport.internet.kcp.TTIOrBuilder> ttiBuilder_;
     /**
      * <code>.xray.transport.internet.kcp.TTI tti = 2;</code>
+     * @return Whether the tti field is set.
      */
     public boolean hasTti() {
-      return ttiBuilder_ != null || tti_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>.xray.transport.internet.kcp.TTI tti = 2;</code>
+     * @return The tti.
      */
     public com.xray.transport.internet.kcp.TTI getTti() {
       if (ttiBuilder_ == null) {
@@ -1048,11 +1023,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         tti_ = value;
-        onChanged();
       } else {
         ttiBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1062,11 +1037,11 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.kcp.TTI.Builder builderForValue) {
       if (ttiBuilder_ == null) {
         tti_ = builderForValue.build();
-        onChanged();
       } else {
         ttiBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1074,38 +1049,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTti(com.xray.transport.internet.kcp.TTI value) {
       if (ttiBuilder_ == null) {
-        if (tti_ != null) {
-          tti_ =
-            com.xray.transport.internet.kcp.TTI.newBuilder(tti_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          tti_ != null &&
+          tti_ != com.xray.transport.internet.kcp.TTI.getDefaultInstance()) {
+          getTtiBuilder().mergeFrom(value);
         } else {
           tti_ = value;
         }
-        onChanged();
       } else {
         ttiBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.kcp.TTI tti = 2;</code>
      */
     public Builder clearTti() {
-      if (ttiBuilder_ == null) {
-        tti_ = null;
-        onChanged();
-      } else {
-        tti_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      tti_ = null;
+      if (ttiBuilder_ != null) {
+        ttiBuilder_.dispose();
         ttiBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.kcp.TTI tti = 2;</code>
      */
     public com.xray.transport.internet.kcp.TTI.Builder getTtiBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTtiFieldBuilder().getBuilder();
     }
@@ -1142,12 +1117,14 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.kcp.UplinkCapacity, com.xray.transport.internet.kcp.UplinkCapacity.Builder, com.xray.transport.internet.kcp.UplinkCapacityOrBuilder> uplinkCapacityBuilder_;
     /**
      * <code>.xray.transport.internet.kcp.UplinkCapacity uplink_capacity = 3;</code>
+     * @return Whether the uplinkCapacity field is set.
      */
     public boolean hasUplinkCapacity() {
-      return uplinkCapacityBuilder_ != null || uplinkCapacity_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <code>.xray.transport.internet.kcp.UplinkCapacity uplink_capacity = 3;</code>
+     * @return The uplinkCapacity.
      */
     public com.xray.transport.internet.kcp.UplinkCapacity getUplinkCapacity() {
       if (uplinkCapacityBuilder_ == null) {
@@ -1165,11 +1142,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         uplinkCapacity_ = value;
-        onChanged();
       } else {
         uplinkCapacityBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1179,11 +1156,11 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.kcp.UplinkCapacity.Builder builderForValue) {
       if (uplinkCapacityBuilder_ == null) {
         uplinkCapacity_ = builderForValue.build();
-        onChanged();
       } else {
         uplinkCapacityBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1191,38 +1168,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUplinkCapacity(com.xray.transport.internet.kcp.UplinkCapacity value) {
       if (uplinkCapacityBuilder_ == null) {
-        if (uplinkCapacity_ != null) {
-          uplinkCapacity_ =
-            com.xray.transport.internet.kcp.UplinkCapacity.newBuilder(uplinkCapacity_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          uplinkCapacity_ != null &&
+          uplinkCapacity_ != com.xray.transport.internet.kcp.UplinkCapacity.getDefaultInstance()) {
+          getUplinkCapacityBuilder().mergeFrom(value);
         } else {
           uplinkCapacity_ = value;
         }
-        onChanged();
       } else {
         uplinkCapacityBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.kcp.UplinkCapacity uplink_capacity = 3;</code>
      */
     public Builder clearUplinkCapacity() {
-      if (uplinkCapacityBuilder_ == null) {
-        uplinkCapacity_ = null;
-        onChanged();
-      } else {
-        uplinkCapacity_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      uplinkCapacity_ = null;
+      if (uplinkCapacityBuilder_ != null) {
+        uplinkCapacityBuilder_.dispose();
         uplinkCapacityBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.kcp.UplinkCapacity uplink_capacity = 3;</code>
      */
     public com.xray.transport.internet.kcp.UplinkCapacity.Builder getUplinkCapacityBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getUplinkCapacityFieldBuilder().getBuilder();
     }
@@ -1259,12 +1236,14 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.kcp.DownlinkCapacity, com.xray.transport.internet.kcp.DownlinkCapacity.Builder, com.xray.transport.internet.kcp.DownlinkCapacityOrBuilder> downlinkCapacityBuilder_;
     /**
      * <code>.xray.transport.internet.kcp.DownlinkCapacity downlink_capacity = 4;</code>
+     * @return Whether the downlinkCapacity field is set.
      */
     public boolean hasDownlinkCapacity() {
-      return downlinkCapacityBuilder_ != null || downlinkCapacity_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <code>.xray.transport.internet.kcp.DownlinkCapacity downlink_capacity = 4;</code>
+     * @return The downlinkCapacity.
      */
     public com.xray.transport.internet.kcp.DownlinkCapacity getDownlinkCapacity() {
       if (downlinkCapacityBuilder_ == null) {
@@ -1282,11 +1261,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         downlinkCapacity_ = value;
-        onChanged();
       } else {
         downlinkCapacityBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1296,11 +1275,11 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.kcp.DownlinkCapacity.Builder builderForValue) {
       if (downlinkCapacityBuilder_ == null) {
         downlinkCapacity_ = builderForValue.build();
-        onChanged();
       } else {
         downlinkCapacityBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1308,38 +1287,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDownlinkCapacity(com.xray.transport.internet.kcp.DownlinkCapacity value) {
       if (downlinkCapacityBuilder_ == null) {
-        if (downlinkCapacity_ != null) {
-          downlinkCapacity_ =
-            com.xray.transport.internet.kcp.DownlinkCapacity.newBuilder(downlinkCapacity_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          downlinkCapacity_ != null &&
+          downlinkCapacity_ != com.xray.transport.internet.kcp.DownlinkCapacity.getDefaultInstance()) {
+          getDownlinkCapacityBuilder().mergeFrom(value);
         } else {
           downlinkCapacity_ = value;
         }
-        onChanged();
       } else {
         downlinkCapacityBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.kcp.DownlinkCapacity downlink_capacity = 4;</code>
      */
     public Builder clearDownlinkCapacity() {
-      if (downlinkCapacityBuilder_ == null) {
-        downlinkCapacity_ = null;
-        onChanged();
-      } else {
-        downlinkCapacity_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      downlinkCapacity_ = null;
+      if (downlinkCapacityBuilder_ != null) {
+        downlinkCapacityBuilder_.dispose();
         downlinkCapacityBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.kcp.DownlinkCapacity downlink_capacity = 4;</code>
      */
     public com.xray.transport.internet.kcp.DownlinkCapacity.Builder getDownlinkCapacityBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getDownlinkCapacityFieldBuilder().getBuilder();
     }
@@ -1374,24 +1353,30 @@ private static final long serialVersionUID = 0L;
     private boolean congestion_ ;
     /**
      * <code>bool congestion = 5;</code>
+     * @return The congestion.
      */
+    @java.lang.Override
     public boolean getCongestion() {
       return congestion_;
     }
     /**
      * <code>bool congestion = 5;</code>
+     * @param value The congestion to set.
+     * @return This builder for chaining.
      */
     public Builder setCongestion(boolean value) {
       
       congestion_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <code>bool congestion = 5;</code>
+     * @return This builder for chaining.
      */
     public Builder clearCongestion() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       congestion_ = false;
       onChanged();
       return this;
@@ -1402,12 +1387,14 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.kcp.WriteBuffer, com.xray.transport.internet.kcp.WriteBuffer.Builder, com.xray.transport.internet.kcp.WriteBufferOrBuilder> writeBufferBuilder_;
     /**
      * <code>.xray.transport.internet.kcp.WriteBuffer write_buffer = 6;</code>
+     * @return Whether the writeBuffer field is set.
      */
     public boolean hasWriteBuffer() {
-      return writeBufferBuilder_ != null || writeBuffer_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <code>.xray.transport.internet.kcp.WriteBuffer write_buffer = 6;</code>
+     * @return The writeBuffer.
      */
     public com.xray.transport.internet.kcp.WriteBuffer getWriteBuffer() {
       if (writeBufferBuilder_ == null) {
@@ -1425,11 +1412,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         writeBuffer_ = value;
-        onChanged();
       } else {
         writeBufferBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1439,11 +1426,11 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.kcp.WriteBuffer.Builder builderForValue) {
       if (writeBufferBuilder_ == null) {
         writeBuffer_ = builderForValue.build();
-        onChanged();
       } else {
         writeBufferBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1451,38 +1438,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWriteBuffer(com.xray.transport.internet.kcp.WriteBuffer value) {
       if (writeBufferBuilder_ == null) {
-        if (writeBuffer_ != null) {
-          writeBuffer_ =
-            com.xray.transport.internet.kcp.WriteBuffer.newBuilder(writeBuffer_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          writeBuffer_ != null &&
+          writeBuffer_ != com.xray.transport.internet.kcp.WriteBuffer.getDefaultInstance()) {
+          getWriteBufferBuilder().mergeFrom(value);
         } else {
           writeBuffer_ = value;
         }
-        onChanged();
       } else {
         writeBufferBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.kcp.WriteBuffer write_buffer = 6;</code>
      */
     public Builder clearWriteBuffer() {
-      if (writeBufferBuilder_ == null) {
-        writeBuffer_ = null;
-        onChanged();
-      } else {
-        writeBuffer_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      writeBuffer_ = null;
+      if (writeBufferBuilder_ != null) {
+        writeBufferBuilder_.dispose();
         writeBufferBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.kcp.WriteBuffer write_buffer = 6;</code>
      */
     public com.xray.transport.internet.kcp.WriteBuffer.Builder getWriteBufferBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getWriteBufferFieldBuilder().getBuilder();
     }
@@ -1519,12 +1506,14 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.kcp.ReadBuffer, com.xray.transport.internet.kcp.ReadBuffer.Builder, com.xray.transport.internet.kcp.ReadBufferOrBuilder> readBufferBuilder_;
     /**
      * <code>.xray.transport.internet.kcp.ReadBuffer read_buffer = 7;</code>
+     * @return Whether the readBuffer field is set.
      */
     public boolean hasReadBuffer() {
-      return readBufferBuilder_ != null || readBuffer_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <code>.xray.transport.internet.kcp.ReadBuffer read_buffer = 7;</code>
+     * @return The readBuffer.
      */
     public com.xray.transport.internet.kcp.ReadBuffer getReadBuffer() {
       if (readBufferBuilder_ == null) {
@@ -1542,11 +1531,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         readBuffer_ = value;
-        onChanged();
       } else {
         readBufferBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1556,11 +1545,11 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.kcp.ReadBuffer.Builder builderForValue) {
       if (readBufferBuilder_ == null) {
         readBuffer_ = builderForValue.build();
-        onChanged();
       } else {
         readBufferBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1568,38 +1557,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeReadBuffer(com.xray.transport.internet.kcp.ReadBuffer value) {
       if (readBufferBuilder_ == null) {
-        if (readBuffer_ != null) {
-          readBuffer_ =
-            com.xray.transport.internet.kcp.ReadBuffer.newBuilder(readBuffer_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          readBuffer_ != null &&
+          readBuffer_ != com.xray.transport.internet.kcp.ReadBuffer.getDefaultInstance()) {
+          getReadBufferBuilder().mergeFrom(value);
         } else {
           readBuffer_ = value;
         }
-        onChanged();
       } else {
         readBufferBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.kcp.ReadBuffer read_buffer = 7;</code>
      */
     public Builder clearReadBuffer() {
-      if (readBufferBuilder_ == null) {
-        readBuffer_ = null;
-        onChanged();
-      } else {
-        readBuffer_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      readBuffer_ = null;
+      if (readBufferBuilder_ != null) {
+        readBufferBuilder_.dispose();
         readBufferBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.kcp.ReadBuffer read_buffer = 7;</code>
      */
     public com.xray.transport.internet.kcp.ReadBuffer.Builder getReadBufferBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getReadBufferFieldBuilder().getBuilder();
     }
@@ -1636,12 +1625,14 @@ private static final long serialVersionUID = 0L;
         com.xray.common.serial.TypedMessage, com.xray.common.serial.TypedMessage.Builder, com.xray.common.serial.TypedMessageOrBuilder> headerConfigBuilder_;
     /**
      * <code>.xray.common.serial.TypedMessage header_config = 8;</code>
+     * @return Whether the headerConfig field is set.
      */
     public boolean hasHeaderConfig() {
-      return headerConfigBuilder_ != null || headerConfig_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <code>.xray.common.serial.TypedMessage header_config = 8;</code>
+     * @return The headerConfig.
      */
     public com.xray.common.serial.TypedMessage getHeaderConfig() {
       if (headerConfigBuilder_ == null) {
@@ -1659,11 +1650,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         headerConfig_ = value;
-        onChanged();
       } else {
         headerConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1673,11 +1664,11 @@ private static final long serialVersionUID = 0L;
         com.xray.common.serial.TypedMessage.Builder builderForValue) {
       if (headerConfigBuilder_ == null) {
         headerConfig_ = builderForValue.build();
-        onChanged();
       } else {
         headerConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1685,38 +1676,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHeaderConfig(com.xray.common.serial.TypedMessage value) {
       if (headerConfigBuilder_ == null) {
-        if (headerConfig_ != null) {
-          headerConfig_ =
-            com.xray.common.serial.TypedMessage.newBuilder(headerConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          headerConfig_ != null &&
+          headerConfig_ != com.xray.common.serial.TypedMessage.getDefaultInstance()) {
+          getHeaderConfigBuilder().mergeFrom(value);
         } else {
           headerConfig_ = value;
         }
-        onChanged();
       } else {
         headerConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.common.serial.TypedMessage header_config = 8;</code>
      */
     public Builder clearHeaderConfig() {
-      if (headerConfigBuilder_ == null) {
-        headerConfig_ = null;
-        onChanged();
-      } else {
-        headerConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      headerConfig_ = null;
+      if (headerConfigBuilder_ != null) {
+        headerConfigBuilder_.dispose();
         headerConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.common.serial.TypedMessage header_config = 8;</code>
      */
     public com.xray.common.serial.TypedMessage.Builder getHeaderConfigBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getHeaderConfigFieldBuilder().getBuilder();
     }
@@ -1753,12 +1744,14 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.kcp.EncryptionSeed, com.xray.transport.internet.kcp.EncryptionSeed.Builder, com.xray.transport.internet.kcp.EncryptionSeedOrBuilder> seedBuilder_;
     /**
      * <code>.xray.transport.internet.kcp.EncryptionSeed seed = 10;</code>
+     * @return Whether the seed field is set.
      */
     public boolean hasSeed() {
-      return seedBuilder_ != null || seed_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <code>.xray.transport.internet.kcp.EncryptionSeed seed = 10;</code>
+     * @return The seed.
      */
     public com.xray.transport.internet.kcp.EncryptionSeed getSeed() {
       if (seedBuilder_ == null) {
@@ -1776,11 +1769,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         seed_ = value;
-        onChanged();
       } else {
         seedBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -1790,11 +1783,11 @@ private static final long serialVersionUID = 0L;
         com.xray.transport.internet.kcp.EncryptionSeed.Builder builderForValue) {
       if (seedBuilder_ == null) {
         seed_ = builderForValue.build();
-        onChanged();
       } else {
         seedBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -1802,38 +1795,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSeed(com.xray.transport.internet.kcp.EncryptionSeed value) {
       if (seedBuilder_ == null) {
-        if (seed_ != null) {
-          seed_ =
-            com.xray.transport.internet.kcp.EncryptionSeed.newBuilder(seed_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          seed_ != null &&
+          seed_ != com.xray.transport.internet.kcp.EncryptionSeed.getDefaultInstance()) {
+          getSeedBuilder().mergeFrom(value);
         } else {
           seed_ = value;
         }
-        onChanged();
       } else {
         seedBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.kcp.EncryptionSeed seed = 10;</code>
      */
     public Builder clearSeed() {
-      if (seedBuilder_ == null) {
-        seed_ = null;
-        onChanged();
-      } else {
-        seed_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      seed_ = null;
+      if (seedBuilder_ != null) {
+        seedBuilder_.dispose();
         seedBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.transport.internet.kcp.EncryptionSeed seed = 10;</code>
      */
     public com.xray.transport.internet.kcp.EncryptionSeed.Builder getSeedBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getSeedFieldBuilder().getBuilder();
     }
@@ -1897,7 +1890,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Config(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

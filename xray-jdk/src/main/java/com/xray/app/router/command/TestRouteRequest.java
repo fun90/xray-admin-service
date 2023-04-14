@@ -16,7 +16,7 @@ package com.xray.app.router.command;
  *
  * Protobuf type {@code xray.app.router.command.TestRouteRequest}
  */
-public  final class TestRouteRequest extends
+public final class TestRouteRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.app.router.command.TestRouteRequest)
     TestRouteRequestOrBuilder {
@@ -30,77 +30,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new TestRouteRequest();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private TestRouteRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.xray.app.router.command.RoutingContext.Builder subBuilder = null;
-            if (routingContext_ != null) {
-              subBuilder = routingContext_.toBuilder();
-            }
-            routingContext_ = input.readMessage(com.xray.app.router.command.RoutingContext.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(routingContext_);
-              routingContext_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              fieldSelectors_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            fieldSelectors_.add(s);
-            break;
-          }
-          case 24: {
-
-            publishResult_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        fieldSelectors_ = fieldSelectors_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -115,32 +54,38 @@ private static final long serialVersionUID = 0L;
             com.xray.app.router.command.TestRouteRequest.class, com.xray.app.router.command.TestRouteRequest.Builder.class);
   }
 
-  private int bitField0_;
   public static final int ROUTINGCONTEXT_FIELD_NUMBER = 1;
   private com.xray.app.router.command.RoutingContext routingContext_;
   /**
    * <code>.xray.app.router.command.RoutingContext RoutingContext = 1;</code>
+   * @return Whether the routingContext field is set.
    */
+  @java.lang.Override
   public boolean hasRoutingContext() {
     return routingContext_ != null;
   }
   /**
    * <code>.xray.app.router.command.RoutingContext RoutingContext = 1;</code>
+   * @return The routingContext.
    */
+  @java.lang.Override
   public com.xray.app.router.command.RoutingContext getRoutingContext() {
     return routingContext_ == null ? com.xray.app.router.command.RoutingContext.getDefaultInstance() : routingContext_;
   }
   /**
    * <code>.xray.app.router.command.RoutingContext RoutingContext = 1;</code>
    */
+  @java.lang.Override
   public com.xray.app.router.command.RoutingContextOrBuilder getRoutingContextOrBuilder() {
-    return getRoutingContext();
+    return routingContext_ == null ? com.xray.app.router.command.RoutingContext.getDefaultInstance() : routingContext_;
   }
 
   public static final int FIELDSELECTORS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList fieldSelectors_;
   /**
    * <code>repeated string FieldSelectors = 2;</code>
+   * @return A list containing the fieldSelectors.
    */
   public com.google.protobuf.ProtocolStringList
       getFieldSelectorsList() {
@@ -148,18 +93,23 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>repeated string FieldSelectors = 2;</code>
+   * @return The count of fieldSelectors.
    */
   public int getFieldSelectorsCount() {
     return fieldSelectors_.size();
   }
   /**
    * <code>repeated string FieldSelectors = 2;</code>
+   * @param index The index of the element to return.
+   * @return The fieldSelectors at the given index.
    */
   public java.lang.String getFieldSelectors(int index) {
     return fieldSelectors_.get(index);
   }
   /**
    * <code>repeated string FieldSelectors = 2;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the fieldSelectors at the given index.
    */
   public com.google.protobuf.ByteString
       getFieldSelectorsBytes(int index) {
@@ -167,10 +117,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PUBLISHRESULT_FIELD_NUMBER = 3;
-  private boolean publishResult_;
+  private boolean publishResult_ = false;
   /**
    * <code>bool PublishResult = 3;</code>
+   * @return The publishResult.
    */
+  @java.lang.Override
   public boolean getPublishResult() {
     return publishResult_;
   }
@@ -198,7 +150,7 @@ private static final long serialVersionUID = 0L;
     if (publishResult_ != false) {
       output.writeBool(3, publishResult_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -223,7 +175,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(3, publishResult_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -247,7 +199,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFieldSelectorsList())) return false;
     if (getPublishResult()
         != other.getPublishResult()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -269,7 +221,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + PUBLISHRESULT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getPublishResult());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -396,32 +348,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.app.router.command.TestRouteRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (routingContextBuilder_ == null) {
-        routingContext_ = null;
-      } else {
-        routingContext_ = null;
+      bitField0_ = 0;
+      routingContext_ = null;
+      if (routingContextBuilder_ != null) {
+        routingContextBuilder_.dispose();
         routingContextBuilder_ = null;
       }
       fieldSelectors_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000002);
       publishResult_ = false;
-
       return this;
     }
 
@@ -448,22 +394,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.app.router.command.TestRouteRequest buildPartial() {
       com.xray.app.router.command.TestRouteRequest result = new com.xray.app.router.command.TestRouteRequest(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (routingContextBuilder_ == null) {
-        result.routingContext_ = routingContext_;
-      } else {
-        result.routingContext_ = routingContextBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.xray.app.router.command.TestRouteRequest result) {
       if (((bitField0_ & 0x00000002) != 0)) {
         fieldSelectors_ = fieldSelectors_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000002);
       }
       result.fieldSelectors_ = fieldSelectors_;
-      result.publishResult_ = publishResult_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.xray.app.router.command.TestRouteRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.routingContext_ = routingContextBuilder_ == null
+            ? routingContext_
+            : routingContextBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.publishResult_ = publishResult_;
+      }
     }
 
     @java.lang.Override
@@ -526,7 +480,7 @@ private static final long serialVersionUID = 0L;
       if (other.getPublishResult() != false) {
         setPublishResult(other.getPublishResult());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -541,17 +495,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.app.router.command.TestRouteRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getRoutingContextFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureFieldSelectorsIsMutable();
+              fieldSelectors_.add(s);
+              break;
+            } // case 18
+            case 24: {
+              publishResult_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.app.router.command.TestRouteRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -561,12 +546,14 @@ private static final long serialVersionUID = 0L;
         com.xray.app.router.command.RoutingContext, com.xray.app.router.command.RoutingContext.Builder, com.xray.app.router.command.RoutingContextOrBuilder> routingContextBuilder_;
     /**
      * <code>.xray.app.router.command.RoutingContext RoutingContext = 1;</code>
+     * @return Whether the routingContext field is set.
      */
     public boolean hasRoutingContext() {
-      return routingContextBuilder_ != null || routingContext_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.xray.app.router.command.RoutingContext RoutingContext = 1;</code>
+     * @return The routingContext.
      */
     public com.xray.app.router.command.RoutingContext getRoutingContext() {
       if (routingContextBuilder_ == null) {
@@ -584,11 +571,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         routingContext_ = value;
-        onChanged();
       } else {
         routingContextBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -598,11 +585,11 @@ private static final long serialVersionUID = 0L;
         com.xray.app.router.command.RoutingContext.Builder builderForValue) {
       if (routingContextBuilder_ == null) {
         routingContext_ = builderForValue.build();
-        onChanged();
       } else {
         routingContextBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -610,38 +597,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRoutingContext(com.xray.app.router.command.RoutingContext value) {
       if (routingContextBuilder_ == null) {
-        if (routingContext_ != null) {
-          routingContext_ =
-            com.xray.app.router.command.RoutingContext.newBuilder(routingContext_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          routingContext_ != null &&
+          routingContext_ != com.xray.app.router.command.RoutingContext.getDefaultInstance()) {
+          getRoutingContextBuilder().mergeFrom(value);
         } else {
           routingContext_ = value;
         }
-        onChanged();
       } else {
         routingContextBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.app.router.command.RoutingContext RoutingContext = 1;</code>
      */
     public Builder clearRoutingContext() {
-      if (routingContextBuilder_ == null) {
-        routingContext_ = null;
-        onChanged();
-      } else {
-        routingContext_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      routingContext_ = null;
+      if (routingContextBuilder_ != null) {
+        routingContextBuilder_.dispose();
         routingContextBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xray.app.router.command.RoutingContext RoutingContext = 1;</code>
      */
     public com.xray.app.router.command.RoutingContext.Builder getRoutingContextBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getRoutingContextFieldBuilder().getBuilder();
     }
@@ -682,6 +669,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string FieldSelectors = 2;</code>
+     * @return A list containing the fieldSelectors.
      */
     public com.google.protobuf.ProtocolStringList
         getFieldSelectorsList() {
@@ -689,18 +677,23 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string FieldSelectors = 2;</code>
+     * @return The count of fieldSelectors.
      */
     public int getFieldSelectorsCount() {
       return fieldSelectors_.size();
     }
     /**
      * <code>repeated string FieldSelectors = 2;</code>
+     * @param index The index of the element to return.
+     * @return The fieldSelectors at the given index.
      */
     public java.lang.String getFieldSelectors(int index) {
       return fieldSelectors_.get(index);
     }
     /**
      * <code>repeated string FieldSelectors = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the fieldSelectors at the given index.
      */
     public com.google.protobuf.ByteString
         getFieldSelectorsBytes(int index) {
@@ -708,32 +701,35 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string FieldSelectors = 2;</code>
+     * @param index The index to set the value at.
+     * @param value The fieldSelectors to set.
+     * @return This builder for chaining.
      */
     public Builder setFieldSelectors(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFieldSelectorsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFieldSelectorsIsMutable();
       fieldSelectors_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <code>repeated string FieldSelectors = 2;</code>
+     * @param value The fieldSelectors to add.
+     * @return This builder for chaining.
      */
     public Builder addFieldSelectors(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFieldSelectorsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFieldSelectorsIsMutable();
       fieldSelectors_.add(value);
       onChanged();
       return this;
     }
     /**
      * <code>repeated string FieldSelectors = 2;</code>
+     * @param values The fieldSelectors to add.
+     * @return This builder for chaining.
      */
     public Builder addAllFieldSelectors(
         java.lang.Iterable<java.lang.String> values) {
@@ -745,6 +741,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string FieldSelectors = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearFieldSelectors() {
       fieldSelectors_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -754,13 +751,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string FieldSelectors = 2;</code>
+     * @param value The bytes of the fieldSelectors to add.
+     * @return This builder for chaining.
      */
     public Builder addFieldSelectorsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureFieldSelectorsIsMutable();
       fieldSelectors_.add(value);
       onChanged();
@@ -770,24 +767,30 @@ private static final long serialVersionUID = 0L;
     private boolean publishResult_ ;
     /**
      * <code>bool PublishResult = 3;</code>
+     * @return The publishResult.
      */
+    @java.lang.Override
     public boolean getPublishResult() {
       return publishResult_;
     }
     /**
      * <code>bool PublishResult = 3;</code>
+     * @param value The publishResult to set.
+     * @return This builder for chaining.
      */
     public Builder setPublishResult(boolean value) {
       
       publishResult_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <code>bool PublishResult = 3;</code>
+     * @return This builder for chaining.
      */
     public Builder clearPublishResult() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       publishResult_ = false;
       onChanged();
       return this;
@@ -825,7 +828,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TestRouteRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

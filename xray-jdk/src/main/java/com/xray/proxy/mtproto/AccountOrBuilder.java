@@ -9,6 +9,7 @@ public interface AccountOrBuilder extends
 
   /**
    * <code>bytes secret = 1;</code>
+   * @return The secret.
    */
   com.google.protobuf.ByteString getSecret();
 }

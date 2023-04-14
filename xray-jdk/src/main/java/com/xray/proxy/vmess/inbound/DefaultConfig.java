@@ -6,7 +6,7 @@ package com.xray.proxy.vmess.inbound;
 /**
  * Protobuf type {@code xray.proxy.vmess.inbound.DefaultConfig}
  */
-public  final class DefaultConfig extends
+public final class DefaultConfig extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.proxy.vmess.inbound.DefaultConfig)
     DefaultConfigOrBuilder {
@@ -19,57 +19,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new DefaultConfig();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private DefaultConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            alterId_ = input.readUInt32();
-            break;
-          }
-          case 16: {
-
-            level_ = input.readUInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -85,19 +44,23 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALTER_ID_FIELD_NUMBER = 1;
-  private int alterId_;
+  private int alterId_ = 0;
   /**
    * <code>uint32 alter_id = 1;</code>
+   * @return The alterId.
    */
+  @java.lang.Override
   public int getAlterId() {
     return alterId_;
   }
 
   public static final int LEVEL_FIELD_NUMBER = 2;
-  private int level_;
+  private int level_ = 0;
   /**
    * <code>uint32 level = 2;</code>
+   * @return The level.
    */
+  @java.lang.Override
   public int getLevel() {
     return level_;
   }
@@ -122,7 +85,7 @@ private static final long serialVersionUID = 0L;
     if (level_ != 0) {
       output.writeUInt32(2, level_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -139,7 +102,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(2, level_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -158,7 +121,7 @@ private static final long serialVersionUID = 0L;
         != other.getAlterId()) return false;
     if (getLevel()
         != other.getLevel()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -173,7 +136,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getAlterId();
     hash = (37 * hash) + LEVEL_FIELD_NUMBER;
     hash = (53 * hash) + getLevel();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -290,26 +253,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.proxy.vmess.inbound.DefaultConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       alterId_ = 0;
-
       level_ = 0;
-
       return this;
     }
 
@@ -336,10 +293,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.proxy.vmess.inbound.DefaultConfig buildPartial() {
       com.xray.proxy.vmess.inbound.DefaultConfig result = new com.xray.proxy.vmess.inbound.DefaultConfig(this);
-      result.alterId_ = alterId_;
-      result.level_ = level_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.proxy.vmess.inbound.DefaultConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.alterId_ = alterId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.level_ = level_;
+      }
     }
 
     @java.lang.Override
@@ -392,7 +358,7 @@ private static final long serialVersionUID = 0L;
       if (other.getLevel() != 0) {
         setLevel(other.getLevel());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -407,41 +373,71 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.proxy.vmess.inbound.DefaultConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              alterId_ = input.readUInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              level_ = input.readUInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.proxy.vmess.inbound.DefaultConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int alterId_ ;
     /**
      * <code>uint32 alter_id = 1;</code>
+     * @return The alterId.
      */
+    @java.lang.Override
     public int getAlterId() {
       return alterId_;
     }
     /**
      * <code>uint32 alter_id = 1;</code>
+     * @param value The alterId to set.
+     * @return This builder for chaining.
      */
     public Builder setAlterId(int value) {
       
       alterId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <code>uint32 alter_id = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearAlterId() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       alterId_ = 0;
       onChanged();
       return this;
@@ -450,24 +446,30 @@ private static final long serialVersionUID = 0L;
     private int level_ ;
     /**
      * <code>uint32 level = 2;</code>
+     * @return The level.
      */
+    @java.lang.Override
     public int getLevel() {
       return level_;
     }
     /**
      * <code>uint32 level = 2;</code>
+     * @param value The level to set.
+     * @return This builder for chaining.
      */
     public Builder setLevel(int value) {
       
       level_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <code>uint32 level = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearLevel() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       level_ = 0;
       onChanged();
       return this;
@@ -505,7 +507,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DefaultConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

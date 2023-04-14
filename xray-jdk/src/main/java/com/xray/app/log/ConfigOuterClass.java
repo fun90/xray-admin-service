@@ -29,35 +29,28 @@ public final class ConfigOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\024app/log/config.proto\022\014xray.app.log\032\024co" +
-      "mmon/log/log.proto\"\314\001\n\006Config\022-\n\016error_l" +
+      "mmon/log/log.proto\"\344\001\n\006Config\022-\n\016error_l" +
       "og_type\030\001 \001(\0162\025.xray.app.log.LogType\0222\n\017" +
       "error_log_level\030\002 \001(\0162\031.xray.common.log." +
       "Severity\022\026\n\016error_log_path\030\003 \001(\t\022.\n\017acce" +
       "ss_log_type\030\004 \001(\0162\025.xray.app.log.LogType" +
-      "\022\027\n\017access_log_path\030\005 \001(\t*5\n\007LogType\022\010\n\004" +
-      "None\020\000\022\013\n\007Console\020\001\022\010\n\004File\020\002\022\t\n\005Event\020\003" +
-      "BF\n\020com.xray.app.logP\001Z!github.com/xtls/" +
-      "xray-core/app/log\252\002\014Xray.App.Logb\006proto3"
+      "\022\027\n\017access_log_path\030\005 \001(\t\022\026\n\016enable_dns_" +
+      "log\030\006 \001(\010*5\n\007LogType\022\010\n\004None\020\000\022\013\n\007Consol" +
+      "e\020\001\022\010\n\004File\020\002\022\t\n\005Event\020\003BF\n\020com.xray.app" +
+      ".logP\001Z!github.com/xtls/xray-core/app/lo" +
+      "g\252\002\014Xray.App.Logb\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.xray.common.log.Log.getDescriptor(),
-        }, assigner);
+        });
     internal_static_xray_app_log_Config_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_xray_app_log_Config_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xray_app_log_Config_descriptor,
-        new java.lang.String[] { "ErrorLogType", "ErrorLogLevel", "ErrorLogPath", "AccessLogType", "AccessLogPath", });
+        new java.lang.String[] { "ErrorLogType", "ErrorLogLevel", "ErrorLogPath", "AccessLogType", "AccessLogPath", "EnableDnsLog", });
     com.xray.common.log.Log.getDescriptor();
   }
 

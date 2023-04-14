@@ -13,6 +13,7 @@ public interface SenderConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.common.net.IPOrDomain via = 1;</code>
+   * @return Whether the via field is set.
    */
   boolean hasVia();
   /**
@@ -21,6 +22,7 @@ public interface SenderConfigOrBuilder extends
    * </pre>
    *
    * <code>.xray.common.net.IPOrDomain via = 1;</code>
+   * @return The via.
    */
   com.xray.common.net.IPOrDomain getVia();
   /**
@@ -34,10 +36,12 @@ public interface SenderConfigOrBuilder extends
 
   /**
    * <code>.xray.transport.internet.StreamConfig stream_settings = 2;</code>
+   * @return Whether the streamSettings field is set.
    */
   boolean hasStreamSettings();
   /**
    * <code>.xray.transport.internet.StreamConfig stream_settings = 2;</code>
+   * @return The streamSettings.
    */
   com.xray.transport.internet.StreamConfig getStreamSettings();
   /**
@@ -47,10 +51,12 @@ public interface SenderConfigOrBuilder extends
 
   /**
    * <code>.xray.transport.internet.ProxyConfig proxy_settings = 3;</code>
+   * @return Whether the proxySettings field is set.
    */
   boolean hasProxySettings();
   /**
    * <code>.xray.transport.internet.ProxyConfig proxy_settings = 3;</code>
+   * @return The proxySettings.
    */
   com.xray.transport.internet.ProxyConfig getProxySettings();
   /**
@@ -60,10 +66,12 @@ public interface SenderConfigOrBuilder extends
 
   /**
    * <code>.xray.app.proxyman.MultiplexingConfig multiplex_settings = 4;</code>
+   * @return Whether the multiplexSettings field is set.
    */
   boolean hasMultiplexSettings();
   /**
    * <code>.xray.app.proxyman.MultiplexingConfig multiplex_settings = 4;</code>
+   * @return The multiplexSettings.
    */
   com.xray.app.proxyman.MultiplexingConfig getMultiplexSettings();
   /**

@@ -9,16 +9,19 @@ public interface ChannelConfigOrBuilder extends
 
   /**
    * <code>bool Blocking = 1;</code>
+   * @return The blocking.
    */
   boolean getBlocking();
 
   /**
    * <code>int32 SubscriberLimit = 2;</code>
+   * @return The subscriberLimit.
    */
   int getSubscriberLimit();
 
   /**
    * <code>int32 BufferSize = 3;</code>
+   * @return The bufferSize.
    */
   int getBufferSize();
 }

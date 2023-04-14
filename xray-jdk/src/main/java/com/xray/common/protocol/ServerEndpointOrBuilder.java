@@ -9,10 +9,12 @@ public interface ServerEndpointOrBuilder extends
 
   /**
    * <code>.xray.common.net.IPOrDomain address = 1;</code>
+   * @return Whether the address field is set.
    */
   boolean hasAddress();
   /**
    * <code>.xray.common.net.IPOrDomain address = 1;</code>
+   * @return The address.
    */
   com.xray.common.net.IPOrDomain getAddress();
   /**
@@ -22,6 +24,7 @@ public interface ServerEndpointOrBuilder extends
 
   /**
    * <code>uint32 port = 2;</code>
+   * @return The port.
    */
   int getPort();
 

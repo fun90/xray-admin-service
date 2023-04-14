@@ -11,7 +11,7 @@ package com.xray.common.net;
  *
  * Protobuf type {@code xray.common.net.IPOrDomain}
  */
-public  final class IPOrDomain extends
+public final class IPOrDomain extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:xray.common.net.IPOrDomain)
     IPOrDomainOrBuilder {
@@ -24,58 +24,16 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new IPOrDomain();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private IPOrDomain(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            addressCase_ = 1;
-            address_ = input.readBytes();
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            addressCase_ = 2;
-            address_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -93,7 +51,8 @@ private static final long serialVersionUID = 0L;
   private int addressCase_ = 0;
   private java.lang.Object address_;
   public enum AddressCase
-      implements com.google.protobuf.Internal.EnumLite {
+      implements com.google.protobuf.Internal.EnumLite,
+          com.google.protobuf.AbstractMessage.InternalOneOfEnum {
     IP(1),
     DOMAIN(2),
     ADDRESS_NOT_SET(0);
@@ -102,6 +61,8 @@ private static final long serialVersionUID = 0L;
       this.value = value;
     }
     /**
+     * @param value The number of the enum to look for.
+     * @return The enum associated with the given number.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -135,7 +96,21 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>bytes ip = 1;</code>
+   * @return Whether the ip field is set.
    */
+  @java.lang.Override
+  public boolean hasIp() {
+    return addressCase_ == 1;
+  }
+  /**
+   * <pre>
+   * IP address. Must by either 4 or 16 bytes.
+   * </pre>
+   *
+   * <code>bytes ip = 1;</code>
+   * @return The ip.
+   */
+  @java.lang.Override
   public com.google.protobuf.ByteString getIp() {
     if (addressCase_ == 1) {
       return (com.google.protobuf.ByteString) address_;
@@ -150,6 +125,18 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string domain = 2;</code>
+   * @return Whether the domain field is set.
+   */
+  public boolean hasDomain() {
+    return addressCase_ == 2;
+  }
+  /**
+   * <pre>
+   * Domain address.
+   * </pre>
+   *
+   * <code>string domain = 2;</code>
+   * @return The domain.
    */
   public java.lang.String getDomain() {
     java.lang.Object ref = "";
@@ -174,6 +161,7 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>string domain = 2;</code>
+   * @return The bytes for domain.
    */
   public com.google.protobuf.ByteString
       getDomainBytes() {
@@ -215,7 +203,7 @@ private static final long serialVersionUID = 0L;
     if (addressCase_ == 2) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, address_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -232,7 +220,7 @@ private static final long serialVersionUID = 0L;
     if (addressCase_ == 2) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, address_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -260,7 +248,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -283,7 +271,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -405,22 +393,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.xray.common.net.IPOrDomain.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       addressCase_ = 0;
       address_ = null;
       return this;
@@ -449,15 +433,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.xray.common.net.IPOrDomain buildPartial() {
       com.xray.common.net.IPOrDomain result = new com.xray.common.net.IPOrDomain(this);
-      if (addressCase_ == 1) {
-        result.address_ = address_;
-      }
-      if (addressCase_ == 2) {
-        result.address_ = address_;
-      }
-      result.addressCase_ = addressCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.xray.common.net.IPOrDomain result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.xray.common.net.IPOrDomain result) {
+      result.addressCase_ = addressCase_;
+      result.address_ = this.address_;
     }
 
     @java.lang.Override
@@ -519,7 +507,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -534,17 +522,41 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.xray.common.net.IPOrDomain parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              address_ = input.readBytes();
+              addressCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              addressCase_ = 2;
+              address_ = s;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.xray.common.net.IPOrDomain) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int addressCase_ = 0;
@@ -562,6 +574,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
@@ -569,6 +582,18 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bytes ip = 1;</code>
+     * @return Whether the ip field is set.
+     */
+    public boolean hasIp() {
+      return addressCase_ == 1;
+    }
+    /**
+     * <pre>
+     * IP address. Must by either 4 or 16 bytes.
+     * </pre>
+     *
+     * <code>bytes ip = 1;</code>
+     * @return The ip.
      */
     public com.google.protobuf.ByteString getIp() {
       if (addressCase_ == 1) {
@@ -582,12 +607,12 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bytes ip = 1;</code>
+     * @param value The ip to set.
+     * @return This builder for chaining.
      */
     public Builder setIp(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  addressCase_ = 1;
+      if (value == null) { throw new NullPointerException(); }
+      addressCase_ = 1;
       address_ = value;
       onChanged();
       return this;
@@ -598,6 +623,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>bytes ip = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearIp() {
       if (addressCase_ == 1) {
@@ -614,7 +640,21 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string domain = 2;</code>
+     * @return Whether the domain field is set.
      */
+    @java.lang.Override
+    public boolean hasDomain() {
+      return addressCase_ == 2;
+    }
+    /**
+     * <pre>
+     * Domain address.
+     * </pre>
+     *
+     * <code>string domain = 2;</code>
+     * @return The domain.
+     */
+    @java.lang.Override
     public java.lang.String getDomain() {
       java.lang.Object ref = "";
       if (addressCase_ == 2) {
@@ -638,7 +678,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string domain = 2;</code>
+     * @return The bytes for domain.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getDomainBytes() {
       java.lang.Object ref = "";
@@ -663,13 +705,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string domain = 2;</code>
+     * @param value The domain to set.
+     * @return This builder for chaining.
      */
     public Builder setDomain(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  addressCase_ = 2;
+      if (value == null) { throw new NullPointerException(); }
+      addressCase_ = 2;
       address_ = value;
       onChanged();
       return this;
@@ -680,6 +722,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string domain = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearDomain() {
       if (addressCase_ == 2) {
@@ -695,13 +738,13 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>string domain = 2;</code>
+     * @param value The bytes for domain to set.
+     * @return This builder for chaining.
      */
     public Builder setDomainBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       addressCase_ = 2;
       address_ = value;
       onChanged();
@@ -740,7 +783,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new IPOrDomain(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

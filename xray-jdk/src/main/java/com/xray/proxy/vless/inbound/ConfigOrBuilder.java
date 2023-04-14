@@ -38,6 +38,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>string decryption = 2;</code>
+   * @return The decryption.
    */
   java.lang.String getDecryption();
   /**
@@ -47,6 +48,7 @@ public interface ConfigOrBuilder extends
    * </pre>
    *
    * <code>string decryption = 2;</code>
+   * @return The bytes for decryption.
    */
   com.google.protobuf.ByteString
       getDecryptionBytes();
