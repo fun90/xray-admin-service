@@ -93,6 +93,7 @@
 				<version>0.5.1</version>
 				<configuration>
 					<!--默认值-->
+					<!-- 将Xray-core的源码下载到/src/main/proto下面 -->
 					<protoSourceRoot>${project.basedir}/src/main/proto/Xray-core</protoSourceRoot>
 					<!--默认值-->
 <!--					<outputDirectory>${project.build.directory}/generated-sources/protobuf/java</outputDirectory>-->
