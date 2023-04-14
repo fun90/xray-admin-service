@@ -90,7 +90,7 @@ public class XrayService {
 		try {
 			XrayApiClient client = XrayApiClient.getInstance(server.getV2rayIp(), server.getV2rayManagerPort());
 			com.xray.proxy.vless.Account account = com.xray.proxy.vless.Account.newBuilder().setId(proxyAccount.getId())
-					.setEncryption("none").setFlow("xtls-rprx-direct").build();
+					.setEncryption("none").build();
 
 			TypedMessage AccountTypedMsg = TypedMessage.newBuilder().
 					setType(com.xray.proxy.vless.Account.getDescriptor().getFullName()
