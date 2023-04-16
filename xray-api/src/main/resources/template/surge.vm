@@ -15,18 +15,24 @@ dns-server = 114.114.114.114, 223.5.5.5, 119.29.29.29
 DIRECT = direct
 #foreach($server in $servers)
     #if($server.protocol == "vmess")
-$server.serverName = vmess, $server.clientDomain, $server.clientPort, username= $account.uuid, ws-path=$server.wsPath, sni=$server.clientDomai, ws-headers=Host:$server.clientDomain, ws=true, tls=true, tls13=false, skip-cert-verify=0, tfo=true, udp-relay=true
+$server.serverName = vmess, $server.clientDomain, $server.clientPort, username=$account.uuid, ws-path=$server.wsPath, ws-headers=Host:$server.clientDomain, ws=true, tls=true, vmess-aead=true
     #elseif($server.protocol == "trojan")
-$server.serverName = trojan, $server.clientDomain, $server.clientPort, password=$account.uuid, sni=$server.clientDomain, skip-cert-verify=0, tfo=false, udp-relay=true
+$server.serverName = trojan, $server.clientDomain, $server.clientPort, password=$account.uuid, sni=$server.clientDomain
     #else
     #end
 #end
 🎯 直连 = direct
 
 #set($inclueItems = ["vmess", "trojan"])
+#set($supportSevers = [])
+#foreach($item in $servers)
+    #if($inclueItems.contains($item.protocol))
+        #set($result = $supportSevers.add($item))
+    #end
+#end
 #set($delimiter = ", ")
 #set($serverNames = "")
-#foreach($item in $servers)
+#foreach($item in $supportSevers)
     #if($inclueItems.contains($item.protocol))
         #if($foreach.hasNext)
             #set($serverNames = "$serverNames$item.serverName$delimiter")
@@ -45,7 +51,7 @@ $server.serverName = trojan, $server.clientDomain, $server.clientPort, password=
 Ⓜ️ 微软 = select,🔰 代理,🎯 直连,♻️ 自动选择,$serverNames
 ☁️ iCloud = select,🎯 直连,🔰 代理,♻️ 自动选择,$serverNames
 🍎 苹果 = select,🎯 直连,🔰 代理,♻️ 自动选择,$serverNames
-🛑 拦截 = select,DIRECT,REJECT
+🛑 拦截 = select,REJECT,DIRECT
 🐟 其他 = select,🎯 直连,🔰 代理,♻️ 自动选择,$serverNames
 
 [Rule]

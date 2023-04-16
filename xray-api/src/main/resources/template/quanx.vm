@@ -11,9 +11,15 @@ server=223.5.5.5
 ##server=8.8.8.8
 
 #set($inclueItems = ["vmess", "trojan"])
+#set($supportSevers = [])
+#foreach($item in $servers)
+    #if($inclueItems.contains($item.protocol))
+        #set($result = $supportSevers.add($item))
+    #end
+#end
 #set($delimiter = ", ")
 #set($serverNames = "")
-#foreach($item in $servers)
+#foreach($item in $supportSevers)
     #if($inclueItems.contains($item.protocol))
         #if($foreach.hasNext)
             #set($serverNames = "$serverNames$item.serverName$delimiter")

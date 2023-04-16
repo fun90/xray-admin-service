@@ -56,39 +56,37 @@ proxies:
   - {name: $server.serverName, server: $server.clientDomain, port: $server.clientPort, type: vmess, uuid: $account.uuid, alterId: $account.maxConnection, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: $server.wsPath, headers: {Host: $server.clientDomain}}, udp: false}
   #elseif($server.protocol == "trojan")
   - {name: $server.serverName, server: $server.clientDomain, port: $server.clientPort, type: trojan, password: $account.uuid, sni: $server.clientDomain, skip-cert-verify: false, udp: false}
-  #else
   #end
 #end
 
 #set($inclueItems = ["vmess", "trojan"])
-#set($delimiter = $lineSeparator)
-#set($serverNames = "")
+#set($supportSevers = [])
 #foreach($item in $servers)
   #if($inclueItems.contains($item.protocol))
-##    #if($foreach.index != 1)
-##      ## 如果不是第一个元素，就在结果后面添加分隔符
-##      #set($serverNames = "$serverNames$delimiter")
-##    #end
-    ## 将当前元素添加到结果中
-    #set($serverNames = "$serverNames$delimiter- $item.serverName")
+    #set($result = $supportSevers.add($item))
   #end
 #end
-
-
+#set($delimiter = $lineSeparator)
+#set($serverNames = "")
+#foreach($item in $supportSevers)
+  #if($inclueItems.contains($item.protocol))
+    #set($serverNames = "$serverNames      - $item.serverName$delimiter")
+  #end
+#end
 proxy-groups:
   - name: 🔰 代理
     type: select
     proxies:
       - ♻️ 自动选择
       - 🎯 直连
-      $serverNames
+$serverNames
 
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-      $serverNames
+$serverNames
 
   - name: 💰 PayPal
     type: select
@@ -96,7 +94,7 @@ proxy-groups:
       - 🎯 直连
       - 🔰 代理
       - ♻️ 自动选择
-      $serverNames
+$serverNames
 
   - name: 🛒 亚马逊
     type: select
@@ -104,7 +102,7 @@ proxy-groups:
       - 🔰 代理
       - 🎯 直连
       - ♻️ 自动选择
-      $serverNames
+$serverNames
 
   - name: 🐶 谷歌
     type: select
@@ -118,7 +116,7 @@ $serverNames
     proxies:
       - 🔰 代理
       - ♻️ 自动选择
-      $serverNames
+$serverNames
 
   - name: Ⓜ️ 微软
     type: select
@@ -126,7 +124,7 @@ $serverNames
       - 🔰 代理
       - 🎯 直连
       - ♻️ 自动选择
-      $serverNames
+$serverNames
 
   - name: ☁️ iCloud
     type: select
@@ -134,7 +132,7 @@ $serverNames
       - 🎯 直连
       - 🔰 代理
       - ♻️ 自动选择
-      $serverNames
+$serverNames
 
   - name: 🍎 苹果
     type: select
@@ -142,7 +140,7 @@ $serverNames
       - 🎯 直连
       - 🔰 代理
       - ♻️ 自动选择
-      $serverNames
+$serverNames
 
   - name: 🎯 直连
     type: select
@@ -161,4 +159,4 @@ $serverNames
       - 🎯 直连
       - 🔰 代理
       - ♻️ 自动选择
-      $serverNames
+$serverNames

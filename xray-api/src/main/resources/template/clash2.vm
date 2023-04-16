@@ -33,14 +33,19 @@ proxies:
   #elseif($server.protocol == "trojan")
   - {name: $server.serverName, server: $server.clientDomain, port: $server.clientPort, type: trojan, password: $account.uuid, sni: $server.clientDomain, skip-cert-verify: false, udp: false}
   #elseif($server.protocol == "vless")
-  - {name: $server.serverName, server: $server.clientDomain, port: $server.clientPort, type: vless, uuid: $account.uuid, tls: true, skip-cert-verify: false, network: tcp, udp: false, client-fingerprint: chrome}
   #end
 #end
 
-#set($inclueItems = ["vmess", "trojan", "vless"])
+#set($inclueItems = ["vmess", "trojan"])
+#set($supportSevers = [])
+#foreach($item in $servers)
+  #if($inclueItems.contains($item.protocol))
+    #set($result = $supportSevers.add($item))
+  #end
+#end
 #set($delimiter = $lineSeparator)
 #set($serverNames = "")
-#foreach($item in $servers)
+#foreach($item in $supportSevers)
   #if($inclueItems.contains($item.protocol))
     #set($serverNames = "$serverNames      - $item.serverName$delimiter")
   #end

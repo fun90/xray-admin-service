@@ -38,6 +38,12 @@ proxies:
 #end
 
 #set($inclueItems = ["vmess", "trojan", "vless"])
+#set($supportSevers = [])
+#foreach($item in $servers)
+  #if($inclueItems.contains($item.protocol))
+    #set($result = $supportSevers.add($item))
+  #end
+#end
 #set($delimiter = $lineSeparator)
 #set($serverNames = "")
 #foreach($item in $servers)
