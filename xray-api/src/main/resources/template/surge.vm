@@ -23,18 +23,30 @@ $server.serverName = trojan, $server.clientDomain, $server.clientPort, password=
 #end
 🎯 直连 = direct
 
+#set($inclueItems = ["vmess", "trojan"])
+#set($delimiter = ", ")
+#set($serverNames = "")
+#foreach($item in $servers)
+    #if($inclueItems.contains($item.protocol))
+        #if($foreach.hasNext)
+            #set($serverNames = "$serverNames$item.serverName$delimiter")
+        #else
+            #set($serverNames = "$serverNames$item.serverName")
+        #end
+    #end
+#end
 [Proxy Group]
-🔰 代理 = select,♻️ 自动选择,🎯 直连,#foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end
-♻️ 自动选择 = url-test,#foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end,url=http://www.gstatic.com/generate_204,interval=300,timeout=5
-💰 PayPal = select,🎯 直连,🔰 代理,♻️ 自动选择,#foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end
-🛒 亚马逊 = select,🔰 代理,🎯 直连,♻️ 自动选择,#foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end
-🐶 谷歌 = select,🔰 代理,♻️ 自动选择,#foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end
-🎬 YouTube = select,🔰 代理,♻️ 自动选择,🎯 直连,#foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end
-Ⓜ️ 微软 = select,🔰 代理,🎯 直连,♻️ 自动选择,#foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end
-☁️ iCloud = select,🎯 直连,🔰 代理,♻️ 自动选择,#foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end
-🍎 苹果 = select,🎯 直连,🔰 代理,♻️ 自动选择,#foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end
+🔰 代理 = select,♻️ 自动选择,🎯 直连,$serverNames
+♻️ 自动选择 = url-test,$serverNames,url=http://www.gstatic.com/generate_204,interval=300,timeout=5
+💰 PayPal = select,🎯 直连,🔰 代理,♻️ 自动选择,$serverNames
+🛒 亚马逊 = select,🔰 代理,🎯 直连,♻️ 自动选择,$serverNames
+🐶 谷歌 = select,🔰 代理,♻️ 自动选择,$serverNames
+🎬 YouTube = select,🔰 代理,♻️ 自动选择,🎯 直连,$serverNames
+Ⓜ️ 微软 = select,🔰 代理,🎯 直连,♻️ 自动选择,$serverNames
+☁️ iCloud = select,🎯 直连,🔰 代理,♻️ 自动选择,$serverNames
+🍎 苹果 = select,🎯 直连,🔰 代理,♻️ 自动选择,$serverNames
 🛑 拦截 = select,DIRECT,REJECT
-🐟 其他 = select,🎯 直连,🔰 代理,♻️ 自动选择,#foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end
+🐟 其他 = select,🎯 直连,🔰 代理,♻️ 自动选择,$serverNames
 
 [Rule]
 RULE-SET,$rootUrl/subscribe/rules/surge/Applications.list,🎯 直连

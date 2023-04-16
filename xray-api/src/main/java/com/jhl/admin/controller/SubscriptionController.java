@@ -80,21 +80,16 @@ public class SubscriptionController {
 		Account account = subscriptionService.findAccountByCode(code);
 		List<Server> servers = serverService.queryByAccount(account);
 
+		Map<String, Object> params = new HashMap<>();
+		params.put("account", account);
+		params.put("servers", servers);
+		params.put("Base64", Base64.class);
+		params.put("URLEncoder", URLEncoder.class);
+		params.put("JSON", JSON.class);
+		params.put("lineSeparator", System.lineSeparator());
 		if (type == 0) {
-			Map<String, Object> params = new HashMap<>();
-			params.put("account", account);
-			params.put("servers", servers);
-			params.put("Base64", Base64.class);
-			params.put("URLEncoder", URLEncoder.class);
-			params.put("JSON", JSON.class);
-			params.put("lineSeparator", System.lineSeparator());
 			return templateMerge("nodes/" + target, params);
-
 		} else {
-			Map<String, Object> params = new HashMap<>();
-			params.put("account", account);
-			params.put("servers", servers);
-
 			IRulesParser rulesParser = rulesParserFactory.get(target);
 			if (rulesParser != null) {
 				params.put("rulesParser", rulesParser);

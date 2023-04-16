@@ -32,32 +32,33 @@ proxies:
   - {name: $server.serverName, server: $server.clientDomain, port: $server.clientPort, type: vmess, uuid: $account.uuid, alterId: $account.maxConnection, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: $server.wsPath, headers: {Host: $server.clientDomain}}, udp: false}
   #elseif($server.protocol == "trojan")
   - {name: $server.serverName, server: $server.clientDomain, port: $server.clientPort, type: trojan, password: $account.uuid, sni: $server.clientDomain, skip-cert-verify: false, udp: false}
-  #else
+  #elseif($server.protocol == "vless")
+  - {name: $server.serverName, server: $server.clientDomain, port: $server.clientPort, type: vless, uuid: $account.uuid, tls: true, skip-cert-verify: false, network: tcp, udp: false, client-fingerprint: chrome}
   #end
 #end
 
+#set($inclueItems = ["vmess", "trojan", "vless"])
+#set($delimiter = $lineSeparator)
+#set($serverNames = "")
+#foreach($item in $servers)
+  #if($inclueItems.contains($item.protocol))
+    #set($serverNames = "$serverNames      - $item.serverName$delimiter")
+  #end
+#end
 proxy-groups:
   - name: 🔰 代理
     type: select
     proxies:
       - ♻️ 自动选择
       - 🎯 直连
-    #foreach($server in $servers)
-      #if($server.protocol == "vmess" || $server.protocol == "trojan")
-      - $server.serverName
-      #end
-    #end
+$serverNames
 
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-    #foreach($server in $servers)
-      #if($server.protocol == "vmess" || $server.protocol == "trojan")
-      - $server.serverName
-      #end
-    #end
+$serverNames
 
   - name: 💰 PayPal
     type: select
@@ -65,11 +66,7 @@ proxy-groups:
       - 🎯 直连
       - 🔰 代理
       - ♻️ 自动选择
-    #foreach($server in $servers)
-      #if($server.protocol == "vmess" || $server.protocol == "trojan")
-      - $server.serverName
-      #end
-    #end
+$serverNames
 
   - name: 🛒 亚马逊
     type: select
@@ -77,33 +74,21 @@ proxy-groups:
       - 🔰 代理
       - 🎯 直连
       - ♻️ 自动选择
-    #foreach($server in $servers)
-      #if($server.protocol == "vmess" || $server.protocol == "trojan")
-      - $server.serverName
-      #end
-    #end
+$serverNames
 
   - name: 🐶 谷歌
     type: select
     proxies:
       - 🔰 代理
       - ♻️ 自动选择
-    #foreach($server in $servers)
-      #if($server.protocol == "vmess" || $server.protocol == "trojan")
-      - $server.serverName
-      #end
-    #end
+$serverNames
 
   - name: 🎬 YouTube
     type: select
     proxies:
       - 🔰 代理
       - ♻️ 自动选择
-    #foreach($server in $servers)
-      #if($server.protocol == "vmess" || $server.protocol == "trojan")
-      - $server.serverName
-      #end
-    #end
+$serverNames
 
   - name: Ⓜ️ 微软
     type: select
@@ -111,11 +96,7 @@ proxy-groups:
       - 🔰 代理
       - 🎯 直连
       - ♻️ 自动选择
-    #foreach($server in $servers)
-      #if($server.protocol == "vmess" || $server.protocol == "trojan")
-      - $server.serverName
-      #end
-    #end
+$serverNames
 
   - name: ☁️ iCloud
     type: select
@@ -123,11 +104,7 @@ proxy-groups:
       - 🎯 直连
       - 🔰 代理
       - ♻️ 自动选择
-    #foreach($server in $servers)
-      #if($server.protocol == "vmess" || $server.protocol == "trojan")
-      - $server.serverName
-      #end
-    #end
+$serverNames
 
   - name: 🍎 苹果
     type: select
@@ -135,11 +112,7 @@ proxy-groups:
       - 🎯 直连
       - 🔰 代理
       - ♻️ 自动选择
-    #foreach($server in $servers)
-      #if($server.protocol == "vmess" || $server.protocol == "trojan")
-      - $server.serverName
-      #end
-    #end
+$serverNames
 
   - name: 🎯 直连
     type: select
@@ -158,11 +131,7 @@ proxy-groups:
       - 🎯 直连
       - 🔰 代理
       - ♻️ 自动选择
-    #foreach($server in $servers)
-      #if($server.protocol == "vmess" || $server.protocol == "trojan")
-      - $server.serverName
-      #end
-    #end
+$serverNames
 
 rules:
   - RULE-SET,Applications,🎯 直连

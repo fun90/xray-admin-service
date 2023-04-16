@@ -116,13 +116,16 @@ public class AccountService {
 			// 清空serverId，更新为0
 			account.setServerId("0");
 		}
-		Account newAccount = accountRepository.save(account);
+		accountRepository.save(account);
+		Account newAccount = accountRepository.findById(account.getId()).orElse(null);
 
 		//判断是否需要生成新的stat
-		statService.createOrGetStat(newAccount);
+		if (newAccount != null) {
+			statService.createOrGetStat(newAccount);
+		}
 		//删除事件
 		proxyEventService.addProxyEvent(proxyEventService.buildV2RayProxyEvent(oldAccount, ProxyEvent.RM_EVENT));
-		if (newAccount.getStatus() == 1) {
+		if (newAccount != null && newAccount.getStatus() == 1) {
 			proxyEventService.addProxyEvent(proxyEventService.buildV2RayProxyEvent(newAccount, ProxyEvent.UPDATE_EVENT));
 		}
 	}

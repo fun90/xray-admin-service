@@ -1,0 +1,21 @@
+#set($nodesStr = "")
+#foreach($server in $servers)
+    #if($server.protocol == "vmess")
+        #set($node = "vmess = $server.clientDomain:$server.clientPort, password=$account.uuid, obfs-host=$server.clientDomain, obfs-uri=$server.wsPath, obfs=wss, method=chacha20-ietf-poly1305, fast-open=false, udp-relay=true, tls13=false, tag=$server.serverName")
+        #if($nodesStr == "")
+            #set($nodesStr = $node)
+        #else
+            #set($nodesStr = $nodesStr  + $lineSeparator + $node)
+        #end
+    #elseif($server.protocol == "vless")
+    #elseif($server.protocol == "trojan")
+        #set($node = "trojan = $server.clientDomain:$server.clientPort, password=$account.uuid, tls-host=$server.clientDomain, over-tls=true, tls-verification=false, fast-open=false, udp-relay=true, tls13=false, tag=$server.serverName")
+        #if($nodesStr == "")
+            #set($nodesStr = $node)
+        #else
+            #set($nodesStr = $nodesStr  + $lineSeparator + $node)
+        #end
+    #else
+    #end
+#end
+$nodesStr
