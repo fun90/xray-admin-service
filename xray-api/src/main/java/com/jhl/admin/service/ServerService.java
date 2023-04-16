@@ -5,11 +5,13 @@ import com.jhl.admin.model.Account;
 import com.jhl.admin.model.Server;
 import com.jhl.admin.repository.ServerRepository;
 import com.jhl.admin.util.Validator;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class ServerService {
@@ -18,7 +20,7 @@ public class ServerService {
 	ServerRepository serverRepository;
 
 	public List<Server> distinctServers(Account account) {
-		List<Server> allServers = this.listByLevel(account.getLevel());
+		List<Server> allServers = this.queryByAccount(account);
 		Map<String, Server> serverMap = new HashMap<>();
 		allServers.forEach(o -> {
 			serverMap.putIfAbsent(o.getV2rayIp() + ":" + o.getV2rayManagerPort() + ":" + o.getInboundTag(), o);
@@ -26,11 +28,32 @@ public class ServerService {
 		return new ArrayList<>(serverMap.values());
 	}
 
+	public List<Server> queryByAccount(Account account) {
+		Validator.isNotNull(account);
+		String serverIds = account.getServerId();
 
-	public List<Server> listByLevel(Short level) {
-		Validator.isNotNull(level);
-		List<Server> all = serverRepository.findByLevelLessThanEqualAndStatusOrderByLevelDesc(level, StatusEnum.SUCCESS.code());
+		List<Server> all;
+		if (!"0".equals(serverIds) && StringUtils.isNoneBlank(serverIds)) {
+			all = this.queryByServerIds(serverIds);
+		} else {
+			all = serverRepository.findByLevelLessThanEqualAndStatusOrderByLevelDesc(account.getLevel(), StatusEnum.SUCCESS.code());
+		}
 		Collections.shuffle(all);
+		return all;
+	}
+
+	public List<Server> queryByServerIds(String serverIds) {
+		List<Server> all = new ArrayList<>();
+		if (StringUtils.isNoneBlank(serverIds)) {
+			all = serverRepository.findAllById(Arrays.stream(serverIds.split(",")).map(Integer::valueOf).collect(Collectors.toList()));
+			all = all.stream().filter(o -> Objects.equals(o.getStatus(), StatusEnum.SUCCESS.code())).collect(Collectors.toList());
+		}
+		return all;
+	}
+
+	public List<Server> queryAllAvailable() {
+		List<Server> all = serverRepository.findAll();
+		all = all.stream().filter(o -> Objects.equals(o.getStatus(), StatusEnum.SUCCESS.code())).collect(Collectors.toList());
 		return all;
 	}
 

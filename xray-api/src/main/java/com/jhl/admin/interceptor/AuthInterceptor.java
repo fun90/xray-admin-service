@@ -1,4 +1,4 @@
-package com.jhl.admin.Interceptor;
+package com.jhl.admin.interceptor;
 
 import com.alibaba.fastjson.JSON;
 import com.jhl.admin.VO.UserVO;

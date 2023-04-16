@@ -1,5 +1,6 @@
 package com.jhl.admin.VO;
 
+import com.jhl.admin.model.Server;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,6 +9,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Transient;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Builder
 @NoArgsConstructor
@@ -33,7 +35,7 @@ public class AccountVO extends BaseEntityVO implements Serializable {
 	private String content;
 	private Integer status;
 	private Integer userId;
-	private Integer serverId;
+	private List<Integer> serverIds;
 	//单账号最大连接数
 	private Integer maxConnection;
 	/**

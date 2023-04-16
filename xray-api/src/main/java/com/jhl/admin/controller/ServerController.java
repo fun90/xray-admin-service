@@ -1,12 +1,13 @@
 package com.jhl.admin.controller;
 
 import com.google.common.collect.Lists;
-import com.jhl.admin.Interceptor.PreAuth;
 import com.jhl.admin.VO.AccountVO;
 import com.jhl.admin.VO.ServerVO;
 import com.jhl.admin.VO.UserVO;
 import com.jhl.admin.cache.UserCache;
 import com.jhl.admin.constant.KVConstant;
+import com.jhl.admin.interceptor.PreAuth;
+import com.jhl.admin.model.Account;
 import com.jhl.admin.model.Server;
 import com.jhl.admin.repository.ServerRepository;
 import com.jhl.admin.service.AccountService;
@@ -14,6 +15,7 @@ import com.jhl.admin.service.ServerService;
 import com.jhl.admin.util.Validator;
 import com.ljh.common.model.Result;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
@@ -23,6 +25,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @Slf4j
@@ -61,6 +64,18 @@ public class ServerController {
 		return Result.buildPageObject(all.getTotalElements(), VOList);
 	}
 
+	@PreAuth("admin")
+	@ResponseBody
+	@GetMapping("/server/findAllAvailable")
+	public Result findAll() {
+		List<Server> all = serverService.queryAllAvailable();
+		ArrayList<Object> VOList = Lists.newArrayListWithCapacity(all.size());
+		all.forEach(server -> {
+			VOList.add(server.toVO(ServerVO.class));
+		});
+		return Result.buildSuccess(VOList, null);
+	}
+
 	@PreAuth("vip")
 	@ResponseBody
 	@GetMapping("/server/findServersForAccount")
@@ -70,8 +85,14 @@ public class ServerController {
 		List<AccountVO> accounts = accountService.getAccounts(user.getId());
 		if (accounts.size() != 1) return Result.builder().code(500).message("用户存在多个账号/或者账号为空").build();
 		AccountVO account = accounts.get(0);
-		Short level = account.getLevel();
-		List<Server> servers = serverService.listByLevel(level);
+		Account data = Account.builder()
+				.accountNo(account.getAccountNo())
+				.level(account.getLevel())
+				.build();
+		if (CollectionUtils.isNotEmpty(account.getServerIds())) {
+			data.setServerId(account.getServerIds().stream().map(Object::toString).collect(Collectors.joining(",")));
+		}
+		List<Server> servers = serverService.queryByAccount(data);
 		ArrayList<Object> VOList = Lists.newArrayListWithCapacity(servers.size());
 		servers.forEach(server -> {
 			VOList.add(server.toVO(ServerVO.class));

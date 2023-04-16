@@ -17,7 +17,7 @@ public class ShadowrocketConfigGenerator implements IConfigGenerator {
 
     @Override
     public String getTarget() {
-        return ClientConstant.Shadowrocket;
+        return ClientConstant.Shadowrocket.getValue();
     }
 
     @Override

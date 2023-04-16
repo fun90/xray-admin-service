@@ -39,7 +39,7 @@ public class Account extends BaseEntity implements Serializable {
 	private String content;
 	private Integer status;
 	private Integer userId;
-	private Integer serverId;
+	private String serverId;
 	//单账号最大连接数
 	private Integer maxConnection;
 	/**

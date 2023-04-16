@@ -14,7 +14,7 @@ public class ClashRulesParser implements IRulesParser {
 
     @Override
     public String getTarget() {
-        return ClientConstant.Clash;
+        return ClientConstant.Clash.getValue();
     }
 
     @Override

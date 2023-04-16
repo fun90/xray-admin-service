@@ -1,38 +1,60 @@
 package com.jhl.admin.constant;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Component
 @Data
 @ConfigurationProperties(prefix = "client")
 public class ClientConstant {
-	public static final String Clash = "clash";
-	public static final String Clash2 = "clash2";
-	public static final String Clash3 = "clash3";
-	public static final String QuanX = "quanx";
-	public static final String Surge = "surge";
-	public static final String Loon = "loon";
-	public static final String Shadowrocket = "shadowrocket";
-	public static final String DEFAULT = "shadowrocket";
+	public static final List<ClientInfo> CLIENT_INFOS = new ArrayList<ClientInfo>() {{
+		add(new ClientInfo("shadowrocket", "Shadowrocket"));
+		add(new ClientInfo("clash", "Clash"));
+		add(new ClientInfo("clash2", "Clash Premium"));
+		add(new ClientInfo("clash3", "Clash.Meta"));
+		add(new ClientInfo("loon", "Loon"));
+		add(new ClientInfo("surge", "Surge 4"));
+		add(new ClientInfo("quanx", "Quantumult X"));
+	}};
 
-	private List<String> supported = new ArrayList<>();
+	/**
+	 * 默认客户端为第一个
+	 */
+	public static final ClientInfo DEFAULT = CLIENT_INFOS.get(0);
 
-	public ClientConstant() {
-		this.supported.add(Clash);
-		this.supported.add(Clash2);
-		this.supported.add(Clash3);
-		this.supported.add(QuanX);
-		this.supported.add(Surge);
-		this.supported.add(Loon);
-		this.supported.add(Shadowrocket);
+	public static final ClientInfo Shadowrocket = CLIENT_INFOS.get(0);
+	public static final ClientInfo Clash = CLIENT_INFOS.get(1);
+	public static final ClientInfo ClashPremium = CLIENT_INFOS.get(2);
+	public static final ClientInfo ClashMeta = CLIENT_INFOS.get(3);
+	public static final ClientInfo Loon = CLIENT_INFOS.get(4);
+	public static final ClientInfo Surge = CLIENT_INFOS.get(5);
+	public static final ClientInfo QuantumultX = CLIENT_INFOS.get(6);
+
+	private List<ClientInfo> supportList = CLIENT_INFOS;
+
+	public boolean isSupported(String client) {
+		for (ClientInfo clientInfo : supportList) {
+			if (client.startsWith(clientInfo.getValue())) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	@Data
+	@NoArgsConstructor
+	public static class ClientInfo {
+		private String value;
+		private String label;
+
+		public ClientInfo(String value, String label) {
+			this.value = value;
+			this.label = label;
+		}
 	}
 }

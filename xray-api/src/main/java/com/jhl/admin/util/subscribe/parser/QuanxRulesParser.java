@@ -14,7 +14,7 @@ public class QuanxRulesParser implements IRulesParser {
 
     @Override
     public String getTarget() {
-        return ClientConstant.QuanX;
+        return ClientConstant.QuantumultX.getValue();
     }
 
     @Override

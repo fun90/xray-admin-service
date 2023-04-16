@@ -68,8 +68,8 @@ public class SubscriptionController {
 
 		if (code == null || type == null || timestamp == null || token == null) throw new IllegalArgumentException("参数错误");
 
-		target = StringUtils.defaultString(target, ClientConstant.DEFAULT);
-		if (!clientConstant.getSupported().contains(target)) {
+		target = StringUtils.defaultString(target, ClientConstant.DEFAULT.getValue());
+		if (!clientConstant.isSupported(target)) {
 			throw new IllegalArgumentException("target错误");
 		}
 
@@ -78,8 +78,7 @@ public class SubscriptionController {
 		if (!DigestUtils.md5Hex(tokenSrc.toString()).equals(token)) throw new RuntimeException("认证失败");
 
 		Account account = subscriptionService.findAccountByCode(code);
-		Short level = account.getLevel();
-		List<Server> servers = serverService.listByLevel(level);
+		List<Server> servers = serverService.queryByAccount(account);
 
 		if (type == 0) {
 			Map<String, Object> params = new HashMap<>();

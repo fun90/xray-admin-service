@@ -1,4 +1,4 @@
-package com.jhl.admin.Interceptor;
+package com.jhl.admin.interceptor;
 
 import com.ljh.common.model.Result;
 import lombok.extern.slf4j.Slf4j;

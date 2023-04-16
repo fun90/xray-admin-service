@@ -1,7 +1,7 @@
 package com.jhl.admin.controller;
 
 import com.google.common.collect.Lists;
-import com.jhl.admin.Interceptor.PreAuth;
+import com.jhl.admin.interceptor.PreAuth;
 import com.jhl.admin.VO.AccountVO;
 import com.jhl.admin.VO.UserVO;
 import com.jhl.admin.cache.UserCache;
@@ -24,6 +24,7 @@ import com.jhl.admin.service.v2ray.XrayAccountService;
 import com.jhl.admin.util.Validator;
 import com.ljh.common.model.Result;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -33,9 +34,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Controller
@@ -91,7 +91,11 @@ public class AccountController {
 	public Result updateAccount(@RequestBody AccountVO account) {
 		if (account == null || account.getId() == null) throw new NullPointerException("不能为空");
 		account.setSubscriptionUrl(null);
-		accountService.updateAccount(account.toModel(Account.class));
+		Account data = account.toModel(Account.class);
+		if (CollectionUtils.isNotEmpty(account.getServerIds())) {
+			data.setServerId(account.getServerIds().stream().map(Object::toString).collect(Collectors.joining(",")));
+		}
+		accountService.updateAccount(data);
 		return Result.doSuccess();
 	}
 
@@ -175,11 +179,17 @@ public class AccountController {
 	@PreAuth("admin")
 	@ResponseBody
 	@GetMapping("/account")
-	public Result list(Integer page, Integer pageSize, String userEmail) {
+	public Result list(Integer page, Integer pageSize, String userEmail, String userRemark) {
 		List<Account> accounts = Lists.newArrayList();
 		long total = 0l;
 		Date date = new Date();
-		if (StringUtils.isBlank(userEmail)) {
+		if (StringUtils.isNotBlank(userEmail)) {
+			accounts = accountRepository.findByUserEmail("%" + userEmail + "%");
+			total = accounts.size();
+		} else if (StringUtils.isNotBlank(userRemark)) {
+			accounts = accountRepository.findByUserRemark("%" + userRemark + "%");
+			total = accounts.size();
+		} else {
 			Page<Account> accountsPage = accountRepository.findAll(Example.of(Account.builder().build()),
 					PageRequest.of(page - 1, pageSize)
 			);
@@ -188,13 +198,13 @@ public class AccountController {
 				accounts = accountsPage.getContent();
 			}
 			total = accountsPage.getTotalElements();
-		} else {
-			accounts = accountRepository.findByUserEmail("%" + userEmail + "%");
-			total = accounts == null ? 0l : accounts.size();
 		}
 		List<AccountVO> accountVOList = BaseEntity.toVOList(accounts, AccountVO.class);
+
 		ServerConfig subConverter = serverConfigService.getServerConfig(WebsiteConfigEnum.SUB_CONVERTER_ADDRESS.getKey());
 		ServerConfig serverConfig = serverConfigService.getServerConfig(WebsiteConfigEnum.SUBSCRIPTION_ADDRESS_PREFIX.getKey());
+
+		Map<Integer, Account> accountMap = accounts.stream().collect(Collectors.toMap(BaseEntity::getId, o -> o));
 		accountVOList.forEach(account -> {
 			account.setSubconverterUrl(subConverter.getValue());
 			String subscriptionUrl = account.getSubscriptionUrl();
@@ -202,6 +212,10 @@ public class AccountController {
 				account.setSubscriptionUrl(serverConfig.getValue() + subscriptionUrl);
 			}
 			accountService.fillAccount(date, account);
+			Account data = accountMap.get(account.getId());
+			if (!"0".equals(data.getServerId()) && StringUtils.isNotBlank(data.getServerId())) {
+				account.setServerIds(Arrays.stream(data.getServerId().split(",")).map(Integer::valueOf).collect(Collectors.toList()));
+			}
 		});
 		return Result.buildPageObject(total, accountVOList);
 	}

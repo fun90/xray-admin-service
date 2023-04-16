@@ -35,10 +35,11 @@ logging:
 
 server:
   port: 9091
-  #  content-path: /api
   tomcat:
     threads:
       max: 3
+  servlet:
+    context-path: /api
 spring:
   datasource:
     driver-class-name: org.sqlite.JDBC
@@ -62,42 +63,19 @@ spring:
         format_sql: ''
         show_sql: false
 
-#custom:
-#  myExternalServers:
-#    - 'socks://OjEyNy4wLjAuMToxMDgx#CORE'
-#    - 'vmess://eyJhZGQiOiJ3b3JsZC5mdW45MC5jb20iLCJhaWQiOiI2NCIsImhvc3QiOiJ3b3JsZC5mdW4'
-#    - 'vmess://eyJhZGQiOiJmcmVlZG9tLmpvaG5zdG9uLndhbmciLCJhaWQiOiI2NCIsImhvc3QiOiJmcmV'
-#  externalServers:
-#    - 'vmess://eyJhZGQiOiJmcmVlZG9tLmpvaG5zdG9uLndhbmciLCJhaWQiOiI2NCIsImhvc3QiOiJmcmV'
-
 client:
-  supported:
-    - clash
-    - clash2
-    - clash3
-    - quanx
-    - surge
-    - loon
-    - shadowrocket
-
-rules-source:
-  url-map: {
-    "Direct": "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/direct.txt",
-    "CnCidr": "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/cncidr.txt",
-    "Private": "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/private.txt",
-    "Tld-not-cn": "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/tld-not-cn.txt",
-    "Gfw": "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/gfw.txt",
-    "Greatfire": "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/greatfire.txt",
-    "Proxy": "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/proxy.txt",
-    "Apple": "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/apple.txt",
-    "iCloud": "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/icloud.txt",
-    "TelegramCidr": "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/telegramcidr.txt",
-    "Reject": "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/reject.txt",
-    "AdvertisingLite": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/AdvertisingLite/AdvertisingLite_Resolve.list",
-    "AdvertisingLiteDomain": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/AdvertisingLite/AdvertisingLite_Domain.list",
-    "BanProgramAD": "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list",
-    "Google": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Google/Google_Resolve.list",
-    "Microsoft": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Microsoft/Microsoft.list",
-    "PayPal": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/PayPal/PayPal.list",
-    "YouTube": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/YouTube/YouTube_Resolve.list"
-  }
+  supportList:
+    - value: shadowrocket
+      label: Shadowrocket
+    - value: clash
+      label: Clash
+    - value: clash2
+      label: Clash Premium
+    - value: clash3
+      label: Clash.Meta
+    - value: loon
+      label: Loon
+    - value: surge
+      label: Surge 4
+    - value: quanx
+      label: Quantumult X

@@ -1,6 +1,6 @@
 package com.jhl.admin.controller;
 
-import com.jhl.admin.Interceptor.PreAuth;
+import com.jhl.admin.interceptor.PreAuth;
 import com.jhl.admin.VO.ServerConfigVO;
 import com.jhl.admin.model.BaseEntity;
 import com.jhl.admin.model.ServerConfig;

@@ -1,4 +1,4 @@
-package com.jhl.admin.Interceptor;
+package com.jhl.admin.interceptor;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

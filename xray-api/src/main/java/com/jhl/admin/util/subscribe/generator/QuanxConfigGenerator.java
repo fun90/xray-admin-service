@@ -18,7 +18,7 @@ public class QuanxConfigGenerator implements IConfigGenerator {
 
     @Override
     public String getTarget() {
-        return ClientConstant.QuanX;
+        return ClientConstant.QuantumultX.getValue();
     }
 
     @Override

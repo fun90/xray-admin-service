@@ -33,6 +33,7 @@ $rulesParser.content("MyProxy.list", "🔰 代理")
 $rulesParser.content("MyDirect.list", "🎯 直连")
 $rulesParser.content("PayPal.list", "💰 PayPal")
 $rulesParser.content("YouTube.list", "🎬 YouTube")
+$rulesParser.content("Amazon.list", "🛒 亚马逊")
 $rulesParser.content("Google.list", "🐶 谷歌")
 $rulesParser.content("Microsoft.list", "Ⓜ️ 微软")
 $rulesParser.content("iCloud.list", "☁️ iCloud")
@@ -94,6 +95,18 @@ proxy-groups:
       #end
     #end
 
+  - name: 🛒 亚马逊
+    type: select
+    proxies:
+      - 🔰 代理
+      - 🎯 直连
+      - ♻️ 自动选择
+    #foreach($server in $servers)
+      #if($server.protocol == "vmess" || $server.protocol == "trojan")
+      - $server.serverName
+      #end
+    #end
+
   - name: 🐶 谷歌
     type: select
     proxies:
@@ -119,8 +132,8 @@ proxy-groups:
   - name: Ⓜ️ 微软
     type: select
     proxies:
-      - 🎯 直连
       - 🔰 代理
+      - 🎯 直连
       - ♻️ 自动选择
     #foreach($server in $servers)
       #if($server.protocol == "vmess" || $server.protocol == "trojan")

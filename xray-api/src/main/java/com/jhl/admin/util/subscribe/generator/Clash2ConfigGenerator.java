@@ -10,7 +10,7 @@ import org.springframework.web.util.UriComponents;
 public class Clash2ConfigGenerator extends ClashConfigGenerator {
     @Override
     public String getTarget() {
-        return ClientConstant.Clash2;
+        return ClientConstant.ClashPremium.getValue();
     }
 
     @Override

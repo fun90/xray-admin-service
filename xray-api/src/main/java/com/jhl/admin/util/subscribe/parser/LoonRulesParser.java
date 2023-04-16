@@ -8,7 +8,7 @@ public class LoonRulesParser implements IRulesParser {
 
     @Override
     public String getTarget() {
-        return ClientConstant.Loon;
+        return ClientConstant.Loon.getValue();
     }
 
 }

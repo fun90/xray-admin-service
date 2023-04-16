@@ -17,7 +17,7 @@ public class SurgeConfigGenerator implements IConfigGenerator {
 
     @Override
     public String getTarget() {
-        return ClientConstant.Surge;
+        return ClientConstant.Surge.getValue();
     }
 
     @Override

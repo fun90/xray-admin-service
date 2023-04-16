@@ -15,9 +15,10 @@ RemoteProxies = $proxiesUrl
 🔰 代理 = select,♻️ 自动选择,🎯 直连,RemoteProxies
 ♻️ 自动选择 = url-test,RemoteProxies,url=http://www.gstatic.com/generate_224,interval=300
 💰 PayPal = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
+🛒 亚马逊 = select,🔰 代理,🎯 直连,♻️ 自动选择,RemoteProxies
 🐶 谷歌 = select,🔰 代理,♻️ 自动选择,RemoteProxies
 🎬 YouTube = select,🔰 代理,♻️ 自动选择,RemoteProxies
-Ⓜ️ 微软 = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
+Ⓜ️ 微软 = select,🔰 代理,🎯 直连,♻️ 自动选择,RemoteProxies
 🍎 苹果 = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
 ☁️ iCloud = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
 🎯 直连 = select,DIRECT
@@ -31,6 +32,7 @@ $rootUrl/subscribe/rules/loon/MyDirect.list, tag=🎯 直连, policy=🎯 直连
 $rootUrl/subscribe/rules/loon/PayPal.list, tag=💰 PayPal, policy=💰 PayPal, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/loon/YouTube.list, tag=🎬 YouTube, policy=🎬 YouTube, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/loon/Google.list, tag=🐶 谷歌, policy=🐶 谷歌, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/Amazon.list, tag=🛒 亚马逊, policy=🛒 亚马逊, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/loon/Microsoft.list, tag=Ⓜ️ 微软, policy=Ⓜ️ 微软, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/loon/iCloud.list, tag=☁️ iCloud, policy=☁️ iCloud, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/loon/Apple.list, tag=🍎 苹果, policy=🍎 苹果, update-interval=86400, enabled=true

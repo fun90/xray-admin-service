@@ -14,13 +14,13 @@ server=223.5.5.5
 static=🔰 代理, ♻️ 自动选择, 🎯 直连, #foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Proxy.png
 available=♻️ 自动选择, #foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Auto.png
 static=💰 PayPal, 🎯 直连, 🔰 代理, ♻️ 自动选择, #foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/PayPal.png
-##static=🐶 谷歌, 🔰 代理, ♻️ 自动选择, #foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Google.png
-static=Ⓜ️ 微软, 🎯 直连, 🔰 代理, ♻️ 自动选择, #foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Microsoft.png
+static=🎬 YouTube, 🔰 代理, ♻️ 自动选择, 🎯 直连, #foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end
+static=🐶 谷歌, 🔰 代理, ♻️ 自动选择, #foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Google.png
+static=Ⓜ️ 微软, 🔰 代理, 🎯 直连, ♻️ 自动选择, #foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Microsoft.png
 static=🍎 苹果, 🎯 直连, 🔰 代理, ♻️ 自动选择, #foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Apple.png
 static=☁️ iCloud, 🎯 直连, 🔰 代理, ♻️ 自动选择, #foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/iCloud.png
 ##static=TikTok, 🔰 代理, ♻️ 自动选择, 🎯 直连, #foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end
 ##static=🎥 NETFLIX, 🔰 代理, ♻️ 自动选择, 🎯 直连, #foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end
-##static=🌌 YouTube, 🔰 代理, ♻️ 自动选择, 🎯 直连, #foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end
 ##static=⛔️ 广告拦截, 🎯 直连, 🛑 拦截, 🔰 代理
 ##static=🚫 运营劫持, 🎯 直连, 🛑 拦截, 🔰 代理
 ##static=🌍 国外媒体, 🔰 代理, ♻️ 自动选择, 🎯 直连, #foreach($server in $servers)#if($server.protocol == "vmess" || $server.protocol == "trojan")$server.serverName#if( $foreach.hasNext ), #end#end#end, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/GlobalMedia.png
@@ -39,7 +39,9 @@ $rootUrl/subscribe/rules/quanx/MyReject.list, tag=🛑 拦截, update-interval=8
 $rootUrl/subscribe/rules/quanx/MyDirect.list, tag=🎯 直连, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/MyProxy.list, tag=🔰 代理, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/PayPal.list, tag=💰 PayPal, update-interval=86400, enabled=true
-##$rootUrl/subscribe/rules/quanx/Google.list, tag=🐶 谷歌, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/quanx/YouTube.list, tag=🎬 YouTube, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/quanx/Google.list, tag=🐶 谷歌, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/quanx/Amazon.list, tag=🛒 亚马逊, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/Microsoft.list, tag=Ⓜ️ 微软, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/Apple.list, tag=🍎 苹果, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/iCloud.list, tag=☁️ iCloud, update-interval=86400, enabled=true
@@ -48,19 +50,6 @@ $rootUrl/subscribe/rules/quanx/iCloud.list, tag=☁️ iCloud, update-interval=8
 $rootUrl/subscribe/rules/quanx/Private.list, tag=🎯 直连, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/Direct.list, tag=🎯 直连, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/CnCidr.list, tag=🎯 直连, update-interval=86400, enabled=true
-##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list, tag=🍎 苹果, enabled=true
-##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list, tag=🎯 直连, enabled=true
-##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Advertising.list, tag=⛔️ 广告拦截, enabled=true
-##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Guard/Hijacking.list, tag=🚫 运营劫持, enabled=true
-##https://raw.githubusercontent.com/Semporia/Quantumult-X/master/Filter/TikTok.list, tag=TikTok, force-policy=TikTok, update-interval=86400, opt-parser=false, enabled=true
-##https://raw.githubusercontent.com/Semporia/Quantumult-X/master/Filter/TikTok.list, tag=TikTok, force-policy=TikTok, update-interval=86400, opt-parser=false, enabled=true
-##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list, tag=🎥 NETFLIX, enabled=true
-##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list, tag=🌌 YouTube, enabled=true
-##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list, tag=🌍 国外媒体, enabled=true
-##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list, tag=🌏 港台媒体, enabled=true
-##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list, tag=📲 电报信息, enabled=true
-##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list, tag=🔰 代理, enabled=true
-##https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list, tag=🎯 直连, enabled=true
 
 [rewrite_remote]
 ##https://raw.githubusercontent.com/Semporia/TikTok-Unlock/master/Quantumult%20X/TikTok-US.conf, tag=TikTok, update-interval=86400, opt-parser=false, enabled=true

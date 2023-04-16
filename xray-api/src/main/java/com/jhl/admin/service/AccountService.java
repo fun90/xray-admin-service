@@ -1,6 +1,5 @@
 package com.jhl.admin.service;
 
-import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
 import com.jhl.admin.VO.AccountVO;
 import com.jhl.admin.VO.StatVO;
@@ -8,8 +7,10 @@ import com.jhl.admin.VO.UserVO;
 import com.jhl.admin.constant.ClientConstant;
 import com.jhl.admin.constant.KVConstant;
 import com.jhl.admin.constant.ProxyConstant;
-import com.jhl.admin.entity.V2rayAccount;
-import com.jhl.admin.model.*;
+import com.jhl.admin.model.Account;
+import com.jhl.admin.model.Stat;
+import com.jhl.admin.model.Subscription;
+import com.jhl.admin.model.User;
 import com.jhl.admin.repository.AccountRepository;
 import com.jhl.admin.repository.ServerRepository;
 import com.jhl.admin.repository.StatRepository;
@@ -18,19 +19,19 @@ import com.jhl.admin.service.v2ray.ProxyEventService;
 import com.jhl.admin.service.v2ray.XrayAccountService;
 import com.jhl.admin.util.Utils;
 import com.jhl.admin.util.Validator;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
+@Slf4j
 @Service
 public class AccountService {
 
@@ -103,11 +104,19 @@ public class AccountService {
 	 */
 	public void updateAccount(Account account) {
 		Validator.isNotNull(account.getId());
-		account.setContent(null);
-		account.setServerId(null);
-		Account oldAccount = accountRepository.findById(account.getId()).orElse(null);
-		accountRepository.save(account);
-		Account newAccount = accountRepository.findById(account.getId()).orElse(null);
+		// 保留旧数据
+		Account oldAccount = accountRepository.findById(account.getId())
+				.map(o -> {
+					Account target = new Account();
+					BeanUtils.copyProperties(o, target);
+					return target;
+				})
+				.orElse(null);
+		if (StringUtils.isBlank(account.getServerId())) {
+			// 清空serverId，更新为0
+			account.setServerId("0");
+		}
+		Account newAccount = accountRepository.save(account);
 
 		//判断是否需要生成新的stat
 		statService.createOrGetStat(newAccount);
@@ -126,23 +135,6 @@ public class AccountService {
 		if (dbAccount == null || dbAccount.getStatus() == 0 || !dbAccount.getToDate().after(new Date())) {
 			throw new IllegalStateException("账号不可用");
 		}
-
-
-		Integer newServerId = account.getServerId();
-		Server newServer = serverRepository.findById(newServerId).orElse(null);
-		if (newServer == null) throw new NullPointerException("服务器为空");
-
-        /*V2rayAccount v2rayAccount = new V2rayAccount();
-        v2rayAccount.setId(uuid);
-        v2rayAccount.setAdd(newServer.getClientDomain());
-        v2rayAccount.setPort(String.valueOf(newServer.getClientPort()));
-        v2rayAccount.setPath(String.format(newServer.getWsPath(), dbAccount.getAccountNo()));
-        v2rayAccount.setTls(newServer.getSupportTLS() ? "tls" : "");
-        v2rayAccount.setHost("");
-        v2rayAccount.setPs(newServer.getDesc());*/
-		List<V2rayAccount> v2rayAccounts = xrayAccountService.buildV2rayAccount(Lists.newArrayList(newServer), dbAccount);
-		if (v2rayAccounts.size() != 1) throw new RuntimeException("数据不对");
-		account.setContent(JSON.toJSONString(v2rayAccounts.get(0)));
 		accountRepository.save(account);
 
 
@@ -230,14 +222,14 @@ public class AccountService {
 
 		String token = DigestUtils.md5Hex(subscription.getCode() + timeStamp + proxyConstant.getAuthPassword());
 		type = type == null ? 0 : type;
-		target = StringUtils.defaultString(target, ClientConstant.DEFAULT);
+		target = StringUtils.defaultString(target, ClientConstant.DEFAULT.getValue());
 		String url = String.format(proxyConstant.getSubscriptionTemplate(), subscription.getCode(), target, type, timeStamp, token);
 		account.setSubscriptionUrl(url);
 		accountRepository.save(account);
 		return url;
 	}
 /*
-    public List<Account> listAllAccount(List<User> users) {
+    public List<Account> listAllAccount(List<ClientInfo> users) {
         ArrayList<Account> allAccounts = Lists.newArrayList();
         users.forEach(user -> {
             List<Account> accounts = getAccounts(user.getId());

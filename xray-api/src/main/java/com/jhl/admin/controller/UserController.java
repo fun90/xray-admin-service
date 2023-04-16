@@ -2,7 +2,7 @@ package com.jhl.admin.controller;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.jhl.admin.Interceptor.PreAuth;
+import com.jhl.admin.interceptor.PreAuth;
 import com.jhl.admin.VO.ChangePasswordVO;
 import com.jhl.admin.VO.UserVO;
 import com.jhl.admin.cache.UserCache;

@@ -19,7 +19,7 @@ public class ClashConfigGenerator implements IConfigGenerator {
 
     @Override
     public String getTarget() {
-        return ClientConstant.Clash;
+        return ClientConstant.Clash.getValue();
     }
 
     @Override

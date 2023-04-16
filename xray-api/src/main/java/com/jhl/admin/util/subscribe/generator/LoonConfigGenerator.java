@@ -15,7 +15,7 @@ public class LoonConfigGenerator implements IConfigGenerator {
 
     @Override
     public String getTarget() {
-        return ClientConstant.Loon;
+        return ClientConstant.Loon.getValue();
     }
 
     @Override

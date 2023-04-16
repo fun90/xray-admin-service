@@ -63,7 +63,7 @@ public class MessageService {
 
   /*  public Page<Message> listBySender(Integer userId, Pageable pageable) {
         Assert.notNull(userId);
-        User user = new User();
+        ClientInfo user = new ClientInfo();
         user.setId(userId);
         Message message = Message.builder().user(user).build();
         Page<Message> all = messageRepository.findAll(Example.of(message), pageable);

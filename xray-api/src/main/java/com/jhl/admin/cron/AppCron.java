@@ -143,12 +143,15 @@ public class AppCron {
 				if (user == null) return;
 
 				String email = user.getEmail();
+				if (email.endsWith("@anonymous.com")) {
+					return;
+				}
 
 				EmailEventHistory latestHistory = emailService.findLatestHistory(email, EmailEventEnum.CHECK_OVERDUE_TO_DATE.name());
 				//检测 事件的 unlock date 如果未到unlock date 跳过
 				if (latestHistory != null && latestHistory.getUnlockDate().after(now)) return;
 
-				emailService.sendEmail(email, "提醒：账号即将到期",
+				emailService.sendEmail(email, "多鱼账号即将到期",
 						String.format(emailConstant.getOverdueDate(), sdf.format(toDate)),
 						EmailEventHistory.builder().event(EmailEventEnum.CHECK_OVERDUE_TO_DATE.name())
 								.email(email)

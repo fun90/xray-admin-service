@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class Clash2RulesParser extends ClashRulesParser {
     @Override
     public String getTarget() {
-        return ClientConstant.Clash2;
+        return ClientConstant.ClashPremium.getValue();
     }
 
     @Override

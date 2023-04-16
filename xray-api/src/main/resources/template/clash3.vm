@@ -66,6 +66,18 @@ proxy-groups:
       - $server.serverName
     #end
 
+  - name: 🛒 亚马逊
+    type: select
+    proxies:
+      - 🔰 代理
+      - 🎯 直连
+      - ♻️ 自动选择
+    #foreach($server in $servers)
+      #if($server.protocol == "vmess" || $server.protocol == "trojan")
+      - $server.serverName
+      #end
+    #end
+
   - name: 🐶 谷歌
     type: select
     proxies:
@@ -89,8 +101,8 @@ proxy-groups:
   - name: Ⓜ️ 微软
     type: select
     proxies:
-      - 🎯 直连
       - 🔰 代理
+      - 🎯 直连
       - ♻️ 自动选择
     #foreach($server in $servers)
       - $server.serverName
@@ -144,6 +156,7 @@ rules:
   - RULE-SET,MyDirect,🎯 直连
   - RULE-SET,PayPal,💰 PayPal
   - RULE-SET,YouTube,🎬 YouTube
+  - RULE-SET,Amazon,🛒 亚马逊
   - RULE-SET,Google,🐶 谷歌
   - RULE-SET,Microsoft,Ⓜ️ 微软
   - RULE-SET,iCloud,☁️ iCloud
@@ -167,6 +180,7 @@ rules:
   "MyDirect",
   "PayPal",
   "Google",
+  "Amazon",
   "YouTube",
   "Microsoft",
   "iCloud",
