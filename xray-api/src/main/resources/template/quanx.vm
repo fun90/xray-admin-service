@@ -31,7 +31,7 @@ server=223.5.5.5
 [policy]
 static=🔰 代理, ♻️ 自动选择, 🎯 直连, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Proxy.png
 available=♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Auto.png
-static=💰 PayPal, 🎯 直连, 🔰 代理, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/PayPal.png
+static=💰 PayPal, 🔰 代理, 🎯 直连, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/PayPal.png
 static=🎬 YouTube, 🔰 代理, ♻️ 自动选择, 🎯 直连, $serverNames
 static=🛒 亚马逊, 🔰 代理, 🎯 直连, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Google.png
 static=🐶 谷歌, 🔰 代理, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Google.png

@@ -14,7 +14,7 @@ RemoteProxies = $proxiesUrl
 [Proxy Group]
 🔰 代理 = select,♻️ 自动选择,🎯 直连,RemoteProxies
 ♻️ 自动选择 = url-test,RemoteProxies,url=http://www.gstatic.com/generate_224,interval=300
-💰 PayPal = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
+💰 PayPal = select,🔰 代理,🎯 直连,♻️ 自动选择,RemoteProxies
 🛒 亚马逊 = select,🔰 代理,🎯 直连,♻️ 自动选择,RemoteProxies
 🐶 谷歌 = select,🔰 代理,♻️ 自动选择,RemoteProxies
 🎬 YouTube = select,🔰 代理,♻️ 自动选择,RemoteProxies

@@ -91,8 +91,8 @@ $serverNames
   - name: 💰 PayPal
     type: select
     proxies:
-      - 🎯 直连
       - 🔰 代理
+      - 🎯 直连
       - ♻️ 自动选择
 $serverNames
 
