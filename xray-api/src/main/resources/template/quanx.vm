@@ -29,38 +29,47 @@ server=223.5.5.5
     #end
 #end
 [policy]
-static=🔰 代理, ♻️ 自动选择, 🎯 直连, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Proxy.png
-available=♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Auto.png
-static=💰 PayPal, 🔰 代理, 🎯 直连, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/PayPal.png
-static=🎬 YouTube, 🔰 代理, ♻️ 自动选择, 🎯 直连, $serverNames
-static=🛒 亚马逊, 🔰 代理, 🎯 直连, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Google.png
-static=🐶 谷歌, 🔰 代理, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Google.png
-static=Ⓜ️ 微软, 🔰 代理, 🎯 直连, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Microsoft.png
-static=🍎 苹果, 🎯 直连, 🔰 代理, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Apple.png
-static=☁️ iCloud, 🎯 直连, 🔰 代理, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/iCloud.png
-static=🎯 直连, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Direct.png
-static=🛑 拦截, REJECT, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Advertising.png
-static=🐟 其他,🔰 代理,  🎯 直连, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Final.png
+static=🔰 代理, ♻️ 自动选择, 🎯 直连, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Proxy.png
+available=♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Auto.png
+static=🐳 OpenAI, 🔰 代理, 🎯 直连, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Bot.png
+static=💰 PayPal, 🔰 代理, 🎯 直连, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/PayPal.png
+static=🏖 YouTube, 🔰 代理, ♻️ 自动选择, 🎯 直连, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/YouTube.png
+static=🛍 亚马逊, 🔰 代理, 🎯 直连, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/AWS.png
+static=🐶 谷歌, 🔰 代理, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Google.png
+static=👔️ 微软, 🔰 代理, 🎯 直连, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Microsoft.png
+static=🍎 苹果, 🎯 直连, 🔰 代理, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Apple.png
+static=☁️ iCloud, 🎯 直连, 🔰 代理, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/iCloud.png
+static=🎯 直连, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Direct.png
+static=🚫 拦截, REJECT, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Advertising.png
+#if($whitelist)
+static=⛳️ 其他,🔰 代理,  🎯 直连, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Final.png
+#else
+static=⛳️ 其他,🎯 直连, 🔰 代理,  ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Final.png
+#end
+
 
 [server_remote]
 $proxiesUrl, tag=RemoteServer
 
 [filter_remote]
-$rootUrl/subscribe/rules/quanx/MyReject.list/$URLEncoder.encode("🛑 拦截", "UTF-8"), tag=🛑 拦截, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/quanx/MyReject.list/$URLEncoder.encode("🚫 拦截", "UTF-8"), tag=🚫 拦截, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/MyDirect.list/$URLEncoder.encode("🎯 直连", "UTF-8"), tag=🎯 直连, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/MyProxy.list/$URLEncoder.encode("🔰 代理", "UTF-8"), tag=🔰 代理, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/PayPal.list/$URLEncoder.encode("💰 PayPal", "UTF-8"), tag=💰 PayPal, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/quanx/YouTube.list/$URLEncoder.encode("🎬 YouTube", "UTF-8"), tag=🎬 YouTube, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/quanx/YouTube.list/$URLEncoder.encode("🏖 YouTube", "UTF-8"), tag=🏖 YouTube, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/Google.list/$URLEncoder.encode("🐶 谷歌", "UTF-8"), tag=🐶 谷歌, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/quanx/Amazon.list/$URLEncoder.encode("🛒 亚马逊", "UTF-8"), tag=🛒 亚马逊, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/quanx/Microsoft.list/$URLEncoder.encode("Ⓜ️ 微软", "UTF-8"), tag=Ⓜ️ 微软, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/quanx/Amazon.list/$URLEncoder.encode("🛍 亚马逊", "UTF-8"), tag=🛍 亚马逊, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/quanx/Microsoft.list/$URLEncoder.encode("👔️ 微软", "UTF-8"), tag=👔️ 微软, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/Apple.list/$URLEncoder.encode("🍎 苹果", "UTF-8"), tag=🍎 苹果, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/iCloud.list/$URLEncoder.encode("☁️ iCloud", "UTF-8"), tag=☁️ iCloud, update-interval=86400, enabled=true
-##$rootUrl/subscribe/rules/quanx/Proxy.list/$URLEncoder.encode("🔰 代理", "UTF-8"), tag=🔰 代理, update-interval=86400, enabled=true
-##$rootUrl/subscribe/rules/quanx/Gfw.list/$URLEncoder.encode("🔰 代理", "UTF-8"), tag=🔰 代理, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/Private.list/$URLEncoder.encode("🎯 直连", "UTF-8"), tag=🎯 直连, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/quanx/Reject.list/$URLEncoder.encode("🚫 拦截", "UTF-8"), tag=🚫 拦截, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/quanx/TelegramCidr.list/$URLEncoder.encode("🔰 代理", "UTF-8"), tag=🔰 代理, update-interval=86400, enabled=true
+#if($whitelist)
 $rootUrl/subscribe/rules/quanx/Direct.list/$URLEncoder.encode("🎯 直连", "UTF-8"), tag=🎯 直连, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/quanx/CnCidr.list/$URLEncoder.encode("🎯 直连", "UTF-8"), tag=🎯 直连, update-interval=86400, enabled=true
+#else
+$rootUrl/subscribe/rules/quanx/Proxy.list/$URLEncoder.encode("🔰 代理", "UTF-8"), tag=🔰 代理, update-interval=86400, enabled=true
+#end
 
 [rewrite_remote]
 ##https://raw.githubusercontent.com/Semporia/TikTok-Unlock/master/Quantumult%20X/TikTok-US.conf/$URLEncoder.encode("TikTok", "UTF-8"), tag=TikTok, update-interval=86400, opt-parser=false, enabled=true
@@ -69,8 +78,7 @@ $rootUrl/subscribe/rules/quanx/CnCidr.list/$URLEncoder.encode("🎯 直连", "UT
 
 
 [filter_local]
-GEOIP,CN,🎯 直连
-FINAL,🐟 其他
+FINAL,⛳️ 其他
 
 [rewrite_local]
 ^https?:\/\/(www.)?(g|google)\.cn url 302 https://www.google.com

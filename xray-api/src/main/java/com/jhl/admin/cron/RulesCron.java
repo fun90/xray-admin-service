@@ -12,6 +12,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
 
@@ -29,11 +30,18 @@ public class RulesCron {
         log.info("开始生成规则列表任务");
         ServerConfig serverConfig = serverConfigService.getServerConfig(WebsiteConfigEnum.RULE_SET_JSON.getKey());
         String json = serverConfig.getValue();
-        Map<String, String> map = JSON.parseObject(json, new TypeReference<Map<String, String>>(){});
+        Map<String, List<String>> map;
+        try {
+            map = JSON.parseObject(json, new TypeReference<Map<String, List<String>>>() {
+            });
+        } catch (Exception e) {
+            log.info("RULE_SET_JSON格式错误");
+            return;
+        }
 
         executor.execute(() -> {
-            map.forEach((fileName, url) -> {
-                TemplateUtil.generate(url, "rules", fileName);
+            map.forEach((fileName, urls) -> {
+                TemplateUtil.generate(urls, "rules", fileName);
             });
         });
     }

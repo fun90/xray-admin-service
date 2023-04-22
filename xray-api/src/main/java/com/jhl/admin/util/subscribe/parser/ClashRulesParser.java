@@ -6,7 +6,7 @@ import com.jhl.admin.util.subscribe.TemplateUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
-import java.util.function.Function;
+import java.util.function.Consumer;
 
 @Component
 public class ClashRulesParser implements IRulesParser {
@@ -19,30 +19,35 @@ public class ClashRulesParser implements IRulesParser {
 
     @Override
     public String content(String fileName, String group) {
-        Function<String, String> function = line -> {
+        StringBuilder builder = new StringBuilder();
+        Consumer<String> function = line -> {
             if (StringUtils.isBlank(line)) {
-                return "";
+                return;
             }
             if (line.startsWith("#")) {
-                return "  " + line + System.lineSeparator();
+                builder.append("  " + line + System.lineSeparator());
+                return;
             }
             line = cleanLine(line);
             if (StringUtils.startsWithAny(line, excludeTypes)) {
 //                return "  #" + line + System.lineSeparator();
-                return "";
+                return;
             }
+            line = StringUtils.replace(line, "DEST-PORT", "DST-PORT");
             String target = this.getTarget();
-            if (ClientConstant.Clash.equals(target)) {
-                return "  - " + line + "," + group + System.lineSeparator();
+            if (ClientConstant.Clash.getValue().equals(target)) {
+                builder.append("  - " + line + "," + group + System.lineSeparator());
             } else {
-                return "  - " + line + System.lineSeparator();
+                builder.append("  - " + line + System.lineSeparator());
             }
         };
 
         if (StringUtils.startsWithAny(fileName, "https://", "http://")) {
-            return Utils.call(fileName, function);
+            Utils.call(fileName, function);
+            return builder.toString();
         } else {
-            return Utils.writeString(TemplateUtil.getTemplatePath(), function, "rules", fileName);
+            Utils.readLine(TemplateUtil.getTemplatePath(), function, "rules", fileName);
+            return builder.toString();
         }
     }
 

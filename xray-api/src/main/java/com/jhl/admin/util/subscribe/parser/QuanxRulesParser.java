@@ -9,11 +9,12 @@ import org.springframework.stereotype.Component;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 @Component
 public class QuanxRulesParser implements IRulesParser {
-    private final String[] excludeTypes = {"USER-AGENT", "AND", "URL-REGEX", "PROCESS-NAME"};
+    private final String[] excludeTypes = {"USER-AGENT", "AND", "URL-REGEX", "PROCESS-NAME", "DEST-PORT"};
 
     @Override
     public String getTarget() {
@@ -30,25 +31,29 @@ public class QuanxRulesParser implements IRulesParser {
         }
         String finalGroup = group;
 
-        Function<String, String> function = line -> {
+        StringBuilder builder = new StringBuilder();
+        Consumer<String> function = line -> {
             if (StringUtils.isBlank(line)) {
-                return "";
+                return;
             }
             line = cleanLine(line);
             if (StringUtils.startsWithAny(line, excludeTypes)) {
 //                return "  #" + line + System.lineSeparator();
-                return "";
+                return;
             }
             line = StringUtils.replace(line, "IP-CIDR6", "IP6-CIDR");
             line = StringUtils.replace(line, "DOMAIN", "HOST");
             line = StringUtils.removeEnd(line, ",no-resolve");
-            return line + ", " + finalGroup + System.lineSeparator();
+            builder.append(line).append(", ").append(finalGroup).append(System.lineSeparator());
+            return;
         };
 
         if (StringUtils.startsWithAny(fileName, "https://", "http://")) {
-            return Utils.call(fileName, function);
+            Utils.call(fileName, function);
+            return builder.toString();
         } else {
-            return Utils.writeString(TemplateUtil.getTemplatePath(), function, "rules", fileName);
+            Utils.readLine(TemplateUtil.getTemplatePath(), function, "rules", fileName);
+            return builder.toString();
         }
     }
 

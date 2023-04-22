@@ -21,6 +21,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
@@ -115,23 +116,22 @@ public final class Utils {
 	}
 
 	public static String writeString(String dir, String... pathFileName) {
-		return writeString(dir, line -> line + System.lineSeparator(), pathFileName);
+		StringBuilder builder = new StringBuilder();
+		readLine(dir, line -> builder.append(line).append(System.lineSeparator()), pathFileName);
+		return builder.toString();
 	}
 
-	public static String writeString(String dir, Function<String, String> function, String... pathFileName) {
+	public static void readLine(String dir, Consumer<String> lineProcessor, String... pathFileName) {
 		Path path = Paths.get(dir, pathFileName);
 		if (!Files.exists(path)) {
-			throw new RuntimeException("文件不存在");
+			throw new RuntimeException(path.getFileName().toString() + "文件不存在");
 		}
 		try (Stream<String> stream = Files.lines(path)) {
-			StringBuilder stringBuilder = new StringBuilder();
 			stream.forEach(line -> {
-				if (function != null) {
-					line = function.apply(line);
+				if (lineProcessor != null) {
+					lineProcessor.accept(line);
 				}
-				stringBuilder.append(line);
 			});
-			return stringBuilder.toString();
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -143,7 +143,7 @@ public final class Utils {
 
 	private static final OkHttpClient httpClient = new OkHttpClient();
 
-	public static String call(String url, Function<String, String> function) {
+	public static void call(String url, Consumer<String> lineProcessor) {
 		Request request = new Request.Builder()
 				.url(url)
 				.build();
@@ -153,12 +153,7 @@ public final class Utils {
 //			return Objects.requireNonNull(response.body()).string();
 			Reader reader = Objects.requireNonNull(response.body()).charStream();
 			BufferedReader bfReader = new BufferedReader(reader);
-			StringBuilder stringBuilder = new StringBuilder();
-			bfReader.lines().forEach(line -> {
-				line = function.apply(line);
-				stringBuilder.append(line);
-			});
-			return stringBuilder.toString();
+			bfReader.lines().forEach(lineProcessor::accept);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -181,11 +176,13 @@ public final class Utils {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(Utils.call("https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/direct-list.txt", line -> {
+		StringBuilder content = new StringBuilder();
+		Utils.call("https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/direct-list.txt", line -> {
 			String[] arr = line.split(",");
 			String[] newArr = Arrays.copyOf(arr, arr.length + 1);
-			return String.join(",", newArr) + System.lineSeparator();
-		}));
+			content.append(String.join(",", newArr)).append(System.lineSeparator());
+		});
+		System.out.println(content);
 	}
 
 

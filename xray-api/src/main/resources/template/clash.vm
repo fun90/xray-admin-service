@@ -26,29 +26,38 @@ dns:
   #    domain:
   #      - 需要走自己的DNS的域名，如：'*.test.com'
 
+#set($ruleList = [
+  {"name":"Applications", "group":"🎯 直连"},
+  {"name":"MyReject", "group":"🚫 拦截"},
+  {"name":"MyProxy", "group":"🔰 代理"},
+  {"name":"MyDirect", "group":"🎯 直连"},
+  {"name":"OpenAI", "group":"🐳 OpenAI"},
+  {"name":"Amazon", "group":"🛍 亚马逊"},
+  {"name":"PayPal", "group":"💰 PayPal"},
+  {"name":"Google", "group":"🐶 谷歌"},
+  {"name":"YouTube", "group":"🏖 YouTube"},
+  {"name":"Microsoft", "group":"👔️ 微软"},
+  {"name":"iCloud", "group":"☁️ iCloud"},
+  {"name":"Apple", "group":"🍎 苹果"},
+  {"name":"Private", "group":"🎯 直连"},
+  {"name":"Reject", "group":"🚫 拦截"},
+  {"name":"TelegramCidr", "group":"🔰 代理"}
+])
 rules:
-$rulesParser.content("Applications.list", "🎯 直连")
-$rulesParser.content("MyReject.list", "🛑 拦截")
-$rulesParser.content("MyProxy.list", "🔰 代理")
-$rulesParser.content("MyDirect.list", "🎯 直连")
-$rulesParser.content("PayPal.list", "💰 PayPal")
-$rulesParser.content("YouTube.list", "🎬 YouTube")
-$rulesParser.content("Amazon.list", "🛒 亚马逊")
-$rulesParser.content("Google.list", "🐶 谷歌")
-$rulesParser.content("Microsoft.list", "Ⓜ️ 微软")
-$rulesParser.content("iCloud.list", "☁️ iCloud")
-$rulesParser.content("Apple.list", "🍎 苹果")
-  - DOMAIN,clash.razord.top,🎯 直连
-  - DOMAIN,yacd.haishan.me,🎯 直连
-$rulesParser.content("Private.list", "🎯 直连")
-##$rulesParser.content("Reject.list", "🛑 拦截")
-$rulesParser.content("BanProgramAD.list", "🛑 拦截")
-##$rulesParser.content("Proxy.list", "🔰 代理")
-$rulesParser.content("Tld-not-cn.list", "🔰 代理")
-$rulesParser.content("Gfw.list", "🔰 代理")
-$rulesParser.content("Greatfire.list", "🔰 代理")
-$rulesParser.content("TelegramCidr.list", "🔰 代理")
-  - MATCH,🐟 其他
+#if ($whitelist)
+  #set($tmp = $ruleList.add({"name":"Direct", "group":"🎯 直连"}))
+#else
+  #set($tmp = $ruleList.add({"name":"Proxy", "group":"🔰 代理"}))
+#end
+#foreach($rule in $ruleList)
+#set($ruleFileName = $rule.name + ".list")
+$rulesParser.content("$ruleFileName", "$rule.group")
+#end
+#if (!$whitelist)
+- GEOIP,LAN,DIRECT
+- GEOIP,CN,DIRECT
+#end
+  - MATCH,⛳️ 其他
 
 proxies:
 #foreach($server in $servers)
@@ -88,6 +97,13 @@ $serverNames
     proxies:
 $serverNames
 
+  - name: 🐳 OpenAI
+    type: select
+    proxies:
+      - 🔰 代理
+      - ♻️ 自动选择
+$serverNames
+
   - name: 💰 PayPal
     type: select
     proxies:
@@ -96,7 +112,7 @@ $serverNames
       - ♻️ 自动选择
 $serverNames
 
-  - name: 🛒 亚马逊
+  - name: 🛍 亚马逊
     type: select
     proxies:
       - 🔰 代理
@@ -111,14 +127,14 @@ $serverNames
       - ♻️ 自动选择
 $serverNames
 
-  - name: 🎬 YouTube
+  - name: 🏖 YouTube
     type: select
     proxies:
       - 🔰 代理
       - ♻️ 自动选择
 $serverNames
 
-  - name: Ⓜ️ 微软
+  - name: 👔️ 微软
     type: select
     proxies:
       - 🔰 代理
@@ -147,16 +163,22 @@ $serverNames
     proxies:
       - DIRECT
 
-  - name: 🛑 拦截
+  - name: 🚫 拦截
     type: select
     proxies:
       - REJECT
       - DIRECT
 
-  - name: 🐟 其他
+  - name: ⛳️ 其他
     type: select
     proxies:
+#if ($whitelist == true)
+      - 🔰 代理
+      - 🎯 直连
+      - ♻️ 自动选择
+#else
       - 🎯 直连
       - 🔰 代理
       - ♻️ 自动选择
+#end
 $serverNames

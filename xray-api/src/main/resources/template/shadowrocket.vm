@@ -12,20 +12,24 @@ dns-server = system, 114.114.114.114, 223.5.5.5, 119.29.29.29
 $rulesParser.content("MyReject.list", "REJECT")
 $rulesParser.content("MyProxy.list", "PROXY")
 $rulesParser.content("MyDirect.list", "DIRECT")
+$rulesParser.content("OpenAI.list", "PROXY")
 $rulesParser.content("PayPal.list", "PROXY")
 $rulesParser.content("Microsoft.list", "PROXY")
 $rulesParser.content("Google.list", "PROXY")
 $rulesParser.content("Amazon.list", "PROXY")
 $rulesParser.content("Private.list", "DIRECT")
-##$rulesParser.content("Reject.list", "REJECT")
 ##$rulesParser.content("AdvertisingLite.list", "REJECT")
 ##$rulesParser.content("AdvertisingLiteDomain.list", "REJECT")
-$rulesParser.content("BanProgramAD.list", "REJECT")
-$rulesParser.content("Tld-not-cn.list", "PROXY")
-$rulesParser.content("Gfw.list", "PROXY")
-$rulesParser.content("Greatfire.list", "PROXY")
+$rulesParser.content("Reject.list", "REJECT")
 $rulesParser.content("TelegramCidr.list", "PROXY")
+#if($whitelist)
+$rulesParser.content("Direct.list", "PROXY")
+FINAL,PROXY
+#else
+$rulesParser.content("Proxy.list", "PROXY")
 FINAL,DIRECT
+#end
+
 
 [URL Rewrite]
 ^http://(www.)?google.cn https://www.google.com 302

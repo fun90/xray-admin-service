@@ -64,7 +64,7 @@ public class SubscriptionController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/subscribe/{code}", produces="text/plain;charset=UTF-8")
-	public String subscribe(@PathVariable String code, String target, Integer type, Long timestamp, String token) {
+	public String subscribe(@PathVariable String code, String target, Integer type, Long timestamp, String token, boolean whitelist) {
 
 		if (code == null || type == null || timestamp == null || token == null) throw new IllegalArgumentException("参数错误");
 
@@ -87,6 +87,7 @@ public class SubscriptionController {
 		params.put("URLEncoder", URLEncoder.class);
 		params.put("JSON", JSON.class);
 		params.put("lineSeparator", System.lineSeparator());
+		params.put("whitelist", whitelist);
 		if (type == 0) {
 			return templateMerge("nodes/" + target, params);
 		} else {

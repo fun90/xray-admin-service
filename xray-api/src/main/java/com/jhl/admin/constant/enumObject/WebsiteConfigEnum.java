@@ -19,26 +19,56 @@ public enum WebsiteConfigEnum {
 			"  {\"value\": 5, \"label\": \"等级5\"}\n" +
 			"]", "config"),
 	RULE_SET_JSON("分流规则", "RULE_SET_JSON", "{\n" +
-			"    \"Direct\": \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/direct.txt\",\n" +
-			"    \"CnCidr\": \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/cncidr.txt\",\n" +
-			"    \"Private\": \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/private.txt\",\n" +
-			"    \"Tld-not-cn\": \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/tld-not-cn.txt\",\n" +
-			"    \"Gfw\": \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/gfw.txt\",\n" +
-			"    \"Greatfire\": \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/greatfire.txt\",\n" +
-			"    \"Proxy\": \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/proxy.txt\",\n" +
-			"    \"Apple\": \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/apple.txt\",\n" +
-			"    \"iCloud\": \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/icloud.txt\",\n" +
-			"    \"TelegramCidr\": \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/telegramcidr.txt\",\n" +
-			"    \"Reject\": \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/reject.txt\",\n" +
-			"    \"AdvertisingLite\": \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/AdvertisingLite/AdvertisingLite_Resolve.list\",\n" +
-			"    \"AdvertisingLiteDomain\": \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/AdvertisingLite/AdvertisingLite_Domain.list\",\n" +
-			"    \"BanProgramAD\": \"https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list\",\n" +
-			"    \"Google\": \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Google/Google_Resolve.list\",\n" +
-			"    \"Microsoft\": \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Microsoft/Microsoft.list\",\n" +
-			"    \"PayPal\": \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/PayPal/PayPal.list\",\n" +
-			"    \"Amazon\": \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Amazon/Amazon.list\",\n" +
-			"    \"YouTube\": \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/YouTube/YouTube_Resolve.list\"\n" +
-			"  }", "config");
+			"    \"Direct\": [\n" +
+			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/direct.txt\",\n" +
+			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/cncidr.txt\"\n" +
+			"    ],\n" +
+			"    \"Private\": [\n" +
+			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/private.txt\"\n" +
+			"    ],\n" +
+			"    \"Proxy\": [\n" +
+			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/proxy.txt\",\n" +
+			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/tld-not-cn.txt\",\n" +
+			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/gfw.txt\",\n" +
+			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/greatfire.txt\",\n" +
+			"    ],\n" +
+			"    \"Telegramcidr\": [\n" +
+			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/telegramcidr.txt\"\n" +
+			"    ],\n" +
+			"    \"Apple\": [\n" +
+			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/apple.txt\"\n" +
+			"    ],\n" +
+			"    \"iCloud\": [\n" +
+			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/icloud.txt\"\n" +
+			"    ],\n" +
+			"    \"Reject\": [\n" +
+			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/reject.txt\"\n" +
+			"    ],\n" +
+			"    \"AdvertisingLite\": [\n" +
+			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/AdvertisingLite/AdvertisingLite_Resolve.list\"\n" +
+			"    ],\n" +
+			"    \"AdvertisingLiteDomain\": [\n" +
+			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/AdvertisingLite/AdvertisingLite_Domain.list\"\n" +
+			"    ],\n" +
+			"    \"BanProgramAD\": [\n" +
+			"        \"https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list\"\n" +
+			"    ],\n" +
+			"    \"Google\": [\n" +
+			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Google/Google_Resolve.list\"\n" +
+			"    ],\n" +
+			"    \"Microsoft\": [\n" +
+			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Microsoft/Microsoft.list\"\n" +
+			"    ],\n" +
+			"    \"PayPal\": [\n" +
+			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/PayPal/PayPal.list\"\n" +
+			"    ],\n" +
+			"    \"Amazon\": [\n" +
+			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Amazon/Amazon.list\"\n" +
+			"    ],\n" +
+			"    \"YouTube\": [\n" +
+			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/YouTube/YouTube_Resolve.list\"\n" +
+			"    ]\n" +
+			"}", "config");
 
 	private String name;
 

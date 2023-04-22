@@ -66,6 +66,14 @@ $serverNames
     proxies:
 $serverNames
 
+  - name: 🐳 OpenAI
+    type: select
+    proxies:
+      - 🔰 代理
+      - 🎯 直连
+      - ♻️ 自动选择
+$serverNames
+
   - name: 💰 PayPal
     type: select
     proxies:
@@ -74,7 +82,7 @@ $serverNames
       - ♻️ 自动选择
 $serverNames
 
-  - name: 🛒 亚马逊
+  - name: 🛍 亚马逊
     type: select
     proxies:
       - 🔰 代理
@@ -90,7 +98,7 @@ $serverNames
       - 🎯 直连
 $serverNames
 
-  - name: 🎬 YouTube
+  - name: 🏖 YouTube
     type: select
     proxies:
       - 🔰 代理
@@ -98,7 +106,7 @@ $serverNames
       - 🎯 直连
 $serverNames
 
-  - name: Ⓜ️ 微软
+  - name: 👔️ 微软
     type: select
     proxies:
       - 🔰 代理
@@ -127,64 +135,55 @@ $serverNames
     proxies:
       - DIRECT
 
-  - name: 🛑 拦截
+  - name: 🚫 拦截
     type: select
     proxies:
       - REJECT
       - DIRECT
 
-  - name: 🐟 其他
+#set($ruleList = [
+  {"name":"Applications", "group":"🎯 直连"},
+  {"name":"MyReject", "group":"🚫 拦截"},
+  {"name":"MyProxy", "group":"🔰 代理"},
+  {"name":"MyDirect", "group":"🎯 直连"},
+  {"name":"OpenAI", "group":"🐳 OpenAI"},
+  {"name":"Amazon", "group":"🛍 亚马逊"},
+  {"name":"PayPal", "group":"💰 PayPal"},
+  {"name":"Google", "group":"🐶 谷歌"},
+  {"name":"YouTube", "group":"🏖 YouTube"},
+  {"name":"Microsoft", "group":"👔️ 微软"},
+  {"name":"iCloud", "group":"☁️ iCloud"},
+  {"name":"Apple", "group":"🍎 苹果"},
+  {"name":"Private", "group":"🎯 直连"},
+  {"name":"Reject", "group":"🚫 拦截"},
+  {"name":"TelegramCidr", "group":"🔰 代理"}
+])
+#if ($whitelist == true)
+  - name: ⛳️ 其他
+    type: select
+    proxies:
+      - 🔰 代理
+      - 🎯 直连
+      - ♻️ 自动选择
+$serverNames
+  #set($tmp = $ruleList.add({"name":"Direct", "group":"🎯 直连"}))
+#else
+  - name: ⛳️ 其他
     type: select
     proxies:
       - 🎯 直连
       - 🔰 代理
       - ♻️ 自动选择
 $serverNames
+  #set($tmp = $ruleList.add({"name":"Proxy", "group":"🔰 代理"}))
+#end
 
 rules:
-  - RULE-SET,Applications,🎯 直连
-  - RULE-SET,MyReject,🛑 拦截
-  - RULE-SET,MyProxy,🔰 代理
-  - RULE-SET,MyDirect,🎯 直连
-  - RULE-SET,PayPal,💰 PayPal
-  - RULE-SET,YouTube,🎬 YouTube
-  - RULE-SET,Amazon,🛒 亚马逊
-  - RULE-SET,Google,🐶 谷歌
-  - RULE-SET,Microsoft,Ⓜ️ 微软
-  - RULE-SET,iCloud,☁️ iCloud
-  - RULE-SET,Apple,🍎 苹果
-  - DOMAIN,clash.razord.top,🎯 直连
-  - DOMAIN,yacd.haishan.me,🎯 直连
-  - RULE-SET,Private,🎯 直连
-##  - RULE-SET,Reject,🛑 拦截
-##  - RULE-SET,AdvertisingLite,🛑 拦截
-##  - RULE-SET,AdvertisingLiteDomain,🛑 拦截
-  - RULE-SET,BanProgramAD,🛑 拦截
-  - RULE-SET,Tld-not-cn,🔰 代理
-  - RULE-SET,Gfw,🔰 代理
-  - RULE-SET,Greatfire,🔰 代理
-  - RULE-SET,TelegramCidr,🔰 代理
-  - MATCH,🐟 其他
+#foreach( $rule in $ruleList)
+  - RULE-SET,$rule.name,$rule.group
+#end
+  - MATCH,⛳️ 其他
 
-#set($rulesNameList = [
-  "MyReject",
-  "MyProxy",
-  "MyDirect",
-  "PayPal",
-  "Google",
-  "Amazon",
-  "YouTube",
-  "Microsoft",
-  "iCloud",
-  "Apple",
-  "Applications",
-  "Private",
-  "BanProgramAD",
-  "Tld-not-cn",
-  "Gfw",
-  "Greatfire",
-  "TelegramCidr"
-])
 rule-providers:
 ##  AdvertisingLite:
 ##    type: http
@@ -200,12 +199,12 @@ rule-providers:
 ##    path: ./ruleset/AdvertisingLiteDomain.yaml
 ##    interval: 86400
 ##
-#foreach( $rulesName in $rulesNameList)
-  $rulesName:
+#foreach( $rule in $ruleList)
+  $rule.name:
     type: http
     behavior: classical
-    url: "$rootUrl/subscribe/rules/clash2/${rulesName}.list"
-    path: ./ruleset/${rulesName}.yaml
+    url: "$rootUrl/subscribe/rules/clash2/${rule.name}.list"
+    path: ./ruleset/${rule.name}.yaml
     interval: 86400
 
 #end
