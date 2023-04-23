@@ -111,13 +111,13 @@ public final class Config {
       "net.StreamConfig\022<\n\016proxy_settings\030\003 \001(\013" +
       "2$.xray.transport.internet.ProxyConfig\022A" +
       "\n\022multiplex_settings\030\004 \001(\0132%.xray.app.pr" +
-      "oxyman.MultiplexingConfig\"S\n\022Multiplexin" +
+      "oxyman.MultiplexingConfig\"l\n\022Multiplexin" +
       "gConfig\022\017\n\007enabled\030\001 \001(\010\022\023\n\013concurrency\030" +
-      "\002 \001(\005\022\027\n\017xudpConcurrency\030\003 \001(\005*#\n\016KnownP" +
-      "rotocols\022\010\n\004HTTP\020\000\022\007\n\003TLS\020\001BU\n\025com.xray." +
-      "app.proxymanP\001Z&github.com/xtls/xray-cor" +
-      "e/app/proxyman\252\002\021Xray.App.Proxymanb\006prot" +
-      "o3"
+      "\002 \001(\005\022\027\n\017xudpConcurrency\030\003 \001(\005\022\027\n\017xudpPr" +
+      "oxyUDP443\030\004 \001(\t*#\n\016KnownProtocols\022\010\n\004HTT" +
+      "P\020\000\022\007\n\003TLS\020\001BU\n\025com.xray.app.proxymanP\001Z" +
+      "&github.com/xtls/xray-core/app/proxyman\252" +
+      "\002\021Xray.App.Proxymanb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -186,7 +186,7 @@ public final class Config {
     internal_static_xray_app_proxyman_MultiplexingConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xray_app_proxyman_MultiplexingConfig_descriptor,
-        new java.lang.String[] { "Enabled", "Concurrency", "XudpConcurrency", });
+        new java.lang.String[] { "Enabled", "Concurrency", "XudpConcurrency", "XudpProxyUDP443", });
     com.xray.common.net.Address.getDescriptor();
     com.xray.common.net.Port.getDescriptor();
     com.xray.transport.internet.Config.getDescriptor();

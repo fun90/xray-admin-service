@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private MultiplexingConfig() {
+    xudpProxyUDP443_ = "";
   }
 
   @java.lang.Override
@@ -88,6 +89,53 @@ private static final long serialVersionUID = 0L;
     return xudpConcurrency_;
   }
 
+  public static final int XUDPPROXYUDP443_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object xudpProxyUDP443_ = "";
+  /**
+   * <pre>
+   * "reject" (default), "allow" or "skip".
+   * </pre>
+   *
+   * <code>string xudpProxyUDP443 = 4;</code>
+   * @return The xudpProxyUDP443.
+   */
+  @java.lang.Override
+  public java.lang.String getXudpProxyUDP443() {
+    java.lang.Object ref = xudpProxyUDP443_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      xudpProxyUDP443_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * "reject" (default), "allow" or "skip".
+   * </pre>
+   *
+   * <code>string xudpProxyUDP443 = 4;</code>
+   * @return The bytes for xudpProxyUDP443.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getXudpProxyUDP443Bytes() {
+    java.lang.Object ref = xudpProxyUDP443_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      xudpProxyUDP443_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -111,6 +159,9 @@ private static final long serialVersionUID = 0L;
     if (xudpConcurrency_ != 0) {
       output.writeInt32(3, xudpConcurrency_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(xudpProxyUDP443_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, xudpProxyUDP443_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -131,6 +182,9 @@ private static final long serialVersionUID = 0L;
     if (xudpConcurrency_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(3, xudpConcurrency_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(xudpProxyUDP443_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, xudpProxyUDP443_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -153,6 +207,8 @@ private static final long serialVersionUID = 0L;
         != other.getConcurrency()) return false;
     if (getXudpConcurrency()
         != other.getXudpConcurrency()) return false;
+    if (!getXudpProxyUDP443()
+        .equals(other.getXudpProxyUDP443())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -171,6 +227,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getConcurrency();
     hash = (37 * hash) + XUDPCONCURRENCY_FIELD_NUMBER;
     hash = (53 * hash) + getXudpConcurrency();
+    hash = (37 * hash) + XUDPPROXYUDP443_FIELD_NUMBER;
+    hash = (53 * hash) + getXudpProxyUDP443().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -303,6 +361,7 @@ private static final long serialVersionUID = 0L;
       enabled_ = false;
       concurrency_ = 0;
       xudpConcurrency_ = 0;
+      xudpProxyUDP443_ = "";
       return this;
     }
 
@@ -344,6 +403,9 @@ private static final long serialVersionUID = 0L;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.xudpConcurrency_ = xudpConcurrency_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.xudpProxyUDP443_ = xudpProxyUDP443_;
       }
     }
 
@@ -400,6 +462,11 @@ private static final long serialVersionUID = 0L;
       if (other.getXudpConcurrency() != 0) {
         setXudpConcurrency(other.getXudpConcurrency());
       }
+      if (!other.getXudpProxyUDP443().isEmpty()) {
+        xudpProxyUDP443_ = other.xudpProxyUDP443_;
+        bitField0_ |= 0x00000008;
+        onChanged();
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -441,6 +508,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000004;
               break;
             } // case 24
+            case 34: {
+              xudpProxyUDP443_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -586,6 +658,98 @@ private static final long serialVersionUID = 0L;
     public Builder clearXudpConcurrency() {
       bitField0_ = (bitField0_ & ~0x00000004);
       xudpConcurrency_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object xudpProxyUDP443_ = "";
+    /**
+     * <pre>
+     * "reject" (default), "allow" or "skip".
+     * </pre>
+     *
+     * <code>string xudpProxyUDP443 = 4;</code>
+     * @return The xudpProxyUDP443.
+     */
+    public java.lang.String getXudpProxyUDP443() {
+      java.lang.Object ref = xudpProxyUDP443_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        xudpProxyUDP443_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * "reject" (default), "allow" or "skip".
+     * </pre>
+     *
+     * <code>string xudpProxyUDP443 = 4;</code>
+     * @return The bytes for xudpProxyUDP443.
+     */
+    public com.google.protobuf.ByteString
+        getXudpProxyUDP443Bytes() {
+      java.lang.Object ref = xudpProxyUDP443_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        xudpProxyUDP443_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * "reject" (default), "allow" or "skip".
+     * </pre>
+     *
+     * <code>string xudpProxyUDP443 = 4;</code>
+     * @param value The xudpProxyUDP443 to set.
+     * @return This builder for chaining.
+     */
+    public Builder setXudpProxyUDP443(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      xudpProxyUDP443_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * "reject" (default), "allow" or "skip".
+     * </pre>
+     *
+     * <code>string xudpProxyUDP443 = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearXudpProxyUDP443() {
+      xudpProxyUDP443_ = getDefaultInstance().getXudpProxyUDP443();
+      bitField0_ = (bitField0_ & ~0x00000008);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * "reject" (default), "allow" or "skip".
+     * </pre>
+     *
+     * <code>string xudpProxyUDP443 = 4;</code>
+     * @param value The bytes for xudpProxyUDP443 to set.
+     * @return This builder for chaining.
+     */
+    public Builder setXudpProxyUDP443Bytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      xudpProxyUDP443_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }

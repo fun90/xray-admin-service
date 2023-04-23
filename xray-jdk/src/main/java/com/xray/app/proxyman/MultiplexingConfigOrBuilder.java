@@ -36,4 +36,24 @@ public interface MultiplexingConfigOrBuilder extends
    * @return The xudpConcurrency.
    */
   int getXudpConcurrency();
+
+  /**
+   * <pre>
+   * "reject" (default), "allow" or "skip".
+   * </pre>
+   *
+   * <code>string xudpProxyUDP443 = 4;</code>
+   * @return The xudpProxyUDP443.
+   */
+  java.lang.String getXudpProxyUDP443();
+  /**
+   * <pre>
+   * "reject" (default), "allow" or "skip".
+   * </pre>
+   *
+   * <code>string xudpProxyUDP443 = 4;</code>
+   * @return The bytes for xudpProxyUDP443.
+   */
+  com.google.protobuf.ByteString
+      getXudpProxyUDP443Bytes();
 }
