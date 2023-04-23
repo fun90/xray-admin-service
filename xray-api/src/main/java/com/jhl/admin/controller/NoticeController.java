@@ -8,6 +8,7 @@ import com.ljh.common.model.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -84,8 +85,13 @@ public class NoticeController {
 	 */
 	@ResponseBody
 	@GetMapping("/notice")
-	public Result list() {
-		List<Notice> notices = noticeRepository.findTop7ByStatusAndToDateAfterOrderByUpdateTimeDesc(1, new Date());
+	public Result list(String name) {
+		List<Notice> notices;
+		if (StringUtils.isNotBlank(name)) {
+			notices = noticeRepository.findAll(Example.of(Notice.builder().name(name).build()));
+		} else {
+			notices = noticeRepository.findTop7ByStatusAndToDateAfterOrderByUpdateTimeDesc(1, new Date());
+		}
 		Result success = Result.doSuccess();
 		success.setObj(notices);
 		return success;
