@@ -1,6 +1,9 @@
 package com.jhl.admin.controller;
 
 import com.google.common.collect.Lists;
+import com.jhl.admin.VO.OnlineVO;
+import com.jhl.admin.cache.OnlineCache;
+import com.jhl.admin.constant.ProxyConstant;
 import com.jhl.admin.interceptor.PreAuth;
 import com.jhl.admin.VO.AccountVO;
 import com.jhl.admin.VO.UserVO;
@@ -60,6 +63,10 @@ public class AccountController {
 	SubscriptionService subscriptionService;
 	@Autowired
 	ProxyEventService proxyEventService;
+	@Autowired
+	private OnlineCache onlineCache;
+	@Autowired
+	private ProxyConstant proxyConstant;
 
 	/**
 	 * 创建一个account
@@ -216,6 +223,8 @@ public class AccountController {
 			if (!"0".equals(data.getServerId()) && StringUtils.isNotBlank(data.getServerId())) {
 				account.setServerIds(Arrays.stream(data.getServerId().split(",")).map(Integer::valueOf).collect(Collectors.toList()));
 			}
+
+			account.setOnlineIps(onlineCache.getIpList(account.getUserVO().getEmail()));
 		});
 		return Result.buildPageObject(total, accountVOList);
 	}
@@ -253,6 +262,26 @@ public class AccountController {
 	@GetMapping("/account/getUUID")
 	public Result getUUID() {
 		return Result.buildSuccess(UUID.randomUUID().toString(), null);
+	}
+
+	@ResponseBody
+	@PostMapping("/account/online/access")
+	public Result access(@RequestBody OnlineVO onlineVO, @RequestHeader("Token") String token) {
+
+		if (!proxyConstant.getAuthPasswordMD5().equals(token)) {
+			return Result.builder().code(401).message("非法请求").build();
+		}
+
+		onlineCache.add(onlineVO);
+		return Result.doSuccess();
+	}
+
+
+	@PreAuth("admin")
+	@ResponseBody
+	@PostMapping("/account/online/count")
+	public Result count(String email) {
+		return Result.buildSuccess(onlineCache.getIpList(email), null);
 	}
 
     /*@Deprecated

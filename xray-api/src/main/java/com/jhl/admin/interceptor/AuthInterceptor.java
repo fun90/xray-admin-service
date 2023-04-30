@@ -30,7 +30,7 @@ public class AuthInterceptor implements HandlerInterceptor {
 			HandlerMethod handler1 = (HandlerMethod) handler;
 			methodName = handler1.getMethod().getName();
 		}
-		log.info(request.getRequestURI() + ",methodName:" + methodName + ",auth result:" + result);
+		log.info("{}, methodName:{}, auth result:{}, remoteIp:{}", request.getRequestURI(), methodName, result, request.getRemoteUser());
 		return result;
 	}
 

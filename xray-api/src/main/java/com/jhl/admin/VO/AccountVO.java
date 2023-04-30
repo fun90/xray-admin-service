@@ -56,6 +56,8 @@ public class AccountVO extends BaseEntityVO implements Serializable {
 	private ServerVO serverVO;
 	private UserVO userVO;
 
+	private List<String> onlineIps;
+
 
 }
 

@@ -3,6 +3,8 @@ package com.jhl.admin.service.v2ray;
 
 import com.jhl.admin.model.ProxyAccount;
 import com.jhl.admin.model.Server;
+import com.xray.app.log.command.RestartLoggerRequest;
+import com.xray.app.log.command.RestartLoggerResponse;
 import com.xray.app.proxyman.command.AddUserOperation;
 import com.xray.app.proxyman.command.AlterInboundRequest;
 import com.xray.app.proxyman.command.RemoveUserOperation;
@@ -56,6 +58,15 @@ public class XrayService {
 			} else {
 				addVMESSAccount(proxyAccount, server);
 			}
+		}
+	}
+
+	public void restartLogger(List<Server> servers) {
+		for (Server server : servers) {
+			XrayApiClient client = XrayApiClient.getInstance(server.getV2rayIp(), server.getV2rayManagerPort());
+			RestartLoggerRequest request = RestartLoggerRequest.newBuilder().getDefaultInstanceForType();
+			RestartLoggerResponse response = client.getLoggerServiceBlockingStub().restartLogger(request);
+			log.info("RestartLoggerResponse: {}", response);
 		}
 	}
 

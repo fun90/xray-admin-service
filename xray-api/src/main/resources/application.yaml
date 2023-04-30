@@ -5,7 +5,7 @@ admin:
 
 proxy:
   #与porxy交互的密码，也是各种token的私钥
-  authPassword: ''
+  authPassword: '123456'
   subscriptionTemplate: /subscribe/%s?target=%s&type=%s&timestamp=%s&token=%s
 
 email:
