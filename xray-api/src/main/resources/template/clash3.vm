@@ -130,6 +130,14 @@ $serverNames
       - ♻️ 自动选择
 $serverNames
 
+  - name: 🐚 Whatsapp
+    type: select
+    proxies:
+      - 🔰 代理
+      - 🎯 直连
+      - ♻️ 自动选择
+$serverNames
+
   - name: 🎯 直连
     type: select
     proxies:
@@ -154,6 +162,7 @@ $serverNames
   {"name":"Microsoft", "group":"👔️ 微软"},
   {"name":"iCloud", "group":"☁️ iCloud"},
   {"name":"Apple", "group":"🍎 苹果"},
+  {"name":"Whatsapp", "group":"🐚 Whatsapp"},
   {"name":"Private", "group":"🎯 直连"},
   {"name":"Reject", "group":"🚫 拦截"},
   {"name":"TelegramCidr", "group":"🔰 代理"}

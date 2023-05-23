@@ -51,6 +51,7 @@ $server.serverName = trojan, $server.clientDomain, $server.clientPort, password=
 👔️ 微软 = select,🔰 代理,🎯 直连,♻️ 自动选择,$serverNames
 ☁️ iCloud = select,🎯 直连,🔰 代理,♻️ 自动选择,$serverNames
 🍎 苹果 = select,🎯 直连,🔰 代理,♻️ 自动选择,$serverNames
+🐚 Whatsapp = select,🔰 代理,🎯 直连,♻️ 自动选择,$serverNames
 🚫 拦截 = select,REJECT,DIRECT
 #if($whitelist)
 ⛳️ 其他 = select,🔰 代理,🎯 直连,♻️ 自动选择,$serverNames
@@ -70,6 +71,7 @@ RULE-SET,$rootUrl/subscribe/rules/surge/Google.list,🐶 谷歌,update-interval=
 RULE-SET,$rootUrl/subscribe/rules/surge/Microsoft.list,👔️ 微软,update-interval=86400
 RULE-SET,$rootUrl/subscribe/rules/surge/iCloud.list,☁️ iCloud,update-interval=86400
 RULE-SET,$rootUrl/subscribe/rules/surge/Apple.list,🍎 苹果,update-interval=86400
+RULE-SET,$rootUrl/subscribe/rules/surge/Whatsapp.list,🐚 Whatsapp,update-interval=86400
 RULE-SET,$rootUrl/subscribe/rules/surge/Private.list,🎯 直连,update-interval=86400
 RULE-SET,$rootUrl/subscribe/rules/surge/Reject.list,🚫 拦截,update-interval=86400
 RULE-SET,LAN,DIRECT
