@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -37,6 +38,10 @@ public class ServerService {
 			all = this.queryByServerIds(serverIds);
 		} else {
 			all = serverRepository.findByLevelLessThanEqualAndStatusOrderByLevelDesc(account.getLevel(), StatusEnum.SUCCESS.code());
+		}
+		String toDate = "(" + new SimpleDateFormat("yyyy-MM-dd").format(account.getToDate()) + ")";
+		for (Server server : all) {
+			server.setServerName(server.getServerName() + toDate);
 		}
 		Collections.shuffle(all);
 		return all;
