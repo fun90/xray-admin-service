@@ -24,6 +24,7 @@ import com.jhl.admin.service.ServerService;
 import com.jhl.admin.service.SubscriptionService;
 import com.jhl.admin.service.v2ray.ProxyEventService;
 import com.jhl.admin.service.v2ray.XrayAccountService;
+import com.jhl.admin.util.SubscriptionUrlUtil;
 import com.jhl.admin.util.Validator;
 import com.ljh.common.model.Result;
 import lombok.extern.slf4j.Slf4j;
@@ -37,6 +38,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -67,6 +69,8 @@ public class AccountController {
 	private OnlineCache onlineCache;
 	@Autowired
 	private ProxyConstant proxyConstant;
+	@Autowired
+	private HttpServletRequest request;
 
 	/**
 	 * 创建一个account
@@ -168,8 +172,8 @@ public class AccountController {
 		AccountVO account = accounts.get(0);
 		String subscriptionUrl = account.getSubscriptionUrl();
 		if (StringUtils.isNoneBlank(subscriptionUrl)) {
-			ServerConfig serverConfig = serverConfigService.getServerConfig(WebsiteConfigEnum.SUBSCRIPTION_ADDRESS_PREFIX.getKey());
-			account.setSubscriptionUrl(serverConfig.getValue() + subscriptionUrl);
+			String urlPrefix = SubscriptionUrlUtil.getPrefix(request, serverConfigService);
+			account.setSubscriptionUrl(urlPrefix + subscriptionUrl);
 		}
 		ServerConfig subconverter = serverConfigService.getServerConfig(WebsiteConfigEnum.SUB_CONVERTER_ADDRESS.getKey());
 		account.setSubconverterUrl(subconverter.getValue());
@@ -209,14 +213,14 @@ public class AccountController {
 		List<AccountVO> accountVOList = BaseEntity.toVOList(accounts, AccountVO.class);
 
 		ServerConfig subConverter = serverConfigService.getServerConfig(WebsiteConfigEnum.SUB_CONVERTER_ADDRESS.getKey());
-		ServerConfig serverConfig = serverConfigService.getServerConfig(WebsiteConfigEnum.SUBSCRIPTION_ADDRESS_PREFIX.getKey());
+		String urlPrefix = SubscriptionUrlUtil.getPrefix(request, serverConfigService);
 
 		Map<Integer, Account> accountMap = accounts.stream().collect(Collectors.toMap(BaseEntity::getId, o -> o));
 		accountVOList.forEach(account -> {
 			account.setSubconverterUrl(subConverter.getValue());
 			String subscriptionUrl = account.getSubscriptionUrl();
 			if (StringUtils.isNoneBlank(subscriptionUrl)) {
-				account.setSubscriptionUrl(serverConfig.getValue() + subscriptionUrl);
+				account.setSubscriptionUrl(urlPrefix + subscriptionUrl);
 			}
 			accountService.fillAccount(date, account);
 			Account data = accountMap.get(account.getId());
@@ -253,8 +257,8 @@ public class AccountController {
 	@ResponseBody
 	@GetMapping("/account/generatorSubscriptionUrl/{id}")
 	public Result generatorSubscriptionUrlByAdmin(String target, Integer type, @PathVariable Integer id) {
-		ServerConfig serverConfig = serverConfigService.getServerConfig(WebsiteConfigEnum.SUBSCRIPTION_ADDRESS_PREFIX.getKey());
-		return Result.buildSuccess(serverConfig.getValue() + accountService.generatorSubscriptionUrl(id, target, type), null);
+		String urlPrefix = SubscriptionUrlUtil.getPrefix(request, serverConfigService);
+		return Result.buildSuccess(urlPrefix + accountService.generatorSubscriptionUrl(id, target, type), null);
 	}
 
 	@PreAuth("vip")

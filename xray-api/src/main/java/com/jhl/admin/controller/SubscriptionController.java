@@ -9,6 +9,7 @@ import com.jhl.admin.model.Server;
 import com.jhl.admin.service.ServerConfigService;
 import com.jhl.admin.service.ServerService;
 import com.jhl.admin.service.SubscriptionService;
+import com.jhl.admin.util.SubscriptionUrlUtil;
 import com.jhl.admin.util.subscribe.RulesParserFactory;
 import com.jhl.admin.util.subscribe.TemplateUtil;
 import com.jhl.admin.util.subscribe.parser.IRulesParser;
@@ -28,6 +29,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponents;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.StringWriter;
 import java.net.URLEncoder;
 import java.nio.file.Files;
@@ -44,8 +46,6 @@ public class SubscriptionController {
 	@Autowired
 	private SubscriptionService subscriptionService;
 	@Autowired
-	private ServerConfigService serverConfigService;
-	@Autowired
 	private ProxyConstant proxyConstant;
 	@Autowired
 	private ClientConstant clientConstant;
@@ -53,6 +53,10 @@ public class SubscriptionController {
 	private RulesParserFactory rulesParserFactory;
 	@Autowired
 	ServerService serverService;
+	@Autowired
+	private ServerConfigService serverConfigService;
+	@Autowired
+	private HttpServletRequest request;
 
 	/**
 	 * 防暴力，防中间人篡改
@@ -97,7 +101,7 @@ public class SubscriptionController {
 			}
 
 
-			String rootUrl = serverConfigService.getServerConfig(WebsiteConfigEnum.SUBSCRIPTION_ADDRESS_PREFIX.getKey()).getValue();
+			String rootUrl = SubscriptionUrlUtil.getPrefix(request, serverConfigService);
 			params.put("rootUrl", rootUrl);
 
 			String subscriptionUrl = account.getSubscriptionUrl();

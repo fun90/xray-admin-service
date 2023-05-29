@@ -32,7 +32,7 @@ public enum WebsiteConfigEnum {
 			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/gfw.txt\",\n" +
 			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/greatfire.txt\",\n" +
 			"    ],\n" +
-			"    \"Telegramcidr\": [\n" +
+			"    \"TelegramCidr\": [\n" +
 			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/telegramcidr.txt\"\n" +
 			"    ],\n" +
 			"    \"Apple\": [\n" +
