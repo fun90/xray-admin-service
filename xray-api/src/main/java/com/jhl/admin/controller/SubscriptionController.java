@@ -1,6 +1,8 @@
 package com.jhl.admin.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.jhl.admin.VO.SubscribeVO;
 import com.jhl.admin.constant.ClientConstant;
 import com.jhl.admin.constant.ProxyConstant;
 import com.jhl.admin.constant.enumObject.WebsiteConfigEnum;
@@ -21,7 +23,9 @@ import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
 import org.apache.velocity.app.VelocityEngine;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.beans.BeanMap;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -62,24 +66,21 @@ public class SubscriptionController {
 	 * 防暴力，防中间人篡改
 	 *
 	 * @param code  code
-	 * @param target 客户端类型: "clash", "clash2", "quanx", "surge", "loon", "shadowrocket"
-	 * @param token md5(code+timestamp+api.auth)
-	 * @return
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/subscribe/{code}", produces="text/plain;charset=UTF-8")
-	public String subscribe(@PathVariable String code, String target, Integer type, Long timestamp, String token, boolean whitelist) {
+	public String subscribe(@PathVariable String code, SubscribeVO vo) {
 
-		if (code == null || type == null || timestamp == null || token == null) throw new IllegalArgumentException("参数错误");
+		if (code == null || vo.getTimestamp() == null || vo.getToken() == null) throw new IllegalArgumentException("参数错误");
 
-		target = StringUtils.defaultString(target, ClientConstant.DEFAULT.getValue());
+		String target = StringUtils.defaultString(vo.getTarget(), ClientConstant.DEFAULT.getValue());
 		if (!clientConstant.isSupported(target)) {
 			throw new IllegalArgumentException("target错误");
 		}
 
 		StringBuilder stringBuilder = new StringBuilder();
-		StringBuilder tokenSrc = stringBuilder.append(code).append(timestamp).append(proxyConstant.getAuthPassword());
-		if (!DigestUtils.md5Hex(tokenSrc.toString()).equals(token)) throw new RuntimeException("认证失败");
+		StringBuilder tokenSrc = stringBuilder.append(code).append(vo.getTimestamp()).append(proxyConstant.getAuthPassword());
+		if (!DigestUtils.md5Hex(tokenSrc.toString()).equals(vo.getToken())) throw new RuntimeException("认证失败");
 
 		Account account = subscriptionService.findAccountByCode(code);
 		List<Server> servers = serverService.queryByAccount(account);
@@ -91,8 +92,9 @@ public class SubscriptionController {
 		params.put("URLEncoder", URLEncoder.class);
 		params.put("JSON", JSON.class);
 		params.put("lineSeparator", System.lineSeparator());
-		params.put("whitelist", whitelist);
-		if (type == 0) {
+		BeanMap beanMap = BeanMap.create(vo);
+		params.putAll(beanMap);
+		if (vo.getType() == null || vo.getType() == 0) {
 			return templateMerge("nodes/" + target, params);
 		} else {
 			IRulesParser rulesParser = rulesParserFactory.get(target);

@@ -1,0 +1,132 @@
+#set($ruleList = [
+  {"name":"Applications", "group":"🎯 直连"},
+  {"name":"MyReject", "group":"🚫 拦截"},
+  {"name":"MyProxy", "group":"🔰 代理"},
+  {"name":"MyDirect", "group":"🎯 直连"},
+  {"name":"OpenAI", "group":"🐳 OpenAI"},
+  {"name":"Amazon", "group":"🛍 亚马逊"},
+  {"name":"PayPal", "group":"💰 PayPal"},
+  {"name":"Google", "group":"🐶 谷歌"},
+  {"name":"YouTube", "group":"🏖 YouTube"},
+  {"name":"Microsoft", "group":"👔️ 微软"},
+  {"name":"iCloud", "group":"☁️ iCloud"},
+  {"name":"Apple", "group":"🍎 苹果"},
+  {"name":"Whatsapp", "group":"🐚 Whatsapp"},
+  {"name":"Private", "group":"🎯 直连"},
+  {"name":"Reject", "group":"🚫 拦截"},
+  {"name":"TelegramCidr", "group":"🔰 代理"}
+  ])
+#if ($whitelist)
+  #set($tmp = $ruleList.add({"name":"Direct", "group":"🎯 直连"}))
+#else
+  #set($tmp = $ruleList.add({"name":"Proxy", "group":"🔰 代理"}))
+#end
+proxy-groups:
+  - name: 🔰 代理
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - 🎯 直连
+$serverNames
+
+  - name: ♻️ 自动选择
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    proxies:
+$serverNames
+
+  - name: 🐳 OpenAI
+    type: select
+    proxies:
+      - 🔰 代理
+      - ♻️ 自动选择
+$serverNames
+
+  - name: 💰 PayPal
+    type: select
+    proxies:
+      - 🔰 代理
+      - 🎯 直连
+      - ♻️ 自动选择
+$serverNames
+
+  - name: 🛍 亚马逊
+    type: select
+    proxies:
+      - 🔰 代理
+      - 🎯 直连
+      - ♻️ 自动选择
+$serverNames
+
+  - name: 🐶 谷歌
+    type: select
+    proxies:
+      - 🔰 代理
+      - ♻️ 自动选择
+$serverNames
+
+  - name: 🏖 YouTube
+    type: select
+    proxies:
+      - 🔰 代理
+      - ♻️ 自动选择
+$serverNames
+
+  - name: 👔️ 微软
+    type: select
+    proxies:
+      - 🔰 代理
+      - 🎯 直连
+      - ♻️ 自动选择
+$serverNames
+
+  - name: ☁️ iCloud
+    type: select
+    proxies:
+      - 🎯 直连
+      - 🔰 代理
+      - ♻️ 自动选择
+$serverNames
+
+  - name: 🍎 苹果
+    type: select
+    proxies:
+      - 🎯 直连
+      - 🔰 代理
+      - ♻️ 自动选择
+$serverNames
+
+  - name: 🐚 Whatsapp
+    type: select
+    proxies:
+      - 🔰 代理
+      - 🎯 直连
+      - ♻️ 自动选择
+$serverNames
+
+  - name: 🎯 直连
+    type: select
+    proxies:
+      - DIRECT
+
+  - name: 🚫 拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+
+  - name: ⛳️ 其他
+    type: select
+    proxies:
+#if ($whitelist == true)
+      - 🔰 代理
+      - 🎯 直连
+      - ♻️ 自动选择
+$serverNames
+#else
+      - 🎯 直连
+      - 🔰 代理
+      - ♻️ 自动选择
+$serverNames
+#end
