@@ -36,6 +36,7 @@ public class ClashRulesParser implements IRulesParser {
             line = StringUtils.replace(line, "DEST-PORT", "DST-PORT");
             String target = this.getTarget();
             if (ClientConstant.Clash.getValue().equals(target)) {
+                line = StringUtils.removeEnd(line, ",no-resolve");
                 builder.append("  - " + line + "," + group + System.lineSeparator());
             } else {
                 builder.append("  - " + line + System.lineSeparator());
