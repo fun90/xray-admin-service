@@ -30,6 +30,8 @@ dns:
       - "*.mplusglobal.com.my"
       - "*.vbkrhk.com"
       - "*.tickrs.com.sg"
+      - "*.alsahm.com.sa"
+      - "*.alsahm.com"
 #else
 #当dns解析出现问题时，打开如下配置
 #  fallback:
