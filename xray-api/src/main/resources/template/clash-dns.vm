@@ -18,6 +18,8 @@ dns:
     geoip-code: CN
     ipcidr:
       - 192.168.0.1/16
+      - 127.0.0.0/8
+      - 10.0.0.0/8
     domain:
       - "2caipiao.com"
       - "*.hszq8.com"
