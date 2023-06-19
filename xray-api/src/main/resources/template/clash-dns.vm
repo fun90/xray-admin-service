@@ -10,6 +10,8 @@ dns:
     - 119.29.29.29
 #if($dns == "hst")
   fallback:
+    - "192.168.90.82"
+    - "192.168.90.182"
     - "192.168.90.183"
   fallback-filter:
     geoip: false
