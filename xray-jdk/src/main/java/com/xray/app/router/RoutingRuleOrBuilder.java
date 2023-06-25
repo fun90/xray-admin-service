@@ -554,16 +554,38 @@ public interface RoutingRuleOrBuilder extends
       getProtocolBytes(int index);
 
   /**
-   * <code>string attributes = 15;</code>
-   * @return The attributes.
+   * <code>map&lt;string, string&gt; attributes = 15;</code>
    */
-  java.lang.String getAttributes();
+  int getAttributesCount();
   /**
-   * <code>string attributes = 15;</code>
-   * @return The bytes for attributes.
+   * <code>map&lt;string, string&gt; attributes = 15;</code>
    */
-  com.google.protobuf.ByteString
-      getAttributesBytes();
+  boolean containsAttributes(
+      java.lang.String key);
+  /**
+   * Use {@link #getAttributesMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, java.lang.String>
+  getAttributes();
+  /**
+   * <code>map&lt;string, string&gt; attributes = 15;</code>
+   */
+  java.util.Map<java.lang.String, java.lang.String>
+  getAttributesMap();
+  /**
+   * <code>map&lt;string, string&gt; attributes = 15;</code>
+   */
+  /* nullable */
+java.lang.String getAttributesOrDefault(
+      java.lang.String key,
+      /* nullable */
+java.lang.String defaultValue);
+  /**
+   * <code>map&lt;string, string&gt; attributes = 15;</code>
+   */
+  java.lang.String getAttributesOrThrow(
+      java.lang.String key);
 
   /**
    * <code>string domain_matcher = 17;</code>

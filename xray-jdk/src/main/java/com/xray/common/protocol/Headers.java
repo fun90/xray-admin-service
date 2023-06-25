@@ -31,12 +31,12 @@ public final class Headers {
       "\n\035common/protocol/headers.proto\022\024xray.co" +
       "mmon.protocol\"B\n\016SecurityConfig\0220\n\004type\030" +
       "\001 \001(\0162\".xray.common.protocol.SecurityTyp" +
-      "e*l\n\014SecurityType\022\013\n\007UNKNOWN\020\000\022\n\n\006LEGACY" +
-      "\020\001\022\010\n\004AUTO\020\002\022\016\n\nAES128_GCM\020\003\022\025\n\021CHACHA20" +
-      "_POLY1305\020\004\022\010\n\004NONE\020\005\022\010\n\004ZERO\020\006B^\n\030com.x" +
-      "ray.common.protocolP\001Z)github.com/xtls/x" +
-      "ray-core/common/protocol\252\002\024Xray.Common.P" +
-      "rotocolb\006proto3"
+      "e*`\n\014SecurityType\022\013\n\007UNKNOWN\020\000\022\010\n\004AUTO\020\002" +
+      "\022\016\n\nAES128_GCM\020\003\022\025\n\021CHACHA20_POLY1305\020\004\022" +
+      "\010\n\004NONE\020\005\022\010\n\004ZERO\020\006B^\n\030com.xray.common.p" +
+      "rotocolP\001Z)github.com/xtls/xray-core/com" +
+      "mon/protocol\252\002\024Xray.Common.Protocolb\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

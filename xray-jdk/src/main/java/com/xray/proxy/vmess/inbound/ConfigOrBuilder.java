@@ -47,23 +47,29 @@ public interface ConfigOrBuilder extends
   com.xray.proxy.vmess.inbound.DefaultConfigOrBuilder getDefaultOrBuilder();
 
   /**
+   * <pre>
+   * 4 is for legacy setting
+   * </pre>
+   *
    * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
    * @return Whether the detour field is set.
    */
   boolean hasDetour();
   /**
+   * <pre>
+   * 4 is for legacy setting
+   * </pre>
+   *
    * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
    * @return The detour.
    */
   com.xray.proxy.vmess.inbound.DetourConfig getDetour();
   /**
+   * <pre>
+   * 4 is for legacy setting
+   * </pre>
+   *
    * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
    */
   com.xray.proxy.vmess.inbound.DetourConfigOrBuilder getDetourOrBuilder();
-
-  /**
-   * <code>bool secure_encryption_only = 4;</code>
-   * @return The secureEncryptionOnly.
-   */
-  boolean getSecureEncryptionOnly();
 }

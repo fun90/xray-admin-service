@@ -29,13 +29,12 @@ public final class AccountOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\031proxy/vmess/account.proto\022\020xray.proxy." +
-      "vmess\032\035common/protocol/headers.proto\"\177\n\007" +
-      "Account\022\n\n\002id\030\001 \001(\t\022\020\n\010alter_id\030\002 \001(\r\022?\n" +
-      "\021security_settings\030\003 \001(\0132$.xray.common.p" +
-      "rotocol.SecurityConfig\022\025\n\rtests_enabled\030" +
-      "\004 \001(\tBR\n\024com.xray.proxy.vmessP\001Z%github." +
-      "com/xtls/xray-core/proxy/vmess\252\002\020Xray.Pr" +
-      "oxy.Vmessb\006proto3"
+      "vmess\032\035common/protocol/headers.proto\"m\n\007" +
+      "Account\022\n\n\002id\030\001 \001(\t\022?\n\021security_settings" +
+      "\030\003 \001(\0132$.xray.common.protocol.SecurityCo" +
+      "nfig\022\025\n\rtests_enabled\030\004 \001(\tBR\n\024com.xray." +
+      "proxy.vmessP\001Z%github.com/xtls/xray-core" +
+      "/proxy/vmess\252\002\020Xray.Proxy.Vmessb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -47,7 +46,7 @@ public final class AccountOuterClass {
     internal_static_xray_proxy_vmess_Account_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xray_proxy_vmess_Account_descriptor,
-        new java.lang.String[] { "Id", "AlterId", "SecuritySettings", "TestsEnabled", });
+        new java.lang.String[] { "Id", "SecuritySettings", "TestsEnabled", });
     com.xray.common.protocol.Headers.getDescriptor();
   }
 

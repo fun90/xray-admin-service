@@ -114,6 +114,10 @@ private static final long serialVersionUID = 0L;
   public static final int DETOUR_FIELD_NUMBER = 3;
   private com.xray.proxy.vmess.inbound.DetourConfig detour_;
   /**
+   * <pre>
+   * 4 is for legacy setting
+   * </pre>
+   *
    * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
    * @return Whether the detour field is set.
    */
@@ -122,6 +126,10 @@ private static final long serialVersionUID = 0L;
     return detour_ != null;
   }
   /**
+   * <pre>
+   * 4 is for legacy setting
+   * </pre>
+   *
    * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
    * @return The detour.
    */
@@ -130,22 +138,15 @@ private static final long serialVersionUID = 0L;
     return detour_ == null ? com.xray.proxy.vmess.inbound.DetourConfig.getDefaultInstance() : detour_;
   }
   /**
+   * <pre>
+   * 4 is for legacy setting
+   * </pre>
+   *
    * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
    */
   @java.lang.Override
   public com.xray.proxy.vmess.inbound.DetourConfigOrBuilder getDetourOrBuilder() {
     return detour_ == null ? com.xray.proxy.vmess.inbound.DetourConfig.getDefaultInstance() : detour_;
-  }
-
-  public static final int SECURE_ENCRYPTION_ONLY_FIELD_NUMBER = 4;
-  private boolean secureEncryptionOnly_ = false;
-  /**
-   * <code>bool secure_encryption_only = 4;</code>
-   * @return The secureEncryptionOnly.
-   */
-  @java.lang.Override
-  public boolean getSecureEncryptionOnly() {
-    return secureEncryptionOnly_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -171,9 +172,6 @@ private static final long serialVersionUID = 0L;
     if (detour_ != null) {
       output.writeMessage(3, getDetour());
     }
-    if (secureEncryptionOnly_ != false) {
-      output.writeBool(4, secureEncryptionOnly_);
-    }
     getUnknownFields().writeTo(output);
   }
 
@@ -194,10 +192,6 @@ private static final long serialVersionUID = 0L;
     if (detour_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getDetour());
-    }
-    if (secureEncryptionOnly_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(4, secureEncryptionOnly_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -226,8 +220,6 @@ private static final long serialVersionUID = 0L;
       if (!getDetour()
           .equals(other.getDetour())) return false;
     }
-    if (getSecureEncryptionOnly()
-        != other.getSecureEncryptionOnly()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -251,9 +243,6 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DETOUR_FIELD_NUMBER;
       hash = (53 * hash) + getDetour().hashCode();
     }
-    hash = (37 * hash) + SECURE_ENCRYPTION_ONLY_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getSecureEncryptionOnly());
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -400,7 +389,6 @@ private static final long serialVersionUID = 0L;
         detourBuilder_.dispose();
         detourBuilder_ = null;
       }
-      secureEncryptionOnly_ = false;
       return this;
     }
 
@@ -456,9 +444,6 @@ private static final long serialVersionUID = 0L;
         result.detour_ = detourBuilder_ == null
             ? detour_
             : detourBuilder_.build();
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.secureEncryptionOnly_ = secureEncryptionOnly_;
       }
     }
 
@@ -538,9 +523,6 @@ private static final long serialVersionUID = 0L;
       if (other.hasDetour()) {
         mergeDetour(other.getDetour());
       }
-      if (other.getSecureEncryptionOnly() != false) {
-        setSecureEncryptionOnly(other.getSecureEncryptionOnly());
-      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -594,11 +576,6 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000004;
               break;
             } // case 26
-            case 32: {
-              secureEncryptionOnly_ = input.readBool();
-              bitField0_ |= 0x00000008;
-              break;
-            } // case 32
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -979,6 +956,10 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.xray.proxy.vmess.inbound.DetourConfig, com.xray.proxy.vmess.inbound.DetourConfig.Builder, com.xray.proxy.vmess.inbound.DetourConfigOrBuilder> detourBuilder_;
     /**
+     * <pre>
+     * 4 is for legacy setting
+     * </pre>
+     *
      * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
      * @return Whether the detour field is set.
      */
@@ -986,6 +967,10 @@ private static final long serialVersionUID = 0L;
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
+     * <pre>
+     * 4 is for legacy setting
+     * </pre>
+     *
      * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
      * @return The detour.
      */
@@ -997,6 +982,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 4 is for legacy setting
+     * </pre>
+     *
      * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
      */
     public Builder setDetour(com.xray.proxy.vmess.inbound.DetourConfig value) {
@@ -1013,6 +1002,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 4 is for legacy setting
+     * </pre>
+     *
      * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
      */
     public Builder setDetour(
@@ -1027,6 +1020,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 4 is for legacy setting
+     * </pre>
+     *
      * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
      */
     public Builder mergeDetour(com.xray.proxy.vmess.inbound.DetourConfig value) {
@@ -1046,6 +1043,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 4 is for legacy setting
+     * </pre>
+     *
      * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
      */
     public Builder clearDetour() {
@@ -1059,6 +1060,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 4 is for legacy setting
+     * </pre>
+     *
      * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
      */
     public com.xray.proxy.vmess.inbound.DetourConfig.Builder getDetourBuilder() {
@@ -1067,6 +1072,10 @@ private static final long serialVersionUID = 0L;
       return getDetourFieldBuilder().getBuilder();
     }
     /**
+     * <pre>
+     * 4 is for legacy setting
+     * </pre>
+     *
      * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
      */
     public com.xray.proxy.vmess.inbound.DetourConfigOrBuilder getDetourOrBuilder() {
@@ -1078,6 +1087,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 4 is for legacy setting
+     * </pre>
+     *
      * <code>.xray.proxy.vmess.inbound.DetourConfig detour = 3;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -1092,38 +1105,6 @@ private static final long serialVersionUID = 0L;
         detour_ = null;
       }
       return detourBuilder_;
-    }
-
-    private boolean secureEncryptionOnly_ ;
-    /**
-     * <code>bool secure_encryption_only = 4;</code>
-     * @return The secureEncryptionOnly.
-     */
-    @java.lang.Override
-    public boolean getSecureEncryptionOnly() {
-      return secureEncryptionOnly_;
-    }
-    /**
-     * <code>bool secure_encryption_only = 4;</code>
-     * @param value The secureEncryptionOnly to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSecureEncryptionOnly(boolean value) {
-      
-      secureEncryptionOnly_ = value;
-      bitField0_ |= 0x00000008;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool secure_encryption_only = 4;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearSecureEncryptionOnly() {
-      bitField0_ = (bitField0_ & ~0x00000008);
-      secureEncryptionOnly_ = false;
-      onChanged();
-      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

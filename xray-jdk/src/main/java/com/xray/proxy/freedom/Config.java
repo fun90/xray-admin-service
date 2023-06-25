@@ -193,7 +193,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <code>uint32 timeout = 2 [deprecated = true];</code>
    * @deprecated xray.proxy.freedom.Config.timeout is deprecated.
-   *     See proxy/freedom/config.proto;l=22
+   *     See proxy/freedom/config.proto;l=31
    * @return The timeout.
    */
   @java.lang.Override
@@ -238,6 +238,32 @@ private static final long serialVersionUID = 0L;
     return userLevel_;
   }
 
+  public static final int FRAGMENT_FIELD_NUMBER = 5;
+  private com.xray.proxy.freedom.Fragment fragment_;
+  /**
+   * <code>.xray.proxy.freedom.Fragment fragment = 5;</code>
+   * @return Whether the fragment field is set.
+   */
+  @java.lang.Override
+  public boolean hasFragment() {
+    return fragment_ != null;
+  }
+  /**
+   * <code>.xray.proxy.freedom.Fragment fragment = 5;</code>
+   * @return The fragment.
+   */
+  @java.lang.Override
+  public com.xray.proxy.freedom.Fragment getFragment() {
+    return fragment_ == null ? com.xray.proxy.freedom.Fragment.getDefaultInstance() : fragment_;
+  }
+  /**
+   * <code>.xray.proxy.freedom.Fragment fragment = 5;</code>
+   */
+  @java.lang.Override
+  public com.xray.proxy.freedom.FragmentOrBuilder getFragmentOrBuilder() {
+    return fragment_ == null ? com.xray.proxy.freedom.Fragment.getDefaultInstance() : fragment_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -264,6 +290,9 @@ private static final long serialVersionUID = 0L;
     if (userLevel_ != 0) {
       output.writeUInt32(4, userLevel_);
     }
+    if (fragment_ != null) {
+      output.writeMessage(5, getFragment());
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -288,6 +317,10 @@ private static final long serialVersionUID = 0L;
     if (userLevel_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(4, userLevel_);
+    }
+    if (fragment_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, getFragment());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -314,6 +347,11 @@ private static final long serialVersionUID = 0L;
     }
     if (getUserLevel()
         != other.getUserLevel()) return false;
+    if (hasFragment() != other.hasFragment()) return false;
+    if (hasFragment()) {
+      if (!getFragment()
+          .equals(other.getFragment())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -335,6 +373,10 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + USER_LEVEL_FIELD_NUMBER;
     hash = (53 * hash) + getUserLevel();
+    if (hasFragment()) {
+      hash = (37 * hash) + FRAGMENT_FIELD_NUMBER;
+      hash = (53 * hash) + getFragment().hashCode();
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -472,6 +514,11 @@ private static final long serialVersionUID = 0L;
         destinationOverrideBuilder_ = null;
       }
       userLevel_ = 0;
+      fragment_ = null;
+      if (fragmentBuilder_ != null) {
+        fragmentBuilder_.dispose();
+        fragmentBuilder_ = null;
+      }
       return this;
     }
 
@@ -518,6 +565,11 @@ private static final long serialVersionUID = 0L;
       }
       if (((from_bitField0_ & 0x00000008) != 0)) {
         result.userLevel_ = userLevel_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.fragment_ = fragmentBuilder_ == null
+            ? fragment_
+            : fragmentBuilder_.build();
       }
     }
 
@@ -577,6 +629,9 @@ private static final long serialVersionUID = 0L;
       if (other.getUserLevel() != 0) {
         setUserLevel(other.getUserLevel());
       }
+      if (other.hasFragment()) {
+        mergeFragment(other.getFragment());
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -625,6 +680,13 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000008;
               break;
             } // case 32
+            case 42: {
+              input.readMessage(
+                  getFragmentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -699,7 +761,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>uint32 timeout = 2 [deprecated = true];</code>
      * @deprecated xray.proxy.freedom.Config.timeout is deprecated.
-     *     See proxy/freedom/config.proto;l=22
+     *     See proxy/freedom/config.proto;l=31
      * @return The timeout.
      */
     @java.lang.Override
@@ -709,7 +771,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>uint32 timeout = 2 [deprecated = true];</code>
      * @deprecated xray.proxy.freedom.Config.timeout is deprecated.
-     *     See proxy/freedom/config.proto;l=22
+     *     See proxy/freedom/config.proto;l=31
      * @param value The timeout to set.
      * @return This builder for chaining.
      */
@@ -723,7 +785,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>uint32 timeout = 2 [deprecated = true];</code>
      * @deprecated xray.proxy.freedom.Config.timeout is deprecated.
-     *     See proxy/freedom/config.proto;l=22
+     *     See proxy/freedom/config.proto;l=31
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearTimeout() {
@@ -882,6 +944,125 @@ private static final long serialVersionUID = 0L;
       userLevel_ = 0;
       onChanged();
       return this;
+    }
+
+    private com.xray.proxy.freedom.Fragment fragment_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.xray.proxy.freedom.Fragment, com.xray.proxy.freedom.Fragment.Builder, com.xray.proxy.freedom.FragmentOrBuilder> fragmentBuilder_;
+    /**
+     * <code>.xray.proxy.freedom.Fragment fragment = 5;</code>
+     * @return Whether the fragment field is set.
+     */
+    public boolean hasFragment() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>.xray.proxy.freedom.Fragment fragment = 5;</code>
+     * @return The fragment.
+     */
+    public com.xray.proxy.freedom.Fragment getFragment() {
+      if (fragmentBuilder_ == null) {
+        return fragment_ == null ? com.xray.proxy.freedom.Fragment.getDefaultInstance() : fragment_;
+      } else {
+        return fragmentBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.xray.proxy.freedom.Fragment fragment = 5;</code>
+     */
+    public Builder setFragment(com.xray.proxy.freedom.Fragment value) {
+      if (fragmentBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        fragment_ = value;
+      } else {
+        fragmentBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.xray.proxy.freedom.Fragment fragment = 5;</code>
+     */
+    public Builder setFragment(
+        com.xray.proxy.freedom.Fragment.Builder builderForValue) {
+      if (fragmentBuilder_ == null) {
+        fragment_ = builderForValue.build();
+      } else {
+        fragmentBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.xray.proxy.freedom.Fragment fragment = 5;</code>
+     */
+    public Builder mergeFragment(com.xray.proxy.freedom.Fragment value) {
+      if (fragmentBuilder_ == null) {
+        if (((bitField0_ & 0x00000010) != 0) &&
+          fragment_ != null &&
+          fragment_ != com.xray.proxy.freedom.Fragment.getDefaultInstance()) {
+          getFragmentBuilder().mergeFrom(value);
+        } else {
+          fragment_ = value;
+        }
+      } else {
+        fragmentBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.xray.proxy.freedom.Fragment fragment = 5;</code>
+     */
+    public Builder clearFragment() {
+      bitField0_ = (bitField0_ & ~0x00000010);
+      fragment_ = null;
+      if (fragmentBuilder_ != null) {
+        fragmentBuilder_.dispose();
+        fragmentBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.xray.proxy.freedom.Fragment fragment = 5;</code>
+     */
+    public com.xray.proxy.freedom.Fragment.Builder getFragmentBuilder() {
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return getFragmentFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.xray.proxy.freedom.Fragment fragment = 5;</code>
+     */
+    public com.xray.proxy.freedom.FragmentOrBuilder getFragmentOrBuilder() {
+      if (fragmentBuilder_ != null) {
+        return fragmentBuilder_.getMessageOrBuilder();
+      } else {
+        return fragment_ == null ?
+            com.xray.proxy.freedom.Fragment.getDefaultInstance() : fragment_;
+      }
+    }
+    /**
+     * <code>.xray.proxy.freedom.Fragment fragment = 5;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.xray.proxy.freedom.Fragment, com.xray.proxy.freedom.Fragment.Builder, com.xray.proxy.freedom.FragmentOrBuilder> 
+        getFragmentFieldBuilder() {
+      if (fragmentBuilder_ == null) {
+        fragmentBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.xray.proxy.freedom.Fragment, com.xray.proxy.freedom.Fragment.Builder, com.xray.proxy.freedom.FragmentOrBuilder>(
+                getFragment(),
+                getParentForChildren(),
+                isClean());
+        fragment_ = null;
+      }
+      return fragmentBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

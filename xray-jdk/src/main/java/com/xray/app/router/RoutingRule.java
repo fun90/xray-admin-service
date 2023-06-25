@@ -25,7 +25,6 @@ private static final long serialVersionUID = 0L;
     userEmail_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     inboundTag_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     protocol_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    attributes_ = "";
     domainMatcher_ = "";
   }
 
@@ -46,6 +45,18 @@ private static final long serialVersionUID = 0L;
     return com.xray.app.router.ConfigOuterClass.internal_static_xray_app_router_RoutingRule_descriptor;
   }
 
+  @SuppressWarnings({"rawtypes"})
+  @java.lang.Override
+  protected com.google.protobuf.MapField internalGetMapField(
+      int number) {
+    switch (number) {
+      case 15:
+        return internalGetAttributes();
+      default:
+        throw new RuntimeException(
+            "Invalid map field number: " + number);
+    }
+  }
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
@@ -903,42 +914,82 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ATTRIBUTES_FIELD_NUMBER = 15;
+  private static final class AttributesDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        java.lang.String, java.lang.String> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<java.lang.String, java.lang.String>newDefaultInstance(
+                com.xray.app.router.ConfigOuterClass.internal_static_xray_app_router_RoutingRule_AttributesEntry_descriptor, 
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "");
+  }
   @SuppressWarnings("serial")
-  private volatile java.lang.Object attributes_ = "";
-  /**
-   * <code>string attributes = 15;</code>
-   * @return The attributes.
-   */
-  @java.lang.Override
-  public java.lang.String getAttributes() {
-    java.lang.Object ref = attributes_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      attributes_ = s;
-      return s;
+  private com.google.protobuf.MapField<
+      java.lang.String, java.lang.String> attributes_;
+  private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+  internalGetAttributes() {
+    if (attributes_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          AttributesDefaultEntryHolder.defaultEntry);
     }
+    return attributes_;
+  }
+  public int getAttributesCount() {
+    return internalGetAttributes().getMap().size();
   }
   /**
-   * <code>string attributes = 15;</code>
-   * @return The bytes for attributes.
+   * <code>map&lt;string, string&gt; attributes = 15;</code>
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getAttributesBytes() {
-    java.lang.Object ref = attributes_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      attributes_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
+  public boolean containsAttributes(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    return internalGetAttributes().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getAttributesMap()} instead.
+   */
+  @java.lang.Override
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
+    return getAttributesMap();
+  }
+  /**
+   * <code>map&lt;string, string&gt; attributes = 15;</code>
+   */
+  @java.lang.Override
+  public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
+    return internalGetAttributes().getMap();
+  }
+  /**
+   * <code>map&lt;string, string&gt; attributes = 15;</code>
+   */
+  @java.lang.Override
+  public /* nullable */
+java.lang.String getAttributesOrDefault(
+      java.lang.String key,
+      /* nullable */
+java.lang.String defaultValue) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.String> map =
+        internalGetAttributes().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <code>map&lt;string, string&gt; attributes = 15;</code>
+   */
+  @java.lang.Override
+  public java.lang.String getAttributesOrThrow(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.String> map =
+        internalGetAttributes().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
     }
+    return map.get(key);
   }
 
   public static final int DOMAIN_MATCHER_FIELD_NUMBER = 17;
@@ -1041,9 +1092,12 @@ private static final long serialVersionUID = 0L;
     if (portList_ != null) {
       output.writeMessage(14, getPortList());
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(attributes_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 15, attributes_);
-    }
+    com.google.protobuf.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
+        internalGetAttributes(),
+        AttributesDefaultEntryHolder.defaultEntry,
+        15);
     if (sourcePortList_ != null) {
       output.writeMessage(16, getSourcePortList());
     }
@@ -1133,8 +1187,15 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(14, getPortList());
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(attributes_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, attributes_);
+    for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+         : internalGetAttributes().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+      attributes__ = AttributesDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(15, attributes__);
     }
     if (sourcePortList_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -1195,8 +1256,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getInboundTagList())) return false;
     if (!getProtocolList()
         .equals(other.getProtocolList())) return false;
-    if (!getAttributes()
-        .equals(other.getAttributes())) return false;
+    if (!internalGetAttributes().equals(
+        other.internalGetAttributes())) return false;
     if (!getDomainMatcher()
         .equals(other.getDomainMatcher())) return false;
     if (!getTargetTagCase().equals(other.getTargetTagCase())) return false;
@@ -1275,8 +1336,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PROTOCOL_FIELD_NUMBER;
       hash = (53 * hash) + getProtocolList().hashCode();
     }
-    hash = (37 * hash) + ATTRIBUTES_FIELD_NUMBER;
-    hash = (53 * hash) + getAttributes().hashCode();
+    if (!internalGetAttributes().getMap().isEmpty()) {
+      hash = (37 * hash) + ATTRIBUTES_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetAttributes().hashCode();
+    }
     hash = (37 * hash) + DOMAIN_MATCHER_FIELD_NUMBER;
     hash = (53 * hash) + getDomainMatcher().hashCode();
     switch (targetTagCase_) {
@@ -1398,6 +1461,28 @@ private static final long serialVersionUID = 0L;
       return com.xray.app.router.ConfigOuterClass.internal_static_xray_app_router_RoutingRule_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 15:
+          return internalGetAttributes();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMutableMapField(
+        int number) {
+      switch (number) {
+        case 15:
+          return internalGetMutableAttributes();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -1483,7 +1568,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ = (bitField0_ & ~0x00002000);
       protocol_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00004000);
-      attributes_ = "";
+      internalGetMutableAttributes().clear();
       domainMatcher_ = "";
       targetTagCase_ = 0;
       targetTag_ = null;
@@ -1611,7 +1696,8 @@ private static final long serialVersionUID = 0L;
             : sourcePortListBuilder_.build();
       }
       if (((from_bitField0_ & 0x00008000) != 0)) {
-        result.attributes_ = attributes_;
+        result.attributes_ = internalGetAttributes();
+        result.attributes_.makeImmutable();
       }
       if (((from_bitField0_ & 0x00010000) != 0)) {
         result.domainMatcher_ = domainMatcher_;
@@ -1849,11 +1935,9 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
-      if (!other.getAttributes().isEmpty()) {
-        attributes_ = other.attributes_;
-        bitField0_ |= 0x00008000;
-        onChanged();
-      }
+      internalGetMutableAttributes().mergeFrom(
+          other.internalGetAttributes());
+      bitField0_ |= 0x00008000;
       if (!other.getDomainMatcher().isEmpty()) {
         domainMatcher_ = other.domainMatcher_;
         bitField0_ |= 0x00010000;
@@ -2036,7 +2120,11 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 114
             case 122: {
-              attributes_ = input.readStringRequireUtf8();
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              attributes__ = input.readMessage(
+                  AttributesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableAttributes().getMutableMap().put(
+                  attributes__.getKey(), attributes__.getValue());
               bitField0_ |= 0x00008000;
               break;
             } // case 122
@@ -5105,75 +5193,130 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object attributes_ = "";
-    /**
-     * <code>string attributes = 15;</code>
-     * @return The attributes.
-     */
-    public java.lang.String getAttributes() {
-      java.lang.Object ref = attributes_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        attributes_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> attributes_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetAttributes() {
+      if (attributes_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            AttributesDefaultEntryHolder.defaultEntry);
       }
+      return attributes_;
     }
-    /**
-     * <code>string attributes = 15;</code>
-     * @return The bytes for attributes.
-     */
-    public com.google.protobuf.ByteString
-        getAttributesBytes() {
-      java.lang.Object ref = attributes_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        attributes_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetMutableAttributes() {
+      if (attributes_ == null) {
+        attributes_ = com.google.protobuf.MapField.newMapField(
+            AttributesDefaultEntryHolder.defaultEntry);
       }
-    }
-    /**
-     * <code>string attributes = 15;</code>
-     * @param value The attributes to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAttributes(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      attributes_ = value;
+      if (!attributes_.isMutable()) {
+        attributes_ = attributes_.copy();
+      }
       bitField0_ |= 0x00008000;
       onChanged();
-      return this;
+      return attributes_;
+    }
+    public int getAttributesCount() {
+      return internalGetAttributes().getMap().size();
     }
     /**
-     * <code>string attributes = 15;</code>
-     * @return This builder for chaining.
+     * <code>map&lt;string, string&gt; attributes = 15;</code>
      */
+    @java.lang.Override
+    public boolean containsAttributes(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetAttributes().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getAttributesMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getAttributes() {
+      return getAttributesMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; attributes = 15;</code>
+     */
+    @java.lang.Override
+    public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
+      return internalGetAttributes().getMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; attributes = 15;</code>
+     */
+    @java.lang.Override
+    public /* nullable */
+java.lang.String getAttributesOrDefault(
+        java.lang.String key,
+        /* nullable */
+java.lang.String defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetAttributes().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, string&gt; attributes = 15;</code>
+     */
+    @java.lang.Override
+    public java.lang.String getAttributesOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetAttributes().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
     public Builder clearAttributes() {
-      attributes_ = getDefaultInstance().getAttributes();
       bitField0_ = (bitField0_ & ~0x00008000);
-      onChanged();
+      internalGetMutableAttributes().getMutableMap()
+          .clear();
       return this;
     }
     /**
-     * <code>string attributes = 15;</code>
-     * @param value The bytes for attributes to set.
-     * @return This builder for chaining.
+     * <code>map&lt;string, string&gt; attributes = 15;</code>
      */
-    public Builder setAttributesBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      attributes_ = value;
+    public Builder removeAttributes(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      internalGetMutableAttributes().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String>
+        getMutableAttributes() {
       bitField0_ |= 0x00008000;
-      onChanged();
+      return internalGetMutableAttributes().getMutableMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; attributes = 15;</code>
+     */
+    public Builder putAttributes(
+        java.lang.String key,
+        java.lang.String value) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) { throw new NullPointerException("map value"); }
+      internalGetMutableAttributes().getMutableMap()
+          .put(key, value);
+      bitField0_ |= 0x00008000;
+      return this;
+    }
+    /**
+     * <code>map&lt;string, string&gt; attributes = 15;</code>
+     */
+    public Builder putAllAttributes(
+        java.util.Map<java.lang.String, java.lang.String> values) {
+      internalGetMutableAttributes().getMutableMap()
+          .putAll(values);
+      bitField0_ |= 0x00008000;
       return this;
     }
 

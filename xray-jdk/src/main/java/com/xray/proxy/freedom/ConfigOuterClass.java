@@ -20,6 +20,11 @@ public final class ConfigOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_xray_proxy_freedom_DestinationOverride_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_xray_proxy_freedom_Fragment_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_xray_proxy_freedom_Fragment_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_xray_proxy_freedom_Config_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -37,15 +42,20 @@ public final class ConfigOuterClass {
       ".freedom\032!common/protocol/server_spec.pr" +
       "oto\"K\n\023DestinationOverride\0224\n\006server\030\001 \001" +
       "(\0132$.xray.common.protocol.ServerEndpoint" +
-      "\"\377\001\n\006Config\022B\n\017domain_strategy\030\001 \001(\0162).x" +
-      "ray.proxy.freedom.Config.DomainStrategy\022" +
-      "\023\n\007timeout\030\002 \001(\rB\002\030\001\022E\n\024destination_over" +
-      "ride\030\003 \001(\0132\'.xray.proxy.freedom.Destinat" +
-      "ionOverride\022\022\n\nuser_level\030\004 \001(\r\"A\n\016Domai" +
-      "nStrategy\022\t\n\005AS_IS\020\000\022\n\n\006USE_IP\020\001\022\013\n\007USE_" +
-      "IP4\020\002\022\013\n\007USE_IP6\020\003BX\n\026com.xray.proxy.fre" +
-      "edomP\001Z\'github.com/xtls/xray-core/proxy/" +
-      "freedom\252\002\022Xray.Proxy.Freedomb\006proto3"
+      "\"\210\001\n\010Fragment\022\024\n\014min_interval\030\001 \001(\005\022\024\n\014m" +
+      "ax_interval\030\002 \001(\005\022\022\n\nmin_length\030\003 \001(\005\022\022\n" +
+      "\nmax_length\030\004 \001(\005\022\024\n\014start_packet\030\005 \001(\005\022" +
+      "\022\n\nend_packet\030\006 \001(\005\"\257\002\n\006Config\022B\n\017domain" +
+      "_strategy\030\001 \001(\0162).xray.proxy.freedom.Con" +
+      "fig.DomainStrategy\022\023\n\007timeout\030\002 \001(\rB\002\030\001\022" +
+      "E\n\024destination_override\030\003 \001(\0132\'.xray.pro" +
+      "xy.freedom.DestinationOverride\022\022\n\nuser_l" +
+      "evel\030\004 \001(\r\022.\n\010fragment\030\005 \001(\0132\034.xray.prox" +
+      "y.freedom.Fragment\"A\n\016DomainStrategy\022\t\n\005" +
+      "AS_IS\020\000\022\n\n\006USE_IP\020\001\022\013\n\007USE_IP4\020\002\022\013\n\007USE_" +
+      "IP6\020\003BX\n\026com.xray.proxy.freedomP\001Z\'githu" +
+      "b.com/xtls/xray-core/proxy/freedom\252\002\022Xra" +
+      "y.Proxy.Freedomb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -58,12 +68,18 @@ public final class ConfigOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xray_proxy_freedom_DestinationOverride_descriptor,
         new java.lang.String[] { "Server", });
-    internal_static_xray_proxy_freedom_Config_descriptor =
+    internal_static_xray_proxy_freedom_Fragment_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_xray_proxy_freedom_Fragment_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_xray_proxy_freedom_Fragment_descriptor,
+        new java.lang.String[] { "MinInterval", "MaxInterval", "MinLength", "MaxLength", "StartPacket", "EndPacket", });
+    internal_static_xray_proxy_freedom_Config_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_xray_proxy_freedom_Config_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xray_proxy_freedom_Config_descriptor,
-        new java.lang.String[] { "DomainStrategy", "Timeout", "DestinationOverride", "UserLevel", });
+        new java.lang.String[] { "DomainStrategy", "Timeout", "DestinationOverride", "UserLevel", "Fragment", });
     com.xray.common.protocol.ServerSpec.getDescriptor();
   }
 

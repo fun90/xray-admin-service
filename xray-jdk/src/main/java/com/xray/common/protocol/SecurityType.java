@@ -13,10 +13,6 @@ public enum SecurityType
    */
   UNKNOWN(0),
   /**
-   * <code>LEGACY = 1;</code>
-   */
-  LEGACY(1),
-  /**
    * <code>AUTO = 2;</code>
    */
   AUTO(2),
@@ -29,6 +25,10 @@ public enum SecurityType
    */
   CHACHA20_POLY1305(4),
   /**
+   * <pre>
+   * [DEPRECATED 2023-06] 
+   * </pre>
+   *
    * <code>NONE = 5;</code>
    */
   NONE(5),
@@ -44,10 +44,6 @@ public enum SecurityType
    */
   public static final int UNKNOWN_VALUE = 0;
   /**
-   * <code>LEGACY = 1;</code>
-   */
-  public static final int LEGACY_VALUE = 1;
-  /**
    * <code>AUTO = 2;</code>
    */
   public static final int AUTO_VALUE = 2;
@@ -60,6 +56,10 @@ public enum SecurityType
    */
   public static final int CHACHA20_POLY1305_VALUE = 4;
   /**
+   * <pre>
+   * [DEPRECATED 2023-06] 
+   * </pre>
+   *
    * <code>NONE = 5;</code>
    */
   public static final int NONE_VALUE = 5;
@@ -94,7 +94,6 @@ public enum SecurityType
   public static SecurityType forNumber(int value) {
     switch (value) {
       case 0: return UNKNOWN;
-      case 1: return LEGACY;
       case 2: return AUTO;
       case 3: return AES128_GCM;
       case 4: return CHACHA20_POLY1305;

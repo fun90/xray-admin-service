@@ -94,21 +94,6 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int ALTER_ID_FIELD_NUMBER = 2;
-  private int alterId_ = 0;
-  /**
-   * <pre>
-   * Number of alternative IDs. Client and server must share the same number.
-   * </pre>
-   *
-   * <code>uint32 alter_id = 2;</code>
-   * @return The alterId.
-   */
-  @java.lang.Override
-  public int getAlterId() {
-    return alterId_;
-  }
-
   public static final int SECURITY_SETTINGS_FIELD_NUMBER = 3;
   private com.xray.common.protocol.SecurityConfig securitySettings_;
   /**
@@ -211,9 +196,6 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
     }
-    if (alterId_ != 0) {
-      output.writeUInt32(2, alterId_);
-    }
     if (securitySettings_ != null) {
       output.writeMessage(3, getSecuritySettings());
     }
@@ -231,10 +213,6 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
-    }
-    if (alterId_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeUInt32Size(2, alterId_);
     }
     if (securitySettings_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -260,8 +238,6 @@ private static final long serialVersionUID = 0L;
 
     if (!getId()
         .equals(other.getId())) return false;
-    if (getAlterId()
-        != other.getAlterId()) return false;
     if (hasSecuritySettings() != other.hasSecuritySettings()) return false;
     if (hasSecuritySettings()) {
       if (!getSecuritySettings()
@@ -282,8 +258,6 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + ID_FIELD_NUMBER;
     hash = (53 * hash) + getId().hashCode();
-    hash = (37 * hash) + ALTER_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getAlterId();
     if (hasSecuritySettings()) {
       hash = (37 * hash) + SECURITY_SETTINGS_FIELD_NUMBER;
       hash = (53 * hash) + getSecuritySettings().hashCode();
@@ -420,7 +394,6 @@ private static final long serialVersionUID = 0L;
       super.clear();
       bitField0_ = 0;
       id_ = "";
-      alterId_ = 0;
       securitySettings_ = null;
       if (securitySettingsBuilder_ != null) {
         securitySettingsBuilder_.dispose();
@@ -464,14 +437,11 @@ private static final long serialVersionUID = 0L;
         result.id_ = id_;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.alterId_ = alterId_;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
         result.securitySettings_ = securitySettingsBuilder_ == null
             ? securitySettings_
             : securitySettingsBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
+      if (((from_bitField0_ & 0x00000004) != 0)) {
         result.testsEnabled_ = testsEnabled_;
       }
     }
@@ -525,15 +495,12 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000001;
         onChanged();
       }
-      if (other.getAlterId() != 0) {
-        setAlterId(other.getAlterId());
-      }
       if (other.hasSecuritySettings()) {
         mergeSecuritySettings(other.getSecuritySettings());
       }
       if (!other.getTestsEnabled().isEmpty()) {
         testsEnabled_ = other.testsEnabled_;
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -567,21 +534,16 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000001;
               break;
             } // case 10
-            case 16: {
-              alterId_ = input.readUInt32();
-              bitField0_ |= 0x00000002;
-              break;
-            } // case 16
             case 26: {
               input.readMessage(
                   getSecuritySettingsFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000002;
               break;
             } // case 26
             case 34: {
               testsEnabled_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000008;
+              bitField0_ |= 0x00000004;
               break;
             } // case 34
             default: {
@@ -698,50 +660,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int alterId_ ;
-    /**
-     * <pre>
-     * Number of alternative IDs. Client and server must share the same number.
-     * </pre>
-     *
-     * <code>uint32 alter_id = 2;</code>
-     * @return The alterId.
-     */
-    @java.lang.Override
-    public int getAlterId() {
-      return alterId_;
-    }
-    /**
-     * <pre>
-     * Number of alternative IDs. Client and server must share the same number.
-     * </pre>
-     *
-     * <code>uint32 alter_id = 2;</code>
-     * @param value The alterId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAlterId(int value) {
-      
-      alterId_ = value;
-      bitField0_ |= 0x00000002;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Number of alternative IDs. Client and server must share the same number.
-     * </pre>
-     *
-     * <code>uint32 alter_id = 2;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearAlterId() {
-      bitField0_ = (bitField0_ & ~0x00000002);
-      alterId_ = 0;
-      onChanged();
-      return this;
-    }
-
     private com.xray.common.protocol.SecurityConfig securitySettings_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.xray.common.protocol.SecurityConfig, com.xray.common.protocol.SecurityConfig.Builder, com.xray.common.protocol.SecurityConfigOrBuilder> securitySettingsBuilder_;
@@ -754,7 +672,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the securitySettings field is set.
      */
     public boolean hasSecuritySettings() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -787,7 +705,7 @@ private static final long serialVersionUID = 0L;
       } else {
         securitySettingsBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -805,7 +723,7 @@ private static final long serialVersionUID = 0L;
       } else {
         securitySettingsBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -818,7 +736,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSecuritySettings(com.xray.common.protocol.SecurityConfig value) {
       if (securitySettingsBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0) &&
+        if (((bitField0_ & 0x00000002) != 0) &&
           securitySettings_ != null &&
           securitySettings_ != com.xray.common.protocol.SecurityConfig.getDefaultInstance()) {
           getSecuritySettingsBuilder().mergeFrom(value);
@@ -828,7 +746,7 @@ private static final long serialVersionUID = 0L;
       } else {
         securitySettingsBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -840,7 +758,7 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.common.protocol.SecurityConfig security_settings = 3;</code>
      */
     public Builder clearSecuritySettings() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000002);
       securitySettings_ = null;
       if (securitySettingsBuilder_ != null) {
         securitySettingsBuilder_.dispose();
@@ -857,7 +775,7 @@ private static final long serialVersionUID = 0L;
      * <code>.xray.common.protocol.SecurityConfig security_settings = 3;</code>
      */
     public com.xray.common.protocol.SecurityConfig.Builder getSecuritySettingsBuilder() {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       onChanged();
       return getSecuritySettingsFieldBuilder().getBuilder();
     }
@@ -952,7 +870,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       testsEnabled_ = value;
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -966,7 +884,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearTestsEnabled() {
       testsEnabled_ = getDefaultInstance().getTestsEnabled();
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -984,7 +902,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       testsEnabled_ = value;
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }

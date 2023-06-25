@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Config() {
+    nonIPQuery_ = "";
   }
 
   @java.lang.Override
@@ -95,6 +96,45 @@ private static final long serialVersionUID = 0L;
     return userLevel_;
   }
 
+  public static final int NON_IP_QUERY_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nonIPQuery_ = "";
+  /**
+   * <code>string non_IP_query = 3;</code>
+   * @return The nonIPQuery.
+   */
+  @java.lang.Override
+  public java.lang.String getNonIPQuery() {
+    java.lang.Object ref = nonIPQuery_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      nonIPQuery_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string non_IP_query = 3;</code>
+   * @return The bytes for nonIPQuery.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getNonIPQueryBytes() {
+    java.lang.Object ref = nonIPQuery_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      nonIPQuery_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -115,6 +155,9 @@ private static final long serialVersionUID = 0L;
     if (userLevel_ != 0) {
       output.writeUInt32(2, userLevel_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nonIPQuery_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, nonIPQuery_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -131,6 +174,9 @@ private static final long serialVersionUID = 0L;
     if (userLevel_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(2, userLevel_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nonIPQuery_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, nonIPQuery_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -154,6 +200,8 @@ private static final long serialVersionUID = 0L;
     }
     if (getUserLevel()
         != other.getUserLevel()) return false;
+    if (!getNonIPQuery()
+        .equals(other.getNonIPQuery())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -171,6 +219,8 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + USER_LEVEL_FIELD_NUMBER;
     hash = (53 * hash) + getUserLevel();
+    hash = (37 * hash) + NON_IP_QUERY_FIELD_NUMBER;
+    hash = (53 * hash) + getNonIPQuery().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -306,6 +356,7 @@ private static final long serialVersionUID = 0L;
         serverBuilder_ = null;
       }
       userLevel_ = 0;
+      nonIPQuery_ = "";
       return this;
     }
 
@@ -346,6 +397,9 @@ private static final long serialVersionUID = 0L;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.userLevel_ = userLevel_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.nonIPQuery_ = nonIPQuery_;
       }
     }
 
@@ -399,6 +453,11 @@ private static final long serialVersionUID = 0L;
       if (other.getUserLevel() != 0) {
         setUserLevel(other.getUserLevel());
       }
+      if (!other.getNonIPQuery().isEmpty()) {
+        nonIPQuery_ = other.nonIPQuery_;
+        bitField0_ |= 0x00000004;
+        onChanged();
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -437,6 +496,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000002;
               break;
             } // case 16
+            case 26: {
+              nonIPQuery_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -646,6 +710,78 @@ private static final long serialVersionUID = 0L;
     public Builder clearUserLevel() {
       bitField0_ = (bitField0_ & ~0x00000002);
       userLevel_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object nonIPQuery_ = "";
+    /**
+     * <code>string non_IP_query = 3;</code>
+     * @return The nonIPQuery.
+     */
+    public java.lang.String getNonIPQuery() {
+      java.lang.Object ref = nonIPQuery_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        nonIPQuery_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string non_IP_query = 3;</code>
+     * @return The bytes for nonIPQuery.
+     */
+    public com.google.protobuf.ByteString
+        getNonIPQueryBytes() {
+      java.lang.Object ref = nonIPQuery_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        nonIPQuery_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string non_IP_query = 3;</code>
+     * @param value The nonIPQuery to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNonIPQuery(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      nonIPQuery_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string non_IP_query = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearNonIPQuery() {
+      nonIPQuery_ = getDefaultInstance().getNonIPQuery();
+      bitField0_ = (bitField0_ & ~0x00000004);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string non_IP_query = 3;</code>
+     * @param value The bytes for nonIPQuery to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNonIPQueryBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      nonIPQuery_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }

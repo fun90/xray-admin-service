@@ -55,6 +55,11 @@ public final class ConfigOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_xray_app_router_RoutingRule_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_xray_app_router_RoutingRule_AttributesEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_xray_app_router_RoutingRule_AttributesEntry_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_xray_app_router_BalancingRule_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -89,7 +94,7 @@ public final class ConfigOuterClass {
       "uter.GeoIP\"H\n\007GeoSite\022\024\n\014country_code\030\001 " +
       "\001(\t\022\'\n\006domain\030\002 \003(\0132\027.xray.app.router.Do" +
       "main\"6\n\013GeoSiteList\022\'\n\005entry\030\001 \003(\0132\030.xra" +
-      "y.app.router.GeoSite\"\374\004\n\013RoutingRule\022\r\n\003" +
+      "y.app.router.GeoSite\"\335\005\n\013RoutingRule\022\r\n\003" +
       "tag\030\001 \001(\tH\000\022\027\n\rbalancing_tag\030\014 \001(\tH\000\022\'\n\006" +
       "domain\030\002 \003(\0132\027.xray.app.router.Domain\022\'\n" +
       "\004cidr\030\003 \003(\0132\025.xray.app.router.CIDRB\002\030\001\022%" +
@@ -104,18 +109,21 @@ public final class ConfigOuterClass {
       "ter.GeoIP\0223\n\020source_port_list\030\020 \001(\0132\031.xr" +
       "ay.common.net.PortList\022\022\n\nuser_email\030\007 \003" +
       "(\t\022\023\n\013inbound_tag\030\010 \003(\t\022\020\n\010protocol\030\t \003(" +
-      "\t\022\022\n\nattributes\030\017 \001(\t\022\026\n\016domain_matcher\030" +
-      "\021 \001(\tB\014\n\ntarget_tag\"I\n\rBalancingRule\022\013\n\003" +
-      "tag\030\001 \001(\t\022\031\n\021outbound_selector\030\002 \003(\t\022\020\n\010" +
-      "strategy\030\003 \001(\t\"\366\001\n\006Config\022?\n\017domain_stra" +
-      "tegy\030\001 \001(\0162&.xray.app.router.Config.Doma" +
-      "inStrategy\022*\n\004rule\030\002 \003(\0132\034.xray.app.rout" +
-      "er.RoutingRule\0226\n\016balancing_rule\030\003 \003(\0132\036" +
-      ".xray.app.router.BalancingRule\"G\n\016Domain" +
-      "Strategy\022\010\n\004AsIs\020\000\022\t\n\005UseIp\020\001\022\020\n\014IpIfNon" +
-      "Match\020\002\022\016\n\nIpOnDemand\020\003BO\n\023com.xray.app." +
-      "routerP\001Z$github.com/xtls/xray-core/app/" +
-      "router\252\002\017Xray.App.Routerb\006proto3"
+      "\t\022@\n\nattributes\030\017 \003(\0132,.xray.app.router." +
+      "RoutingRule.AttributesEntry\022\026\n\016domain_ma" +
+      "tcher\030\021 \001(\t\0321\n\017AttributesEntry\022\013\n\003key\030\001 " +
+      "\001(\t\022\r\n\005value\030\002 \001(\t:\0028\001B\014\n\ntarget_tag\"I\n\r" +
+      "BalancingRule\022\013\n\003tag\030\001 \001(\t\022\031\n\021outbound_s" +
+      "elector\030\002 \003(\t\022\020\n\010strategy\030\003 \001(\t\"\366\001\n\006Conf" +
+      "ig\022?\n\017domain_strategy\030\001 \001(\0162&.xray.app.r" +
+      "outer.Config.DomainStrategy\022*\n\004rule\030\002 \003(" +
+      "\0132\034.xray.app.router.RoutingRule\0226\n\016balan" +
+      "cing_rule\030\003 \003(\0132\036.xray.app.router.Balanc" +
+      "ingRule\"G\n\016DomainStrategy\022\010\n\004AsIs\020\000\022\t\n\005U" +
+      "seIp\020\001\022\020\n\014IpIfNonMatch\020\002\022\016\n\nIpOnDemand\020\003" +
+      "BO\n\023com.xray.app.routerP\001Z$github.com/xt" +
+      "ls/xray-core/app/router\252\002\017Xray.App.Route" +
+      "rb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -171,6 +179,12 @@ public final class ConfigOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xray_app_router_RoutingRule_descriptor,
         new java.lang.String[] { "Tag", "BalancingTag", "Domain", "Cidr", "Geoip", "PortRange", "PortList", "NetworkList", "Networks", "SourceCidr", "SourceGeoip", "SourcePortList", "UserEmail", "InboundTag", "Protocol", "Attributes", "DomainMatcher", "TargetTag", });
+    internal_static_xray_app_router_RoutingRule_AttributesEntry_descriptor =
+      internal_static_xray_app_router_RoutingRule_descriptor.getNestedTypes().get(0);
+    internal_static_xray_app_router_RoutingRule_AttributesEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_xray_app_router_RoutingRule_AttributesEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_xray_app_router_BalancingRule_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_xray_app_router_BalancingRule_fieldAccessorTable = new

@@ -31,16 +31,6 @@ public interface AccountOrBuilder extends
 
   /**
    * <pre>
-   * Number of alternative IDs. Client and server must share the same number.
-   * </pre>
-   *
-   * <code>uint32 alter_id = 2;</code>
-   * @return The alterId.
-   */
-  int getAlterId();
-
-  /**
-   * <pre>
    * Security settings. Only applies to client side.
    * </pre>
    *

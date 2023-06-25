@@ -42,4 +42,16 @@ public interface ConfigOrBuilder extends
    * @return The userLevel.
    */
   int getUserLevel();
+
+  /**
+   * <code>string non_IP_query = 3;</code>
+   * @return The nonIPQuery.
+   */
+  java.lang.String getNonIPQuery();
+  /**
+   * <code>string non_IP_query = 3;</code>
+   * @return The bytes for nonIPQuery.
+   */
+  com.google.protobuf.ByteString
+      getNonIPQueryBytes();
 }

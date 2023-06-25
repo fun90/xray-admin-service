@@ -21,7 +21,7 @@ public interface ConfigOrBuilder extends
   /**
    * <code>uint32 timeout = 2 [deprecated = true];</code>
    * @deprecated xray.proxy.freedom.Config.timeout is deprecated.
-   *     See proxy/freedom/config.proto;l=22
+   *     See proxy/freedom/config.proto;l=31
    * @return The timeout.
    */
   @java.lang.Deprecated int getTimeout();
@@ -46,4 +46,19 @@ public interface ConfigOrBuilder extends
    * @return The userLevel.
    */
   int getUserLevel();
+
+  /**
+   * <code>.xray.proxy.freedom.Fragment fragment = 5;</code>
+   * @return Whether the fragment field is set.
+   */
+  boolean hasFragment();
+  /**
+   * <code>.xray.proxy.freedom.Fragment fragment = 5;</code>
+   * @return The fragment.
+   */
+  com.xray.proxy.freedom.Fragment getFragment();
+  /**
+   * <code>.xray.proxy.freedom.Fragment fragment = 5;</code>
+   */
+  com.xray.proxy.freedom.FragmentOrBuilder getFragmentOrBuilder();
 }
