@@ -9,6 +9,8 @@ DOMAIN-SUFFIX,sentry.io
 DOMAIN-SUFFIX,bluestacks.com
 DOMAIN-SUFFIX,msecnd.net
 DOMAIN-SUFFIX,cnbeta.com
+DOMAIN-SUFFIX,tangrenjie.tv
+DOMAIN-SUFFIX,iyf1.tv
 # TikTok
 DOMAIN,p16-tiktokcdn-com.akamaized.net
 DOMAIN-SUFFIX,byteoversea.com
@@ -24,6 +26,4 @@ DOMAIN-SUFFIX,tiktok.com
 DOMAIN-SUFFIX,tiktokcdn.com
 DOMAIN-SUFFIX,tiktokv.com
 DOMAIN-KEYWORD,-tiktokcdn-com
-# ssh
-DEST-PORT,22
-DEST-PORT,27149
+DOMAIN-KEYWORD,-tiktokcdn-com
