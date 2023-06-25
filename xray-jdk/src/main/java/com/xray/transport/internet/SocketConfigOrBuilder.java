@@ -145,4 +145,22 @@ public interface SocketConfigOrBuilder extends
    * @return The tcpWindowClamp.
    */
   int getTcpWindowClamp();
+
+  /**
+   * <code>int32 tcp_user_timeout = 16;</code>
+   * @return The tcpUserTimeout.
+   */
+  int getTcpUserTimeout();
+
+  /**
+   * <code>int32 tcp_max_seg = 17;</code>
+   * @return The tcpMaxSeg.
+   */
+  int getTcpMaxSeg();
+
+  /**
+   * <code>bool tcp_no_delay = 18;</code>
+   * @return The tcpNoDelay.
+   */
+  boolean getTcpNoDelay();
 }

@@ -58,7 +58,7 @@ public final class Config {
       "2 .xray.common.serial.TypedMessage\022>\n\017so" +
       "cket_settings\030\006 \001(\0132%.xray.transport.int" +
       "ernet.SocketConfig\"7\n\013ProxyConfig\022\013\n\003tag" +
-      "\030\001 \001(\t\022\033\n\023transportLayerProxy\030\002 \001(\010\"\366\003\n\014" +
+      "\030\001 \001(\t\022\033\n\023transportLayerProxy\030\002 \001(\010\"\273\004\n\014" +
       "SocketConfig\022\014\n\004mark\030\001 \001(\005\022\013\n\003tfo\030\002 \001(\005\022" +
       "@\n\006tproxy\030\003 \001(\01620.xray.transport.interne" +
       "t.SocketConfig.TProxyMode\022%\n\035receive_ori" +
@@ -70,15 +70,17 @@ public final class Config {
       "ve_interval\030\n \001(\005\022\033\n\023tcp_keep_alive_idle" +
       "\030\013 \001(\005\022\026\n\016tcp_congestion\030\014 \001(\t\022\021\n\tinterf" +
       "ace\030\r \001(\t\022\016\n\006v6only\030\016 \001(\010\022\030\n\020tcp_window_" +
-      "clamp\030\017 \001(\005\"/\n\nTProxyMode\022\007\n\003Off\020\000\022\n\n\006TP" +
-      "roxy\020\001\022\014\n\010Redirect\020\002*Z\n\021TransportProtoco" +
-      "l\022\007\n\003TCP\020\000\022\007\n\003UDP\020\001\022\010\n\004MKCP\020\002\022\r\n\tWebSock" +
-      "et\020\003\022\010\n\004HTTP\020\004\022\020\n\014DomainSocket\020\005*A\n\016Doma" +
-      "inStrategy\022\t\n\005AS_IS\020\000\022\n\n\006USE_IP\020\001\022\013\n\007USE" +
-      "_IP4\020\002\022\013\n\007USE_IP6\020\003Bg\n\033com.xray.transpor" +
-      "t.internetP\001Z,github.com/xtls/xray-core/" +
-      "transport/internet\252\002\027Xray.Transport.Inte" +
-      "rnetb\006proto3"
+      "clamp\030\017 \001(\005\022\030\n\020tcp_user_timeout\030\020 \001(\005\022\023\n" +
+      "\013tcp_max_seg\030\021 \001(\005\022\024\n\014tcp_no_delay\030\022 \001(\010" +
+      "\"/\n\nTProxyMode\022\007\n\003Off\020\000\022\n\n\006TProxy\020\001\022\014\n\010R" +
+      "edirect\020\002*Z\n\021TransportProtocol\022\007\n\003TCP\020\000\022" +
+      "\007\n\003UDP\020\001\022\010\n\004MKCP\020\002\022\r\n\tWebSocket\020\003\022\010\n\004HTT" +
+      "P\020\004\022\020\n\014DomainSocket\020\005*A\n\016DomainStrategy\022" +
+      "\t\n\005AS_IS\020\000\022\n\n\006USE_IP\020\001\022\013\n\007USE_IP4\020\002\022\013\n\007U" +
+      "SE_IP6\020\003Bg\n\033com.xray.transport.internetP" +
+      "\001Z,github.com/xtls/xray-core/transport/i" +
+      "nternet\252\002\027Xray.Transport.Internetb\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -108,7 +110,7 @@ public final class Config {
     internal_static_xray_transport_internet_SocketConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xray_transport_internet_SocketConfig_descriptor,
-        new java.lang.String[] { "Mark", "Tfo", "Tproxy", "ReceiveOriginalDestAddress", "BindAddress", "BindPort", "AcceptProxyProtocol", "DomainStrategy", "DialerProxy", "TcpKeepAliveInterval", "TcpKeepAliveIdle", "TcpCongestion", "Interface", "V6Only", "TcpWindowClamp", });
+        new java.lang.String[] { "Mark", "Tfo", "Tproxy", "ReceiveOriginalDestAddress", "BindAddress", "BindPort", "AcceptProxyProtocol", "DomainStrategy", "DialerProxy", "TcpKeepAliveInterval", "TcpKeepAliveIdle", "TcpCongestion", "Interface", "V6Only", "TcpWindowClamp", "TcpUserTimeout", "TcpMaxSeg", "TcpNoDelay", });
     com.xray.common.serial.TypedMessageOuterClass.getDescriptor();
   }
 

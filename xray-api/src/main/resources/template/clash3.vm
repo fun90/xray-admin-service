@@ -9,16 +9,25 @@ external-controller: 0.0.0.0:9090
 
 proxies:
 #foreach($server in $servers)
-  #if($server.protocol == "vmess")
-  - {name: $server.serverName, server: $server.clientDomain, port: $server.clientPort, type: vmess, uuid: $account.uuid, alterId: $account.maxConnection, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: $server.wsPath, headers: {Host: $server.clientDomain}}, udp: false}
-  #elseif($server.protocol == "trojan")
-  - {name: $server.serverName, server: $server.clientDomain, port: $server.clientPort, type: trojan, password: $account.uuid, sni: $server.clientDomain, skip-cert-verify: false, udp: false}
-  #elseif($server.protocol == "vless")
-  - {name: $server.serverName, server: $server.clientDomain, port: $server.clientPort, type: vless, uuid: $account.uuid, tls: true, skip-cert-verify: false, network: tcp, udp: false}
+  #if($server.protocol == "vless")
+  - name: $server.serverName
+    type: vless
+    server: $server.clientDomain
+    port: $server.clientPort
+    uuid: $account.uuid
+    network: tcp
+    tls: true
+    udp: true
+    flow: xtls-rprx-vision
+    servername: www.amazon.com
+    reality-opts:
+      public-key: dTW1Gg2HvMsmio2jYt5vDyEITDYQxp-8LUsAkRVnpDE
+      short-id: e3179a5e9f77c76c
+    client-fingerprint: chrome
   #end
 #end
 
-#set($inclueItems = ["vmess", "trojan", "vless"])
+#set($inclueItems = ["vless"])
 #set($supportSevers = [])
 #foreach($item in $servers)
   #if($inclueItems.contains($item.protocol))

@@ -7,13 +7,13 @@
         #else
             #set($nodesStr = $nodesStr  + $lineSeparator + $node)
         #end
-    #elseif($server.protocol == "vless")
-        #set($node = "$server.serverName = VLESS,$server.clientDomain,$server.clientPort,auto:$account.uuid,transport=tcp,over-tls=true,$server.clientDomain")
-        #if($nodesStr == "")
-            #set($nodesStr = $node)
-        #else
-            #set($nodesStr = $nodesStr  + $lineSeparator + $node)
-        #end
+##    #elseif($server.protocol == "vless")
+##        #set($node = "$server.serverName = VLESS,$server.clientDomain,$server.clientPort,auto:$account.uuid,transport=tcp,over-tls=true,$server.clientDomain")
+##        #if($nodesStr == "")
+##            #set($nodesStr = $node)
+##        #else
+##            #set($nodesStr = $nodesStr  + $lineSeparator + $node)
+##        #end
     #elseif($server.protocol == "trojan")
         #set($node = "$server.serverName = trojan,$server.clientDomain,$server.clientPort,$account.uuid,transport=tcp,tls-name=$server.clientDomain,path=/")
         #if($nodesStr == "")

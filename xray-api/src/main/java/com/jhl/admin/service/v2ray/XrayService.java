@@ -73,7 +73,7 @@ public class XrayService {
 	private void addVMESSAccount(ProxyAccount proxyAccount, Server server) {
 		try {
 			XrayApiClient client = XrayApiClient.getInstance(server.getV2rayIp(), server.getV2rayManagerPort());
-			com.xray.proxy.vmess.Account account = com.xray.proxy.vmess.Account.newBuilder().setAlterId(proxyAccount.getAlterId()).setId(proxyAccount.getId())
+			com.xray.proxy.vmess.Account account = com.xray.proxy.vmess.Account.newBuilder().setId(proxyAccount.getId())
 					.setSecuritySettings(SecurityConfig.newBuilder().setType(SecurityType.AUTO).build()).build();
 
 			TypedMessage AccountTypedMsg = TypedMessage.newBuilder().
@@ -101,7 +101,7 @@ public class XrayService {
 		try {
 			XrayApiClient client = XrayApiClient.getInstance(server.getV2rayIp(), server.getV2rayManagerPort());
 			com.xray.proxy.vless.Account account = com.xray.proxy.vless.Account.newBuilder().setId(proxyAccount.getId())
-					.setEncryption("none").build();
+					.setFlow("xtls-rprx-vision").build();
 
 			TypedMessage AccountTypedMsg = TypedMessage.newBuilder().
 					setType(com.xray.proxy.vless.Account.getDescriptor().getFullName()

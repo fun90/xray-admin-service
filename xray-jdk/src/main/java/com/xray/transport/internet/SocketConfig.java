@@ -478,6 +478,39 @@ private static final long serialVersionUID = 0L;
     return tcpWindowClamp_;
   }
 
+  public static final int TCP_USER_TIMEOUT_FIELD_NUMBER = 16;
+  private int tcpUserTimeout_ = 0;
+  /**
+   * <code>int32 tcp_user_timeout = 16;</code>
+   * @return The tcpUserTimeout.
+   */
+  @java.lang.Override
+  public int getTcpUserTimeout() {
+    return tcpUserTimeout_;
+  }
+
+  public static final int TCP_MAX_SEG_FIELD_NUMBER = 17;
+  private int tcpMaxSeg_ = 0;
+  /**
+   * <code>int32 tcp_max_seg = 17;</code>
+   * @return The tcpMaxSeg.
+   */
+  @java.lang.Override
+  public int getTcpMaxSeg() {
+    return tcpMaxSeg_;
+  }
+
+  public static final int TCP_NO_DELAY_FIELD_NUMBER = 18;
+  private boolean tcpNoDelay_ = false;
+  /**
+   * <code>bool tcp_no_delay = 18;</code>
+   * @return The tcpNoDelay.
+   */
+  @java.lang.Override
+  public boolean getTcpNoDelay() {
+    return tcpNoDelay_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -536,6 +569,15 @@ private static final long serialVersionUID = 0L;
     }
     if (tcpWindowClamp_ != 0) {
       output.writeInt32(15, tcpWindowClamp_);
+    }
+    if (tcpUserTimeout_ != 0) {
+      output.writeInt32(16, tcpUserTimeout_);
+    }
+    if (tcpMaxSeg_ != 0) {
+      output.writeInt32(17, tcpMaxSeg_);
+    }
+    if (tcpNoDelay_ != false) {
+      output.writeBool(18, tcpNoDelay_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -603,6 +645,18 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(15, tcpWindowClamp_);
     }
+    if (tcpUserTimeout_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(16, tcpUserTimeout_);
+    }
+    if (tcpMaxSeg_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(17, tcpMaxSeg_);
+    }
+    if (tcpNoDelay_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(18, tcpNoDelay_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -646,6 +700,12 @@ private static final long serialVersionUID = 0L;
         != other.getV6Only()) return false;
     if (getTcpWindowClamp()
         != other.getTcpWindowClamp()) return false;
+    if (getTcpUserTimeout()
+        != other.getTcpUserTimeout()) return false;
+    if (getTcpMaxSeg()
+        != other.getTcpMaxSeg()) return false;
+    if (getTcpNoDelay()
+        != other.getTcpNoDelay()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -690,6 +750,13 @@ private static final long serialVersionUID = 0L;
         getV6Only());
     hash = (37 * hash) + TCP_WINDOW_CLAMP_FIELD_NUMBER;
     hash = (53 * hash) + getTcpWindowClamp();
+    hash = (37 * hash) + TCP_USER_TIMEOUT_FIELD_NUMBER;
+    hash = (53 * hash) + getTcpUserTimeout();
+    hash = (37 * hash) + TCP_MAX_SEG_FIELD_NUMBER;
+    hash = (53 * hash) + getTcpMaxSeg();
+    hash = (37 * hash) + TCP_NO_DELAY_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getTcpNoDelay());
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -838,6 +905,9 @@ private static final long serialVersionUID = 0L;
       interface_ = "";
       v6Only_ = false;
       tcpWindowClamp_ = 0;
+      tcpUserTimeout_ = 0;
+      tcpMaxSeg_ = 0;
+      tcpNoDelay_ = false;
       return this;
     }
 
@@ -915,6 +985,15 @@ private static final long serialVersionUID = 0L;
       }
       if (((from_bitField0_ & 0x00004000) != 0)) {
         result.tcpWindowClamp_ = tcpWindowClamp_;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.tcpUserTimeout_ = tcpUserTimeout_;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.tcpMaxSeg_ = tcpMaxSeg_;
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.tcpNoDelay_ = tcpNoDelay_;
       }
     }
 
@@ -1012,6 +1091,15 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getTcpWindowClamp() != 0) {
         setTcpWindowClamp(other.getTcpWindowClamp());
+      }
+      if (other.getTcpUserTimeout() != 0) {
+        setTcpUserTimeout(other.getTcpUserTimeout());
+      }
+      if (other.getTcpMaxSeg() != 0) {
+        setTcpMaxSeg(other.getTcpMaxSeg());
+      }
+      if (other.getTcpNoDelay() != false) {
+        setTcpNoDelay(other.getTcpNoDelay());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -1114,6 +1202,21 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00004000;
               break;
             } // case 120
+            case 128: {
+              tcpUserTimeout_ = input.readInt32();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 128
+            case 136: {
+              tcpMaxSeg_ = input.readInt32();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 136
+            case 144: {
+              tcpNoDelay_ = input.readBool();
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 144
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1828,6 +1931,102 @@ private static final long serialVersionUID = 0L;
     public Builder clearTcpWindowClamp() {
       bitField0_ = (bitField0_ & ~0x00004000);
       tcpWindowClamp_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int tcpUserTimeout_ ;
+    /**
+     * <code>int32 tcp_user_timeout = 16;</code>
+     * @return The tcpUserTimeout.
+     */
+    @java.lang.Override
+    public int getTcpUserTimeout() {
+      return tcpUserTimeout_;
+    }
+    /**
+     * <code>int32 tcp_user_timeout = 16;</code>
+     * @param value The tcpUserTimeout to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTcpUserTimeout(int value) {
+      
+      tcpUserTimeout_ = value;
+      bitField0_ |= 0x00008000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 tcp_user_timeout = 16;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTcpUserTimeout() {
+      bitField0_ = (bitField0_ & ~0x00008000);
+      tcpUserTimeout_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int tcpMaxSeg_ ;
+    /**
+     * <code>int32 tcp_max_seg = 17;</code>
+     * @return The tcpMaxSeg.
+     */
+    @java.lang.Override
+    public int getTcpMaxSeg() {
+      return tcpMaxSeg_;
+    }
+    /**
+     * <code>int32 tcp_max_seg = 17;</code>
+     * @param value The tcpMaxSeg to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTcpMaxSeg(int value) {
+      
+      tcpMaxSeg_ = value;
+      bitField0_ |= 0x00010000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 tcp_max_seg = 17;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTcpMaxSeg() {
+      bitField0_ = (bitField0_ & ~0x00010000);
+      tcpMaxSeg_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private boolean tcpNoDelay_ ;
+    /**
+     * <code>bool tcp_no_delay = 18;</code>
+     * @return The tcpNoDelay.
+     */
+    @java.lang.Override
+    public boolean getTcpNoDelay() {
+      return tcpNoDelay_;
+    }
+    /**
+     * <code>bool tcp_no_delay = 18;</code>
+     * @param value The tcpNoDelay to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTcpNoDelay(boolean value) {
+      
+      tcpNoDelay_ = value;
+      bitField0_ |= 0x00020000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool tcp_no_delay = 18;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTcpNoDelay() {
+      bitField0_ = (bitField0_ & ~0x00020000);
+      tcpNoDelay_ = false;
       onChanged();
       return this;
     }
