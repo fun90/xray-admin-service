@@ -3,28 +3,28 @@
     #set($remark = $URLEncoder.encode($server.serverName, "UTF-8"))
     #if($server.protocol == "vmess")
 ##        #set($node = "auto:$account.uuid@$server.clientDomain:$server.clientPort?remarks=$remark&path=$server.wsPath&obfs=websocket&tls=1&alterId=$account.maxConnection")
-        #set($node = {"host":"$server.clientDomain","add":"$server.clientDomain","aid":"$account.maxConnection","id":"$account.uuid","net":"ws","path":"$server.wsPath","port":"$server.clientPort","ps":"$server.serverName","tls":"tls","type":"none","v":"2"})
-        #set($encodeNode = "vmess://" + $Base64.encodeBase64String($JSON.toJSONString($node).getBytes("UTF-8")))
-        #if($nodesStr == "")
-            #set($nodesStr = $encodeNode)
-        #else
-            #set($nodesStr = $nodesStr  + $lineSeparator + $encodeNode)
-        #end
+##        #set($node = {"host":"$server.clientDomain","add":"$server.clientDomain","aid":"$account.maxConnection","id":"$account.uuid","net":"ws","path":"$server.wsPath","port":"$server.clientPort","ps":"$server.serverName","tls":"tls","type":"none","v":"2"})
+##        #set($encodeNode = "vmess://" + $Base64.encodeBase64String($JSON.toJSONString($node).getBytes("UTF-8")))
+##        #if($nodesStr == "")
+##            #set($nodesStr = $encodeNode)
+##        #else
+##            #set($nodesStr = $nodesStr  + $lineSeparator + $encodeNode)
+##        #end
     #elseif($server.protocol == "vless")
         #set($node = "auto:$account.uuid@$server.clientDomain:$server.clientPort")
-        #set($encodeNode = "vless://" + $Base64.encodeBase64String($node.getBytes("UTF-8")) + "?remarks=$remark&obfs=none&tls=1&tfo=1&over-tls=1")
+        #set($encodeNode = "vless://" + $Base64.encodeBase64String($node.getBytes("UTF-8")) + "?remarks=$remark&obfs=none&tls=1&peer=www.amazon.com&xtls=2&pbk=dTW1Gg2HvMsmio2jYt5vDyEITDYQxp-8LUsAkRVnpDE&sid=e3179a5e9f77c76c")
         #if($nodesStr == "")
             #set($nodesStr = $encodeNode)
         #else
             #set($nodesStr = $nodesStr  + $lineSeparator + $encodeNode)
         #end
     #elseif($server.protocol == "trojan")
-        #set($node = "trojan://$account.uuid@$server.clientDomain:$server.clientPort#$remark")
-        #if($nodesStr == "")
-            #set($nodesStr = $node)
-        #else
-            #set($nodesStr = $nodesStr  + $lineSeparator     + $node)
-        #end
+##        #set($node = "trojan://$account.uuid@$server.clientDomain:$server.clientPort#$remark")
+##        #if($nodesStr == "")
+##            #set($nodesStr = $node)
+##        #else
+##            #set($nodesStr = $nodesStr  + $lineSeparator     + $node)
+##        #end
     #else
     #end
 #end
