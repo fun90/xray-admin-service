@@ -13,6 +13,6 @@ public class SubscriptionUrlUtil {
         if (serverConfig != null && StringUtils.isNoneBlank(serverConfig.getValue()) && !serverConfig.getValue().equals("0")) {
             return serverConfig.getValue();
         }
-        return request.getScheme() + "://" + request.getServerName() + "/api";
+        return "https://" + request.getServerName() + "/api";
     }
 }
