@@ -11,4 +11,5 @@ public class OnlineVO implements Serializable {
     private String tag;
     private String email;
     private String ip;
+    private String machineName;
 }

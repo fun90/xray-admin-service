@@ -269,13 +269,14 @@ public class AccountController {
 	}
 
 	@ResponseBody
-	@PostMapping("/account/online/access")
-	public Result access(@RequestBody OnlineVO onlineVO, @RequestHeader("Token") String token) {
+	@PostMapping("/account/online/access/{machineName}")
+	public Result access(@RequestBody OnlineVO onlineVO,  @PathVariable String machineName, @RequestHeader("Token") String token) {
 
 		if (!proxyConstant.getAuthPasswordMD5().equals(token)) {
 			return Result.builder().code(401).message("非法请求").build();
 		}
 
+		onlineVO.setMachineName(machineName);
 		onlineCache.add(onlineVO);
 		return Result.doSuccess();
 	}
