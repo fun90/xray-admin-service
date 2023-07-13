@@ -106,6 +106,14 @@ $serverNames
       - ♻️ 自动选择
 $serverNames
 
+  - name: 👙 Tiktok
+    type: select
+    proxies:
+      - 🔰 代理
+      - 🎯 直连
+      - ♻️ 自动选择
+$serverNames
+
   - name: 🎯 直连
     type: select
     proxies:
