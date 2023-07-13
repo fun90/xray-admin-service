@@ -12,6 +12,7 @@
   {"name":"iCloud", "group":"☁️ iCloud"},
   {"name":"Apple", "group":"🍎 苹果"},
   {"name":"Whatsapp", "group":"🐚 Whatsapp"},
+  {"name":"Tiktok", "group":"👙 Tiktok"},
   {"name":"Private", "group":"🎯 直连"},
   {"name":"Reject", "group":"🚫 拦截"},
   {"name":"TelegramCidr", "group":"🔰 代理"}

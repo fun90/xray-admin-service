@@ -39,6 +39,7 @@ static=🐶 谷歌, 🔰 代理, ♻️ 自动选择, $serverNames, img-url=http
 static=👔️ 微软, 🔰 代理, 🎯 直连, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Microsoft.png
 static=🍎 苹果, 🎯 直连, 🔰 代理, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Apple.png
 static=🐚 Whatsapp, 🎯 直连, 🔰 代理, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/WeChat.png
+static=👙 Tiktok, 🎯 直连, 🔰 代理, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/WeChat.png
 static=☁️ iCloud, 🎯 直连, 🔰 代理, ♻️ 自动选择, $serverNames, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/iCloud.png
 static=🎯 直连, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Direct.png
 static=🚫 拦截, REJECT, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Advertising.png

@@ -23,6 +23,7 @@ $rulesParser.content("Private.list", "DIRECT")
 $rulesParser.content("Reject.list", "REJECT")
 $rulesParser.content("TelegramCidr.list", "PROXY")
 $rulesParser.content("Whatsapp.list", "PROXY")
+$rulesParser.content("TikTok.list", "PROXY")
 #if($whitelist)
 $rulesParser.content("Direct.list", "PROXY")
 FINAL,PROXY

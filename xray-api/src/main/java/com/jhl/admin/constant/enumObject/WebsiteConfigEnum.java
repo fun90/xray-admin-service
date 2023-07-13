@@ -68,6 +68,9 @@ public enum WebsiteConfigEnum {
 			"    \"Whatsapp\": [\n" +
 			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Whatsapp/Whatsapp_Resolve.list\"\n" +
 			"    ],\n" +
+			"    \"TikTok\": [\n" +
+			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/TikTok/TikTok.list\"\n" +
+			"    ],\n" +
 			"    \"YouTube\": [\n" +
 			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/YouTube/YouTube_Resolve.list\"\n" +
 			"    ]\n" +
