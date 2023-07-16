@@ -52,7 +52,7 @@ $server.serverName = trojan, $server.clientDomain, $server.clientPort, password=
 ☁️ iCloud = select,🎯 直连,🔰 代理,♻️ 自动选择,$serverNames
 🍎 苹果 = select,🎯 直连,🔰 代理,♻️ 自动选择,$serverNames
 🐚 Whatsapp = select,🔰 代理,🎯 直连,♻️ 自动选择,$serverNames
-👙 Tiktok = select,🔰 代理,🎯 直连,♻️ 自动选择,$serverNames
+👙 TikTok = select,🔰 代理,🎯 直连,♻️ 自动选择,$serverNames
 🚫 拦截 = select,REJECT,DIRECT
 #if($whitelist)
 ⛳️ 其他 = select,🔰 代理,🎯 直连,♻️ 自动选择,$serverNames

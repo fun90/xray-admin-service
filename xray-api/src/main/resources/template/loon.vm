@@ -22,7 +22,7 @@ RemoteProxies = $proxiesUrl
 👔️ 微软 = select,🔰 代理,🎯 直连,♻️ 自动选择,RemoteProxies
 🍎 苹果 = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
 🐚 Whatsapp = select,🔰 代理,🎯 直连,♻️ 自动选择,RemoteProxies
-👙 Tiktok = select,🔰 代理,🎯 直连,♻️ 自动选择,RemoteProxies
+👙 TikTok = select,🔰 代理,🎯 直连,♻️ 自动选择,RemoteProxies
 ☁️ iCloud = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
 🎯 直连 = select,DIRECT
 🚫 拦截 = select,REJECT,DIRECT
@@ -45,7 +45,7 @@ $rootUrl/subscribe/rules/loon/Microsoft.list, tag=👔️ 微软, policy=👔️
 $rootUrl/subscribe/rules/loon/iCloud.list, tag=☁️ iCloud, policy=☁️ iCloud, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/loon/Apple.list, tag=🍎 苹果, policy=🍎 苹果, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/loon/Whatsapp.list, tag=🐚 Whatsapp, policy=🐚 Whatsapp, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/loon/TikTok.list, tag=👙 Tiktok, policy=👙 Tiktok, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/TikTok.list, tag=👙 TikTok, policy=👙 TikTok, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/loon/Private.list, tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
 ##$rootUrl/subscribe/rules/loon/AdvertisingLite.list, tag=🚫 拦截, policy=🚫 拦截, update-interval=86400, enabled=true
 ##$rootUrl/subscribe/rules/loon/AdvertisingLiteDomain.list, tag=🚫 拦截, policy=🚫 拦截, update-interval=86400, enabled=true

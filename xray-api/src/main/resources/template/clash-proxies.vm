@@ -12,7 +12,7 @@
   {"name":"iCloud", "group":"☁️ iCloud"},
   {"name":"Apple", "group":"🍎 苹果"},
   {"name":"Whatsapp", "group":"🐚 Whatsapp"},
-  {"name":"Tiktok", "group":"👙 Tiktok"},
+  {"name":"TikTok", "group":"👙 TikTok"},
   {"name":"Private", "group":"🎯 直连"},
   {"name":"Reject", "group":"🚫 拦截"},
   {"name":"TelegramCidr", "group":"🔰 代理"}
@@ -106,7 +106,7 @@ $serverNames
       - ♻️ 自动选择
 $serverNames
 
-  - name: 👙 Tiktok
+  - name: 👙 TikTok
     type: select
     proxies:
       - 🔰 代理
