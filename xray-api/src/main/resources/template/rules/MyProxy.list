@@ -31,3 +31,4 @@ DOMAIN-KEYWORD,-tiktokcdn-com
 # ssh
 DEST-PORT,22
 DEST-PORT,27149
+DOMAIN-SUFFIX,cloudflare.com
