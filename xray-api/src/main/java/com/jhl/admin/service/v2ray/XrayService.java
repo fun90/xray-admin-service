@@ -37,10 +37,10 @@ public class XrayService {
 							.setValue(RemoveUserOperation.newBuilder().setEmail(proxyAccount.getEmail()).build().toByteString()).build();
 					AlterInboundRequest req = AlterInboundRequest.newBuilder().setTag(server.getInboundTag()).setOperation(rmOp).build();
 					client.getHandlerServiceBlockingStub().alterInbound(req);
-					log.info("rmProxyAccount success:{}, protocol:{}", proxyAccount.getEmail(), server.getProtocol());
+					log.info("rmProxyAccount success:{}, protocol:{}, {}", proxyAccount.getEmail(), server.getProtocol(), server.getServerName());
 			} catch (Exception e) {
 				if (StringUtils.contains(e.getLocalizedMessage(), "not found")) {
-					log.info("rmProxyAccount already removed:{}, protocol:{}", proxyAccount.getEmail(), server.getProtocol());
+					log.info("rmProxyAccount already removed:{}, protocol:{}, {}", proxyAccount.getEmail(), server.getProtocol(), server.getServerName());
 					return;
 				}
 				logError("rmProxyAccount error, protocol: " + server.getProtocol() + ", account: " + proxyAccount.getEmail(), server.getV2rayIp(), server.getV2rayManagerPort(), e);
@@ -87,10 +87,11 @@ public class XrayService {
 					.setValue(addUserOperation.toByteString()).build();
 
 			client.getHandlerServiceBlockingStub().alterInbound(AlterInboundRequest.newBuilder().setTag(server.getInboundTag()).setOperation(typedMessage).build());
-			log.info("addVMESSAccount success:{}", proxyAccount.getEmail());
+
+			log.info("addVMESSAccount success:{}, {}", proxyAccount.getEmail(), server.getServerName());
 		} catch (Exception e) {
 			if (StringUtils.contains(e.getLocalizedMessage(), "already exists")) {
-				log.info("addVMESSAccount already exists:{}", proxyAccount.getEmail());
+				log.info("addVMESSAccount already exists:{}, {}", proxyAccount.getEmail(), server.getServerName());
 				return;
 			}
 			logError("addVMESSAccount error, protocol: " + server.getProtocol() + ", account: " + proxyAccount.getEmail(), server.getV2rayIp(), server.getV2rayManagerPort(), e);
@@ -114,10 +115,10 @@ public class XrayService {
 					.setValue(addUserOperation.toByteString()).build();
 
 			client.getHandlerServiceBlockingStub().alterInbound(AlterInboundRequest.newBuilder().setTag(server.getInboundTag()).setOperation(typedMessage).build());
-			log.info("addVLESSAccount success:{}", proxyAccount.getEmail());
+			log.info("addVLESSAccount success:{}, {}", proxyAccount.getEmail(), server.getServerName());
 		} catch (Exception e) {
 			if (StringUtils.contains(e.getLocalizedMessage(), "already exists")) {
-				log.info("addVLESSAccount already exists:{}", proxyAccount.getEmail());
+				log.info("addVLESSAccount already exists:{}, {}", proxyAccount.getEmail(), server.getServerName());
 				return;
 			}
 			logError("addProxyAccount error, protocol: " + server.getProtocol() + ", account: " + proxyAccount.getEmail(), server.getV2rayIp(), server.getV2rayManagerPort(), e);
