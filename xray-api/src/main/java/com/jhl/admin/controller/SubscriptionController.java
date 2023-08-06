@@ -82,6 +82,20 @@ public class SubscriptionController {
 		StringBuilder tokenSrc = stringBuilder.append(code).append(vo.getTimestamp()).append(proxyConstant.getAuthPassword());
 		if (!DigestUtils.md5Hex(tokenSrc.toString()).equals(vo.getToken())) throw new RuntimeException("认证失败");
 
+		return getConfigContext(code, vo);
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/subscribe3/{code}/duoyu", produces="text/plain;charset=UTF-8")
+	public String subscribe3(@PathVariable String code) {
+		SubscribeVO vo = new SubscribeVO();
+		vo.setTarget("clash3");
+		vo.setType(1);
+		vo.setWhitelist(true);
+		return getConfigContext(code, vo);
+	}
+
+	private String getConfigContext(String code, SubscribeVO vo) {
 		Account account = subscriptionService.findAccountByCode(code);
 		List<Server> servers = serverService.queryByAccount(account);
 
@@ -95,9 +109,9 @@ public class SubscriptionController {
 		BeanMap beanMap = BeanMap.create(vo);
 		params.putAll(beanMap);
 		if (vo.getType() == null || vo.getType() == 0) {
-			return templateMerge("nodes/" + target, params);
+			return templateMerge("nodes/" + vo.getTarget(), params);
 		} else {
-			IRulesParser rulesParser = rulesParserFactory.get(target);
+			IRulesParser rulesParser = rulesParserFactory.get(vo.getTarget());
 			if (rulesParser != null) {
 				params.put("rulesParser", rulesParser);
 			}
@@ -109,7 +123,7 @@ public class SubscriptionController {
 			String subscriptionUrl = account.getSubscriptionUrl();
 
 			UriComponents configUri = ServletUriComponentsBuilder.fromUriString(subscriptionUrl)
-					.replaceQueryParam("target", target)
+					.replaceQueryParam("target", vo.getTarget())
 					.replaceQueryParam("type", 1)
 					.build();
 			// 配置订阅地址
@@ -118,13 +132,13 @@ public class SubscriptionController {
 
 			// 代理节点订阅地址
 			UriComponents proxiesUri = ServletUriComponentsBuilder.fromUriString(subscriptionUrl)
-					.replaceQueryParam("target", target)
+					.replaceQueryParam("target", vo.getTarget())
 					.replaceQueryParam("type", 0)
 					.build();
 			String proxiesUrl = rootUrl + proxiesUri.toUriString();
 			params.put("proxiesUrl", proxiesUrl);
 
-			return templateMerge(target, params);
+			return templateMerge(vo.getTarget(), params);
 		}
 	}
 
