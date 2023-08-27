@@ -3,6 +3,7 @@ package com.jhl.admin.cron;
 import com.jhl.admin.constant.EmailConstant;
 import com.jhl.admin.constant.KVConstant;
 import com.jhl.admin.constant.enumObject.EmailEventEnum;
+import com.jhl.admin.constant.enumObject.WebsiteConfigEnum;
 import com.jhl.admin.model.*;
 import com.jhl.admin.repository.AccountRepository;
 import com.jhl.admin.repository.StatRepository;
@@ -50,6 +51,8 @@ public class AppCron {
 	XrayService xrayService;
 	@Autowired
 	ServerService serverService;
+	@Autowired
+	private ServerConfigService serverConfigService;
 	SimpleDateFormat sdf = new SimpleDateFormat(KVConstant.YYYYMMddHHmmss);
 	private long M = 1024 * 1024L;
 	private long G = 1024 * M;
@@ -57,6 +60,11 @@ public class AppCron {
 
 	@Scheduled(cron = "0 0/10 * * * ?")
 	public void stat() {
+		ServerConfig serverConfig = serverConfigService.getServerConfig(WebsiteConfigEnum.TASK_ENABLE.getKey());
+		if (!"true".equals(serverConfig.getValue())) {
+			log.info("======= 统计流量任务已被禁用，请查看系统配置：{} =======", WebsiteConfigEnum.TASK_ENABLE.getKey());
+			return;
+		}
 		Date today = new Date();
 		log.info("======= 统计流量任务开始 =======");
 		List<Account> accounts = accountRepository.findAll(Example.of(Account.builder().status(1).build()));
@@ -120,6 +128,12 @@ public class AppCron {
 	@Scheduled(cron = "0 0 8 * * ?")
 	//@Scheduled(fixedDelay = 60*1000)
 	public void checkInvalidAccount() {
+		ServerConfig serverConfig = serverConfigService.getServerConfig(WebsiteConfigEnum.TASK_ENABLE.getKey());
+		if (!"true".equals(serverConfig.getValue())) {
+			log.info("======= 账号过期检查任务已被禁用，请查看系统配置：{} =======", WebsiteConfigEnum.TASK_ENABLE.getKey());
+			return;
+		}
+
 		log.info("账号过期提醒任务。。开始，{}", new Date());
 		Date now = new Date();
 		List<Account> accountList = accountRepository.findAll(Example.of(Account.builder().status(1).build()));
