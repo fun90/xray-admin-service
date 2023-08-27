@@ -32,3 +32,4 @@ DOMAIN-KEYWORD,-tiktokcdn-com
 DEST-PORT,22
 DEST-PORT,27149
 DOMAIN-SUFFIX,cloudflare.com
+DOMAIN-SUFFIX,githubassets.com
