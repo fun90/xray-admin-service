@@ -32,25 +32,25 @@ public interface ServerConfigOrBuilder extends
       int index);
 
   /**
-   * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+   * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
    */
   java.util.List<com.xray.proxy.trojan.Fallback> 
       getFallbacksList();
   /**
-   * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+   * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
    */
   com.xray.proxy.trojan.Fallback getFallbacks(int index);
   /**
-   * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+   * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
    */
   int getFallbacksCount();
   /**
-   * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+   * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
    */
   java.util.List<? extends com.xray.proxy.trojan.FallbackOrBuilder> 
       getFallbacksOrBuilderList();
   /**
-   * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+   * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
    */
   com.xray.proxy.trojan.FallbackOrBuilder getFallbacksOrBuilder(
       int index);

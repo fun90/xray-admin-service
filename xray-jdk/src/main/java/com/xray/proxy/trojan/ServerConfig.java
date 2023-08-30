@@ -86,18 +86,18 @@ private static final long serialVersionUID = 0L;
     return users_.get(index);
   }
 
-  public static final int FALLBACKS_FIELD_NUMBER = 3;
+  public static final int FALLBACKS_FIELD_NUMBER = 2;
   @SuppressWarnings("serial")
   private java.util.List<com.xray.proxy.trojan.Fallback> fallbacks_;
   /**
-   * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+   * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
    */
   @java.lang.Override
   public java.util.List<com.xray.proxy.trojan.Fallback> getFallbacksList() {
     return fallbacks_;
   }
   /**
-   * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+   * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
    */
   @java.lang.Override
   public java.util.List<? extends com.xray.proxy.trojan.FallbackOrBuilder> 
@@ -105,21 +105,21 @@ private static final long serialVersionUID = 0L;
     return fallbacks_;
   }
   /**
-   * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+   * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
    */
   @java.lang.Override
   public int getFallbacksCount() {
     return fallbacks_.size();
   }
   /**
-   * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+   * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
    */
   @java.lang.Override
   public com.xray.proxy.trojan.Fallback getFallbacks(int index) {
     return fallbacks_.get(index);
   }
   /**
-   * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+   * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
    */
   @java.lang.Override
   public com.xray.proxy.trojan.FallbackOrBuilder getFallbacksOrBuilder(
@@ -145,7 +145,7 @@ private static final long serialVersionUID = 0L;
       output.writeMessage(1, users_.get(i));
     }
     for (int i = 0; i < fallbacks_.size(); i++) {
-      output.writeMessage(3, fallbacks_.get(i));
+      output.writeMessage(2, fallbacks_.get(i));
     }
     getUnknownFields().writeTo(output);
   }
@@ -162,7 +162,7 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < fallbacks_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, fallbacks_.get(i));
+        .computeMessageSize(2, fallbacks_.get(i));
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -537,7 +537,7 @@ private static final long serialVersionUID = 0L;
               }
               break;
             } // case 10
-            case 26: {
+            case 18: {
               com.xray.proxy.trojan.Fallback m =
                   input.readMessage(
                       com.xray.proxy.trojan.Fallback.parser(),
@@ -549,7 +549,7 @@ private static final long serialVersionUID = 0L;
                 fallbacksBuilder_.addMessage(m);
               }
               break;
-            } // case 26
+            } // case 18
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -820,7 +820,7 @@ private static final long serialVersionUID = 0L;
         com.xray.proxy.trojan.Fallback, com.xray.proxy.trojan.Fallback.Builder, com.xray.proxy.trojan.FallbackOrBuilder> fallbacksBuilder_;
 
     /**
-     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
      */
     public java.util.List<com.xray.proxy.trojan.Fallback> getFallbacksList() {
       if (fallbacksBuilder_ == null) {
@@ -830,7 +830,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
      */
     public int getFallbacksCount() {
       if (fallbacksBuilder_ == null) {
@@ -840,7 +840,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
      */
     public com.xray.proxy.trojan.Fallback getFallbacks(int index) {
       if (fallbacksBuilder_ == null) {
@@ -850,7 +850,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
      */
     public Builder setFallbacks(
         int index, com.xray.proxy.trojan.Fallback value) {
@@ -867,7 +867,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
      */
     public Builder setFallbacks(
         int index, com.xray.proxy.trojan.Fallback.Builder builderForValue) {
@@ -881,7 +881,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
      */
     public Builder addFallbacks(com.xray.proxy.trojan.Fallback value) {
       if (fallbacksBuilder_ == null) {
@@ -897,7 +897,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
      */
     public Builder addFallbacks(
         int index, com.xray.proxy.trojan.Fallback value) {
@@ -914,7 +914,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
      */
     public Builder addFallbacks(
         com.xray.proxy.trojan.Fallback.Builder builderForValue) {
@@ -928,7 +928,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
      */
     public Builder addFallbacks(
         int index, com.xray.proxy.trojan.Fallback.Builder builderForValue) {
@@ -942,7 +942,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
      */
     public Builder addAllFallbacks(
         java.lang.Iterable<? extends com.xray.proxy.trojan.Fallback> values) {
@@ -957,7 +957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
      */
     public Builder clearFallbacks() {
       if (fallbacksBuilder_ == null) {
@@ -970,7 +970,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
      */
     public Builder removeFallbacks(int index) {
       if (fallbacksBuilder_ == null) {
@@ -983,14 +983,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
      */
     public com.xray.proxy.trojan.Fallback.Builder getFallbacksBuilder(
         int index) {
       return getFallbacksFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
      */
     public com.xray.proxy.trojan.FallbackOrBuilder getFallbacksOrBuilder(
         int index) {
@@ -1000,7 +1000,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
      */
     public java.util.List<? extends com.xray.proxy.trojan.FallbackOrBuilder> 
          getFallbacksOrBuilderList() {
@@ -1011,14 +1011,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
      */
     public com.xray.proxy.trojan.Fallback.Builder addFallbacksBuilder() {
       return getFallbacksFieldBuilder().addBuilder(
           com.xray.proxy.trojan.Fallback.getDefaultInstance());
     }
     /**
-     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
      */
     public com.xray.proxy.trojan.Fallback.Builder addFallbacksBuilder(
         int index) {
@@ -1026,7 +1026,7 @@ private static final long serialVersionUID = 0L;
           index, com.xray.proxy.trojan.Fallback.getDefaultInstance());
     }
     /**
-     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 3;</code>
+     * <code>repeated .xray.proxy.trojan.Fallback fallbacks = 2;</code>
      */
     public java.util.List<com.xray.proxy.trojan.Fallback.Builder> 
          getFallbacksBuilderList() {

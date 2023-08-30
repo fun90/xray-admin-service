@@ -18,16 +18,4 @@ public interface AccountOrBuilder extends
    */
   com.google.protobuf.ByteString
       getPasswordBytes();
-
-  /**
-   * <code>string flow = 2;</code>
-   * @return The flow.
-   */
-  java.lang.String getFlow();
-  /**
-   * <code>string flow = 2;</code>
-   * @return The bytes for flow.
-   */
-  com.google.protobuf.ByteString
-      getFlowBytes();
 }

@@ -45,17 +45,17 @@ public final class Config {
     java.lang.String[] descriptorData = {
       "\n\031proxy/trojan/config.proto\022\021xray.proxy." +
       "trojan\032\032common/protocol/user.proto\032!comm" +
-      "on/protocol/server_spec.proto\")\n\007Account" +
-      "\022\020\n\010password\030\001 \001(\t\022\014\n\004flow\030\002 \001(\t\"^\n\010Fall" +
-      "back\022\014\n\004name\030\001 \001(\t\022\014\n\004alpn\030\002 \001(\t\022\014\n\004path" +
-      "\030\003 \001(\t\022\014\n\004type\030\004 \001(\t\022\014\n\004dest\030\005 \001(\t\022\014\n\004xv" +
-      "er\030\006 \001(\004\"D\n\014ClientConfig\0224\n\006server\030\001 \003(\013" +
-      "2$.xray.common.protocol.ServerEndpoint\"i" +
-      "\n\014ServerConfig\022)\n\005users\030\001 \003(\0132\032.xray.com" +
-      "mon.protocol.User\022.\n\tfallbacks\030\003 \003(\0132\033.x" +
-      "ray.proxy.trojan.FallbackBU\n\025com.xray.pr" +
-      "oxy.trojanP\001Z&github.com/xtls/xray-core/" +
-      "proxy/trojan\252\002\021Xray.Proxy.Trojanb\006proto3"
+      "on/protocol/server_spec.proto\"\033\n\007Account" +
+      "\022\020\n\010password\030\001 \001(\t\"^\n\010Fallback\022\014\n\004name\030\001" +
+      " \001(\t\022\014\n\004alpn\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022\014\n\004type" +
+      "\030\004 \001(\t\022\014\n\004dest\030\005 \001(\t\022\014\n\004xver\030\006 \001(\004\"D\n\014Cl" +
+      "ientConfig\0224\n\006server\030\001 \003(\0132$.xray.common" +
+      ".protocol.ServerEndpoint\"i\n\014ServerConfig" +
+      "\022)\n\005users\030\001 \003(\0132\032.xray.common.protocol.U" +
+      "ser\022.\n\tfallbacks\030\002 \003(\0132\033.xray.proxy.troj" +
+      "an.FallbackBU\n\025com.xray.proxy.trojanP\001Z&" +
+      "github.com/xtls/xray-core/proxy/trojan\252\002" +
+      "\021Xray.Proxy.Trojanb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -68,7 +68,7 @@ public final class Config {
     internal_static_xray_proxy_trojan_Account_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xray_proxy_trojan_Account_descriptor,
-        new java.lang.String[] { "Password", "Flow", });
+        new java.lang.String[] { "Password", });
     internal_static_xray_proxy_trojan_Fallback_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_xray_proxy_trojan_Fallback_fieldAccessorTable = new

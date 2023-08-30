@@ -42,10 +42,10 @@ public final class ConfigOuterClass {
       ".freedom\032!common/protocol/server_spec.pr" +
       "oto\"K\n\023DestinationOverride\0224\n\006server\030\001 \001" +
       "(\0132$.xray.common.protocol.ServerEndpoint" +
-      "\"\210\001\n\010Fragment\022\024\n\014min_interval\030\001 \001(\005\022\024\n\014m" +
-      "ax_interval\030\002 \001(\005\022\022\n\nmin_length\030\003 \001(\005\022\022\n" +
-      "\nmax_length\030\004 \001(\005\022\024\n\014start_packet\030\005 \001(\005\022" +
-      "\022\n\nend_packet\030\006 \001(\005\"\257\002\n\006Config\022B\n\017domain" +
+      "\"\210\001\n\010Fragment\022\024\n\014packets_from\030\001 \001(\004\022\022\n\np" +
+      "ackets_to\030\002 \001(\004\022\022\n\nlength_min\030\003 \001(\004\022\022\n\nl" +
+      "ength_max\030\004 \001(\004\022\024\n\014interval_min\030\005 \001(\004\022\024\n" +
+      "\014interval_max\030\006 \001(\004\"\257\002\n\006Config\022B\n\017domain" +
       "_strategy\030\001 \001(\0162).xray.proxy.freedom.Con" +
       "fig.DomainStrategy\022\023\n\007timeout\030\002 \001(\rB\002\030\001\022" +
       "E\n\024destination_override\030\003 \001(\0132\'.xray.pro" +
@@ -73,7 +73,7 @@ public final class ConfigOuterClass {
     internal_static_xray_proxy_freedom_Fragment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_xray_proxy_freedom_Fragment_descriptor,
-        new java.lang.String[] { "MinInterval", "MaxInterval", "MinLength", "MaxLength", "StartPacket", "EndPacket", });
+        new java.lang.String[] { "PacketsFrom", "PacketsTo", "LengthMin", "LengthMax", "IntervalMin", "IntervalMax", });
     internal_static_xray_proxy_freedom_Config_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_xray_proxy_freedom_Config_fieldAccessorTable = new
