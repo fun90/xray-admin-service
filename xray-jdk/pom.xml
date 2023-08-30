@@ -3,58 +3,71 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.ljh</groupId>
+	<groupId>com.fun90</groupId>
 	<artifactId>xray-jdk</artifactId>
-	<version>1.0.0</version>
+	<version>1.3.0</version>
 	<packaging>jar</packaging>
 	<name>xray-jdk</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
 		<protobuf.java.util.version>3.21.12</protobuf.java.util.version>
+		<grpc.version>1.57.2</grpc.version>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>io.grpc</groupId>
 			<artifactId>grpc-netty-shaded</artifactId>
-			<version>1.53.0</version>
-
+			<version>${grpc.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.grpc</groupId>
 			<artifactId>grpc-protobuf</artifactId>
-			<version>1.53.0</version>
+			<version>${grpc.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>grpc-api</artifactId>
+					<groupId>io.grpc</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>io.grpc</groupId>
 			<artifactId>grpc-stub</artifactId>
-			<version>1.53.0</version>
+			<version>${grpc.version}</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.googlecode.protobuf-java-format/protobuf-java-format -->
+<!--		&lt;!&ndash; https://mvnrepository.com/artifact/com.googlecode.protobuf-java-format/protobuf-java-format &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>com.googlecode.protobuf-java-format</groupId>-->
+<!--			<artifactId>protobuf-java-format</artifactId>-->
+<!--			<version>1.4</version>-->
+<!--			<scope>compile</scope>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>com.google.protobuf</groupId>-->
+<!--			<artifactId>protobuf-java-util</artifactId>-->
+<!--			<version>${protobuf.java.util.version}</version>-->
+<!--			<exclusions>-->
+<!--				<exclusion>-->
+<!--					<artifactId>error_prone_annotations</artifactId>-->
+<!--					<groupId>com.google.errorprone</groupId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<artifactId>protobuf-java</artifactId>-->
+<!--					<groupId>com.google.protobuf</groupId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<artifactId>guava</artifactId>-->
+<!--					<groupId>com.google.guava</groupId>-->
+<!--				</exclusion>-->
+<!--			</exclusions>-->
+<!--		</dependency>-->
+		<!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
 		<dependency>
-			<groupId>com.googlecode.protobuf-java-format</groupId>
-			<artifactId>protobuf-java-format</artifactId>
-			<version>1.4</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.protobuf</groupId>
-			<artifactId>protobuf-java-util</artifactId>
-			<version>${protobuf.java.util.version}</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>error_prone_annotations</artifactId>
-					<groupId>com.google.errorprone</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>protobuf-java</artifactId>
-					<groupId>com.google.protobuf</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>guava</artifactId>
-					<groupId>com.google.guava</groupId>
-				</exclusion>
-			</exclusions>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+			<version>1.3.2</version>
 		</dependency>
 	</dependencies>
 
@@ -71,6 +84,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>3.4.0</version>
 				<executions>
 					<execution>
 						<id>add-source</id>
@@ -90,7 +104,7 @@
 			<plugin>
 				<groupId>org.xolstice.maven.plugins</groupId>
 				<artifactId>protobuf-maven-plugin</artifactId>
-				<version>0.5.1</version>
+				<version>0.6.1</version>
 				<configuration>
 					<!--默认值-->
 					<!-- 将Xray-core的源码下载到/src/main/proto下面 -->

@@ -58,7 +58,7 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        dialect: com.jhl.admin.util.SQLiteDialect
+        dialect: com.fun90.admin.util.SQLiteDialect
         enable_lazy_load_no_trans: true
         format_sql: ''
         show_sql: false

@@ -6,8 +6,6 @@ import org.apache.velocity.app.Velocity;
 import org.apache.velocity.app.VelocityEngine;
 
 import java.io.StringWriter;
-import java.util.List;
-import java.util.Map;
 
 public class VelocityTest {
 
