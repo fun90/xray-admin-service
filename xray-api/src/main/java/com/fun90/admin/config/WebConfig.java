@@ -42,14 +42,15 @@ public class WebConfig implements WebMvcConfigurer {
 		FastJsonHttpMessageConverter fastConverter=new FastJsonHttpMessageConverter();
 		//添加fastjson的配置信息，比如是否要格式化返回的json数据；
 		FastJsonConfig fastJsonConfig = new FastJsonConfig();
-		fastJsonConfig.setWriterFeatures(
-				//是否输出值为null的字段,默认为false
-				JSONWriter.Feature.WriteMapNullValue,
-				//将Collection类型字段的字段空值输出为[]
-				JSONWriter.Feature.WriteNullListAsEmpty,
-				//将字符串类型字段的空值输出为空字符串
-				JSONWriter.Feature.WriteNullStringAsEmpty
-		);
+//		fastJsonConfig.setWriterFeatures(
+//				//是否输出值为null的字段,默认为false
+//				JSONWriter.Feature.WriteMapNullValue,
+//				//将Collection类型字段的字段空值输出为[]
+//				JSONWriter.Feature.WriteNullListAsEmpty,
+//				//将字符串类型字段的空值输出为空字符串
+//				JSONWriter.Feature.WriteNullStringAsEmpty
+//		);
+		fastJsonConfig.setDateFormat("millis");
 		//在convert中添加配置信息
 		fastConverter.setFastJsonConfig(fastJsonConfig);
 		//设置支持的媒体类型
