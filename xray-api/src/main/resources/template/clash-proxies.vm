@@ -32,7 +32,7 @@ $serverNames
 
   - name: ♻️ 自动选择
     type: url-test
-    url: http://www.gstatic.com/generate_204
+    url: http://onedrive.live.com
     interval: 300
     proxies:
 $serverNames
