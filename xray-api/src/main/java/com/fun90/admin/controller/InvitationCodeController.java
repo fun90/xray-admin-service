@@ -103,7 +103,8 @@ public class InvitationCodeController {
 		content.forEach(code -> {
 			final InvitationCodeVO invitationCodeVO = code.toVO(InvitationCodeVO.class);
 			if (invitationCodeVO != null && !userMap.isEmpty() && code.getRegUserId() != null) {
-				String email = userMap.get(code.getRegUserId()).getEmail();
+				User user1 = userMap.get(code.getRegUserId());
+				String email = user1 != null ? user1.getEmail() : "被删除的用户(" + code.getRegUserId() + ")";
 				final int indexOf = email.indexOf("@");
 				//非管理员脱敏处理
 				if (indexOf > 0 && !user.getRole().equals("admin")) {

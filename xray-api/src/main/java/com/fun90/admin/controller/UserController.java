@@ -19,6 +19,7 @@ import com.fun90.admin.util.Utils;
 import com.fun90.admin.util.Validator;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -146,6 +148,9 @@ public class UserController {
 		userVO.setRole("vip");
 		final User user = userVO.toModel(User.class);
 		userService.reg(user);
+		Account account = Account.builder().userId(user.getId()).build();
+		accountService.create(account);
+		StatService.createOrGetStat(account);
 
 		if (isNeedInviteCode) {
 			invitationCode.setRegUserId(user.getId());
@@ -291,8 +296,9 @@ public class UserController {
 			user.setRole("vip");
 		}
 		//   user.setPassword(DigestUtils.md5Hex(user.getPassword()));
-		User userResult = userService.adminReg(user.toModel(User.class));
-		Account account = Account.builder().userId(userResult.getId()).build();
+		final User userDto = user.toModel(User.class);
+		userService.adminReg(userDto);
+		Account account = Account.builder().userId(userDto.getId()).build();
 		accountService.create(account);
 		StatService.createOrGetStat(account);
 		return Result.doSuccess();

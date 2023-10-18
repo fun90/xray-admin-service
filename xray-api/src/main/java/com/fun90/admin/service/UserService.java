@@ -36,13 +36,12 @@ public class UserService {
 		adminReg(user);
 	}
 
-	public User adminReg(User user) {
+	public void adminReg(User user) {
 		User exist = userRepository.findOne(Example.of(User.builder().email(user.getEmail()).build())).orElse(null);
 		if (exist != null) {
 			throw new RuntimeException("已经存在账号，如忘记密码请找回");
 		}
 		create(user);
-		return user;
 	}
 
 	public void changePassword(User user) {
