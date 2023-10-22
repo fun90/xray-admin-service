@@ -34,3 +34,4 @@ DEST-PORT,27149
 DOMAIN-SUFFIX,cloudflare.com
 DOMAIN-SUFFIX,githubassets.com
 DOMAIN-SUFFIX,t.me
+DOMAIN-SUFFIX,v2ex.com
