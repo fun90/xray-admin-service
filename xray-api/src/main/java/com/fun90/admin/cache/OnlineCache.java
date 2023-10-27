@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public class OnlineCache {
 
 	private Cache<String, String> cacheManager = CacheBuilder.newBuilder().
-			maximumSize(2000).expireAfterAccess(3, TimeUnit.MINUTES).build();
+			maximumSize(2000).expireAfterWrite(3, TimeUnit.MINUTES).build();
 
 
 	public void add(OnlineVO vo) {

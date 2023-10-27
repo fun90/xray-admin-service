@@ -1,5 +1,6 @@
 package com.fun90.admin.controller;
 
+import com.alibaba.fastjson2.JSON;
 import com.fun90.admin.VO.AccountVO;
 import com.fun90.admin.VO.OnlineVO;
 import com.fun90.admin.VO.UserVO;
@@ -271,7 +272,7 @@ public class AccountController {
 	@ResponseBody
 	@PostMapping("/account/online/access/{machineName}")
 	public Result access(@RequestBody OnlineVO onlineVO,  @PathVariable String machineName, @RequestHeader("Token") String token) {
-
+		log.info("/account/online/access/{}, params: {}", machineName, JSON.toJSONString(onlineVO));
 		if (!proxyConstant.getAuthPasswordMD5().equals(token)) {
 			return Result.builder().code(401).message("非法请求").build();
 		}
