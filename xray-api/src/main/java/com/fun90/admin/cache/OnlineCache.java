@@ -22,7 +22,9 @@ public class OnlineCache {
 
 	public void add(OnlineVO vo) {
 		if (StringUtils.isNotBlank(vo.getIp())) {
-			cacheManager.put(vo.getIp().split(":")[0], vo.getEmail());
+			String[] strArr = vo.getIp().split(":");
+
+			cacheManager.put(strArr.length == 3 ? strArr[1] : strArr[0], vo.getEmail());
 		}
 	}
 
