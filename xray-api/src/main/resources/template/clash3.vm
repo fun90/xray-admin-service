@@ -7,51 +7,7 @@ external-controller: 0.0.0.0:9090
 
 #parse("clash-dns.vm")
 
-proxies:
-#foreach($server in $servers)
-  #if($server.inboundTag == "vless_reality")
-  - name: $server.serverName
-    type: vless
-    server: $server.clientDomain
-    port: $server.clientPort
-    uuid: $account.uuid
-    network: tcp
-    tls: true
-    udp: true
-    flow: xtls-rprx-vision
-    servername: www.amazon.com
-    reality-opts:
-      public-key: dTW1Gg2HvMsmio2jYt5vDyEITDYQxp-8LUsAkRVnpDE
-      short-id: e3179a5e9f77c76c
-    client-fingerprint: chrome
-  #elseif($server.inboundTag == "vless_tcp_tls")
-  - name: $server.serverName
-    type: vless
-    server: $server.clientDomain
-    port: $server.clientPort
-    uuid: $account.uuid
-    network: tcp
-    tls: true
-    udp: true
-    flow: xtls-rprx-vision
-    client-fingerprint: chrome
-  #end
-#end
-
 #set($inclueItems = ["vless"])
-#set($supportSevers = [])
-#foreach($item in $servers)
-  #if($inclueItems.contains($item.protocol))
-    #set($result = $supportSevers.add($item))
-  #end
-#end
-#set($delimiter = $lineSeparator)
-#set($serverNames = "")
-#foreach($item in $servers)
-  #if($inclueItems.contains($item.protocol))
-    #set($serverNames = "$serverNames      - $item.serverName$delimiter")
-  #end
-#end
 #parse("clash-proxies.vm")
 
 rules:
@@ -82,5 +38,4 @@ rule-providers:
     url: "$rootUrl/subscribe/rules/clash2/${rule.name}.list"
     path: ./ruleset/${rule.name}.yaml
     interval: 86400
-
 #end

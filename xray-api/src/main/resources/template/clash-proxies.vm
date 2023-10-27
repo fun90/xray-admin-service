@@ -1,3 +1,29 @@
+#if($target == "clash3")
+proxy-providers:
+  duoyu:
+    type: http
+    path: ./proxies.yaml
+    url: $proxiesUrl
+    interval: 3600
+    health-check:
+      enable: true
+      url: http://onedrive.live.com
+      interval: 300
+#end
+
+#set($supportSevers = [])
+#foreach($item in $servers)
+  #if($inclueItems.contains($item.protocol))
+    #set($result = $supportSevers.add($item))
+  #end
+#end
+#set($delimiter = $lineSeparator)
+#set($serverNames = "")
+#foreach($item in $supportSevers)
+  #if($inclueItems.contains($item.protocol))
+    #set($serverNames = "$serverNames      - $item.serverName$delimiter")
+  #end
+#end
 #set($ruleList = [
   {"name":"Applications", "group":"🎯 直连"},
   {"name":"MyReject", "group":"🚫 拦截"},
@@ -28,21 +54,37 @@ proxy-groups:
     proxies:
       - ♻️ 自动选择
       - 🎯 直连
+#if($target == "clash3")
+    use:
+      - duoyu
+#else
 $serverNames
+#end
+
 
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
+#if($target == "clash3")
+    use:
+      - duoyu
+#else
 $serverNames
+#end
 
   - name: 🐳 OpenAI
     type: select
     proxies:
       - 🔰 代理
       - ♻️ 自动选择
+#if($target == "clash3")
+    use:
+      - duoyu
+#else
 $serverNames
+#end
 
   - name: 💰 PayPal
     type: select
@@ -50,7 +92,12 @@ $serverNames
       - 🔰 代理
       - 🎯 直连
       - ♻️ 自动选择
+#if($target == "clash3")
+    use:
+      - duoyu
+#else
 $serverNames
+#end
 
   - name: 🛍 亚马逊
     type: select
@@ -58,21 +105,36 @@ $serverNames
       - 🔰 代理
       - 🎯 直连
       - ♻️ 自动选择
+#if($target == "clash3")
+    use:
+      - duoyu
+#else
 $serverNames
+#end
 
   - name: 🐶 谷歌
     type: select
     proxies:
       - 🔰 代理
       - ♻️ 自动选择
+#if($target == "clash3")
+    use:
+      - duoyu
+#else
 $serverNames
+#end
 
   - name: 🏖 YouTube
     type: select
     proxies:
       - 🔰 代理
       - ♻️ 自动选择
+#if($target == "clash3")
+    use:
+      - duoyu
+#else
 $serverNames
+#end
 
   - name: 👔️ 微软
     type: select
@@ -80,7 +142,12 @@ $serverNames
       - 🔰 代理
       - 🎯 直连
       - ♻️ 自动选择
+#if($target == "clash3")
+    use:
+      - duoyu
+#else
 $serverNames
+#end
 
   - name: ☁️ iCloud
     type: select
@@ -88,7 +155,12 @@ $serverNames
       - 🎯 直连
       - 🔰 代理
       - ♻️ 自动选择
+#if($target == "clash3")
+    use:
+      - duoyu
+#else
 $serverNames
+#end
 
   - name: 🍎 苹果
     type: select
@@ -96,7 +168,12 @@ $serverNames
       - 🎯 直连
       - 🔰 代理
       - ♻️ 自动选择
+#if($target == "clash3")
+    use:
+      - duoyu
+#else
 $serverNames
+#end
 
   - name: 🐚 Whatsapp
     type: select
@@ -104,7 +181,12 @@ $serverNames
       - 🔰 代理
       - 🎯 直连
       - ♻️ 自动选择
+#if($target == "clash3")
+    use:
+      - duoyu
+#else
 $serverNames
+#end
 
   - name: 👙 TikTok
     type: select
@@ -112,7 +194,12 @@ $serverNames
       - 🔰 代理
       - 🎯 直连
       - ♻️ 自动选择
+#if($target == "clash3")
+    use:
+      - duoyu
+#else
 $serverNames
+#end
 
   - name: 🎯 直连
     type: select
@@ -132,10 +219,20 @@ $serverNames
       - 🔰 代理
       - 🎯 直连
       - ♻️ 自动选择
+#if($target == "clash3")
+    use:
+      - duoyu
+#else
 $serverNames
+#end
 #else
       - 🎯 直连
       - 🔰 代理
       - ♻️ 自动选择
+#if($target == "clash3")
+    use:
+      - duoyu
+#else
 $serverNames
+#end
 #end

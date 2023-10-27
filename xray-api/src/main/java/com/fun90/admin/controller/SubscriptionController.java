@@ -105,6 +105,25 @@ public class SubscriptionController {
 		params.put("lineSeparator", System.lineSeparator());
 		BeanMap beanMap = BeanMap.create(vo);
 		params.putAll(beanMap);
+
+		String rootUrl = SubscriptionUrlUtil.getPrefix(request, serverConfigService);
+		params.put("rootUrl", rootUrl);
+		String subscriptionUrl = account.getSubscriptionUrl();
+		UriComponents configUri = ServletUriComponentsBuilder.fromUriString(subscriptionUrl)
+				.replaceQueryParam("target", vo.getTarget())
+				.replaceQueryParam("type", 1)
+				.build();
+		// 配置订阅地址
+		String configUrl = rootUrl + configUri.toUriString();
+		params.put("configUrl", configUrl);
+		// 代理节点订阅地址
+		UriComponents proxiesUri = ServletUriComponentsBuilder.fromUriString(subscriptionUrl)
+				.replaceQueryParam("target", vo.getTarget())
+				.replaceQueryParam("type", 0)
+				.build();
+		String proxiesUrl = rootUrl + proxiesUri.toUriString();
+		params.put("proxiesUrl", proxiesUrl);
+
 		if (vo.getType() == null || vo.getType() == 0) {
 			return templateMerge("nodes/" + vo.getTarget(), params);
 		} else {
@@ -112,29 +131,6 @@ public class SubscriptionController {
 			if (rulesParser != null) {
 				params.put("rulesParser", rulesParser);
 			}
-
-
-			String rootUrl = SubscriptionUrlUtil.getPrefix(request, serverConfigService);
-			params.put("rootUrl", rootUrl);
-
-			String subscriptionUrl = account.getSubscriptionUrl();
-
-			UriComponents configUri = ServletUriComponentsBuilder.fromUriString(subscriptionUrl)
-					.replaceQueryParam("target", vo.getTarget())
-					.replaceQueryParam("type", 1)
-					.build();
-			// 配置订阅地址
-			String configUrl = rootUrl + configUri.toUriString();
-			params.put("configUrl", configUrl);
-
-			// 代理节点订阅地址
-			UriComponents proxiesUri = ServletUriComponentsBuilder.fromUriString(subscriptionUrl)
-					.replaceQueryParam("target", vo.getTarget())
-					.replaceQueryParam("type", 0)
-					.build();
-			String proxiesUrl = rootUrl + proxiesUri.toUriString();
-			params.put("proxiesUrl", proxiesUrl);
-
 			return templateMerge(vo.getTarget(), params);
 		}
 	}

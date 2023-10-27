@@ -1,0 +1,30 @@
+proxies:
+#foreach($server in $servers)
+  #if($server.inboundTag.startsWith("vless_reality"))
+  - name: $server.serverName
+    type: vless
+    server: $server.clientDomain
+    port: $server.clientPort
+    uuid: $account.uuid
+    network: tcp
+    tls: true
+    udp: true
+    flow: xtls-rprx-vision
+    servername: www.amazon.com
+    reality-opts:
+      public-key: dTW1Gg2HvMsmio2jYt5vDyEITDYQxp-8LUsAkRVnpDE
+      short-id: e3179a5e9f77c76c
+    client-fingerprint: chrome
+  #elseif($server.inboundTag.startsWith("vless_tcp_tls"))
+  - name: $server.serverName
+    type: vless
+    server: $server.clientDomain
+    port: $server.clientPort
+    uuid: $account.uuid
+    network: tcp
+    tls: true
+    udp: true
+    flow: xtls-rprx-vision
+    client-fingerprint: chrome
+  #end
+#end

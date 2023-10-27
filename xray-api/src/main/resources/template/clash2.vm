@@ -18,19 +18,6 @@ proxies:
 #end
 
 #set($inclueItems = ["vmess", "trojan"])
-#set($supportSevers = [])
-#foreach($item in $servers)
-  #if($inclueItems.contains($item.protocol))
-    #set($result = $supportSevers.add($item))
-  #end
-#end
-#set($delimiter = $lineSeparator)
-#set($serverNames = "")
-#foreach($item in $supportSevers)
-  #if($inclueItems.contains($item.protocol))
-    #set($serverNames = "$serverNames      - $item.serverName$delimiter")
-  #end
-#end
 #parse("clash-proxies.vm")
 
 rules:
