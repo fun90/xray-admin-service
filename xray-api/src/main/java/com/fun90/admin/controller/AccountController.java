@@ -35,6 +35,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -203,7 +204,7 @@ public class AccountController {
 			total = accounts.size();
 		} else {
 			Page<Account> accountsPage = accountRepository.findAll(Example.of(Account.builder().build()),
-					PageRequest.of(page - 1, pageSize)
+					PageRequest.of(page - 1, pageSize, Sort.by(Sort.Order.desc("status"), Sort.Order.asc("id")))
 			);
 
 			if (accountsPage.getSize() > 0) {

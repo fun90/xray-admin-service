@@ -26,6 +26,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 
@@ -215,7 +216,7 @@ public class UserController {
 	@PreAuth("admin")
 	@GetMapping("")
 	public Result userList(Integer page, Integer pageSize) {
-		Page<User> userPage = userRepository.findAll(PageRequest.of(page - 1, pageSize));
+		Page<User> userPage = userRepository.findAll(PageRequest.of(page - 1, pageSize, Sort.by(Sort.Direction.DESC, "id")));
 		List<User> content = userPage.getContent();
 
 		ArrayList<UserVO> list = Lists.newArrayListWithCapacity(content.size());
