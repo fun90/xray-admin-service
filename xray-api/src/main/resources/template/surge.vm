@@ -74,12 +74,13 @@ RULE-SET,$rootUrl/subscribe/rules/surge/iCloud.list,☁️ iCloud,update-interva
 RULE-SET,$rootUrl/subscribe/rules/surge/Apple.list,🍎 苹果,update-interval=86400
 RULE-SET,$rootUrl/subscribe/rules/surge/Whatsapp.list,🐚 Whatsapp,update-interval=86400
 RULE-SET,$rootUrl/subscribe/rules/surge/TikTok.list,🐚 Whatsapp,update-interval=86400
-RULE-SET,$rootUrl/subscribe/rules/surge/Private.list,🎯 直连,update-interval=86400
-RULE-SET,$rootUrl/subscribe/rules/surge/Reject.list,🚫 拦截,update-interval=86400
+RULE-SET,$rootUrl/subscribe/rules/surge/TelegramCidr.list,🐚 Whatsapp,update-interval=86400
+##RULE-SET,$rootUrl/subscribe/rules/surge/Private.list,🎯 直连,update-interval=86400
+##RULE-SET,$rootUrl/subscribe/rules/surge/Reject.list,🚫 拦截,update-interval=86400
 RULE-SET,LAN,DIRECT
 RULE-SET,SYSTEM,DIRECT
 #if($whitelist)
-RULE-SET,$rootUrl/subscribe/rules/surge/Direct.list,🎯 直连,update-interval=86400
+RULE-SET,$rootUrl/subscribe/rules/surge/CN.list,🎯 直连,update-interval=86400
 FINAL,⛳️ 其他,dns-failed
 #else
 RULE-SET,$rootUrl/subscribe/rules/surge/Proxy.list,🔰 代理,update-interval=86400

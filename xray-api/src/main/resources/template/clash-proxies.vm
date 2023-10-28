@@ -39,12 +39,10 @@ proxy-providers:
   {"name":"Apple", "group":"🍎 苹果"},
   {"name":"Whatsapp", "group":"🐚 Whatsapp"},
   {"name":"TikTok", "group":"👙 TikTok"},
-  {"name":"Private", "group":"🎯 直连"},
-  {"name":"Reject", "group":"🚫 拦截"},
   {"name":"TelegramCidr", "group":"🔰 代理"}
   ])
 #if ($whitelist)
-  #set($tmp = $ruleList.add({"name":"Direct", "group":"🎯 直连"}))
+  #set($tmp = $ruleList.add({"name":"CN", "group":"🎯 直连"}))
 #else
   #set($tmp = $ruleList.add({"name":"Proxy", "group":"🔰 代理"}))
 #end
