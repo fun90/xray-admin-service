@@ -17,24 +17,10 @@ rules:
   - MATCH,⛳️ 其他
 
 rule-providers:
-##  AdvertisingLite:
-##    type: http
-##    behavior: classical
-##    url: "$rootUrl/subscribe/rules/clash2/AdvertisingLite.list"
-##    path: ./ruleset/AdvertisingLite.yaml
-##    interval: 86400
-##
-##  AdvertisingLiteDomain:
-##    type: http
-##    behavior: domain
-##    url: "$rootUrl/subscribe/rules/clash2/AdvertisingLiteDomain.list"
-##    path: ./ruleset/AdvertisingLiteDomain.yaml
-##    interval: 86400
-##
 #foreach( $rule in $ruleList)
   $rule.name:
     type: http
-    behavior: classical
+    behavior:#if ($rule.behavior) $rule.behavior#else classical#end
     url: "$rootUrl/subscribe/rules/clash2/${rule.name}.list"
     path: ./ruleset/${rule.name}.yaml
     interval: 86400

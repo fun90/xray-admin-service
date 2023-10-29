@@ -24,6 +24,24 @@ proxy-providers:
     #set($serverNames = "$serverNames      - $item.serverName$delimiter")
   #end
 #end
+#if ($test)
+#set($ruleList = [
+  {"name":"AdvertisingLite", "group":"🚫 广告"},
+  {"name":"AdvertisingLiteDomain", "group":"🚫 广告", "behavior": "classical"},
+  {"name":"MyReject", "group":"REJECT"},
+  {"name":"MyDirect", "group":"DIRECT"},
+  {"name":"MyProxy", "group":"🔰 代理"},
+  {"name":"OpenAI", "group":"🐳 OpenAI", "proxy":true},
+  {"name":"Amazon", "group":"🛍 亚马逊", "proxy":true},
+  {"name":"PayPal", "group":"💰 PayPal", "proxy":true},
+  {"name":"YouTube", "group":"🏖 YouTube", "proxy":true},
+  {"name":"Microsoft", "group":"👔️ 微软", "proxy":true},
+  {"name":"iCloud", "group":"☁️ iCloud"},
+  {"name":"Apple", "group":"🍎 苹果"},
+  {"name":"Whatsapp", "group":"🐚 Whatsapp", "proxy":true},
+  {"name":"TikTok", "group":"👙 TikTok", "proxy":true}
+])
+#else
 #set($ruleList = [
   {"name":"MyReject", "group":"REJECT"},
   {"name":"MyDirect", "group":"DIRECT"},
@@ -38,6 +56,8 @@ proxy-providers:
   {"name":"Whatsapp", "group":"🐚 Whatsapp", "proxy":true},
   {"name":"TikTok", "group":"👙 TikTok", "proxy":true}
 ])
+#end
+
 #if ($whitelist)
   #set($tmp = $ruleList.add({"name":"CN", "group":"🎯 直连"}))
 #else
@@ -109,6 +129,12 @@ $serverNames
 #else
 $serverNames
 #end
+
+  - name: 🚫 广告
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
 
   - name: 🎯 直连
     type: select
