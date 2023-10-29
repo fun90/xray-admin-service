@@ -26,11 +26,11 @@ proxy-providers:
 #end
 #if ($test)
 #set($ruleList = [
-  {"name":"AdvertisingLite", "group":"🚫 广告"},
-  {"name":"AdvertisingLiteDomain", "group":"🚫 广告", "behavior": "classical"},
   {"name":"MyReject", "group":"REJECT"},
   {"name":"MyDirect", "group":"DIRECT"},
   {"name":"MyProxy", "group":"🔰 代理"},
+  {"name":"AdvertisingLite", "group":"🚫 广告"},
+  {"name":"AdvertisingLiteDomain", "group":"🚫 广告", "behavior": "classical"},
   {"name":"OpenAI", "group":"🐳 OpenAI", "proxy":true},
   {"name":"Amazon", "group":"🛍 亚马逊", "proxy":true},
   {"name":"PayPal", "group":"💰 PayPal", "proxy":true},
