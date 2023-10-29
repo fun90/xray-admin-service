@@ -16,7 +16,8 @@ public class SubscribeVO {
      * md5(code+timestamp+api.auth)
      */
     private String token;
-    private boolean whitelist;
+    private boolean whitelist = true;
     private String dns;
+    private boolean test;
 
 }

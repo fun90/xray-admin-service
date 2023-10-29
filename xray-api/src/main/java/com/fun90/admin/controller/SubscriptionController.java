@@ -112,6 +112,7 @@ public class SubscriptionController {
 		UriComponents configUri = ServletUriComponentsBuilder.fromUriString(subscriptionUrl)
 				.replaceQueryParam("target", vo.getTarget())
 				.replaceQueryParam("type", 1)
+				.replaceQueryParam("test", vo.isTest())
 				.build();
 		// 配置订阅地址
 		String configUrl = rootUrl + configUri.toUriString();
@@ -120,6 +121,7 @@ public class SubscriptionController {
 		UriComponents proxiesUri = ServletUriComponentsBuilder.fromUriString(subscriptionUrl)
 				.replaceQueryParam("target", vo.getTarget())
 				.replaceQueryParam("type", 0)
+				.replaceQueryParam("test", vo.isTest())
 				.build();
 		String proxiesUrl = rootUrl + proxiesUri.toUriString();
 		params.put("proxiesUrl", proxiesUrl);

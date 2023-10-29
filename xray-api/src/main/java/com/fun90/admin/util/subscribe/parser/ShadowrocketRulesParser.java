@@ -26,6 +26,7 @@ public class ShadowrocketRulesParser implements IRulesParser {
             }
             if (line.startsWith("#")) {
                 builder.append(line).append(System.lineSeparator());
+                return;
             }
             line = cleanLine(line);
             if (StringUtils.startsWithAny(line, excludeTypes)) {

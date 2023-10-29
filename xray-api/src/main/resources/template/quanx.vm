@@ -59,14 +59,14 @@ $rootUrl/subscribe/rules/quanx/MyDirect.list/$URLEncoder.encode("🎯 直连", "
 $rootUrl/subscribe/rules/quanx/MyProxy.list/$URLEncoder.encode("🔰 代理", "UTF-8"), tag=🔰 代理, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/PayPal.list/$URLEncoder.encode("💰 PayPal", "UTF-8"), tag=💰 PayPal, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/YouTube.list/$URLEncoder.encode("🏖 YouTube", "UTF-8"), tag=🏖 YouTube, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/quanx/Google.list/$URLEncoder.encode("🐶 谷歌", "UTF-8"), tag=🐶 谷歌, update-interval=86400, enabled=true
+##$rootUrl/subscribe/rules/quanx/Google.list/$URLEncoder.encode("🐶 谷歌", "UTF-8"), tag=🐶 谷歌, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/Amazon.list/$URLEncoder.encode("🛍 亚马逊", "UTF-8"), tag=🛍 亚马逊, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/Microsoft.list/$URLEncoder.encode("👔️ 微软", "UTF-8"), tag=👔️ 微软, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/Apple.list/$URLEncoder.encode("🍎 苹果", "UTF-8"), tag=🍎 苹果, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/quanx/iCloud.list/$URLEncoder.encode("☁️ iCloud", "UTF-8"), tag=☁️ iCloud, update-interval=86400, enabled=true
 ##$rootUrl/subscribe/rules/quanx/Private.list/$URLEncoder.encode("🎯 直连", "UTF-8"), tag=🎯 直连, update-interval=86400, enabled=true
 ##$rootUrl/subscribe/rules/quanx/Reject.list/$URLEncoder.encode("🚫 拦截", "UTF-8"), tag=🚫 拦截, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/quanx/TelegramCidr.list/$URLEncoder.encode("🔰 代理", "UTF-8"), tag=🔰 代理, update-interval=86400, enabled=true
+##$rootUrl/subscribe/rules/quanx/TelegramCidr.list/$URLEncoder.encode("🔰 代理", "UTF-8"), tag=🔰 代理, update-interval=86400, enabled=true
 #if($whitelist)
 $rootUrl/subscribe/rules/quanx/CN.list/$URLEncoder.encode("🎯 直连", "UTF-8"), tag=🎯 直连, update-interval=86400, enabled=true
 #else

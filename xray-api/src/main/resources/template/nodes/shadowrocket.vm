@@ -10,7 +10,7 @@
 ##        #else
 ##            #set($nodesStr = $nodesStr  + $lineSeparator + $encodeNode)
 ##        #end
-    #elseif($server.inboundTag == "vless_tcp_tls")
+    #elseif($server.inboundTag.startsWith("vless_tcp_tls"))
         #set($node = "auto:$account.uuid@$server.clientDomain:$server.clientPort")
         #set($encodeNode = "vless://" + $Base64.encodeBase64String($node.getBytes("UTF-8")) + "?remarks=$remark&obfs=none&tls=1&xtls=2")
         #if($nodesStr == "")
@@ -18,7 +18,7 @@
         #else
             #set($nodesStr = $nodesStr  + $lineSeparator + $encodeNode)
         #end
-    #elseif($server.inboundTag == "vless_reality")
+    #elseif($server.inboundTag.startsWith("vless_reality"))
         #set($node = "auto:$account.uuid@$server.clientDomain:$server.clientPort")
         #set($encodeNode = "vless://" + $Base64.encodeBase64String($node.getBytes("UTF-8")) + "?remarks=$remark&obfs=none&tls=1&peer=www.amazon.com&xtls=2&pbk=dTW1Gg2HvMsmio2jYt5vDyEITDYQxp-8LUsAkRVnpDE&sid=e3179a5e9f77c76c")
         #if($nodesStr == "")

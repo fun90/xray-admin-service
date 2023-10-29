@@ -25,22 +25,19 @@ proxy-providers:
   #end
 #end
 #set($ruleList = [
-  {"name":"Applications", "group":"🎯 直连"},
-  {"name":"MyReject", "group":"🚫 拦截"},
+  {"name":"MyReject", "group":"REJECT"},
+  {"name":"MyDirect", "group":"DIRECT"},
   {"name":"MyProxy", "group":"🔰 代理"},
-  {"name":"MyDirect", "group":"🎯 直连"},
-  {"name":"OpenAI", "group":"🐳 OpenAI"},
-  {"name":"Amazon", "group":"🛍 亚马逊"},
-  {"name":"PayPal", "group":"💰 PayPal"},
-  {"name":"Google", "group":"🐶 谷歌"},
-  {"name":"YouTube", "group":"🏖 YouTube"},
-  {"name":"Microsoft", "group":"👔️ 微软"},
+  {"name":"OpenAI", "group":"🐳 OpenAI", "proxy":true},
+  {"name":"Amazon", "group":"🛍 亚马逊", "proxy":true},
+  {"name":"PayPal", "group":"💰 PayPal", "proxy":true},
+  {"name":"YouTube", "group":"🏖 YouTube", "proxy":true},
+  {"name":"Microsoft", "group":"👔️ 微软", "proxy":true},
   {"name":"iCloud", "group":"☁️ iCloud"},
   {"name":"Apple", "group":"🍎 苹果"},
-  {"name":"Whatsapp", "group":"🐚 Whatsapp"},
-  {"name":"TikTok", "group":"👙 TikTok"},
-  {"name":"TelegramCidr", "group":"🔰 代理"}
-  ])
+  {"name":"Whatsapp", "group":"🐚 Whatsapp", "proxy":true},
+  {"name":"TikTok", "group":"👙 TikTok", "proxy":true}
+])
 #if ($whitelist)
   #set($tmp = $ruleList.add({"name":"CN", "group":"🎯 直连"}))
 #else
@@ -72,7 +69,9 @@ $serverNames
 $serverNames
 #end
 
-  - name: 🐳 OpenAI
+#foreach( $rule in $ruleList)
+#if($rule.proxy)
+  - name: $rule.group
     type: select
     proxies:
       - 🔰 代理
@@ -83,69 +82,7 @@ $serverNames
 #else
 $serverNames
 #end
-
-  - name: 💰 PayPal
-    type: select
-    proxies:
-      - 🔰 代理
-      - 🎯 直连
-      - ♻️ 自动选择
-#if($target == "clash3")
-    use:
-      - duoyu
-#else
-$serverNames
-#end
-
-  - name: 🛍 亚马逊
-    type: select
-    proxies:
-      - 🔰 代理
-      - 🎯 直连
-      - ♻️ 自动选择
-#if($target == "clash3")
-    use:
-      - duoyu
-#else
-$serverNames
-#end
-
-  - name: 🐶 谷歌
-    type: select
-    proxies:
-      - 🔰 代理
-      - ♻️ 自动选择
-#if($target == "clash3")
-    use:
-      - duoyu
-#else
-$serverNames
-#end
-
-  - name: 🏖 YouTube
-    type: select
-    proxies:
-      - 🔰 代理
-      - ♻️ 自动选择
-#if($target == "clash3")
-    use:
-      - duoyu
-#else
-$serverNames
-#end
-
-  - name: 👔️ 微软
-    type: select
-    proxies:
-      - 🔰 代理
-      - 🎯 直连
-      - ♻️ 自动选择
-#if($target == "clash3")
-    use:
-      - duoyu
-#else
-$serverNames
-#end
+#end#end
 
   - name: ☁️ iCloud
     type: select
@@ -173,41 +110,9 @@ $serverNames
 $serverNames
 #end
 
-  - name: 🐚 Whatsapp
-    type: select
-    proxies:
-      - 🔰 代理
-      - 🎯 直连
-      - ♻️ 自动选择
-#if($target == "clash3")
-    use:
-      - duoyu
-#else
-$serverNames
-#end
-
-  - name: 👙 TikTok
-    type: select
-    proxies:
-      - 🔰 代理
-      - 🎯 直连
-      - ♻️ 自动选择
-#if($target == "clash3")
-    use:
-      - duoyu
-#else
-$serverNames
-#end
-
   - name: 🎯 直连
     type: select
     proxies:
-      - DIRECT
-
-  - name: 🚫 拦截
-    type: select
-    proxies:
-      - REJECT
       - DIRECT
 
   - name: ⛳️ 其他
@@ -215,8 +120,8 @@ $serverNames
     proxies:
 #if ($whitelist == true)
       - 🔰 代理
-      - 🎯 直连
       - ♻️ 自动选择
+      - 🎯 直连
 #if($target == "clash3")
     use:
       - duoyu

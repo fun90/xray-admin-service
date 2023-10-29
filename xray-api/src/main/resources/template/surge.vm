@@ -61,20 +61,20 @@ $server.serverName = trojan, $server.clientDomain, $server.clientPort, password=
 #end
 
 [Rule]
-RULE-SET,$rootUrl/subscribe/rules/surge/Applications.list,🎯 直连,update-interval=86400
+##RULE-SET,$rootUrl/subscribe/rules/surge/Applications.list,🎯 直连,update-interval=86400
 RULE-SET,$rootUrl/subscribe/rules/surge/MyReject.list,🚫 拦截,update-interval=86400
-RULE-SET,$rootUrl/subscribe/rules/surge/MyProxy.list,🔰 代理,update-interval=86400
 RULE-SET,$rootUrl/subscribe/rules/surge/MyDirect.list,🎯 直连,update-interval=86400
+RULE-SET,$rootUrl/subscribe/rules/surge/MyProxy.list,🔰 代理,update-interval=86400
 RULE-SET,$rootUrl/subscribe/rules/surge/PayPal.list,💰 PayPal,update-interval=86400
 RULE-SET,$rootUrl/subscribe/rules/surge/YouTube.list,🏖 YouTube,update-interval=86400
 RULE-SET,$rootUrl/subscribe/rules/surge/Amazon.list,🛍 亚马逊,update-interval=86400
-RULE-SET,$rootUrl/subscribe/rules/surge/Google.list,🐶 谷歌,update-interval=86400
+##RULE-SET,$rootUrl/subscribe/rules/surge/Google.list,🐶 谷歌,update-interval=86400
 RULE-SET,$rootUrl/subscribe/rules/surge/Microsoft.list,👔️ 微软,update-interval=86400
 RULE-SET,$rootUrl/subscribe/rules/surge/iCloud.list,☁️ iCloud,update-interval=86400
 RULE-SET,$rootUrl/subscribe/rules/surge/Apple.list,🍎 苹果,update-interval=86400
 RULE-SET,$rootUrl/subscribe/rules/surge/Whatsapp.list,🐚 Whatsapp,update-interval=86400
-RULE-SET,$rootUrl/subscribe/rules/surge/TikTok.list,🐚 Whatsapp,update-interval=86400
-RULE-SET,$rootUrl/subscribe/rules/surge/TelegramCidr.list,🐚 Whatsapp,update-interval=86400
+RULE-SET,$rootUrl/subscribe/rules/surge/TikTok.list,👙 TikTok,update-interval=86400
+##RULE-SET,$rootUrl/subscribe/rules/surge/TelegramCidr.list,🐚 TelegramCidr,update-interval=86400
 ##RULE-SET,$rootUrl/subscribe/rules/surge/Private.list,🎯 直连,update-interval=86400
 ##RULE-SET,$rootUrl/subscribe/rules/surge/Reject.list,🚫 拦截,update-interval=86400
 RULE-SET,LAN,DIRECT

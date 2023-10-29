@@ -34,12 +34,12 @@ RemoteProxies = $proxiesUrl
 
 [Remote Rule]
 $rootUrl/subscribe/rules/loon/MyReject.list, tag=🚫 拦截, policy=🚫 拦截, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/loon/MyProxy.list, tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/loon/MyDirect.list, tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/MyProxy.list, tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/loon/OpenAI.list, tag=🐳 OpenAI, policy=🐳 OpenAI, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/loon/PayPal.list, tag=💰 PayPal, policy=💰 PayPal, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/loon/YouTube.list, tag=🏖 YouTube, policy=🏖 YouTube, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/loon/Google.list, tag=🐶 谷歌, policy=🐶 谷歌, update-interval=86400, enabled=true
+##$rootUrl/subscribe/rules/loon/Google.list, tag=🐶 谷歌, policy=🐶 谷歌, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/loon/Amazon.list, tag=🛍 亚马逊, policy=🛍 亚马逊, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/loon/Microsoft.list, tag=👔️ 微软, policy=👔️ 微软, update-interval=86400, enabled=true
 $rootUrl/subscribe/rules/loon/iCloud.list, tag=☁️ iCloud, policy=☁️ iCloud, update-interval=86400, enabled=true
@@ -50,7 +50,7 @@ $rootUrl/subscribe/rules/loon/TikTok.list, tag=👙 TikTok, policy=👙 TikTok, 
 ##$rootUrl/subscribe/rules/loon/AdvertisingLite.list, tag=🚫 拦截, policy=🚫 拦截, update-interval=86400, enabled=true
 ##$rootUrl/subscribe/rules/loon/AdvertisingLiteDomain.list, tag=🚫 拦截, policy=🚫 拦截, update-interval=86400, enabled=true
 ##$rootUrl/subscribe/rules/loon/Reject.list, tag=🚫 拦截, policy=🚫 拦截, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/loon/TelegramCidr.list, tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
+##$rootUrl/subscribe/rules/loon/TelegramCidr.list, tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
 #if($whitelist)
 $rootUrl/subscribe/rules/loon/CN.list, tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
 #else
