@@ -18,6 +18,6 @@ public class SubscribeVO {
     private String token;
     private boolean whitelist = true;
     private String dns;
-    private boolean test;
+    private String debug;
 
 }

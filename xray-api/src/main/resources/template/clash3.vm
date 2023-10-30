@@ -7,7 +7,9 @@ external-controller: 0.0.0.0:9090
 
 #parse("clash-dns.vm")
 
-#set($inclueItems = ["vless"])
+#parse("nodes/clash3.vm")
+
+#set($inclueItems = ["vless", "hysteria", "hysteria2"])
 #parse("clash-proxies.vm")
 
 rules:
