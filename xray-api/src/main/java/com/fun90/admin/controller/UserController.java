@@ -202,7 +202,7 @@ public class UserController {
 		Map<String, Object> userMap = Maps.newHashMap();
 		userMap.put("roles", Lists.newArrayList(cache.getRole()));
 		userMap.put("name", cache.getEmail());
-		userMap.put("avatar", "https://apic.douyucdn.cn/upload/avanew/face/201705/15/17/109dae304969a8dc9dfd318c34cb71e9_middle.jpg");
+		userMap.put("avatar", "/static/img/logo.png");
 		return Result.builder().code(Result.CODE_SUCCESS).obj(userMap).build();
 	}
 
