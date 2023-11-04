@@ -101,12 +101,6 @@ $serverNames
       - ♻️ 自动选择
 $serverNames
 
-  - name: 🚫 广告
-    type: select
-    proxies:
-      - REJECT
-      - DIRECT
-
   - name: 🎯 直连
     type: select
     proxies:
