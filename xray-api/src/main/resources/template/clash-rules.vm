@@ -1,0 +1,32 @@
+#set($ruleSetList = [
+  {"name":"myreject", "group":"REJECT", "behavior":"classical"},
+  {"name":"mydirect", "group":"DIRECT", "behavior":"classical"},
+  {"name":"myproxy", "group":"🔰 代理", "behavior":"classical"},
+  {"name":"applications", "group":"DIRECT", "behavior":"classical", "url":"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"},
+  {"name":"private", "group":"DIRECT", "url":"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"},
+  {"name":"icloud", "group":"☁️ iCloud", "url":"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"},
+  {"name":"apple", "group":"🍎 苹果", "url":"https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt"},
+  {"name":"google", "group":"DIRECT", "url": "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt"},
+  {"name":"proxy", "group":"🔰 代理", "url": "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"},
+  {"name":"direct", "group":"DIRECT", "url": "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"},
+  {"name":"lancidr", "group":"DIRECT", "behavior":"ipcidr", "url": "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"},
+  {"name":"cncidr", "group":"DIRECT", "behavior":"ipcidr", "url": "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"},
+  {"name":"telegramcidr", "group":"🔰 代理", "behavior":"ipcidr", "url": "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"}
+])
+rule-providers:
+#foreach( $rule in $ruleSetList)
+  $rule.name:
+    type: http
+    behavior:#if ($rule.behavior) $rule.behavior#else domain#end
+    url:#if ($rule.url) "$rule.url"#else "$rootUrl/subscribe/rules/clash2/${rule.name}.list"#end
+    path: ./ruleset/${rule.name}.yaml
+    interval: 86400
+#end
+
+rules:
+#foreach( $rule in $ruleSetList)
+  - RULE-SET,$rule.name,$rule.group
+#end
+  - GEOIP,LAN,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,🔰 代理

@@ -1,4 +1,6 @@
-# Private
+# private
+DOMAIN,clash.razord.top
+DOMAIN,yacd.haishan.me
 DOMAIN-SUFFIX,inzwc.com
 DOMAIN-SUFFIX,hstong.com
 DOMAIN-SUFFIX,vbkr.com
@@ -22,3 +24,4 @@ DOMAIN-SUFFIX,alibaapay.com
 DOMAIN-SUFFIX,amazonaws.com
 DOMAIN-SUFFIX,duoyu.app
 DOMAIN-SUFFIX,guyuelou.com
+PROCESS-NAME,CorelDRW,DIRECT

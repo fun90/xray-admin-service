@@ -2,8 +2,7 @@ mixed-port: 7890
 allow-lan: false
 mode: rule
 log-level: info
-ipv6: false
-external-controller: 0.0.0.0:9090
+ipv6: true
 
 #parse("clash-dns.vm")
 
@@ -20,33 +19,4 @@ proxies:
 #set($inclueItems = ["vmess", "trojan"])
 #parse("clash-proxies.vm")
 
-rules:
-#foreach( $rule in $ruleList)
-  - RULE-SET,$rule.name,$rule.group
-#end
-  - MATCH,⛳️ 其他
-
-rule-providers:
-##  AdvertisingLite:
-##    type: http
-##    behavior: classical
-##    url: "$rootUrl/subscribe/rules/clash2/AdvertisingLite.list"
-##    path: ./ruleset/AdvertisingLite.yaml
-##    interval: 86400
-##
-##  AdvertisingLiteDomain:
-##    type: http
-##    behavior: domain
-##    url: "$rootUrl/subscribe/rules/clash2/AdvertisingLiteDomain.list"
-##    path: ./ruleset/AdvertisingLiteDomain.yaml
-##    interval: 86400
-##
-#foreach( $rule in $ruleList)
-  $rule.name:
-    type: http
-    behavior: classical
-    url: "$rootUrl/subscribe/rules/clash2/${rule.name}.list"
-    path: ./ruleset/${rule.name}.yaml
-    interval: 86400
-
-#end
+#parse("clash-rules.vm")

@@ -1,7 +1,6 @@
 package com.fun90.admin.controller;
 
 import com.alibaba.fastjson2.JSON;
-import com.fun90.admin.VO.SubscribeVO;
 import com.fun90.admin.constant.ClientConstant;
 import com.fun90.admin.constant.ProxyConstant;
 import com.fun90.admin.model.Account;
@@ -22,10 +21,10 @@ import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
 import org.apache.velocity.app.VelocityEngine;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.beans.BeanMap;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponents;
@@ -66,33 +65,34 @@ public class SubscriptionController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/subscribe/{code}", produces="text/plain")
-	public String subscribe(@PathVariable String code, SubscribeVO vo) {
+	public String subscribe(@PathVariable String code, @RequestParam(required = false) Map<String, String> map) {
+		String timestamp = map.get("timestamp");
+		String token = map.get("token");
+		if (code == null || token == null || timestamp == null) throw new IllegalArgumentException("参数错误");
 
-		if (code == null || vo.getTimestamp() == null || vo.getToken() == null) throw new IllegalArgumentException("参数错误");
-
-		String target = StringUtils.defaultString(vo.getTarget(), ClientConstant.DEFAULT.getValue());
+		String target = StringUtils.defaultString(map.get("target"), ClientConstant.DEFAULT.getValue());
 		if (!clientConstant.isSupported(target)) {
 			throw new IllegalArgumentException("target错误");
 		}
 
 		StringBuilder stringBuilder = new StringBuilder();
-		StringBuilder tokenSrc = stringBuilder.append(code).append(vo.getTimestamp()).append(proxyConstant.getAuthPassword());
-		if (!DigestUtils.md5Hex(tokenSrc.toString()).equals(vo.getToken())) throw new RuntimeException("认证失败");
+		StringBuilder tokenSrc = stringBuilder.append(code).append(timestamp).append(proxyConstant.getAuthPassword());
+		if (!DigestUtils.md5Hex(tokenSrc.toString()).equals(token)) throw new RuntimeException("认证失败");
 
-		return getConfigContext(code, vo);
+		return getConfigContext(code, map);
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "/subscribe3/{code}/duoyu", produces="text/plain")
 	public String subscribe3(@PathVariable String code) {
-		SubscribeVO vo = new SubscribeVO();
-		vo.setTarget("clash3");
-		vo.setType(1);
-		vo.setWhitelist(true);
+		Map<String, String> vo = new HashMap<>();
+		vo.put("target", "clash3");
+		vo.put("type", "1");
+		vo.put("whitelist", "true");
 		return getConfigContext(code, vo);
 	}
 
-	private String getConfigContext(String code, SubscribeVO vo) {
+	private String getConfigContext(String code, Map<String, String> map) {
 		Account account = subscriptionService.findAccountByCode(code);
 		List<Server> servers = serverService.queryByAccount(account);
 
@@ -104,37 +104,36 @@ public class SubscriptionController {
 		params.put("JSON", JSON.class);
 		params.put("lineSeparator", System.lineSeparator());
 		params.put("authPassword", proxyConstant.getAuthPassword());
-		BeanMap beanMap = BeanMap.create(vo);
-		params.putAll(beanMap);
+		params.putAll(map);
 
 		String rootUrl = SubscriptionUrlUtil.getPrefix(request, serverConfigService);
 		params.put("rootUrl", rootUrl);
 		String subscriptionUrl = account.getSubscriptionUrl();
 		UriComponents configUri = ServletUriComponentsBuilder.fromUriString(subscriptionUrl)
-				.replaceQueryParam("target", vo.getTarget())
+				.replaceQueryParam("target", map.get("target"))
 				.replaceQueryParam("type", 1)
-				.replaceQueryParam("debug", vo.getDebug())
+				.replaceQueryParam("debug", map.get("debug"))
 				.build();
 		// 配置订阅地址
 		String configUrl = rootUrl + configUri.toUriString();
 		params.put("configUrl", configUrl);
 		// 代理节点订阅地址
 		UriComponents proxiesUri = ServletUriComponentsBuilder.fromUriString(subscriptionUrl)
-				.replaceQueryParam("target", vo.getTarget())
-				.replaceQueryParam("type", 0)
-				.replaceQueryParam("debug", vo.getDebug())
+				.replaceQueryParam("target", map.get("target"))
+				.replaceQueryParam("type", 1)
+				.replaceQueryParam("debug", map.get("debug"))
 				.build();
 		String proxiesUrl = rootUrl + proxiesUri.toUriString();
 		params.put("proxiesUrl", proxiesUrl);
 
-		if (vo.getType() == null || vo.getType() == 0) {
-			return templateMerge("nodes/" + vo.getTarget(), params);
+		if (map.get("type") == null || "0".equals(map.get("type"))) {
+			return templateMerge("nodes/" + map.get("target"), params);
 		} else {
-			IRulesParser rulesParser = rulesParserFactory.get(vo.getTarget());
+			IRulesParser rulesParser = rulesParserFactory.get(map.get("target"));
 			if (rulesParser != null) {
 				params.put("rulesParser", rulesParser);
 			}
-			return templateMerge(vo.getTarget(), params);
+			return templateMerge(map.get("target"), params);
 		}
 	}
 

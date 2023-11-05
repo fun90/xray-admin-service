@@ -16,48 +16,6 @@
 #set($serverNames = "$serverNames      - H3美国🇺🇸1.0$delimiter")
 #set($serverNames = "$serverNames      - H3美国🇺🇸$delimiter")
 #set($serverNames = "$serverNames      - H1香港🇭🇰$delimiter")
-#set($ruleList = [
-  {"name":"Applications", "group":"DIRECT"},
-  {"name":"MyReject", "group":"REJECT"},
-  {"name":"MyDirect", "group":"DIRECT"},
-  {"name":"MyProxy", "group":"🔰 代理"},
-  {"name":"OpenAI", "group":"🐳 OpenAI", "proxy":true},
-  {"name":"Amazon", "group":"🛍 亚马逊", "proxy":true},
-  {"name":"PayPal", "group":"💰 PayPal", "proxy":true},
-  {"name":"YouTube", "group":"🏖 YouTube", "proxy":true},
-  {"name":"Microsoft", "group":"👔️ 微软", "proxy":true},
-  {"name":"iCloud", "group":"☁️ iCloud"},
-  {"name":"Apple", "group":"🍎 苹果"},
-  {"name":"Whatsapp", "group":"🐚 Whatsapp", "proxy":true},
-  {"name":"TikTok", "group":"👙 TikTok", "proxy":true}
-])
-#else
-#set($ruleList = [
-  {"name":"Applications", "group":"DIRECT"},
-  {"name":"MyReject", "group":"REJECT"},
-  {"name":"MyDirect", "group":"DIRECT"},
-  {"name":"MyProxy", "group":"🔰 代理"},
-  {"name":"OpenAI", "group":"🐳 OpenAI", "proxy":true},
-  {"name":"Amazon", "group":"🛍 亚马逊", "proxy":true},
-  {"name":"PayPal", "group":"💰 PayPal", "proxy":true},
-  {"name":"YouTube", "group":"🏖 YouTube", "proxy":true},
-  {"name":"Microsoft", "group":"👔️ 微软", "proxy":true},
-  {"name":"iCloud", "group":"☁️ iCloud"},
-  {"name":"Apple", "group":"🍎 苹果"},
-  {"name":"Whatsapp", "group":"🐚 Whatsapp", "proxy":true},
-  {"name":"TikTok", "group":"👙 TikTok", "proxy":true}
-])
-#end
-#if ($whitelist)
-#if ($debug == $authPassword)
-  #set($tmp = $ruleList.add({"name":"Lan", "group":"🎯 直连"}))
-  #set($tmp = $ruleList.add({"name":"Direct", "group":"🎯 直连"}))
-#else
-  #set($tmp = $ruleList.add({"name":"Lan", "group":"🎯 直连"}))
-  #set($tmp = $ruleList.add({"name":"Direct", "group":"🎯 直连"}))
-#end
-#else
-  #set($tmp = $ruleList.add({"name":"Proxy", "group":"🔰 代理"}))
 #end
 proxy-groups:
   - name: 🔰 代理
@@ -67,7 +25,6 @@ proxy-groups:
       - 🎯 直连
 $serverNames
 
-
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
@@ -75,22 +32,11 @@ $serverNames
     proxies:
 $serverNames
 
-#foreach( $rule in $ruleList)
-#if($rule.proxy)
-  - name: $rule.group
-    type: select
-    proxies:
-      - 🔰 代理
-      - ♻️ 自动选择
-$serverNames
-#end#end
-
   - name: ☁️ iCloud
     type: select
     proxies:
       - 🎯 直连
       - 🔰 代理
-      - ♻️ 自动选择
 $serverNames
 
   - name: 🍎 苹果
@@ -98,25 +44,9 @@ $serverNames
     proxies:
       - 🎯 直连
       - 🔰 代理
-      - ♻️ 自动选择
 $serverNames
 
   - name: 🎯 直连
     type: select
     proxies:
       - DIRECT
-
-  - name: ⛳️ 其他
-    type: select
-    proxies:
-#if ($whitelist == true)
-      - 🔰 代理
-      - ♻️ 自动选择
-      - 🎯 直连
-$serverNames
-#else
-      - 🎯 直连
-      - 🔰 代理
-      - ♻️ 自动选择
-$serverNames
-#end

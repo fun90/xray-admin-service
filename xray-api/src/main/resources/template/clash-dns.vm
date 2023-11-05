@@ -1,13 +1,17 @@
 dns:
   enable: true
-  listen: 127.0.0.1:5311
-  ipv6: false
+  listen: 0.0.0.0:53
+  ipv6: true
   default-nameserver:
+    - 114.114.114.114
     - 223.5.5.5
-    - 119.29.29.29
+  enhanced-mode: redir-host
   nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://223.5.5.5/dns-query
+  fallback:
+    - 114.114.114.114
     - 223.5.5.5
-    - 119.29.29.29
 #if($dns == "hst")
   fallback:
     - "192.168.90.182"
@@ -37,14 +41,7 @@ dns:
       - "*.alsahm.com.sa"
       - "*.alsahm.com"
 #else
-#当dns解析出现问题时，打开如下配置
-#  fallback:
-#    - "自己的DNS"
-#  fallback-filter:
-#    geoip: false
-#    geoip-code: CN
-#    ipcidr:
-#      - 192.168.0.1/16
-#    domain:
-#      - 需要走自己的DNS的域名，如："*.test.com"
+fallback:
+  - 114.114.114.114
+  - 223.5.5.5
 #end

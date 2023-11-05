@@ -40,6 +40,8 @@ public class AdminInitService {
 	String email;
 	@Value("${admin.password}")
 	String password;
+	@Value("${product:true}")
+	boolean product;
 
 	public static void main(String[] args) {
 		System.out.println(Boolean.valueOf("true1"));
@@ -48,10 +50,12 @@ public class AdminInitService {
 	@PostConstruct
 	public void init() {
 		initServer();
-
-		rulesCron.execute();
-
-		proxyEventService.addProxyAccounts();
+		if (product) {
+			rulesCron.execute();
+			proxyEventService.addProxyAccounts();
+		} else {
+			log.info("非生产环境不执行启动任务");
+		}
 	}
 
 	public void initServer() {

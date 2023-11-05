@@ -21,7 +21,7 @@ RemoteProxies = $proxiesUrl
 🏖 YouTube = select,🔰 代理,♻️ 自动选择,RemoteProxies
 👔️ 微软 = select,🔰 代理,🎯 直连,♻️ 自动选择,RemoteProxies
 🍎 苹果 = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
-🐚 Whatsapp = select,🔰 代理,🎯 直连,♻️ 自动选择,RemoteProxies
+🐚 WhatsApp = select,🔰 代理,🎯 直连,♻️ 自动选择,RemoteProxies
 👙 TikTok = select,🔰 代理,🎯 直连,♻️ 自动选择,RemoteProxies
 ☁️ iCloud = select,🎯 直连,🔰 代理,♻️ 自动选择,RemoteProxies
 🎯 直连 = select,DIRECT
@@ -33,28 +33,28 @@ RemoteProxies = $proxiesUrl
 #end
 
 [Remote Rule]
-$rootUrl/subscribe/rules/loon/MyReject.list, tag=🚫 拦截, policy=🚫 拦截, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/loon/MyDirect.list, tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/loon/MyProxy.list, tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/loon/OpenAI.list, tag=🐳 OpenAI, policy=🐳 OpenAI, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/loon/PayPal.list, tag=💰 PayPal, policy=💰 PayPal, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/loon/YouTube.list, tag=🏖 YouTube, policy=🏖 YouTube, update-interval=86400, enabled=true
-##$rootUrl/subscribe/rules/loon/Google.list, tag=🐶 谷歌, policy=🐶 谷歌, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/loon/Amazon.list, tag=🛍 亚马逊, policy=🛍 亚马逊, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/loon/Microsoft.list, tag=👔️ 微软, policy=👔️ 微软, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/loon/iCloud.list, tag=☁️ iCloud, policy=☁️ iCloud, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/loon/Apple.list, tag=🍎 苹果, policy=🍎 苹果, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/loon/Whatsapp.list, tag=🐚 Whatsapp, policy=🐚 Whatsapp, update-interval=86400, enabled=true
-$rootUrl/subscribe/rules/loon/TikTok.list, tag=👙 TikTok, policy=👙 TikTok, update-interval=86400, enabled=true
-##$rootUrl/subscribe/rules/loon/Private.list, tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
-##$rootUrl/subscribe/rules/loon/AdvertisingLite.list, tag=🚫 拦截, policy=🚫 拦截, update-interval=86400, enabled=true
-##$rootUrl/subscribe/rules/loon/AdvertisingLiteDomain.list, tag=🚫 拦截, policy=🚫 拦截, update-interval=86400, enabled=true
-##$rootUrl/subscribe/rules/loon/Reject.list, tag=🚫 拦截, policy=🚫 拦截, update-interval=86400, enabled=true
-##$rootUrl/subscribe/rules/loon/TelegramCidr.list, tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/myreject.list, tag=🚫 拦截, policy=🚫 拦截, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/mydirect.list, tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/myproxy.list, tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/openai.list, tag=🐳 OpenAI, policy=🐳 OpenAI, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/paypal.list, tag=💰 PayPal, policy=💰 PayPal, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/youtube.list, tag=🏖 YouTube, policy=🏖 YouTube, update-interval=86400, enabled=true
+##$rootUrl/subscribe/rules/loon/google.list, tag=🐶 谷歌, policy=🐶 谷歌, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/amazon.list, tag=🛍 亚马逊, policy=🛍 亚马逊, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/microsoft.list, tag=👔️ 微软, policy=👔️ 微软, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/icloud.list, tag=☁️ iCloud, policy=☁️ iCloud, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/apple.list, tag=🍎 苹果, policy=🍎 苹果, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/whatsapp.list, tag=🐚 WhatsApp, policy=🐚 WhatsApp, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/tiktok.list, tag=👙 TikTok, policy=👙 TikTok, update-interval=86400, enabled=true
+##$rootUrl/subscribe/rules/loon/private.list, tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
+##$rootUrl/subscribe/rules/loon/advertisinglite.list, tag=🚫 拦截, policy=🚫 拦截, update-interval=86400, enabled=true
+##$rootUrl/subscribe/rules/loon/advertisinglitedomain.list, tag=🚫 拦截, policy=🚫 拦截, update-interval=86400, enabled=true
+##$rootUrl/subscribe/rules/loon/reject.list, tag=🚫 拦截, policy=🚫 拦截, update-interval=86400, enabled=true
+##$rootUrl/subscribe/rules/loon/telegramcidr.list, tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
 #if($whitelist)
-$rootUrl/subscribe/rules/loon/CN.list, tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/cn.list, tag=🎯 直连, policy=🎯 直连, update-interval=86400, enabled=true
 #else
-$rootUrl/subscribe/rules/loon/Proxy.list, tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
+$rootUrl/subscribe/rules/loon/proxy.list, tag=🔰 代理, policy=🔰 代理, update-interval=86400, enabled=true
 #end
 
 [Rule]
@@ -71,7 +71,7 @@ enable=true
 enable = false
 
 [Plugin]
-https://raw.githubusercontent.com/Semporia/TikTok-Unlock/master/Loon/TikTokUS.plugin, policy=🔰 代理, tag=TikTok, enabled=true
+https://raw.githubusercontent.com/Semporia/tiktok-Unlock/master/Loon/TikTokUS.plugin, policy=🔰 代理, tag=tiktok, enabled=true
 
 [MITM]
 ca-p12 = MIIJRQIBAzCCCQ8GCSqGSIb3DQEHAaCCCQAEggj8MIII+DCCA68GCSqGSIb3DQEHBqCCA6AwggOcAgEAMIIDlQYJKoZIhvcNAQcBMBwGCiqGSIb3DQEMAQYwDgQI1Vi0bq4iKVYCAggAgIIDaLJWoZZy+Nfj8tmnxVBs+ULWX0HcCuboLvQ9D5+4P4KxF5jhcPyi1z0Na/rs0FD5w4kcIXazv6Fdc/+g8KwMGJqgGqKLsdsecKA7WBk6Jklr7SPzozr4i6HyCPqfgRrrnwA6T64ZUpIUaW/DHm99k9aNOfQh2UIIFznxDv5AnZN62X7qWXFuqqkD/LnCGz7wrmSgl3WqJ3G8zWnEpDv8F4x6vOjcOaDe6Zjf1N2tBGXIkzMibDABf3p6jWGVIK3/kYHWPbHwIxyAf/8SMIxoY3Z6qMiM0Lv8BaRJGxGJGq+l2c6RbXyfwRA+s+I+oEwzg5Llmu8/YuyyT3v1rT8Yl3ZMyLo0tJGACkhM0b+IMNSG1A4yqNUojHLtjnsBmx8EBbhilzG1w/S1FjsP8fTRpOmgoHFU9ugtQu7D5cSawyBekZKbxjEtDq90C+s39ceX7CXyq46F1olcngqgXRpsKSl9ehpeVMWHMV2zFDx39QLV/SHTF0iy9BgVzwvIPK2U+oJOHT5p8UmZwu50Xw1BfftjE8u9hZcAI0s4QZfcIgui7vVa7s7c7XyJK9WHP3Almxz5HKwnKiG6Drg6SRzneRKVCEjLmguAciuL2HAbQKOOB9ko0ScVbWboDWL9DaYxUiC+DTePKtBFHO4Y9F2NPxyNcpMZANOO/m+nFS3UjsOP2/idllg0AGoNHhmCrGPBmRghgtc2tRMP/8m5yz+OLQfwXDycTxURmhFKtgQVvIfALGTF+LjRmbyuq0pi1IO58hidvmq7FS8Y1qjqMtbtFfBcor4yDtpbB5rDwiO65gQI3H2BD2eBYxzCNLPeEcmlIZOtqnWJ0e1BRl4xKvIl5CSqBkqjTd4fcPftAh4bDBdY1JfmnEKtB15o9+7dn+9AP1R5U19T9h13OhSSslWMsKXGW1JjOaxPbqIIsN1/mmk5idYgq13nnhz4drNY67W/8ym0ahYRvg/Z1hwp6Wmjs8XwCr9ry72vAhmm5lvZQV0fFNei0GD5VQ8O28MR8o/iDyyJ9rwPfVakrtsVq97IXbYkQ3HsQZZKXhNzIYVjk1+2cUw8YB8eTVHARBSB7kTLBxPcG+do+0HaNOKNrR1zWuJ9fFqPbd4ViY9NTVqDJ9etCUexumZ06b5GI5PHBxmEAr1YVgDPra9GMIIFQQYJKoZIhvcNAQcBoIIFMgSCBS4wggUqMIIFJgYLKoZIhvcNAQwKAQKgggTuMIIE6jAcBgoqhkiG9w0BDAEDMA4ECCh4hLOPiu6eAgIIAASCBMgczzs4p4AF6oeTg7dCcHrKiXTgaMsPTUyIrWiMilLg683yu91rlnjG1Nk+FlI8mCVvuSDCgjAsP1o6TKHco7+9qfELjWmnka95jOpo6ldNco6YJkjzSi8Q4GUQwuESYzRUZOJ+Ih36QBpm0aK1sbkddQB6q/RIov0Ff22EVxi7QlRbmMb5V3TPKIweaJ0c+umI0NvNYA7NgmqMme5ymGz0MkZhXbc8dF/b8Oobbln+gDAFCqtViFLLWYYhHNjJ3RnOceTAPYkJDGiIrf2wwJ/7jMdcPULWvc6UxcGWfhUXkzShXrpPYj+x42UsUxgE3kzxMAEcCiTNZ17k54rhnFAy811/pTB42gokLp8adhGVUYz11wYcyV6Uh5+A69yJHy5+OF7w4EqnBW8fd/6zcvWcrloVFLRfAGO3IfJxxEyCT7RdGfFV8RRDu9+s5JtaRwskl8OnEWq3s8I2OqQjzFg6mjZEQLmkI/grZp7ahfqMSnXO1wSfLoEE5h/uiGjGdt7Ad2vpuRityAGJXkTkxx0z8Nl/CSobtuWlDvuGNooRW9iOBDHcaj3YVldB3Rb9qOeFLN/j5lHeZPm/AQif81KfmivRCTiSIvkfHjLiZaKg4JkMIVOfSTUG2fQFisbUj7Uwsnu97cKxlcVn8TLnL7vH/V8kQSQLXnRuyvmsbFvXKa7f+YxbEBDkVgVwjRsSU0FQrCatgHDFryKCRu3O+3h1RSB8S/H/RqKlL4wbXsBzwuGKydb+sAaz3aRqlb3ejP1Ar0QNV6zqw8GMXYyF5l/zWVkv0Xd/jPZySSHojnAm1pjDg0p4MzJpxbxIunQSyScOrKLVT0m5+cbTyU49YBQT4LxLJ/IWBGonKkGRtHe0+nXJDEaD+VlquPfKv0DbX0ggOsl16NsRSh/eQz8pyhZ6tLv/XnPxGJDkwCyuQP2JPnwBHjwazw9/8FpnUHvkKVqZVHJ5GrcMZwMPKlJ+gVgMKUrwSlwS09DDhM9QayczKdS1tsNa5YnPsyx2XQ0vpSVLl9RT8BSZEC+ZVRdfW7uDMx3aVJ3NsHUmjWucYCxXepjv3U1Nxo9X+PGRZTy9F+Yrs3AmuzswfCkWDYtNrOv/18PrbXrms3EUuq9WhaHWodAaJWQLyCQZQReQY7wzRr5SBOSVKVE0cE24wE6XoGGvi07E3pHPJspbbJphZDybKRKjvAhjmo3HkMfydFote6BtucLrBKCuenzAIf/K9/sj8vUSv96Mg+J2psefrUgQ13mtqU0ioZOTdXwQr5qbbcVdPnff5x5GQ1czufbX/FGFXLDl5PIB6Q9CdtBg46semMnfS7TM8v5A/YHZb8S68wYXRTvRGoFQY2KpL7z2FAO66dk76TybWxEDKaDQaLonjtttaGGo/24iOwoPJyFXI1Dlg7gnV86ctwnGqOuto7BZFtQeWZsbfGhh/mrq78L/2SPUrGneXUMD3ACrxScflc8Atfwlo72Le87Z39xFq+hdSxvLske/lfCcYXw2ZJBe2P5nsHSfg247CZkAIHjAhAa1r0sU1jghzQiwkwbXyp67YEgFZaowRob8jyO7akzAhaj7776TX1fEW5GnoJMyMIDSlniRjO5nv1MUYD44jR20M5LIW8DJR44xJTAjBgkqhkiG9w0BCRUxFgQUFwayGrUStB/YZD495RTWLt7vOI4wLTAhMAkGBSsOAwIaBQAEFEcf5ZTwzR5P9aNFUJQ+wZZAG/LmBAg3Yp4bAymAew==

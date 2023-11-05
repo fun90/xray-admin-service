@@ -34,7 +34,7 @@ public class ClashRulesParser implements IRulesParser {
                 return;
             }
             line = StringUtils.replace(line, "DEST-PORT", "DST-PORT");
-            if ("AdvertisingLiteDomain.list".equals(fileName)) {
+            if ("advertisinglitedomain.list".equals(fileName)) {
                 line = "DOMAIN-SUFFIX," + line.substring(1);
             }
             String target = this.getTarget();

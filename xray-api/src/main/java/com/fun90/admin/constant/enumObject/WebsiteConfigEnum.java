@@ -20,60 +20,60 @@ public enum WebsiteConfigEnum {
 			"  {\"value\": 5, \"label\": \"等级5\"}\n" +
 			"]", "config"),
 	RULE_SET_JSON("分流规则", "RULE_SET_JSON", "{\n" +
-			"    \"Direct\": [\n" +
+			"    \"direct\": [\n" +
 			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/direct.txt\",\n" +
 			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/cncidr.txt\"\n" +
 			"    ],\n" +
-			"    \"Private\": [\n" +
+			"    \"private\": [\n" +
 			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/private.txt\"\n" +
 			"    ],\n" +
-			"    \"Proxy\": [\n" +
+			"    \"proxy\": [\n" +
 			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/proxy.txt\",\n" +
 			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/tld-not-cn.txt\",\n" +
 			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/gfw.txt\",\n" +
 			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/greatfire.txt\",\n" +
 			"    ],\n" +
-			"    \"TelegramCidr\": [\n" +
+			"    \"telegramcidr\": [\n" +
 			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/telegramcidr.txt\"\n" +
 			"    ],\n" +
-			"    \"Apple\": [\n" +
+			"    \"apple\": [\n" +
 			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/apple.txt\"\n" +
 			"    ],\n" +
-			"    \"iCloud\": [\n" +
+			"    \"icloud\": [\n" +
 			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/icloud.txt\"\n" +
 			"    ],\n" +
-			"    \"Reject\": [\n" +
+			"    \"reject\": [\n" +
 			"        \"https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/reject.txt\"\n" +
 			"    ],\n" +
-			"    \"AdvertisingLite\": [\n" +
-			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/AdvertisingLite/AdvertisingLite_Resolve.list\"\n" +
+			"    \"advertisinglite\": [\n" +
+			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/advertisinglite/AdvertisingLite_Resolve.list\"\n" +
 			"    ],\n" +
-			"    \"AdvertisingLiteDomain\": [\n" +
-			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/AdvertisingLite/AdvertisingLite_Domain.list\"\n" +
+			"    \"advertisinglitedomain\": [\n" +
+			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/advertisinglite/AdvertisingLite_Domain.list\"\n" +
 			"    ],\n" +
-			"    \"BanProgramAD\": [\n" +
-			"        \"https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list\"\n" +
+			"    \"banprogramad\": [\n" +
+			"        \"https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/banprogramad.list\"\n" +
 			"    ],\n" +
-			"    \"Google\": [\n" +
-			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Google/Google_Resolve.list\"\n" +
+			"    \"google\": [\n" +
+			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/google/Google_Resolve.list\"\n" +
 			"    ],\n" +
-			"    \"Microsoft\": [\n" +
-			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Microsoft/Microsoft.list\"\n" +
+			"    \"microsoft\": [\n" +
+			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/microsoft/microsoft.list\"\n" +
 			"    ],\n" +
-			"    \"PayPal\": [\n" +
-			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/PayPal/PayPal.list\"\n" +
+			"    \"paypal\": [\n" +
+			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/paypal/paypal.list\"\n" +
 			"    ],\n" +
-			"    \"Amazon\": [\n" +
-			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Amazon/Amazon_Resolve.list\"\n" +
+			"    \"amazon\": [\n" +
+			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/amazon/Amazon_Resolve.list\"\n" +
 			"    ],\n" +
-			"    \"Whatsapp\": [\n" +
-			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Whatsapp/Whatsapp_Resolve.list\"\n" +
+			"    \"whatsapp\": [\n" +
+			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/whatsapp/Whatsapp_Resolve.list\"\n" +
 			"    ],\n" +
-			"    \"TikTok\": [\n" +
-			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/TikTok/TikTok.list\"\n" +
+			"    \"tiktok\": [\n" +
+			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/tiktok/tiktok.list\"\n" +
 			"    ],\n" +
-			"    \"YouTube\": [\n" +
-			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/YouTube/YouTube_Resolve.list\"\n" +
+			"    \"youtube\": [\n" +
+			"        \"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/youtube/YouTube_Resolve.list\"\n" +
 			"    ]\n" +
 			"}", "config");
 

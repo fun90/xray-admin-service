@@ -1,3 +1,4 @@
+product: false
 admin:
   #第一次启动时候的账号和密码
   email: admin@admin.com
@@ -65,17 +66,40 @@ spring:
 
 client:
   supportList:
-    - value: shadowrocket
-      label: Shadowrocket
-    - value: clash
-      label: Clash
-    - value: clash2
-      label: Clash Premium
+    #- value: shadowrocket
+    #  label: Shadowrocket
+#    - value: clash
+#      label: Clash
+#    - value: clash2
+#      label: Clash Premium
     - value: clash3
-      label: Clash.Meta
+      label: Shadowrocket/Clash.Meta
     - value: loon
       label: Loon
     - value: surge
       label: Surge 4
     - value: quanx
       label: Quantumult X
+
+rules-source:
+  url-map: {
+    "direct": "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/direct.txt",
+    "cncidr": "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/cncidr.txt",
+    "private": "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/private.txt",
+    "tld-not-cn": "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/tld-not-cn.txt",
+    "gfw": "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/gfw.txt",
+    "greatfire": "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/greatfire.txt",
+    "proxy": "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/proxy.txt",
+    "apple": "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/apple.txt",
+    "icloud": "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/icloud.txt",
+    "telegramcidr": "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/telegramcidr.txt",
+    "reject": "https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/reject.txt",
+    "advertisinglite": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/AdvertisingLite/AdvertisingLite_Resolve.list",
+    "advertisinglitedomain": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/AdvertisingLite/AdvertisingLite_Domain.list",
+    "banprogramad": "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list",
+    "google": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Google/Google_Resolve.list",
+    "microsoft": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Microsoft/Microsoft.list",
+    "paypal": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/PayPal/PayPal.list",
+    "amazon": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Amazon/Amazon.list",
+    "youtube": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/YouTube/YouTube_Resolve.list"
+  }

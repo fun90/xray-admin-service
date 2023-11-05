@@ -28,4 +28,4 @@ $rulesParser.content("$ruleFileName", "$rule.group")
   - GEOIP,LAN,DIRECT
   - GEOIP,CN,DIRECT
 #end
-  - MATCH,⛳️ 其他
+  - MATCH,🔰 代理

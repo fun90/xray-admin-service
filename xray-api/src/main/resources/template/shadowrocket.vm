@@ -9,26 +9,26 @@ bypass-tun = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,1
 dns-server = system, 114.114.114.114, 223.5.5.5, 119.29.29.29
 
 [Rule]
-$rulesParser.content("MyReject.list", "REJECT")
-$rulesParser.content("MyDirect.list", "DIRECT")
-$rulesParser.content("MyProxy.list", "PROXY")
-$rulesParser.content("OpenAI.list", "PROXY")
-$rulesParser.content("PayPal.list", "PROXY")
-$rulesParser.content("Microsoft.list", "PROXY")
-##$rulesParser.content("Google.list", "PROXY")
-$rulesParser.content("Amazon.list", "PROXY")
-##$rulesParser.content("Private.list", "DIRECT")
-##$rulesParser.content("AdvertisingLite.list", "REJECT")
-##$rulesParser.content("AdvertisingLiteDomain.list", "REJECT")
-##$rulesParser.content("Reject.list", "REJECT")
-##$rulesParser.content("TelegramCidr.list", "PROXY")
-$rulesParser.content("Whatsapp.list", "PROXY")
-$rulesParser.content("TikTok.list", "PROXY")
+$rulesParser.content("myreject.list", "REJECT")
+$rulesParser.content("mydirect.list", "DIRECT")
+$rulesParser.content("myproxy.list", "PROXY")
+$rulesParser.content("openai.list", "PROXY")
+$rulesParser.content("paypal.list", "PROXY")
+$rulesParser.content("microsoft.list", "PROXY")
+##$rulesParser.content("google.list", "PROXY")
+$rulesParser.content("amazon.list", "PROXY")
+##$rulesParser.content("private.list", "DIRECT")
+##$rulesParser.content("advertisinglite.list", "REJECT")
+##$rulesParser.content("advertisinglitedomain.list", "REJECT")
+##$rulesParser.content("reject.list", "REJECT")
+##$rulesParser.content("telegramcidr.list", "PROXY")
+$rulesParser.content("whatsapp.list", "PROXY")
+$rulesParser.content("tiktok.list", "PROXY")
 #if($whitelist)
-$rulesParser.content("CN.list", "PROXY")
+$rulesParser.content("cn.list", "PROXY")
 FINAL,PROXY
 #else
-$rulesParser.content("Proxy.list", "PROXY")
+$rulesParser.content("proxy.list", "PROXY")
 FINAL,DIRECT
 #end
 

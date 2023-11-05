@@ -2,8 +2,7 @@ mixed-port: 7890
 allow-lan: false
 mode: rule
 log-level: info
-ipv6: false
-external-controller: 0.0.0.0:9090
+ipv6: true
 
 #parse("clash-dns.vm")
 
@@ -12,18 +11,4 @@ external-controller: 0.0.0.0:9090
 #set($inclueItems = ["vless", "hysteria", "hysteria2"])
 #parse("clash-proxies.vm")
 
-rules:
-#foreach( $rule in $ruleList)
-  - RULE-SET,$rule.name,$rule.group
-#end
-  - MATCH,⛳️ 其他
-
-rule-providers:
-#foreach( $rule in $ruleList)
-  $rule.name:
-    type: http
-    behavior:#if ($rule.behavior) $rule.behavior#else classical#end
-    url: "$rootUrl/subscribe/rules/clash2/${rule.name}.list"
-    path: ./ruleset/${rule.name}.yaml
-    interval: 86400
-#end
+#parse("clash-rules.vm")
