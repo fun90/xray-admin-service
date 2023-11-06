@@ -9,9 +9,6 @@ dns:
   nameserver:
     - https://dns.alidns.com/dns-query
     - https://223.5.5.5/dns-query
-  fallback:
-    - 114.114.114.114
-    - 223.5.5.5
 #if($dns == "hst")
   fallback:
     - "192.168.90.182"
@@ -41,7 +38,7 @@ dns:
       - "*.alsahm.com.sa"
       - "*.alsahm.com"
 #else
-fallback:
-  - 114.114.114.114
-  - 223.5.5.5
+  fallback:
+    - 114.114.114.114
+    - 223.5.5.5
 #end
