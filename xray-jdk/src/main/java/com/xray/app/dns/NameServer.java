@@ -20,6 +20,7 @@ private static final long serialVersionUID = 0L;
     prioritizedDomain_ = java.util.Collections.emptyList();
     geoip_ = java.util.Collections.emptyList();
     originalRules_ = java.util.Collections.emptyList();
+    queryStrategy_ = 0;
   }
 
   @java.lang.Override
@@ -1505,6 +1506,24 @@ private static final long serialVersionUID = 0L;
     return originalRules_.get(index);
   }
 
+  public static final int QUERY_STRATEGY_FIELD_NUMBER = 7;
+  private int queryStrategy_ = 0;
+  /**
+   * <code>.xray.app.dns.QueryStrategy query_strategy = 7;</code>
+   * @return The enum numeric value on the wire for queryStrategy.
+   */
+  @java.lang.Override public int getQueryStrategyValue() {
+    return queryStrategy_;
+  }
+  /**
+   * <code>.xray.app.dns.QueryStrategy query_strategy = 7;</code>
+   * @return The queryStrategy.
+   */
+  @java.lang.Override public com.xray.app.dns.QueryStrategy getQueryStrategy() {
+    com.xray.app.dns.QueryStrategy result = com.xray.app.dns.QueryStrategy.forNumber(queryStrategy_);
+    return result == null ? com.xray.app.dns.QueryStrategy.UNRECOGNIZED : result;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1536,6 +1555,9 @@ private static final long serialVersionUID = 0L;
     }
     if (skipFallback_ != false) {
       output.writeBool(6, skipFallback_);
+    }
+    if (queryStrategy_ != com.xray.app.dns.QueryStrategy.USE_IP.getNumber()) {
+      output.writeEnum(7, queryStrategy_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -1570,6 +1592,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(6, skipFallback_);
     }
+    if (queryStrategy_ != com.xray.app.dns.QueryStrategy.USE_IP.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(7, queryStrategy_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -1600,6 +1626,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getGeoipList())) return false;
     if (!getOriginalRulesList()
         .equals(other.getOriginalRulesList())) return false;
+    if (queryStrategy_ != other.queryStrategy_) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -1632,6 +1659,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ORIGINAL_RULES_FIELD_NUMBER;
       hash = (53 * hash) + getOriginalRulesList().hashCode();
     }
+    hash = (37 * hash) + QUERY_STRATEGY_FIELD_NUMBER;
+    hash = (53 * hash) + queryStrategy_;
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1789,6 +1818,7 @@ private static final long serialVersionUID = 0L;
         originalRulesBuilder_.clear();
       }
       bitField0_ = (bitField0_ & ~0x00000020);
+      queryStrategy_ = 0;
       return this;
     }
 
@@ -1863,6 +1893,9 @@ private static final long serialVersionUID = 0L;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.skipFallback_ = skipFallback_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.queryStrategy_ = queryStrategy_;
       }
     }
 
@@ -1997,6 +2030,9 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
+      if (other.queryStrategy_ != 0) {
+        setQueryStrategyValue(other.getQueryStrategyValue());
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -2079,6 +2115,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000004;
               break;
             } // case 48
+            case 56: {
+              queryStrategy_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2997,6 +3038,59 @@ private static final long serialVersionUID = 0L;
         originalRules_ = null;
       }
       return originalRulesBuilder_;
+    }
+
+    private int queryStrategy_ = 0;
+    /**
+     * <code>.xray.app.dns.QueryStrategy query_strategy = 7;</code>
+     * @return The enum numeric value on the wire for queryStrategy.
+     */
+    @java.lang.Override public int getQueryStrategyValue() {
+      return queryStrategy_;
+    }
+    /**
+     * <code>.xray.app.dns.QueryStrategy query_strategy = 7;</code>
+     * @param value The enum numeric value on the wire for queryStrategy to set.
+     * @return This builder for chaining.
+     */
+    public Builder setQueryStrategyValue(int value) {
+      queryStrategy_ = value;
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.xray.app.dns.QueryStrategy query_strategy = 7;</code>
+     * @return The queryStrategy.
+     */
+    @java.lang.Override
+    public com.xray.app.dns.QueryStrategy getQueryStrategy() {
+      com.xray.app.dns.QueryStrategy result = com.xray.app.dns.QueryStrategy.forNumber(queryStrategy_);
+      return result == null ? com.xray.app.dns.QueryStrategy.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.xray.app.dns.QueryStrategy query_strategy = 7;</code>
+     * @param value The queryStrategy to set.
+     * @return This builder for chaining.
+     */
+    public Builder setQueryStrategy(com.xray.app.dns.QueryStrategy value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000040;
+      queryStrategy_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.xray.app.dns.QueryStrategy query_strategy = 7;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearQueryStrategy() {
+      bitField0_ = (bitField0_ & ~0x00000040);
+      queryStrategy_ = 0;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

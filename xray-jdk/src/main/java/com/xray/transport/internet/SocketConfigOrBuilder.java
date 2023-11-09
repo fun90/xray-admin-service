@@ -163,4 +163,10 @@ public interface SocketConfigOrBuilder extends
    * @return The tcpNoDelay.
    */
   boolean getTcpNoDelay();
+
+  /**
+   * <code>bool tcp_mptcp = 19;</code>
+   * @return The tcpMptcp.
+   */
+  boolean getTcpMptcp();
 }

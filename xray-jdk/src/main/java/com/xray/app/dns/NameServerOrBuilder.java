@@ -105,4 +105,15 @@ public interface NameServerOrBuilder extends
    */
   com.xray.app.dns.NameServer.OriginalRuleOrBuilder getOriginalRulesOrBuilder(
       int index);
+
+  /**
+   * <code>.xray.app.dns.QueryStrategy query_strategy = 7;</code>
+   * @return The enum numeric value on the wire for queryStrategy.
+   */
+  int getQueryStrategyValue();
+  /**
+   * <code>.xray.app.dns.QueryStrategy query_strategy = 7;</code>
+   * @return The queryStrategy.
+   */
+  com.xray.app.dns.QueryStrategy getQueryStrategy();
 }
