@@ -120,7 +120,7 @@ public class SubscriptionController {
 		// 代理节点订阅地址
 		UriComponents proxiesUri = ServletUriComponentsBuilder.fromUriString(subscriptionUrl)
 				.replaceQueryParam("target", map.get("target"))
-				.replaceQueryParam("type", 1)
+				.replaceQueryParam("type", 0)
 				.replaceQueryParam("debug", map.get("debug"))
 				.build();
 		String proxiesUrl = rootUrl + proxiesUri.toUriString();
