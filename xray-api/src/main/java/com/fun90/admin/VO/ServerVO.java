@@ -1,5 +1,6 @@
 package com.fun90.admin.VO;
 
+import com.alibaba.fastjson2.JSONObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,7 +18,6 @@ public class ServerVO extends BaseEntityVO implements Serializable {
 	private String serverName;
 	private String clientDomain;
 	private Integer clientPort = 443;
-	private Boolean supportTLS = true;
 
 	//proxy中间件管理 ip port;
 
@@ -30,6 +30,11 @@ public class ServerVO extends BaseEntityVO implements Serializable {
 
 
 	private String protocol;
+	private String protocolField;
+	/**
+	 * protocolField 的json对象
+	 */
+	private JSONObject json;
 
 	//流量倍数
 	private Double multiple;
@@ -45,12 +50,6 @@ public class ServerVO extends BaseEntityVO implements Serializable {
 	 * 服务器等级
 	 */
 	private Short level;
-
-
-	//ws路径
-	private String wsPath = "/ws/%s/";
-
-	private String network = "ws";
 
 
 }

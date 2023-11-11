@@ -1,4 +1,4 @@
-package com.test.test;
+package com.test;
 
 import com.fun90.admin.model.ProxyAccount;
 import com.fun90.admin.model.Server;

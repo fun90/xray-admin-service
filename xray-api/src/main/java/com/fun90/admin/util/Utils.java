@@ -3,9 +3,8 @@ package com.fun90.admin.util;
 import com.fun90.admin.constant.KVConstant;
 import com.google.common.collect.Interner;
 import com.google.common.collect.Interners;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import okhttp3.*;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,6 +20,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -141,7 +141,11 @@ public final class Utils {
 //			.connectionSpecs(Arrays.asList(ConnectionSpec.MODERN_TLS, ConnectionSpec.COMPATIBLE_TLS))
 //			.build();
 
-	private static final OkHttpClient httpClient = new OkHttpClient();
+	private static final OkHttpClient httpClient = new OkHttpClient.Builder()
+			.retryOnConnectionFailure(false)
+			.callTimeout(5, TimeUnit.SECONDS)
+			.connectTimeout(3, TimeUnit.SECONDS)
+			.build();
 
 	public static void call(String url, Consumer<String> lineProcessor) {
 		Request request = new Request.Builder()
@@ -156,6 +160,40 @@ public final class Utils {
 			bfReader.lines().forEach(lineProcessor::accept);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
+		}
+	}
+
+	private static final MediaType JSON_UTF8 = MediaType.parse("application/json; charset=utf-8");
+	public static String call(String url, String authorization, String body) {
+		Map<String, String> headers = new HashMap<>();
+		if (StringUtils.isNotBlank(authorization)) {
+			headers.put("Authorization", authorization);
+		}
+		RequestBody requestBody = StringUtils.isBlank(body) ? null : RequestBody.create(body, JSON_UTF8);
+		return call(url, requestBody, headers);
+	}
+
+	private static String call(String url, RequestBody requestBody, Map<String, String> headers) {
+		Request.Builder requestBuilder;
+		if (requestBody != null) {
+			requestBuilder = new Request.Builder().url(url).post(requestBody);
+		} else {
+			requestBuilder = new Request.Builder().url(url);
+		}
+		if (headers != null) {
+			headers.forEach(requestBuilder::header);
+		}
+		Request request = requestBuilder.build();
+		String bodyText = null;
+		try {
+			Response response = httpClient.newCall(request).execute();
+			ResponseBody responseBody = response.body();
+			if (responseBody != null) {
+				bodyText = responseBody.string();
+			}
+			return bodyText;
+		} catch (IOException e) {
+			throw new RuntimeException("请求外部接口异常[" + url + "]: " + e.getMessage(), e);
 		}
 	}
 

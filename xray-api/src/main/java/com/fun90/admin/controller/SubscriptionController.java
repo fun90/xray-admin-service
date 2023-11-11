@@ -1,10 +1,10 @@
 package com.fun90.admin.controller;
 
 import com.alibaba.fastjson2.JSON;
+import com.fun90.admin.VO.ServerVO;
 import com.fun90.admin.constant.ClientConstant;
 import com.fun90.admin.constant.ProxyConstant;
 import com.fun90.admin.model.Account;
-import com.fun90.admin.model.Server;
 import com.fun90.admin.service.ServerConfigService;
 import com.fun90.admin.service.ServerService;
 import com.fun90.admin.service.SubscriptionService;
@@ -39,6 +39,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Controller
@@ -94,7 +95,11 @@ public class SubscriptionController {
 
 	private String getConfigContext(String code, Map<String, String> map) {
 		Account account = subscriptionService.findAccountByCode(code);
-		List<Server> servers = serverService.queryByAccount(account);
+		List<ServerVO> servers = serverService.queryByAccount(account).stream().map(o -> {
+			ServerVO vo = o.toVO(ServerVO.class);
+			vo.setJson(JSON.parseObject(vo.getProtocolField()));
+			return vo;
+		}).collect(Collectors.toList());
 
 		Map<String, Object> params = new HashMap<>();
 		params.put("account", account);

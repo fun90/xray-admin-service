@@ -1,8 +1,9 @@
 proxies:
 #foreach($server in $servers)
+#if($inclueItems.contains($server.protocol))
   #if($server.inboundTag.startsWith("vless_reality"))
   - name: $server.serverName
-    type: vless
+    type: $server.protocol
     server: $server.clientDomain
     port: $server.clientPort
     uuid: $account.uuid
@@ -17,7 +18,7 @@ proxies:
     client-fingerprint: chrome
   #elseif($server.inboundTag.startsWith("vless_tcp_tls"))
   - name: $server.serverName
-    type: vless
+    type: $server.protocol
     server: $server.clientDomain
     port: $server.clientPort
     uuid: $account.uuid
@@ -26,5 +27,27 @@ proxies:
     udp: true
     flow: xtls-rprx-vision
     client-fingerprint: chrome
+  #elseif($server.protocol == "hysteria")
+  - name: $server.serverName
+    type: $server.protocol
+    server: $server.v2rayIp
+    port: $server.clientPort
+    auth-str: $account.uuid
+    alpn:
+      - h3
+    sni: $server.clientDomain
+    protocol: $!server.json.udp
+    down: $!server.json.down
+    up: $!server.json.up
+  #elseif($server.protocol == "hysteria2")
+  - name: $server.serverName
+    type: $server.protocol
+    server: $server.v2rayIp
+    port: $server.clientPort
+    password: $account.uuid
+    alpn:
+      - h3
+    sni: $server.clientDomain
   #end
+#end
 #end

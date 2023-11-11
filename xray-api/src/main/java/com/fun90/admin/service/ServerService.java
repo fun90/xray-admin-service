@@ -20,8 +20,28 @@ public class ServerService {
 	@Autowired
 	ServerRepository serverRepository;
 
-	public List<Server> distinctServers(Account account) {
-		List<Server> allServers = this.queryByAccount(account);
+	public List<Server> queryXrayServers(Account account) {
+		return queryServers(account, Set.of("vmess", "trojan", "vless"));
+	}
+
+	public List<Server> queryHysteria2Servers() {
+		return serverRepository.findByProtocolInAndStatus(Set.of("hysteria2"), StatusEnum.SUCCESS.code());
+	}
+
+	public List<Server> queryHysteria2Servers(Account account) {
+		return queryServers(account, Set.of("hysteria2"));
+	}
+
+	public List<Server> queryServers(Account account, Set<String> protocols) {
+		Validator.isNotNull(account);
+		String serverIds = account.getServerId();
+		List<Server> allServers;
+		if (!"0".equals(serverIds) && StringUtils.isNoneBlank(serverIds)) {
+			allServers = this.queryByServerIds(serverIds);
+		} else {
+			allServers = serverRepository.findByLevelLessThanEqualAndStatusOrderByLevelDesc(account.getLevel(), StatusEnum.SUCCESS.code());
+		}
+		allServers = allServers.stream().filter(o -> protocols.contains(o.getProtocol())).collect(Collectors.toList());
 		Map<String, Server> serverMap = new HashMap<>();
 		allServers.forEach(o -> {
 			serverMap.putIfAbsent(o.getV2rayIp() + ":" + o.getV2rayManagerPort() + ":" + o.getInboundTag(), o);
@@ -81,16 +101,6 @@ public class ServerService {
 				.inboundTag(server.getInboundTag()).protocol(server.getProtocol())
 				.build())
 		);
-	}
-
-	public Server findByIdAndStatus(Integer id, Integer status) {
-		if (status == null) status = StatusEnum.SUCCESS.code();
-		Server server = serverRepository.findById(id).orElse(null);
-		if (server != null && !server.getStatus().equals(status)) {
-			server = null;
-		}
-		return server;
-
 	}
 
 	public void update(Server server) {

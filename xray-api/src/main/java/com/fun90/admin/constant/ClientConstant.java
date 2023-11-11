@@ -7,25 +7,21 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Component
-@Data
 @ConfigurationProperties(prefix = "client")
 public class ClientConstant {
-	public static final List<ClientInfo> CLIENT_INFOS = new ArrayList<ClientInfo>() {{
-		add(new ClientInfo("shadowrocket", "Shadowrocket"));
-		add(new ClientInfo("clash", "Clash"));
-		add(new ClientInfo("clash2", "Clash Premium"));
-		add(new ClientInfo("clash3", "Clash.Meta"));
-		add(new ClientInfo("loon", "Loon"));
-		add(new ClientInfo("surge", "Surge 4"));
-		add(new ClientInfo("quanx", "Quantumult X"));
+	public static final List<ClientInfo> CLIENT_INFOS = new ArrayList<>() {{
+		add(new ClientInfo("shadowrocket", "Shadowrocket", Stream.of("VMess", "Trojan", "VLESS", "Hysteria", "Hysteria2").collect(Collectors.toList())));
+		add(new ClientInfo("clash", "Clash", Stream.of("VMess", "Trojan").collect(Collectors.toList())));
+		add(new ClientInfo("clash2", "Clash Premium", Stream.of("VMess", "Trojan").collect(Collectors.toList())));
+		add(new ClientInfo("clash3", "Clash.Meta", Stream.of("VMess", "Trojan", "VLESS", "Hysteria", "Hysteria2").collect(Collectors.toList())));
+		add(new ClientInfo("loon", "Loon", Stream.of("VMess", "Trojan").collect(Collectors.toList())));
+		add(new ClientInfo("surge", "Surge 4", Stream.of("VMess", "Trojan").collect(Collectors.toList())));
+		add(new ClientInfo("quanx", "Quantumult X", Stream.of("VMess", "Trojan").collect(Collectors.toList())));
 	}};
-
-	/**
-	 * 默认客户端为第一个
-	 */
-	public static final ClientInfo DEFAULT = CLIENT_INFOS.get(0);
 
 	public static final ClientInfo Shadowrocket = CLIENT_INFOS.get(0);
 	public static final ClientInfo Clash = CLIENT_INFOS.get(1);
@@ -35,7 +31,30 @@ public class ClientConstant {
 	public static final ClientInfo Surge = CLIENT_INFOS.get(5);
 	public static final ClientInfo QuantumultX = CLIENT_INFOS.get(6);
 
-	private List<ClientInfo> supportList = CLIENT_INFOS;
+	/**
+	 * 默认客户端为Shadowrocket
+	 */
+	public static final ClientInfo DEFAULT = Shadowrocket;
+
+	private List<ClientInfo> supportList;
+
+	private List<ProtocolInfo> supportProtocols;
+
+	public List<ClientInfo> getSupportList() {
+		return supportList;
+	}
+
+	public void setSupportList(List<ClientInfo> supportList) {
+		this.supportList = supportList;
+	}
+
+	public List<ProtocolInfo> getSupportProtocols() {
+		return supportProtocols;
+	}
+
+	public void setSupportProtocols(List<ProtocolInfo> supportProtocols) {
+		this.supportProtocols = supportProtocols;
+	}
 
 	public boolean isSupported(String client) {
 		for (ClientInfo clientInfo : supportList) {
@@ -51,8 +70,22 @@ public class ClientConstant {
 	public static class ClientInfo {
 		private String value;
 		private String label;
+		private List<String> protocols;
 
-		public ClientInfo(String value, String label) {
+		public ClientInfo(String value, String label, List<String> protocols) {
+			this.value = value;
+			this.label = label;
+			this.protocols = protocols;
+		}
+	}
+
+	@Data
+	@NoArgsConstructor
+	public static class ProtocolInfo {
+		private String value;
+		private String label;
+
+		public ProtocolInfo(String value, String label) {
 			this.value = value;
 			this.label = label;
 		}

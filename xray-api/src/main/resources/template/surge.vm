@@ -15,7 +15,7 @@ dns-server = 114.114.114.114, 223.5.5.5, 119.29.29.29
 DIRECT = direct
 #foreach($server in $servers)
     #if($server.protocol == "vmess")
-$server.serverName = vmess, $server.clientDomain, $server.clientPort, username=$account.uuid, ws-path=$server.wsPath, ws-headers=Host:$server.clientDomain, ws=true, tls=true, vmess-aead=true
+$server.serverName = vmess, $server.clientDomain, $server.clientPort, username=$account.uuid, ws-path=$server.json.wsPath, ws-headers=Host:$server.clientDomain, ws=true, tls=true, vmess-aead=true
     #elseif($server.protocol == "trojan")
 $server.serverName = trojan, $server.clientDomain, $server.clientPort, password=$account.uuid, sni=$server.clientDomain
     #else

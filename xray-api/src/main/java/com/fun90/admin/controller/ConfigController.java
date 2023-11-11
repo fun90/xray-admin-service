@@ -22,6 +22,8 @@ public class ConfigController {
 	ServerConfigService serverConfigService;
 	@Autowired
 	RulesCron rulesCron;
+	@Autowired
+	ClientConstant clientConstant;
 
 	/**
 	 * 支持的客户端列表
@@ -30,7 +32,17 @@ public class ConfigController {
 	@ResponseBody
 	@GetMapping("/config/clients")
 	public Result clients() {
-		return Result.buildSuccess(ClientConstant.CLIENT_INFOS, null);
+		return Result.buildSuccess(clientConstant.getSupportList(), null);
+	}
+
+	/**
+	 * 支持的协议列表
+	 */
+	@PreAuth("vip")
+	@ResponseBody
+	@GetMapping("/config/protocols")
+	public Result protocols() {
+		return Result.buildSuccess(clientConstant.getSupportProtocols(), null);
 	}
 
 	/**

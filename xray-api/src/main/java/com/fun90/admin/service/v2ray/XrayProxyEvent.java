@@ -65,32 +65,15 @@ public class XrayProxyEvent implements ProxyEvent {
 	}
 
 	public ProxyAccount buildProxyAccount() {
-//		String uuid = account.getUuid();
-//		if (uuid == null) {
-//			uuid = v2rayAccountService.buildV2rayAccount(Lists.newArrayList(server), account).get(0).getId();
-//			account.setUuid(uuid);
-//		}
 		User user = account.getUser();
 		if (user == null) {
 			Integer userId = account.getUserId();
 			user = userRepository.findById(userId).orElse(null);
 			Assert.notNull(user, "user is null");
 		}
-		List<Server> servers = serverService.distinctServers(account);
+		List<Server> servers = serverService.queryXrayServers(account);
 		Assert.notNull(servers, "servers is null");
 		return ProxyAccount.build(account, user, servers);
 	}
-
-//	public List<String> buildProxyServerUrl() {
-//		String[] proxyIps = server.getProxyIp().split(",");
-//		List<String> urls = Lists.newArrayList();
-//		for (String proxyIp : proxyIps) {
-//			StringBuilder sb = new StringBuilder("http://");
-//			sb.append(proxyIp).append(":").append(server.getProxyPort()).append("/proxyApi/account");
-//			urls.add(sb.toString());
-//		}
-//
-//		return urls;
-//	}
 
 }

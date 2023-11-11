@@ -8,13 +8,10 @@ import com.fun90.admin.cache.OnlineCache;
 import com.fun90.admin.cache.UserCache;
 import com.fun90.admin.constant.KVConstant;
 import com.fun90.admin.constant.ProxyConstant;
-import com.fun90.admin.constant.enumObject.StatusEnum;
 import com.fun90.admin.constant.enumObject.WebsiteConfigEnum;
-import com.fun90.admin.entity.V2rayAccount;
 import com.fun90.admin.interceptor.PreAuth;
 import com.fun90.admin.model.Account;
 import com.fun90.admin.model.BaseEntity;
-import com.fun90.admin.model.Server;
 import com.fun90.admin.model.ServerConfig;
 import com.fun90.admin.repository.AccountRepository;
 import com.fun90.admin.repository.ServerRepository;
@@ -26,7 +23,6 @@ import com.fun90.admin.service.v2ray.ProxyEventService;
 import com.fun90.admin.service.v2ray.XrayAccountService;
 import com.fun90.admin.util.Result;
 import com.fun90.admin.util.SubscriptionUrlUtil;
-import com.fun90.admin.util.Validator;
 import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
@@ -110,28 +106,6 @@ public class AccountController {
 		}
 		accountService.updateAccount(data);
 		return Result.doSuccess();
-	}
-
-	/**
-	 * 根据服务器获取一个V2rayAccount
-	 *
-	 * @param serverId
-	 * @return
-	 */
-	@PreAuth("vip")
-	@ResponseBody
-	@GetMapping("/account/v2rayAccount")
-	public Result getV2rayAccount(Integer serverId, @CookieValue(KVConstant.COOKIE_NAME) String auth) {
-		Validator.isNotNull(serverId);
-		UserVO user = userCache.getCache(auth);
-		Account account = accountService.getAccount(user.getId());
-		if (account == null) return Result.builder().code(500).message("账号不存在").build();
-
-		Server server = serverService.findByIdAndStatus(serverId, StatusEnum.SUCCESS.code());
-		if (server == null) return Result.builder().code(500).message("服务器不存在").build();
-
-		List<V2rayAccount> v2rayAccounts = xrayAccountService.buildV2rayAccount(Lists.newArrayList(server), account);
-		return Result.buildSuccess(v2rayAccounts.get(0), null);
 	}
 
 	@PreAuth("admin")

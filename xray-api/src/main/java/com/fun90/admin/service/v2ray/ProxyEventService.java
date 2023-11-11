@@ -102,18 +102,6 @@ public class ProxyEventService {
 
 	}
 
-    /*@PreDestroy
-    public void destroy() throws InterruptedException {
-        int timer = 0;
-        while (true) {
-            if (queue.size() > 0 && timer < 10) {
-                Thread.sleep(200);
-                timer++;
-            } else break;
-        }
-
-    }*/
-
 	public List<XrayProxyEvent> buildV2RayProxyEvent(Account account, String opName) {
 		Assert.notNull(account, "account is null");
 		List<XrayProxyEvent> xrayProxyEvents = new ArrayList<>();

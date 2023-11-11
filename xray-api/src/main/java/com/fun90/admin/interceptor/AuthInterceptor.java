@@ -25,12 +25,12 @@ public class AuthInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		boolean result = check(request, response, handler);
-		String methodName = "";
-		if (handler instanceof HandlerMethod) {
-			HandlerMethod handler1 = (HandlerMethod) handler;
-			methodName = handler1.getMethod().getName();
-		}
-		log.info("{}, methodName:{}, auth result:{}, request contentType:{}, response contentType: {}", request.getRequestURI(), methodName, result, request.getContentType(), response.getContentType());
+//		String methodName = "";
+//		if (handler instanceof HandlerMethod) {
+//			HandlerMethod handler1 = (HandlerMethod) handler;
+//			methodName = handler1.getMethod().getName();
+//		}
+//		log.info("{}, methodName:{}, auth result:{}, request contentType:{}, response contentType: {}", request.getRequestURI(), methodName, result, request.getContentType(), response.getContentType());
 		return result;
 	}
 

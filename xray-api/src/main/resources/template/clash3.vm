@@ -6,9 +6,13 @@ ipv6: true
 
 #parse("clash-dns.vm")
 
+#if($debug == $account.accountNo)
+    #set($inclueItems = ["vless", "hysteria", "hysteria2"])
+#else
+    #set($inclueItems = ["vless"])
+#end
 #parse("nodes/clash3.vm")
 
-#set($inclueItems = ["vless", "hysteria", "hysteria2"])
 #parse("clash-proxies.vm")
 
 #parse("clash-rules.vm")

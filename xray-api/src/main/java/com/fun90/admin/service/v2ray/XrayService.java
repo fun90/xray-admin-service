@@ -1,6 +1,8 @@
 package com.fun90.admin.service.v2ray;
 
 
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONObject;
 import com.fun90.admin.model.ProxyAccount;
 import com.fun90.admin.model.Server;
 import com.xray.app.log.command.RestartLoggerRequest;
@@ -101,8 +103,9 @@ public class XrayService {
 	private void addVLESSAccount(ProxyAccount proxyAccount, Server server) {
 		try {
 			XrayApiClient client = XrayApiClient.getInstance(server.getV2rayIp(), server.getV2rayManagerPort());
+			JSONObject json = JSON.parseObject(server.getProtocolField());
 			com.xray.proxy.vless.Account account = com.xray.proxy.vless.Account.newBuilder().setId(proxyAccount.getId())
-					.setFlow("xtls-rprx-vision").build();
+					.setFlow(json.getString("flow")).build();
 
 			TypedMessage AccountTypedMsg = TypedMessage.newBuilder().
 					setType(com.xray.proxy.vless.Account.getDescriptor().getFullName()

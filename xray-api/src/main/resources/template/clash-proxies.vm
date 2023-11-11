@@ -11,12 +11,6 @@
     #set($serverNames = "$serverNames      - $item.serverName$delimiter")
   #end
 #end
-#if ($debug == $authPassword)
-#set($serverNames = "$serverNames      - H美国🇺🇸$delimiter")
-#set($serverNames = "$serverNames      - H3美国🇺🇸1.0$delimiter")
-#set($serverNames = "$serverNames      - H3美国🇺🇸$delimiter")
-#set($serverNames = "$serverNames      - H1香港🇭🇰$delimiter")
-#end
 proxy-groups:
   - name: 🔰 代理
     type: select

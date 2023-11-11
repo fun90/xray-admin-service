@@ -20,7 +20,6 @@ public class Server extends BaseEntity implements Serializable, Cloneable {
 	private String serverName;
 	private String clientDomain;
 	private Integer clientPort = 443;
-	private Boolean supportTLS = true;
 
 	//proxy中间件管理 ip port;
 
@@ -33,6 +32,7 @@ public class Server extends BaseEntity implements Serializable, Cloneable {
 
 
 	private String protocol;
+	private String protocolField;
 
 	//流量倍数
 	private Double multiple;
@@ -49,12 +49,6 @@ public class Server extends BaseEntity implements Serializable, Cloneable {
 	 */
 	@Column(columnDefinition = "smallint default 0")
 	private Short level;
-
-
-	//ws路径
-	private String wsPath = "/ws/%s/";
-	//传输方式：ws、tcp、kcp
-	private String network = "ws";
 
 	@Override
 	public Object clone() throws CloneNotSupportedException {

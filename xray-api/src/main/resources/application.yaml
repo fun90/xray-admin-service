@@ -65,21 +65,47 @@ spring:
         show_sql: false
 
 client:
+  supportProtocols:
+    - value: vmess
+      label: VMess
+    - value: trojan
+      label: Trojan
+    - value: vless
+      label: VLESS
+    - value: hysteria
+      label: Hysteria
+    - value: hysteria2
+      label: Hysteria2
   supportList:
     #- value: shadowrocket
     #  label: Shadowrocket
 #    - value: clash
 #      label: Clash
-#    - value: clash2
-#      label: Clash Premium
+    - value: clash2
+      label: Clash Premium
     - value: clash3
       label: Shadowrocket/Clash.Meta
+      protocols:
+        - VMess
+        - Trojan
+        - VLESS
+        - Hysteria
+        - Hysteria2
     - value: loon
       label: Loon
+      protocols:
+        - VMess
+        - Trojan
     - value: surge
       label: Surge 4
+      protocols:
+        - VMess
+        - Trojan
     - value: quanx
       label: Quantumult X
+      protocols:
+        - VMess
+        - Trojan
 
 rules-source:
   url-map: {

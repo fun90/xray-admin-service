@@ -1,7 +1,7 @@
 #set($nodesStr = "")
 #foreach($server in $servers)
     #if($server.protocol == "vmess")
-        #set($node = "vmess = $server.clientDomain:$server.clientPort, password=$account.uuid, obfs-host=$server.clientDomain, obfs-uri=$server.wsPath, obfs=wss, method=chacha20-ietf-poly1305, fast-open=false, udp-relay=true, tls13=false, tag=$server.serverName")
+        #set($node = "vmess = $server.clientDomain:$server.clientPort, password=$account.uuid, obfs-host=$server.clientDomain, obfs-uri=$server.json.wsPath, obfs=wss, method=chacha20-ietf-poly1305, fast-open=false, udp-relay=true, tls13=false, tag=$server.serverName")
         #if($nodesStr == "")
             #set($nodesStr = $node)
         #else

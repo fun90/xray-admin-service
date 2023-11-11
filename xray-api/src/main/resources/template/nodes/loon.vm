@@ -1,7 +1,7 @@
 #set($nodesStr = "")
 #foreach($server in $servers)
     #if($server.protocol == "vmess")
-        #set($node = "$server.serverName = vmess,$server.clientDomain,$server.clientPort,none,$account.uuid,transport=ws,alterId=0,path=$server.wsPath,over-tls=true,tls-name=$server.clientDomain")
+        #set($node = "$server.serverName = vmess,$server.clientDomain,$server.clientPort,none,$account.uuid,transport=ws,alterId=0,path=$server.json.wsPath,over-tls=true,tls-name=$server.clientDomain")
         #if($nodesStr == "")
             #set($nodesStr = $node)
         #else
