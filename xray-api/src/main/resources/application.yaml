@@ -86,26 +86,26 @@ client:
     - value: clash3
       label: Shadowrocket/Clash.Meta
       protocols:
-        - VMess
-        - Trojan
-        - VLESS
-        - Hysteria
-        - Hysteria2
+        - vmess
+        - trojan
+        - vless
+        - hysteria
+        - hysteria2
     - value: loon
       label: Loon
       protocols:
-        - VMess
-        - Trojan
+        - vmess
+        - trojan
     - value: surge
       label: Surge 4
       protocols:
-        - VMess
-        - Trojan
+        - vmess
+        - trojan
     - value: quanx
       label: Quantumult X
       protocols:
-        - VMess
-        - Trojan
+        - vmess
+        - trojan
 
 rules-source:
   url-map: {

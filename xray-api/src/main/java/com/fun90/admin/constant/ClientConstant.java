@@ -14,13 +14,13 @@ import java.util.stream.Stream;
 @ConfigurationProperties(prefix = "client")
 public class ClientConstant {
 	public static final List<ClientInfo> CLIENT_INFOS = new ArrayList<>() {{
-		add(new ClientInfo("shadowrocket", "Shadowrocket", Stream.of("VMess", "Trojan", "VLESS", "Hysteria", "Hysteria2").collect(Collectors.toList())));
-		add(new ClientInfo("clash", "Clash", Stream.of("VMess", "Trojan").collect(Collectors.toList())));
-		add(new ClientInfo("clash2", "Clash Premium", Stream.of("VMess", "Trojan").collect(Collectors.toList())));
-		add(new ClientInfo("clash3", "Clash.Meta", Stream.of("VMess", "Trojan", "VLESS", "Hysteria", "Hysteria2").collect(Collectors.toList())));
-		add(new ClientInfo("loon", "Loon", Stream.of("VMess", "Trojan").collect(Collectors.toList())));
-		add(new ClientInfo("surge", "Surge 4", Stream.of("VMess", "Trojan").collect(Collectors.toList())));
-		add(new ClientInfo("quanx", "Quantumult X", Stream.of("VMess", "Trojan").collect(Collectors.toList())));
+		add(new ClientInfo("shadowrocket", "Shadowrocket", Stream.of("vmess", "trojan", "vless", "hysteria", "hysteria2").collect(Collectors.toList())));
+		add(new ClientInfo("clash", "Clash", Stream.of("vmess", "trojan").collect(Collectors.toList())));
+		add(new ClientInfo("clash2", "Clash Premium", Stream.of("vmess", "trojan").collect(Collectors.toList())));
+		add(new ClientInfo("clash3", "Clash.Meta", Stream.of("vmess", "trojan", "vless", "hysteria", "hysteria2").collect(Collectors.toList())));
+		add(new ClientInfo("loon", "Loon", Stream.of("vmess", "trojan").collect(Collectors.toList())));
+		add(new ClientInfo("surge", "Surge 4", Stream.of("vmess", "trojan").collect(Collectors.toList())));
+		add(new ClientInfo("quanx", "Quantumult X", Stream.of("vmess", "trojan").collect(Collectors.toList())));
 	}};
 
 	public static final ClientInfo Shadowrocket = CLIENT_INFOS.get(0);
