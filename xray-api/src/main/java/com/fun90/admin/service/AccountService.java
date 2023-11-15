@@ -79,7 +79,7 @@ public class AccountService {
 			account.setBandwidth(200);
 		}
 
-		account.setAccountNo(Utils.getCharAndNum(7));
+		account.setAccountNo(Utils.getCharAndNum(12));
 		//1024kb/S
 		if (account.getSpeed() == null) account.setSpeed(10240L);
 

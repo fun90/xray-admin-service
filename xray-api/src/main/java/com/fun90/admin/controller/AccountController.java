@@ -247,7 +247,7 @@ public class AccountController {
 	@ResponseBody
 	@PostMapping("/account/online/access/{machineName}")
 	public Result access(@RequestBody OnlineVO onlineVO,  @PathVariable String machineName, @RequestHeader("Token") String token) {
-		log.info("/account/online/access/{}, params: {}", machineName, JSON.toJSONString(onlineVO));
+		log.info("/account/online/access/{}, params: {}", machineName, onlineVO);
 		if (!proxyConstant.getAuthPasswordMD5().equals(token)) {
 			return Result.builder().code(401).message("非法请求").build();
 		}
