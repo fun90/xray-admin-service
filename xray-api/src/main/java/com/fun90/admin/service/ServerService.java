@@ -97,7 +97,7 @@ public class ServerService {
 
 	public List<Server> findSameServers(Server server) {
 		return serverRepository.findAll(Example.of(Server.builder()
-				.clientDomain(server.getClientDomain()).clientPort(server.getClientPort())
+				.v2rayIp(server.getV2rayIp()).clientPort(server.getClientPort())
 				.inboundTag(server.getInboundTag()).protocol(server.getProtocol())
 				.build())
 		);

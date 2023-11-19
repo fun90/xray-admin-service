@@ -10,11 +10,11 @@ proxies:
     network: tcp
     tls: true
     udp: true
-    flow: xtls-rprx-vision
-    servername: www.amazon.com
+    flow: $!server.json.flow
+    servername: $!server.json.servername
     reality-opts:
-      public-key: dTW1Gg2HvMsmio2jYt5vDyEITDYQxp-8LUsAkRVnpDE
-      short-id: e3179a5e9f77c76c
+      public-key: $!server.json["public-key"]
+      short-id: $!server.json["short-id"]
     client-fingerprint: chrome
   #elseif($server.inboundTag.startsWith("vless_tcp_tls"))
   - name: $server.serverName
@@ -25,7 +25,7 @@ proxies:
     network: tcp
     tls: true
     udp: true
-    flow: xtls-rprx-vision
+    flow: $!server.json.flow
     client-fingerprint: chrome
   #elseif($server.protocol == "hysteria")
   - name: $server.serverName
@@ -48,6 +48,8 @@ proxies:
     alpn:
       - h3
     sni: $server.clientDomain
+    skip-cert-verify: $!server.json["skip-cert-verify"]
+    client-fingerprint: chrome
   #end
 #end
 #end
