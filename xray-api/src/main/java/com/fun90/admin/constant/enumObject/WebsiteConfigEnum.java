@@ -11,6 +11,7 @@ public enum WebsiteConfigEnum {
 	VIP_CAN_INVITE("用户能邀请其他人注册吗？", "VIP_CAN_INVITE", "false", "config"),
 	SUBSCRIPTION_ADDRESS_PREFIX("订阅地址访问前缀", "SUBSCRIPTION_ADDRESS_PREFIX", "http://127.0.0.1:9091/api", "config"),
 	SUB_CONVERTER_ADDRESS("订阅转换地址", "SUB_CONVERTER_ADDRESS", "0", "config"),
+	DEBUG_TOKEN("Debug token", "DEBUG_TOKEN", "123456", "config"),
 	ACCOUNT_LEVEL_JSON("账号等级", "ACCOUNT_LEVEL_JSON", "[\n" +
 			"  {\"value\": 0, \"label\": \"等级0\"},\n" +
 			"  {\"value\": 1, \"label\": \"等级1\"},\n" +

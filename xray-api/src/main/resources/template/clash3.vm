@@ -6,7 +6,7 @@ ipv6: true
 
 #parse("clash-dns.vm")
 
-#if($debug == $account.accountNo)
+#if($debug == $debugToken)
     #set($inclueItems = ["vless", "hysteria", "hysteria2"])
 #else
     #set($inclueItems = ["vless"])

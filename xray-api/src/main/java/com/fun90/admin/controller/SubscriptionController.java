@@ -4,7 +4,9 @@ import com.alibaba.fastjson2.JSON;
 import com.fun90.admin.VO.ServerVO;
 import com.fun90.admin.constant.ClientConstant;
 import com.fun90.admin.constant.ProxyConstant;
+import com.fun90.admin.constant.enumObject.WebsiteConfigEnum;
 import com.fun90.admin.model.Account;
+import com.fun90.admin.model.ServerConfig;
 import com.fun90.admin.service.ServerConfigService;
 import com.fun90.admin.service.ServerService;
 import com.fun90.admin.service.SubscriptionService;
@@ -108,7 +110,8 @@ public class SubscriptionController {
 		params.put("URLEncoder", URLEncoder.class);
 		params.put("JSON", JSON.class);
 		params.put("lineSeparator", System.lineSeparator());
-		params.put("authPassword", proxyConstant.getAuthPassword());
+		ServerConfig debugToken = serverConfigService.getServerConfig(WebsiteConfigEnum.DEBUG_TOKEN.getKey());
+		params.put("debugToken", debugToken.getValue());
 		params.putAll(map);
 
 		String rootUrl = SubscriptionUrlUtil.getPrefix(request, serverConfigService);
