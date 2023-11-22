@@ -9,7 +9,7 @@ ipv6: true
 #if($debug == $debugToken)
     #set($inclueItems = ["vless", "hysteria", "hysteria2"])
 #else
-    #set($inclueItems = ["vless"])
+    #set($inclueItems = ["vless", "hysteria", "hysteria2"])
 #end
 #parse("nodes/clash3.vm")
 
