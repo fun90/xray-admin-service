@@ -1,7 +1,7 @@
 mixed-port: 7890
 allow-lan: false
 mode: rule
-log-level: info
+log-level: error
 ipv6: true
 
 #parse("clash-dns.vm")
