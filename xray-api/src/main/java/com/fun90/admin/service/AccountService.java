@@ -63,7 +63,11 @@ public class AccountService {
 	private ProxyConstant proxyConstant;
 
 	public static void main(String[] args) {
-		System.out.println(UUID.randomUUID().toString());
+		String code = "ug408s4gie";
+		long stamp = System.currentTimeMillis();
+		String tokenSrc = code + stamp + "123456";
+		System.out.println(stamp);
+		System.out.println(DigestUtils.md5Hex(tokenSrc));
 	}
 
 	/**
@@ -212,7 +216,7 @@ public class AccountService {
 	 * @param accountId
 	 */
 
-	public String generatorSubscriptionUrl(Integer accountId, String target, Integer type) {
+	public String generatorSubscriptionUrl(Integer accountId) {
 		Subscription subscription = subscriptionService.findByAccountId(accountId);
 		if (subscription == null) {
 			subscription = Subscription.builder().accountId(accountId).code(subscriptionService.generatorCode()).build();
@@ -227,9 +231,7 @@ public class AccountService {
 		long timeStamp = System.currentTimeMillis();
 
 		String token = DigestUtils.md5Hex(subscription.getCode() + timeStamp + proxyConstant.getAuthPassword());
-		type = type == null ? 0 : type;
-		target = StringUtils.defaultString(target, ClientConstant.DEFAULT.getValue());
-		String url = String.format(proxyConstant.getSubscriptionTemplate(), subscription.getCode(), target, type, timeStamp, token);
+		String url = String.format(proxyConstant.getSubscriptionTemplate(), subscription.getCode(), token);
 		account.setSubscriptionUrl(url);
 		accountRepository.save(account);
 		return url;
@@ -251,6 +253,12 @@ public class AccountService {
 				.accountNo(accountNo).status(KVConstant.V_TRUE).build())).orElse(null);
 		return account;
 
+	}
+	public Account findById(Integer id) {
+		Assert.notNull(id, "id must not be null");
+		Account example = Account.builder().status(KVConstant.V_TRUE).build();
+		example.setId(id);
+		return accountRepository.findOne(Example.of(example)).orElse(null);
 	}
 
 

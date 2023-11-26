@@ -14,7 +14,7 @@ public class ClashRulesParser implements IRulesParser {
 
     @Override
     public String getTarget() {
-        return ClientConstant.Clash.getValue();
+        return ClientConstant.ClashForWindows.getTarget();
     }
 
     @Override
@@ -38,7 +38,7 @@ public class ClashRulesParser implements IRulesParser {
                 line = "DOMAIN-SUFFIX," + line.substring(1);
             }
             String target = this.getTarget();
-            if (ClientConstant.Clash.getValue().equals(target)) {
+            if (ClientConstant.ClashForWindows.getTarget().equals(target)) {
                 line = StringUtils.removeEnd(line, ",no-resolve");
                 builder.append("  - " + line + "," + group + System.lineSeparator());
             } else {

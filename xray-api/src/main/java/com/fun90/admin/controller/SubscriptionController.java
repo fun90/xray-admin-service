@@ -7,6 +7,8 @@ import com.fun90.admin.constant.ProxyConstant;
 import com.fun90.admin.constant.enumObject.WebsiteConfigEnum;
 import com.fun90.admin.model.Account;
 import com.fun90.admin.model.ServerConfig;
+import com.fun90.admin.model.Subscription;
+import com.fun90.admin.service.AccountService;
 import com.fun90.admin.service.ServerConfigService;
 import com.fun90.admin.service.ServerService;
 import com.fun90.admin.service.SubscriptionService;
@@ -17,6 +19,7 @@ import com.fun90.admin.util.subscribe.parser.IRulesParser;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
@@ -49,6 +52,8 @@ public class SubscriptionController {
 	@Autowired
 	private SubscriptionService subscriptionService;
 	@Autowired
+	private AccountService accountService;
+	@Autowired
 	private ProxyConstant proxyConstant;
 	@Autowired
 	private ClientConstant clientConstant;
@@ -73,7 +78,7 @@ public class SubscriptionController {
 		String token = map.get("token");
 		if (code == null || token == null || timestamp == null) throw new IllegalArgumentException("参数错误");
 
-		String target = StringUtils.defaultString(map.get("target"), ClientConstant.DEFAULT.getValue());
+		String target = StringUtils.defaultString(map.get("target"), ClientConstant.DEFAULT.getTarget());
 		if (!clientConstant.isSupported(target)) {
 			throw new IllegalArgumentException("target错误");
 		}
@@ -82,21 +87,41 @@ public class SubscriptionController {
 		StringBuilder tokenSrc = stringBuilder.append(code).append(timestamp).append(proxyConstant.getAuthPassword());
 		if (!DigestUtils.md5Hex(tokenSrc.toString()).equals(token)) throw new RuntimeException("认证失败");
 
-		return getConfigContext(code, map);
+		Subscription subscription = subscriptionService.findByCode(code);
+		Account account = accountService.findById(subscription.getAccountId());
+		return getConfigContext(account, code, map);
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/subscribe3/{code}/duoyu", produces="text/plain")
-	public String subscribe3(@PathVariable String code) {
-		Map<String, String> vo = new HashMap<>();
-		vo.put("target", "clash3");
+	@RequestMapping(value = "/subscribe2/{code}/{clientId}/{target}/{whitelist}", produces="text/plain")
+	public String subscribe2(@PathVariable String code, @PathVariable Integer clientId, @PathVariable String whitelist,
+							 @RequestParam(required = false) Map<String, String> map) {
+		Subscription subscription = subscriptionService.findByCode(code);
+		Account account = accountService.findById(subscription.getAccountId());
+		if (account == null) {
+			throw new RuntimeException("认证失败");
+		}
+
+		// 兼容旧版
+		String token = map.get("token");
+		if (token != null) {
+			String timestamp = map.get("timestamp");
+			StringBuilder stringBuilder = new StringBuilder();
+			StringBuilder tokenSrc = stringBuilder.append(code).append(timestamp).append(proxyConstant.getAuthPassword());
+			if (!DigestUtils.md5Hex(tokenSrc.toString()).equals(token)) {
+				throw new RuntimeException("认证失败");
+			}
+		}
+
+		ClientConstant.ClientInfo client = ClientConstant.CLIENT_MAP.get(clientId);
+        Map<String, String> vo = new HashMap<>(map);
+		vo.put("target", client.getTarget());
 		vo.put("type", "1");
-		vo.put("whitelist", "true");
-		return getConfigContext(code, vo);
+		vo.put("whitelist", whitelist == null ? "ture" : whitelist);
+		return getConfigContext(account, code, vo);
 	}
 
-	private String getConfigContext(String code, Map<String, String> map) {
-		Account account = subscriptionService.findAccountByCode(code);
+	private String getConfigContext(Account account, String code, Map<String, String> map) {
 		List<ServerVO> servers = serverService.queryByAccount(account).stream().map(o -> {
 			ServerVO vo = o.toVO(ServerVO.class);
 			vo.setJson(JSON.parseObject(vo.getProtocolField()));

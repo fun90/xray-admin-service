@@ -1,10 +1,12 @@
 package com.fun90.admin.service;
 
+import com.fun90.admin.constant.ProxyConstant;
 import com.fun90.admin.model.Account;
 import com.fun90.admin.model.Subscription;
 import com.fun90.admin.repository.AccountRepository;
 import com.fun90.admin.repository.SubscriptionRepository;
 import com.fun90.admin.util.Utils;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
@@ -18,23 +20,18 @@ public class SubscriptionService {
 	AccountRepository accountRepository;
 	@Autowired
     SubscriptionRepository subscriptionRepository;
+	@Autowired
+	private ProxyConstant proxyConstant;
 
-	/**
-	 * 通过一个订阅code寻找账号
-	 *
-	 * @param code
-	 * @return
-	 */
-	public Account findAccountByCode(String code) {
-		if (code == null) throw new IllegalArgumentException("code can't be null");
-		Optional<Subscription> subscriptionOptional =
-				subscriptionRepository.findOne(Example.of(Subscription.builder().code(code).build()));
-		if (!subscriptionOptional.isPresent()) throw new IllegalArgumentException("the code doesn't exist");
-
-		Integer accountId = subscriptionOptional.get().getAccountId();
-
-
-		return accountRepository.findById(accountId).orElse(null);
+	public Subscription findByCode(String code) {
+		if (code == null) {
+			throw new IllegalArgumentException("code can't be null");
+		}
+		Optional<Subscription> subscriptionOptional = subscriptionRepository.findOne(Example.of(Subscription.builder().code(code).build()));
+		if (subscriptionOptional.isEmpty()) {
+			throw new IllegalArgumentException("the code doesn't exist");
+		}
+		return subscriptionOptional.get();
 	}
 
 	public Subscription findByAccountId(Integer accountId) {
@@ -68,7 +65,6 @@ public class SubscriptionService {
 
 
 	public String generatorCode() {
-
-		return Utils.getCharAndNum(10);
+		return DigestUtils.md5Hex(System.currentTimeMillis() + proxyConstant.getAuthPassword());
 	}
 }

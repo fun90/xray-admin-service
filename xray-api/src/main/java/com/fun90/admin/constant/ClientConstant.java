@@ -2,34 +2,41 @@ package com.fun90.admin.constant;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections4.map.HashedMap;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Component
 @ConfigurationProperties(prefix = "client")
 public class ClientConstant {
-	public static final List<ClientInfo> CLIENT_INFOS = new ArrayList<>() {{
-		add(new ClientInfo("shadowrocket", "Shadowrocket", Stream.of("vmess", "trojan", "vless", "hysteria", "hysteria2").collect(Collectors.toList())));
-		add(new ClientInfo("clash", "Clash", Stream.of("vmess", "trojan").collect(Collectors.toList())));
-		add(new ClientInfo("clash2", "Clash Premium", Stream.of("vmess", "trojan").collect(Collectors.toList())));
-		add(new ClientInfo("clash3", "Clash.Meta", Stream.of("vmess", "trojan", "vless", "hysteria", "hysteria2").collect(Collectors.toList())));
-		add(new ClientInfo("loon", "Loon", Stream.of("vmess", "trojan").collect(Collectors.toList())));
-		add(new ClientInfo("surge", "Surge 4", Stream.of("vmess", "trojan").collect(Collectors.toList())));
-		add(new ClientInfo("quanx", "Quantumult X", Stream.of("vmess", "trojan").collect(Collectors.toList())));
-	}};
 
-	public static final ClientInfo Shadowrocket = CLIENT_INFOS.get(0);
-	public static final ClientInfo Clash = CLIENT_INFOS.get(1);
-	public static final ClientInfo ClashPremium = CLIENT_INFOS.get(2);
-	public static final ClientInfo ClashMeta = CLIENT_INFOS.get(3);
-	public static final ClientInfo Loon = CLIENT_INFOS.get(4);
-	public static final ClientInfo Surge = CLIENT_INFOS.get(5);
-	public static final ClientInfo QuantumultX = CLIENT_INFOS.get(6);
+	public static final ClientInfo Shadowrocket = new ClientInfo(1, "Shadowrocket", "clash3", Stream.of("vmess", "trojan", "vless", "hysteria", "hysteria2").collect(Collectors.toList()));
+	public static final ClientInfo ClashForWindows = new ClientInfo(2, "Clash for Windows(废弃)", "clash", Stream.of("vmess", "trojan").collect(Collectors.toList()));
+	public static final ClientInfo ClashForWindows2 = new ClientInfo(3, "Clash for Windows", "clash2", Stream.of("vmess", "trojan").collect(Collectors.toList()));
+	public static final ClientInfo ClashVerge = new ClientInfo(4, "Clash Verge", "clash3", Stream.of("vmess", "trojan", "vless", "hysteria", "hysteria2").collect(Collectors.toList()));
+	public static final ClientInfo ClashMeta = new ClientInfo(5, "Clash Meta", "clash3", Stream.of("vmess", "trojan", "vless", "hysteria", "hysteria2").collect(Collectors.toList()));
+	public static final ClientInfo Loon = new ClientInfo(20, "Loon", "loon", Stream.of("vmess", "trojan").collect(Collectors.toList()));
+	public static final ClientInfo Surge = new ClientInfo(21, "Surge", "Surge", Stream.of("vmess", "trojan").collect(Collectors.toList()));
+	public static final ClientInfo QuantumultX = new ClientInfo(22, "Quantumult X", "quanx", Stream.of("vmess", "trojan").collect(Collectors.toList()));
+
+	public static final Map<Integer, ClientInfo> CLIENT_MAP = new HashedMap<>() {{
+		put(Shadowrocket.getId(), Shadowrocket);
+		put(ClashForWindows.getId(), ClashForWindows);
+		put(ClashForWindows2.getId(), ClashForWindows2);
+		put(ClashVerge.getId(), ClashVerge);
+		put(ClashMeta.getId(), ClashMeta);
+		put(Loon.getId(), Loon);
+		put(Surge.getId(), Surge);
+		put(QuantumultX.getId(), QuantumultX);
+	}};
 
 	/**
 	 * 默认客户端为Shadowrocket
@@ -38,14 +45,24 @@ public class ClientConstant {
 
 	private List<ClientInfo> supportList;
 
+	private List<String> supportApps;
+
 	private List<ProtocolInfo> supportProtocols;
 
 	public List<ClientInfo> getSupportList() {
 		return supportList;
 	}
 
-	public void setSupportList(List<ClientInfo> supportList) {
-		this.supportList = supportList;
+	public void setSupportApps(List<Integer> supportApps) {
+		if (CollectionUtils.isEmpty(supportApps)) {
+			this.supportList = new ArrayList<>(CLIENT_MAP.values());
+		} else {
+			this.supportList = supportApps.stream().map(CLIENT_MAP::get).filter(Objects::nonNull).toList();
+		}
+	}
+
+	public List<String> getSupportApps() {
+		return supportApps;
 	}
 
 	public List<ProtocolInfo> getSupportProtocols() {
@@ -56,9 +73,9 @@ public class ClientConstant {
 		this.supportProtocols = supportProtocols;
 	}
 
-	public boolean isSupported(String client) {
+	public boolean isSupported(String target) {
 		for (ClientInfo clientInfo : supportList) {
-			if (client.startsWith(clientInfo.getValue())) {
+			if (target.startsWith(clientInfo.getTarget())) {
 				return true;
 			}
 		}
@@ -68,13 +85,15 @@ public class ClientConstant {
 	@Data
 	@NoArgsConstructor
 	public static class ClientInfo {
-		private String value;
-		private String label;
+		private Integer id;
+		private String app;
+		private String target;
 		private List<String> protocols;
 
-		public ClientInfo(String value, String label, List<String> protocols) {
-			this.value = value;
-			this.label = label;
+		public ClientInfo(Integer id, String app, String target, List<String> protocols) {
+			this.id = id;
+			this.app = app;
+			this.target = target;
 			this.protocols = protocols;
 		}
 	}

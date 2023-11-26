@@ -7,7 +7,7 @@ admin:
 proxy:
   #与porxy交互的密码，也是各种token的私钥
   authPassword: '123456'
-  subscriptionTemplate: /subscribe/%s?target=%s&type=%s&timestamp=%s&token=%s
+  subscriptionTemplate: /subscribe2/%s
 
 email:
   #stmp地址
@@ -76,36 +76,14 @@ client:
       label: Hysteria
     - value: hysteria2
       label: Hysteria2
-  supportList:
-    #- value: shadowrocket
-    #  label: Shadowrocket
-#    - value: clash
-#      label: Clash
-    - value: clash2
-      label: Clash Premium
-    - value: clash3
-      label: Shadowrocket/Clash.Meta
-      protocols:
-        - vmess
-        - trojan
-        - vless
-        - hysteria
-        - hysteria2
-    - value: loon
-      label: Loon
-      protocols:
-        - vmess
-        - trojan
-    - value: surge
-      label: Surge 4
-      protocols:
-        - vmess
-        - trojan
-    - value: quanx
-      label: Quantumult X
-      protocols:
-        - vmess
-        - trojan
+  supportApps:
+    # 1:Shadowrocket, 3:Clash for Windows, 4:Clash Verge, 5:Clash Meta, 20:Loon, 21:Surge, 22:Quantumult X
+    - 1
+    - 4
+    - 5
+    - 20
+    - 21
+    - 22
 
 rules-source:
   url-map: {

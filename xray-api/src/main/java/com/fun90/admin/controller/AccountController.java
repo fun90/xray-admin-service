@@ -221,7 +221,7 @@ public class AccountController {
 	public Result generatorSubscriptionUrl(@CookieValue(KVConstant.COOKIE_NAME) String auth, String target, Integer type) {
 		UserVO user = userCache.getCache(auth);
 		Integer accountId = accountService.getAccount(user.getId()).getId();
-		accountService.generatorSubscriptionUrl(accountId, target, type);
+		accountService.generatorSubscriptionUrl(accountId);
 		return Result.doSuccess();
 	}
 
@@ -234,7 +234,7 @@ public class AccountController {
 	@GetMapping("/account/generatorSubscriptionUrl/{id}")
 	public Result generatorSubscriptionUrlByAdmin(String target, Integer type, @PathVariable Integer id) {
 		String urlPrefix = SubscriptionUrlUtil.getPrefix(request, serverConfigService);
-		return Result.buildSuccess(urlPrefix + accountService.generatorSubscriptionUrl(id, target, type), null);
+		return Result.buildSuccess(urlPrefix + accountService.generatorSubscriptionUrl(id), null);
 	}
 
 	@PreAuth("vip")

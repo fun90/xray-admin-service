@@ -14,7 +14,7 @@ public class ShadowrocketRulesParser implements IRulesParser {
 
     @Override
     public String getTarget() {
-        return ClientConstant.Shadowrocket.getValue();
+        return ClientConstant.Shadowrocket.getTarget();
     }
 
     @Override
