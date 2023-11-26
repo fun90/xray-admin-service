@@ -51,19 +51,6 @@ public class SubscriptionService {
 
 	}
 
-	/**
-	 * @param code 可以为空
-	 * @param id
-	 */
-	public void updateSubscription(String code, Integer id) {
-		if (code == null) code = generatorCode();
-		Subscription subscription = Subscription.builder().code(code).build();
-		subscription.setId(id);
-		subscriptionRepository.save(subscription);
-
-	}
-
-
 	public String generatorCode() {
 		return DigestUtils.md5Hex(System.currentTimeMillis() + proxyConstant.getAuthPassword());
 	}

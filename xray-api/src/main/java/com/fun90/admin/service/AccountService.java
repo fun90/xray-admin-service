@@ -228,10 +228,8 @@ public class AccountService {
 
 		Account account = accountRepository.findById(accountId).orElse(null);
 		Assert.notNull(account, "account is null");
-		long timeStamp = System.currentTimeMillis();
 
-		String token = DigestUtils.md5Hex(subscription.getCode() + timeStamp + proxyConstant.getAuthPassword());
-		String url = String.format(proxyConstant.getSubscriptionTemplate(), subscription.getCode(), token);
+		String url = String.format(proxyConstant.getSubscriptionTemplate(), subscription.getCode());
 		account.setSubscriptionUrl(url);
 		accountRepository.save(account);
 		return url;

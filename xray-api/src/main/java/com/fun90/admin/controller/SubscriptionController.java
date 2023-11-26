@@ -19,7 +19,6 @@ import com.fun90.admin.util.subscribe.parser.IRulesParser;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
@@ -93,8 +92,8 @@ public class SubscriptionController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/subscribe2/{code}/{clientId}/{target}/{whitelist}", produces="text/plain")
-	public String subscribe2(@PathVariable String code, @PathVariable Integer clientId, @PathVariable String whitelist,
+	@RequestMapping(value = "/subscribe2/{code}/{clientId}/{target}", produces="text/plain")
+	public String subscribe2(@PathVariable String code, @PathVariable Integer clientId,
 							 @RequestParam(required = false) Map<String, String> map) {
 		Subscription subscription = subscriptionService.findByCode(code);
 		Account account = accountService.findById(subscription.getAccountId());
@@ -115,8 +114,10 @@ public class SubscriptionController {
 
 		ClientConstant.ClientInfo client = ClientConstant.CLIENT_MAP.get(clientId);
         Map<String, String> vo = new HashMap<>(map);
+		vo.put("clientId", client.getId() + "");
 		vo.put("target", client.getTarget());
 		vo.put("type", "1");
+		String whitelist = map.get("whitelist");
 		vo.put("whitelist", whitelist == null ? "ture" : whitelist);
 		return getConfigContext(account, code, vo);
 	}

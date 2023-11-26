@@ -218,7 +218,7 @@ public class AccountController {
 	@PreAuth("vip")
 	@ResponseBody
 	@GetMapping("/account/generatorSubscriptionUrl")
-	public Result generatorSubscriptionUrl(@CookieValue(KVConstant.COOKIE_NAME) String auth, String target, Integer type) {
+	public Result generatorSubscriptionUrl(@CookieValue(KVConstant.COOKIE_NAME) String auth) {
 		UserVO user = userCache.getCache(auth);
 		Integer accountId = accountService.getAccount(user.getId()).getId();
 		accountService.generatorSubscriptionUrl(accountId);
